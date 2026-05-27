@@ -52,19 +52,20 @@ DRep metadata content is fetched directly from the URL stored on-chain. The SHA-
 
 The ETL job runs once daily at **02:00 UTC**.
 
-The snapshot date is the most recent full UTC calendar day. The page always displays **"Data through {YYYY-MM-DD}"** prominently. A **24-hour minimum lag** from any on-chain event to its appearance on the site is enforced by the timing of the snapshot.
+Each run captures live DRep state at the moment of the run. The site displays the snapshot under the label **"Data through {YYYY-MM-DD}"**, where the date is the UTC date the snapshot was captured. Updates happen at most once per day, so lag from any on-chain event to its appearance on the site is **at most approximately 24 hours** — the exact lag depends on when within the daily cycle the event occurred.
 
-If the daily ETL run fails (network outage, API error, schema mismatch), the prior snapshot remains displayed. No partial or potentially inconsistent data is ever published. The site's **"Last successful update"** timestamp signals staleness if the data is older than 36 hours.
+If the daily ETL run fails (network outage, API error, schema mismatch), the prior snapshot remains displayed unchanged. No partial or potentially inconsistent data is ever published. The site's **"Last successful update"** timestamp signals staleness if the data is older than 36 hours.
 
 ## 5. Selection criteria
 
 The 30 DReps shown on the main page are selected by:
 
-1. **Active registration status** as of the snapshot epoch.
-2. **Voting weight, descending**, computed from the most recent daily snapshot.
-3. **Ties broken by registration epoch, oldest first.**
+1. **Active registration status** — Koios `drep_info.active = true` for the current epoch. This excludes DReps whose registration has expired or been deregistered.
+2. **Exclusion of default-delegation targets** — the special identifiers `drep_always_abstain` and `drep_always_no_confidence` are never displayed. These are protocol-level default delegation options, not individual DReps; including them would dominate the ranking and mislead readers.
+3. **Voting weight, descending**, computed from the most recent daily snapshot. The voting weight value is the `amount` field from Koios `drep_info`, in lovelace, displayed as ADA (lovelace ÷ 1,000,000).
+4. **Ties broken by `drep_id` ascending**, deterministic across runs.
 
-This selection is deterministic and reproducible from public data. There is **no manual curation, no featured selection, and no operator-influenced ranking**. The ranking criteria above are the only criteria; changes to them will be documented in §11 with rationale.
+This selection is fully deterministic and reproducible from public data. There is **no manual curation, no featured selection, and no operator-influenced ranking**. The ranking criteria above are the only criteria; changes to them will be documented in §11 with rationale.
 
 ## 6. Fields displayed per DRep
 
@@ -92,12 +93,16 @@ This list is exhaustive for v0.1. Any addition requires a §11 changelog entry w
 
 ## 8. Metadata handling
 
-DRep metadata URLs may return arbitrary content. The observatory enforces:
+DRep metadata URLs may return arbitrary content. In v0.1, metadata content is consumed via the Koios `drep_metadata` endpoint, which fetches the off-chain JSON, hashes it, and applies CIP-100/CIP-119 validation. The observatory uses Koios's `is_valid` flag as the validation gate.
 
-- **Size cap** — responses larger than 100 KB are discarded.
-- **Hash verification** — the SHA-256 of the response body must match the metadata hash recorded on-chain. Mismatches are discarded.
-- **No HTML rendering** — metadata is parsed as JSON. No content from metadata is ever rendered as HTML on the site.
-- **Sanitization** — the `givenName` field, when present, is treated as plain text. Control characters, HTML tags, and excessive whitespace are stripped before display.
+Specifically:
+
+- **Validation gate** — metadata flagged `is_valid = false` by Koios is ignored entirely. No name is extracted; the DRep entry shows the bech32 DRep ID only.
+- **No HTML rendering** — only the `givenName` field is read from the parsed JSON. No raw metadata content is ever rendered as HTML on the site.
+- **Sanitization** — extracted `givenName` is treated as plain text: control characters are stripped, the value is truncated to 200 characters, and the result is displayed only if non-empty after stripping.
+- **No fallback identification** — if metadata is missing, invalid, or contains no `givenName`, the entry shows the bech32 DRep ID only. No alternative naming source is consulted.
+
+In v0.2, the observatory may move to fetching metadata directly from the on-chain URL with independent SHA-256 verification, removing Koios from the trust path for metadata content. This is a v0.2 candidate, not a v0.1 commitment.
 
 ## 9. Right of reply
 
@@ -123,4 +128,16 @@ The source code, deployment configuration, and data schema are all public in thi
 
 | Date | Version | Change |
 |---|---|---|
-| (pre-launch) | v0.1 | Initial draft. Not yet deployed. |
+| 2026-05-27 | v0.1 (real-data adjustments) | First live ETL run completed locally: 366 active DReps detected on Koios, 60 top candidates snapshotted, top 30 ranking deterministic. §4 lag wording corrected from "minimum 24h" to "up to ~24h". §5 expanded to make exclusion of default-delegation targets explicit and to switch tie-break to deterministic drep_id ascending. §8 updated to describe the Koios-mediated metadata path actually in use, with independent fetch deferred to v0.2. §12 added to disclose v0.1 scope limitations transparently. |
+| 2026-05-27 | v0.1 | Initial draft. |
+
+## 12. v0.1 scope limitations
+
+The site is deliberately narrow at v0.1. The following are out of scope for this version and disclosed here transparently rather than masked with synthetic or interpolated values:
+
+- **Delegator counts** are fetched only for the top 60 candidates per daily run (to support top-30 ranking with headroom), not all active DReps. The remaining active DReps are visible via the underlying Koios API for anyone who needs them.
+- **Vote ingestion is not yet implemented.** The `last_vote_epoch` field will appear as null until vote ingestion is added in v0.2.
+- **Historical backfill is not yet implemented.** The Δ7d and Δ30d fields will appear as null until daily snapshots have accumulated for 7 and 30 days respectively from first deployment. The 90-day chart will populate forward from launch.
+- **Governance action overlays** on the per-DRep chart are not yet implemented; the table of recent governance actions exists in the schema but is not yet populated.
+
+These limitations resolve over time as v0.2 work lands. They are not concealed and are not approximated.
