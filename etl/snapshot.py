@@ -188,6 +188,25 @@ def fetch_delegator_count(drep_id: str) -> int:
     return total or 0
 
 
+def fetch_governance_actions() -> list[dict]:
+    """All governance actions (proposals), paginated."""
+    return list(koios_paged("/proposal_list"))
+
+
+def fetch_drep_votes() -> list[dict]:
+    """All votes cast by DReps across all proposals, paginated.
+
+    Koios returns votes from all voter_roles (DRep, SPO, CC). We keep only
+    voter_role == 'DRep' rows. Vote values come back as 'Yes' / 'No' / 'Abstain'
+    and are normalized to lowercase before insert.
+    """
+    rows = []
+    for row in koios_paged("/vote_list"):
+        if row.get("voter_role") == "DRep":
+            rows.append(row)
+    return rows
+
+
 def fetch_metadata_bulk(drep_ids: list[str]) -> dict[str, dict]:
     out: dict[str, dict] = {}
     if not drep_ids:
@@ -299,6 +318,84 @@ def upsert_drep(db: sqlite3.Connection, drep_info_row: dict,
             name,
             fetched_at,
             current_epoch,
+        ),
+    )
+
+
+def upsert_governance_action(db: sqlite3.Connection, row: dict) -> None:
+    """Insert or replace a governance action row.
+
+    Outcome is derived from the first non-null epoch among:
+    enacted_epoch → 'enacted', ratified_epoch → 'ratified',
+    dropped_epoch → 'dropped', expired_epoch → 'expired',
+    otherwise → 'active'.
+    """
+    if row.get("enacted_epoch") is not None:
+        outcome = "enacted"
+    elif row.get("ratified_epoch") is not None:
+        outcome = "ratified"
+    elif row.get("dropped_epoch") is not None:
+        outcome = "dropped"
+    elif row.get("expired_epoch") is not None:
+        outcome = "expired"
+    else:
+        outcome = "active"
+
+    # Title pulled from proposal metadata if present.
+    title = None
+    meta_json = row.get("meta_json")
+    if isinstance(meta_json, dict):
+        body = meta_json.get("body")
+        if isinstance(body, dict):
+            t = body.get("title")
+            if isinstance(t, str) and t.strip():
+                title = t.strip()[:300]
+
+    # `block_time` on proposal_list is the submission tx block_time (unix).
+    # Epoch derivation from block_time would require slot math; we use
+    # `expiration` (epoch number when it expires) and walk back if needed.
+    # For v0.1.5 we store None for submitted_epoch when not directly available
+    # and let the per-DRep chart use governance_actions.expires_epoch instead.
+    db.execute(
+        """INSERT INTO governance_actions
+               (action_id, action_type, title, submitted_epoch, expires_epoch, outcome)
+           VALUES (?, ?, ?, ?, ?, ?)
+           ON CONFLICT(action_id) DO UPDATE SET
+               action_type = excluded.action_type,
+               title = excluded.title,
+               expires_epoch = excluded.expires_epoch,
+               outcome = excluded.outcome""",
+        (
+            row["proposal_id"],
+            row.get("proposal_type"),
+            title,
+            None,
+            row.get("expiration"),
+            outcome,
+        ),
+    )
+
+
+def upsert_vote(db: sqlite3.Connection, row: dict) -> None:
+    """Insert or replace a DRep vote row."""
+    raw_vote = (row.get("vote") or "").strip().lower()
+    if raw_vote not in {"yes", "no", "abstain"}:
+        # Defensive: if Koios introduces a new vote value, skip rather
+        # than violate the schema CHECK constraint.
+        log.warning("skipping vote with unknown value %r for drep %s on %s",
+                    row.get("vote"), row.get("voter_id"), row.get("proposal_id"))
+        return
+    db.execute(
+        """INSERT INTO votes (action_id, drep_id, vote, vote_epoch)
+           VALUES (?, ?, ?, ?)
+           ON CONFLICT(action_id, drep_id) DO UPDATE SET
+               vote = excluded.vote,
+               vote_epoch = excluded.vote_epoch""",
+        (
+            row["proposal_id"],
+            row["voter_id"],
+            raw_vote,
+            int(row["epoch_no"]),
         ),
     )
 
@@ -464,6 +561,23 @@ def run(args: argparse.Namespace) -> int:
 
         log.info("fetching metadata for top candidates")
         metas = fetch_metadata_bulk(candidate_ids)
+
+        # Governance actions and DRep votes are ingested in full each run.
+        # Volume is small (sub-30k votes, sub-200 actions); idempotent via PKs.
+        log.info("fetching governance actions")
+        actions = fetch_governance_actions()
+        for a in actions:
+            upsert_governance_action(db, a)
+        log.info("upserted %d governance actions", len(actions))
+
+        log.info("fetching DRep votes")
+        votes = fetch_drep_votes()
+        # Sort by block_time ascending so that when a DRep revoted on a
+        # proposal, the chronologically latest vote wins the INSERT OR REPLACE.
+        votes.sort(key=lambda v: int(v.get("block_time") or 0))
+        for v in votes:
+            upsert_vote(db, v)
+        log.info("upserted %d DRep votes (deduplicated by latest per action+drep)", len(votes))
 
         # Write snapshot + drep registry rows for top candidates only.
         # The wider active set is acknowledged but not yet snapshotted in v0.1.

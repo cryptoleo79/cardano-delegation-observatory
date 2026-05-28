@@ -37,16 +37,17 @@ If a future version of the site is considered for any of these, this document an
 
 **Primary:** [Koios API](https://api.koios.rest/) — a community-run REST interface over Cardano `db-sync`. Free tier is sufficient for the daily snapshot pattern this site uses.
 
-Endpoints used (full list, reproducible from the source at `etl/snapshot.py`):
+Endpoints used (reproducible from the source at `etl/snapshot.py`):
 
-- `GET /drep_list` — active DReps as of a given epoch
-- `GET /drep_info` — voting weight and delegator count for a given DRep
-- `GET /drep_metadata` — metadata URL and on-chain metadata hash
-- `GET /proposal_list` — governance actions
-- `GET /proposal_voting_summary` — votes per action, drillable per DRep
-- `GET /drep_history` — historical per-epoch state, used only for backfilling at first run
+- `GET /tip` — current epoch and block height for run metadata
+- `GET /drep_list` — registered DReps, paginated
+- `POST /drep_info` — registration status, voting weight, metadata URL+hash (batched, ≤50 IDs per call)
+- `GET /drep_delegators` (Content-Range header) — delegator count per DRep, fetched only for top-60 candidates
+- `POST /drep_metadata` — Koios-parsed metadata content with `is_valid` flag
+- `GET /proposal_list` — governance actions (paginated)
+- `GET /vote_list` — every recorded vote (paginated), filtered to `voter_role == 'DRep'`
 
-DRep metadata content is fetched directly from the URL stored on-chain. The SHA-256 of the fetched response body is verified against the on-chain metadata hash. Any metadata that fails verification is discarded.
+DRep metadata content is consumed via Koios's `drep_metadata` endpoint and its `is_valid` flag; see §8 for the full handling chain and the v0.2 plan for independent fetch + verification.
 
 ## 4. Update cadence
 
@@ -77,7 +78,7 @@ For each DRep in the top 30:
 - **Δ 7d** — voting weight at the most recent snapshot minus voting weight at the snapshot 7 days prior, in ADA. Displayed as a signed number with no color coding.
 - **Δ 30d** — voting weight at the most recent snapshot minus voting weight at the snapshot 30 days prior, in ADA. Displayed as a signed number with no color coding.
 - **Delegators** — the count of distinct stake credentials currently delegated to this DRep.
-- **Last vote (epoch)** — the most recent epoch in which the DRep cast a recorded vote on any governance action.
+- **Last vote (epoch)** — the most recent epoch in which the DRep cast a recorded vote on any governance action. Computed as `MAX(vote_epoch)` across all stored votes for that DRep. When a DRep has revoted on the same proposal, only the chronologically latest vote is stored (DReps may change their vote on an open proposal; the latest cast vote is the one that counts at tally time).
 - **90-day chart** (on the per-DRep page) — the daily series of voting weight for the last 90 snapshots, with epoch boundaries shown as light vertical markers and governance action submission dates shown as labeled vertical markers.
 
 ## 7. Fields not displayed
@@ -128,6 +129,7 @@ The source code, deployment configuration, and data schema are all public in thi
 
 | Date | Version | Change |
 |---|---|---|
+| 2026-05-28 | v0.1.5 | Added vote ingestion: `/proposal_list` and `/vote_list` are now ingested each run. 119 governance actions and ~24k DRep votes captured locally; `last_vote_epoch` is now populated for every DRep with at least one recorded vote. Ordering fix applied: when a DRep revoted on the same proposal, the chronologically latest vote (by block_time) is the one kept. §3 endpoint list updated. §6 `last_vote_epoch` description clarified. §12 amended: vote ingestion is no longer listed as a v0.1 limitation. |
 | 2026-05-27 | v0.1 (real-data adjustments) | First live ETL run completed locally: 366 active DReps detected on Koios, 60 top candidates snapshotted, top 30 ranking deterministic. §4 lag wording corrected from "minimum 24h" to "up to ~24h". §5 expanded to make exclusion of default-delegation targets explicit and to switch tie-break to deterministic drep_id ascending. §8 updated to describe the Koios-mediated metadata path actually in use, with independent fetch deferred to v0.2. §12 added to disclose v0.1 scope limitations transparently. |
 | 2026-05-27 | v0.1 | Initial draft. |
 
@@ -136,8 +138,8 @@ The source code, deployment configuration, and data schema are all public in thi
 The site is deliberately narrow at v0.1. The following are out of scope for this version and disclosed here transparently rather than masked with synthetic or interpolated values:
 
 - **Delegator counts** are fetched only for the top 60 candidates per daily run (to support top-30 ranking with headroom), not all active DReps. The remaining active DReps are visible via the underlying Koios API for anyone who needs them.
-- **Vote ingestion is not yet implemented.** The `last_vote_epoch` field will appear as null until vote ingestion is added in v0.2.
 - **Historical backfill is not yet implemented.** The Δ7d and Δ30d fields will appear as null until daily snapshots have accumulated for 7 and 30 days respectively from first deployment. The 90-day chart will populate forward from launch.
-- **Governance action overlays** on the per-DRep chart are not yet implemented; the table of recent governance actions exists in the schema but is not yet populated.
+- **Vote outcomes are not editorialized.** The `votes` table stores facts only — `(action_id, drep_id, vote ∈ {yes, no, abstain}, vote_epoch)`. No alignment scoring, no "voted with consensus" / "voted against consensus" framing, no per-vote interpretation. Governance action outcomes (`enacted`, `ratified`, `dropped`, `expired`, `active`) are derived deterministically from Koios fields and likewise carry no value judgment.
+- **Per-DRep vote history page** is not yet rendered in the frontend; the data is stored and queryable but no UI exists. Frontend work begins in Phase 2.
 
 These limitations resolve over time as v0.2 work lands. They are not concealed and are not approximated.
