@@ -50,7 +50,26 @@ const i18n = {
     "ft-license": "Apache 2.0 code · CC0 data",
     "ft-methodology": "Methodology",
     "ft-source": "Source",
+    "ft-observatory": "Observatory",
     "ft-repro": "Reproducible from public Koios API endpoints.",
+
+    /* Nav (cross-page) */
+    "h-nav-observatory": "Observatory",
+    "h-nav-actions": "Actions",
+
+    /* Actions page */
+    "actions-title": "Governance actions",
+    "actions-lede": "Every governance action recorded on the Cardano blockchain, with type, outcome, expiration epoch, and DRep vote tallies. Sorted by expiration epoch descending by default. No editorial fields.",
+    "filter-type-label": "Type:",
+    "filter-outcome-label": "Outcome:",
+    "th-act-title": "Title",
+    "th-act-type": "Type",
+    "th-act-outcome": "Outcome",
+    "th-act-expires": "Expires (epoch)",
+    "th-act-yes": "DRep yes",
+    "th-act-no": "DRep no",
+    "th-act-abstain": "DRep abstain",
+    "footnote-actions": "Vote counts are the most recent vote cast by each DRep on each action. When a DRep revoted on the same action, only the chronologically latest vote is counted. See Methodology §6.",
 
     /* Loading + error */
     "loading-msg": "Loading…",
@@ -104,7 +123,26 @@ const i18n = {
     "ft-license": "コードはApache 2.0、データはCC0",
     "ft-methodology": "方法論",
     "ft-source": "ソース",
+    "ft-observatory": "Observatory",
     "ft-repro": "公開Koios API エンドポイントから再現可能。",
+
+    /* Nav (cross-page) */
+    "h-nav-observatory": "Observatory",
+    "h-nav-actions": "ガバナンスアクション",
+
+    /* Actions page */
+    "actions-title": "ガバナンスアクション一覧",
+    "actions-lede": "Cardanoブロックチェーン上に記録されたすべてのガバナンスアクションを、種別・結果・期限エポック・DRep投票集計とともに表示する。既定の並び順は期限エポックの降順。編集的フィールドは含まない。",
+    "filter-type-label": "種別:",
+    "filter-outcome-label": "結果:",
+    "th-act-title": "タイトル",
+    "th-act-type": "種別",
+    "th-act-outcome": "結果",
+    "th-act-expires": "期限 (エポック)",
+    "th-act-yes": "DRep 賛成",
+    "th-act-no": "DRep 反対",
+    "th-act-abstain": "DRep 棄権",
+    "footnote-actions": "投票数は、各DRepが各アクションに対して最後に投じた票に基づく。DRepが同じアクションに対して再投票した場合は、時系列上で最新の票のみが集計される。詳細は方法論 §6 を参照。",
 
     /* Loading + error */
     "loading-msg": "読み込み中…",

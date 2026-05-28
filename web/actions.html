@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Governance Actions — Cardano Delegation Observatory</title>
+<meta name="description" content="Every governance action on Cardano, indexed by type and outcome. Numbers only.">
+<meta name="theme-color" content="#fafaf7">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand">
+      <span class="brand-mark">CDO</span>
+      <span class="brand-text" id="h-brand">Cardano Delegation Observatory</span>
+    </a>
+    <nav class="site-nav">
+      <a href="/" id="h-nav-observatory">Observatory</a>
+      <a href="actions.html" id="h-nav-actions">Actions</a>
+      <a href="methodology.html" id="h-nav-methodology">Methodology</a>
+      <a href="https://github.com/cryptoleo79/cardano-delegation-observatory" target="_blank" rel="noopener" id="h-nav-source">Source</a>
+      <div class="lang-toggle">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-ja" onclick="setLang('ja')">日本語</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <h1 id="actions-title">Governance actions</h1>
+    <p class="lede" id="actions-lede">Every governance action recorded on the Cardano blockchain, with type, outcome, expiration epoch, and DRep vote tallies. Sorted by expiration epoch descending by default. No editorial fields.</p>
+
+    <div class="actions-filters" id="actions-filters">
+      <label class="filter-label">
+        <span id="filter-type-label">Type:</span>
+        <select id="filter-type"><option value="">all</option></select>
+      </label>
+      <label class="filter-label">
+        <span id="filter-outcome-label">Outcome:</span>
+        <select id="filter-outcome"><option value="">all</option></select>
+      </label>
+      <span class="filter-count" id="filter-count"></span>
+    </div>
+
+    <div class="table-scroll">
+      <table class="observatory" id="actions-table">
+        <thead>
+          <tr>
+            <th class="col-name" data-sort="title" id="th-act-title">Title</th>
+            <th data-sort="action_type" id="th-act-type">Type</th>
+            <th data-sort="outcome" id="th-act-outcome">Outcome</th>
+            <th class="col-num" data-sort="expires_epoch" id="th-act-expires">Expires (epoch)</th>
+            <th class="col-num" data-sort="drep_yes_count" id="th-act-yes">DRep yes</th>
+            <th class="col-num" data-sort="drep_no_count" id="th-act-no">DRep no</th>
+            <th class="col-num" data-sort="drep_abstain_count" id="th-act-abstain">DRep abstain</th>
+          </tr>
+        </thead>
+        <tbody id="actions-tbody">
+          <tr><td colspan="7" class="loading" id="loading-msg">Loading…</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="footnote" id="footnote-actions">Vote counts are the most recent vote cast by each DRep on each action. When a DRep revoted on the same action, only the chronologically latest vote is counted. See <a href="methodology.html#section-6">Methodology §6</a> for details.</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <span id="ft-license">Apache 2.0 code · CC0 data</span>
+    </div>
+    <div>
+      <a href="/" id="ft-observatory">Observatory</a>
+      <a href="methodology.html" id="ft-methodology">Methodology</a>
+      <a href="https://github.com/cryptoleo79/cardano-delegation-observatory" target="_blank" rel="noopener" id="ft-source">Source</a>
+    </div>
+    <div class="footer-note" id="ft-repro">Reproducible from public Koios API endpoints.</div>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="actions.js"></script>
+</body>
+</html>

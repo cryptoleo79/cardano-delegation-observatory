@@ -545,6 +545,52 @@ def export_drep_history(db: sqlite3.Connection, drep_id: str, snapshot_date: str
     atomic_write_json(out_dir / "dreps" / f"{drep_id}.json", payload)
 
 
+def export_governance_actions(db: sqlite3.Connection, snapshot_date: str,
+                              out_dir: Path) -> None:
+    """Write actions.json — every governance action the observatory has indexed.
+
+    No editorial fields. Outcome is the deterministic label derived in
+    upsert_governance_action(); see METHODOLOGY §6 for the vote semantics.
+    """
+    rows = db.execute(
+        """SELECT g.action_id, g.action_type, g.title,
+                  g.submitted_epoch, g.expires_epoch, g.outcome,
+                  COALESCE(v.yes_n, 0)     AS yes_count,
+                  COALESCE(v.no_n, 0)      AS no_count,
+                  COALESCE(v.abstain_n, 0) AS abstain_count
+             FROM governance_actions g
+        LEFT JOIN (
+              SELECT action_id,
+                     SUM(CASE WHEN vote='yes'     THEN 1 ELSE 0 END) AS yes_n,
+                     SUM(CASE WHEN vote='no'      THEN 1 ELSE 0 END) AS no_n,
+                     SUM(CASE WHEN vote='abstain' THEN 1 ELSE 0 END) AS abstain_n
+                FROM votes
+            GROUP BY action_id
+        ) v ON v.action_id = g.action_id
+            ORDER BY COALESCE(g.expires_epoch, 0) DESC,
+                     g.action_id ASC"""
+    ).fetchall()
+    payload = {
+        "snapshot_date": snapshot_date,
+        "n_actions": len(rows),
+        "actions": [
+            {
+                "action_id": r["action_id"],
+                "action_type": r["action_type"],
+                "title": r["title"],
+                "submitted_epoch": r["submitted_epoch"],
+                "expires_epoch": r["expires_epoch"],
+                "outcome": r["outcome"],
+                "drep_yes_count": int(r["yes_count"]),
+                "drep_no_count": int(r["no_count"]),
+                "drep_abstain_count": int(r["abstain_count"]),
+            }
+            for r in rows
+        ],
+    }
+    atomic_write_json(out_dir / "actions.json", payload)
+
+
 def export_meta(db: sqlite3.Connection, snapshot_date: str, out_dir: Path,
                 tip: dict, drep_seen: int) -> None:
     last_run = db.execute(
@@ -640,6 +686,9 @@ def run(args: argparse.Namespace) -> int:
         for entry in top30["entries"]:
             export_drep_history(db, entry["drep_id"], snapshot_date, Path(args.out))
         log.info("wrote %d per-DRep history files", len(top30["entries"]))
+
+        export_governance_actions(db, snapshot_date, Path(args.out))
+        log.info("wrote actions.json")
 
         # Mark the run successful *before* writing meta.json so that the
         # latest-run record visible to consumers reflects the completed run,
