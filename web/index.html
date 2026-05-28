@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cardano Delegation Observatory</title>
+<meta name="description" content="Daily snapshot of voting weight, delegation, and participation for the top 30 Cardano DReps. Methodology and source are public.">
+<meta property="og:title" content="Cardano Delegation Observatory">
+<meta property="og:description" content="Public governance observability for Cardano DRep delegation.">
+<meta name="theme-color" content="#fafaf7">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand">
+      <span class="brand-mark">CDO</span>
+      <span class="brand-text" id="h-brand">Cardano Delegation Observatory</span>
+    </a>
+    <nav class="site-nav">
+      <a href="methodology.html" id="h-nav-methodology">Methodology</a>
+      <a href="https://github.com/cryptoleo79/cardano-delegation-observatory" target="_blank" rel="noopener" id="h-nav-source">Source</a>
+      <div class="lang-toggle">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-ja" onclick="setLang('ja')">日本語</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="meta-strip">
+  <div class="container meta-strip-inner">
+    <span class="meta-item"><span class="meta-label" id="m-epoch-label">Epoch</span> <strong id="m-epoch">—</strong></span>
+    <span class="meta-item"><span class="meta-label" id="m-date-label">Data through</span> <strong id="m-date">—</strong></span>
+    <span class="meta-item" id="m-lag">Updated daily · up to ~24h lag</span>
+    <span class="meta-item"><span class="meta-label" id="m-source-label">Source</span> <strong>Koios</strong></span>
+    <span class="meta-item meta-item-right" id="m-status">—</span>
+  </div>
+</section>
+
+<main>
+  <div class="container">
+    <h1 id="page-title">Top 30 DReps by voting weight</h1>
+    <p class="lede" id="page-lede">Daily snapshot of voting weight, delegation, and recorded votes. The data reflects the most recent ETL run from the Cardano blockchain via Koios. Numbers only — methodology is public and reproducible.</p>
+
+    <div class="table-scroll">
+      <table class="observatory" id="dreps-table">
+        <thead>
+          <tr>
+            <th class="col-rank" data-sort="rank">#</th>
+            <th class="col-name" data-sort="name" id="th-name">Name / DRep ID</th>
+            <th class="col-num" data-sort="voting_weight_ada" id="th-weight">Voting weight (ADA)</th>
+            <th class="col-num" data-sort="delegator_count" id="th-delegators">Delegators</th>
+            <th class="col-num" data-sort="d7d_lovelace" id="th-d7d">Δ 7d</th>
+            <th class="col-num" data-sort="d30d_lovelace" id="th-d30d">Δ 30d</th>
+            <th class="col-num" data-sort="last_vote_epoch" id="th-lastvote">Last vote (epoch)</th>
+          </tr>
+        </thead>
+        <tbody id="dreps-tbody">
+          <tr><td colspan="7" class="loading" id="loading-msg">Loading…</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="footnote" id="footnote-deltas">Δ 7d and Δ 30d display as — when fewer than 7 (respectively 30) daily snapshots have accumulated since launch. They populate forward from the first deployment.</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <span id="ft-license">Apache 2.0 code · CC0 data</span>
+    </div>
+    <div>
+      <a href="methodology.html" id="ft-methodology">Methodology</a>
+      <a href="https://github.com/cryptoleo79/cardano-delegation-observatory" target="_blank" rel="noopener" id="ft-source">Source</a>
+    </div>
+    <div class="footer-note" id="ft-repro">Reproducible from public Koios API endpoints.</div>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

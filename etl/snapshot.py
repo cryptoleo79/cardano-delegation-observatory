@@ -504,6 +504,47 @@ def export_top30(db: sqlite3.Connection, snapshot_date: str, out_dir: Path) -> d
     return payload
 
 
+def export_drep_history(db: sqlite3.Connection, drep_id: str, snapshot_date: str,
+                        out_dir: Path) -> None:
+    """Write per-DRep history JSON: 90-day voting weight series + recent votes.
+
+    Output: out_dir/dreps/{drep_id}.json
+    """
+    name_row = db.execute(
+        "SELECT metadata_name, metadata_url FROM dreps WHERE drep_id = ?",
+        (drep_id,),
+    ).fetchone()
+    series = voting_weight_series(db, drep_id, days=90)
+    vote_rows = db.execute(
+        """SELECT v.action_id, v.vote, v.vote_epoch,
+                  g.action_type, g.title, g.outcome
+             FROM votes v
+        LEFT JOIN governance_actions g ON g.action_id = v.action_id
+            WHERE v.drep_id = ?
+            ORDER BY v.vote_epoch DESC, v.action_id ASC""",
+        (drep_id,),
+    ).fetchall()
+    payload = {
+        "drep_id": drep_id,
+        "name": name_row["metadata_name"] if name_row else None,
+        "metadata_url": name_row["metadata_url"] if name_row else None,
+        "snapshot_date": snapshot_date,
+        "voting_weight_series": series,
+        "vote_history": [
+            {
+                "action_id": r["action_id"],
+                "vote": r["vote"],
+                "vote_epoch": r["vote_epoch"],
+                "action_type": r["action_type"],
+                "title": r["title"],
+                "outcome": r["outcome"],
+            }
+            for r in vote_rows
+        ],
+    }
+    atomic_write_json(out_dir / "dreps" / f"{drep_id}.json", payload)
+
+
 def export_meta(db: sqlite3.Connection, snapshot_date: str, out_dir: Path,
                 tip: dict, drep_seen: int) -> None:
     last_run = db.execute(
@@ -593,7 +634,12 @@ def run(args: argparse.Namespace) -> int:
             )
         db.commit()
 
-        export_top30(db, snapshot_date, Path(args.out))
+        top30 = export_top30(db, snapshot_date, Path(args.out))
+
+        # Per-DRep history files for every entry in the current top-30.
+        for entry in top30["entries"]:
+            export_drep_history(db, entry["drep_id"], snapshot_date, Path(args.out))
+        log.info("wrote %d per-DRep history files", len(top30["entries"]))
 
         # Mark the run successful *before* writing meta.json so that the
         # latest-run record visible to consumers reflects the completed run,
