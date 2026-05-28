@@ -51,11 +51,15 @@ DRep metadata content is consumed via Koios's `drep_metadata` endpoint and its `
 
 ## 4. Update cadence
 
-The ETL job runs once daily at **02:00 UTC**.
+The observatory has two cadences. The **daily layer** is canonical for everything reported as "Data through {date}"; the **live telemetry layer** (described in §14) is supplemental and refreshes more often but writes a narrower set of data.
 
-Each run captures live DRep state at the moment of the run. The site displays the snapshot under the label **"Data through {YYYY-MM-DD}"**, where the date is the UTC date the snapshot was captured. Updates happen at most once per day, so lag from any on-chain event to its appearance on the site is **at most approximately 24 hours** — the exact lag depends on when within the daily cycle the event occurred.
+The **daily ETL** runs once a day at **02:00 UTC**.
 
-If the daily ETL run fails (network outage, API error, schema mismatch), the prior snapshot remains displayed unchanged. No partial or potentially inconsistent data is ever published. The site's **"Last successful update"** timestamp signals staleness if the data is older than 36 hours.
+Each daily run captures live DRep state at the moment of the run. The site displays the daily snapshot under the label **"Data through {YYYY-MM-DD}"**, where the date is the UTC date the snapshot was captured. Daily updates happen at most once per day, so lag from any on-chain event to its appearance in the daily layer is **at most approximately 24 hours** — the exact lag depends on when within the daily cycle the event occurred.
+
+If the daily ETL run fails (network outage, API error, schema mismatch), the prior daily snapshot remains displayed unchanged. No partial or potentially inconsistent daily data is ever published. The site's **"Last successful update"** timestamp signals staleness if the daily data is older than 36 hours.
+
+The **live telemetry layer** runs every 10 minutes via a separate cron entry; its cadence, scope, and limitations are defined in §14.
 
 ## 5. Selection criteria
 
@@ -154,6 +158,73 @@ The observatory comprises four pages:
 The format is stable within a major version. Any field additions or removals are recorded in the §11 changelog before the change ships.
 
 **Vote tally semantics (in `actions.json`):** the counts `drep_yes_count`, `drep_no_count`, `drep_abstain_count` for each action represent the most recent vote each DRep has cast on that action. When a DRep has revoted on the same action, only their chronologically latest vote is counted (see §6 for the revote-ordering rule). The counts are facts, not interpretations; they do not constitute approval or rejection signals.
+
+## 14. Live telemetry layer
+
+In addition to the daily snapshot, the observatory runs a **live telemetry** ETL every **10 minutes** to surface near-real-time governance pulse. This layer is deliberately narrow.
+
+**What the live layer fetches each run:**
+
+- `/tip` — current epoch and block height (1 call)
+- `/vote_list?block_height=gt.{last_seen}` — only DRep votes recorded since the previous live run (typically 0–1 pages)
+- `/proposal_list` — full action list, but only every 6th run (≈ hourly)
+
+**What the live layer does NOT fetch or change:**
+
+- It does not refresh voting weight, delegator counts, or DRep ranking. Those remain pinned to the daily snapshot and to the epoch-boundary stake snapshots the Cardano protocol itself uses.
+- It does not refresh DRep metadata.
+- It does not modify any row written by the daily ETL.
+
+**What the live layer writes:**
+
+- New `votes` rows into the shared SQLite table (with `INSERT OR REPLACE` on `(action_id, drep_id)`; the revote-ordering rule from §6 applies identically).
+- Conditionally new or updated `governance_actions` rows (hourly).
+- JSON files under `/data/snapshots/live/` (see §17).
+
+**What the live layer never writes:**
+
+- It never modifies the daily `top30.json`, `top30.csv`, `actions.json`, `meta.json`, or `dreps/{drep_id}.json` files.
+- It never modifies historical rows in the `snapshots` table.
+
+The daily ETL at 02:00 UTC is the source of truth and reconciles any divergence on its next run.
+
+## 15. Eventual consistency
+
+Because two ETL processes share the same SQLite database, brief inconsistencies are possible:
+
+- A vote captured by the live layer at 10:07 UTC may appear on the site at 10:08, before the next daily ETL run codifies it into the daily snapshot.
+- A new governance action submitted between two live runs is captured at the next live run (max ~10 min lag) or, failing that, the next daily run.
+- If a live run fails partway through, no live JSON files are written for that cycle. The prior live files remain in place. The freshness timestamp in `live/meta.json` makes the staleness visible to the UI.
+
+**Reconciliation rule:** the daily layer is canonical. If a discrepancy is observed between live and daily reports of the same fact, the daily value is the one to cite. The live layer exists to shorten the visibility lag, not to replace the daily layer.
+
+The site UI labels live-layer-sourced fields with an explicit "Live" indicator. Daily-layer fields have no such indicator; absence of label = canonical daily data.
+
+## 16. Koios rate-limit discipline
+
+The observatory is a polite consumer of the Koios free tier. Estimated combined load with the live layer at 10-minute cadence:
+
+- Daily ETL: ~136 calls/day
+- Live ETL: ~316 calls/day (144 tip + 144 vote_list + ~24 proposal_list + ~4 occasional drep_info refreshes)
+- **Combined: ~452 calls/day**
+
+This is well under typical free-tier limits. If Koios returns a 429 or persistent 5xx error:
+
+- Individual call retries with exponential backoff up to 2 retries (same as daily layer).
+- If retries fail, the run aborts cleanly, writes a failure record to `etl_runs`, leaves all existing files in place.
+- The next 10-minute cron tick is independent and will retry.
+
+There is no behavior in the observatory that polls more aggressively under failure. Backoff is monotonic.
+
+## 17. Live-only data exports
+
+All paths below are under `/data/snapshots/live/` on the deployed site, are CC0 licensed, and are regenerated by each successful live ETL run (every ~10 minutes). The format is stable within a major version; additions or removals are recorded in §11 before they ship.
+
+- `GET /data/snapshots/live/tip.json` — current epoch, block height, block time, last-fetched timestamp.
+- `GET /data/snapshots/live/recent_votes.json` — most recent DRep votes (sorted by block_time descending), with DRep name and action title joined in. Bounded to a small recent window (default: most recent 20 votes, limited to the last 24 hours).
+- `GET /data/snapshots/live/meta.json` — last live-run start/complete timestamps, success flag, count of new votes in last run, and the cadence in minutes. This is the file the UI reads to compute the "Live · N min" freshness indicator.
+
+The live exports do not duplicate any field that the daily layer publishes. They complement, never replace.
 
 ## 12. v0.1 scope limitations
 
