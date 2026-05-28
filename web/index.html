@@ -34,9 +34,17 @@
   <div class="container meta-strip-inner">
     <span class="meta-item"><span class="meta-label" id="m-epoch-label">Epoch</span> <strong id="m-epoch">—</strong></span>
     <span class="meta-item"><span class="meta-label" id="m-date-label">Data through</span> <strong id="m-date">—</strong></span>
-    <span class="meta-item" id="m-lag">Updated daily · up to ~24h lag</span>
+    <span class="meta-item" id="m-lag">Canonical daily governance snapshot · up to ~24h lag</span>
     <span class="meta-item"><span class="meta-label" id="m-source-label">Source</span> <strong>Koios</strong></span>
     <span class="meta-item meta-item-right" id="m-status">—</span>
+  </div>
+  <div class="container meta-strip-inner meta-strip-live">
+    <span class="meta-item" id="live-badge-wrap" style="display:none">
+      <span class="live-dot"></span>
+      <span class="meta-label" id="live-badge-label">Live telemetry</span>
+      <strong id="live-last-refresh">—</strong>
+    </span>
+    <span class="meta-item" id="live-cadence-label">Supplemental · refreshed every ~10 min</span>
   </div>
 </section>
 
@@ -73,6 +81,27 @@
       <span class="footnote-sep">·</span>
       <span id="download-license">CC0 — no attribution required.</span>
     </p>
+
+    <!-- Recent activity (live layer) — supplemental, calm, absolute UTC -->
+    <section class="recent-activity" id="recent-activity-section" style="display:none">
+      <h2 class="section-h2" id="recent-activity-title">Recent governance activity</h2>
+      <p class="lede" id="recent-activity-lede">Most recent DRep votes recorded on chain, refreshed every ~10 minutes from the live telemetry layer. Timestamps are exact UTC. See <a href="methodology.html#section-14">Methodology §14</a> for cadence and reconciliation rules.</p>
+      <div class="table-scroll">
+        <table class="observatory" id="recent-activity-table">
+          <thead>
+            <tr>
+              <th id="th-act-time">Block time (UTC)</th>
+              <th id="th-act-epoch">Epoch</th>
+              <th id="th-act-drep">DRep</th>
+              <th id="th-act-vote">Vote</th>
+              <th class="col-name" id="th-act-action">Action</th>
+            </tr>
+          </thead>
+          <tbody id="recent-activity-tbody"></tbody>
+        </table>
+      </div>
+      <p class="footnote" id="recent-activity-footnote">Source: <code>/data/snapshots/live/recent_votes.json</code> · CC0.</p>
+    </section>
   </div>
 </main>
 
@@ -86,6 +115,7 @@
       <a href="https://github.com/cryptoleo79/cardano-delegation-observatory" target="_blank" rel="noopener" id="ft-source">Source</a>
     </div>
     <div class="footer-note" id="ft-repro">Reproducible from public Koios API endpoints.</div>
+    <div class="footer-note" id="ft-provenance">Telemetry derived from public Cardano governance data via Koios. No private data sources.</div>
   </div>
 </footer>
 

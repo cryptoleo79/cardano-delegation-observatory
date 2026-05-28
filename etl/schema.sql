@@ -27,13 +27,23 @@ CREATE INDEX IF NOT EXISTS idx_snapshots_date ON snapshots (snapshot_date);
 
 -- Recorded votes (on-chain facts only — no interpretation)
 CREATE TABLE IF NOT EXISTS votes (
-    action_id    TEXT NOT NULL,
-    drep_id      TEXT NOT NULL,
-    vote         TEXT NOT NULL CHECK (vote IN ('yes', 'no', 'abstain')),
-    vote_epoch   INTEGER NOT NULL,
+    action_id        TEXT NOT NULL,
+    drep_id          TEXT NOT NULL,
+    vote             TEXT NOT NULL CHECK (vote IN ('yes', 'no', 'abstain')),
+    vote_epoch       INTEGER NOT NULL,
+    vote_block_time  INTEGER,
     PRIMARY KEY (action_id, drep_id)
 );
 CREATE INDEX IF NOT EXISTS idx_votes_drep ON votes (drep_id, vote_epoch);
+-- idx_votes_block_time is created in the migration step in open_db() (snapshot.py)
+-- because the column is added on existing DBs only after this script runs.
+
+-- Live-layer state (key/value, persisted between live ETL runs)
+CREATE TABLE IF NOT EXISTS live_state (
+    key         TEXT PRIMARY KEY,
+    value       TEXT,
+    updated_at  TIMESTAMP
+);
 
 -- Governance actions (used for chart overlays only)
 CREATE TABLE IF NOT EXISTS governance_actions (

@@ -12,8 +12,25 @@ const i18n = {
     /* Meta strip */
     "m-epoch-label": "Epoch",
     "m-date-label": "Data through",
-    "m-lag": "Updated daily · up to ~24h lag",
+    "m-lag": "Canonical daily governance snapshot · up to ~24h lag",
     "m-source-label": "Source",
+
+    /* Live telemetry strip */
+    "live-badge-label": "Live telemetry",
+    "live-cadence-label": "Supplemental · refreshed every ~10 min",
+
+    /* Recent activity section */
+    "recent-activity-title": "Recent governance activity",
+    "recent-activity-lede": "Most recent DRep votes recorded on chain, refreshed every ~10 minutes from the live telemetry layer. Timestamps are exact UTC. See Methodology §14 for cadence and reconciliation rules.",
+    "recent-activity-footnote": "Source: /data/snapshots/live/recent_votes.json · CC0.",
+    "th-act-time": "Block time (UTC)",
+    "th-act-epoch": "Epoch",
+    "th-act-drep": "DRep",
+    "th-act-vote": "Vote",
+    "th-act-action": "Action",
+
+    /* Provenance footer */
+    "ft-provenance": "Telemetry derived from public Cardano governance data via Koios. No private data sources.",
     "m-status-ok": "Last update OK",
     "m-status-stale": "Last update stale",
     "m-status-error": "Last update failed",
@@ -104,8 +121,25 @@ const i18n = {
     /* Meta strip */
     "m-epoch-label": "エポック",
     "m-date-label": "データ対象日",
-    "m-lag": "毎日更新 · 最大約24時間の遅延",
+    "m-lag": "正本となる日次ガバナンス・スナップショット · 最大約24時間の遅延",
     "m-source-label": "ソース",
+
+    /* Live telemetry strip */
+    "live-badge-label": "ライブ・テレメトリ",
+    "live-cadence-label": "補助情報 · 約10分ごとに更新",
+
+    /* Recent activity section */
+    "recent-activity-title": "最近のガバナンス・アクティビティ",
+    "recent-activity-lede": "オンチェーンに記録された直近のDRep投票。ライブ・テレメトリ層から約10分ごとに更新される。タイムスタンプはUTCの絶対時刻。ケイデンスと整合性ルールは方法論 §14 を参照。",
+    "recent-activity-footnote": "ソース: /data/snapshots/live/recent_votes.json · CC0。",
+    "th-act-time": "ブロック時刻 (UTC)",
+    "th-act-epoch": "エポック",
+    "th-act-drep": "DRep",
+    "th-act-vote": "投票",
+    "th-act-action": "アクション",
+
+    /* Provenance footer */
+    "ft-provenance": "公開されているCardanoガバナンス・データをKoios経由で取得している。非公開のデータソースは使用していない。",
     "m-status-ok": "最終更新成功",
     "m-status-stale": "最終更新から時間経過",
     "m-status-error": "最終更新失敗",

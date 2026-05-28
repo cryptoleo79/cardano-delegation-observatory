@@ -11,6 +11,8 @@ const NUM_LOCALE = { en: "en-US", ja: "ja-JP" };
 const state = {
   top30: null,
   meta: null,
+  liveMeta: null,
+  liveRecentVotes: null,
   sortKey: "voting_weight_ada",
   sortDir: "desc",
   expandedDrepId: null,
@@ -499,6 +501,114 @@ function buildVoteTable(votes) {
   return wrap;
 }
 
+/* ── live layer rendering ─────────────────────────────────────────────── */
+
+function fmtUtcTimestamp(unix) {
+  if (unix == null) return "—";
+  const d = new Date(Number(unix) * 1000);
+  const y = d.getUTCFullYear();
+  const m = String(d.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(d.getUTCDate()).padStart(2, "0");
+  const hh = String(d.getUTCHours()).padStart(2, "0");
+  const mm = String(d.getUTCMinutes()).padStart(2, "0");
+  return `${y}-${m}-${day} ${hh}:${mm} UTC`;
+}
+
+function fmtUtcIsoToDisplay(iso) {
+  if (!iso) return "—";
+  const d = new Date(iso);
+  if (isNaN(d)) return iso;
+  return fmtUtcTimestamp(Math.floor(d.getTime() / 1000));
+}
+
+function renderLiveBadge(liveMeta) {
+  const wrap = document.getElementById("live-badge-wrap");
+  const refresh = document.getElementById("live-last-refresh");
+  if (!wrap || !refresh) return;
+  if (!liveMeta || !liveMeta.last_run_success) {
+    wrap.style.display = "";
+    refresh.textContent = liveMeta
+      ? `last successful refresh: ${fmtUtcIsoToDisplay(liveMeta.last_run_completed_at) || "—"} (current run failed)`
+      : "telemetry pending";
+    return;
+  }
+  wrap.style.display = "";
+  /* Show the absolute UTC timestamp of last successful run. */
+  refresh.textContent = `last refresh ${fmtUtcIsoToDisplay(liveMeta.last_run_completed_at)}`;
+}
+
+function renderRecentActivity(payload) {
+  const section = document.getElementById("recent-activity-section");
+  const tbody = document.getElementById("recent-activity-tbody");
+  if (!section || !tbody) return;
+  if (!payload || !payload.votes || payload.votes.length === 0) {
+    section.style.display = "none";
+    return;
+  }
+  section.style.display = "";
+  tbody.innerHTML = "";
+  for (const v of payload.votes) {
+    const tr = document.createElement("tr");
+
+    const tdTime = document.createElement("td");
+    tdTime.textContent = fmtUtcTimestamp(v.vote_block_time);
+    tdTime.className = "col-num";
+    tr.appendChild(tdTime);
+
+    const tdEpoch = document.createElement("td");
+    tdEpoch.textContent = v.vote_epoch == null ? "—" : String(v.vote_epoch);
+    tdEpoch.className = "col-num";
+    tr.appendChild(tdEpoch);
+
+    const tdDrep = document.createElement("td");
+    const a = document.createElement("a");
+    a.href = `drep.html?id=${encodeURIComponent(v.drep_id)}`;
+    a.textContent = v.drep_name || (v.drep_id ? v.drep_id.slice(0, 16) + "…" : "—");
+    tdDrep.appendChild(a);
+    tr.appendChild(tdDrep);
+
+    const tdVote = document.createElement("td");
+    tdVote.className = "vote-cell";
+    tdVote.textContent = safeText(v.vote);
+    tr.appendChild(tdVote);
+
+    const tdAction = document.createElement("td");
+    tdAction.className = "col-name vote-action-title";
+    const title = document.createElement("div");
+    title.textContent = v.action_title || v.action_id || "—";
+    tdAction.appendChild(title);
+    if (v.action_type) {
+      const type = document.createElement("div");
+      type.className = "vote-action-type";
+      type.textContent = safeText(v.action_type);
+      tdAction.appendChild(type);
+    }
+    tr.appendChild(tdAction);
+
+    tbody.appendChild(tr);
+  }
+}
+
+async function loadLiveLayer() {
+  try {
+    const liveMeta = await fetchJson(`${DATA_ROOT}/live/meta.json`);
+    state.liveMeta = liveMeta;
+    renderLiveBadge(liveMeta);
+  } catch (err) {
+    /* Live layer not present yet — render nothing, no error to user. */
+    state.liveMeta = null;
+    renderLiveBadge(null);
+  }
+  try {
+    const votes = await fetchJson(`${DATA_ROOT}/live/recent_votes.json`);
+    state.liveRecentVotes = votes;
+    renderRecentActivity(votes);
+  } catch (err) {
+    state.liveRecentVotes = null;
+    renderRecentActivity(null);
+  }
+}
+
 /* ── boot ─────────────────────────────────────────────────────────────── */
 
 async function boot() {
@@ -528,6 +638,12 @@ async function boot() {
     renderMeta(null);
     renderTable();
   }
+  /* Live layer loads independently; failure to load it is silent. */
+  await loadLiveLayer();
+  /* On tab focus, refresh the live layer only — daily layer is cached. */
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) loadLiveLayer();
+  });
 }
 
 if (document.readyState === "loading") {

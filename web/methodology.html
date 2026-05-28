@@ -152,6 +152,11 @@
       <tbody>
         <tr>
           <td>2026-05-28</td>
+          <td>v0.3</td>
+          <td>Live telemetry layer added (<code>etl/live.py</code>, 10-minute cadence). Daily layer remains canonical. New §14–§17 describe the live layer, eventual consistency, Koios rate-limit discipline, and live-only exports. Schema migration: <code>vote_block_time</code> added; new <code>live_state</code> table. All JSON exports now stamp <code>schema_version</code> and <code>methodology_version</code>. Frontend gains daily/live distinction wording, recent-activity section with absolute UTC timestamps, and data-provenance line.</td>
+        </tr>
+        <tr>
+          <td>2026-05-28</td>
           <td>v0.2</td>
           <td>Deployment + scope expansion. Site live at <a href="https://observatory.asy.life">observatory.asy.life</a> via nginx + Let's Encrypt. Daily ETL cron at 02:00 UTC, git-pull deploy cron every 5 min. Added: governance actions index page (<code>/actions.html</code>) with DRep vote tally per action; public CSV export of top-30 snapshot (<code>/data/snapshots/top30.csv</code>); permalinkable per-DRep page (<code>/drep.html?id=...</code>) with full vote history and 90-day chart. New §13 documents pages and exports.</td>
         </tr>
@@ -265,6 +270,7 @@
       <a href="https://github.com/cryptoleo79/cardano-delegation-observatory" target="_blank" rel="noopener" id="ft-source">Source</a>
     </div>
     <div class="footer-note" id="ft-repro">Reproducible from public Koios API endpoints.</div>
+    <div class="footer-note" id="ft-provenance">Telemetry derived from public Cardano governance data via Koios. No private data sources.</div>
   </div>
 </footer>
 

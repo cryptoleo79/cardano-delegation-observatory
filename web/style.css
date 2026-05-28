@@ -255,6 +255,36 @@ tr.expand-row:hover { background: var(--card); }
   .footer-inner { flex-direction: column; align-items: flex-start; }
 }
 
+/* Live telemetry layer strip (second line of meta strip) */
+.meta-strip-live {
+  padding-top: 4px;
+  padding-bottom: 10px;
+  border-top: 0.5px dashed var(--border);
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--faint);
+}
+.live-dot {
+  display: inline-block;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+  margin-right: 6px;
+  /* deliberately no animation */
+}
+.meta-strip-live .meta-item strong {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* Recent activity section (live layer on homepage) */
+.recent-activity { margin-top: 56px; }
+.section-h2 {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  margin-bottom: 6px;
+}
+
 /* Download row */
 .download-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-top: 8px; }
 .download-row a {

@@ -51,7 +51,9 @@ DELTA_LOOKBACKS_DAYS = (7, 30)
 
 LOVELACE_PER_ADA = 1_000_000
 
-ETL_VERSION = "0.1.0"
+ETL_VERSION = "0.3.0"
+METHODOLOGY_VERSION = "0.3"
+SCHEMA_VERSION = 1
 
 log = logging.getLogger("snapshot")
 
@@ -269,6 +271,15 @@ def open_db(db_path: Path, schema_path: Path) -> sqlite3.Connection:
     db.execute("PRAGMA foreign_keys = ON")
     schema_sql = schema_path.read_text(encoding="utf-8")
     db.executescript(schema_sql)
+    # Forward-only migrations for DBs created before a column was added.
+    # ALTER TABLE ADD COLUMN is idempotent only via PRAGMA inspection.
+    cols = {row[1] for row in db.execute("PRAGMA table_info(votes)").fetchall()}
+    if "vote_block_time" not in cols:
+        db.execute("ALTER TABLE votes ADD COLUMN vote_block_time INTEGER")
+    # Index is always (re)applied after the column is guaranteed to exist —
+    # idempotent via IF NOT EXISTS.
+    db.execute("CREATE INDEX IF NOT EXISTS idx_votes_block_time ON votes (vote_block_time DESC)")
+    db.commit()
     return db
 
 
@@ -385,17 +396,20 @@ def upsert_vote(db: sqlite3.Connection, row: dict) -> None:
         log.warning("skipping vote with unknown value %r for drep %s on %s",
                     row.get("vote"), row.get("voter_id"), row.get("proposal_id"))
         return
+    block_time = row.get("block_time")
     db.execute(
-        """INSERT INTO votes (action_id, drep_id, vote, vote_epoch)
-           VALUES (?, ?, ?, ?)
+        """INSERT INTO votes (action_id, drep_id, vote, vote_epoch, vote_block_time)
+           VALUES (?, ?, ?, ?, ?)
            ON CONFLICT(action_id, drep_id) DO UPDATE SET
                vote = excluded.vote,
-               vote_epoch = excluded.vote_epoch""",
+               vote_epoch = excluded.vote_epoch,
+               vote_block_time = excluded.vote_block_time""",
         (
             row["proposal_id"],
             row["voter_id"],
             raw_vote,
             int(row["epoch_no"]),
+            int(block_time) if block_time is not None else None,
         ),
     )
 
@@ -495,6 +509,9 @@ def export_top30(db: sqlite3.Connection, snapshot_date: str, out_dir: Path) -> d
         })
 
     payload = {
+        "schema_version": SCHEMA_VERSION,
+        "methodology_version": METHODOLOGY_VERSION,
+        "layer": "daily",
         "snapshot_date": snapshot_date,
         "epoch": rows[0]["epoch"] if rows else None,
         "top_n": TOP_N,
@@ -525,6 +542,9 @@ def export_drep_history(db: sqlite3.Connection, drep_id: str, snapshot_date: str
         (drep_id,),
     ).fetchall()
     payload = {
+        "schema_version": SCHEMA_VERSION,
+        "methodology_version": METHODOLOGY_VERSION,
+        "layer": "daily",
         "drep_id": drep_id,
         "name": name_row["metadata_name"] if name_row else None,
         "metadata_url": name_row["metadata_url"] if name_row else None,
@@ -603,6 +623,9 @@ def export_governance_actions(db: sqlite3.Connection, snapshot_date: str,
                      g.action_id ASC"""
     ).fetchall()
     payload = {
+        "schema_version": SCHEMA_VERSION,
+        "methodology_version": METHODOLOGY_VERSION,
+        "layer": "daily",
         "snapshot_date": snapshot_date,
         "n_actions": len(rows),
         "actions": [
@@ -632,6 +655,9 @@ def export_meta(db: sqlite3.Connection, snapshot_date: str, out_dir: Path,
             LIMIT 1"""
     ).fetchone()
     payload = {
+        "schema_version": SCHEMA_VERSION,
+        "methodology_version": METHODOLOGY_VERSION,
+        "layer": "daily",
         "etl_version": ETL_VERSION,
         "data_through": snapshot_date,
         "tip_epoch": tip.get("epoch_no"),
