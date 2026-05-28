@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DRep — Cardano Delegation Observatory</title>
+<meta name="description" content="Per-DRep delegation history and vote record. Numbers only.">
+<meta name="theme-color" content="#fafaf7">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand">
+      <span class="brand-mark">CDO</span>
+      <span class="brand-text" id="h-brand">Cardano Delegation Observatory</span>
+    </a>
+    <nav class="site-nav">
+      <a href="/" id="h-nav-observatory">Observatory</a>
+      <a href="actions.html" id="h-nav-actions">Actions</a>
+      <a href="methodology.html" id="h-nav-methodology">Methodology</a>
+      <a href="https://github.com/cryptoleo79/cardano-delegation-observatory" target="_blank" rel="noopener" id="h-nav-source">Source</a>
+      <div class="lang-toggle">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-ja" onclick="setLang('ja')">日本語</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <article class="container drep-page">
+    <p class="back-link"><a href="/" id="back-link">← Observatory</a></p>
+    <h1 id="drep-name">…</h1>
+    <p class="drep-id-full" id="drep-id-full"></p>
+
+    <section class="drep-stats" id="drep-stats">
+      <div class="stat-card"><div class="stat-label" id="stat-weight-label">Voting weight</div><div class="stat-value" id="stat-weight">—</div><div class="stat-sub" id="stat-weight-sub">ADA</div></div>
+      <div class="stat-card"><div class="stat-label" id="stat-delegators-label">Delegators</div><div class="stat-value" id="stat-delegators">—</div></div>
+      <div class="stat-card"><div class="stat-label" id="stat-lastvote-label">Last vote</div><div class="stat-value" id="stat-lastvote">—</div><div class="stat-sub" id="stat-lastvote-sub">epoch</div></div>
+      <div class="stat-card"><div class="stat-label" id="stat-votes-label">Votes cast</div><div class="stat-value" id="stat-votes">—</div></div>
+    </section>
+
+    <section class="drep-section">
+      <div class="expand-section-label" id="drep-chart-label">90-day voting weight</div>
+      <div class="chart-wrap" id="drep-chart-wrap">
+        <div class="chart-empty" id="drep-chart-empty">Loading…</div>
+      </div>
+    </section>
+
+    <section class="drep-section">
+      <div class="expand-section-label" id="drep-meta-label">Metadata source</div>
+      <div id="drep-meta-row"></div>
+    </section>
+
+    <section class="drep-section">
+      <div class="expand-section-label" id="drep-votes-label">Vote history</div>
+      <div id="drep-votes-wrap"></div>
+    </section>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <span id="ft-license">Apache 2.0 code · CC0 data</span>
+    </div>
+    <div>
+      <a href="/" id="ft-observatory">Observatory</a>
+      <a href="methodology.html" id="ft-methodology">Methodology</a>
+      <a href="https://github.com/cryptoleo79/cardano-delegation-observatory" target="_blank" rel="noopener" id="ft-source">Source</a>
+    </div>
+    <div class="footer-note" id="ft-repro">Reproducible from public Koios API endpoints.</div>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="drep.js"></script>
+</body>
+</html>

@@ -260,7 +260,7 @@ function buildExpandRow(drepId) {
 
   const cached = state.drepCache.get(drepId);
 
-  /* Full DRep ID */
+  /* Full DRep ID + open-detail link */
   const idLabel = document.createElement("div");
   idLabel.className = "expand-section-label";
   idLabel.textContent = t("ex-id-label");
@@ -269,6 +269,12 @@ function buildExpandRow(drepId) {
   idVal.className = "full-id";
   idVal.textContent = drepId;
   inner.appendChild(idVal);
+
+  const openLink = document.createElement("a");
+  openLink.href = `drep.html?id=${encodeURIComponent(drepId)}`;
+  openLink.className = "vote-show-more";
+  openLink.textContent = t("view-detail-link");
+  inner.appendChild(openLink);
 
   /* Metadata source */
   const metaLabel = document.createElement("div");

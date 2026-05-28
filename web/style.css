@@ -297,6 +297,52 @@ tr.expand-row:hover { background: var(--card); }
   .filter-count { margin-left: 0; width: 100%; }
 }
 
+/* DRep standalone page */
+.drep-page { padding: 24px 24px 80px; }
+.back-link { font-size: 13px; margin-bottom: 16px; }
+.back-link a { color: var(--muted); }
+.drep-page h1 { font-size: 26px; margin-bottom: 4px; }
+.drep-id-full {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--faint);
+  word-break: break-all;
+  margin-bottom: 24px;
+}
+.drep-stats {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.stat-card {
+  background: var(--card);
+  border: 0.5px solid var(--border);
+  border-radius: 6px;
+  padding: 14px 16px;
+}
+.stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.stat-value {
+  font-size: 22px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+.stat-sub { font-size: 11px; color: var(--faint); margin-top: 2px; }
+.drep-section { margin-top: 28px; }
+
+@media (max-width: 720px) {
+  .drep-stats { grid-template-columns: repeat(2, 1fr); }
+  .stat-value { font-size: 18px; }
+  .drep-page { padding: 16px 14px 60px; }
+}
+
 /* Methodology page */
 .methodology { max-width: 760px; margin: 0 auto; padding: 36px 24px 80px; }
 .methodology h1 { font-size: 30px; margin-bottom: 8px; }

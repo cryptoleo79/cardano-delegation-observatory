@@ -75,6 +75,21 @@ const i18n = {
     "download-label": "Download this snapshot:",
     "download-license": "CC0 — no attribution required.",
 
+    /* Per-DRep page */
+    "back-link": "← Observatory",
+    "drep-not-found": "DRep not found",
+    "drep-no-id": "No DRep ID provided in URL (expected ?id=drep1…)",
+    "stat-weight-label": "Voting weight",
+    "stat-weight-sub": "ADA",
+    "stat-delegators-label": "Delegators",
+    "stat-lastvote-label": "Last vote",
+    "stat-lastvote-sub": "epoch",
+    "stat-votes-label": "Votes cast",
+    "drep-chart-label": "90-day voting weight",
+    "drep-meta-label": "Metadata source",
+    "drep-votes-label": "Vote history",
+    "view-detail-link": "Open full page →",
+
     /* Loading + error */
     "loading-msg": "Loading…",
     "load-error": "Could not load snapshot. The data file is missing or unreachable.",
@@ -151,6 +166,21 @@ const i18n = {
     /* Download row */
     "download-label": "このスナップショットをダウンロード:",
     "download-license": "CC0 — 帰属表示は不要。",
+
+    /* Per-DRep page */
+    "back-link": "← Observatory",
+    "drep-not-found": "DRepが見つからない",
+    "drep-no-id": "URLにDRep IDが指定されていない(?id=drep1… が必要)",
+    "stat-weight-label": "投票権",
+    "stat-weight-sub": "ADA",
+    "stat-delegators-label": "委任者数",
+    "stat-lastvote-label": "最終投票",
+    "stat-lastvote-sub": "エポック",
+    "stat-votes-label": "投票数",
+    "drep-chart-label": "90日間の投票権推移",
+    "drep-meta-label": "メタデータ・ソース",
+    "drep-votes-label": "投票履歴",
+    "view-detail-link": "詳細ページを開く →",
 
     /* Loading + error */
     "loading-msg": "読み込み中…",
