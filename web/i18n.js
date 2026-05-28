@@ -71,6 +71,10 @@ const i18n = {
     "th-act-abstain": "DRep abstain",
     "footnote-actions": "Vote counts are the most recent vote cast by each DRep on each action. When a DRep revoted on the same action, only the chronologically latest vote is counted. See Methodology §6.",
 
+    /* Download row */
+    "download-label": "Download this snapshot:",
+    "download-license": "CC0 — no attribution required.",
+
     /* Loading + error */
     "loading-msg": "Loading…",
     "load-error": "Could not load snapshot. The data file is missing or unreachable.",
@@ -143,6 +147,10 @@ const i18n = {
     "th-act-no": "DRep 反対",
     "th-act-abstain": "DRep 棄権",
     "footnote-actions": "投票数は、各DRepが各アクションに対して最後に投じた票に基づく。DRepが同じアクションに対して再投票した場合は、時系列上で最新の票のみが集計される。詳細は方法論 §6 を参照。",
+
+    /* Download row */
+    "download-label": "このスナップショットをダウンロード:",
+    "download-license": "CC0 — 帰属表示は不要。",
 
     /* Loading + error */
     "loading-msg": "読み込み中…",

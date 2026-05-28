@@ -545,6 +545,38 @@ def export_drep_history(db: sqlite3.Connection, drep_id: str, snapshot_date: str
     atomic_write_json(out_dir / "dreps" / f"{drep_id}.json", payload)
 
 
+def export_top30_csv(top30_payload: dict, out_dir: Path) -> None:
+    """Write a CSV mirror of top30.json for easy spreadsheet import.
+
+    Fields match the JSON entry shape; lovelace columns retained alongside
+    ADA so the file is verifiable against the on-chain source.
+    """
+    import csv
+    out_dir.mkdir(parents=True, exist_ok=True)
+    path = out_dir / "top30.csv"
+    tmp = path.with_suffix(".csv.tmp")
+    with open(tmp, "w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow([
+            "snapshot_date", "epoch", "rank", "drep_id", "name",
+            "voting_weight_ada", "voting_weight_lovelace",
+            "delegator_count", "last_vote_epoch",
+            "d7d_lovelace", "d30d_lovelace",
+        ])
+        date = top30_payload.get("snapshot_date", "")
+        epoch = top30_payload.get("epoch", "")
+        for e in top30_payload["entries"]:
+            writer.writerow([
+                date, epoch, e["rank"], e["drep_id"], e.get("name") or "",
+                e["voting_weight_ada"], e["voting_weight_lovelace"],
+                e["delegator_count"],
+                e["last_vote_epoch"] if e["last_vote_epoch"] is not None else "",
+                e["d7d_lovelace"] if e["d7d_lovelace"] is not None else "",
+                e["d30d_lovelace"] if e["d30d_lovelace"] is not None else "",
+            ])
+    os.replace(tmp, path)
+
+
 def export_governance_actions(db: sqlite3.Connection, snapshot_date: str,
                               out_dir: Path) -> None:
     """Write actions.json — every governance action the observatory has indexed.
@@ -689,6 +721,9 @@ def run(args: argparse.Namespace) -> int:
 
         export_governance_actions(db, snapshot_date, Path(args.out))
         log.info("wrote actions.json")
+
+        export_top30_csv(top30, Path(args.out))
+        log.info("wrote top30.csv")
 
         # Mark the run successful *before* writing meta.json so that the
         # latest-run record visible to consumers reflects the completed run,
