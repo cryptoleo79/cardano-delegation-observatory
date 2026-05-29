@@ -51,8 +51,8 @@ DELTA_LOOKBACKS_DAYS = (7, 30)
 
 LOVELACE_PER_ADA = 1_000_000
 
-ETL_VERSION = "0.3.0"
-METHODOLOGY_VERSION = "0.3"
+ETL_VERSION = "0.4.0"
+METHODOLOGY_VERSION = "0.4"
 SCHEMA_VERSION = 1
 
 log = logging.getLogger("snapshot")
@@ -431,9 +431,21 @@ def query_deltas(db: sqlite3.Connection, drep_id: str, snapshot_date: str,
     """Voting weight today minus voting weight `lookback_days` ago, in lovelace.
 
     Returns None if no prior snapshot exists at or before the target date.
+    See METHODOLOGY §18.2 for the precise definition.
     """
-    row = db.execute(
-        """SELECT voting_weight_lovelace
+    delta, _ref_date = query_flow(db, drep_id, snapshot_date, lookback_days)
+    return delta
+
+
+def query_flow(db: sqlite3.Connection, drep_id: str, snapshot_date: str,
+               lookback_days: int) -> tuple[int | None, str | None]:
+    """Net voting-weight delta + the reference snapshot_date used to compute it.
+
+    Per METHODOLOGY §18.2 and §18.5: returns (delta_lovelace, reference_date).
+    Either field may be None if data is missing (§18.6).
+    """
+    ref = db.execute(
+        """SELECT snapshot_date, voting_weight_lovelace
              FROM snapshots
             WHERE drep_id = ?
               AND snapshot_date <= date(?, ?)
@@ -441,15 +453,91 @@ def query_deltas(db: sqlite3.Connection, drep_id: str, snapshot_date: str,
             LIMIT 1""",
         (drep_id, snapshot_date, f"-{lookback_days} day"),
     ).fetchone()
-    if not row:
-        return None
+    if not ref:
+        return None, None
     today_row = db.execute(
         "SELECT voting_weight_lovelace FROM snapshots WHERE drep_id = ? AND snapshot_date = ?",
         (drep_id, snapshot_date),
     ).fetchone()
     if not today_row:
-        return None
-    return int(today_row[0]) - int(row[0])
+        return None, None
+    return int(today_row["voting_weight_lovelace"]) - int(ref["voting_weight_lovelace"]), ref["snapshot_date"]
+
+
+def query_delegator_count_delta(db: sqlite3.Connection, drep_id: str,
+                                snapshot_date: str, lookback_days: int
+                                ) -> tuple[int | None, str | None]:
+    """Net delegator-count delta + the reference snapshot_date.
+
+    Per METHODOLOGY §18.1 / §18.2: tracked independently of voting weight.
+    """
+    ref = db.execute(
+        """SELECT snapshot_date, delegator_count
+             FROM snapshots
+            WHERE drep_id = ?
+              AND snapshot_date <= date(?, ?)
+            ORDER BY snapshot_date DESC
+            LIMIT 1""",
+        (drep_id, snapshot_date, f"-{lookback_days} day"),
+    ).fetchone()
+    if not ref:
+        return None, None
+    today_row = db.execute(
+        "SELECT delegator_count FROM snapshots WHERE drep_id = ? AND snapshot_date = ?",
+        (drep_id, snapshot_date),
+    ).fetchone()
+    if not today_row:
+        return None, None
+    return int(today_row["delegator_count"]) - int(ref["delegator_count"]), ref["snapshot_date"]
+
+
+def compute_recent_net_change(db: sqlite3.Connection, drep_id: str,
+                              snapshot_date: str) -> dict:
+    """Build the per-DRep "Recent net change" payload for the standalone page.
+
+    Returns three intervals (1d, 7d, 30d), each with voting-weight delta,
+    delegator-count delta, and explicit reference date. Per METHODOLOGY §18.5.
+    """
+    out: dict = {}
+    for n in (1, 7, 30):
+        vw_delta, vw_ref = query_flow(db, drep_id, snapshot_date, n)
+        dc_delta, _dc_ref = query_delegator_count_delta(db, drep_id, snapshot_date, n)
+        out[f"d{n}d"] = {
+            "voting_weight_delta_lovelace": vw_delta,
+            "delegator_count_delta": dc_delta,
+            "reference_date": vw_ref,
+        }
+    return out
+
+
+def daily_flow_series(db: sqlite3.Connection, drep_id: str,
+                      days: int = 90) -> list[dict]:
+    """Day-over-day net deltas for the last `days` snapshots.
+
+    For each snapshot date with a prior snapshot, emits a row with the
+    voting-weight delta and delegator-count delta from the immediately
+    preceding snapshot for this DRep. Missing reference snapshots are
+    omitted from the series (never interpolated).
+    """
+    rows = db.execute(
+        """SELECT snapshot_date, voting_weight_lovelace, delegator_count
+             FROM snapshots
+            WHERE drep_id = ?
+            ORDER BY snapshot_date DESC
+            LIMIT ?""",
+        (drep_id, days),
+    ).fetchall()
+    rows = list(reversed(rows))  # ascending chronological
+    out: list[dict] = []
+    for i in range(1, len(rows)):
+        prev, curr = rows[i - 1], rows[i]
+        out.append({
+            "date": curr["snapshot_date"],
+            "ref_date": prev["snapshot_date"],
+            "voting_weight_delta_lovelace": int(curr["voting_weight_lovelace"]) - int(prev["voting_weight_lovelace"]),
+            "delegator_count_delta": int(curr["delegator_count"]) - int(prev["delegator_count"]),
+        })
+    return out
 
 
 def voting_weight_series(db: sqlite3.Connection, drep_id: str,
@@ -491,8 +579,15 @@ def export_top30(db: sqlite3.Connection, snapshot_date: str, out_dir: Path) -> d
     entries = []
     for rank, row in enumerate(rows, start=1):
         drep_id = row["drep_id"]
-        deltas = {f"d{d}d_lovelace": query_deltas(db, drep_id, snapshot_date, d)
-                  for d in DELTA_LOOKBACKS_DAYS}
+        # Per §18: compute voting-weight + delegator-count net deltas alongside
+        # explicit reference dates for reproducibility.
+        flow_fields: dict = {}
+        for d in DELTA_LOOKBACKS_DAYS:
+            vw_delta, vw_ref = query_flow(db, drep_id, snapshot_date, d)
+            dc_delta, _dc_ref = query_delegator_count_delta(db, drep_id, snapshot_date, d)
+            flow_fields[f"d{d}d_lovelace"] = vw_delta
+            flow_fields[f"delegator_count_d{d}d"] = dc_delta
+            flow_fields[f"flow_reference_date_d{d}d"] = vw_ref
         last_vote = db.execute(
             "SELECT MAX(vote_epoch) FROM votes WHERE drep_id = ?",
             (drep_id,),
@@ -505,7 +600,7 @@ def export_top30(db: sqlite3.Connection, snapshot_date: str, out_dir: Path) -> d
             "voting_weight_ada": int(row["voting_weight_lovelace"]) // LOVELACE_PER_ADA,
             "delegator_count": int(row["delegator_count"]),
             "last_vote_epoch": last_vote,
-            **deltas,
+            **flow_fields,
         })
 
     payload = {
@@ -541,6 +636,8 @@ def export_drep_history(db: sqlite3.Connection, drep_id: str, snapshot_date: str
             ORDER BY v.vote_epoch DESC, v.action_id ASC""",
         (drep_id,),
     ).fetchall()
+    recent_net_change = compute_recent_net_change(db, drep_id, snapshot_date)
+    daily_flow = daily_flow_series(db, drep_id, days=90)
     payload = {
         "schema_version": SCHEMA_VERSION,
         "methodology_version": METHODOLOGY_VERSION,
@@ -549,6 +646,8 @@ def export_drep_history(db: sqlite3.Connection, drep_id: str, snapshot_date: str
         "name": name_row["metadata_name"] if name_row else None,
         "metadata_url": name_row["metadata_url"] if name_row else None,
         "snapshot_date": snapshot_date,
+        "recent_net_change": recent_net_change,
+        "daily_flow": daily_flow,
         "voting_weight_series": series,
         "vote_history": [
             {
