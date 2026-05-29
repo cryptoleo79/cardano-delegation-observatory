@@ -151,6 +151,11 @@
       </thead>
       <tbody>
         <tr>
+          <td>2026-05-29</td>
+          <td>v0.4 (methodology only — code follows)</td>
+          <td>FLOW-1 methodology §18 added: defines net voting-weight movement and net delegator-count movement; separates measured movement from inferred meaning. §18.3 states net movement is not migration. §18.8 enumerates what flow data does NOT imply, including the explicit case that large movements may originate from wallet software defaults, custodial infrastructure, exchange operations, stake-key changes, or delegation decisions. Δ1d not on main table — per-DRep page and JSON exports only. Code and frontend follow in separate commits.</td>
+        </tr>
+        <tr>
           <td>2026-05-28</td>
           <td>v0.3</td>
           <td>Live telemetry layer added (<code>etl/live.py</code>, 10-minute cadence). Daily layer remains canonical. New §14–§17 describe the live layer, eventual consistency, Koios rate-limit discipline, and live-only exports. Schema migration: <code>vote_block_time</code> added; new <code>live_state</code> table. All JSON exports now stamp <code>schema_version</code> and <code>methodology_version</code>. Frontend gains daily/live distinction wording, recent-activity section with absolute UTC timestamps, and data-provenance line.</td>
@@ -246,6 +251,70 @@
       <li><code>GET /data/snapshots/live/meta.json</code> — last live-run start/complete timestamps, success flag, count of new votes in last run, and the cadence in minutes. This is the file the UI reads to compute the "Live · N min" freshness indicator.</li>
     </ul>
     <p>The live exports do not duplicate any field that the daily layer publishes. They complement, never replace.</p>
+
+    <h2>18. Delegation flow (FLOW-1)</h2>
+    <p>This section defines exactly what "delegation movement" means within the observatory. The boundary is sharp: the observatory measures <em>what changed</em> between two snapshots; it does not infer <em>why</em> the change happened. Every flow metric below is computed directly from the daily snapshot record (§5) and carries no editorial dimension.</p>
+
+    <h3 style="font-size:14px; margin-top:18px;">18.1 Quantities measured</h3>
+    <p>Two independent quantities are tracked for each DRep:</p>
+    <ul>
+      <li><strong>Voting weight (lovelace).</strong> The <code>amount</code> field from Koios <code>drep_info</code> at snapshot time, in lovelace.</li>
+      <li><strong>Delegator count.</strong> The number of distinct stake credentials currently delegated to the DRep.</li>
+    </ul>
+    <p>These quantities are tracked separately. They can move in opposite directions in the same interval. The observatory reports both, never reconciles them into a single "movement" number.</p>
+
+    <h3 style="font-size:14px; margin-top:18px;">18.2 Net movement</h3>
+    <p>For a DRep <code>D</code> and interval length <code>n</code> days, <strong>net movement</strong> is:</p>
+    <pre style="background:var(--accent-soft);padding:10px;border-radius:4px;font-size:12px;overflow-x:auto;">  net_voting_weight_delta(D, t, n)  = voting_weight(D, t) − voting_weight(D, t')
+  net_delegator_count_delta(D, t, n) = delegator_count(D, t) − delegator_count(D, t')</pre>
+    <p>where <code>t</code> is the most recent snapshot date and <code>t'</code> is the most recent snapshot at or before <code>t − n days</code>. If no such reference snapshot exists, the flow is reported as <code>null</code> (never zero, never interpolated).</p>
+
+    <h3 style="font-size:14px; margin-top:18px;">18.3 Net movement is not migration</h3>
+    <p>Net movement values are independent per DRep. The observatory makes <strong>no claim</strong> that a positive net movement at DRep A and a negative net movement at DRep B during the same interval represent the same delegators having moved from A to B. <strong>Even when the magnitudes match exactly, this is not evidence of migration.</strong></p>
+    <p>Example: in a given week, DRep A shows +100M ADA and DRep B shows −100M ADA. The observatory reports both values. It does <strong>not</strong> report "ADA moved from B to A." Such a migration claim would require per-delegator event tracking, which FLOW-1 does not provide. The two movements may have been driven by completely independent delegators making unrelated decisions.</p>
+    <p>Migration tracking, if added in a future phase, will be documented in its own methodology section before any "A → B" claim appears anywhere on the site.</p>
+
+    <h3 style="font-size:14px; margin-top:18px;">18.4 What is not measured by FLOW-1</h3>
+    <p>The observatory does <strong>not</strong> measure, and the published data does <strong>not</strong> support claims about:</p>
+    <ul>
+      <li><strong>Gross inflow</strong> (total ADA newly delegated to a DRep during an interval, ignoring departures).</li>
+      <li><strong>Gross outflow</strong> (total ADA un-delegated from a DRep, ignoring arrivals).</li>
+      <li><strong>Migration</strong> ("ADA moved from DRep A to DRep B"), per §18.3.</li>
+    </ul>
+    <p>Each requires per-delegator event tracking, which FLOW-1 does not provide. <strong>All flow values published are net only.</strong></p>
+
+    <h3 style="font-size:14px; margin-top:18px;">18.5 Canonical comparison interval</h3>
+    <p>Two intervals are exposed in the top-30 view: <strong>7 days (Δ7d)</strong> and <strong>30 days (Δ30d)</strong>, both snapshot-to-snapshot diffs in calendar days.</p>
+    <p>A third interval, <strong>1 day (Δ1d)</strong>, is computed and exposed in per-DRep JSON exports and on the per-DRep page only. It is intentionally not surfaced on the main table because day-over-day voting-weight changes within an epoch are often not governance-meaningful and would crowd the table visually.</p>
+    <p>Each published flow value carries an explicit <code>flow_reference_date</code> field naming the snapshot date used as the prior reference. Anyone who downloads the daily snapshots can recompute the published flow value.</p>
+
+    <h3 style="font-size:14px; margin-top:18px;">18.6 Missing-data handling</h3>
+    <p>The observatory does not interpolate. If the prior snapshot at or before <code>t − n days</code> is missing, the flow value is <code>null</code>. A DRep that entered the top-30 within the last <code>n</code> days has <code>null</code> flows for <code>n</code>-day intervals until enough snapshots have accumulated. For dates before the first deployment of the observatory, no value is ever reported.</p>
+
+    <h3 style="font-size:14px; margin-top:18px;">18.7 Edge cases that cannot be resolved from snapshot data</h3>
+    <p>These conditions produce snapshot-level flow values that are not directly attributable. The observatory reports raw numbers anyway, without editorial framing:</p>
+    <table class="changelog">
+      <thead><tr><th>Condition</th><th>What the observatory sees</th><th>What it cannot tell</th></tr></thead>
+      <tbody>
+        <tr><td>Stake holder rotates to a new stake key</td><td>One delegator disappears, one new appears</td><td>Whether it's the same person</td></tr>
+        <tr><td>Exchange shifts custody between wallets</td><td>Delegator and weight movements</td><td>Whether the same custodian is involved</td></tr>
+        <tr><td>Holder consolidates multiple stake keys</td><td>Multiple delegators disappear, one appears</td><td>Whether it's one person consolidating</td></tr>
+        <tr><td>DRep metadata changes (name update)</td><td>Display name changes; <code>drep_id</code> stable</td><td>(no flow implication)</td></tr>
+        <tr><td>DRep deregisters</td><td>Voting weight → 0; delegators' stake unassigned</td><td>Whether delegators will re-delegate elsewhere</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-size:14px; margin-top:18px;">18.8 What flow data does NOT mean</h3>
+    <p>Flow data is a record of <em>what changed</em>, not <em>why</em>. The observatory cannot resolve motive from snapshot deltas. In particular:</p>
+    <ul>
+      <li><strong>A DRep gaining ADA does not imply approval, trust, endorsement, or agreement.</strong></li>
+      <li><strong>A DRep losing ADA does not imply rejection, disagreement, failure, or decline.</strong></li>
+      <li><strong>Large movements may originate from wallet software defaults, custodial infrastructure, exchange operations, stake-key changes, or delegation decisions.</strong> The observatory records the movement itself and does not attribute motive. The mechanism behind a delegation change is invisible from snapshot data.</li>
+      <li><strong>Coordinated-looking movement is not evidence of coordination.</strong></li>
+      <li><strong>Movement near a governance event is not evidence of voting motive.</strong></li>
+      <li><strong>The largest movers are not "winners" or "losers."</strong> Magnitude reflects the scale of delegation activity, not its quality or normative direction.</li>
+    </ul>
+    <p>Readers — researchers, journalists, DReps themselves — interpret what they see. The site does not.</p>
 
     <h2>12. v0.1 scope limitations</h2>
     <p>The site is deliberately narrow at v0.1. The following are out of scope for this version and disclosed here transparently rather than masked with synthetic or interpolated values:</p>
