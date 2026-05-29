@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Governance action — Cardano Delegation Observatory</title>
+<meta name="description" content="Historical record of a Cardano governance action: timeline, vote tally, DRep vote list.">
+<meta name="theme-color" content="#fafaf7">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand">
+      <span class="brand-mark">CDO</span>
+      <span class="brand-text" id="h-brand">Cardano Delegation Observatory</span>
+    </a>
+    <nav class="site-nav">
+      <a href="/" id="h-nav-observatory">Observatory</a>
+      <a href="actions.html" id="h-nav-actions">Actions</a>
+      <a href="methodology.html" id="h-nav-methodology">Methodology</a>
+      <a href="https://github.com/cryptoleo79/cardano-delegation-observatory" target="_blank" rel="noopener" id="h-nav-source">Source</a>
+      <div class="lang-toggle">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-ja" onclick="setLang('ja')">日本語</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <article class="container drep-page">
+    <p class="back-link"><a href="actions.html" id="back-link">← Governance actions</a></p>
+
+    <!-- Per METHODOLOGY §20.7: canonical action_id is displayed prominently near the top, never as an afterthought. -->
+    <div class="expand-section-label" id="action-id-label">Action ID</div>
+    <p class="full-id" id="action-id-full">—</p>
+
+    <h1 id="action-title">…</h1>
+    <p class="lede" id="action-type-line"></p>
+
+    <section class="drep-stats" id="action-stats">
+      <div class="stat-card"><div class="stat-label" id="stat-type-label">Type</div><div class="stat-value" id="stat-type">—</div></div>
+      <div class="stat-card"><div class="stat-label" id="stat-outcome-label">Outcome</div><div class="stat-value" id="stat-outcome">—</div></div>
+      <div class="stat-card"><div class="stat-label" id="stat-submitted-label">Submitted</div><div class="stat-value" id="stat-submitted">—</div></div>
+      <div class="stat-card"><div class="stat-label" id="stat-votes-label">Total DRep votes</div><div class="stat-value" id="stat-votes">—</div></div>
+    </section>
+
+    <section class="drep-section">
+      <div class="expand-section-label" id="action-timeline-label">Timeline</div>
+      <p class="footnote" id="action-timeline-help">Protocol-observed events. Active actions show submission only until a terminal state is observed. See <a href="methodology.html">Methodology §20.3</a>.</p>
+      <div class="table-scroll">
+        <table class="vote-table" id="action-timeline-table">
+          <thead>
+            <tr>
+              <th id="th-tl-event">Event</th>
+              <th id="th-tl-date">Date (UTC)</th>
+              <th id="th-tl-epoch">Epoch</th>
+            </tr>
+          </thead>
+          <tbody id="action-timeline-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="drep-section">
+      <div class="expand-section-label" id="action-tally-label">Vote tally</div>
+      <div class="drep-stats">
+        <div class="stat-card"><div class="stat-label" id="stat-yes-label">Yes</div><div class="stat-value" id="stat-yes">—</div></div>
+        <div class="stat-card"><div class="stat-label" id="stat-no-label">No</div><div class="stat-value" id="stat-no">—</div></div>
+        <div class="stat-card"><div class="stat-label" id="stat-abstain-label">Abstain</div><div class="stat-value" id="stat-abstain">—</div></div>
+      </div>
+      <p class="footnote" id="action-tally-help">Counts are the most recent vote cast by each DRep on this action. Per §6, revoted positions use the chronologically latest. No "approval" or "rejection" framing — only protocol terms.</p>
+    </section>
+
+    <section class="drep-section">
+      <div class="expand-section-label" id="action-votes-label">DRep votes</div>
+      <p class="footnote" id="action-votes-help">DRep names appear only when registered in on-chain metadata. Other voters appear by truncated DRep ID.</p>
+      <div class="table-scroll">
+        <table class="vote-table" id="action-votes-table">
+          <thead>
+            <tr>
+              <th data-sort="drep_name" id="th-v-name">DRep</th>
+              <th data-sort="vote" id="th-v-vote">Vote</th>
+              <th data-sort="vote_epoch" id="th-v-epoch">Epoch</th>
+              <th data-sort="vote_block_time" id="th-v-time">Block time (UTC)</th>
+            </tr>
+          </thead>
+          <tbody id="action-votes-tbody"></tbody>
+        </table>
+      </div>
+      <p class="vote-show-more" id="action-votes-more" style="display:none"></p>
+    </section>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <span id="ft-license">Apache 2.0 code · CC0 data</span>
+    </div>
+    <div>
+      <a href="/" id="ft-observatory">Observatory</a>
+      <a href="actions.html" id="ft-actions">Actions</a>
+      <a href="methodology.html" id="ft-methodology">Methodology</a>
+    </div>
+    <div class="footer-note" id="ft-repro">Reproducible from public Koios API endpoints.</div>
+    <div class="footer-note" id="ft-provenance">Telemetry derived from public Cardano governance data via Koios. No private data sources.</div>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="action.js"></script>
+</body>
+</html>

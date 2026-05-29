@@ -109,13 +109,15 @@ function render() {
 
     const tdTitle = document.createElement("td");
     tdTitle.className = "col-name";
-    const titleDiv = document.createElement("div");
-    titleDiv.className = "drep-name";
-    titleDiv.textContent = a.title || "—";
+    const titleLink = document.createElement("a");
+    titleLink.href = `action.html?id=${encodeURIComponent(a.action_id)}`;
+    titleLink.className = "drep-name";
+    titleLink.style.color = "var(--text)";
+    titleLink.textContent = a.title || "—";
     const idDiv = document.createElement("div");
     idDiv.className = "drep-id-short";
     idDiv.textContent = a.action_id;
-    tdTitle.appendChild(titleDiv);
+    tdTitle.appendChild(titleLink);
     tdTitle.appendChild(idDiv);
     tr.appendChild(tdTitle);
 
