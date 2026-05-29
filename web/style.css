@@ -376,6 +376,53 @@ tr.expand-row:hover { background: var(--card); }
   .drep-page { padding: 16px 14px 60px; }
 }
 
+/* FLOW-4: Provenance strip for historical views */
+.provenance-strip {
+  background: var(--card);
+  border: 0.5px solid var(--accent);
+  border-radius: 6px;
+  padding: 14px 16px;
+  margin-bottom: 24px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.provenance-header {
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px;
+  margin-bottom: 12px;
+}
+.provenance-header strong { color: var(--text); font-size: 13px; letter-spacing: 0.04em; }
+.provenance-view-current { font-size: 12px; }
+.provenance-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 8px 16px;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.provenance-cell { display: flex; gap: 8px; align-items: baseline; }
+.provenance-label { color: var(--faint); text-transform: uppercase; letter-spacing: 0.05em; font-size: 11px; }
+.provenance-value { color: var(--text); }
+.provenance-value.mono { font-family: var(--mono); font-size: 11px; word-break: break-all; }
+.provenance-download { font-size: 11px; color: var(--muted); padding-top: 8px; border-top: 0.5px dashed var(--border); }
+.provenance-download a { font-family: var(--mono); }
+
+/* FLOW-4: Missing-date notice */
+.missing-date-notice {
+  background: var(--card);
+  border: 0.5px solid var(--border);
+  border-radius: 6px;
+  padding: 28px;
+  max-width: 640px;
+  margin: 48px auto;
+}
+.missing-date-notice h1 { font-size: 20px; margin-bottom: 12px; }
+.missing-date-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+  margin-top: 20px; padding: 18px; background: var(--accent-soft); border-radius: 4px;
+}
+@media (max-width: 720px) {
+  .missing-date-grid { grid-template-columns: 1fr; }
+}
+
 /* Methodology page */
 .methodology { max-width: 760px; margin: 0 auto; padding: 36px 24px 80px; }
 .methodology h1 { font-size: 30px; margin-bottom: 8px; }

@@ -2,7 +2,10 @@
 
 "use strict";
 
-const DATA_ROOT = "/data/snapshots";
+const DATA_ROOT_DEFAULT = "/data/snapshots";
+function DATA_ROOT() {
+  return (typeof window !== "undefined" && window.dataRoot) ? window.dataRoot() : DATA_ROOT_DEFAULT;
+}
 const NUM_LOCALE = { en: "en-US", ja: "ja-JP" };
 
 const state = {
@@ -180,13 +183,15 @@ function onSortClick(ev) {
 }
 
 async function boot() {
+  if (window.renderMissingDateNotice && await window.renderMissingDateNotice()) return;
+  if (window.renderProvenanceStrip) window.renderProvenanceStrip();
   document.querySelectorAll("table.observatory thead th").forEach((th) => {
     if (th.dataset.sort) th.addEventListener("click", onSortClick);
   });
   document.addEventListener("cdo-lang", () => render());
 
   try {
-    state.actions = await fetchJson(`${DATA_ROOT}/actions.json`);
+    state.actions = await fetchJson(`${DATA_ROOT()}/actions.json`);
     populateFilters();
     render();
   } catch (err) {

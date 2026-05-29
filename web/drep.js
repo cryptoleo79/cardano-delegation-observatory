@@ -2,7 +2,10 @@
 
 "use strict";
 
-const DATA_ROOT = "/data/snapshots";
+const DATA_ROOT_DEFAULT = "/data/snapshots";
+function DATA_ROOT() {
+  return (typeof window !== "undefined" && window.dataRoot) ? window.dataRoot() : DATA_ROOT_DEFAULT;
+}
 const NUM_LOCALE = { en: "en-US", ja: "ja-JP" };
 const LOVELACE_PER_ADA = 1_000_000;
 
@@ -318,6 +321,8 @@ function render() {
 /* ── boot ───────────────────────────────────────────────────────────── */
 
 async function boot() {
+  if (window.renderMissingDateNotice && await window.renderMissingDateNotice()) return;
+  if (window.renderProvenanceStrip) window.renderProvenanceStrip();
   state.drepId = drepIdFromUrl();
   document.addEventListener("cdo-lang", () => render());
   if (!state.drepId) {
@@ -326,7 +331,7 @@ async function boot() {
     return;
   }
   try {
-    state.detail = await fetchJson(`${DATA_ROOT}/dreps/${state.drepId}.json`);
+    state.detail = await fetchJson(`${DATA_ROOT()}/dreps/${state.drepId}.json`);
     render();
     document.title = `${state.detail.name || state.drepId.slice(0, 20)} — Cardano Delegation Observatory`;
   } catch (err) {

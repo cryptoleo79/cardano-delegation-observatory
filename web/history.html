@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Historical snapshots — Cardano Delegation Observatory</title>
+<meta name="description" content="Browse archived daily snapshots of Cardano governance state.">
+<meta name="theme-color" content="#fafaf7">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand">
+      <span class="brand-mark">CDO</span>
+      <span class="brand-text" id="h-brand">Cardano Delegation Observatory</span>
+    </a>
+    <nav class="site-nav">
+      <a href="/" id="h-nav-observatory">Observatory</a>
+      <a href="actions.html" id="h-nav-actions">Actions</a>
+      <a href="history.html" id="h-nav-history">History</a>
+      <a href="methodology.html" id="h-nav-methodology">Methodology</a>
+      <a href="https://github.com/cryptoleo79/cardano-delegation-observatory" target="_blank" rel="noopener" id="h-nav-source">Source</a>
+      <div class="lang-toggle">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-ja" onclick="setLang('ja')">日本語</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <h1 id="history-title">Historical snapshots</h1>
+    <p class="lede" id="history-lede">Every daily snapshot archived under <code>/data/snapshots/by-date/{YYYY-MM-DD}/</code>. Snapshots are immutable once published. Missing dates (failed ETL runs) are not interpolated; they simply do not appear. See <a href="methodology.html">Methodology §21</a>.</p>
+
+    <section class="history-summary" id="history-summary">
+      <div class="drep-stats">
+        <div class="stat-card"><div class="stat-label" id="hs-first-label">First archived</div><div class="stat-value" id="hs-first">—</div></div>
+        <div class="stat-card"><div class="stat-label" id="hs-latest-label">Latest archived</div><div class="stat-value" id="hs-latest">—</div></div>
+        <div class="stat-card"><div class="stat-label" id="hs-total-label">Total days</div><div class="stat-value" id="hs-total">—</div></div>
+      </div>
+    </section>
+
+    <section class="history-list-section">
+      <div class="expand-section-label" id="history-list-label">All snapshots</div>
+      <div class="table-scroll">
+        <table class="vote-table" id="history-table">
+          <thead>
+            <tr>
+              <th id="th-h-date">Date (UTC)</th>
+              <th id="th-h-links">Views</th>
+              <th id="th-h-archive">Archive path</th>
+            </tr>
+          </thead>
+          <tbody id="history-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <span id="ft-license">Apache 2.0 code · CC0 data</span>
+    </div>
+    <div>
+      <a href="/" id="ft-observatory">Observatory</a>
+      <a href="actions.html" id="ft-actions">Actions</a>
+      <a href="methodology.html" id="ft-methodology">Methodology</a>
+    </div>
+    <div class="footer-note" id="ft-repro">Reproducible from public Koios API endpoints.</div>
+    <div class="footer-note" id="ft-provenance">Telemetry derived from public Cardano governance data via Koios. No private data sources.</div>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="history.js"></script>
+</body>
+</html>

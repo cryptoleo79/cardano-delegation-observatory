@@ -2,7 +2,10 @@
 
 "use strict";
 
-const DATA_ROOT = "/data/snapshots";
+const DATA_ROOT_DEFAULT = "/data/snapshots";
+function DATA_ROOT() {
+  return (typeof window !== "undefined" && window.dataRoot) ? window.dataRoot() : DATA_ROOT_DEFAULT;
+}
 const NUM_LOCALE = { en: "en-US", ja: "ja-JP" };
 const INITIAL_VOTES_VISIBLE = 20;
 
@@ -223,6 +226,8 @@ function render() {
 }
 
 async function boot() {
+  if (window.renderMissingDateNotice && await window.renderMissingDateNotice()) return;
+  if (window.renderProvenanceStrip) window.renderProvenanceStrip();
   state.actionId = actionIdFromUrl();
   document.querySelectorAll("#action-votes-table thead th").forEach((th) => {
     if (th.dataset.sort) th.addEventListener("click", onSortClick);
@@ -234,7 +239,7 @@ async function boot() {
     return;
   }
   try {
-    state.detail = await fetchJson(`${DATA_ROOT}/actions/${state.actionId}.json`);
+    state.detail = await fetchJson(`${DATA_ROOT()}/actions/${state.actionId}.json`);
     render();
     const titleSnippet = state.detail.title
       ? state.detail.title.slice(0, 40)

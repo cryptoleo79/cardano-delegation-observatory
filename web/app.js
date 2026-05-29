@@ -5,7 +5,10 @@
 
 "use strict";
 
-const DATA_ROOT = "/data/snapshots";
+const DATA_ROOT_DEFAULT = "/data/snapshots";
+function DATA_ROOT() {
+  return (typeof window !== "undefined" && window.dataRoot) ? window.dataRoot() : DATA_ROOT_DEFAULT;
+}
 const NUM_LOCALE = { en: "en-US", ja: "ja-JP" };
 
 const state = {
@@ -238,7 +241,7 @@ function toggleExpand(drepId, tr) {
   renderTable();
   /* lazy-load detail JSON */
   if (!state.drepCache.has(drepId)) {
-    fetchJson(`${DATA_ROOT}/dreps/${drepId}.json`)
+    fetchJson(`${DATA_ROOT()}/dreps/${drepId}.json`)
       .then((data) => {
         state.drepCache.set(drepId, data);
         if (state.expandedDrepId === drepId) renderTable();
@@ -591,7 +594,7 @@ function renderRecentActivity(payload) {
 
 async function loadLiveLayer() {
   try {
-    const liveMeta = await fetchJson(`${DATA_ROOT}/live/meta.json`);
+    const liveMeta = await fetchJson(`${DATA_ROOT_DEFAULT}/live/meta.json`);
     state.liveMeta = liveMeta;
     renderLiveBadge(liveMeta);
   } catch (err) {
@@ -600,7 +603,7 @@ async function loadLiveLayer() {
     renderLiveBadge(null);
   }
   try {
-    const votes = await fetchJson(`${DATA_ROOT}/live/recent_votes.json`);
+    const votes = await fetchJson(`${DATA_ROOT_DEFAULT}/live/recent_votes.json`);
     state.liveRecentVotes = votes;
     renderRecentActivity(votes);
   } catch (err) {
@@ -612,6 +615,11 @@ async function loadLiveLayer() {
 /* ── boot ─────────────────────────────────────────────────────────────── */
 
 async function boot() {
+  /* FLOW-4: If ?date= points to a missing snapshot, render notice and stop. */
+  if (window.renderMissingDateNotice && await window.renderMissingDateNotice()) return;
+  /* FLOW-4: render provenance strip in historical mode. */
+  if (window.renderProvenanceStrip) window.renderProvenanceStrip();
+
   document.querySelectorAll("table.observatory thead th").forEach((th) => {
     if (th.dataset.sort) th.addEventListener("click", onSortClick);
   });
@@ -624,8 +632,8 @@ async function boot() {
 
   try {
     const [top30, meta] = await Promise.all([
-      fetchJson(`${DATA_ROOT}/top30.json`),
-      fetchJson(`${DATA_ROOT}/meta.json`),
+      fetchJson(`${DATA_ROOT()}/top30.json`),
+      fetchJson(`${DATA_ROOT()}/meta.json`),
     ]);
     state.top30 = top30;
     state.meta = meta;
@@ -638,12 +646,14 @@ async function boot() {
     renderMeta(null);
     renderTable();
   }
-  /* Live layer loads independently; failure to load it is silent. */
-  await loadLiveLayer();
-  /* On tab focus, refresh the live layer only — daily layer is cached. */
-  document.addEventListener("visibilitychange", () => {
-    if (!document.hidden) loadLiveLayer();
-  });
+  /* Live layer loads independently; failure to load it is silent.
+   * In historical mode (?date=...), skip live entirely — it's a current view. */
+  if (!window.isHistorical || !window.isHistorical()) {
+    await loadLiveLayer();
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) loadLiveLayer();
+    });
+  }
 }
 
 if (document.readyState === "loading") {
