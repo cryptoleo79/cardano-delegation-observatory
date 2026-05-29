@@ -133,7 +133,8 @@ The source code, deployment configuration, and data schema are all public in thi
 
 | Date | Version | Change |
 |---|---|---|
-| 2026-05-29 | v0.4 (methodology only — code follows) | FLOW-1 methodology §18 added: defines net voting-weight movement and net delegator-count movement; explicitly separates measured movement from inferred meaning. §18.3 states that net movement is not migration. §18.8 enumerates what flow data does NOT imply, including the explicit case that large movements may originate from wallet software defaults, custodial infrastructure, exchange operations, stake-key changes, or delegation decisions, none of which the observatory can attribute. Δ1d intentionally not surfaced on main table — per-DRep page and JSON exports only. Code and frontend implementation follow in separate commits. |
+| 2026-05-29 | v0.5 (methodology only — code follows) | FLOW-2 methodology §19 added: defines governance event overlays on the per-DRep voting weight chart. Five event types (submission, ratification, enactment, expiration, drop) with explicit time alignment between epoch-anchored events and date-anchored chart. §19.3 explicitly separates temporal proximity from causal claim; states that multiple events may occur without observable delegation response, and that the observatory records events and delegation state independently. §19.4 requires markers render behind the delegation series and never obscure the underlying data; single neutral color for all event types. §19.5 explicitly shows all actions in window — no editorial pre-filter. Schema addition: `epoch_info` table. Export addition: `/data/snapshots/epoch_info.json`. Code and frontend implementation follow in separate commits. |
+| 2026-05-29 | v0.4 | FLOW-1 methodology §18 added: defines net voting-weight movement and net delegator-count movement; explicitly separates measured movement from inferred meaning. §18.3 states that net movement is not migration. §18.8 enumerates what flow data does NOT imply, including the explicit case that large movements may originate from wallet software defaults, custodial infrastructure, exchange operations, stake-key changes, or delegation decisions, none of which the observatory can attribute. Δ1d intentionally not surfaced on main table — per-DRep page and JSON exports only. Code and frontend implementation follow in separate commits. |
 | 2026-05-28 | v0.3 | Live telemetry layer added (`etl/live.py`, 10-minute cadence). Daily layer remains canonical. New methodology §14–§17 describe the live layer, eventual consistency between layers, Koios rate-limit discipline, and live-only data exports. Schema migration: `vote_block_time` column added to `votes` table; new `live_state` key/value table for cross-run state. All JSON exports now stamp `schema_version` (integer) and `methodology_version` (string) at the top of the payload to support reproducibility and downstream stability. Frontend gains explicit "daily snapshot" vs "live telemetry" distinction wording, recent-activity section with absolute UTC timestamps, and a data-provenance line in the footer. |
 | 2026-05-28 | v0.2 | Deployment + scope expansion. Site live at https://observatory.asy.life via nginx + Let's Encrypt. Daily ETL cron at 02:00 UTC, git-pull deploy cron every 5 min. Added: governance actions index page (`/actions.html`) with DRep vote tally per action; public CSV export of top-30 snapshot (`/data/snapshots/top30.csv`); permalinkable per-DRep page (`/drep.html?id=...`) with full vote history and 90-day chart. New §13 documents pages and exports. |
 | 2026-05-28 | v0.1.5 | Added vote ingestion: `/proposal_list` and `/vote_list` are now ingested each run. 119 governance actions and ~24k DRep votes captured locally; `last_vote_epoch` is now populated for every DRep with at least one recorded vote. Ordering fix applied: when a DRep revoted on the same proposal, the chronologically latest vote (by block_time) is the one kept. §3 endpoint list updated. §6 `last_vote_epoch` description clarified. §12 amended: vote ingestion is no longer listed as a v0.1 limitation. |
@@ -319,6 +320,95 @@ Flow data is a record of *what changed*, not *why*. The observatory cannot resol
 - **The largest movers are not "winners" or "losers."** Magnitude reflects the scale of delegation activity, not its quality or normative direction.
 
 Readers — researchers, journalists, DReps themselves — interpret what they see. The site does not.
+
+## 19. Governance event overlays (FLOW-2)
+
+This section defines how governance actions are displayed in time alongside delegation movement on the per-DRep voting weight chart. The boundary is sharp: the observatory shows *temporal proximity* between delegation movement and governance events; it makes no claim about *causation*.
+
+### 19.1 Event types overlaid
+
+For each governance action, up to five events may be drawn on the chart, depending on which fields are populated in the underlying record:
+
+- **Submission** — when the proposal transaction was included on chain. Pinned to the UTC date of `block_time` from Koios `/proposal_list`.
+- **Ratification** — when the protocol marked the action as ratified. Pinned to the start date of `ratified_epoch`.
+- **Enactment** — when the protocol applied the action's effect. Pinned to the start date of `enacted_epoch`.
+- **Expiration** — when the voting period closed without resolution. Pinned to the start date of `expires_epoch`.
+- **Drop** — when the action was dropped. Pinned to the start date of `dropped_epoch`.
+
+Each event for each action is sourced from Koios fields and is reproducible from the underlying `governance_actions` row and `epoch_info` mapping.
+
+### 19.2 Time alignment between epochs and snapshot dates
+
+The per-DRep voting weight chart is indexed by daily snapshot date (UTC calendar day). Governance state transitions resolve at epoch boundaries every five days. To overlay an epoch-anchored event on a date-indexed chart, the observatory uses:
+
+- For **submission**: the exact UTC date of the submission `block_time`.
+- For **ratification, enactment, expiration, drop**: the UTC date on which the relevant epoch began.
+
+Epoch boundary dates are derived from Koios `/epoch_info`, which is canonical. When neither this nor a derived value is available (an epoch far in the past that has not been ingested), the overlay is omitted rather than approximated.
+
+### 19.3 What an overlay marker means — and does not mean
+
+An overlay marker on a chart at date *D* for event *E* concerning action *A* means exactly this:
+
+> *Event E for action A occurred on date D (approximately, at epoch granularity for state transitions).*
+
+The marker does **not** mean:
+
+- That any delegation movement on or near *D* was caused by *A*.
+- That delegation movement near *D* was a reaction to *A*.
+- That voters on *A* coordinated their delegation choices.
+- That *A* is more or less important than other actions on the chart.
+- That any DRep voted on *A* in any particular way (vote history is a separate dataset on the per-DRep page; the overlay does not encode votes).
+
+**Multiple governance events may occur within the same visual window without any observable delegation response. The observatory records both the events and the delegation state independently.** Proximity on the same time axis does not imply influence in either direction.
+
+These claims would require attribution beyond what proximity-on-a-timeline provides. The observatory does not generate them.
+
+### 19.4 Visual conventions
+
+Overlays appear as subtle vertical markers on the 90-day voting weight chart, in a single calm neutral color, with **no outcome-based color coding** (enacted is the same color as dropped; ratified is the same color as expired). Markers are background context, not foreground.
+
+**Overlay markers are rendered behind the delegation series and never obscure the underlying governance data.** The delegation line and its data points are always drawn on top of the marker layer.
+
+Hovering or tapping a marker reveals plain text: action ID, action type, event type, event date. No commentary is generated.
+
+Markers for the same action at different events (e.g., submission → enactment) appear at their respective dates and are **not** connected by lines or arrows on the chart. The chart does not draw "lifecycle paths" or anything that could suggest a causal narrative.
+
+### 19.5 Scope of which actions appear on which charts
+
+On a given per-DRep chart, the observatory overlays **all governance actions whose any event date falls within the chart's visible 90-day window.** It does not pre-filter by whether the DRep voted on the action.
+
+This is deliberate: pre-filtering ("show only actions this DRep voted on") is itself an editorial choice — it implies actions this DRep ignored are not relevant context. By showing all actions in window, the observatory presents the governance environment the DRep was operating in, regardless of their participation.
+
+If a 90-day window contains too many event markers to read clearly, the observatory may clip to the most recent N actions; the clipping rule is documented in code and reproducible. This is a display constraint, not editorial selection.
+
+### 19.6 What FLOW-2 does NOT do
+
+- **No causal claims.** The observatory does not compute "delegation movement X% correlated with action Y" or similar quantities.
+- **No highlighting** of actions near large delegation movements.
+- **No ranking** of actions by proximity to flow events.
+- **No color signaling** by outcome on the chart axis.
+- **No forecasts.** The observatory does not predict that an action will be enacted, ratified, dropped, or expire based on delegation flow.
+- **No per-DRep filtering.** All actions in window appear regardless of whether the DRep voted.
+
+### 19.7 Edge cases
+
+- **Action submitted before observatory deployment.** Submission overlay placed at submission date even when that date precedes the chart's first snapshot. The marker sits on the date axis with no chart context to its left; this is honest, not hidden.
+- **Multiple events on the same date for the same action.** Drawn as separate markers with small horizontal offset for legibility. Tooltip lists all events at that date.
+- **Action with `block_time` precision but all state-transition epochs null** (still active). Only the submission marker is drawn.
+- **Epoch boundary fell on a day with no successful daily ETL run.** Boundary date derived from Koios `/epoch_info` directly. The epoch boundary itself is precisely known regardless of whether the observatory captured a snapshot that day.
+- **Action in the chart window but the DRep was not yet in the top-30 at the time.** The marker still appears; the DRep's voting weight series may be null for early dates in the window.
+- **DRep's chart window has fewer than 90 days of snapshots** (early days post-deploy). Overlay window matches the actual available snapshot range, not a synthetic 90 days.
+
+### 19.8 Reproducibility commitment
+
+Every overlay marker is derivable from:
+
+- `governance_actions.action_id` and the epoch fields (`expires_epoch`, `ratified_epoch`, `enacted_epoch`, `dropped_epoch`)
+- Koios `proposal_list.block_time` for submissions
+- The `epoch_info` mapping (epoch → start date)
+
+All three are published in CC0 form (the first two are already in `actions.json`; FLOW-2 adds the epoch_info export at `/data/snapshots/epoch_info.json`).
 
 ## 12. v0.1 scope limitations
 

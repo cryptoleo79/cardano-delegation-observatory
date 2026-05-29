@@ -152,7 +152,12 @@
       <tbody>
         <tr>
           <td>2026-05-29</td>
-          <td>v0.4 (methodology only — code follows)</td>
+          <td>v0.5 (methodology only — code follows)</td>
+          <td>FLOW-2 methodology §19 added: defines governance event overlays on the per-DRep voting weight chart. Five event types with explicit time alignment between epoch-anchored events and date-anchored chart. §19.3 separates temporal proximity from causal claims; states the observatory records events and delegation state independently. §19.4 requires markers render behind the delegation series and never obscure underlying data; single neutral color for all event types. §19.5 shows all actions in window — no editorial pre-filter. Schema addition: <code>epoch_info</code> table. Export addition: <code>/data/snapshots/epoch_info.json</code>. Code and frontend follow.</td>
+        </tr>
+        <tr>
+          <td>2026-05-29</td>
+          <td>v0.4</td>
           <td>FLOW-1 methodology §18 added: defines net voting-weight movement and net delegator-count movement; separates measured movement from inferred meaning. §18.3 states net movement is not migration. §18.8 enumerates what flow data does NOT imply, including the explicit case that large movements may originate from wallet software defaults, custodial infrastructure, exchange operations, stake-key changes, or delegation decisions. Δ1d not on main table — per-DRep page and JSON exports only. Code and frontend follow in separate commits.</td>
         </tr>
         <tr>
@@ -315,6 +320,58 @@
       <li><strong>The largest movers are not "winners" or "losers."</strong> Magnitude reflects the scale of delegation activity, not its quality or normative direction.</li>
     </ul>
     <p>Readers — researchers, journalists, DReps themselves — interpret what they see. The site does not.</p>
+
+    <h2>19. Governance event overlays (FLOW-2)</h2>
+    <p>This section defines how governance actions are displayed in time alongside delegation movement on the per-DRep voting weight chart. The boundary is sharp: the observatory shows <em>temporal proximity</em> between delegation movement and governance events; it makes no claim about <em>causation</em>.</p>
+
+    <h3 style="font-size:14px; margin-top:18px;">19.1 Event types overlaid</h3>
+    <p>For each governance action, up to five events may be drawn on the chart, depending on which fields are populated:</p>
+    <ul>
+      <li><strong>Submission</strong> — UTC date of <code>block_time</code> from Koios <code>/proposal_list</code>.</li>
+      <li><strong>Ratification</strong> — start date of <code>ratified_epoch</code>.</li>
+      <li><strong>Enactment</strong> — start date of <code>enacted_epoch</code>.</li>
+      <li><strong>Expiration</strong> — start date of <code>expires_epoch</code>.</li>
+      <li><strong>Drop</strong> — start date of <code>dropped_epoch</code>.</li>
+    </ul>
+
+    <h3 style="font-size:14px; margin-top:18px;">19.2 Time alignment between epochs and snapshot dates</h3>
+    <p>Submission events use the exact UTC date of submission. State-transition events use the UTC date the relevant epoch began, sourced from Koios <code>/epoch_info</code> (canonical). When no source is available, the overlay is omitted rather than approximated.</p>
+
+    <h3 style="font-size:14px; margin-top:18px;">19.3 What an overlay marker means — and does not mean</h3>
+    <p>An overlay marker at date <em>D</em> for event <em>E</em> concerning action <em>A</em> means exactly: <em>Event E for action A occurred on date D</em> (approximately, at epoch granularity for state transitions).</p>
+    <p>The marker does <strong>not</strong> mean that any delegation movement on or near <em>D</em> was caused by <em>A</em>, that movement was a reaction to <em>A</em>, that voters coordinated, that <em>A</em> is more or less important than other actions, or that any DRep voted on <em>A</em> in any particular way.</p>
+    <p><strong>Multiple governance events may occur within the same visual window without any observable delegation response. The observatory records both the events and the delegation state independently.</strong> Proximity on the same time axis does not imply influence in either direction.</p>
+
+    <h3 style="font-size:14px; margin-top:18px;">19.4 Visual conventions</h3>
+    <p>Overlays appear as subtle vertical markers on the chart, in a single calm neutral color, with <strong>no outcome-based color coding</strong> (enacted is the same color as dropped; ratified is the same color as expired).</p>
+    <p><strong>Overlay markers are rendered behind the delegation series and never obscure the underlying governance data.</strong> The delegation line and its data points are always drawn on top of the marker layer.</p>
+    <p>Hovering or tapping a marker reveals plain text: action ID, action type, event type, event date. Markers for the same action at different events are <strong>not</strong> connected by lines or arrows.</p>
+
+    <h3 style="font-size:14px; margin-top:18px;">19.5 Scope of which actions appear on which charts</h3>
+    <p>The observatory overlays <strong>all governance actions whose any event date falls within the chart's visible 90-day window.</strong> It does not pre-filter by whether the DRep voted on the action. Pre-filtering would implicitly editorialize relevance; showing all events presents the governance environment the DRep was operating in.</p>
+
+    <h3 style="font-size:14px; margin-top:18px;">19.6 What FLOW-2 does NOT do</h3>
+    <ul>
+      <li>No causal claims; no correlation computations.</li>
+      <li>No highlighting of actions near large delegation movements.</li>
+      <li>No ranking of actions by proximity.</li>
+      <li>No color signaling by outcome on the chart.</li>
+      <li>No forecasts.</li>
+      <li>No per-DRep filtering of which actions appear.</li>
+    </ul>
+
+    <h3 style="font-size:14px; margin-top:18px;">19.7 Edge cases</h3>
+    <ul>
+      <li><strong>Action submitted before deployment:</strong> overlay placed at the submission date with no chart context to its left. Honest, not hidden.</li>
+      <li><strong>Multiple events on same date for same action:</strong> drawn as separate markers with small horizontal offset; tooltip lists all events.</li>
+      <li><strong>Still-active action:</strong> only submission marker is drawn.</li>
+      <li><strong>Epoch boundary on day with no successful ETL run:</strong> boundary date from Koios <code>/epoch_info</code> directly.</li>
+      <li><strong>Action in window but DRep not yet in top-30:</strong> marker still appears; voting weight series may be null for earlier dates.</li>
+      <li><strong>Fewer than 90 days of snapshots:</strong> overlay window matches actual snapshot range, not synthetic 90 days.</li>
+    </ul>
+
+    <h3 style="font-size:14px; margin-top:18px;">19.8 Reproducibility commitment</h3>
+    <p>Every overlay marker is derivable from <code>governance_actions</code> (action_id + epoch fields), <code>proposal_list.block_time</code>, and the <code>epoch_info</code> mapping. All three are CC0; FLOW-2 adds the export at <code>/data/snapshots/epoch_info.json</code>.</p>
 
     <h2>12. v0.1 scope limitations</h2>
     <p>The site is deliberately narrow at v0.1. The following are out of scope for this version and disclosed here transparently rather than masked with synthetic or interpolated values:</p>
