@@ -36,6 +36,41 @@ a:hover { text-decoration: underline; }
   .container { padding: 0 14px; }
 }
 
+/* Ecosystem strip — restrained, minimal, top-level discovery row */
+.ecosystem-strip {
+  background: rgba(0, 0, 0, 0.025);
+  border-bottom: 0.5px solid var(--border);
+  font-size: 11px;
+  color: var(--faint);
+  letter-spacing: 0.02em;
+}
+.ecosystem-strip-inner {
+  display: flex; align-items: center; flex-wrap: wrap;
+  gap: 0 6px;
+  padding: 5px 24px;
+  max-width: 1100px; margin: 0 auto;
+}
+.eco-label {
+  text-transform: uppercase; font-size: 10px; letter-spacing: 0.08em;
+  color: var(--faint); margin-right: 6px;
+}
+.eco-link {
+  color: var(--muted);
+  padding: 2px 6px;
+  text-decoration: none;
+  border-radius: 3px;
+}
+.eco-link:hover { color: var(--text); text-decoration: none; background: var(--accent-soft); }
+.eco-active {
+  color: var(--accent);
+  font-weight: 600;
+}
+.eco-sep { color: var(--border-strong); user-select: none; }
+@media (max-width: 720px) {
+  .ecosystem-strip-inner { padding: 4px 14px; gap: 0 4px; }
+  .eco-label { display: none; }
+}
+
 /* Header */
 .site-header {
   position: sticky; top: 0; z-index: 50;
