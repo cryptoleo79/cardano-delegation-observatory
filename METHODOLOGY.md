@@ -663,6 +663,44 @@ If a community contributor publishes an independent observatory that begins obse
 
 Every historical snapshot served by the browser is identical to the file published at `by-date/{date}/...` and is reproducible by any third party who archived the original snapshots when they were current. The browser does not transform the served artifacts beyond what the user-agent receives; the JSON returned for a historical date matches the file in the dated archive byte-for-byte (subject only to nginx compression negotiation).
 
+### 21.13 Archive integrity hashing
+
+Each dated snapshot archive includes a `sha256.json` file listing the SHA-256 hash of every other file in that archive. Written last, after all other archive files are in place.
+
+**Path:** `/data/snapshots/by-date/{YYYY-MM-DD}/sha256.json`
+
+**Shape:**
+
+```json
+{
+  "schema_version": 1,
+  "methodology_version": "0.7",
+  "snapshot_date": "2026-05-30",
+  "algorithm": "sha256",
+  "files": {
+    "top30.json": "a1b2c3…",
+    "actions.json": "d4e5f6…",
+    "meta.json": "…",
+    "epoch_info.json": "…",
+    "top30.csv": "…",
+    "dreps/drep1…json": "…",
+    "actions/gov_action1…json": "…"
+  }
+}
+```
+
+The hashed files include every file in the dated archive **except** `sha256.json` itself (self-reference paradox). The hash digest covers raw file bytes as written, before any HTTP-layer compression negotiation.
+
+**Verification protocol.** Any third party who has downloaded a dated archive can:
+
+1. Compute SHA-256 of each file in the archive (excluding `sha256.json`).
+2. Compare against the corresponding entry in `sha256.json`.
+3. A mismatch is evidence that one of the files has been modified after the date's snapshot was sealed.
+
+If the operator (this observatory) ever modified a past-date archive in violation of §21.7's immutability rule, the `sha256.json` for that date would also need to be regenerated, which would itself be an audit trail in the git history of the deployment.
+
+Hashes are not cryptographically signed in v0.7. Signing the hash file with the operator's key (binding the operator's identity to the published archive) is a v0.8+ candidate; the public-key infrastructure to support it is not currently in scope.
+
 ## 12. v0.1 scope limitations
 
 The site is deliberately narrow at v0.1. The following are out of scope for this version and disclosed here transparently rather than masked with synthetic or interpolated values:

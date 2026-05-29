@@ -513,6 +513,26 @@
     <h3 style="font-size:14px; margin-top:18px;">21.12 Reproducibility</h3>
     <p>The JSON returned for a historical date matches the file in the dated archive byte-for-byte (subject only to nginx compression negotiation). Any third party who archived the original snapshots when they were current can reproduce every historical view.</p>
 
+    <h3 style="font-size:14px; margin-top:18px;">21.13 Archive integrity hashing</h3>
+    <p>Each dated snapshot archive includes a <code>sha256.json</code> file at <code>/data/snapshots/by-date/{YYYY-MM-DD}/sha256.json</code> listing the SHA-256 hash of every other file in that archive. Written last, after all other archive files are in place.</p>
+    <p><strong>Shape:</strong></p>
+    <pre style="background:var(--accent-soft);padding:10px;border-radius:4px;font-size:12px;overflow-x:auto;">{
+  "schema_version": 1,
+  "methodology_version": "0.7",
+  "snapshot_date": "2026-05-30",
+  "algorithm": "sha256",
+  "files": {
+    "top30.json": "a1b2c3…",
+    "actions.json": "d4e5f6…",
+    "meta.json": "…",
+    "dreps/drep1…json": "…",
+    "actions/gov_action1…json": "…"
+  }
+}</pre>
+    <p>The hashed files include every file in the dated archive <strong>except</strong> <code>sha256.json</code> itself. The hash digest covers raw file bytes as written, before any HTTP-layer compression negotiation.</p>
+    <p><strong>Verification protocol.</strong> Any third party can: (1) compute SHA-256 of each file in a downloaded archive (excluding <code>sha256.json</code>); (2) compare against the corresponding entry in <code>sha256.json</code>; (3) treat any mismatch as evidence that one of the files has been modified after the snapshot was sealed.</p>
+    <p>Hashes are not cryptographically signed in v0.7. Signing is a v0.8+ candidate.</p>
+
     <h2>12. v0.1 scope limitations</h2>
     <p>The site is deliberately narrow at v0.1. The following are out of scope for this version and disclosed here transparently rather than masked with synthetic or interpolated values:</p>
     <ul>
