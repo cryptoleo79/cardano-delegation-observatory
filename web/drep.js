@@ -86,7 +86,7 @@ async function fetchJson(url) {
 
 /* ── chart ──────────────────────────────────────────────────────────── */
 
-function buildChart(series) {
+function buildChart(series, overlayEvents) {
   const W = 720, H = 240, PAD_L = 64, PAD_R = 16, PAD_T = 16, PAD_B = 32;
   const innerW = W - PAD_L - PAD_R;
   const innerH = H - PAD_T - PAD_B;
@@ -99,9 +99,47 @@ function buildChart(series) {
   const yScale = (v) => PAD_T + (innerH * (1 - (v - yMin) / (yMax - yMin || 1)));
   const xScale = (i) => PAD_L + (innerW * (series.length === 1 ? 0.5 : i / (series.length - 1)));
 
+  /* Map ISO date string → x coordinate by linear interpolation across the
+   * series date range. Per METHODOLOGY §19.2, overlay event dates are aligned
+   * to the chart's date axis. Returns null if date is outside the series range. */
+  function xForDate(iso) {
+    if (!series.length) return null;
+    const t0 = Date.parse(series[0].date + "T00:00:00Z");
+    const t1 = Date.parse(series[series.length - 1].date + "T00:00:00Z");
+    const t  = Date.parse(iso + "T00:00:00Z");
+    if (isNaN(t) || isNaN(t0) || isNaN(t1)) return null;
+    if (t1 === t0) return xScale(0);
+    if (t < t0 || t > t1) return null;
+    const frac = (t - t0) / (t1 - t0);
+    return PAD_L + innerW * frac;
+  }
+
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
   svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
+
+  /* Overlay layer FIRST (per METHODOLOGY §19.4: rendered behind delegation series).
+   * Single neutral color, no per-event-type styling. Hover title gives details. */
+  if (Array.isArray(overlayEvents) && overlayEvents.length > 0) {
+    const overlayGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    overlayGroup.setAttribute("class", "chart-overlay-layer");
+    for (const ev of overlayEvents) {
+      const x = xForDate(ev.date);
+      if (x == null) continue;
+      const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      line.setAttribute("x1", x);
+      line.setAttribute("y1", PAD_T);
+      line.setAttribute("x2", x);
+      line.setAttribute("y2", PAD_T + innerH);
+      line.setAttribute("class", "chart-overlay");
+      const title = document.createElementNS("http://www.w3.org/2000/svg", "title");
+      const shortId = ev.action_id ? ev.action_id.slice(0, 16) + "…" : "—";
+      title.textContent = `${ev.event} · ${ev.action_type || "—"}\n${ev.date}\n${shortId}`;
+      line.appendChild(title);
+      overlayGroup.appendChild(line);
+    }
+    svg.appendChild(overlayGroup);
+  }
 
   const lang = currentLang();
   const adaFmt = (lovelace) => Math.round(lovelace / 1_000_000).toLocaleString(NUM_LOCALE[lang] || "en-US");
@@ -185,7 +223,7 @@ function render() {
   const chartWrap = document.getElementById("drep-chart-wrap");
   chartWrap.innerHTML = "";
   if (d.voting_weight_series && d.voting_weight_series.length >= 2) {
-    chartWrap.appendChild(buildChart(d.voting_weight_series));
+    chartWrap.appendChild(buildChart(d.voting_weight_series, d.overlay_events || []));
   } else {
     const empty = document.createElement("div");
     empty.className = "chart-empty";
