@@ -22,7 +22,7 @@ import os
 import sqlite3
 import sys
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from typing import Iterable
 import urllib.error
@@ -51,8 +51,8 @@ DELTA_LOOKBACKS_DAYS = (7, 30)
 
 LOVELACE_PER_ADA = 1_000_000
 
-ETL_VERSION = "0.4.0"
-METHODOLOGY_VERSION = "0.4"
+ETL_VERSION = "0.5.0"
+METHODOLOGY_VERSION = "0.5"
 SCHEMA_VERSION = 1
 
 log = logging.getLogger("snapshot")
@@ -190,6 +190,14 @@ def fetch_delegator_count(drep_id: str) -> int:
     return total or 0
 
 
+def fetch_epoch_info(epoch_no: int) -> dict | None:
+    """Single-epoch lookup via Koios /epoch_info?_epoch_no=N. Returns None on miss."""
+    rows, _ = koios_request("/epoch_info", params={"_epoch_no": epoch_no})
+    if not rows:
+        return None
+    return rows[0]
+
+
 def fetch_governance_actions() -> list[dict]:
     """All governance actions (proposals), paginated."""
     return list(koios_paged("/proposal_list"))
@@ -273,12 +281,21 @@ def open_db(db_path: Path, schema_path: Path) -> sqlite3.Connection:
     db.executescript(schema_sql)
     # Forward-only migrations for DBs created before a column was added.
     # ALTER TABLE ADD COLUMN is idempotent only via PRAGMA inspection.
-    cols = {row[1] for row in db.execute("PRAGMA table_info(votes)").fetchall()}
-    if "vote_block_time" not in cols:
+    vote_cols = {row[1] for row in db.execute("PRAGMA table_info(votes)").fetchall()}
+    if "vote_block_time" not in vote_cols:
         db.execute("ALTER TABLE votes ADD COLUMN vote_block_time INTEGER")
-    # Index is always (re)applied after the column is guaranteed to exist —
-    # idempotent via IF NOT EXISTS.
     db.execute("CREATE INDEX IF NOT EXISTS idx_votes_block_time ON votes (vote_block_time DESC)")
+    # FLOW-2 v0.5 migration: governance_actions gains submission and state-transition columns.
+    ga_cols = {row[1] for row in db.execute("PRAGMA table_info(governance_actions)").fetchall()}
+    for col, ctype in (
+        ("submission_block_time", "INTEGER"),
+        ("expired_epoch", "INTEGER"),
+        ("ratified_epoch", "INTEGER"),
+        ("enacted_epoch", "INTEGER"),
+        ("dropped_epoch", "INTEGER"),
+    ):
+        if col not in ga_cols:
+            db.execute(f"ALTER TABLE governance_actions ADD COLUMN {col} {ctype}")
     db.commit()
     return db
 
@@ -333,6 +350,40 @@ def upsert_drep(db: sqlite3.Connection, drep_info_row: dict,
     )
 
 
+def upsert_epoch_info(db: sqlite3.Connection, row: dict) -> None:
+    """Insert or replace an epoch_info row. Idempotent."""
+    start = int(row["start_time"])
+    end = int(row["end_time"])
+    start_date = datetime.fromtimestamp(start, tz=timezone.utc).strftime("%Y-%m-%d")
+    db.execute(
+        """INSERT INTO epoch_info (epoch_no, start_time_unix, end_time_unix, start_date)
+           VALUES (?, ?, ?, ?)
+           ON CONFLICT(epoch_no) DO UPDATE SET
+               start_time_unix = excluded.start_time_unix,
+               end_time_unix = excluded.end_time_unix,
+               start_date = excluded.start_date""",
+        (int(row["epoch_no"]), start, end, start_date),
+    )
+
+
+def ensure_epoch_info(db: sqlite3.Connection, epoch_no: int) -> str | None:
+    """Return the UTC start_date for `epoch_no`, fetching from Koios if missing.
+
+    Returns None if Koios has no record (e.g., future epoch). Idempotent.
+    """
+    row = db.execute(
+        "SELECT start_date FROM epoch_info WHERE epoch_no = ?",
+        (epoch_no,),
+    ).fetchone()
+    if row:
+        return row["start_date"]
+    fetched = fetch_epoch_info(epoch_no)
+    if not fetched:
+        return None
+    upsert_epoch_info(db, fetched)
+    return datetime.fromtimestamp(int(fetched["start_time"]), tz=timezone.utc).strftime("%Y-%m-%d")
+
+
 def upsert_governance_action(db: sqlite3.Connection, row: dict) -> None:
     """Insert or replace a governance action row.
 
@@ -363,25 +414,33 @@ def upsert_governance_action(db: sqlite3.Connection, row: dict) -> None:
                 title = t.strip()[:300]
 
     # `block_time` on proposal_list is the submission tx block_time (unix).
-    # Epoch derivation from block_time would require slot math; we use
-    # `expiration` (epoch number when it expires) and walk back if needed.
-    # For v0.1.5 we store None for submitted_epoch when not directly available
-    # and let the per-DRep chart use governance_actions.expires_epoch instead.
     db.execute(
         """INSERT INTO governance_actions
-               (action_id, action_type, title, submitted_epoch, expires_epoch, outcome)
-           VALUES (?, ?, ?, ?, ?, ?)
+               (action_id, action_type, title, submitted_epoch, submission_block_time,
+                expires_epoch, expired_epoch, ratified_epoch, enacted_epoch, dropped_epoch,
+                outcome)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
            ON CONFLICT(action_id) DO UPDATE SET
                action_type = excluded.action_type,
                title = excluded.title,
+               submission_block_time = excluded.submission_block_time,
                expires_epoch = excluded.expires_epoch,
+               expired_epoch = excluded.expired_epoch,
+               ratified_epoch = excluded.ratified_epoch,
+               enacted_epoch = excluded.enacted_epoch,
+               dropped_epoch = excluded.dropped_epoch,
                outcome = excluded.outcome""",
         (
             row["proposal_id"],
             row.get("proposal_type"),
             title,
             None,
+            int(row["block_time"]) if row.get("block_time") is not None else None,
             row.get("expiration"),
+            row.get("expired_epoch"),
+            row.get("ratified_epoch"),
+            row.get("enacted_epoch"),
+            row.get("dropped_epoch"),
             outcome,
         ),
     )
@@ -616,6 +675,89 @@ def export_top30(db: sqlite3.Connection, snapshot_date: str, out_dir: Path) -> d
     return payload
 
 
+def build_overlay_events(db: sqlite3.Connection, window_start_date: str,
+                         window_end_date: str) -> list[dict]:
+    """Per METHODOLOGY §19.5: all governance actions whose any event date falls
+    within (window_start_date, window_end_date) inclusive.
+
+    No pre-filter by DRep participation. Returns a list of overlay events
+    (one per state-transition epoch and one per submission).
+    """
+    rows = db.execute(
+        """SELECT action_id, action_type, title,
+                  submission_block_time,
+                  expires_epoch, expired_epoch, ratified_epoch,
+                  enacted_epoch, dropped_epoch
+             FROM governance_actions"""
+    ).fetchall()
+    events: list[dict] = []
+    for r in rows:
+        action_id = r["action_id"]
+        action_type = r["action_type"]
+        # Submission (date derived directly from block_time, no epoch lookup needed).
+        bt = r["submission_block_time"]
+        if bt is not None:
+            sub_date = datetime.fromtimestamp(int(bt), tz=timezone.utc).strftime("%Y-%m-%d")
+            if window_start_date <= sub_date <= window_end_date:
+                events.append({
+                    "action_id": action_id,
+                    "action_type": action_type,
+                    "event": "submission",
+                    "date": sub_date,
+                })
+        # State transitions — look up epoch_info for each non-null epoch field.
+        # Per §19.1: ratification, enactment, expiration, drop.
+        candidates: list[tuple[str, int | None]] = [
+            ("ratification", r["ratified_epoch"]),
+            ("enactment",    r["enacted_epoch"]),
+            ("expiration",   r["expired_epoch"]),
+            ("drop",         r["dropped_epoch"]),
+        ]
+        for event_name, epoch_no in candidates:
+            if epoch_no is None:
+                continue
+            ei = db.execute(
+                "SELECT start_date FROM epoch_info WHERE epoch_no = ?",
+                (epoch_no,),
+            ).fetchone()
+            if not ei:
+                continue
+            date = ei["start_date"]
+            if not (window_start_date <= date <= window_end_date):
+                continue
+            events.append({
+                "action_id": action_id,
+                "action_type": action_type,
+                "event": event_name,
+                "date": date,
+            })
+    events.sort(key=lambda e: (e["date"], e["action_id"], e["event"]))
+    return events
+
+
+def export_epoch_info(db: sqlite3.Connection, out_dir: Path) -> None:
+    """Export the epoch_info mapping. CC0. Per METHODOLOGY §19.2 / §19.8."""
+    rows = db.execute(
+        "SELECT epoch_no, start_time_unix, end_time_unix, start_date FROM epoch_info ORDER BY epoch_no"
+    ).fetchall()
+    payload = {
+        "schema_version": SCHEMA_VERSION,
+        "methodology_version": METHODOLOGY_VERSION,
+        "layer": "daily",
+        "n_epochs": len(rows),
+        "epochs": [
+            {
+                "epoch_no": r["epoch_no"],
+                "start_time_unix": r["start_time_unix"],
+                "end_time_unix": r["end_time_unix"],
+                "start_date": r["start_date"],
+            }
+            for r in rows
+        ],
+    }
+    atomic_write_json(out_dir / "epoch_info.json", payload)
+
+
 def export_drep_history(db: sqlite3.Connection, drep_id: str, snapshot_date: str,
                         out_dir: Path) -> None:
     """Write per-DRep history JSON: 90-day voting weight series + recent votes.
@@ -638,6 +780,11 @@ def export_drep_history(db: sqlite3.Connection, drep_id: str, snapshot_date: str
     ).fetchall()
     recent_net_change = compute_recent_net_change(db, drep_id, snapshot_date)
     daily_flow = daily_flow_series(db, drep_id, days=90)
+    # FLOW-2: overlay events within the 90-day chart window.
+    window_end = snapshot_date
+    window_start = (datetime.strptime(snapshot_date, "%Y-%m-%d")
+                    - timedelta(days=89)).strftime("%Y-%m-%d")
+    overlay_events = build_overlay_events(db, window_start, window_end)
     payload = {
         "schema_version": SCHEMA_VERSION,
         "methodology_version": METHODOLOGY_VERSION,
@@ -648,6 +795,7 @@ def export_drep_history(db: sqlite3.Connection, drep_id: str, snapshot_date: str
         "snapshot_date": snapshot_date,
         "recent_net_change": recent_net_change,
         "daily_flow": daily_flow,
+        "overlay_events": overlay_events,
         "voting_weight_series": series,
         "vote_history": [
             {
@@ -814,6 +962,25 @@ def run(args: argparse.Namespace) -> int:
             upsert_governance_action(db, a)
         log.info("upserted %d governance actions", len(actions))
 
+        # FLOW-2 §19: ensure epoch_info coverage for every epoch referenced by
+        # any action's state-transition fields. Idempotent — only fetches missing epochs.
+        needed_epochs: set[int] = set()
+        for a in actions:
+            for k in ("expiration", "expired_epoch", "ratified_epoch",
+                      "enacted_epoch", "dropped_epoch"):
+                v = a.get(k)
+                if v is not None:
+                    needed_epochs.add(int(v))
+        # Also cover current and nearby epochs for chart-window completeness.
+        needed_epochs.add(current_epoch)
+        existing = {r[0] for r in db.execute("SELECT epoch_no FROM epoch_info").fetchall()}
+        to_fetch = sorted(needed_epochs - existing)
+        if to_fetch:
+            log.info("fetching epoch_info for %d epochs", len(to_fetch))
+            for ep in to_fetch:
+                ensure_epoch_info(db, ep)
+        db.commit()
+
         log.info("fetching DRep votes")
         votes = fetch_drep_votes()
         # Sort by block_time ascending so that when a DRep revoted on a
@@ -846,6 +1013,9 @@ def run(args: argparse.Namespace) -> int:
 
         export_governance_actions(db, snapshot_date, Path(args.out))
         log.info("wrote actions.json")
+
+        export_epoch_info(db, Path(args.out))
+        log.info("wrote epoch_info.json")
 
         export_top30_csv(top30, Path(args.out))
         log.info("wrote top30.csv")

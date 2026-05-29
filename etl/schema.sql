@@ -38,6 +38,15 @@ CREATE INDEX IF NOT EXISTS idx_votes_drep ON votes (drep_id, vote_epoch);
 -- idx_votes_block_time is created in the migration step in open_db() (snapshot.py)
 -- because the column is added on existing DBs only after this script runs.
 
+-- Epoch metadata for time alignment in FLOW-2 governance event overlays.
+-- See METHODOLOGY §19.2.
+CREATE TABLE IF NOT EXISTS epoch_info (
+    epoch_no         INTEGER PRIMARY KEY,
+    start_time_unix  INTEGER NOT NULL,
+    end_time_unix    INTEGER NOT NULL,
+    start_date       TEXT NOT NULL       -- UTC ISO date (yyyy-mm-dd) of start_time_unix
+);
+
 -- Live-layer state (key/value, persisted between live ETL runs)
 CREATE TABLE IF NOT EXISTS live_state (
     key         TEXT PRIMARY KEY,
@@ -45,14 +54,20 @@ CREATE TABLE IF NOT EXISTS live_state (
     updated_at  TIMESTAMP
 );
 
--- Governance actions (used for chart overlays only)
+-- Governance actions. State-transition epochs and submission block_time are
+-- persisted separately for FLOW-2 overlay reproducibility (§19.1).
 CREATE TABLE IF NOT EXISTS governance_actions (
-    action_id         TEXT PRIMARY KEY,
-    action_type       TEXT,
-    title             TEXT,
-    submitted_epoch   INTEGER,
-    expires_epoch     INTEGER,
-    outcome           TEXT
+    action_id              TEXT PRIMARY KEY,
+    action_type            TEXT,
+    title                  TEXT,
+    submitted_epoch        INTEGER,
+    submission_block_time  INTEGER,
+    expires_epoch          INTEGER,
+    expired_epoch          INTEGER,
+    ratified_epoch         INTEGER,
+    enacted_epoch          INTEGER,
+    dropped_epoch          INTEGER,
+    outcome                TEXT
 );
 
 -- ETL run telemetry — operational, auditable
