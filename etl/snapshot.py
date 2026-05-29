@@ -51,8 +51,8 @@ DELTA_LOOKBACKS_DAYS = (7, 30)
 
 LOVELACE_PER_ADA = 1_000_000
 
-ETL_VERSION = "0.5.0"
-METHODOLOGY_VERSION = "0.5"
+ETL_VERSION = "0.6.0"
+METHODOLOGY_VERSION = "0.6"
 SCHEMA_VERSION = 1
 
 log = logging.getLogger("snapshot")
@@ -735,6 +735,88 @@ def build_overlay_events(db: sqlite3.Connection, window_start_date: str,
     return events
 
 
+def export_action_detail(db: sqlite3.Connection, action_id: str,
+                         out_dir: Path) -> None:
+    """Per-action JSON for FLOW-3. Written to actions/{action_id}.json.
+
+    Joins governance_actions, votes, and dreps (for names when available).
+    Per METHODOLOGY §20.6 / §20.10 / §20.11.
+    """
+    a = db.execute(
+        """SELECT action_id, action_type, title,
+                  submission_block_time, submitted_epoch,
+                  expires_epoch, expired_epoch, ratified_epoch,
+                  enacted_epoch, dropped_epoch, outcome
+             FROM governance_actions
+            WHERE action_id = ?""",
+        (action_id,),
+    ).fetchone()
+    if not a:
+        return  # Action not in our records; skip silently.
+
+    sub_date = None
+    if a["submission_block_time"] is not None:
+        sub_date = datetime.fromtimestamp(int(a["submission_block_time"]), tz=timezone.utc).strftime("%Y-%m-%d")
+
+    def transition(epoch_no):
+        if epoch_no is None:
+            return None
+        ei = db.execute(
+            "SELECT start_date FROM epoch_info WHERE epoch_no = ?",
+            (int(epoch_no),),
+        ).fetchone()
+        return {"epoch": int(epoch_no), "date": ei["start_date"] if ei else None}
+
+    state_transitions = {
+        "expires":  transition(a["expires_epoch"]),
+        "expired":  transition(a["expired_epoch"]),
+        "ratified": transition(a["ratified_epoch"]),
+        "enacted":  transition(a["enacted_epoch"]),
+        "dropped":  transition(a["dropped_epoch"]),
+    }
+
+    vote_rows = db.execute(
+        """SELECT v.drep_id, v.vote, v.vote_epoch, v.vote_block_time,
+                  d.metadata_name AS drep_name
+             FROM votes v
+        LEFT JOIN dreps d ON d.drep_id = v.drep_id
+            WHERE v.action_id = ?
+            ORDER BY v.vote_block_time DESC NULLS LAST, v.vote_epoch DESC, v.drep_id ASC""",
+        (action_id,),
+    ).fetchall()
+    votes = [
+        {
+            "drep_id": r["drep_id"],
+            "drep_name": r["drep_name"],
+            "vote": r["vote"],
+            "vote_epoch": r["vote_epoch"],
+            "vote_block_time": r["vote_block_time"],
+        }
+        for r in vote_rows
+    ]
+    tally = {"yes": 0, "no": 0, "abstain": 0}
+    for v in votes:
+        if v["vote"] in tally:
+            tally[v["vote"]] += 1
+
+    payload = {
+        "schema_version": SCHEMA_VERSION,
+        "methodology_version": METHODOLOGY_VERSION,
+        "layer": "daily",
+        "action_id": a["action_id"],
+        "action_type": a["action_type"],
+        "title": a["title"],
+        "submission_block_time": a["submission_block_time"],
+        "submission_date": sub_date,
+        "submitted_epoch": a["submitted_epoch"],
+        "state_transitions": state_transitions,
+        "outcome": a["outcome"],
+        "vote_tally": tally,
+        "votes": votes,
+    }
+    atomic_write_json(out_dir / "actions" / f"{action_id}.json", payload)
+
+
 def export_epoch_info(db: sqlite3.Connection, out_dir: Path) -> None:
     """Export the epoch_info mapping. CC0. Per METHODOLOGY §19.2 / §19.8."""
     rows = db.execute(
@@ -1016,6 +1098,14 @@ def run(args: argparse.Namespace) -> int:
 
         export_epoch_info(db, Path(args.out))
         log.info("wrote epoch_info.json")
+
+        # FLOW-3: per-action detail JSON files. One per action_id in the DB.
+        action_ids = [r[0] for r in db.execute(
+            "SELECT action_id FROM governance_actions"
+        ).fetchall()]
+        for aid in action_ids:
+            export_action_detail(db, aid, Path(args.out))
+        log.info("wrote %d per-action detail files", len(action_ids))
 
         export_top30_csv(top30, Path(args.out))
         log.info("wrote top30.csv")
