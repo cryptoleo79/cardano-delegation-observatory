@@ -133,7 +133,8 @@ The source code, deployment configuration, and data schema are all public in thi
 
 | Date | Version | Change |
 |---|---|---|
-| 2026-05-29 | v0.5 (methodology only — code follows) | FLOW-2 methodology §19 added: defines governance event overlays on the per-DRep voting weight chart. Five event types (submission, ratification, enactment, expiration, drop) with explicit time alignment between epoch-anchored events and date-anchored chart. §19.3 explicitly separates temporal proximity from causal claim; states that multiple events may occur without observable delegation response, and that the observatory records events and delegation state independently. §19.4 requires markers render behind the delegation series and never obscure the underlying data; single neutral color for all event types. §19.5 explicitly shows all actions in window — no editorial pre-filter. Schema addition: `epoch_info` table. Export addition: `/data/snapshots/epoch_info.json`. Code and frontend implementation follow in separate commits. |
+| 2026-05-29 | v0.6 (methodology only — code follows) | FLOW-3 methodology §20 added: defines the governance history layer. Scope, action record, action timeline, retention (permanent vs mutable), canonical sources, representation (aggregate + per-action JSON exports), what is not inferred (explicit "actions are presented in historical order; no major/minor distinction"), revision/reconciliation rules, edge cases, and reproducibility commitment. §20.7 adds the requirement that action detail pages display canonical `action_id` prominently near the top — never as an afterthought. Code and frontend follow in separate commits. |
+| 2026-05-29 | v0.5 | FLOW-2 methodology §19 added: defines governance event overlays on the per-DRep voting weight chart. Five event types (submission, ratification, enactment, expiration, drop) with explicit time alignment between epoch-anchored events and date-anchored chart. §19.3 explicitly separates temporal proximity from causal claim; states that multiple events may occur without observable delegation response, and that the observatory records events and delegation state independently. §19.4 requires markers render behind the delegation series and never obscure the underlying data; single neutral color for all event types. §19.5 explicitly shows all actions in window — no editorial pre-filter. Schema addition: `epoch_info` table. Export addition: `/data/snapshots/epoch_info.json`. Code and frontend implementation follow in separate commits. |
 | 2026-05-29 | v0.4 | FLOW-1 methodology §18 added: defines net voting-weight movement and net delegator-count movement; explicitly separates measured movement from inferred meaning. §18.3 states that net movement is not migration. §18.8 enumerates what flow data does NOT imply, including the explicit case that large movements may originate from wallet software defaults, custodial infrastructure, exchange operations, stake-key changes, or delegation decisions, none of which the observatory can attribute. Δ1d intentionally not surfaced on main table — per-DRep page and JSON exports only. Code and frontend implementation follow in separate commits. |
 | 2026-05-28 | v0.3 | Live telemetry layer added (`etl/live.py`, 10-minute cadence). Daily layer remains canonical. New methodology §14–§17 describe the live layer, eventual consistency between layers, Koios rate-limit discipline, and live-only data exports. Schema migration: `vote_block_time` column added to `votes` table; new `live_state` key/value table for cross-run state. All JSON exports now stamp `schema_version` (integer) and `methodology_version` (string) at the top of the payload to support reproducibility and downstream stability. Frontend gains explicit "daily snapshot" vs "live telemetry" distinction wording, recent-activity section with absolute UTC timestamps, and a data-provenance line in the footer. |
 | 2026-05-28 | v0.2 | Deployment + scope expansion. Site live at https://observatory.asy.life via nginx + Let's Encrypt. Daily ETL cron at 02:00 UTC, git-pull deploy cron every 5 min. Added: governance actions index page (`/actions.html`) with DRep vote tally per action; public CSV export of top-30 snapshot (`/data/snapshots/top30.csv`); permalinkable per-DRep page (`/drep.html?id=...`) with full vote history and 90-day chart. New §13 documents pages and exports. |
@@ -409,6 +410,130 @@ Every overlay marker is derivable from:
 - The `epoch_info` mapping (epoch → start date)
 
 All three are published in CC0 form (the first two are already in `actions.json`; FLOW-2 adds the epoch_info export at `/data/snapshots/epoch_info.json`).
+
+## 20. Governance history layer (FLOW-3)
+
+This section defines how the observatory retains, organizes, and presents historical governance data. The boundary is sharp: the observatory records *what happened* (actions, votes, dates, state transitions) without claiming what was important, significant, successful, or popular.
+
+### 20.1 Scope of the history layer
+
+The history layer encompasses:
+
+- Every governance action observed on chain, indexed by canonical `action_id` (bech32 `gov_action1...`).
+- Every DRep vote on every action (yes / no / abstain), with chronologically-latest semantics from §6.
+- Every state transition observed: submission, ratification, enactment, expiration, drop.
+- Every epoch boundary referenced by an action.
+
+Actions and votes occurring after deployment are captured by the daily ETL within ~24 hours and by the live ETL within ~10 minutes. Actions submitted before deployment are captured when Koios still serves them via `/proposal_list`, which it does for the full Conway era.
+
+### 20.2 The action record
+
+An action record is a stable representation of a single governance action, keyed on `action_id`. It contains:
+
+- `action_id` — canonical bech32 identifier; never changes.
+- `action_type` — Koios `proposal_type` value; display-only.
+- `title` — display name from on-chain metadata, if present and valid; may change if a DRep updates their metadata.
+- `submission_block_time` — UTC unix timestamp of the proposal transaction; immutable.
+- `submitted_epoch` — derived from `block_time` (or null in older records).
+- `expires_epoch`, `expired_epoch`, `ratified_epoch`, `enacted_epoch`, `dropped_epoch` — state-transition epochs; each immutable once set.
+- `outcome` — deterministically derived from the above per §6 (`enacted` / `ratified` / `dropped` / `expired` / `active`).
+- Vote rows from the `votes` table joined on `action_id`.
+
+### 20.3 Action timeline
+
+For each action, the timeline is the chronologically-ordered sequence of observable events:
+
+1. **Submission** (date from `submission_block_time`)
+2. **Voting period** (between submission and a terminal state)
+3. **Terminal state** (ratification, enactment, expiration, or drop — exactly one per action once finalized)
+
+Active actions have no terminal state until one is observed.
+
+The timeline shows protocol-observed facts. It does not annotate events with "importance," mark outcomes as "successful" or "failed," or rank actions by anything except their canonical date order.
+
+### 20.4 Retention
+
+Once captured, the following are **permanent**:
+
+- `action_id`
+- `submission_block_time`
+- Each state-transition epoch (once set; epochs are immutable on chain)
+- Vote rows, except for the revote replacement rule documented in §6
+
+The following are **mutable** across ETL runs (re-derived each daily run):
+
+- `title` (off-chain metadata can change if a DRep updates their URL)
+- `outcome` derivation (can change only if a new state transition is observed for a previously-active action — by definition this is forward progress, never rewriting)
+
+No previously-captured row is ever deleted or replaced by a less-complete row.
+
+### 20.5 Canonical sources
+
+- Action identity: `action_id` from Koios `/proposal_list`.
+- State transitions: epoch fields from `/proposal_list`.
+- Submission timestamp: `block_time` from `/proposal_list`.
+- Vote facts: `/vote_list` filtered to `voter_role='DRep'`.
+- Epoch start dates: `/epoch_info`.
+
+Anyone running an independent observatory against these endpoints would produce identical action records (modulo metadata re-fetch timing differences for `title`).
+
+### 20.6 Representation
+
+Each action is published in two places:
+
+1. **Aggregate:** `actions.json` — list of all actions with vote tallies (added in v0.2).
+2. **Per-action:** `/data/snapshots/actions/{action_id}.json` — full record with timeline, joined vote list, and DRep names where available (added in FLOW-3).
+
+The action detail page at `/action.html?id=gov_action1...` reads the per-action file.
+
+### 20.7 What is not inferred
+
+The history layer surfaces only protocol-observed facts. It does not generate:
+
+- "Importance," "significance," "major," or "watched" classifications.
+- "Successful" / "failed" / "rejected" framings — only protocol terms (`enacted` / `ratified` / `dropped` / `expired` / `active`).
+- "Support" or "opposition" labels on DRep votes — only `yes` / `no` / `abstain`.
+- Participation-rate framings as "high" or "low."
+- Outcome leaderboards or rank-by-anything.
+- Retrospective scoring of actions or DReps.
+- Causal links between an action and any other action's outcome.
+- "Trending" or "popular" derivation.
+
+**Actions are presented in historical order. The observatory does not distinguish between "major" and "minor" governance actions.** Vote tallies and submission dates determine order; nothing else.
+
+The canonical action identity is `action_id`. Titles and types are display conveniences derived from on-chain metadata and protocol fields; they do not change the identity of an action. **Action detail pages display the canonical `action_id` prominently near the top of the page — never as an afterthought — so the underlying identity is always visible regardless of any title-rendering choice.**
+
+### 20.8 Revisions and reconciliation
+
+State-transition epochs are immutable on chain, so reclassifying outcomes is not expected. If Koios were to revise a previously-reported state transition (extremely unusual), the new value would be persisted; the v0.5 schema does not log the prior value. A future schema migration would add an action history log if community demand emerges.
+
+Metadata-derived fields (`title`) can change between ETL runs if a DRep updates their metadata. The current value is shown; prior titles are not retained in v0.5.
+
+Vote rows can be replaced per the revote rule (§6). The current displayed vote is the chronologically latest one; superseded votes are not retained.
+
+### 20.9 What FLOW-3 does NOT do
+
+- Does NOT publish "top N actions" or "most-engaged actions" rankings.
+- Does NOT compute action similarity, sentiment, or alignment.
+- Does NOT predict outcomes.
+- Does NOT highlight actions for which delegation moved.
+- Does NOT cluster actions by topic, era, or any derived category.
+- Does NOT generate any commentary on action content.
+- Does NOT compare DRep voting patterns across actions.
+
+These are deferred indefinitely; they are listed here so the boundary is explicit.
+
+### 20.10 Edge cases
+
+- **Action with no metadata title:** displayed as the truncated `action_id` with `action_type`. No fallback name is fabricated.
+- **Action with title that fails validation:** same — no display name; only `action_id` and `action_type`.
+- **Active action with no state-transition events:** timeline shows submission only; terminal state displays as `active`.
+- **Action referenced by votes but missing from `governance_actions`:** vote rows are preserved but no detail page renders. Each daily ETL re-fetches `proposal_list` to minimize this case.
+- **Vote from a DRep not in our `dreps` table (i.e., outside top-60 candidates):** vote appears in the action's vote list; DRep is shown by truncated `drep_id` only. The observatory does not fabricate names.
+
+### 20.11 Reproducibility commitment
+
+Every action detail page is derivable from `actions.json` plus the `votes` records (which themselves re-derive from Koios `/vote_list`). For DRep names of voters outside the top-30, the page shows the truncated `drep_id` only (per §10 disclosure — the operator has no special data access; this constraint applies equally to anyone running an independent observatory).
 
 ## 12. v0.1 scope limitations
 

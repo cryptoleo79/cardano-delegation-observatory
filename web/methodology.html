@@ -152,7 +152,12 @@
       <tbody>
         <tr>
           <td>2026-05-29</td>
-          <td>v0.5 (methodology only — code follows)</td>
+          <td>v0.6 (methodology only — code follows)</td>
+          <td>FLOW-3 methodology §20 added: defines the governance history layer. Scope, action record, timeline, retention (permanent vs mutable), canonical sources, representation (aggregate + per-action JSON exports), explicit "no major/minor distinction" rule, revision rules, edge cases, and reproducibility commitment. §20.7 requires that action detail pages display the canonical <code>action_id</code> prominently near the top — never as an afterthought. Code and frontend follow.</td>
+        </tr>
+        <tr>
+          <td>2026-05-29</td>
+          <td>v0.5</td>
           <td>FLOW-2 methodology §19 added: defines governance event overlays on the per-DRep voting weight chart. Five event types with explicit time alignment between epoch-anchored events and date-anchored chart. §19.3 separates temporal proximity from causal claims; states the observatory records events and delegation state independently. §19.4 requires markers render behind the delegation series and never obscure underlying data; single neutral color for all event types. §19.5 shows all actions in window — no editorial pre-filter. Schema addition: <code>epoch_info</code> table. Export addition: <code>/data/snapshots/epoch_info.json</code>. Code and frontend follow.</td>
         </tr>
         <tr>
@@ -372,6 +377,73 @@
 
     <h3 style="font-size:14px; margin-top:18px;">19.8 Reproducibility commitment</h3>
     <p>Every overlay marker is derivable from <code>governance_actions</code> (action_id + epoch fields), <code>proposal_list.block_time</code>, and the <code>epoch_info</code> mapping. All three are CC0; FLOW-2 adds the export at <code>/data/snapshots/epoch_info.json</code>.</p>
+
+    <h2>20. Governance history layer (FLOW-3)</h2>
+    <p>This section defines how the observatory retains, organizes, and presents historical governance data. The boundary is sharp: the observatory records <em>what happened</em> (actions, votes, dates, state transitions) without claiming what was important, significant, successful, or popular.</p>
+
+    <h3 style="font-size:14px; margin-top:18px;">20.1 Scope</h3>
+    <ul>
+      <li>Every governance action observed on chain, indexed by canonical <code>action_id</code> (bech32 <code>gov_action1...</code>).</li>
+      <li>Every DRep vote on every action (yes / no / abstain), with chronologically-latest semantics from §6.</li>
+      <li>Every state transition observed: submission, ratification, enactment, expiration, drop.</li>
+      <li>Every epoch boundary referenced by an action.</li>
+    </ul>
+
+    <h3 style="font-size:14px; margin-top:18px;">20.2 The action record</h3>
+    <p>Keyed on <code>action_id</code>. Contains <code>action_type</code>, <code>title</code>, <code>submission_block_time</code>, <code>submitted_epoch</code>, state-transition epochs (<code>expires</code>, <code>expired</code>, <code>ratified</code>, <code>enacted</code>, <code>dropped</code>), deterministic <code>outcome</code>, and joined vote rows.</p>
+
+    <h3 style="font-size:14px; margin-top:18px;">20.3 Action timeline</h3>
+    <p>Chronologically-ordered events per action: submission → voting period → terminal state. Active actions have no terminal state until observed. The timeline shows protocol-observed facts; no "importance" annotations, no "successful" / "failed" framings.</p>
+
+    <h3 style="font-size:14px; margin-top:18px;">20.4 Retention</h3>
+    <p><strong>Permanent</strong>: <code>action_id</code>, <code>submission_block_time</code>, each state-transition epoch, vote rows (except revote replacement per §6).</p>
+    <p><strong>Mutable</strong> across ETL runs: <code>title</code> (off-chain metadata), outcome derivation (only on forward progress when a new state transition is observed). No previously-captured row is ever deleted or replaced by a less-complete row.</p>
+
+    <h3 style="font-size:14px; margin-top:18px;">20.5 Canonical sources</h3>
+    <p>Identity, state transitions, submission timestamp, vote facts, and epoch start dates all derive from Koios endpoints (<code>/proposal_list</code>, <code>/vote_list</code>, <code>/epoch_info</code>). An independent observatory would produce identical records.</p>
+
+    <h3 style="font-size:14px; margin-top:18px;">20.6 Representation</h3>
+    <p>Two places: aggregate <code>actions.json</code> (v0.2) and per-action <code>/data/snapshots/actions/{action_id}.json</code> (FLOW-3). The action detail page at <code>/action.html?id=gov_action1...</code> reads the per-action file.</p>
+
+    <h3 style="font-size:14px; margin-top:18px;">20.7 What is not inferred</h3>
+    <p>The history layer surfaces only protocol-observed facts. It does not generate:</p>
+    <ul>
+      <li>"Importance," "significance," "major," or "watched" classifications.</li>
+      <li>"Successful" / "failed" / "rejected" framings — only protocol terms.</li>
+      <li>"Support" / "opposition" labels on DRep votes — only <code>yes</code> / <code>no</code> / <code>abstain</code>.</li>
+      <li>Participation-rate framings as "high" or "low."</li>
+      <li>Outcome leaderboards or rank-by-anything.</li>
+      <li>Retrospective scoring of actions or DReps.</li>
+      <li>Causal links between an action and any other action's outcome.</li>
+      <li>"Trending" or "popular" derivations.</li>
+    </ul>
+    <p><strong>Actions are presented in historical order. The observatory does not distinguish between "major" and "minor" governance actions.</strong> Vote tallies and submission dates determine order; nothing else.</p>
+    <p>The canonical action identity is <code>action_id</code>. Titles and types are display conveniences derived from on-chain metadata and protocol fields; they do not change the identity of an action. <strong>Action detail pages display the canonical <code>action_id</code> prominently near the top of the page — never as an afterthought.</strong></p>
+
+    <h3 style="font-size:14px; margin-top:18px;">20.8 Revisions and reconciliation</h3>
+    <p>State-transition epochs are immutable on chain. Metadata titles may change between ETL runs; the current value is shown and prior titles are not retained in v0.5. Vote rows can be replaced per the revote rule (§6).</p>
+
+    <h3 style="font-size:14px; margin-top:18px;">20.9 What FLOW-3 does NOT do</h3>
+    <ul>
+      <li>No "top N actions" or "most-engaged actions" rankings.</li>
+      <li>No action similarity, sentiment, or alignment computations.</li>
+      <li>No outcome prediction.</li>
+      <li>No highlighting of actions for which delegation moved.</li>
+      <li>No clustering of actions by topic, era, or derived category.</li>
+      <li>No commentary on action content.</li>
+      <li>No comparison of DRep voting patterns across actions.</li>
+    </ul>
+
+    <h3 style="font-size:14px; margin-top:18px;">20.10 Edge cases</h3>
+    <ul>
+      <li><strong>Action with no metadata title:</strong> displayed as truncated <code>action_id</code> with <code>action_type</code>. No fallback name fabricated.</li>
+      <li><strong>Action with invalid title:</strong> same — only <code>action_id</code> and <code>action_type</code>.</li>
+      <li><strong>Active action with no state transitions:</strong> timeline shows submission only; terminal state displays as <code>active</code>.</li>
+      <li><strong>Vote from a DRep outside top-60 candidates:</strong> vote appears in the action's vote list; DRep shown by truncated <code>drep_id</code> only. No fabricated names.</li>
+    </ul>
+
+    <h3 style="font-size:14px; margin-top:18px;">20.11 Reproducibility commitment</h3>
+    <p>Every action detail page is derivable from <code>actions.json</code> plus the <code>votes</code> records. For voters outside the top-30, names are not shown; this constraint applies equally to anyone running an independent observatory (the operator has no special data access).</p>
 
     <h2>12. v0.1 scope limitations</h2>
     <p>The site is deliberately narrow at v0.1. The following are out of scope for this version and disclosed here transparently rather than masked with synthetic or interpolated values:</p>
