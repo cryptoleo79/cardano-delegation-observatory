@@ -152,7 +152,12 @@
       <tbody>
         <tr>
           <td>2026-05-29</td>
-          <td>v0.6 (methodology only — code follows)</td>
+          <td>v0.7 (methodology only — code follows after verification gate)</td>
+          <td>FLOW-4 methodology §21 added: defines the historical snapshot browser. Dual-write to current + <code>/by-date/{YYYY-MM-DD}/</code> immutable archive. Historical rankings preserved exactly as published (even if later developments would change interpretation). Navigation by chronological list (not calendar) to honor the discrete-with-gaps reality. Provenance strip includes stable canonical archive path as citable identifier. No backfill before deployment. Reproducibility commitment: byte-for-byte equivalence between served JSON and archived file. Code waits for the 02:05 UTC verification gate.</td>
+        </tr>
+        <tr>
+          <td>2026-05-29</td>
+          <td>v0.6</td>
           <td>FLOW-3 methodology §20 added: defines the governance history layer. Scope, action record, timeline, retention (permanent vs mutable), canonical sources, representation (aggregate + per-action JSON exports), explicit "no major/minor distinction" rule, revision rules, edge cases, and reproducibility commitment. §20.7 requires that action detail pages display the canonical <code>action_id</code> prominently near the top — never as an afterthought. Code and frontend follow.</td>
         </tr>
         <tr>
@@ -444,6 +449,69 @@
 
     <h3 style="font-size:14px; margin-top:18px;">20.11 Reproducibility commitment</h3>
     <p>Every action detail page is derivable from <code>actions.json</code> plus the <code>votes</code> records. For voters outside the top-30, names are not shown; this constraint applies equally to anyone running an independent observatory (the operator has no special data access).</p>
+
+    <h2>21. Historical snapshot browser (FLOW-4)</h2>
+    <p>This section defines how the observatory exposes its accumulated daily snapshots as a navigable historical record. The boundary is sharp: the browser surfaces <em>the state that existed</em> at a given date or epoch; it does not interpret, narrate, or contextualize that state.</p>
+
+    <h3 style="font-size:14px; margin-top:18px;">21.1 What a historical state is</h3>
+    <p>The published snapshot record for a specific UTC date: <code>snapshots</code> rows with <code>snapshot_date = D</code>; <code>dreps</code>, <code>governance_actions</code>, <code>votes</code>, and <code>epoch_info</code> as they stood when that snapshot was written. The browser does not invent or interpolate fields that were absent at the time.</p>
+
+    <h3 style="font-size:14px; margin-top:18px;">21.2 What a snapshot is</h3>
+    <p>The canonical published output of a single daily ETL run. For date <code>D</code>: <code>top30.json</code>, <code>actions.json</code>, <code>dreps/{drep_id}.json</code>, <code>actions/{action_id}.json</code>, <code>epoch_info.json</code>, and <code>meta.json</code>. <strong>Snapshots are immutable once published.</strong></p>
+
+    <h3 style="font-size:14px; margin-top:18px;">21.3 Snapshot persistence and addressing</h3>
+    <p>The daily ETL writes outputs in two parallel locations: <strong>Current</strong> (overwritten each run, current behavior) and <strong>Dated archive</strong> at <code>/data/snapshots/by-date/{YYYY-MM-DD}/</code>.</p>
+    <p>URLs: <code>/?date=YYYY-MM-DD</code>, <code>/drep.html?id=...&amp;date=YYYY-MM-DD</code>, <code>/action.html?id=...&amp;date=YYYY-MM-DD</code>, <code>/actions.html?date=YYYY-MM-DD</code>. Without the <code>date</code> parameter, the URL serves the current snapshot.</p>
+
+    <h3 style="font-size:14px; margin-top:18px;">21.4 Missing periods</h3>
+    <p>If a daily ETL failed, no archive entry exists. The browser does not interpolate. A request for a missing date returns an explicit gap notice and a pointer to the nearest prior published date. The list of available and missing dates is published at <code>/data/snapshots/by-date/index.json</code>.</p>
+
+    <h3 style="font-size:14px; margin-top:18px;">21.5 Historical ranking derivation</h3>
+    <p>The top-30 ranking for date <code>D</code> is the ranking that was published on date <code>D</code>. It is not retroactively recomputed and is not adjusted for DReps who deregistered later.</p>
+    <p><strong>Historical rankings are preserved exactly as published on the snapshot date, even if later governance developments would change how a reader interprets them.</strong> The observatory's role is to retain what was; readers reason about what it meant.</p>
+
+    <h3 style="font-size:14px; margin-top:18px;">21.6 What the browser refuses to infer</h3>
+    <ul>
+      <li>Trends between historical states.</li>
+      <li>Comparison framings ("more delegators than before").</li>
+      <li>Significance annotations on past events.</li>
+      <li>Synthetic "state at epoch X" for epochs the observatory did not snapshot.</li>
+      <li>Backfill of fields that were null at the time.</li>
+      <li>Retrospective re-ranking using current data.</li>
+      <li>"Notable moments" or "key dates" curation.</li>
+    </ul>
+
+    <h3 style="font-size:14px; margin-top:18px;">21.7 What is immutable</h3>
+    <p>Once a date has passed and its snapshot was published, all artifacts at <code>by-date/{date}/</code> are immutable, enforced by file path. The ETL never overwrites a past date. <code>methodology_version</code> and <code>schema_version</code> stamps are preserved with the historical snapshot regardless of subsequent updates.</p>
+
+    <h3 style="font-size:14px; margin-top:18px;">21.8 Historical navigation</h3>
+    <p>Simple chronological list of dates (latest first, paginated) — not a calendar widget (which would imply continuous coverage). Adjacent navigation (previous/next snapshot date) skips missing dates explicitly.</p>
+
+    <h3 style="font-size:14px; margin-top:18px;">21.9 Snapshot provenance</h3>
+    <p>Every historical view displays a small provenance strip containing:</p>
+    <ul>
+      <li>Snapshot date</li>
+      <li><strong>Snapshot archive path</strong> — the canonical filesystem path under <code>/data/snapshots/by-date/{YYYY-MM-DD}/</code>, shown in monospace as a citable identifier for research references</li>
+      <li>ETL run completion timestamp from that date's <code>meta.json</code></li>
+      <li>Methodology version active when the snapshot was published</li>
+      <li>Schema version active when the snapshot was published</li>
+      <li>Direct download link to the canonical archive path</li>
+    </ul>
+
+    <h3 style="font-size:14px; margin-top:18px;">21.10 Scope of historical coverage</h3>
+    <p>Only snapshots published by this observatory. No pre-deployment backfill, even if Koios would support reconstruction. §15's pre-launch rule applies.</p>
+
+    <h3 style="font-size:14px; margin-top:18px;">21.11 What FLOW-4 does NOT do</h3>
+    <ul>
+      <li>No "evolution charts" over time beyond the existing per-DRep 90-day current view.</li>
+      <li>No "rank on every past date" derived series — that is FLOW-8 territory.</li>
+      <li>No labeling of past dates as "milestones" or "key events."</li>
+      <li>No side-by-side historical comparison.</li>
+      <li>No ranking-of-dates.</li>
+    </ul>
+
+    <h3 style="font-size:14px; margin-top:18px;">21.12 Reproducibility</h3>
+    <p>The JSON returned for a historical date matches the file in the dated archive byte-for-byte (subject only to nginx compression negotiation). Any third party who archived the original snapshots when they were current can reproduce every historical view.</p>
 
     <h2>12. v0.1 scope limitations</h2>
     <p>The site is deliberately narrow at v0.1. The following are out of scope for this version and disclosed here transparently rather than masked with synthetic or interpolated values:</p>

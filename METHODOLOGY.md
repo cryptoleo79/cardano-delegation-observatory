@@ -133,7 +133,8 @@ The source code, deployment configuration, and data schema are all public in thi
 
 | Date | Version | Change |
 |---|---|---|
-| 2026-05-29 | v0.6 (methodology only — code follows) | FLOW-3 methodology §20 added: defines the governance history layer. Scope, action record, action timeline, retention (permanent vs mutable), canonical sources, representation (aggregate + per-action JSON exports), what is not inferred (explicit "actions are presented in historical order; no major/minor distinction"), revision/reconciliation rules, edge cases, and reproducibility commitment. §20.7 adds the requirement that action detail pages display canonical `action_id` prominently near the top — never as an afterthought. Code and frontend follow in separate commits. |
+| 2026-05-29 | v0.7 (methodology only — code follows after verification gate) | FLOW-4 methodology §21 added: defines the historical snapshot browser. Scope, what a historical state is, what a snapshot is, snapshot persistence and addressing (dual write to current + `/by-date/{YYYY-MM-DD}/` immutable archive), missing-period handling (gap notice, no interpolation), historical ranking derivation (preserved exactly as published, even if later developments would change interpretation), what the browser refuses to infer, immutability rules enforced by file path, navigation primitives (list — never calendar — to honor the discrete-with-gaps reality), provenance strip including stable canonical archive path as citable identifier, scope of coverage (no pre-deployment backfill), explicit non-goals, and reproducibility commitment (byte-for-byte equivalence between served JSON and archived file). Code and frontend wait for the 02:05 UTC verification gate. |
+| 2026-05-29 | v0.6 | FLOW-3 methodology §20 added: defines the governance history layer. Scope, action record, action timeline, retention (permanent vs mutable), canonical sources, representation (aggregate + per-action JSON exports), what is not inferred (explicit "actions are presented in historical order; no major/minor distinction"), revision/reconciliation rules, edge cases, and reproducibility commitment. §20.7 adds the requirement that action detail pages display canonical `action_id` prominently near the top — never as an afterthought. Code and frontend follow in separate commits. |
 | 2026-05-29 | v0.5 | FLOW-2 methodology §19 added: defines governance event overlays on the per-DRep voting weight chart. Five event types (submission, ratification, enactment, expiration, drop) with explicit time alignment between epoch-anchored events and date-anchored chart. §19.3 explicitly separates temporal proximity from causal claim; states that multiple events may occur without observable delegation response, and that the observatory records events and delegation state independently. §19.4 requires markers render behind the delegation series and never obscure the underlying data; single neutral color for all event types. §19.5 explicitly shows all actions in window — no editorial pre-filter. Schema addition: `epoch_info` table. Export addition: `/data/snapshots/epoch_info.json`. Code and frontend implementation follow in separate commits. |
 | 2026-05-29 | v0.4 | FLOW-1 methodology §18 added: defines net voting-weight movement and net delegator-count movement; explicitly separates measured movement from inferred meaning. §18.3 states that net movement is not migration. §18.8 enumerates what flow data does NOT imply, including the explicit case that large movements may originate from wallet software defaults, custodial infrastructure, exchange operations, stake-key changes, or delegation decisions, none of which the observatory can attribute. Δ1d intentionally not surfaced on main table — per-DRep page and JSON exports only. Code and frontend implementation follow in separate commits. |
 | 2026-05-28 | v0.3 | Live telemetry layer added (`etl/live.py`, 10-minute cadence). Daily layer remains canonical. New methodology §14–§17 describe the live layer, eventual consistency between layers, Koios rate-limit discipline, and live-only data exports. Schema migration: `vote_block_time` column added to `votes` table; new `live_state` key/value table for cross-run state. All JSON exports now stamp `schema_version` (integer) and `methodology_version` (string) at the top of the payload to support reproducibility and downstream stability. Frontend gains explicit "daily snapshot" vs "live telemetry" distinction wording, recent-activity section with absolute UTC timestamps, and a data-provenance line in the footer. |
@@ -534,6 +535,133 @@ These are deferred indefinitely; they are listed here so the boundary is explici
 ### 20.11 Reproducibility commitment
 
 Every action detail page is derivable from `actions.json` plus the `votes` records (which themselves re-derive from Koios `/vote_list`). For DRep names of voters outside the top-30, the page shows the truncated `drep_id` only (per §10 disclosure — the operator has no special data access; this constraint applies equally to anyone running an independent observatory).
+
+## 21. Historical snapshot browser (FLOW-4)
+
+This section defines how the observatory exposes its accumulated daily snapshots as a navigable historical record. The boundary is sharp: the browser surfaces *the state that existed* at a given date or epoch; it does not interpret, narrate, or contextualize that state.
+
+### 21.1 What a historical state is
+
+A historical state, for the purposes of this section, is the **published snapshot record** for a specific UTC date. It consists of:
+
+- The set of `snapshots` rows with `snapshot_date = D`
+- The `dreps` rows referenced by those snapshots, **as their metadata was resolved on that date**
+- The `governance_actions` and `votes` records as they stood when that snapshot was written
+- The `epoch_info` mapping known at that date
+
+Historical state is reconstructable from the daily snapshot files alone. The browser does not invent or interpolate fields that were absent at the time. If a field is null in the historical record, it is shown as null.
+
+### 21.2 What a snapshot is
+
+A snapshot is the **canonical published output** of a single daily ETL run, as the daily layer (§4 / §5) defines it. For date `D`:
+
+- `top30.json` published on `D` is the canonical top-30 ranking for that date.
+- `actions.json` published on `D` is the canonical action list for that date.
+- `dreps/{drep_id}.json` published on `D` is the canonical per-DRep record for that date for each top-30 DRep.
+- `actions/{action_id}.json` published on `D` is the canonical per-action record for that date.
+- `epoch_info.json` published on `D` is the canonical epoch boundary table at that date.
+
+Snapshots are **immutable once published**. The same snapshot retrieved on a different day must yield identical content. To preserve this guarantee, the publication pipeline writes snapshots to a date-named path and never modifies a path after its date has passed.
+
+### 21.3 Snapshot persistence and addressing
+
+Beginning at FLOW-4, the daily ETL writes its outputs in two parallel locations:
+
+- **Current:** `/data/snapshots/{top30, actions, meta, epoch_info}.json` and `dreps/*`, `actions/*` — the latest values, overwritten each run (current behavior).
+- **Dated archive:** `/data/snapshots/by-date/{YYYY-MM-DD}/{top30, actions, meta, epoch_info}.json` and the per-DRep / per-action subfolders — the immutable record for that date.
+
+URLs:
+
+- `/?date=YYYY-MM-DD` — homepage showing top-30 as of that snapshot date.
+- `/drep.html?id=...&date=YYYY-MM-DD` — per-DRep view as of that snapshot date.
+- `/action.html?id=...&date=YYYY-MM-DD` — per-action view as of that snapshot date.
+- `/actions.html?date=YYYY-MM-DD` — governance actions index as of that date.
+
+Without the `date` query parameter, the URL serves the current snapshot, unchanged from current behavior.
+
+### 21.4 Missing periods
+
+If a daily ETL run failed, no archive entry exists for that date. The browser does **not interpolate** between adjacent successful runs. A request for a missing date returns an explicit gap notice: *"No snapshot was published for {date}. See {nearest prior date} for the most recent prior state."*
+
+The list of missing dates is published at `/data/snapshots/by-date/index.json` alongside the list of available dates. This index is itself a published artifact: anyone can verify which snapshots exist without crawling.
+
+### 21.5 Historical ranking derivation
+
+The top-30 ranking for date `D` is **the ranking that was published on date `D`**. It is not retroactively recomputed from current data, and it is not adjusted for DReps who deregistered later.
+
+If a DRep was in the top-30 on a past date and has since been deregistered, the historical view shows them in the historical ranking. The historical view does not annotate this with "this DRep has since deregistered" — that annotation would be editorial inference about the historical state. The current view shows the current state, which is the appropriate place to learn that.
+
+**Historical rankings are preserved exactly as published on the snapshot date, even if later governance developments would change how a reader interprets them.** The observatory's role is to retain what was; readers reason about what it meant.
+
+Cross-references between historical and current views (e.g., clicking a historical DRep entry) navigate to the **current** detail page by default. A separate query parameter (`?date=...`) is required to navigate to the historical detail. This prevents accidental confusion between "as-of" views.
+
+### 21.6 What the browser refuses to infer
+
+The historical browser surfaces only the published artifacts. It does not generate:
+
+- Trends between historical states ("DRep X grew Y% from date A to date B").
+- Comparison framings ("more delegators than before," "fewer active actions than typical").
+- Significance annotations on past events ("the era when X happened").
+- Synthetic "state at epoch X" for epochs the observatory did not snapshot.
+- Backfill of fields that were null at the time.
+- Retrospective re-ranking using current data.
+- "Notable moments" or "key dates" curation.
+
+Trends, comparisons, and aggregate metrics across snapshots are a separate methodology subject (FLOW-8 concentration analytics, FLOW-10 cross-layer observability) with their own sections. They do not appear in the historical browser.
+
+### 21.7 What is immutable
+
+Once a date has passed and its snapshot was successfully published:
+
+- The `top30.json` content for that date is immutable.
+- The `dreps/*.json` contents for that date are immutable.
+- The `actions/*.json` contents for that date are immutable.
+- The `meta.json` for that date is immutable (including the `methodology_version` and `schema_version` stamps).
+
+Immutability is **enforced by file path**: a snapshot lives at `by-date/{date}/`, and once written, the ETL never overwrites a past date's path. Operational mistakes that violate this rule are reported in §11 changelog with the affected dates and corrective action.
+
+If methodology changes after a snapshot was published, the snapshot retains its original `methodology_version` stamp. A reader inspecting a historical snapshot can verify the methodology version that produced it and consult that version of `METHODOLOGY.md` from the repository's git history.
+
+### 21.8 Historical navigation
+
+The browser offers two navigation primitives:
+
+1. **Date jump** — a simple chronological list of all dates with published snapshots, latest first, paginated. Missing dates are visibly absent from the list (a calendar widget is deliberately not used because it implies continuous coverage; the snapshot record is discrete and may have gaps).
+2. **Adjacent navigation** — previous/next snapshot date relative to the currently viewed date. Skips missing dates explicitly with a brief note.
+
+No "history feed," no "what changed since last snapshot" narrative, no aggregated highlights. Just navigation between published artifacts.
+
+### 21.9 Snapshot provenance
+
+Every historical view displays a small provenance strip:
+
+- **Snapshot date**
+- **Snapshot archive path** — the canonical filesystem path under `/data/snapshots/by-date/{YYYY-MM-DD}/` for that snapshot, displayed in monospace as a stable, citable reference. This is the identifier a researcher would cite when referring to this exact published artifact.
+- **ETL run completion timestamp** (from that date's `meta.json`)
+- **Methodology version** active when the snapshot was published
+- **Schema version** active when the snapshot was published
+- **Link to the canonical archive path** of that snapshot (direct JSON download)
+- **Link to the methodology version's git tag** (when methodology becomes git-tagged in a future revision)
+
+The provenance strip is visible on every page rendered with a `date` query parameter. It does not appear when viewing the current state — current views already display layer/freshness in the existing meta strip.
+
+### 21.10 Scope of historical coverage
+
+The browser exposes only snapshots **published by this observatory**. It does not back-fill snapshots for dates before deployment, even if the underlying chain data would support reconstruction. Pre-deployment state is outside the observatory's evidentiary scope: §15's "the observatory does not claim knowledge of pre-launch state" rule applies to FLOW-4 just as it applies to flow values.
+
+If a community contributor publishes an independent observatory that begins observation earlier, that record stands on its own methodology; this observatory does not import or merge it.
+
+### 21.11 What FLOW-4 does NOT do
+
+- Does NOT generate "evolution charts" of DReps over time except via the existing per-DRep 90-day chart, which is a current view, not a historical browser.
+- Does NOT compute "DRep X's rank on every past date" as a derived series — that's an aggregate-over-snapshots view, FLOW-8 territory.
+- Does NOT label past dates as "milestones" or "key events."
+- Does NOT compare historical snapshots side-by-side beyond rendering them on separate pages.
+- Does NOT publish "the most active date" or any ranking-of-dates.
+
+### 21.12 Reproducibility
+
+Every historical snapshot served by the browser is identical to the file published at `by-date/{date}/...` and is reproducible by any third party who archived the original snapshots when they were current. The browser does not transform the served artifacts beyond what the user-agent receives; the JSON returned for a historical date matches the file in the dated archive byte-for-byte (subject only to nginx compression negotiation).
 
 ## 12. v0.1 scope limitations
 
