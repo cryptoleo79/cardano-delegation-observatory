@@ -107,6 +107,14 @@ const i18n = {
     "drep-votes-label": "Vote history",
     "view-detail-link": "Open full page →",
 
+    /* FLOW-1 — Recent net change panel */
+    "drep-recent-change-label": "Recent net change",
+    "drep-recent-change-help": "Net snapshot-to-snapshot deltas. See Methodology §18. Movement only; not migration; not attributable to motive.",
+    "th-rc-interval": "Interval",
+    "th-rc-vw": "Net voting weight (ADA)",
+    "th-rc-dc": "Net delegators",
+    "th-rc-ref": "Reference date",
+
     /* Loading + error */
     "loading-msg": "Loading…",
     "load-error": "Could not load snapshot. The data file is missing or unreachable.",
@@ -215,6 +223,14 @@ const i18n = {
     "drep-meta-label": "メタデータ・ソース",
     "drep-votes-label": "投票履歴",
     "view-detail-link": "詳細ページを開く →",
+
+    /* FLOW-1 — Recent net change panel */
+    "drep-recent-change-label": "直近の純変動",
+    "drep-recent-change-help": "スナップショット間の純差分。詳細は方法論 §18 を参照。表示は変動のみ。移行(migration)とは別概念であり、動機は推定しない。",
+    "th-rc-interval": "期間",
+    "th-rc-vw": "投票権の純差分 (ADA)",
+    "th-rc-dc": "委任者数の純差分",
+    "th-rc-ref": "比較基準日",
 
     /* Loading + error */
     "loading-msg": "読み込み中…",

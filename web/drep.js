@@ -28,6 +28,51 @@ function fmtNum(n) {
 
 function safeText(s) { return s == null ? "" : String(s); }
 
+function fmtSignedAda(lovelace) {
+  if (lovelace === null || lovelace === undefined) return "—";
+  const ada = Math.trunc(Number(lovelace) / 1_000_000);
+  const sign = ada > 0 ? "+" : "";
+  return sign + ada.toLocaleString(NUM_LOCALE[currentLang()] || "en-US");
+}
+
+function fmtSigned(n) {
+  if (n === null || n === undefined) return "—";
+  const v = Number(n);
+  const sign = v > 0 ? "+" : "";
+  return sign + v.toLocaleString(NUM_LOCALE[currentLang()] || "en-US");
+}
+
+function renderRecentNetChange(rc) {
+  const tbody = document.getElementById("drep-recent-change-tbody");
+  if (!tbody) return;
+  tbody.innerHTML = "";
+  /* Three intervals — render even if all null, with reference_date = "—". */
+  const intervals = [
+    { key: "d1d", label: "1d" },
+    { key: "d7d", label: "7d" },
+    { key: "d30d", label: "30d" },
+  ];
+  for (const it of intervals) {
+    const row = (rc && rc[it.key]) || {};
+    const tr = document.createElement("tr");
+    const tdI = document.createElement("td");
+    tdI.textContent = it.label;
+    tr.appendChild(tdI);
+    const tdVw = document.createElement("td");
+    tdVw.className = "col-num";
+    tdVw.textContent = fmtSignedAda(row.voting_weight_delta_lovelace);
+    tr.appendChild(tdVw);
+    const tdDc = document.createElement("td");
+    tdDc.className = "col-num";
+    tdDc.textContent = fmtSigned(row.delegator_count_delta);
+    tr.appendChild(tdDc);
+    const tdRef = document.createElement("td");
+    tdRef.textContent = row.reference_date || "—";
+    tr.appendChild(tdRef);
+    tbody.appendChild(tr);
+  }
+}
+
 function drepIdFromUrl() {
   const params = new URLSearchParams(window.location.search);
   return params.get("id");
@@ -147,6 +192,9 @@ function render() {
     empty.textContent = t("ex-chart-empty");
     chartWrap.appendChild(empty);
   }
+
+  /* Recent net change (FLOW-1 v0.4) */
+  renderRecentNetChange(d.recent_net_change);
 
   /* Metadata row */
   const metaRow = document.getElementById("drep-meta-row");
