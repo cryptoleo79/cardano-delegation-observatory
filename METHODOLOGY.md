@@ -133,6 +133,7 @@ The source code, deployment configuration, and data schema are all public in thi
 
 | Date | Version | Change |
 |---|---|---|
+| 2026-05-31 | v0.8 (methodology only — code follows after approval) | FLOW-5 methodology §22 added: defines treasury observability. Records the on-chain treasury balance at each epoch boundary (per Koios `/totals`) and the governance-action-driven withdrawals from that treasury (per `/proposal_list` filtered to `TreasuryWithdrawals`), joined to the governance actions and DRep votes the observatory already captures under §6 and §20. **Important source-model correction:** Koios `/treasury_withdrawals`, despite the name, returns stake-credential reward withdrawals with no governance linkage (no `action_id`, no `proposal_id`, no governance fields of any kind — verified by direct probe on 2026-05-30). FLOW-5 explicitly excludes it and uses `/proposal_list?proposal_type=eq.TreasuryWithdrawals` as the canonical source. Two schema additions: `treasury_snapshot` (per-epoch tokenomics) and `treasury_withdrawals` (normalized per-recipient withdrawal rows keyed by `action_id`). §22.5 defines the observed-vs-governance-attributed reconciliation rule and explicitly disclaims interpretation of the residual (deposit refunds, protocol-level transfers, pre-Conway MIR movements are legitimate non-governance reasons treasury changes). No code, no schema changes, no frontend yet — methodology-only commit per discipline. schema_version → 2, methodology_version → 0.8 when FLOW-5 code lands. |
 | 2026-05-29 | v0.7 (addendum) | §21.14 added: explicit invariant that `snapshot_date` is the sole authority for archive placement; wall-clock UTC of the ETL run is irrelevant. Closes a real reproducibility hazard discovered during FLOW-4 verification, where two export functions (`export_epoch_info`, `export_action_detail`) silently recomputed `datetime.now(UTC)` instead of receiving `snapshot_date` as a parameter, splitting a single logical snapshot across two date directories whenever the wall-clock date differed from the requested snapshot_date (midnight-crossing runs and any backfill). Same-commit code fix: both functions now accept `snapshot_date` and never recompute it; `--snapshot-date YYYY-MM-DD` CLI flag added for backfill, archive repair, and reproducibility tests. |
 | 2026-05-29 | v0.7 (methodology only — code follows after verification gate) | FLOW-4 methodology §21 added: defines the historical snapshot browser. Scope, what a historical state is, what a snapshot is, snapshot persistence and addressing (dual write to current + `/by-date/{YYYY-MM-DD}/` immutable archive), missing-period handling (gap notice, no interpolation), historical ranking derivation (preserved exactly as published, even if later developments would change interpretation), what the browser refuses to infer, immutability rules enforced by file path, navigation primitives (list — never calendar — to honor the discrete-with-gaps reality), provenance strip including stable canonical archive path as citable identifier, scope of coverage (no pre-deployment backfill), explicit non-goals, and reproducibility commitment (byte-for-byte equivalence between served JSON and archived file). Code and frontend wait for the 02:05 UTC verification gate. |
 | 2026-05-29 | v0.6 | FLOW-3 methodology §20 added: defines the governance history layer. Scope, action record, action timeline, retention (permanent vs mutable), canonical sources, representation (aggregate + per-action JSON exports), what is not inferred (explicit "actions are presented in historical order; no major/minor distinction"), revision/reconciliation rules, edge cases, and reproducibility commitment. §20.7 adds the requirement that action detail pages display canonical `action_id` prominently near the top — never as an afterthought. Code and frontend follow in separate commits. |
@@ -712,6 +713,162 @@ All artifacts belonging to a `snapshot_date` are written beneath `by-date/{snaps
 - A backfill run with `--snapshot-date 2026-05-15` writes every artifact to `by-date/2026-05-15/`, regardless of when the run executes.
 
 This invariant exists because the alternative (each export computing its own "today") silently splits a single logical snapshot across two date directories whenever a UTC boundary crosses or a past date is replayed, producing dated archives that are neither complete nor reproducible.
+
+## 22. Treasury observability (FLOW-5)
+
+FLOW-5 extends the observatory to the Cardano treasury. It records the on-chain treasury balance at every epoch boundary and the governance-action-driven withdrawals from that treasury, joined to the governance actions and DRep votes the observatory already captures. It does not score, rank, judge, or recommend any recipient or any withdrawal.
+
+### 22.1 Scope
+
+A treasury flow, for the purposes of this section, is the movement of lovelace out of the Cardano on-chain treasury account that is enacted by a governance action of type `TreasuryWithdrawals` under CIP-1694. The observatory records:
+
+- The treasury balance at each epoch boundary (per Koios `/totals`), back to the earliest epoch the endpoint exposes.
+- Every governance action of type `TreasuryWithdrawals` recorded on chain — the same record already indexed under §20, with its withdrawal-recipient details normalized.
+- The relationship between an enacted withdrawal and the observed treasury balance change at the epoch in which it took effect.
+
+What this section does not include:
+
+- Reserves balance and reserves withdrawals. The reserves account is a distinct on-chain entity; pre-Conway reserve movement was MIR-certificate-driven. Reserves are reported by `/totals` and may be added to a later FLOW-5 expansion; v0.8 scope is treasury only.
+- Stake-credential reward withdrawals returned by Koios `/treasury_withdrawals`. That endpoint, despite its name, returns ITN-era and stake-reward withdrawal events with no governance linkage (no `action_id`, no `proposal_id`, no `gov_action_*` field of any kind). FLOW-5 explicitly excludes it from the governance-driven treasury layer. The naming collision is acknowledged here so future readers can distinguish the two.
+
+### 22.2 Canonical source model
+
+The corrected source model, validated by direct probe against the Koios mainnet API on 2026-05-30:
+
+| Datum | Endpoint | Filter | Cadence |
+|---|---|---|---|
+| Treasury balance, reserves, supply, fees, deposits per epoch | `/totals` | none — returns full epoch series | once per ETL run; idempotent upsert by `epoch_no` |
+| Treasury withdrawal actions (governance-driven) | `/proposal_list` | `proposal_type=eq.TreasuryWithdrawals` | once per ETL run |
+| Recipient addresses and lovelace amounts per action | inline `withdrawal` array within the same `/proposal_list` response | n/a — already attached to the proposal row | once per ETL run |
+| DRep votes on each treasury action | `/vote_list` filtered to action_id | already in §6 scope | already in §6 cadence |
+
+There is exactly one source of truth for governance-driven treasury withdrawals: the `withdrawal` array attached to a `proposal_type = TreasuryWithdrawals` row in `/proposal_list`. No other endpoint or join produces this information.
+
+### 22.3 Schema additions
+
+Two tables are added. Both are forward-only migrations under §13's general rule (existing schema unchanged, columns added via `ALTER TABLE ADD COLUMN`; new tables created idempotently via `CREATE TABLE IF NOT EXISTS`).
+
+**`treasury_snapshot`** — one row per Cardano epoch:
+
+| Column | Type | Notes |
+|---|---|---|
+| `epoch_no` | INTEGER PRIMARY KEY | Cardano epoch number, joinable to `epoch_info` |
+| `circulation_lovelace` | INTEGER | from `/totals.circulation` |
+| `treasury_lovelace` | INTEGER | from `/totals.treasury` |
+| `reward_lovelace` | INTEGER | from `/totals.reward` |
+| `supply_lovelace` | INTEGER | from `/totals.supply` |
+| `reserves_lovelace` | INTEGER | from `/totals.reserves` |
+| `fees_lovelace` | INTEGER | from `/totals.fees` |
+| `deposits_stake` | INTEGER | from `/totals.deposits_stake` |
+| `deposits_drep` | INTEGER | from `/totals.deposits_drep` |
+| `deposits_proposal` | INTEGER | from `/totals.deposits_proposal` |
+| `treasury_donation` | INTEGER NULL | from `/totals.treasury_donation` |
+| `treasury_withdrawal_epoch_total` | INTEGER NULL | from `/totals.treasury_withdrawal`; net treasury withdrawals enacted in that epoch as published by the endpoint |
+| `reserves_withdrawal_epoch_total` | INTEGER NULL | from `/totals.reserves_withdrawal` |
+| `fetched_at` | TIMESTAMP | UTC ISO 8601, when this row was last upserted |
+
+The `treasury_withdrawal_epoch_total` field is the published epoch-level net withdrawal as reported by Koios. It is **not** the sum of FLOW-5's per-action withdrawal records and is not required to equal that sum (see §22.6 on reconciliation).
+
+**`treasury_withdrawals`** — one row per (action_id, recipient) pair:
+
+| Column | Type | Notes |
+|---|---|---|
+| `action_id` | TEXT NOT NULL | FK to `governance_actions.action_id` |
+| `withdrawal_index` | INTEGER NOT NULL | 0-indexed position in the source `withdrawal` array; preserves stated order |
+| `recipient_stake_address` | TEXT NOT NULL | bech32 stake address from `withdrawal[i].stake_address` |
+| `amount_lovelace` | INTEGER NOT NULL | from `withdrawal[i].amount` |
+| `enacted_epoch` | INTEGER NULL | denormalized from `governance_actions.enacted_epoch` for fast epoch-keyed aggregation; updated when the parent action's enacted_epoch is observed |
+
+Primary key: `(action_id, withdrawal_index)`. Foreign key: `action_id` → `governance_actions(action_id)`. The denormalization of `enacted_epoch` is for query efficiency only; the canonical value lives on `governance_actions`. ETL idempotently re-syncs `enacted_epoch` on every run.
+
+No other tables are added in FLOW-5. The existing `governance_actions` and `votes` tables already carry every treasury action and every DRep vote on it.
+
+### 22.4 What a treasury action record contains
+
+Every record exposed by FLOW-5 inherits the full governance action record from §20 (action_id, action_type, title, submission_block_time, submitted_epoch, state-transition epochs, outcome, vote tally, individual DRep votes). FLOW-5 adds, per action:
+
+- The list of `(recipient_stake_address, amount_lovelace)` tuples — the withdrawal beneficiaries and the lovelace each is to receive if the action is enacted.
+- The denormalized `enacted_epoch` for fast filtering by "what was paid out in epoch E".
+
+FLOW-5 does **not** add: recipient name, recipient category, recipient project, recipient evaluation, "justification" field, "impact" estimate, or any prose interpretation of what a withdrawal funds. Recipient addresses are bech32 stake addresses, as recorded on chain, full string.
+
+### 22.5 The reconciliation rule (observed vs governance-attributed)
+
+For any epoch `E` in which one or more treasury actions have `enacted_epoch = E`, two quantities exist:
+
+- `observed_delta(E)` = `treasury_snapshot.treasury_lovelace[E]` − `treasury_snapshot.treasury_lovelace[E−1]`
+- `governance_attributed(E)` = sum over all `treasury_withdrawals` rows where `enacted_epoch = E` of `amount_lovelace`, sign-flipped (withdrawals reduce treasury)
+
+The reconciliation residual is `observed_delta(E) − governance_attributed(E)`. This residual is **not** an error term. Treasury balance changes for reasons that are not governance-action-driven, including but not limited to:
+
+- Refunds of unrefunded governance proposal deposits when an action terminates.
+- Refunds of DRep registration deposits on deregistration.
+- Refunds of stake-credential deposits.
+- Block-production reward flows in and out per epoch protocol mechanics.
+- Protocol-level adjustments that are not exposed through any `/proposal_list` row.
+
+The observatory publishes both numbers and the residual. It does not interpret the residual as anomalous, suspicious, or fraudulent. A non-zero residual is the expected state of a complex ledger; reporting it transparently is the point.
+
+### 22.6 Pre-Conway treasury
+
+The Cardano treasury account predates Conway (it existed in Shelley, populated via protocol parameters and block production). Treasury movement before epoch 432 (the Conway-era cutover) was driven by Move Instantaneous Reward (MIR) certificates, not by CIP-1694 governance actions. MIR was a protocol mechanism, not a community-governed flow.
+
+FLOW-5 ingests the full `/totals` history available (back to the earliest epoch the endpoint exposes — currently observed to be around epoch 209). For epochs `< 432`, the `treasury_lovelace` field is reported as-is; `treasury_withdrawals` has no rows (no governance actions existed); the reconciliation residual is, by construction, the entire observed delta. Pre-Conway treasury changes are recorded but are not attributed to governance.
+
+### 22.7 What FLOW-5 explicitly does NOT do
+
+- It does not rank or score recipients. Stake addresses are presented in the order the chain recorded them.
+- It does not categorize withdrawals by purpose. The chain does not record purpose; assigning one would be editorial.
+- It does not derive "net treasury health," "burn rate," "runway months," or any forward projection. Such derivations require assumptions the observatory does not make.
+- It does not flag "anomalous" withdrawals. An unusual withdrawal pattern is still on-chain fact; surfacing it as anomaly would be interpretation.
+- It does not link withdrawals to off-chain identities (proposal author, funded project, Catalyst fund, organization). Such linkage requires external data sources the observatory does not maintain.
+- It does not modify or extend `governance_actions` semantics. The action record stays exactly as §20 defines it.
+- It does not retroactively alter past `treasury_snapshot` rows. Per `/totals` semantics, epoch rows are stable once published; if Koios revises a value, the observatory upserts the new value and the change is visible in the git history of the deployed snapshots.
+
+### 22.8 Edge cases
+
+- **Action enacted but withdrawal partially observed.** A `TreasuryWithdrawals` action with `enacted_epoch = E` is expected to apply at the start of epoch `E`. If the published `treasury_snapshot[E].treasury_lovelace` reflects only part of the action's `amount_lovelace`, the observatory reports both numbers and the residual. It does not split, fabricate, or annotate. Interpretation is left to the reader.
+- **Action ratified but not yet enacted.** A ratified action with `enacted_epoch = null` does not appear in any epoch's `governance_attributed` sum. Its expected effect is documented on the per-action page as a pending withdrawal; no projection is made about when it will enact.
+- **Action with multiple recipients of equal amount.** Each `(action_id, withdrawal_index)` pair is its own row. Order is preserved per the chain's recorded `withdrawal` array; no deduplication on (recipient, amount) is performed (recipients may legitimately appear multiple times in one action).
+- **Recipient stake address reuse across actions.** A stake address may receive funds from multiple distinct governance actions. Each is its own `treasury_withdrawals` row; no implicit aggregation is performed at storage. Aggregations are computable at query time; the observatory's published exports stay at the (action, recipient) grain.
+- **Koios revises a past `/totals` row.** Treated as a normal upsert. If a revision changes a historical `treasury_lovelace`, the new value is written and `fetched_at` updated. The dated archive at `by-date/{D}/` contains the value as known on date `D`; the live current snapshot reflects the latest known value. Researchers tracking revisions diff successive dated archives.
+- **A new `TreasuryWithdrawals` action appears in the Koios response that was not present in the prior ETL run.** Normal idempotent insert; vote rows accrete as DReps cast votes over subsequent epochs.
+
+### 22.9 Cross-link to existing layers
+
+FLOW-5 inherits, not re-implements, every cross-link the observatory already provides:
+
+- The DRep vote tally on each treasury action is the same vote data §6 defines.
+- The action timeline (submission → ratification → enactment | expiration | drop) is the same timeline §20.3 defines.
+- The per-action JSON export at `/data/snapshots/actions/{action_id}.json` (§13) is extended with the `withdrawal` array and the `enacted_epoch` for that action, when those fields apply.
+- The historical archive at `by-date/{YYYY-MM-DD}/` (§21) includes `treasury_snapshot.json` and treasury fields under each affected action's per-action JSON.
+
+The frontend rendering and JSON export structure for treasury actions follows §13 and §20's existing patterns. No new top-level page is required by methodology; whether a standalone treasury index page is added is a separate frontend decision documented under §13 when implemented.
+
+### 22.10 Published exports
+
+FLOW-5 adds the following CC0 published exports:
+
+- `/data/snapshots/treasury_snapshot.json` — the full `treasury_snapshot` table as of the current ETL run, one entry per epoch.
+- `/data/snapshots/treasury_withdrawals.json` — the full `treasury_withdrawals` table, one entry per (action_id, withdrawal_index) row. Each entry includes `action_id`, `withdrawal_index`, `recipient_stake_address`, `amount_lovelace`, `enacted_epoch`, and the action's `outcome` (joined for convenience; the canonical outcome remains on `governance_actions`).
+- Extension of `/data/snapshots/actions/{action_id}.json` (§20.6): for `action_type = TreasuryWithdrawals`, a `withdrawal` array is added with the recipient list.
+- Extension of `/data/snapshots/by-date/{YYYY-MM-DD}/` (§21.3, §21.13): the dated archive includes `treasury_snapshot.json` and `treasury_withdrawals.json`. Both are covered by `sha256.json` per §21.13.
+
+Each export carries `schema_version` and `methodology_version` per §13.
+
+### 22.11 Reproducibility commitment
+
+A third party can reproduce every FLOW-5 number from the same Koios endpoints the observatory uses:
+
+1. `GET /totals` returns the per-epoch series; compare to `treasury_snapshot.json`.
+2. `GET /proposal_list?proposal_type=eq.TreasuryWithdrawals` returns the action set; the `withdrawal` array on each row equals the (action_id, withdrawal_index → recipient + amount) rows in `treasury_withdrawals.json`.
+3. The dated archive at `by-date/{D}/` is byte-equal to what was served on date `D` (§21.12), and `sha256.json` covers both treasury files (§21.13).
+
+The reconciliation residual (§22.5) is itself computable from the published exports alone, without re-querying Koios. A researcher can audit any past epoch's residual entirely from the dated archive.
+
+### 22.12 Versioning
+
+This section ships with `methodology_version = "0.8"`. The version bump reflects the schema additions in §22.3 and the new exports in §22.10. The schema_version increments to 2 to reflect the table additions. Existing v0.7 consumers continue to receive every field they already had; FLOW-5 fields are additive.
 
 ## 12. v0.1 scope limitations
 
