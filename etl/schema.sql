@@ -70,6 +70,40 @@ CREATE TABLE IF NOT EXISTS governance_actions (
     outcome                TEXT
 );
 
+-- FLOW-5: per-epoch treasury / reserves / supply state from Koios /totals.
+-- See METHODOLOGY §22.3. One row per Cardano epoch. Idempotent upsert by epoch_no.
+CREATE TABLE IF NOT EXISTS treasury_snapshot (
+    epoch_no                          INTEGER PRIMARY KEY,
+    circulation_lovelace              INTEGER NOT NULL,
+    treasury_lovelace                 INTEGER NOT NULL,
+    reward_lovelace                   INTEGER NOT NULL,
+    supply_lovelace                   INTEGER NOT NULL,
+    reserves_lovelace                 INTEGER NOT NULL,
+    fees_lovelace                     INTEGER NOT NULL,
+    deposits_stake                    INTEGER NOT NULL,
+    deposits_drep                     INTEGER NOT NULL,
+    deposits_proposal                 INTEGER NOT NULL,
+    treasury_donation                 INTEGER,
+    treasury_withdrawal_epoch_total   INTEGER,
+    reserves_withdrawal_epoch_total   INTEGER,
+    fetched_at                        TIMESTAMP NOT NULL
+);
+
+-- FLOW-5: normalized withdrawal recipients for TreasuryWithdrawals governance actions.
+-- One row per (action_id, withdrawal_index). enacted_epoch denormalized from
+-- governance_actions for fast epoch-keyed aggregation. See METHODOLOGY §22.3.
+CREATE TABLE IF NOT EXISTS treasury_withdrawals (
+    action_id                TEXT NOT NULL,
+    withdrawal_index         INTEGER NOT NULL,
+    recipient_stake_address  TEXT NOT NULL,
+    amount_lovelace          INTEGER NOT NULL,
+    enacted_epoch            INTEGER,
+    PRIMARY KEY (action_id, withdrawal_index),
+    FOREIGN KEY (action_id) REFERENCES governance_actions(action_id)
+);
+CREATE INDEX IF NOT EXISTS idx_treasury_withdrawals_epoch ON treasury_withdrawals (enacted_epoch);
+CREATE INDEX IF NOT EXISTS idx_treasury_withdrawals_recipient ON treasury_withdrawals (recipient_stake_address);
+
 -- ETL run telemetry — operational, auditable
 CREATE TABLE IF NOT EXISTS etl_runs (
     run_started_at     TIMESTAMP NOT NULL,

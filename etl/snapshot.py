@@ -52,8 +52,8 @@ DELTA_LOOKBACKS_DAYS = (7, 30)
 LOVELACE_PER_ADA = 1_000_000
 
 ETL_VERSION = "0.7.0"
-METHODOLOGY_VERSION = "0.7"
-SCHEMA_VERSION = 1
+METHODOLOGY_VERSION = "0.8"
+SCHEMA_VERSION = 2
 
 log = logging.getLogger("snapshot")
 
@@ -215,6 +215,27 @@ def fetch_drep_votes() -> list[dict]:
         if row.get("voter_role") == "DRep":
             rows.append(row)
     return rows
+
+
+def fetch_totals() -> list[dict]:
+    """FLOW-5: per-epoch treasury / reserves / supply state.
+
+    Koios /totals returns the full epoch series in a single response (currently
+    ~426 rows; ~250 KB). Per METHODOLOGY §22.2 this is the canonical source for
+    on-chain treasury balance at each epoch boundary.
+    """
+    rows, _ = koios_request("/totals")
+    return rows or []
+
+
+def fetch_treasury_withdrawal_actions() -> list[dict]:
+    """FLOW-5: governance actions of type TreasuryWithdrawals, with attached
+    withdrawal arrays. Per METHODOLOGY §22.2: the canonical (and only) source
+    for governance-driven treasury payouts. Explicitly NOT /treasury_withdrawals,
+    which returns stake-credential reward withdrawals with no governance linkage.
+    """
+    return list(koios_paged("/proposal_list",
+                            params={"proposal_type": "eq.TreasuryWithdrawals"}))
 
 
 def fetch_metadata_bulk(drep_ids: list[str]) -> dict[str, dict]:
@@ -471,6 +492,95 @@ def upsert_vote(db: sqlite3.Connection, row: dict) -> None:
             int(block_time) if block_time is not None else None,
         ),
     )
+
+
+def upsert_treasury_snapshot(db: sqlite3.Connection, row: dict) -> None:
+    """FLOW-5: idempotent insert of one /totals row keyed by epoch_no.
+
+    Per METHODOLOGY §22.3 the table is append-only across normal runs; in-place
+    update is allowed because Koios may revise a published value (§22.8).
+    """
+    def _int(v):
+        return int(v) if v is not None else None
+    fetched_at = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    db.execute(
+        """INSERT INTO treasury_snapshot
+               (epoch_no, circulation_lovelace, treasury_lovelace, reward_lovelace,
+                supply_lovelace, reserves_lovelace, fees_lovelace,
+                deposits_stake, deposits_drep, deposits_proposal,
+                treasury_donation, treasury_withdrawal_epoch_total,
+                reserves_withdrawal_epoch_total, fetched_at)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+           ON CONFLICT(epoch_no) DO UPDATE SET
+               circulation_lovelace = excluded.circulation_lovelace,
+               treasury_lovelace = excluded.treasury_lovelace,
+               reward_lovelace = excluded.reward_lovelace,
+               supply_lovelace = excluded.supply_lovelace,
+               reserves_lovelace = excluded.reserves_lovelace,
+               fees_lovelace = excluded.fees_lovelace,
+               deposits_stake = excluded.deposits_stake,
+               deposits_drep = excluded.deposits_drep,
+               deposits_proposal = excluded.deposits_proposal,
+               treasury_donation = excluded.treasury_donation,
+               treasury_withdrawal_epoch_total = excluded.treasury_withdrawal_epoch_total,
+               reserves_withdrawal_epoch_total = excluded.reserves_withdrawal_epoch_total,
+               fetched_at = excluded.fetched_at""",
+        (
+            int(row["epoch_no"]),
+            _int(row.get("circulation")),
+            _int(row.get("treasury")),
+            _int(row.get("reward")),
+            _int(row.get("supply")),
+            _int(row.get("reserves")),
+            _int(row.get("fees")),
+            _int(row.get("deposits_stake")),
+            _int(row.get("deposits_drep")),
+            _int(row.get("deposits_proposal")),
+            _int(row.get("treasury_donation")),
+            _int(row.get("treasury_withdrawal")),
+            _int(row.get("reserves_withdrawal")),
+            fetched_at,
+        ),
+    )
+
+
+def upsert_treasury_withdrawals(db: sqlite3.Connection, action_id: str,
+                                withdrawal_array: list, enacted_epoch: int | None) -> int:
+    """FLOW-5: replace the full set of withdrawal rows for one action.
+
+    Delete-then-insert (rather than per-row upsert) because the source array
+    is the canonical truth — if Koios revises the array, our stored rows must
+    exactly mirror it, and a partial upsert could leave stale rows.
+
+    Returns the number of withdrawal rows inserted for this action.
+    """
+    db.execute("DELETE FROM treasury_withdrawals WHERE action_id = ?", (action_id,))
+    if not withdrawal_array:
+        return 0
+    n = 0
+    for i, w in enumerate(withdrawal_array):
+        amount = w.get("amount")
+        recipient = w.get("stake_address")
+        if amount is None or recipient is None:
+            log.warning("skipping malformed withdrawal[%d] on %s: %r", i, action_id, w)
+            continue
+        try:
+            amount_int = int(amount)
+        except (TypeError, ValueError):
+            log.warning("skipping non-integer amount on %s[%d]: %r", action_id, i, amount)
+            continue
+        if amount_int <= 0:
+            log.warning("skipping non-positive amount on %s[%d]: %d", action_id, i, amount_int)
+            continue
+        db.execute(
+            """INSERT INTO treasury_withdrawals
+                   (action_id, withdrawal_index, recipient_stake_address,
+                    amount_lovelace, enacted_epoch)
+               VALUES (?, ?, ?, ?, ?)""",
+            (action_id, i, recipient, amount_int, enacted_epoch),
+        )
+        n += 1
+    return n
 
 
 def write_snapshot_row(db: sqlite3.Connection, *, snapshot_date: str, epoch: int,
@@ -906,6 +1016,28 @@ def export_action_detail(db: sqlite3.Connection, action_id: str,
         "vote_tally": tally,
         "votes": votes,
     }
+
+    # FLOW-5 §22.9: TreasuryWithdrawals actions inherit the standard action payload
+    # and ADD a `withdrawal` array of {index, recipient_stake_address, amount_lovelace}.
+    # Other action types do not receive the field at all — no empty arrays, no nulls,
+    # so the absence is unambiguous (§22.7).
+    if a["action_type"] == "TreasuryWithdrawals":
+        wrows = db.execute(
+            """SELECT withdrawal_index, recipient_stake_address, amount_lovelace
+                 FROM treasury_withdrawals
+                WHERE action_id = ?
+                ORDER BY withdrawal_index""",
+            (action_id,),
+        ).fetchall()
+        payload["withdrawal"] = [
+            {
+                "index": int(w["withdrawal_index"]),
+                "recipient_stake_address": w["recipient_stake_address"],
+                "amount_lovelace": int(w["amount_lovelace"]),
+            }
+            for w in wrows
+        ]
+
     atomic_write_json(out_dir / "actions" / f"{action_id}.json", payload)
     write_archive(out_dir, snapshot_date, f"actions/{action_id}.json", payload)
 
@@ -933,6 +1065,91 @@ def export_epoch_info(db: sqlite3.Connection, snapshot_date: str,
     }
     atomic_write_json(out_dir / "epoch_info.json", payload)
     write_archive(out_dir, snapshot_date, "epoch_info.json", payload)
+
+
+def export_treasury_snapshot(db: sqlite3.Connection, snapshot_date: str,
+                             out_dir: Path) -> int:
+    """FLOW-5 §22.10: export full treasury_snapshot table as JSON.
+
+    One entry per Cardano epoch. Returns the number of epochs exported.
+    """
+    rows = db.execute(
+        """SELECT epoch_no, circulation_lovelace, treasury_lovelace, reward_lovelace,
+                  supply_lovelace, reserves_lovelace, fees_lovelace,
+                  deposits_stake, deposits_drep, deposits_proposal,
+                  treasury_donation, treasury_withdrawal_epoch_total,
+                  reserves_withdrawal_epoch_total
+             FROM treasury_snapshot
+            ORDER BY epoch_no"""
+    ).fetchall()
+    entries = [
+        {
+            "epoch_no": int(r["epoch_no"]),
+            "circulation_lovelace": int(r["circulation_lovelace"]),
+            "treasury_lovelace": int(r["treasury_lovelace"]),
+            "reward_lovelace": int(r["reward_lovelace"]),
+            "supply_lovelace": int(r["supply_lovelace"]),
+            "reserves_lovelace": int(r["reserves_lovelace"]),
+            "fees_lovelace": int(r["fees_lovelace"]),
+            "deposits_stake": int(r["deposits_stake"]),
+            "deposits_drep": int(r["deposits_drep"]),
+            "deposits_proposal": int(r["deposits_proposal"]),
+            "treasury_donation": int(r["treasury_donation"]) if r["treasury_donation"] is not None else None,
+            "treasury_withdrawal_epoch_total": int(r["treasury_withdrawal_epoch_total"]) if r["treasury_withdrawal_epoch_total"] is not None else None,
+            "reserves_withdrawal_epoch_total": int(r["reserves_withdrawal_epoch_total"]) if r["reserves_withdrawal_epoch_total"] is not None else None,
+        }
+        for r in rows
+    ]
+    payload = {
+        "schema_version": SCHEMA_VERSION,
+        "methodology_version": METHODOLOGY_VERSION,
+        "layer": "daily",
+        "snapshot_date": snapshot_date,
+        "n_epochs": len(entries),
+        "epochs": entries,
+    }
+    atomic_write_json(out_dir / "treasury_snapshot.json", payload)
+    write_archive(out_dir, snapshot_date, "treasury_snapshot.json", payload)
+    return len(entries)
+
+
+def export_treasury_withdrawals(db: sqlite3.Connection, snapshot_date: str,
+                                out_dir: Path) -> int:
+    """FLOW-5 §22.10: export full treasury_withdrawals table as JSON.
+
+    One entry per (action_id, withdrawal_index). The action's outcome is joined
+    in for reader convenience; the canonical outcome remains on governance_actions.
+    Returns the number of withdrawal rows exported.
+    """
+    rows = db.execute(
+        """SELECT tw.action_id, tw.withdrawal_index, tw.recipient_stake_address,
+                  tw.amount_lovelace, tw.enacted_epoch, ga.outcome
+             FROM treasury_withdrawals tw
+             JOIN governance_actions ga ON ga.action_id = tw.action_id
+            ORDER BY tw.action_id, tw.withdrawal_index"""
+    ).fetchall()
+    entries = [
+        {
+            "action_id": r["action_id"],
+            "withdrawal_index": int(r["withdrawal_index"]),
+            "recipient_stake_address": r["recipient_stake_address"],
+            "amount_lovelace": int(r["amount_lovelace"]),
+            "enacted_epoch": int(r["enacted_epoch"]) if r["enacted_epoch"] is not None else None,
+            "outcome": r["outcome"],
+        }
+        for r in rows
+    ]
+    payload = {
+        "schema_version": SCHEMA_VERSION,
+        "methodology_version": METHODOLOGY_VERSION,
+        "layer": "daily",
+        "snapshot_date": snapshot_date,
+        "n_withdrawals": len(entries),
+        "withdrawals": entries,
+    }
+    atomic_write_json(out_dir / "treasury_withdrawals.json", payload)
+    write_archive(out_dir, snapshot_date, "treasury_withdrawals.json", payload)
+    return len(entries)
 
 
 def export_drep_history(db: sqlite3.Connection, drep_id: str, snapshot_date: str,
@@ -1179,6 +1396,32 @@ def run(args: argparse.Namespace) -> int:
             upsert_vote(db, v)
         log.info("upserted %d DRep votes (deduplicated by latest per action+drep)", len(votes))
 
+        # FLOW-5 §22.2: fetch per-epoch treasury state from /totals (canonical
+        # source for treasury balance) and treasury withdrawal recipients from
+        # /proposal_list filtered to TreasuryWithdrawals (canonical source for
+        # governance-driven treasury payouts; /treasury_withdrawals is explicitly
+        # NOT used — see §22.1).
+        log.info("fetching /totals (per-epoch treasury state)")
+        totals_rows = fetch_totals()
+        for r in totals_rows:
+            upsert_treasury_snapshot(db, r)
+        log.info("upserted %d treasury_snapshot epochs", len(totals_rows))
+
+        log.info("fetching TreasuryWithdrawals actions")
+        tw_actions = fetch_treasury_withdrawal_actions()
+        tw_recipient_count = 0
+        for a in tw_actions:
+            # Action row was already upserted above by upsert_governance_action;
+            # we just need to replace the withdrawal recipient set for this action.
+            n = upsert_treasury_withdrawals(
+                db, a["proposal_id"], a.get("withdrawal") or [],
+                a.get("enacted_epoch"),
+            )
+            tw_recipient_count += n
+        log.info("upserted %d treasury_withdrawals rows across %d actions",
+                 tw_recipient_count, len(tw_actions))
+        db.commit()
+
         # Write snapshot + drep registry rows for top candidates only.
         # The wider active set is acknowledged but not yet snapshotted in v0.1.
         for row in candidates:
@@ -1216,6 +1459,12 @@ def run(args: argparse.Namespace) -> int:
 
         export_top30_csv(top30, snapshot_date, Path(args.out))
         log.info("wrote top30.csv")
+
+        # FLOW-5 §22.10: treasury exports
+        n_ep = export_treasury_snapshot(db, snapshot_date, Path(args.out))
+        log.info("wrote treasury_snapshot.json (%d epochs)", n_ep)
+        n_wd = export_treasury_withdrawals(db, snapshot_date, Path(args.out))
+        log.info("wrote treasury_withdrawals.json (%d withdrawal rows)", n_wd)
 
         # Mark the run successful *before* writing meta.json so that the
         # latest-run record visible to consumers reflects the completed run,
