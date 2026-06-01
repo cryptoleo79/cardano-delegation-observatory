@@ -920,6 +920,30 @@ FLOW-5 inherits the five-layer verification structure used for earlier FLOWs (ET
 
 A FLOW-5 run that fails any check at any layer is flagged in the daily verification log. Failure does not silently degrade — the affected file stays in the archive in its existing state and the next successful run reconciles forward.
 
+### 22.14 Koios field availability addendum
+
+This addendum records a finding from the FLOW-5 verification run on 2026-06-01 and clarifies the reconciliation basis given the actual shape of the data Koios publishes today. No schema or code changes follow from it — only methodology language is adjusted.
+
+**Finding.** Three fields in the Koios `/totals` response — `treasury_withdrawal`, `treasury_donation`, and `reserves_withdrawal` — are present in the response schema but were observed as `null` for every one of the 426 epochs in the chain history at the time of verification (Cardano epochs 209–634, probed 2026-06-01). The fields are documented in the upstream API as per-epoch totals, but Koios does not currently populate them. This was discovered during the §22.13 Layer 4.3 check and confirmed by direct probe of `/totals?epoch_no=eq.{N}` for several epochs (notably 571, 575, 576, 577, 578 — all of which had enacted TreasuryWithdrawals governance actions on chain) and by a full-corpus scan that found zero non-null values across all three fields.
+
+**Implication for §22.5 reconciliation.** The reconciliation rule in §22.5 is unchanged in spirit but its reference series is restated explicitly here to avoid ambiguity: the **observed treasury movement** for an epoch `N` is
+
+`observed_Δ(N) = treasury_lovelace(N) − treasury_lovelace(N−1)`
+
+computed from successive rows of `treasury_snapshot`. It is **not** derived from `treasury_withdrawal_epoch_total`, which is currently always `null` from Koios. The governance-attributed sum for the same epoch is
+
+`governance_attributed(N) = SUM(treasury_withdrawals.amount_lovelace WHERE enacted_epoch = N)`
+
+The reconciliation residual is `observed_Δ(N) − governance_attributed(N)`, adjusted for the protocol inflow side of the epoch (fees paid into treasury, reserves-to-treasury transfers driven by the monetary expansion mechanism, deposit refunds from declined proposals). Per §22.5 the residual is not interpreted as error.
+
+**Implication for §22.13 Layer 4.3.** The check as originally written verifies that the always-null Koios field is stored as-is. That check still passes by being trivially true (null in, null out) but offers little assurance. The substantive check is: the governance-attributed sum for an epoch is computable from `treasury_withdrawals` alone, and the observed Δ for that epoch is computable from successive `treasury_snapshot` rows alone. Both are now part of the verification corpus and were confirmed on 2026-06-01 (epoch 571: governance-attributed 1,500,000,000,000 lovelace = 1.5M ADA across 5 recipient rows; observed Δ derivable from `treasury_lovelace(571) − treasury_lovelace(570)`).
+
+**Why the three fields remain in the schema.** The defensive capture is intentional. If Koios begins populating any of these fields in a future release, the next daily ETL run captures them automatically with no code change, no schema migration, and no risk of silent omission. Removing the columns now would require a schema change *plus* a re-deployment if Koios ever started publishing them. Storing a always-null column has trivial cost (an `INTEGER NULL` adds one byte per row of overhead in SQLite); discarding the option to capture future values would be a real loss. Honest reporting of current Koios behavior in the methodology is sufficient — the schema does not need to mirror Koios's current sparsity.
+
+**Verification date for this addendum.** 2026-06-01. The finding will be re-verified by inspection on each future methodology version bump; if Koios begins populating these fields, this addendum will be revised in place rather than removed (the historical observation that the fields *were* null through 2026-06-01 is itself a fact about the chain explorer ecosystem and worth preserving).
+
+`methodology_version` remains `0.8`. This addendum is a clarification of the existing §22.5 and §22.13 language, not a new methodological commitment, so no version bump is warranted. `schema_version` remains `2`.
+
 ## 12. v0.1 scope limitations
 
 The site is deliberately narrow at v0.1. The following are out of scope for this version and disclosed here transparently rather than masked with synthetic or interpolated values:
