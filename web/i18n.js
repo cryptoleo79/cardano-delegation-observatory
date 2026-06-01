@@ -153,6 +153,14 @@ const i18n = {
     "th-tl-event": "Event",
     "th-tl-date": "Date (UTC)",
     "th-tl-epoch": "Epoch",
+    /* FLOW-5 — Treasury withdrawal recipients (TreasuryWithdrawals actions only) */
+    "action-withdrawals-label": "Treasury withdrawal recipients",
+    "action-withdrawals-help": "Stake-credential recipients listed on this treasury withdrawal proposal as recorded on chain. No editorial fields — recipient identity beyond the stake address is not asserted. See Methodology §22.4.",
+    "th-w-recipient": "Recipient stake address",
+    "th-w-amount-ada": "Amount (ADA)",
+    "th-w-amount-lovelace": "Amount (lovelace)",
+    "action-withdrawals-total-label": "Total",
+
     "action-tally-label": "Vote tally",
     "action-tally-help": "Counts are the most recent vote cast by each DRep on this action (per §6 revote rule). No approval/rejection framing — protocol terms only.",
     "action-votes-label": "DRep votes",
@@ -319,6 +327,14 @@ const i18n = {
     "th-tl-event": "イベント",
     "th-tl-date": "日付 (UTC)",
     "th-tl-epoch": "エポック",
+    /* FLOW-5 — 財務省引出の受取人 (TreasuryWithdrawals 種別のアクションのみ) */
+    "action-withdrawals-label": "財務省引出の受取人",
+    "action-withdrawals-help": "本財務省引出提案にオンチェーン上で記録された、ステーク資格による受取人一覧。編集的なフィールドは持たない——ステークアドレス以外の受取人の身元は主張しない。詳細は方法論 §22.4 を参照。",
+    "th-w-recipient": "受取人のステークアドレス",
+    "th-w-amount-ada": "金額 (ADA)",
+    "th-w-amount-lovelace": "金額 (lovelace)",
+    "action-withdrawals-total-label": "合計",
+
     "action-tally-label": "投票集計",
     "action-tally-help": "集計は各DRepがこのアクションに対して最後に投じた票(§6 の再投票ルール)。承認/拒否のフレーミングは行わない——プロトコル用語のみ。",
     "action-votes-label": "DRep投票",

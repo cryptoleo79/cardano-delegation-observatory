@@ -8,6 +8,7 @@ function DATA_ROOT() {
 }
 const NUM_LOCALE = { en: "en-US", ja: "ja-JP" };
 const INITIAL_VOTES_VISIBLE = 20;
+const LOVELACE_PER_ADA = 1_000_000;
 
 const state = {
   detail: null,
@@ -106,6 +107,66 @@ function renderTimeline(d) {
     tr.appendChild(tdEp);
     tbody.appendChild(tr);
   }
+}
+
+/* ── treasury withdrawals (FLOW-5) ───────────────────────────────────── */
+
+function renderWithdrawals(d) {
+  const section = document.getElementById("action-withdrawals-section");
+  const tbody = document.getElementById("action-withdrawals-tbody");
+  const tfoot = document.getElementById("action-withdrawals-tfoot");
+  tbody.innerHTML = "";
+  tfoot.innerHTML = "";
+  /* §22.13 Layer 3: other action types do not display the section at all. */
+  if (!d.withdrawal || d.withdrawal.length === 0) {
+    section.style.display = "none";
+    return;
+  }
+  section.style.display = "";
+  let totalLovelace = 0n;
+  for (const w of d.withdrawal) {
+    const tr = document.createElement("tr");
+    const tdR = document.createElement("td");
+    /* §22.13 Layer 3: full address rendered, no silent truncation. */
+    tdR.className = "stake-addr";
+    tdR.textContent = safeText(w.recipient_stake_address);
+    tr.appendChild(tdR);
+
+    const tdAda = document.createElement("td");
+    tdAda.className = "col-num";
+    const lovelace = BigInt(w.amount_lovelace);
+    totalLovelace += lovelace;
+    tdAda.textContent = fmtNum(Number(lovelace / BigInt(LOVELACE_PER_ADA)));
+    tr.appendChild(tdAda);
+
+    const tdLov = document.createElement("td");
+    tdLov.className = "col-num";
+    tdLov.textContent = fmtNum(Number(lovelace));
+    tr.appendChild(tdLov);
+
+    tbody.appendChild(tr);
+  }
+  /* Total row — sum is mechanical, not editorial. */
+  const trTotal = document.createElement("tr");
+  const tdTotalLabel = document.createElement("td");
+  tdTotalLabel.style.fontWeight = "600";
+  tdTotalLabel.id = "action-withdrawals-total-label";
+  tdTotalLabel.textContent = t("action-withdrawals-total-label");
+  trTotal.appendChild(tdTotalLabel);
+
+  const tdTotalAda = document.createElement("td");
+  tdTotalAda.className = "col-num";
+  tdTotalAda.style.fontWeight = "600";
+  tdTotalAda.textContent = fmtNum(Number(totalLovelace / BigInt(LOVELACE_PER_ADA)));
+  trTotal.appendChild(tdTotalAda);
+
+  const tdTotalLov = document.createElement("td");
+  tdTotalLov.className = "col-num";
+  tdTotalLov.style.fontWeight = "600";
+  tdTotalLov.textContent = fmtNum(Number(totalLovelace));
+  trTotal.appendChild(tdTotalLov);
+
+  tfoot.appendChild(trTotal);
 }
 
 /* ── votes ─────────────────────────────────────────────────────────── */
@@ -222,6 +283,7 @@ function render() {
   }
 
   renderTimeline(d);
+  renderWithdrawals(d);
   renderVotes();
 }
 

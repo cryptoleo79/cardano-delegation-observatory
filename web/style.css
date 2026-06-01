@@ -262,6 +262,10 @@ tr.expand-row:hover { background: var(--card); }
 }
 .vote-table th { font-weight: 600; color: var(--muted); font-size: 11px; }
 .vote-table td.vote-cell { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; }
+/* FLOW-5 §22.13 Layer 3: full stake address, no silent truncation; long bech32
+   strings wrap cleanly within the cell using word-break. Same neutral color
+   as the rest of the action page — no recipient-quality signal in styling. */
+.vote-table td.stake-addr { font-family: var(--mono); font-size: 11px; word-break: break-all; color: var(--text); max-width: 360px; }
 .vote-action-title { color: var(--text); max-width: 480px; white-space: normal; }
 .vote-action-type { color: var(--faint); font-size: 11px; }
 .vote-show-more { margin-top: 8px; font-size: 12px; color: var(--accent); cursor: pointer; }

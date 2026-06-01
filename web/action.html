@@ -79,6 +79,28 @@
       </div>
     </section>
 
+    <!-- FLOW-5 §22.13 Layer 3: section is hidden for non-TreasuryWithdrawals actions.
+         No empty headers, no "N/A" placeholders. Shown only when the underlying
+         action.json carries a `withdrawal` array (which exists only for type
+         TreasuryWithdrawals per §22.9 cross-link rule). -->
+    <section class="drep-section" id="action-withdrawals-section" style="display:none">
+      <div class="expand-section-label" id="action-withdrawals-label">Treasury withdrawal recipients</div>
+      <p class="footnote" id="action-withdrawals-help">Stake-credential recipients listed on this treasury withdrawal proposal as recorded on chain. No editorial fields — recipient identity beyond the stake address is not asserted. See <a href="methodology.html">Methodology §22.4</a>.</p>
+      <div class="table-scroll">
+        <table class="vote-table" id="action-withdrawals-table">
+          <thead>
+            <tr>
+              <th id="th-w-recipient">Recipient stake address</th>
+              <th id="th-w-amount-ada">Amount (ADA)</th>
+              <th id="th-w-amount-lovelace">Amount (lovelace)</th>
+            </tr>
+          </thead>
+          <tbody id="action-withdrawals-tbody"></tbody>
+          <tfoot id="action-withdrawals-tfoot"></tfoot>
+        </table>
+      </div>
+    </section>
+
     <section class="drep-section">
       <div class="expand-section-label" id="action-tally-label">Vote tally</div>
       <div class="drep-stats">
