@@ -870,6 +870,56 @@ The reconciliation residual (§22.5) is itself computable from the published exp
 
 This section ships with `methodology_version = "0.8"`. The version bump reflects the schema additions in §22.3 and the new exports in §22.10. The schema_version increments to 2 to reflect the table additions. Existing v0.7 consumers continue to receive every field they already had; FLOW-5 fields are additive.
 
+### 22.13 Verification protocol
+
+FLOW-5 inherits the five-layer verification structure used for earlier FLOWs (ETL, Data, Frontend, Semantics, Researcher Reproducibility) but with treasury-specific checks. Verification runs against the snapshot produced by the daily ETL after FLOW-5 code is deployed; each layer is independently passable, and a failure at any layer blocks promotion of that day's archive from "candidate" to "verified."
+
+**Layer 1 — ETL correctness**
+
+- Probe `/totals` returns a non-empty list of per-epoch rows; the latest row's `epoch_no` matches the current chain tip's epoch within one.
+- Probe `/proposal_list?proposal_type=eq.TreasuryWithdrawals` returns a list of action rows; every row carries a non-null `withdrawal` array of at least one element.
+- Pagination of `/proposal_list` is exhaustive — no result row is dropped because the loop terminated early. The total count returned equals `SELECT COUNT(*) FROM governance_actions WHERE action_type='TreasuryWithdrawals'` after the run.
+- Re-running the ETL against the same chain state produces a byte-equal `treasury_snapshot.json` and `treasury_withdrawals.json`. Idempotency is required, not optional.
+- Network-level error paths (429, 500, timeout) do not corrupt partial state. The `etl_runs` row records the failure; the next successful run reconciles.
+- Schema migration via `CREATE TABLE IF NOT EXISTS` does not destroy any existing row; a deployment that had FLOW-4 tables and gains FLOW-5 tables retains all FLOW-4 data verbatim.
+
+**Layer 2 — Data integrity**
+
+- Row count check: `treasury_snapshot` count is non-decreasing across consecutive successful runs (epochs are append-only; in-place updates of an existing row are allowed when Koios revises a `/totals` value, but rows are never deleted).
+- No duplicate `epoch_no` in `treasury_snapshot`. Enforced by primary key.
+- No duplicate `(action_id, withdrawal_index)` in `treasury_withdrawals`. Enforced by primary key.
+- Every `treasury_withdrawals.action_id` exists in `governance_actions`. Foreign key constraint, validated by query.
+- For every action with at least one `treasury_withdrawals` row, the count of those rows equals the length of the `withdrawal` array in the latest `/proposal_list` response for that action.
+- `treasury_withdrawals.enacted_epoch` denormalization matches `governance_actions.enacted_epoch` for the same `action_id`. The ETL re-syncs this on every run; a divergence indicates a missed sync.
+- `amount_lovelace` values are positive integers. Zero or negative is a parse failure.
+- `recipient_stake_address` values match the bech32 prefix expected on mainnet (`stake1`) or testnet (`stake_test1`) depending on deployment.
+
+**Layer 3 — Frontend**
+
+- A page rendering an action with `action_type = TreasuryWithdrawals` displays the recipient list and per-recipient amount. Total displayed matches the sum of amounts in the underlying `treasury_withdrawals.json` for that `action_id`.
+- A page rendering any other `action_type` does not display a withdrawal section at all (no empty headers, no "N/A" placeholders that imply a missing value where none should exist).
+- Recipient stake addresses are rendered in full or with a clearly-marked truncation toggle. No silent truncation that loses bytes.
+- No color, icon, or styling on the withdrawal display implies recipient quality, urgency, or any value judgment. Single neutral color, same as the rest of the action detail page.
+- Language toggle (EN/JA) updates every static label introduced by FLOW-5; recipient stake addresses and amount values themselves are language-neutral.
+
+**Layer 4 — Semantics**
+
+- The reconciliation residual (§22.5) is computable from the dated archive alone, with no external API call. A worked example for at least one past epoch with enacted withdrawals is verifiable by hand.
+- Pre-Conway epochs (`< 432`) appear in `treasury_snapshot.json` with their actual `treasury_lovelace` values from `/totals`. They have zero corresponding `treasury_withdrawals` rows. The reconciliation residual for those epochs equals the entire observed delta — this is the expected, methodology-correct state.
+- `treasury_withdrawal_epoch_total` (published by `/totals`) is stored as-is in `treasury_snapshot`. It is NOT synthesized as a sum of `treasury_withdrawals` rows. The methodology's definition (§22.3) and the data layer's storage are bit-for-bit aligned.
+- All exports carry `schema_version` and `methodology_version` per §13. The values at the time of FLOW-5 deployment are `schema_version=2`, `methodology_version="0.8"`.
+- §22.7's non-goals are visibly absent from every exported field. There is no `recipient_name`, `recipient_category`, `purpose`, `impact_estimate`, `runway_months`, `is_anomalous`, or any equivalent editorial column anywhere in the schema or exports. Verified by inspection of the exported JSON structure.
+
+**Layer 5 — Researcher reproducibility**
+
+- A third party who downloads `by-date/{D}/treasury_snapshot.json` can fetch `/totals` from Koios and produce the same per-epoch series (modulo epochs added after `D`).
+- A third party who downloads `by-date/{D}/treasury_withdrawals.json` can fetch `/proposal_list?proposal_type=eq.TreasuryWithdrawals` from Koios and reconstruct the same `(action_id, withdrawal_index, recipient_stake_address, amount_lovelace)` rows (modulo actions added after `D`).
+- `sha256.json` in `by-date/{D}/` covers both `treasury_snapshot.json` and `treasury_withdrawals.json` (per §21.13). Recomputing the SHA-256 of each file yields the value stored in `sha256.json`.
+- The reconciliation residual for any past epoch in the archive is computable from the archive alone, without re-querying Koios. A researcher tracking treasury health over time can do so entirely from the published dated archives.
+- Re-running the ETL with `--snapshot-date {past-D}` against current Koios data does NOT overwrite `by-date/{past-D}/` files (§21.7 immutability). Backfill of a never-archived date IS allowed; overwrite of a past date is refused.
+
+A FLOW-5 run that fails any check at any layer is flagged in the daily verification log. Failure does not silently degrade — the affected file stays in the archive in its existing state and the next successful run reconciles forward.
+
 ## 12. v0.1 scope limitations
 
 The site is deliberately narrow at v0.1. The following are out of scope for this version and disclosed here transparently rather than masked with synthetic or interpolated values:
