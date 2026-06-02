@@ -129,6 +129,28 @@ These enums appear in `governance_actions.action_type`, `governance_actions.outc
 | Methodology | 方法論 |
 | Verification | 検証 |
 | Integrity | 完全性 |
+| Live telemetry layer | ライブテレメトリー層 | Compound; layer = 層. |
+| Eventual consistency | 結果整合性 | Standard JP CS term (Wikipedia JP, NoSQL JP literature). Universal — no divergence. |
+| Reconciliation / reconciliation rule | 突合 / 突合ルール | 突合 is the accounting/audit JP term — exact semantic match for the §6 revote and §22.5 treasury reconciliation contexts. **Avoid** リコンサイル (jargon-heavy) and 照合 (weaker, generic). |
+| ETL / ETL run | ETL / ETL実行 (one run) / ETLバッチ (the periodic job) | "ETL" stays in Latin (gihyo.jp, Microsoft Learn JP); attach 実行 for a single run, バッチ for the scheduled batch. |
+| Idempotent / idempotency | 冪等 / 冪等性 | Standard (Wikipedia JP, MDN JP). AWS JP uses べき等 hiragana — either is acceptable but prefer 冪等性 with optional furigana 「(べきとうせい)」on first use in long-form prose. |
+| Backfill | バックフィル | Used as-is in JP data engineering (Google Cloud JP, Databricks JP). **Do not** use 埋め戻し (civil engineering term). |
+| Time-travel (the ?date= feature) | タイムトラベル | Established across Snowflake JP, BigQuery JP, Microsoft Fabric JP for "query as of past timestamp" — exact semantic match. |
+| Provenance strip | 来歴ストリップ | Compound; consistent with the locked 来歴 above. |
+| Right of reply (§9) | 反論の機会 | **Avoid** 反論権 — that term has Japanese press-law constitutional baggage from the 1987 Supreme Court Sankei case. 反論の機会 reads as procedural fairness, which is the §9 intent. |
+| Operator | 運営者 | |
+| Operator disclosure (§10) | 運営者の自己開示 | Emphasizes voluntariness. 自己申告 also acceptable but less formal. |
+| Conflict of interest | 利益相反 | Universal across MHLW guidelines, academic societies, corporate governance. |
+| COI disclosure | 利益相反の開示 | Compound. |
+| Rate limit | レート制限 | Universal across JP cloud/API documentation. |
+| Stake credential | ステーククレデンシャル | **Genuine community gap** — no settled JP rendering at time of writing (2026-06-02). Cardano JP docs use ステークアドレス but do not separately translate the underlying "credential" concept. ステーククレデンシャル (Latin-leaning katakana) is the recommended fallback; parenthesize "(stake credential)" in Latin on first use in long-form prose. |
+| Constitutional committee | 憲法委員会 | Confirmed across Cardano Forum JP, Intersect JP, Cardano Japan election materials. |
+| Hard fork | ハードフォーク | Confirmed across CoinDesk Japan, EMURGO JP. |
+| Genesis | ジェネシス (or Latin "Genesis" in technical contexts) | The Cardano genesis block / genesis distribution context. |
+| Cardano era (Byron, Shelley, Goguen, Basho, Voltaire, Conway) | Latin name + 時代 | The JP Cardano community keeps era names in Latin. E.g., "Conway時代", "Conway以前" (pre-Conway), "Voltaire時代". Mild divergence on Voltaire (ヴォルテール時代 also seen in some JP press) — prefer Latin for consistency across all eras. |
+| Schema | スキーマ | Standard. |
+| Schema version | スキーマバージョン | |
+| Migration (database) | マイグレーション | Distinct from §18 "movement is not migration" — that context uses 移行 in JP per existing i18n. |
 
 ### 1.6 UI chrome
 
@@ -337,3 +359,4 @@ This guide is versioned by date in the header. Changes are append-only in the ch
 | Date | Change |
 |---|---|
 | 2026-06-02 | Initial guide. Locks vocabulary listed in §1 (protocol enums, treasury vocabulary, governance vocabulary, time/chain vocabulary, data/provenance vocabulary, UI chrome, error/empty states), proper-noun list in §2, register split in §3, typography conventions in §4. Resolves the FLOW-5 inconsistency: 財務省引出 (used in FLOW-5 frontend commit 3923c51) is replaced with the locked term トレジャリー引き出し in the same JA-1 sweep that lands this guide. |
+| 2026-06-02 | §1.5 extended with methodology terminology following a community-usage research pass (IOG JP, Cardano Forum JP, MHLW guidelines, AWS JP, Google Cloud JP, Snowflake JP, Wikipedia JP, MDN JP). Added: ライブテレメトリー層, 結果整合性, 突合/突合ルール (with explicit warnings against リコンサイル and 照合), ETL/ETL実行, 冪等/冪等性, バックフィル (with explicit warning against 埋め戻し), タイムトラベル, 来歴ストリップ, 反論の機会 (with explicit warning against 反論権's press-law baggage), 運営者/運営者の自己開示, 利益相反, レート制限, ステーククレデンシャル (flagged as a genuine community gap), 憲法委員会, ハードフォーク, ジェネシス, Cardano era names stay Latin + 時代, スキーマ/スキーマバージョン, マイグレーション. The new terms unblock the JA-3 methodology translation. |
