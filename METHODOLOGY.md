@@ -1072,8 +1072,8 @@ The Catalyst archive's repository is the canonical home for the artifacts. The o
 
 Capture proceeds in priority bands defined by source authority class and platform-sunset risk:
 
-- **Band 1 — At-risk Class C platforms.** Capture before any of (a) IdeaScale announces a sunset date, (b) the first observed 404 on a previously-working `cardano.ideascale.com` URL, (c) IO archives `catalyst-core` with a "deleted" indicator (currently archived-but-browsable). The first signal is the most likely; the second is the hard deadline.
-- **Band 2 — Class B canonical sources.** Capture on a schedule that re-fetches each Class B source quarterly or on any observed structural change. Includes per-fund landing pages, voting result PDFs and CSVs, and `catalyst-core` archival snapshots.
+- **Band 1 — At-risk Class C platforms.** Capture before any of (a) IdeaScale announces a sunset date, (b) the first observed 404 on a previously-working `cardano.ideascale.com` URL, (c) IO marks the `catalyst-core` repository as archived or deleted on GitHub (currently dormant-but-browsable, last release December 2025, last activity recent enough that the repo is best characterized as "dormant" rather than "archived"). The first signal is the most likely; the second is the hard deadline.
+- **Band 2 — Class B canonical sources.** Capture on a schedule that re-fetches each Class B source quarterly or on any observed structural change. Includes per-fund landing pages, voting result PDFs and CSVs, and `catalyst-core` historic-data snapshots (currently covering Fund 0 through Fund 9; the F9/F10 boundary is hard — Fund 10 and later are not represented in `catalyst-core` at all and depend entirely on `projectcatalyst.io` plus IdeaScale).
 - **Band 3 — Class A on-chain.** Reconstructed on demand from Koios; no proactive capture beyond the canonical query record. Re-reconstructible by any third party with Koios access.
 - **Band 4 — Class D community.** Mirrored when a new fund closes and when the community source publishes a new full-dump; otherwise tracked by the source's own update cadence.
 
