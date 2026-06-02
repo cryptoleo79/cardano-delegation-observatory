@@ -768,6 +768,205 @@
     <p><span class="en"><strong>Verification protocol.</strong> Any third party can: (1) compute SHA-256 of each file in a downloaded archive (excluding <code>sha256.json</code>); (2) compare against the corresponding entry in <code>sha256.json</code>; (3) treat any mismatch as evidence that one of the files has been modified after the snapshot was sealed.</span><span class="ja"><strong>検証プロトコル。</strong>第三者は次の手順を踏める: (1) ダウンロードしたアーカイブ内の各ファイル(<code>sha256.json</code> を除く)の SHA-256 を計算する; (2) <code>sha256.json</code> の対応エントリと比較する; (3) 不一致があれば、当該ファイルがスナップショット封印後に改変された証拠と扱う。</span></p>
     <p><span class="en">Hashes are not cryptographically signed in v0.7. Signing is a v0.8+ candidate.</span><span class="ja">v0.7 ではハッシュに暗号署名を付けない。署名は v0.8 以降の候補である。</span></p>
 
+    <h2 id="section-22"><span class="en">22. Treasury observability (FLOW-5)</span><span class="ja">22. トレジャリー観測性 (FLOW-5)</span></h2>
+    <p><span class="en">FLOW-5 extends the observatory to the Cardano treasury. It records the on-chain treasury balance at every epoch boundary and the governance-action-driven withdrawals from that treasury, joined to the governance actions and DRep votes the observatory already captures. It does not score, rank, judge, or recommend any recipient or any withdrawal.</span><span class="ja">FLOW-5 は本オブザバトリーを Cardano トレジャリーに拡張する。各エポック境界におけるオンチェーン上のトレジャリー残高、およびトレジャリーからのガバナンスアクション駆動の引き出しを記録し、本オブザバトリーが既に取得しているガバナンスアクションおよび DRep 投票と結合する。受取人や引き出しの評価・順位付け・判断・推薦は一切行わない。</span></p>
+
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">22.1 Scope</span><span class="ja">22.1 対象範囲</span></h3>
+    <p><span class="en">A treasury flow, for the purposes of this section, is the movement of lovelace out of the Cardano on-chain treasury account that is enacted by a governance action of type <code>TreasuryWithdrawals</code> under CIP-1694. The observatory records:</span><span class="ja">本節において、トレジャリーフローとは、CIP-1694 に基づく <code>TreasuryWithdrawals</code> 種別のガバナンスアクションによって施行された、Cardano のオンチェーン・トレジャリー口座からの lovelace の移動を指す。本オブザバトリーは以下を記録する。</span></p>
+    <ul class="en">
+      <li>The treasury balance at each epoch boundary (per Koios <code>/totals</code>), back to the earliest epoch the endpoint exposes.</li>
+      <li>Every governance action of type <code>TreasuryWithdrawals</code> recorded on chain — the same record already indexed under §20, with its withdrawal-recipient details normalized.</li>
+      <li>The relationship between an enacted withdrawal and the observed treasury balance change at the epoch in which it took effect.</li>
+    </ul>
+    <ul class="ja">
+      <li>各エポック境界におけるトレジャリー残高(Koios <code>/totals</code> による)。エンドポイントが露出する最古エポックまで遡る。</li>
+      <li>オンチェーンに記録された <code>TreasuryWithdrawals</code> 種別のすべてのガバナンスアクション — §20 で既に索引化されたレコードと同一のもの。引き出し受取人の詳細を正規化する。</li>
+      <li>施行された引き出しと、当該エポックで観測されたトレジャリー残高変動との関係。</li>
+    </ul>
+    <p><span class="en">What this section does not include:</span><span class="ja">本節の対象に含めないもの。</span></p>
+    <ul class="en">
+      <li>Reserves balance and reserves withdrawals. The reserves account is a distinct on-chain entity; pre-Conway reserve movement was MIR-certificate-driven. Reserves are reported by <code>/totals</code> and may be added to a later FLOW-5 expansion; v0.8 scope is treasury only.</li>
+      <li>Stake-credential reward withdrawals returned by Koios <code>/treasury_withdrawals</code>. That endpoint, despite its name, returns ITN-era and stake-reward withdrawal events with no governance linkage (no <code>action_id</code>, no <code>proposal_id</code>, no <code>gov_action_*</code> field of any kind). FLOW-5 explicitly excludes it from the governance-driven treasury layer. The naming collision is acknowledged here so future readers can distinguish the two.</li>
+    </ul>
+    <ul class="ja">
+      <li>リザーブ残高およびリザーブからの引き出し。リザーブ口座はオンチェーン上の別個の存在である。Conway 以前のリザーブの動きは MIR 証明書によって駆動されていた。リザーブも <code>/totals</code> で報告されており、将来の FLOW-5 拡張で追加され得るが、v0.8 の対象範囲はトレジャリーのみである。</li>
+      <li>Koios <code>/treasury_withdrawals</code> が返すステーククレデンシャル (stake credential) の報酬引き出し。当該エンドポイントは名称に反して、ITN 期およびステーク報酬の引き出しイベントを返すが、ガバナンスとの紐付けは一切持たない(<code>action_id</code>、<code>proposal_id</code>、<code>gov_action_*</code> いずれのフィールドも存在しない)。FLOW-5 はガバナンス駆動のトレジャリー層から本エンドポイントを明示的に除外する。名称の衝突は将来の読者が両者を区別できるよう本書で言明する。</li>
+    </ul>
+
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">22.2 Canonical source model</span><span class="ja">22.2 正準ソース・モデル</span></h3>
+    <p><span class="en">The corrected source model, validated by direct probe against the Koios mainnet API on 2026-05-30:</span><span class="ja">2026-05-30 に Koios メインネット API に対する直接プローブで検証した、訂正後のソース・モデルは以下の通り。</span></p>
+    <table class="changelog">
+      <thead>
+        <tr>
+          <th><span class="en">Datum</span><span class="ja">データ項目</span></th>
+          <th><span class="en">Endpoint</span><span class="ja">エンドポイント</span></th>
+          <th><span class="en">Filter</span><span class="ja">フィルタ</span></th>
+          <th><span class="en">Cadence</span><span class="ja">頻度</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="en">Treasury balance, reserves, supply, fees, deposits per epoch</span><span class="ja">エポックごとのトレジャリー残高、リザーブ、供給量、手数料、デポジット</span></td>
+          <td><code>/totals</code></td>
+          <td><span class="en">none — returns full epoch series</span><span class="ja">なし — 全エポック系列を返す</span></td>
+          <td><span class="en">once per ETL run; idempotent upsert by <code>epoch_no</code></span><span class="ja">ETL 実行ごとに1回。<code>epoch_no</code> による冪等 upsert</span></td>
+        </tr>
+        <tr>
+          <td><span class="en">Treasury withdrawal actions (governance-driven)</span><span class="ja">トレジャリー引き出しアクション(ガバナンス駆動)</span></td>
+          <td><code>/proposal_list</code></td>
+          <td><code>proposal_type=eq.TreasuryWithdrawals</code></td>
+          <td><span class="en">once per ETL run</span><span class="ja">ETL 実行ごとに1回</span></td>
+        </tr>
+        <tr>
+          <td><span class="en">Recipient addresses and lovelace amounts per action</span><span class="ja">アクションごとの受取人アドレスと lovelace 金額</span></td>
+          <td><span class="en">inline <code>withdrawal</code> array within the same <code>/proposal_list</code> response</span><span class="ja">同一の <code>/proposal_list</code> レスポンス内に埋め込まれた <code>withdrawal</code> 配列</span></td>
+          <td><span class="en">n/a — already attached to the proposal row</span><span class="ja">該当なし — 提案行に既に添付されている</span></td>
+          <td><span class="en">once per ETL run</span><span class="ja">ETL 実行ごとに1回</span></td>
+        </tr>
+        <tr>
+          <td><span class="en">DRep votes on each treasury action</span><span class="ja">各トレジャリーアクションに対する DRep 投票</span></td>
+          <td><code>/vote_list</code></td>
+          <td><span class="en">filtered to action_id; already in §6 scope</span><span class="ja">action_id でフィルタ。§6 の対象範囲に含まれる</span></td>
+          <td><span class="en">already in §6 cadence</span><span class="ja">§6 の頻度に従う</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p><span class="en">There is exactly one source of truth for governance-driven treasury withdrawals: the <code>withdrawal</code> array attached to a <code>proposal_type = TreasuryWithdrawals</code> row in <code>/proposal_list</code>. No other endpoint or join produces this information.</span><span class="ja">ガバナンス駆動のトレジャリー引き出しに関する信頼の源はただ一つ — <code>/proposal_list</code> の <code>proposal_type = TreasuryWithdrawals</code> 行に添付された <code>withdrawal</code> 配列である。他のエンドポイントや結合からこの情報は得られない。</span></p>
+
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">22.3 Schema additions</span><span class="ja">22.3 スキーマ追加</span></h3>
+    <p><span class="en">Two tables are added. Both are forward-only migrations under §13's general rule (existing schema unchanged, columns added via <code>ALTER TABLE ADD COLUMN</code>; new tables created idempotently via <code>CREATE TABLE IF NOT EXISTS</code>).</span><span class="ja">2つのテーブルを追加する。いずれも §13 の一般ルールに従う前進専用のマイグレーションである(既存スキーマは変更せず、列追加は <code>ALTER TABLE ADD COLUMN</code> で、新規テーブルは <code>CREATE TABLE IF NOT EXISTS</code> で冪等に作成する)。</span></p>
+    <p><span class="en"><strong><code>treasury_snapshot</code></strong> — one row per Cardano epoch, with columns for circulation, treasury, reward, supply, reserves, fees, deposits (stake / DRep / proposal), treasury donation, treasury withdrawal epoch total, reserves withdrawal epoch total, and fetched_at timestamp. <code>epoch_no</code> is the primary key. The <code>treasury_withdrawal_epoch_total</code> field is the published epoch-level net withdrawal as reported by Koios — see §22.14 for the field-availability addendum.</span><span class="ja"><strong><code>treasury_snapshot</code></strong> — Cardano エポックごとに1行。流通量、トレジャリー、報酬、供給量、リザーブ、手数料、デポジット(ステーク / DRep / 提案)、トレジャリー寄付、エポック内トレジャリー引き出し総額、エポック内リザーブ引き出し総額、取得時刻の列を持つ。主キーは <code>epoch_no</code>。<code>treasury_withdrawal_epoch_total</code> は Koios が報告するエポック単位の純引き出し額である — フィールド可用性の付則は §22.14 を参照。</span></p>
+    <p><span class="en"><strong><code>treasury_withdrawals</code></strong> — one row per (action_id, withdrawal_index) pair, with columns for action_id (FK to <code>governance_actions</code>), withdrawal_index (0-indexed position preserving stated order), recipient_stake_address (bech32), amount_lovelace, and the denormalized enacted_epoch. The denormalization is for query efficiency only; the canonical value lives on <code>governance_actions</code>. ETL idempotently re-syncs <code>enacted_epoch</code> on every run.</span><span class="ja"><strong><code>treasury_withdrawals</code></strong> — (action_id, withdrawal_index) の組ごとに1行。列は、action_id(<code>governance_actions</code> への外部キー)、withdrawal_index(記載順を保持する 0 始まり位置)、recipient_stake_address(bech32)、amount_lovelace、および非正規化された enacted_epoch。非正規化はクエリ効率のみが目的であり、正準値は <code>governance_actions</code> 側にある。ETL は実行ごとに <code>enacted_epoch</code> を冪等に再同期する。</span></p>
+    <p><span class="en">No other tables are added in FLOW-5. The existing <code>governance_actions</code> and <code>votes</code> tables already carry every treasury action and every DRep vote on it.</span><span class="ja">FLOW-5 はこれ以上のテーブルを追加しない。既存の <code>governance_actions</code> と <code>votes</code> テーブルが、すべてのトレジャリーアクションと、それに対するすべての DRep 投票を既に保持している。</span></p>
+
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">22.4 What a treasury action record contains</span><span class="ja">22.4 トレジャリーアクションレコードの内容</span></h3>
+    <p><span class="en">Every record exposed by FLOW-5 inherits the full governance action record from §20 (action_id, action_type, title, submission_block_time, submitted_epoch, state-transition epochs, outcome, vote tally, individual DRep votes). FLOW-5 adds, per action:</span><span class="ja">FLOW-5 が露出するすべてのレコードは、§20 の完全なガバナンスアクションレコードを継承する(action_id、種別、タイトル、submission_block_time、submitted_epoch、状態遷移エポック、結果、投票集計、個別 DRep 投票)。FLOW-5 はアクションごとに以下を追加する。</span></p>
+    <ul class="en">
+      <li>The list of <code>(recipient_stake_address, amount_lovelace)</code> tuples — the withdrawal beneficiaries and the lovelace each is to receive if the action is enacted.</li>
+      <li>The denormalized <code>enacted_epoch</code> for fast filtering by "what was paid out in epoch E".</li>
+    </ul>
+    <ul class="ja">
+      <li><code>(recipient_stake_address, amount_lovelace)</code> のタプル一覧 — アクションが施行された場合に支払われる、引き出し受取人と各人に対する lovelace 額。</li>
+      <li>「エポック E で支払われたもの」での高速フィルタを可能にするための、非正規化された <code>enacted_epoch</code>。</li>
+    </ul>
+    <p><span class="en">FLOW-5 does <strong>not</strong> add: recipient name, recipient category, recipient project, recipient evaluation, "justification" field, "impact" estimate, or any prose interpretation of what a withdrawal funds. Recipient addresses are bech32 stake addresses, as recorded on chain, full string.</span><span class="ja">FLOW-5 は以下を<strong>追加しない</strong>。受取人の名称、カテゴリー、プロジェクト、評価、「正当化」フィールド、「影響度」の見積もり、引き出しが何の資金になるかについての散文的な解釈。受取人アドレスは、オンチェーンに記録されたままの完全な bech32 ステークアドレス文字列である。</span></p>
+
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">22.5 The reconciliation rule (observed vs governance-attributed)</span><span class="ja">22.5 突合ルール(観測値 vs ガバナンス帰属)</span></h3>
+    <p><span class="en">For any epoch <code>E</code> in which one or more treasury actions have <code>enacted_epoch = E</code>, two quantities exist:</span><span class="ja">1つ以上のトレジャリーアクションが <code>enacted_epoch = E</code> を持つ任意のエポック <code>E</code> について、2つの量が存在する。</span></p>
+    <ul class="en">
+      <li><code>observed_delta(E)</code> = <code>treasury_snapshot.treasury_lovelace[E]</code> − <code>treasury_snapshot.treasury_lovelace[E−1]</code></li>
+      <li><code>governance_attributed(E)</code> = sum over all <code>treasury_withdrawals</code> rows where <code>enacted_epoch = E</code> of <code>amount_lovelace</code>, sign-flipped (withdrawals reduce treasury)</li>
+    </ul>
+    <ul class="ja">
+      <li><code>observed_delta(E)</code> = <code>treasury_snapshot.treasury_lovelace[E]</code> − <code>treasury_snapshot.treasury_lovelace[E−1]</code></li>
+      <li><code>governance_attributed(E)</code> = <code>enacted_epoch = E</code> となるすべての <code>treasury_withdrawals</code> 行の <code>amount_lovelace</code> の合計に符号反転を加えたもの(引き出しはトレジャリーを減らすため)</li>
+    </ul>
+    <p><span class="en">The reconciliation residual is <code>observed_delta(E) − governance_attributed(E)</code>. This residual is <strong>not</strong> an error term. Treasury balance changes for reasons that are not governance-action-driven, including but not limited to: refunds of unrefunded governance proposal deposits, refunds of DRep registration deposits on deregistration, refunds of stake-credential deposits, block-production reward flows in and out per epoch protocol mechanics, and protocol-level adjustments that are not exposed through any <code>/proposal_list</code> row.</span><span class="ja">突合残差は <code>observed_delta(E) − governance_attributed(E)</code> である。この残差は誤差項<strong>ではない</strong>。トレジャリー残高は、ガバナンスアクション以外の理由でも変動する。これには次が含まれる(これに限らない): 未返還だったガバナンス提案デポジットの返還、登録解除時の DRep 登録デポジットの返還、ステーククレデンシャル・デポジットの返還、エポックのプロトコル仕様に基づくブロック生成報酬の出入り、いずれの <code>/proposal_list</code> 行にも露出しないプロトコル層の調整。</span></p>
+    <p><span class="en">The observatory publishes both numbers and the residual. It does not interpret the residual as anomalous, suspicious, or fraudulent. A non-zero residual is the expected state of a complex ledger; reporting it transparently is the point.</span><span class="ja">本オブザバトリーは両方の数値と残差を公開する。残差を異常、不審、不正と解釈することはない。非ゼロの残差は複雑な台帳の期待される状態である。透明に報告すること自体が目的である。</span></p>
+
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">22.6 Pre-Conway treasury</span><span class="ja">22.6 Conway 以前のトレジャリー</span></h3>
+    <p><span class="en">The Cardano treasury account predates Conway (it existed in Shelley, populated via protocol parameters and block production). Treasury movement before epoch 432 (the Conway-era cutover) was driven by Move Instantaneous Reward (MIR) certificates, not by CIP-1694 governance actions. MIR was a protocol mechanism, not a community-governed flow.</span><span class="ja">Cardano のトレジャリー口座は Conway より前から存在していた(Shelley 時代に存在し、プロトコルパラメータとブロック生成によって積み立てられた)。エポック 432(Conway 時代への移行)より前のトレジャリー移動は、Move Instantaneous Reward (MIR) 証明書によって駆動されたものであり、CIP-1694 のガバナンスアクションによるものではない。MIR はプロトコルの仕組みであって、コミュニティにより統治されるフローではない。</span></p>
+    <p><span class="en">FLOW-5 ingests the full <code>/totals</code> history available (back to the earliest epoch the endpoint exposes — currently observed to be around epoch 209). For epochs <code>&lt; 432</code>, the <code>treasury_lovelace</code> field is reported as-is; <code>treasury_withdrawals</code> has no rows (no governance actions existed); the reconciliation residual is, by construction, the entire observed delta. Pre-Conway treasury changes are recorded but are not attributed to governance.</span><span class="ja">FLOW-5 は <code>/totals</code> の取得可能な全履歴を取り込む(エンドポイントが露出する最古エポックまで — 現時点ではおおむねエポック 209 までと観測される)。エポック <code>&lt; 432</code> については、<code>treasury_lovelace</code> をそのまま報告する。<code>treasury_withdrawals</code> には行が存在しない(当該ガバナンスアクションが存在しなかった)。突合残差は構造上、観測された差分の全体に一致する。Conway 以前のトレジャリー変動は記録するが、ガバナンスには帰属させない。</span></p>
+
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">22.7 What FLOW-5 explicitly does NOT do</span><span class="ja">22.7 FLOW-5 が明示的に行わないこと</span></h3>
+    <ul class="en">
+      <li>It does not rank or score recipients. Stake addresses are presented in the order the chain recorded them.</li>
+      <li>It does not categorize withdrawals by purpose. The chain does not record purpose; assigning one would be editorial.</li>
+      <li>It does not derive "net treasury health," "burn rate," "runway months," or any forward projection. Such derivations require assumptions the observatory does not make.</li>
+      <li>It does not flag "anomalous" withdrawals. An unusual withdrawal pattern is still on-chain fact; surfacing it as anomaly would be interpretation.</li>
+      <li>It does not link withdrawals to off-chain identities (proposal author, funded project, Catalyst fund, organization). Such linkage requires external data sources the observatory does not maintain.</li>
+      <li>It does not modify or extend <code>governance_actions</code> semantics. The action record stays exactly as §20 defines it.</li>
+      <li>It does not retroactively alter past <code>treasury_snapshot</code> rows. Per <code>/totals</code> semantics, epoch rows are stable once published; if Koios revises a value, the observatory upserts the new value and the change is visible in the git history of the deployed snapshots.</li>
+    </ul>
+    <ul class="ja">
+      <li>受取人の順位付けやスコアリングは行わない。ステークアドレスはチェーンが記録した順序で提示する。</li>
+      <li>引き出しを目的別にカテゴライズしない。チェーンは目的を記録していない。目的を付与することは編集行為になる。</li>
+      <li>「トレジャリーの健全性」「燃焼速度」「持続月数」その他の予測を導かない。そうした導出はオブザバトリーが置かない前提を必要とする。</li>
+      <li>「異常な」引き出しのフラグ付けは行わない。異常に見える引き出しパターンであっても、オンチェーン上の事実であることに変わりはない。異常として浮かび上がらせれば解釈になる。</li>
+      <li>引き出しをオフチェーンの身元(提案者、被資金プロジェクト、Catalyst のファンド、組織)に紐付けない。そのような紐付けには、本オブザバトリーが維持しない外部データソースを必要とする。</li>
+      <li><code>governance_actions</code> の意味論を変更も拡張もしない。アクションレコードは §20 が定める形のままである。</li>
+      <li>過去の <code>treasury_snapshot</code> 行を遡及的に改変しない。<code>/totals</code> の意味論に従い、エポック行は公開後に安定である。Koios が値を改訂した場合、本オブザバトリーは新値を upsert し、変更はデプロイされたスナップショットの git 履歴に可視である。</li>
+    </ul>
+
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">22.8 Edge cases</span><span class="ja">22.8 エッジケース</span></h3>
+    <ul class="en">
+      <li><strong>Action enacted but withdrawal partially observed.</strong> A <code>TreasuryWithdrawals</code> action with <code>enacted_epoch = E</code> is expected to apply at the start of epoch <code>E</code>. If the published <code>treasury_snapshot[E].treasury_lovelace</code> reflects only part of the action's <code>amount_lovelace</code>, the observatory reports both numbers and the residual. It does not split, fabricate, or annotate. Interpretation is left to the reader.</li>
+      <li><strong>Action ratified but not yet enacted.</strong> A ratified action with <code>enacted_epoch = null</code> does not appear in any epoch's <code>governance_attributed</code> sum. Its expected effect is documented on the per-action page as a pending withdrawal; no projection is made about when it will enact.</li>
+      <li><strong>Action with multiple recipients of equal amount.</strong> Each <code>(action_id, withdrawal_index)</code> pair is its own row. Order is preserved per the chain's recorded <code>withdrawal</code> array; no deduplication on (recipient, amount) is performed (recipients may legitimately appear multiple times in one action).</li>
+      <li><strong>Recipient stake address reuse across actions.</strong> A stake address may receive funds from multiple distinct governance actions. Each is its own <code>treasury_withdrawals</code> row; no implicit aggregation is performed at storage. Aggregations are computable at query time; the observatory's published exports stay at the (action, recipient) grain.</li>
+      <li><strong>Koios revises a past <code>/totals</code> row.</strong> Treated as a normal upsert. If a revision changes a historical <code>treasury_lovelace</code>, the new value is written and <code>fetched_at</code> updated. The dated archive at <code>by-date/{D}/</code> contains the value as known on date <code>D</code>; the live current snapshot reflects the latest known value. Researchers tracking revisions diff successive dated archives.</li>
+      <li><strong>A new <code>TreasuryWithdrawals</code> action appears that was not present in the prior ETL run.</strong> Normal idempotent insert; vote rows accrete as DReps cast votes over subsequent epochs.</li>
+    </ul>
+    <ul class="ja">
+      <li><strong>アクションは施行されたが引き出しは一部しか観測されない場合。</strong><code>enacted_epoch = E</code> の <code>TreasuryWithdrawals</code> アクションは、エポック <code>E</code> の開始時に適用されることが期待される。公開された <code>treasury_snapshot[E].treasury_lovelace</code> がアクションの <code>amount_lovelace</code> の一部しか反映していない場合、本オブザバトリーは両方の数値と残差を報告する。分割・捏造・注釈は行わない。解釈は読者に委ねる。</li>
+      <li><strong>批准されたがまだ施行されていないアクション。</strong><code>enacted_epoch = null</code> の批准済みアクションは、いずれのエポックの <code>governance_attributed</code> 合計にも現れない。期待される効果は、アクション個別ページに「保留中の引き出し」として記載する。施行時期の予測は行わない。</li>
+      <li><strong>同額の受取人を複数持つアクション。</strong>各 <code>(action_id, withdrawal_index)</code> の組がそれぞれ独立の行となる。順序はチェーンが記録した <code>withdrawal</code> 配列に従って保持する。(受取人, 金額) による重複排除は行わない(同一アクション内で受取人が複数回現れることは正当に起こり得る)。</li>
+      <li><strong>受取人ステークアドレスのアクション間再利用。</strong>あるステークアドレスは、複数の異なるガバナンスアクションから資金を受け取り得る。各々は独立の <code>treasury_withdrawals</code> 行となる。保管段階での暗黙的集計は行わない。集計はクエリ時に計算可能であり、公開エクスポートは(アクション, 受取人)の粒度を保つ。</li>
+      <li><strong>Koios が過去の <code>/totals</code> 行を改訂した場合。</strong>通常の upsert として扱う。改訂が履歴上の <code>treasury_lovelace</code> を変更すれば、新値を書き込み <code>fetched_at</code> を更新する。<code>by-date/{D}/</code> の日付付きアーカイブには、日付 <code>D</code> 時点で既知の値が保存される。ライブの現行スナップショットには最新の既知値が反映される。改訂を追跡する研究者は、連続する日付付きアーカイブを差分検査する。</li>
+      <li><strong>前回 ETL 実行に存在しなかった新規 <code>TreasuryWithdrawals</code> アクションが現れた場合。</strong>通常の冪等挿入。投票行は後続エポックで DRep が投票するに従って蓄積する。</li>
+    </ul>
+
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">22.9 Cross-link to existing layers</span><span class="ja">22.9 既存層とのクロスリンク</span></h3>
+    <p><span class="en">FLOW-5 inherits, not re-implements, every cross-link the observatory already provides:</span><span class="ja">FLOW-5 は、本オブザバトリーが既に提供するすべてのクロスリンクを継承し、再実装はしない。</span></p>
+    <ul class="en">
+      <li>The DRep vote tally on each treasury action is the same vote data §6 defines.</li>
+      <li>The action timeline (submission → ratification → enactment | expiration | drop) is the same timeline §20.3 defines.</li>
+      <li>The per-action JSON export at <code>/data/snapshots/actions/{action_id}.json</code> (§13) is extended with the <code>withdrawal</code> array and the <code>enacted_epoch</code> for that action, when those fields apply.</li>
+      <li>The historical archive at <code>by-date/{YYYY-MM-DD}/</code> (§21) includes <code>treasury_snapshot.json</code> and treasury fields under each affected action's per-action JSON.</li>
+    </ul>
+    <ul class="ja">
+      <li>各トレジャリーアクションに対する DRep 投票集計は、§6 が定義する投票データと同一である。</li>
+      <li>アクションのタイムライン(提出 → 批准 → 施行 | 失効 | 廃案)は、§20.3 が定義するタイムラインと同一である。</li>
+      <li><code>/data/snapshots/actions/{action_id}.json</code> のアクション単位 JSON エクスポート(§13)は、該当する場合に <code>withdrawal</code> 配列と当該アクションの <code>enacted_epoch</code> を追加して拡張する。</li>
+      <li><code>by-date/{YYYY-MM-DD}/</code> の履歴アーカイブ(§21)は、<code>treasury_snapshot.json</code> と、影響を受ける各アクションのアクション単位 JSON 内のトレジャリーフィールドを含む。</li>
+    </ul>
+    <p><span class="en">The frontend rendering and JSON export structure for treasury actions follows §13 and §20's existing patterns. No new top-level page is required by methodology; whether a standalone treasury index page is added is a separate frontend decision documented under §13 when implemented.</span><span class="ja">トレジャリーアクションのフロントエンド描画および JSON エクスポート構造は、§13 と §20 の既存パターンに従う。方法論として新規のトップレベルページは要求しない。独立したトレジャリー索引ページを追加するかは別個のフロントエンド判断であり、実装時に §13 に記載する。</span></p>
+
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">22.10 Published exports</span><span class="ja">22.10 公開エクスポート</span></h3>
+    <p><span class="en">FLOW-5 adds the following CC0 published exports:</span><span class="ja">FLOW-5 は以下の CC0 公開エクスポートを追加する。</span></p>
+    <ul class="en">
+      <li><code>/data/snapshots/treasury_snapshot.json</code> — the full <code>treasury_snapshot</code> table as of the current ETL run, one entry per epoch.</li>
+      <li><code>/data/snapshots/treasury_withdrawals.json</code> — the full <code>treasury_withdrawals</code> table, one entry per (action_id, withdrawal_index) row.</li>
+      <li>Extension of <code>/data/snapshots/actions/{action_id}.json</code> (§20.6): for <code>action_type = TreasuryWithdrawals</code>, a <code>withdrawal</code> array is added with the recipient list.</li>
+      <li>Extension of <code>/data/snapshots/by-date/{YYYY-MM-DD}/</code> (§21.3, §21.13): the dated archive includes <code>treasury_snapshot.json</code> and <code>treasury_withdrawals.json</code>. Both are covered by <code>sha256.json</code> per §21.13.</li>
+    </ul>
+    <ul class="ja">
+      <li><code>/data/snapshots/treasury_snapshot.json</code> — 現 ETL 実行時点の完全な <code>treasury_snapshot</code> テーブル。エポックごとに1エントリ。</li>
+      <li><code>/data/snapshots/treasury_withdrawals.json</code> — 完全な <code>treasury_withdrawals</code> テーブル。(action_id, withdrawal_index) 行ごとに1エントリ。</li>
+      <li><code>/data/snapshots/actions/{action_id}.json</code>(§20.6)の拡張: <code>action_type = TreasuryWithdrawals</code> の場合、受取人一覧を含む <code>withdrawal</code> 配列を追加する。</li>
+      <li><code>/data/snapshots/by-date/{YYYY-MM-DD}/</code>(§21.3, §21.13)の拡張: 日付付きアーカイブに <code>treasury_snapshot.json</code> と <code>treasury_withdrawals.json</code> を含める。§21.13 に従い両者とも <code>sha256.json</code> の対象となる。</li>
+    </ul>
+    <p><span class="en">Each export carries <code>schema_version</code> and <code>methodology_version</code> per §13.</span><span class="ja">各エクスポートは §13 に従い <code>schema_version</code> と <code>methodology_version</code> を含む。</span></p>
+
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">22.11 Reproducibility commitment</span><span class="ja">22.11 再現性のコミットメント</span></h3>
+    <p><span class="en">A third party can reproduce every FLOW-5 number from the same Koios endpoints the observatory uses:</span><span class="ja">第三者は、本オブザバトリーが用いるのと同一の Koios エンドポイントから、FLOW-5 のあらゆる数値を再現できる。</span></p>
+    <ul class="en">
+      <li><code>GET /totals</code> returns the per-epoch series; compare to <code>treasury_snapshot.json</code>.</li>
+      <li><code>GET /proposal_list?proposal_type=eq.TreasuryWithdrawals</code> returns the action set; the <code>withdrawal</code> array on each row equals the (action_id, withdrawal_index → recipient + amount) rows in <code>treasury_withdrawals.json</code>.</li>
+      <li>The dated archive at <code>by-date/{D}/</code> is byte-equal to what was served on date <code>D</code> (§21.12), and <code>sha256.json</code> covers both treasury files (§21.13).</li>
+    </ul>
+    <ul class="ja">
+      <li><code>GET /totals</code> はエポックごとの系列を返す。<code>treasury_snapshot.json</code> と比較すればよい。</li>
+      <li><code>GET /proposal_list?proposal_type=eq.TreasuryWithdrawals</code> はアクション集合を返す。各行の <code>withdrawal</code> 配列は、<code>treasury_withdrawals.json</code> 内の (action_id, withdrawal_index → 受取人 + 金額) 行と一致する。</li>
+      <li><code>by-date/{D}/</code> の日付付きアーカイブは、日付 <code>D</code> に提供されたものとバイト単位で一致し(§21.12)、<code>sha256.json</code> は両方のトレジャリーファイルを対象とする(§21.13)。</li>
+    </ul>
+    <p><span class="en">The reconciliation residual (§22.5) is itself computable from the published exports alone, without re-querying Koios. A researcher can audit any past epoch's residual entirely from the dated archive.</span><span class="ja">突合残差(§22.5)それ自体は、Koios への再問い合わせなしに、公開エクスポートのみから計算可能である。研究者は過去の任意のエポックの残差を、日付付きアーカイブから完全に監査できる。</span></p>
+
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">22.12 Versioning</span><span class="ja">22.12 バージョニング</span></h3>
+    <p><span class="en">This section ships with <code>methodology_version = "0.8"</code>. The version bump reflects the schema additions in §22.3 and the new exports in §22.10. The schema_version increments to 2 to reflect the table additions. Existing v0.7 consumers continue to receive every field they already had; FLOW-5 fields are additive.</span><span class="ja">本節は <code>methodology_version = "0.8"</code> として出荷する。バージョンアップは §22.3 のスキーマ追加と §22.10 の新規エクスポートを反映するものである。テーブル追加を反映して <code>schema_version</code> は 2 にインクリメントする。v0.7 の既存利用者は、これまで受け取っていたフィールドをすべて引き続き受け取る。FLOW-5 のフィールドは追加のみである。</span></p>
+
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">22.13 Verification protocol</span><span class="ja">22.13 検証プロトコル</span></h3>
+    <p><span class="en">FLOW-5 inherits the five-layer verification structure used for earlier FLOWs (ETL, Data, Frontend, Semantics, Researcher Reproducibility) but with treasury-specific checks. Verification runs against the snapshot produced by the daily ETL after FLOW-5 code is deployed; each layer is independently passable, and a failure at any layer blocks promotion of that day's archive from "candidate" to "verified."</span><span class="ja">FLOW-5 は先行する FLOW で用いた五層検証構造(ETL、データ、フロントエンド、意味論、研究者による再現性)を継承するが、トレジャリー固有のチェックを伴う。検証は FLOW-5 コードがデプロイされた後の日次 ETL が生成するスナップショットに対して実行する。各層は独立に合格可能であり、いずれかの層で不合格があれば、その日のアーカイブを「候補」から「検証済み」へ昇格させない。</span></p>
+    <p><span class="en">The full check list lives in <a href="https://github.com/cryptoleo79/cardano-delegation-observatory/blob/main/METHODOLOGY.md#2213-verification-protocol" target="_blank" rel="noopener">METHODOLOGY.md §22.13</a> in the repository. The summary: Layer 1 verifies ETL correctness (tip alignment, pagination exhaustiveness, idempotency); Layer 2 verifies data integrity (no duplicate keys, no FK orphans, all amounts positive, mainnet stake1 prefix); Layer 3 verifies the frontend (recipient list and total displayed for TreasuryWithdrawals only; no withdrawal section for other action types; no editorial styling); Layer 4 verifies semantics (reconciliation residual computable from archive alone; pre-Conway epochs have null withdrawals; no editorial fields present); Layer 5 verifies researcher reproducibility (third-party can fetch and reconstruct from Koios; <code>sha256.json</code> covers both treasury files; archive immutability holds).</span><span class="ja">完全なチェック一覧はリポジトリの <a href="https://github.com/cryptoleo79/cardano-delegation-observatory/blob/main/METHODOLOGY.md#2213-verification-protocol" target="_blank" rel="noopener">METHODOLOGY.md §22.13</a> に置く。要約: 第1層は ETL の正しさ(チップとの整合、ページネーションの網羅性、冪等性)、第2層はデータ完全性(キー重複なし、FK 孤児なし、金額は正、メインネットの stake1 接頭辞)、第3層はフロントエンド(TreasuryWithdrawals に対してのみ受取人一覧と合計を表示。他のアクション種別には引き出しセクションを表示しない。編集的なスタイルを置かない)、第4層は意味論(突合残差はアーカイブのみから計算可能。Conway 以前のエポックでは引き出しが null である。編集的なフィールドが存在しない)、第5層は研究者による再現性(第三者が Koios から取得し再構成できる。<code>sha256.json</code> が両方のトレジャリーファイルをカバーする。アーカイブの不変性が保たれる)。</span></p>
+    <p><span class="en">A FLOW-5 run that fails any check at any layer is flagged in the daily verification log. Failure does not silently degrade — the affected file stays in the archive in its existing state and the next successful run reconciles forward.</span><span class="ja">いずれかの層のいずれかのチェックに失敗した FLOW-5 実行は、日次検証ログに記録される。失敗時に静かに劣化することはない。影響を受けるファイルはアーカイブ内の既存状態のまま残り、次の成功実行が前進方向で突合する。</span></p>
+
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">22.14 Koios field availability addendum</span><span class="ja">22.14 Koios フィールド可用性の付則</span></h3>
+    <p><span class="en">This addendum records a finding from the FLOW-5 verification run on 2026-06-01 and clarifies the reconciliation basis given the actual shape of the data Koios publishes today. No schema or code changes follow from it — only methodology language is adjusted.</span><span class="ja">本付則は、2026-06-01 の FLOW-5 検証実行で得られた所見を記録し、Koios が現在公開しているデータの実形状に即して突合の基準を明確化する。スキーマ・コードの変更は伴わず、方法論の言語のみを調整する。</span></p>
+    <p><span class="en"><strong>Finding.</strong> Three fields in the Koios <code>/totals</code> response — <code>treasury_withdrawal</code>, <code>treasury_donation</code>, and <code>reserves_withdrawal</code> — are present in the response schema but were observed as <code>null</code> for every one of the 426 epochs in the chain history at the time of verification (Cardano epochs 209–634, probed 2026-06-01). The fields are documented in the upstream API as per-epoch totals, but Koios does not currently populate them.</span><span class="ja"><strong>所見。</strong>Koios <code>/totals</code> レスポンスの3つのフィールド — <code>treasury_withdrawal</code>、<code>treasury_donation</code>、<code>reserves_withdrawal</code> — はレスポンス・スキーマには存在するが、検証時(2026-06-01 にプローブした Cardano エポック 209–634 の全 426 エポック)においていずれも <code>null</code> と観測された。これらのフィールドは上流 API ドキュメント上はエポック単位の合計値として記載されているが、Koios は現在これらを埋めていない。</span></p>
+    <p><span class="en"><strong>Implication for §22.5 reconciliation.</strong> The observed treasury movement for an epoch <code>N</code> is <code>observed_Δ(N) = treasury_lovelace(N) − treasury_lovelace(N−1)</code>, computed from successive rows of <code>treasury_snapshot</code>. It is not derived from the always-null <code>treasury_withdrawal_epoch_total</code>. The governance-attributed sum is <code>SUM(treasury_withdrawals.amount_lovelace WHERE enacted_epoch = N)</code>. The residual is the difference, adjusted for protocol inflows (fees into treasury, reserves-to-treasury transfers, deposit refunds). Per §22.5 the residual is not interpreted as error.</span><span class="ja"><strong>§22.5 の突合への含意。</strong>エポック <code>N</code> における観測されたトレジャリー変動は <code>observed_Δ(N) = treasury_lovelace(N) − treasury_lovelace(N−1)</code> であり、<code>treasury_snapshot</code> の連続行から計算する。常時 null である <code>treasury_withdrawal_epoch_total</code> から導出するのではない。ガバナンス帰属の合計は <code>SUM(treasury_withdrawals.amount_lovelace WHERE enacted_epoch = N)</code> である。残差は両者の差から、プロトコル流入(トレジャリーへの手数料、リザーブからトレジャリーへの移動、デポジット返還)を調整したものとなる。§22.5 に従い、残差を誤差として解釈することはない。</span></p>
+    <p><span class="en"><strong>Why the three fields remain in the schema.</strong> The defensive capture is intentional. If Koios begins populating any of these fields in a future release, the next daily ETL run captures them automatically with no code change, no schema migration, and no risk of silent omission. Honest reporting of current Koios behavior in the methodology is sufficient — the schema does not need to mirror Koios's current sparsity.</span><span class="ja"><strong>3 フィールドをスキーマに残す理由。</strong>防御的取り込みは意図したものである。Koios が将来これらいずれかのフィールドを埋め始めれば、次の日次 ETL がコード変更・スキーマ移行・暗黙的欠落のリスクを伴わずに自動で取り込む。Koios の現挙動を方法論で誠実に報告すれば十分であり、スキーマが Koios の現在の希薄性を映す必要はない。</span></p>
+    <p><span class="en"><code>methodology_version</code> remains <code>0.8</code>. This addendum is a clarification of the existing §22.5 and §22.13 language, not a new methodological commitment, so no version bump is warranted. <code>schema_version</code> remains <code>2</code>.</span><span class="ja"><code>methodology_version</code> は <code>0.8</code> のままとする。本付則は既存の §22.5 および §22.13 の言語の明確化であって、新たな方法論的コミットメントではない。バージョンアップは行わない。<code>schema_version</code> は <code>2</code> のままである。</span></p>
+
     <h2 id="section-12"><span class="en">12. v0.1 scope limitations</span><span class="ja">12. v0.1 における対象範囲の制限</span></h2>
     <p><span class="en">The site is deliberately narrow at v0.1. The following are out of scope for this version and disclosed here transparently rather than masked with synthetic or interpolated values:</span><span class="ja">v0.1 では本サイトを意図的に狭く保つ。以下は本バージョンの対象範囲外であり、合成値や補間値で覆い隠すことなく、ここに透明性をもって開示する。</span></p>
     <ul class="en">

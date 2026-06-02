@@ -166,7 +166,8 @@ const i18n = {
     "th-tl-epoch": "Epoch",
     /* FLOW-5 — Treasury withdrawal recipients (TreasuryWithdrawals actions only) */
     "action-withdrawals-label": "Treasury withdrawal recipients",
-    "action-withdrawals-help": "Stake-credential recipients listed on this treasury withdrawal proposal as recorded on chain. No editorial fields — recipient identity beyond the stake address is not asserted. See Methodology §22.4.",
+    "action-withdrawals-help": "Stake-credential recipients listed on this treasury withdrawal proposal as recorded on chain. No editorial fields — recipient identity beyond the stake address is not asserted.",
+    "cite-s22-4": "See Methodology §22.4.",
     "th-w-recipient": "Recipient stake address",
     "th-w-amount-ada": "Amount (ADA)",
     "th-w-amount-lovelace": "Amount (lovelace)",
@@ -352,7 +353,8 @@ const i18n = {
     "th-tl-epoch": "エポック",
     /* FLOW-5 — トレジャリー引き出しの受取人 (TreasuryWithdrawals 種別のアクションのみ) */
     "action-withdrawals-label": "トレジャリー引き出しの受取人",
-    "action-withdrawals-help": "本トレジャリー引き出し提案にオンチェーン上で記録された、ステーク資格による受取人の一覧。編集的なフィールドは持たない。ステークアドレス以外の受取人の身元は主張しない。詳細は方法論 §22.4 を参照。",
+    "action-withdrawals-help": "本トレジャリー引き出し提案にオンチェーン上で記録された、ステーククレデンシャル (stake credential) による受取人の一覧。編集的なフィールドは持たない。ステークアドレス以外の受取人の身元は主張しない。",
+    "cite-s22-4": "方法論 §22.4 を参照。",
     "th-w-recipient": "受取人のステークアドレス",
     "th-w-amount-ada": "金額 (ADA)",
     "th-w-amount-lovelace": "金額 (lovelace)",
