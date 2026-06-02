@@ -46,26 +46,27 @@
 <main>
   <article class="methodology">
 
-    <p style="font-size: 12px; color: var(--faint); margin-bottom: 16px;">
-      🇯🇵 日本語版は準備中。 EN version below is the source-of-truth until the JA translation pass is reviewed.
-    </p>
+    <h1><span class="en">Methodology</span><span class="ja">方法論</span></h1>
+    <p class="lede"><span class="en">This document describes exactly what data the Cardano Delegation Observatory collects, how the values shown on the site are computed, what is deliberately not included, and how anyone can reproduce the published results from public data.</span><span class="ja">本書は、Cardano Delegation Observatory が収集するデータ、サイト上に表示される値の算出方法、意図的に含めない項目、そして公開データから第三者が結果を再現する手順を、すべて記述する。</span></p>
+    <p class="lede"><span class="en">This page is the legitimacy core of the project. Every operational decision is documented here. If you find an inconsistency between this page and what the site shows, this page is the authoritative description; please open an issue.</span><span class="ja">本ページはプロジェクトの正統性の核である。運用上の決定はすべてここに記録される。本ページとサイトの表示に齟齬があれば、本ページが正準の記述である。Issue で報告してほしい。</span></p>
 
-    <h1>Methodology</h1>
-    <p class="lede">This document describes exactly what data the Cardano Delegation Observatory collects, how the values shown on the site are computed, what is deliberately not included, and how anyone can reproduce the published results from public data.</p>
-    <p class="lede">This page is the legitimacy core of the project. Every operational decision is documented here. If you find an inconsistency between this page and what the site shows, this page is the authoritative description; please open an issue.</p>
-
-    <h2 id="section-1">1. What this site does</h2>
-    <p>The Cardano Delegation Observatory takes a daily snapshot of voting weight delegated to active Cardano DReps and publishes:</p>
-    <ul>
+    <h2 id="section-1"><span class="en">1. What this site does</span><span class="ja">1. 本サイトが行うこと</span></h2>
+    <p><span class="en">The Cardano Delegation Observatory takes a daily snapshot of voting weight delegated to active Cardano DReps and publishes:</span><span class="ja">Cardano Delegation Observatory は、現役の Cardano DRep に委任された投票権を日次でスナップショットとして取得し、以下を公開する。</span></p>
+    <ul class="en">
       <li>The 30 DReps with the highest current voting weight.</li>
       <li>For each, the current voting weight in ADA, 7-day and 30-day change, delegator count, last vote epoch, and 90-day voting weight history.</li>
       <li>Governance action submissions as time-anchored overlay markers on the historical chart.</li>
     </ul>
-    <p>All data is derived from the Cardano blockchain via the Koios API. No private data sources are used.</p>
+    <ul class="ja">
+      <li>現時点の投票権が上位30位の DRep。</li>
+      <li>各 DRep について、ADA 建ての現在の投票権、7日間および30日間の差分、委任者数、最終投票エポック、過去90日分の投票権推移。</li>
+      <li>ガバナンスアクションの提出を、時刻起点のオーバーレイマーカーとして履歴チャートに重ねる。</li>
+    </ul>
+    <p><span class="en">All data is derived from the Cardano blockchain via the Koios API. No private data sources are used.</span><span class="ja">すべてのデータは Koios API 経由で Cardano ブロックチェーンから取得する。非公開のデータソースは一切使用しない。</span></p>
 
-    <h2 id="section-2">2. What this site does not do</h2>
-    <p>The site does not compute or display:</p>
-    <ul>
+    <h2 id="section-2"><span class="en">2. What this site does not do</span><span class="ja">2. 本サイトが行わないこと</span></h2>
+    <p><span class="en">The site does not compute or display:</span><span class="ja">本サイトは以下を算出も表示もしない。</span></p>
+    <ul class="en">
       <li>Trust scores or composite ratings of any kind.</li>
       <li>Alignment scores between stated positions and votes.</li>
       <li>"Good DRep" / "bad DRep" classifications.</li>
@@ -77,12 +78,24 @@
       <li>Featured, highlighted, recommended, or curated DReps.</li>
       <li>Concentration warnings, framing language, or any other text that implies a value judgment about an individual DRep.</li>
     </ul>
-    <p>If a future version of the site is considered for any of these, this document and the project's changelog (§11) will be updated <em>before</em> the feature is shipped, and a comment period will be provided.</p>
+    <ul class="ja">
+      <li>信頼スコアや、いかなる種類の総合評価も。</li>
+      <li>表明された立場と投票との整合性スコア。</li>
+      <li>「良い DRep」「悪い DRep」といった分類。</li>
+      <li>投票行動・委任の流れ・選挙結果の予測。</li>
+      <li>DRep がオンチェーン・メタデータで自ら提供した名称以外の、現実世界の氏名。</li>
+      <li>委任者のウォレット単位の情報(クジラ判定・クラスタリング・匿名化解除・身元推定を一切行わない)。</li>
+      <li>アラート、プッシュ通知、RSS による変更通知、その他あらゆるリアルタイム配信。</li>
+      <li>ユーザーコメント・評価・タグ等の、いかなるソーシャル層も。</li>
+      <li>特集・ハイライト・推薦・キュレーションされた DRep。</li>
+      <li>集中度の警告、価値判断を含意するフレーミング、その他特定の DRep への評価を示唆する文言。</li>
+    </ul>
+    <p><span class="en">If a future version of the site is considered for any of these, this document and the project's changelog (§11) will be updated <em>before</em> the feature is shipped, and a comment period will be provided.</span><span class="ja">将来これらのいずれかを本サイトに追加することが検討された場合は、リリースに<em>先立って</em>本書および §11 の変更履歴を更新し、意見表明期間を設ける。</span></p>
 
-    <h2 id="section-3">3. Data sources</h2>
-    <p><strong>Primary:</strong> <a href="https://api.koios.rest/" target="_blank" rel="noopener">Koios API</a> — a community-run REST interface over Cardano <code>db-sync</code>. Free tier is sufficient for the daily snapshot pattern this site uses.</p>
-    <p>Endpoints used (reproducible from the source at <code>etl/snapshot.py</code>):</p>
-    <ul>
+    <h2 id="section-3"><span class="en">3. Data sources</span><span class="ja">3. データソース</span></h2>
+    <p><span class="en"><strong>Primary:</strong> <a href="https://api.koios.rest/" target="_blank" rel="noopener">Koios API</a> — a community-run REST interface over Cardano <code>db-sync</code>. Free tier is sufficient for the daily snapshot pattern this site uses.</span><span class="ja"><strong>主要ソース:</strong> <a href="https://api.koios.rest/" target="_blank" rel="noopener">Koios API</a> — Cardano <code>db-sync</code> 上に構築された、コミュニティ運営の REST インターフェイスである。本サイトが用いる日次スナップショット方式は、無料枠の範囲内で十分に賄える。</span></p>
+    <p><span class="en">Endpoints used (reproducible from the source at <code>etl/snapshot.py</code>):</span><span class="ja">使用するエンドポイント(ソースコード <code>etl/snapshot.py</code> から再現可能)。</span></p>
+    <ul class="en">
       <li><code>GET /tip</code> — current epoch and block height for run metadata.</li>
       <li><code>GET /drep_list</code> — registered DReps, paginated.</li>
       <li><code>POST /drep_info</code> — registration status, voting weight, metadata URL+hash (batched, ≤50 IDs per call).</li>
@@ -91,27 +104,42 @@
       <li><code>GET /proposal_list</code> — governance actions (paginated).</li>
       <li><code>GET /vote_list</code> — every recorded vote (paginated), filtered to <code>voter_role == 'DRep'</code>.</li>
     </ul>
-    <p>DRep metadata content is consumed via Koios's <code>drep_metadata</code> endpoint and its <code>is_valid</code> flag; see §8 for the full handling chain and the v0.2 plan for independent fetch + verification.</p>
+    <ul class="ja">
+      <li><code>GET /tip</code> — 現在のエポックとブロック高(実行メタデータ用)。</li>
+      <li><code>GET /drep_list</code> — 登録済み DRep の一覧(ページング)。</li>
+      <li><code>POST /drep_info</code> — 登録ステータス、投票権、メタデータ URL とハッシュ(1リクエストあたり最大50 ID のバッチ)。</li>
+      <li><code>GET /drep_delegators</code>(Content-Range ヘッダー) — DRep ごとの委任者数。上位60候補のみ取得する。</li>
+      <li><code>POST /drep_metadata</code> — Koios が解析したメタデータ本体と <code>is_valid</code> フラグ。</li>
+      <li><code>GET /proposal_list</code> — ガバナンスアクション(ページング)。</li>
+      <li><code>GET /vote_list</code> — 記録された投票すべて(ページング)。<code>voter_role == 'DRep'</code> にフィルタする。</li>
+    </ul>
+    <p><span class="en">DRep metadata content is consumed via Koios's <code>drep_metadata</code> endpoint and its <code>is_valid</code> flag; see §8 for the full handling chain and the v0.2 plan for independent fetch + verification.</span><span class="ja">DRep メタデータ本体は、Koios の <code>drep_metadata</code> エンドポイントとその <code>is_valid</code> フラグを介して取得する。処理経路の全容および v0.2 での独立取得 + 検証計画は §8 を参照。</span></p>
 
-    <h2 id="section-4">4. Update cadence</h2>
-    <p>The observatory has two cadences. The <strong>daily layer</strong> is canonical for everything reported as "Data through {date}"; the <strong>live telemetry layer</strong> (described in §14) is supplemental and refreshes more often but writes a narrower set of data.</p>
-    <p>The <strong>daily ETL</strong> runs once a day at <strong>02:00 UTC</strong>.</p>
-    <p>Each daily run captures live DRep state at the moment of the run. The site displays the daily snapshot under the label <strong>"Data through {YYYY-MM-DD}"</strong>. Daily updates happen at most once per day, so lag from any on-chain event to its appearance in the daily layer is <strong>at most approximately 24 hours</strong>.</p>
-    <p>If the daily ETL run fails, the prior daily snapshot remains displayed unchanged. No partial or potentially inconsistent daily data is ever published. The site's <strong>"Last successful update"</strong> timestamp signals staleness if the daily data is older than 36 hours.</p>
-    <p>The <strong>live telemetry layer</strong> runs every 10 minutes via a separate cron entry; its cadence, scope, and limitations are defined in §14.</p>
+    <h2 id="section-4"><span class="en">4. Update cadence</span><span class="ja">4. 更新頻度</span></h2>
+    <p><span class="en">The observatory has two cadences. The <strong>daily layer</strong> is canonical for everything reported as "Data through {date}"; the <strong>live telemetry layer</strong> (described in §14) is supplemental and refreshes more often but writes a narrower set of data.</span><span class="ja">本オブザバトリーは二層の更新頻度を持つ。<strong>日次層</strong>は「データ対象日 {日付}」と表記されるすべてのデータについて正準である。<strong>ライブテレメトリー層</strong>(§14)は補助であり、より高頻度で更新されるが、書き込むデータの範囲は狭い。</span></p>
+    <p><span class="en">The <strong>daily ETL</strong> runs once a day at <strong>02:00 UTC</strong>.</span><span class="ja"><strong>日次 ETL</strong> は毎日 <strong>02:00 UTC</strong> に1回実行される。</span></p>
+    <p><span class="en">Each daily run captures live DRep state at the moment of the run. The site displays the daily snapshot under the label <strong>"Data through {YYYY-MM-DD}"</strong>. Daily updates happen at most once per day, so lag from any on-chain event to its appearance in the daily layer is <strong>at most approximately 24 hours</strong>.</span><span class="ja">日次実行は、実行時点の DRep の状態を取得する。サイトは日次スナップショットを <strong>「データ対象日 {YYYY-MM-DD}」</strong> として表示する。日次更新は1日1回までであるため、オンチェーンの任意のイベントが日次層に反映されるまでの遅延は <strong>最大で約24時間</strong> である。</span></p>
+    <p><span class="en">If the daily ETL run fails, the prior daily snapshot remains displayed unchanged. No partial or potentially inconsistent daily data is ever published. The site's <strong>"Last successful update"</strong> timestamp signals staleness if the daily data is older than 36 hours.</span><span class="ja">日次 ETL 実行が失敗した場合、直前の日次スナップショットが変更されずに表示され続ける。部分的・整合性の不確かな日次データを公開することはない。日次データが36時間以上経過した場合は、サイトの <strong>「最終更新成功」</strong> タイムスタンプにより古さが示される。</span></p>
+    <p><span class="en">The <strong>live telemetry layer</strong> runs every 10 minutes via a separate cron entry; its cadence, scope, and limitations are defined in §14.</span><span class="ja"><strong>ライブテレメトリー層</strong>は別の cron エントリにより10分ごとに実行される。その頻度・対象範囲・制限は §14 で定義する。</span></p>
 
-    <h2 id="section-5">5. Selection criteria</h2>
-    <p>The 30 DReps shown on the main page are selected by:</p>
-    <ul>
+    <h2 id="section-5"><span class="en">5. Selection criteria</span><span class="ja">5. 選定基準</span></h2>
+    <p><span class="en">The 30 DReps shown on the main page are selected by:</span><span class="ja">トップページに表示される30 DRep は以下の基準で選定される。</span></p>
+    <ul class="en">
       <li><strong>Active registration status</strong> — Koios <code>drep_info.active = true</code> for the current epoch. This excludes DReps whose registration has expired or been deregistered.</li>
       <li><strong>Exclusion of default-delegation targets</strong> — the special identifiers <code>drep_always_abstain</code> and <code>drep_always_no_confidence</code> are never displayed. These are protocol-level default delegation options, not individual DReps; including them would dominate the ranking and mislead readers.</li>
       <li><strong>Voting weight, descending</strong>, computed from the most recent daily snapshot. The voting weight value is the <code>amount</code> field from Koios <code>drep_info</code>, in lovelace, displayed as ADA (lovelace ÷ 1,000,000).</li>
       <li><strong>Ties broken by <code>drep_id</code> ascending</strong>, deterministic across runs.</li>
     </ul>
-    <p>This selection is fully deterministic and reproducible from public data. There is <strong>no manual curation, no featured selection, and no operator-influenced ranking</strong>. The ranking criteria above are the only criteria; changes to them will be documented in §11 with rationale.</p>
+    <ul class="ja">
+      <li><strong>現役の登録ステータス</strong> — 現エポックにおいて Koios <code>drep_info.active = true</code>。登録が失効済み、もしくは登録解除済みの DRep を除外する。</li>
+      <li><strong>既定委任先の除外</strong> — 特殊識別子 <code>drep_always_abstain</code> および <code>drep_always_no_confidence</code> は一切表示しない。これらはプロトコル層の既定委任オプションであり、個別の DRep ではない。含めれば順位を支配し読者を誤誘導するためである。</li>
+      <li><strong>投票権の降順</strong> — 直近の日次スナップショットから算出する。投票権の値は Koios <code>drep_info</code> の <code>amount</code> フィールド(lovelace 単位)であり、ADA(lovelace ÷ 1,000,000)として表示する。</li>
+      <li><strong>同順位は <code>drep_id</code> の昇順でタイブレーク</strong>。実行をまたいで決定的である。</li>
+    </ul>
+    <p><span class="en">This selection is fully deterministic and reproducible from public data. There is <strong>no manual curation, no featured selection, and no operator-influenced ranking</strong>. The ranking criteria above are the only criteria; changes to them will be documented in §11 with rationale.</span><span class="ja">本選定は完全に決定的であり、公開データから再現可能である。<strong>手動のキュレーション、特集の選定、運営者の影響による順位付けは一切存在しない。</strong>上記の基準のみが順位を決定する。変更は §11 に理由とともに記録する。</span></p>
 
-    <h2 id="section-6">6. Fields displayed per DRep</h2>
-    <ul>
+    <h2 id="section-6"><span class="en">6. Fields displayed per DRep</span><span class="ja">6. DRep ごとに表示するフィールド</span></h2>
+    <ul class="en">
       <li><strong>DRep ID</strong> — the bech32 <code>drep1...</code> identifier from the on-chain registration certificate.</li>
       <li><strong>Name</strong> — the value of the <code>givenName</code> field in the DRep's on-chain metadata, if present and verified. If the metadata fails hash verification, contains no <code>givenName</code> field, or no metadata URL was registered, this field is empty.</li>
       <li><strong>Voting weight (ADA)</strong> — the most recent daily snapshot of the DRep's total delegated voting power, in ADA.</li>
@@ -121,10 +149,20 @@
       <li><strong>Last vote (epoch)</strong> — the most recent epoch in which the DRep cast a recorded vote on any governance action. When a DRep has revoted on the same proposal, only the chronologically latest vote is stored (DReps may change their vote on an open proposal; the latest cast vote is the one that counts at tally time).</li>
       <li><strong>90-day chart</strong> (per-DRep expand) — the daily series of voting weight for the last 90 snapshots, with epoch boundaries shown as light vertical markers and governance action submission dates shown as labeled vertical markers.</li>
     </ul>
+    <ul class="ja">
+      <li><strong>DRep ID</strong> — オンチェーンの登録証明書から得た bech32 形式の <code>drep1...</code> 識別子。</li>
+      <li><strong>名称</strong> — DRep のオンチェーン・メタデータにおける <code>givenName</code> フィールドの値(存在し検証を通過した場合)。メタデータがハッシュ検証に失敗した場合、<code>givenName</code> が存在しない場合、メタデータ URL が未登録の場合のいずれかでは空欄とする。</li>
+      <li><strong>投票権(ADA)</strong> — 当該 DRep に委任された投票権総量の直近日次スナップショット。ADA 単位。</li>
+      <li><strong>Δ 7日間</strong> — 本日の投票権から、7日次スナップショット前の投票権を差し引いた値(ADA)。符号付き。色分けはしない。</li>
+      <li><strong>Δ 30日間</strong> — 本日の投票権から、30日次スナップショット前の投票権を差し引いた値(ADA)。符号付き。色分けはしない。</li>
+      <li><strong>委任者数</strong> — 当該 DRep に現在委任している、相異なるステーククレデンシャル (stake credential) の数。</li>
+      <li><strong>最終投票(エポック)</strong> — 当該 DRep がいずれかのガバナンスアクションに対して投票記録を残した直近のエポック。同一提案に再投票した場合は、時系列上で最新の票のみを保持する(DRep は開放中の提案に対して投票を変更でき、集計時には最後に投じた票が有効である)。</li>
+      <li><strong>90日間チャート</strong>(DRep 行の展開) — 直近90スナップショット分の投票権の日次系列。エポック境界を淡い縦マーカーで、ガバナンスアクションの提出日を見出し付きの縦マーカーで重ねて描画する。</li>
+    </ul>
 
-    <h2 id="section-7">7. Fields not displayed</h2>
-    <p>This list is exhaustive for v0.1. Any addition requires a §11 changelog entry written <em>before</em> the change ships:</p>
-    <ul>
+    <h2 id="section-7"><span class="en">7. Fields not displayed</span><span class="ja">7. 表示しないフィールド</span></h2>
+    <p><span class="en">This list is exhaustive for v0.1. Any addition requires a §11 changelog entry written <em>before</em> the change ships:</span><span class="ja">本一覧は v0.1 において網羅的である。いかなる追加も、リリースに<em>先立って</em> §11 の変更履歴への記載を必要とする。</span></p>
+    <ul class="en">
       <li>Off-chain identity not provided by the DRep.</li>
       <li>Delegator wallet addresses, balances, or any per-delegator detail.</li>
       <li>Inferred relationships between DReps, between delegators, or between DReps and delegators.</li>
@@ -132,211 +170,307 @@
       <li>Any composite score, percentile rank, badge, tier, or rating.</li>
       <li>Any "highlights," "alerts," or "of note" framing.</li>
     </ul>
+    <ul class="ja">
+      <li>DRep 自身が提供していないオフチェーン上の身元情報。</li>
+      <li>委任者のウォレットアドレス、残高、その他委任者単位の詳細。</li>
+      <li>DRep 間、委任者間、もしくは DRep と委任者の間の推定関係。</li>
+      <li>委任の動きについて推定された動機。</li>
+      <li>総合スコア、パーセンタイル順位、バッジ、ティア、評価のいずれも。</li>
+      <li>「ハイライト」「アラート」「注目」といったフレーミング。</li>
+    </ul>
 
-    <h2 id="section-8">8. Metadata handling</h2>
-    <p>DRep metadata URLs may return arbitrary content. In v0.1, metadata content is consumed via the Koios <code>drep_metadata</code> endpoint, which fetches the off-chain JSON, hashes it, and applies CIP-100/CIP-119 validation. The observatory uses Koios's <code>is_valid</code> flag as the validation gate.</p>
-    <ul>
+    <h2 id="section-8"><span class="en">8. Metadata handling</span><span class="ja">8. メタデータの取り扱い</span></h2>
+    <p><span class="en">DRep metadata URLs may return arbitrary content. In v0.1, metadata content is consumed via the Koios <code>drep_metadata</code> endpoint, which fetches the off-chain JSON, hashes it, and applies CIP-100/CIP-119 validation. The observatory uses Koios's <code>is_valid</code> flag as the validation gate.</span><span class="ja">DRep のメタデータ URL は任意の内容を返し得る。v0.1 では、メタデータ本体を Koios の <code>drep_metadata</code> エンドポイント経由で取得する。当該エンドポイントはオフチェーン JSON を取得し、ハッシュを計算し、CIP-100/CIP-119 の検証を適用する。本オブザバトリーは Koios の <code>is_valid</code> フラグを検証ゲートとして用いる。</span></p>
+    <ul class="en">
       <li><strong>Validation gate</strong> — metadata flagged <code>is_valid = false</code> by Koios is ignored entirely. No name is extracted; the DRep entry shows the bech32 DRep ID only.</li>
       <li><strong>No HTML rendering</strong> — only the <code>givenName</code> field is read from the parsed JSON. No raw metadata content is ever rendered as HTML on the site.</li>
       <li><strong>Sanitization</strong> — extracted <code>givenName</code> is treated as plain text: control characters are stripped, the value is truncated to 200 characters, and the result is displayed only if non-empty after stripping.</li>
       <li><strong>No fallback identification</strong> — if metadata is missing, invalid, or contains no <code>givenName</code>, the entry shows the bech32 DRep ID only. No alternative naming source is consulted.</li>
     </ul>
-    <p>In v0.2, the observatory may move to fetching metadata directly from the on-chain URL with independent SHA-256 verification, removing Koios from the trust path for metadata content. This is a v0.2 candidate, not a v0.1 commitment.</p>
+    <ul class="ja">
+      <li><strong>検証ゲート</strong> — Koios により <code>is_valid = false</code> と判定されたメタデータは完全に無視する。名称は抽出せず、DRep エントリには bech32 形式の DRep ID のみを表示する。</li>
+      <li><strong>HTML として描画しない</strong> — 解析済み JSON からは <code>givenName</code> フィールドのみを読み取る。生のメタデータ本体をサイト上で HTML として描画することは一切ない。</li>
+      <li><strong>サニタイズ</strong> — 抽出した <code>givenName</code> はプレーンテキストとして扱う。制御文字を除去し、200文字に切り詰め、除去後に非空である場合のみ表示する。</li>
+      <li><strong>代替の識別なし</strong> — メタデータが欠落、無効、または <code>givenName</code> を含まない場合、エントリには bech32 形式の DRep ID のみを表示する。代替の命名ソースを参照することはない。</li>
+    </ul>
+    <p><span class="en">In v0.2, the observatory may move to fetching metadata directly from the on-chain URL with independent SHA-256 verification, removing Koios from the trust path for metadata content. This is a v0.2 candidate, not a v0.1 commitment.</span><span class="ja">v0.2 では、オンチェーン URL から直接メタデータを取得し、独立した SHA-256 検証を行う方式へ移行する可能性がある。これにより、メタデータ本体の信頼経路から Koios を外す。v0.2 の候補であり、v0.1 での約束ではない。</span></p>
 
-    <h2 id="section-9">9. Right of reply</h2>
-    <p>A DRep who wants to add context to their entry on this site should update their on-chain metadata. The observatory fetches the latest metadata each day and the new content will appear on the next snapshot.</p>
-    <p>There is <strong>no operator-mediated channel</strong> for adding text, links, badges, or commentary to any DRep's entry. This is deliberate: the moment the operator can edit per-DRep content, the site has an editorial dimension.</p>
-    <p>If a DRep believes a published number is computationally incorrect, please open an issue on the <a href="https://github.com/cryptoleo79/cardano-delegation-observatory" target="_blank" rel="noopener">GitHub repository</a> with the snapshot date, the field in question, and the value you expect. Computational corrections will be made publicly, with the changelog noting the affected dates.</p>
+    <h2 id="section-9"><span class="en">9. Right of reply</span><span class="ja">9. 反論の機会</span></h2>
+    <p><span class="en">A DRep who wants to add context to their entry on this site should update their on-chain metadata. The observatory fetches the latest metadata each day and the new content will appear on the next snapshot.</span><span class="ja">本サイト上の自エントリに文脈を追加したい DRep は、オンチェーン・メタデータを更新すればよい。本オブザバトリーは毎日最新のメタデータを取得し、次回のスナップショットに新しい内容を反映する。</span></p>
+    <p><span class="en">There is <strong>no operator-mediated channel</strong> for adding text, links, badges, or commentary to any DRep's entry. This is deliberate: the moment the operator can edit per-DRep content, the site has an editorial dimension.</span><span class="ja">DRep のエントリに対し、テキスト・リンク・バッジ・コメントを追加する<strong>運営者を介した経路は存在しない</strong>。これは意図的である。運営者が DRep 単位の内容を編集できる瞬間から、サイトは編集的な次元を持ってしまう。</span></p>
+    <p><span class="en">If a DRep believes a published number is computationally incorrect, please open an issue on the <a href="https://github.com/cryptoleo79/cardano-delegation-observatory" target="_blank" rel="noopener">GitHub repository</a> with the snapshot date, the field in question, and the value you expect. Computational corrections will be made publicly, with the changelog noting the affected dates.</span><span class="ja">公開されている数値が計算上誤っていると判断した DRep は、<a href="https://github.com/cryptoleo79/cardano-delegation-observatory" target="_blank" rel="noopener">GitHub リポジトリ</a>で Issue を開いてほしい。スナップショット日、該当フィールド、期待される値を併記する。計算上の訂正は公開の場で行い、影響を受けた日付を変更履歴に記す。</span></p>
 
-    <h2 id="section-10">10. Operator</h2>
-    <p>This observatory is operated by <a href="https://github.com/cryptoleo79" target="_blank" rel="noopener">cryptoleo79</a>, an independent Cardano stake pool operator and DRep.</p>
-    <p><strong>Conflicts of interest disclosure:</strong></p>
-    <ul>
+    <h2 id="section-10"><span class="en">10. Operator</span><span class="ja">10. 運営者</span></h2>
+    <p><span class="en">This observatory is operated by <a href="https://github.com/cryptoleo79" target="_blank" rel="noopener">cryptoleo79</a>, an independent Cardano stake pool operator and DRep.</span><span class="ja">本オブザバトリーは、独立した Cardano ステークプール運営者かつ DRep である <a href="https://github.com/cryptoleo79" target="_blank" rel="noopener">cryptoleo79</a> によって運営されている。</span></p>
+    <p><span class="en"><strong>Conflicts of interest disclosure:</strong></span><span class="ja"><strong>利益相反の開示:</strong></span></p>
+    <ul class="en">
       <li>The operator is a registered DRep. The operator's DRep entry, if it appears in the top 30 by voting weight, is shown in the data with no special treatment, no exclusion, and no editorial flag.</li>
       <li>The operator runs a Cardano stake pool. Stake pool data is not displayed on this site; this observatory is concerned only with DReps and delegation to DReps.</li>
       <li>The operator authored the <a href="https://ctf.asy.life" target="_blank" rel="noopener">Connected Treasury Framework</a>. That project advocates for treasury yield distribution that includes performance-gated DRep participation incentives. The observatory does not promote, link to, or favor the CTF proposal in its data presentation.</li>
     </ul>
-    <p>The source code, deployment configuration, and data schema are all public in the <a href="https://github.com/cryptoleo79/cardano-delegation-observatory" target="_blank" rel="noopener">GitHub repository</a> under Apache 2.0. The published data is CC0. Anyone can independently reproduce all results from the cited public endpoints.</p>
+    <ul class="ja">
+      <li>運営者は登録済みの DRep である。投票権が上位30位に入る場合、運営者の DRep エントリは、特別扱い・除外・編集的フラグを一切なしにデータ中に表示される。</li>
+      <li>運営者は Cardano ステークプールを運営している。ステークプールのデータは本サイトでは表示しない。本オブザバトリーが扱うのは DRep と DRep への委任のみである。</li>
+      <li>運営者は <a href="https://ctf.asy.life" target="_blank" rel="noopener">Connected Treasury Framework</a> の起案者である。同プロジェクトは、業績連動の DRep 参加インセンティブを含むトレジャリー利回りの分配を提唱している。本オブザバトリーは、そのデータ表示において CTF 提案を宣伝・リンク・優遇することはない。</li>
+    </ul>
+    <p><span class="en">The source code, deployment configuration, and data schema are all public in the <a href="https://github.com/cryptoleo79/cardano-delegation-observatory" target="_blank" rel="noopener">GitHub repository</a> under Apache 2.0. The published data is CC0. Anyone can independently reproduce all results from the cited public endpoints.</span><span class="ja">ソースコード、デプロイ設定、データスキーマはすべて <a href="https://github.com/cryptoleo79/cardano-delegation-observatory" target="_blank" rel="noopener">GitHub リポジトリ</a>に Apache 2.0 ライセンスで公開されている。公開データは CC0 である。第三者は、引用された公開エンドポイントからすべての結果を独立に再現できる。</span></p>
 
-    <h2 id="section-11">11. Changelog</h2>
-    <p>For the canonical record, see <a href="https://github.com/cryptoleo79/cardano-delegation-observatory/blob/main/METHODOLOGY.md" target="_blank" rel="noopener">METHODOLOGY.md</a> in the repository. The summary below is mirrored from there:</p>
+    <h2 id="section-11"><span class="en">11. Changelog</span><span class="ja">11. 変更履歴</span></h2>
+    <p><span class="en">For the canonical record, see <a href="https://github.com/cryptoleo79/cardano-delegation-observatory/blob/main/METHODOLOGY.md" target="_blank" rel="noopener">METHODOLOGY.md</a> in the repository. The summary below is mirrored from there:</span><span class="ja">正準の記録はリポジトリ内の <a href="https://github.com/cryptoleo79/cardano-delegation-observatory/blob/main/METHODOLOGY.md" target="_blank" rel="noopener">METHODOLOGY.md</a> を参照。以下はそこからの抜粋である。</span></p>
     <table class="changelog">
       <thead>
-        <tr><th>Date</th><th>Version</th><th>Change</th></tr>
+        <tr>
+          <th><span class="en">Date</span><span class="ja">日付</span></th>
+          <th><span class="en">Version</span><span class="ja">バージョン</span></th>
+          <th><span class="en">Change</span><span class="ja">変更内容</span></th>
+        </tr>
       </thead>
       <tbody>
         <tr>
           <td>2026-05-29</td>
-          <td>v0.7 (methodology only — code follows after verification gate)</td>
-          <td>FLOW-4 methodology §21 added: defines the historical snapshot browser. Dual-write to current + <code>/by-date/{YYYY-MM-DD}/</code> immutable archive. Historical rankings preserved exactly as published (even if later developments would change interpretation). Navigation by chronological list (not calendar) to honor the discrete-with-gaps reality. Provenance strip includes stable canonical archive path as citable identifier. No backfill before deployment. Reproducibility commitment: byte-for-byte equivalence between served JSON and archived file. Code waits for the 02:05 UTC verification gate.</td>
+          <td>v0.7</td>
+          <td><span class="en">FLOW-4 methodology §21 added: defines the historical snapshot browser. Dual-write to current + <code>/by-date/{YYYY-MM-DD}/</code> immutable archive. Historical rankings preserved exactly as published (even if later developments would change interpretation). Navigation by chronological list (not calendar) to honor the discrete-with-gaps reality. Provenance strip includes stable canonical archive path as citable identifier. No backfill before deployment. Reproducibility commitment: byte-for-byte equivalence between served JSON and archived file. Code waits for the 02:05 UTC verification gate.</span><span class="ja">FLOW-4 方法論 §21 を追加。履歴スナップショットブラウザを定義する。現行 + <code>/by-date/{YYYY-MM-DD}/</code> 不変アーカイブへの二重書き込み。履歴順位は公開時のまま保持(後の展開により解釈が変わり得るとしても)。離散的かつ欠損のある実態を尊重するため、カレンダーではなく時系列リストでナビゲートする。来歴ストリップには、引用可能な識別子として安定した正準アーカイブパスを含める。デプロイ前のバックフィルは行わない。再現性のコミットメントとして、配信される JSON とアーカイブ済みファイルがバイト単位で一致することを保証する。コードは 02:05 UTC の検証ゲートを待つ。</span></td>
         </tr>
         <tr>
           <td>2026-05-29</td>
           <td>v0.6</td>
-          <td>FLOW-3 methodology §20 added: defines the governance history layer. Scope, action record, timeline, retention (permanent vs mutable), canonical sources, representation (aggregate + per-action JSON exports), explicit "no major/minor distinction" rule, revision rules, edge cases, and reproducibility commitment. §20.7 requires that action detail pages display the canonical <code>action_id</code> prominently near the top — never as an afterthought. Code and frontend follow.</td>
+          <td><span class="en">FLOW-3 methodology §20 added: defines the governance history layer. Scope, action record, timeline, retention (permanent vs mutable), canonical sources, representation (aggregate + per-action JSON exports), explicit "no major/minor distinction" rule, revision rules, edge cases, and reproducibility commitment. §20.7 requires that action detail pages display the canonical <code>action_id</code> prominently near the top — never as an afterthought. Code and frontend follow.</span><span class="ja">FLOW-3 方法論 §20 を追加。ガバナンス履歴層を定義する。対象範囲、アクションレコード、タイムライン、保持(永続 vs 可変)、正準ソース、表現形式(集約 + アクション単位の JSON エクスポート)、「主要/従属の区別をしない」明示ルール、改訂ルール、エッジケース、再現性のコミットメントを規定する。§20.7 は、アクション詳細ページが正準 <code>action_id</code> をページ上部に目立つ位置で表示すること(後付けで埋め込まないこと)を求める。コードおよびフロントエンドは別途追加する。</span></td>
         </tr>
         <tr>
           <td>2026-05-29</td>
           <td>v0.5</td>
-          <td>FLOW-2 methodology §19 added: defines governance event overlays on the per-DRep voting weight chart. Five event types with explicit time alignment between epoch-anchored events and date-anchored chart. §19.3 separates temporal proximity from causal claims; states the observatory records events and delegation state independently. §19.4 requires markers render behind the delegation series and never obscure underlying data; single neutral color for all event types. §19.5 shows all actions in window — no editorial pre-filter. Schema addition: <code>epoch_info</code> table. Export addition: <code>/data/snapshots/epoch_info.json</code>. Code and frontend follow.</td>
+          <td><span class="en">FLOW-2 methodology §19 added: defines governance event overlays on the per-DRep voting weight chart. Five event types with explicit time alignment between epoch-anchored events and date-anchored chart. §19.3 separates temporal proximity from causal claims; states the observatory records events and delegation state independently. §19.4 requires markers render behind the delegation series and never obscure underlying data; single neutral color for all event types. §19.5 shows all actions in window — no editorial pre-filter. Schema addition: <code>epoch_info</code> table. Export addition: <code>/data/snapshots/epoch_info.json</code>. Code and frontend follow.</span><span class="ja">FLOW-2 方法論 §19 を追加。DRep ごとの投票権チャートに重ねるガバナンスイベント・オーバーレイを定義する。5種類のイベントについて、エポック起点のイベントと日付起点のチャートとの時刻整合を明示する。§19.3 は時間的近接性と因果関係の主張を切り分け、本オブザバトリーがイベントと委任状態を独立に記録することを述べる。§19.4 はマーカーを委任系列の背後に描画し、基礎データを覆い隠さないことを求める。すべてのイベント種別に単一の中立色を用いる。§19.5 はウィンドウ内のすべてのアクションを表示することを定める(編集的な事前フィルタは行わない)。スキーマ追加: <code>epoch_info</code> テーブル。エクスポート追加: <code>/data/snapshots/epoch_info.json</code>。コードおよびフロントエンドは別途追加する。</span></td>
         </tr>
         <tr>
           <td>2026-05-29</td>
           <td>v0.4</td>
-          <td>FLOW-1 methodology §18 added: defines net voting-weight movement and net delegator-count movement; separates measured movement from inferred meaning. §18.3 states net movement is not migration. §18.8 enumerates what flow data does NOT imply, including the explicit case that large movements may originate from wallet software defaults, custodial infrastructure, exchange operations, stake-key changes, or delegation decisions. Δ1d not on main table — per-DRep page and JSON exports only. Code and frontend follow in separate commits.</td>
+          <td><span class="en">FLOW-1 methodology §18 added: defines net voting-weight movement and net delegator-count movement; separates measured movement from inferred meaning. §18.3 states net movement is not migration. §18.8 enumerates what flow data does NOT imply, including the explicit case that large movements may originate from wallet software defaults, custodial infrastructure, exchange operations, stake-key changes, or delegation decisions. Δ1d not on main table — per-DRep page and JSON exports only. Code and frontend follow in separate commits.</span><span class="ja">FLOW-1 方法論 §18 を追加。投票権の純差分と委任者数の純差分を定義し、計測された変動と推定される意味とを切り分ける。§18.3 は純変動が移行 (migration) ではないと明言する。§18.8 はフローデータが含意しない事項を列挙し、特に大きな変動がウォレット既定設定、カストディアン基盤、取引所運用、ステーク鍵の変更、委任の意思決定のいずれからも生じ得ることを明示する。Δ1日は主テーブルに掲載せず、DRep 個別ページと JSON エクスポートに限定する。コードおよびフロントエンドは別コミットで追加する。</span></td>
         </tr>
         <tr>
           <td>2026-05-28</td>
           <td>v0.3</td>
-          <td>Live telemetry layer added (<code>etl/live.py</code>, 10-minute cadence). Daily layer remains canonical. New §14–§17 describe the live layer, eventual consistency, Koios rate-limit discipline, and live-only exports. Schema migration: <code>vote_block_time</code> added; new <code>live_state</code> table. All JSON exports now stamp <code>schema_version</code> and <code>methodology_version</code>. Frontend gains daily/live distinction wording, recent-activity section with absolute UTC timestamps, and data-provenance line.</td>
+          <td><span class="en">Live telemetry layer added (<code>etl/live.py</code>, 10-minute cadence). Daily layer remains canonical. New §14–§17 describe the live layer, eventual consistency, Koios rate-limit discipline, and live-only exports. Schema migration: <code>vote_block_time</code> added; new <code>live_state</code> table. All JSON exports now stamp <code>schema_version</code> and <code>methodology_version</code>. Frontend gains daily/live distinction wording, recent-activity section with absolute UTC timestamps, and data-provenance line.</span><span class="ja">ライブテレメトリー層を追加(<code>etl/live.py</code>、10分間隔)。日次層は正準のまま据え置く。新規 §14–§17 にて、ライブ層、結果整合性、Koios レート制限の節度、ライブ専用エクスポートを記述する。スキーマ移行: <code>vote_block_time</code> を追加、新規 <code>live_state</code> テーブル。全 JSON エクスポートに <code>schema_version</code> と <code>methodology_version</code> を刻印する。フロントエンドは日次/ライブの区別文言、UTC 絶対時刻付きの「最近のアクティビティ」セクション、データ来歴ラインを獲得する。</span></td>
         </tr>
         <tr>
           <td>2026-05-28</td>
           <td>v0.2</td>
-          <td>Deployment + scope expansion. Site live at <a href="https://observatory.asy.life">observatory.asy.life</a> via nginx + Let's Encrypt. Daily ETL cron at 02:00 UTC, git-pull deploy cron every 5 min. Added: governance actions index page (<code>/actions.html</code>) with DRep vote tally per action; public CSV export of top-30 snapshot (<code>/data/snapshots/top30.csv</code>); permalinkable per-DRep page (<code>/drep.html?id=...</code>) with full vote history and 90-day chart. New §13 documents pages and exports.</td>
+          <td><span class="en">Deployment + scope expansion. Site live at <a href="https://observatory.asy.life">observatory.asy.life</a> via nginx + Let's Encrypt. Daily ETL cron at 02:00 UTC, git-pull deploy cron every 5 min. Added: governance actions index page (<code>/actions.html</code>) with DRep vote tally per action; public CSV export of top-30 snapshot (<code>/data/snapshots/top30.csv</code>); permalinkable per-DRep page (<code>/drep.html?id=...</code>) with full vote history and 90-day chart. New §13 documents pages and exports.</span><span class="ja">デプロイと対象範囲の拡張。サイトは <a href="https://observatory.asy.life">observatory.asy.life</a> にて nginx + Let's Encrypt により稼働を開始。日次 ETL の cron は 02:00 UTC、git-pull デプロイの cron は5分ごとに動作する。追加: ガバナンスアクション一覧ページ(<code>/actions.html</code>)、各アクションごとの DRep 投票集計付き。上位30スナップショットの公開 CSV エクスポート(<code>/data/snapshots/top30.csv</code>)。完全な投票履歴と90日チャートを持つ DRep 個別パーマリンクページ(<code>/drep.html?id=...</code>)。新規 §13 でページと公開エクスポートを記述する。</span></td>
         </tr>
         <tr>
           <td>2026-05-28</td>
           <td>v0.1.5</td>
-          <td>Added vote ingestion via <code>/proposal_list</code> and <code>/vote_list</code>. <code>last_vote_epoch</code> populated. Revote ordering fix applied (chronologically latest vote per (action, drep) kept). §3, §6, §11, §12 updated.</td>
-        </tr>
-        <tr>
-          <td>2026-05-27</td>
-          <td>v0.1 (real-data adjustments)</td>
-          <td>First live ETL run completed. §4 lag wording corrected to "up to ~24h". §5 expanded with exclusion of default-delegation targets and deterministic <code>drep_id</code> tie-break. §8 updated to describe Koios-mediated metadata path. §12 added for scope limitations.</td>
+          <td><span class="en">Added vote ingestion via <code>/proposal_list</code> and <code>/vote_list</code>. <code>last_vote_epoch</code> populated. Revote ordering fix applied (chronologically latest vote per (action, drep) kept). §3, §6, §11, §12 updated.</span><span class="ja"><code>/proposal_list</code> と <code>/vote_list</code> による投票の取り込みを追加。<code>last_vote_epoch</code> を埋める。再投票の順序修正を適用((アクション, DRep) 単位で時系列上最新の票を保持)。§3、§6、§11、§12 を更新。</span></td>
         </tr>
         <tr>
           <td>2026-05-27</td>
           <td>v0.1</td>
-          <td>Initial draft.</td>
+          <td><span class="en">Initial draft + first live ETL run. §4 lag wording corrected to "up to ~24h". §5 expanded with exclusion of default-delegation targets and deterministic <code>drep_id</code> tie-break. §8 updated to describe Koios-mediated metadata path. §12 added for scope limitations.</span><span class="ja">初版作成および初回のライブ ETL 実行を完了。§4 の遅延表現を「最大約24時間」に訂正。§5 は既定委任先の除外と <code>drep_id</code> による決定的タイブレークを加え拡張。§8 は Koios 経由のメタデータ取得経路を記述するように更新。§12 を新規追加し対象範囲の制限を明記。</span></td>
         </tr>
       </tbody>
     </table>
 
-    <h2 id="section-13">13. Pages and public exports</h2>
-    <p>The observatory comprises four pages:</p>
-    <ul>
+    <h2 id="section-13"><span class="en">13. Pages and public exports</span><span class="ja">13. ページと公開エクスポート</span></h2>
+    <p><span class="en">The observatory comprises four pages:</span><span class="ja">本オブザバトリーは4ページから成る。</span></p>
+    <ul class="en">
       <li><strong>Observatory</strong> (<code>/</code>) — top-30 DReps by current voting weight, with Δ7d, Δ30d, delegator count, last vote epoch. Daily snapshot. Click any row to expand inline detail, or follow the "open full page" link to the per-DRep permalink page.</li>
       <li><strong>Governance actions</strong> (<code>/actions.html</code>) — every governance action recorded on-chain with type (TreasuryWithdrawals, InfoAction, ParameterChange, NewConstitution, NewCommittee, HardForkInitiation), outcome (enacted, ratified, dropped, expired, active — derivation per §6), expiration epoch, and per-action DRep vote tally. Sortable; filterable by type and outcome.</li>
       <li><strong>Per-DRep page</strong> (<code>/drep.html?id=drep1...</code>) — permalinkable page for any DRep currently in the snapshot. Shows current voting weight, last vote epoch, full vote history (paginated), 90-day voting weight chart, and on-chain metadata source.</li>
       <li><strong>Methodology</strong> (<code>/methodology.html</code>) — this page.</li>
     </ul>
-    <p><strong>Public data exports</strong> (all CC0, regenerated by the daily ETL at 02:00 UTC):</p>
-    <ul>
+    <ul class="ja">
+      <li><strong>Observatory</strong>(<code>/</code>) — 現在の投票権による上位30 DRep を、Δ7日間、Δ30日間、委任者数、最終投票エポックとともに表示する。日次スナップショット。行をクリックすればインラインで詳細が展開する。「個別ページを開く」リンクから DRep のパーマリンクページに遷移できる。</li>
+      <li><strong>ガバナンスアクション</strong>(<code>/actions.html</code>) — オンチェーンに記録されたすべてのガバナンスアクションを、種別(トレジャリー引き出し、情報アクション、パラメータ変更、新規憲法、新規委員会、ハードフォーク起動)、結果(施行、批准、廃案、失効、進行中 — 導出は §6 に従う)、期限エポック、アクション単位の DRep 投票集計とともに表示する。並び替え可、種別および結果でフィルタ可。</li>
+      <li><strong>DRep 個別ページ</strong>(<code>/drep.html?id=drep1...</code>) — 現スナップショット内のいずれかの DRep に対してパーマリンクとして開けるページ。現在の投票権、最終投票エポック、完全な投票履歴(ページング)、90日間の投票権チャート、オンチェーン・メタデータのソースを表示する。</li>
+      <li><strong>方法論</strong>(<code>/methodology.html</code>) — 本ページ。</li>
+    </ul>
+    <p><span class="en"><strong>Public data exports</strong> (all CC0, regenerated by the daily ETL at 02:00 UTC):</span><span class="ja"><strong>公開データのエクスポート</strong>(すべて CC0、02:00 UTC の日次 ETL により再生成):</span></p>
+    <ul class="en">
       <li><code>GET /data/snapshots/top30.json</code> — current snapshot in JSON</li>
       <li><code>GET /data/snapshots/top30.csv</code> — same in CSV (header + 30 rows; lovelace and ADA columns both included for verification)</li>
       <li><code>GET /data/snapshots/actions.json</code> — governance actions index with per-action vote tallies</li>
       <li><code>GET /data/snapshots/meta.json</code> — ETL run metadata</li>
       <li><code>GET /data/snapshots/dreps/{drep_id}.json</code> — per-DRep history + vote record (top 30 only)</li>
     </ul>
-    <p>The format is stable within a major version. Any field additions or removals are recorded in the §11 changelog before the change ships.</p>
-    <p><strong>Vote tally semantics</strong> (in <code>actions.json</code>): the counts <code>drep_yes_count</code>, <code>drep_no_count</code>, <code>drep_abstain_count</code> for each action represent the most recent vote each DRep has cast on that action. When a DRep has revoted on the same action, only their chronologically latest vote is counted (see §6 for the revote-ordering rule). The counts are facts, not interpretations; they do not constitute approval or rejection signals.</p>
+    <ul class="ja">
+      <li><code>GET /data/snapshots/top30.json</code> — 現スナップショットの JSON</li>
+      <li><code>GET /data/snapshots/top30.csv</code> — 同 CSV(ヘッダ + 30行。検証用に lovelace と ADA の両列を含める)</li>
+      <li><code>GET /data/snapshots/actions.json</code> — アクション単位の投票集計付きガバナンスアクション一覧</li>
+      <li><code>GET /data/snapshots/meta.json</code> — ETL 実行メタデータ</li>
+      <li><code>GET /data/snapshots/dreps/{drep_id}.json</code> — DRep ごとの履歴 + 投票記録(上位30のみ)</li>
+    </ul>
+    <p><span class="en">The format is stable within a major version. Any field additions or removals are recorded in the §11 changelog before the change ships.</span><span class="ja">形式はメジャーバージョン内で安定である。フィールドの追加・削除はリリース前に §11 の変更履歴に記録する。</span></p>
+    <p><span class="en"><strong>Vote tally semantics</strong> (in <code>actions.json</code>): the counts <code>drep_yes_count</code>, <code>drep_no_count</code>, <code>drep_abstain_count</code> for each action represent the most recent vote each DRep has cast on that action. When a DRep has revoted on the same action, only their chronologically latest vote is counted (see §6 for the revote-ordering rule). The counts are facts, not interpretations; they do not constitute approval or rejection signals.</span><span class="ja"><strong>投票集計の意味</strong>(<code>actions.json</code> 内): 各アクションの <code>drep_yes_count</code>、<code>drep_no_count</code>、<code>drep_abstain_count</code> は、各 DRep が当該アクションに対して最後に投じた票を表す。同一アクションに DRep が再投票した場合は、時系列上で最新の票のみを集計する(再投票順序のルールは §6 を参照)。集計は事実であり解釈ではない。承認や否決のシグナルを構成するものではない。</span></p>
 
-    <h2 id="section-14">14. Live telemetry layer</h2>
-    <p>In addition to the daily snapshot, the observatory runs a <strong>live telemetry</strong> ETL every <strong>10 minutes</strong> to surface near-real-time governance pulse. This layer is deliberately narrow.</p>
-    <p><strong>What the live layer fetches each run:</strong></p>
-    <ul>
+    <h2 id="section-14"><span class="en">14. Live telemetry layer</span><span class="ja">14. ライブテレメトリー層</span></h2>
+    <p><span class="en">In addition to the daily snapshot, the observatory runs a <strong>live telemetry</strong> ETL every <strong>10 minutes</strong> to surface near-real-time governance pulse. This layer is deliberately narrow.</span><span class="ja">日次スナップショットに加え、本オブザバトリーは<strong>ライブテレメトリー</strong> ETL を <strong>10分ごと</strong>に実行し、準リアルタイムのガバナンス動向を可視化する。この層は意図的に狭い範囲に絞っている。</span></p>
+    <p><span class="en"><strong>What the live layer fetches each run:</strong></span><span class="ja"><strong>ライブ層が各実行で取得する内容:</strong></span></p>
+    <ul class="en">
       <li><code>GET /tip</code> — current epoch and block height (1 call).</li>
       <li><code>GET /vote_list?block_height=gt.{last_seen}</code> — only DRep votes recorded since the previous live run (typically 0–1 pages).</li>
       <li><code>GET /proposal_list</code> — full action list, but only every 6th run (≈ hourly).</li>
     </ul>
-    <p><strong>What the live layer does NOT fetch or change:</strong></p>
-    <ul>
+    <ul class="ja">
+      <li><code>GET /tip</code> — 現在のエポックとブロック高(1回)。</li>
+      <li><code>GET /vote_list?block_height=gt.{last_seen}</code> — 前回のライブ実行以降に記録された DRep の投票のみ(通常0〜1ページ)。</li>
+      <li><code>GET /proposal_list</code> — アクションの全リスト(ただし6回ごとに1回、約1時間ごとに取得)。</li>
+    </ul>
+    <p><span class="en"><strong>What the live layer does NOT fetch or change:</strong></span><span class="ja"><strong>ライブ層が取得・変更しない内容:</strong></span></p>
+    <ul class="en">
       <li>It does not refresh voting weight, delegator counts, or DRep ranking. Those remain pinned to the daily snapshot and to the epoch-boundary stake snapshots the Cardano protocol itself uses.</li>
       <li>It does not refresh DRep metadata.</li>
       <li>It does not modify any row written by the daily ETL.</li>
     </ul>
-    <p><strong>What the live layer writes:</strong></p>
-    <ul>
+    <ul class="ja">
+      <li>投票権、委任者数、DRep の順位は更新しない。これらは日次スナップショット、および Cardano プロトコル自身が用いるエポック境界のステークスナップショットに固定される。</li>
+      <li>DRep メタデータは更新しない。</li>
+      <li>日次 ETL が書き込んだ行は一切変更しない。</li>
+    </ul>
+    <p><span class="en"><strong>What the live layer writes:</strong></span><span class="ja"><strong>ライブ層が書き込む内容:</strong></span></p>
+    <ul class="en">
       <li>New <code>votes</code> rows into the shared SQLite table (with <code>INSERT OR REPLACE</code> on <code>(action_id, drep_id)</code>; the revote-ordering rule from §6 applies identically).</li>
       <li>Conditionally new or updated <code>governance_actions</code> rows (hourly).</li>
       <li>JSON files under <code>/data/snapshots/live/</code> (see §17).</li>
     </ul>
-    <p>The daily ETL at 02:00 UTC is the source of truth and reconciles any divergence on its next run.</p>
+    <ul class="ja">
+      <li>共有 SQLite テーブルに新規 <code>votes</code> 行(<code>(action_id, drep_id)</code> に対する <code>INSERT OR REPLACE</code>。§6 の再投票順序ルールが同一に適用される)。</li>
+      <li>条件付きで新規または更新された <code>governance_actions</code> 行(時間ごと)。</li>
+      <li><code>/data/snapshots/live/</code> 配下の JSON ファイル(§17 を参照)。</li>
+    </ul>
+    <p><span class="en">The daily ETL at 02:00 UTC is the source of truth and reconciles any divergence on its next run.</span><span class="ja">02:00 UTC の日次 ETL が信頼の源であり、次回実行時にあらゆる乖離を突合する。</span></p>
 
-    <h2 id="section-15">15. Eventual consistency</h2>
-    <p>Because two ETL processes share the same SQLite database, brief inconsistencies are possible:</p>
-    <ul>
+    <h2 id="section-15"><span class="en">15. Eventual consistency</span><span class="ja">15. 結果整合性</span></h2>
+    <p><span class="en">Because two ETL processes share the same SQLite database, brief inconsistencies are possible:</span><span class="ja">2つの ETL プロセスが同一の SQLite データベースを共有するため、短時間の不整合が生じ得る。</span></p>
+    <ul class="en">
       <li>A vote captured by the live layer at 10:07 UTC may appear on the site at 10:08, before the next daily ETL run codifies it into the daily snapshot.</li>
       <li>A new governance action submitted between two live runs is captured at the next live run (max ~10 min lag) or the next daily run.</li>
       <li>If a live run fails partway through, no live JSON files are written for that cycle. The prior live files remain in place. The freshness timestamp in <code>live/meta.json</code> makes the staleness visible to the UI.</li>
     </ul>
-    <p><strong>Reconciliation rule:</strong> the daily layer is canonical. If a discrepancy is observed between live and daily reports of the same fact, the daily value is the one to cite. The live layer exists to shorten the visibility lag, not to replace the daily layer.</p>
-    <p>The site UI labels live-layer-sourced fields with an explicit "Live" indicator. Daily-layer fields have no such indicator; absence of label = canonical daily data.</p>
+    <ul class="ja">
+      <li>10:07 UTC にライブ層が捕捉した票は、次回の日次 ETL 実行が日次スナップショットに固定する前の 10:08 にサイト上に現れ得る。</li>
+      <li>2回のライブ実行の間に提出された新規ガバナンスアクションは、次回のライブ実行(最大約10分の遅延)または次回の日次実行で捕捉される。</li>
+      <li>ライブ実行が途中で失敗した場合、当該サイクルではライブ JSON ファイルは一切書き込まれない。直前のライブファイルがそのまま残る。<code>live/meta.json</code> 内の鮮度タイムスタンプにより、古さが UI に可視化される。</li>
+    </ul>
+    <p><span class="en"><strong>Reconciliation rule:</strong> the daily layer is canonical. If a discrepancy is observed between live and daily reports of the same fact, the daily value is the one to cite. The live layer exists to shorten the visibility lag, not to replace the daily layer.</span><span class="ja"><strong>突合ルール:</strong> 日次層が正準である。同一事実についてライブと日次の報告に齟齬が認められた場合、引用すべきは日次の値である。ライブ層は可視化までの遅延を縮めるために存在するのであり、日次層を置き換えるためではない。</span></p>
+    <p><span class="en">The site UI labels live-layer-sourced fields with an explicit "Live" indicator. Daily-layer fields have no such indicator; absence of label = canonical daily data.</span><span class="ja">サイト UI は、ライブ層に由来するフィールドに明示的な「Live」インジケータを付ける。日次層のフィールドにはこのインジケータを付けない。ラベルがないことが、正準である日次データを意味する。</span></p>
 
-    <h2 id="section-16">16. Koios rate-limit discipline</h2>
-    <p>The observatory is a polite consumer of the Koios free tier. Estimated combined load with the live layer at 10-minute cadence:</p>
-    <ul>
+    <h2 id="section-16"><span class="en">16. Koios rate-limit discipline</span><span class="ja">16. Koios レート制限の節度</span></h2>
+    <p><span class="en">The observatory is a polite consumer of the Koios free tier. Estimated combined load with the live layer at 10-minute cadence:</span><span class="ja">本オブザバトリーは Koios 無料枠の節度ある利用者である。ライブ層を10分間隔で動作させたときの合算負荷の見積もりは以下の通りである。</span></p>
+    <ul class="en">
       <li>Daily ETL: ~136 calls/day</li>
       <li>Live ETL: ~316 calls/day (144 tip + 144 vote_list + ~24 proposal_list + ~4 occasional drep_info refreshes)</li>
       <li><strong>Combined: ~452 calls/day</strong></li>
     </ul>
-    <p>This is well under typical free-tier limits. If Koios returns a 429 or persistent 5xx error, individual call retries use exponential backoff up to 2 retries (same as the daily layer). If retries fail, the run aborts cleanly, writes a failure record to <code>etl_runs</code>, and leaves all existing files in place. The next 10-minute cron tick is independent and will retry. There is no behavior that polls more aggressively under failure.</p>
+    <ul class="ja">
+      <li>日次 ETL: 約136コール/日</li>
+      <li>ライブ ETL: 約316コール/日(tip 144 + vote_list 144 + proposal_list 約24 + drep_info の不定期更新 約4)</li>
+      <li><strong>合算: 約452コール/日</strong></li>
+    </ul>
+    <p><span class="en">This is well under typical free-tier limits. If Koios returns a 429 or persistent 5xx error, individual call retries use exponential backoff up to 2 retries (same as the daily layer). If retries fail, the run aborts cleanly, writes a failure record to <code>etl_runs</code>, and leaves all existing files in place. The next 10-minute cron tick is independent and will retry. There is no behavior that polls more aggressively under failure.</span><span class="ja">これは通常の無料枠の制限を十分に下回る。Koios が 429 または持続的な 5xx エラーを返した場合、個別コールの再試行は指数バックオフを用いて最大2回まで行う(日次層と同一の方針)。再試行が失敗した場合、当該実行は整然と中止され、<code>etl_runs</code> に失敗記録を書き込み、既存ファイルはすべてそのまま残す。次の10分 cron tick は独立しており再試行を行う。失敗時にポーリング頻度を上げる挙動は存在しない。</span></p>
 
-    <h2 id="section-17">17. Live-only data exports</h2>
-    <p>All paths below are under <code>/data/snapshots/live/</code>, are CC0 licensed, and are regenerated by each successful live ETL run (every ~10 minutes). Format is stable within a major version.</p>
-    <ul>
+    <h2 id="section-17"><span class="en">17. Live-only data exports</span><span class="ja">17. ライブ専用データのエクスポート</span></h2>
+    <p><span class="en">All paths below are under <code>/data/snapshots/live/</code>, are CC0 licensed, and are regenerated by each successful live ETL run (every ~10 minutes). Format is stable within a major version.</span><span class="ja">以下のパスはすべて <code>/data/snapshots/live/</code> 配下にあり、CC0 ライセンスで、各ライブ ETL 実行の成功時(約10分ごと)に再生成される。形式はメジャーバージョン内で安定である。</span></p>
+    <ul class="en">
       <li><code>GET /data/snapshots/live/tip.json</code> — current epoch, block height, block time, last-fetched timestamp.</li>
       <li><code>GET /data/snapshots/live/recent_votes.json</code> — most recent DRep votes (sorted by block_time descending), with DRep name and action title joined in. Bounded to the most recent 20 votes within the last 24 hours.</li>
       <li><code>GET /data/snapshots/live/meta.json</code> — last live-run start/complete timestamps, success flag, count of new votes in last run, and the cadence in minutes. This is the file the UI reads to compute the "Live · N min" freshness indicator.</li>
     </ul>
-    <p>The live exports do not duplicate any field that the daily layer publishes. They complement, never replace.</p>
+    <ul class="ja">
+      <li><code>GET /data/snapshots/live/tip.json</code> — 現エポック、ブロック高、ブロック時刻、最終取得タイムスタンプ。</li>
+      <li><code>GET /data/snapshots/live/recent_votes.json</code> — 直近の DRep 投票(block_time の降順)。DRep 名およびアクションタイトルを結合する。直近24時間以内の最新20件に限定する。</li>
+      <li><code>GET /data/snapshots/live/meta.json</code> — 最後のライブ実行の開始・完了タイムスタンプ、成功フラグ、直近実行での新規投票数、分単位の更新頻度。UI が「Live · N 分」鮮度表示を計算するために読むファイルである。</li>
+    </ul>
+    <p><span class="en">The live exports do not duplicate any field that the daily layer publishes. They complement, never replace.</span><span class="ja">ライブのエクスポートは、日次層が公開するフィールドを重複させない。補完するのであって、置き換えることはない。</span></p>
 
-    <h2 id="section-18">18. Delegation flow (FLOW-1)</h2>
-    <p>This section defines exactly what "delegation movement" means within the observatory. The boundary is sharp: the observatory measures <em>what changed</em> between two snapshots; it does not infer <em>why</em> the change happened. Every flow metric below is computed directly from the daily snapshot record (§5) and carries no editorial dimension.</p>
+    <h2 id="section-18"><span class="en">18. Delegation flow (FLOW-1)</span><span class="ja">18. 委任フロー (FLOW-1)</span></h2>
+    <p><span class="en">This section defines exactly what "delegation movement" means within the observatory. The boundary is sharp: the observatory measures <em>what changed</em> between two snapshots; it does not infer <em>why</em> the change happened. Every flow metric below is computed directly from the daily snapshot record (§5) and carries no editorial dimension.</span><span class="ja">本節は、本オブザバトリーにおける「委任の動き」の定義を明確に規定する。境界は明瞭である。本オブザバトリーは2つのスナップショット間で<em>何が変わったか</em>を計測するのであって、変化が<em>なぜ</em>起きたかを推定するのではない。以下のすべてのフロー指標は、日次スナップショット記録(§5)から直接算出され、編集的な次元を一切含まない。</span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">18.1 Quantities measured</h3>
-    <p>Two independent quantities are tracked for each DRep:</p>
-    <ul>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">18.1 Quantities measured</span><span class="ja">18.1 計測する数量</span></h3>
+    <p><span class="en">Two independent quantities are tracked for each DRep:</span><span class="ja">DRep ごとに2つの独立した数量を追跡する。</span></p>
+    <ul class="en">
       <li><strong>Voting weight (lovelace).</strong> The <code>amount</code> field from Koios <code>drep_info</code> at snapshot time, in lovelace.</li>
       <li><strong>Delegator count.</strong> The number of distinct stake credentials currently delegated to the DRep.</li>
     </ul>
-    <p>These quantities are tracked separately. They can move in opposite directions in the same interval. The observatory reports both, never reconciles them into a single "movement" number.</p>
+    <ul class="ja">
+      <li><strong>投票権(lovelace)。</strong>スナップショット時点の Koios <code>drep_info</code> の <code>amount</code> フィールド(lovelace 単位)。</li>
+      <li><strong>委任者数。</strong>当該 DRep に現在委任している、相異なるステーククレデンシャル (stake credential) の数。</li>
+    </ul>
+    <p><span class="en">These quantities are tracked separately. They can move in opposite directions in the same interval. The observatory reports both, never reconciles them into a single "movement" number.</span><span class="ja">これらの数量は別個に追跡する。同一期間内に逆方向に動くこともある。本オブザバトリーは両者を報告するのであって、両者を単一の「動き」値に集約することはない。</span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">18.2 Net movement</h3>
-    <p>For a DRep <code>D</code> and interval length <code>n</code> days, <strong>net movement</strong> is:</p>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">18.2 Net movement</span><span class="ja">18.2 純変動</span></h3>
+    <p><span class="en">For a DRep <code>D</code> and interval length <code>n</code> days, <strong>net movement</strong> is:</span><span class="ja">DRep <code>D</code> と期間長 <code>n</code> 日について、<strong>純変動</strong>は次の通り。</span></p>
     <pre style="background:var(--accent-soft);padding:10px;border-radius:4px;font-size:12px;overflow-x:auto;">  net_voting_weight_delta(D, t, n)  = voting_weight(D, t) − voting_weight(D, t')
   net_delegator_count_delta(D, t, n) = delegator_count(D, t) − delegator_count(D, t')</pre>
-    <p>where <code>t</code> is the most recent snapshot date and <code>t'</code> is the most recent snapshot at or before <code>t − n days</code>. If no such reference snapshot exists, the flow is reported as <code>null</code> (never zero, never interpolated).</p>
+    <p><span class="en">where <code>t</code> is the most recent snapshot date and <code>t'</code> is the most recent snapshot at or before <code>t − n days</code>. If no such reference snapshot exists, the flow is reported as <code>null</code> (never zero, never interpolated).</span><span class="ja">ここで <code>t</code> は直近のスナップショット日、<code>t'</code> は <code>t − n 日</code>以前で最も新しいスナップショット日である。該当する基準スナップショットが存在しない場合、フローは <code>null</code> として報告する(ゼロや補間値は用いない)。</span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">18.3 Net movement is not migration</h3>
-    <p>Net movement values are independent per DRep. The observatory makes <strong>no claim</strong> that a positive net movement at DRep A and a negative net movement at DRep B during the same interval represent the same delegators having moved from A to B. <strong>Even when the magnitudes match exactly, this is not evidence of migration.</strong></p>
-    <p>Example: in a given week, DRep A shows +100M ADA and DRep B shows −100M ADA. The observatory reports both values. It does <strong>not</strong> report "ADA moved from B to A." Such a migration claim would require per-delegator event tracking, which FLOW-1 does not provide. The two movements may have been driven by completely independent delegators making unrelated decisions.</p>
-    <p>Migration tracking, if added in a future phase, will be documented in its own methodology section before any "A → B" claim appears anywhere on the site.</p>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">18.3 Net movement is not migration</span><span class="ja">18.3 純変動は移行 (migration) ではない</span></h3>
+    <p><span class="en">Net movement values are independent per DRep. The observatory makes <strong>no claim</strong> that a positive net movement at DRep A and a negative net movement at DRep B during the same interval represent the same delegators having moved from A to B. <strong>Even when the magnitudes match exactly, this is not evidence of migration.</strong></span><span class="ja">純変動値は DRep ごとに独立である。本オブザバトリーは、ある期間において DRep A に正の純変動、DRep B に負の純変動が同時に観測されたとしても、それが「同一の委任者が A から B へ移った」ことを意味するという<strong>主張を一切行わない</strong>。<strong>大きさが完全に一致したとしても、それは移行 (migration) の証拠ではない。</strong></span></p>
+    <p><span class="en">Example: in a given week, DRep A shows +100M ADA and DRep B shows −100M ADA. The observatory reports both values. It does <strong>not</strong> report "ADA moved from B to A." Such a migration claim would require per-delegator event tracking, which FLOW-1 does not provide. The two movements may have been driven by completely independent delegators making unrelated decisions.</span><span class="ja">例: ある週に DRep A が +100M ADA、DRep B が −100M ADA を示したとする。本オブザバトリーは両者の値を報告する。「B から A へ ADA が移った」とは<strong>報告しない</strong>。そのような移行の主張は委任者単位のイベント追跡を必要とし、FLOW-1 はそれを提供しない。2つの動きは、完全に独立した委任者がそれぞれ無関係な意思決定を行った結果である可能性がある。</span></p>
+    <p><span class="en">Migration tracking, if added in a future phase, will be documented in its own methodology section before any "A → B" claim appears anywhere on the site.</span><span class="ja">移行追跡が将来の段階で追加される場合は、サイトのどこかに「A → B」の主張が現れる前に、独立した方法論セクションで規定する。</span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">18.4 What is not measured by FLOW-1</h3>
-    <p>The observatory does <strong>not</strong> measure, and the published data does <strong>not</strong> support claims about:</p>
-    <ul>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">18.4 What is not measured by FLOW-1</span><span class="ja">18.4 FLOW-1 が計測しないもの</span></h3>
+    <p><span class="en">The observatory does <strong>not</strong> measure, and the published data does <strong>not</strong> support claims about:</span><span class="ja">本オブザバトリーは以下を計測<strong>せず</strong>、公開データは以下に関する主張を<strong>裏付けない</strong>。</span></p>
+    <ul class="en">
       <li><strong>Gross inflow</strong> (total ADA newly delegated to a DRep during an interval, ignoring departures).</li>
       <li><strong>Gross outflow</strong> (total ADA un-delegated from a DRep, ignoring arrivals).</li>
       <li><strong>Migration</strong> ("ADA moved from DRep A to DRep B"), per §18.3.</li>
     </ul>
-    <p>Each requires per-delegator event tracking, which FLOW-1 does not provide. <strong>All flow values published are net only.</strong></p>
+    <ul class="ja">
+      <li><strong>総流入</strong>(ある期間に DRep へ新規に委任された ADA の合計。離脱は無視)。</li>
+      <li><strong>総流出</strong>(DRep から委任解除された ADA の合計。新規流入は無視)。</li>
+      <li><strong>移行 (migration)</strong>(「DRep A から B へ ADA が移った」)。§18.3 を参照。</li>
+    </ul>
+    <p><span class="en">Each requires per-delegator event tracking, which FLOW-1 does not provide. <strong>All flow values published are net only.</strong></span><span class="ja">いずれも委任者単位のイベント追跡を必要とし、FLOW-1 はそれを提供しない。<strong>公開するフロー値はすべて純変動 (net) のみである。</strong></span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">18.5 Canonical comparison interval</h3>
-    <p>Two intervals are exposed in the top-30 view: <strong>7 days (Δ7d)</strong> and <strong>30 days (Δ30d)</strong>, both snapshot-to-snapshot diffs in calendar days.</p>
-    <p>A third interval, <strong>1 day (Δ1d)</strong>, is computed and exposed in per-DRep JSON exports and on the per-DRep page only. It is intentionally not surfaced on the main table because day-over-day voting-weight changes within an epoch are often not governance-meaningful and would crowd the table visually.</p>
-    <p>Each published flow value carries an explicit <code>flow_reference_date</code> field naming the snapshot date used as the prior reference. Anyone who downloads the daily snapshots can recompute the published flow value.</p>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">18.5 Canonical comparison interval</span><span class="ja">18.5 正準の比較期間</span></h3>
+    <p><span class="en">Two intervals are exposed in the top-30 view: <strong>7 days (Δ7d)</strong> and <strong>30 days (Δ30d)</strong>, both snapshot-to-snapshot diffs in calendar days.</span><span class="ja">上位30表示には2つの期間を露出させる: <strong>7日間 (Δ7d)</strong> および <strong>30日間 (Δ30d)</strong>。いずれもスナップショット間の暦日差分である。</span></p>
+    <p><span class="en">A third interval, <strong>1 day (Δ1d)</strong>, is computed and exposed in per-DRep JSON exports and on the per-DRep page only. It is intentionally not surfaced on the main table because day-over-day voting-weight changes within an epoch are often not governance-meaningful and would crowd the table visually.</span><span class="ja">3つ目の期間 <strong>1日 (Δ1d)</strong> は計算し、DRep ごとの JSON エクスポートおよび DRep 個別ページにのみ露出させる。主テーブルには意図的に表示しない。エポック内の日次投票権変化はガバナンス上の意味を持たないことが多く、テーブルを視覚的に圧迫するためである。</span></p>
+    <p><span class="en">Each published flow value carries an explicit <code>flow_reference_date</code> field naming the snapshot date used as the prior reference. Anyone who downloads the daily snapshots can recompute the published flow value.</span><span class="ja">公開する各フロー値は、前回基準として用いたスナップショット日を明示する <code>flow_reference_date</code> フィールドを併記する。日次スナップショットをダウンロードした者は誰でも公開フロー値を再計算できる。</span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">18.6 Missing-data handling</h3>
-    <p>The observatory does not interpolate. If the prior snapshot at or before <code>t − n days</code> is missing, the flow value is <code>null</code>. A DRep that entered the top-30 within the last <code>n</code> days has <code>null</code> flows for <code>n</code>-day intervals until enough snapshots have accumulated. For dates before the first deployment of the observatory, no value is ever reported.</p>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">18.6 Missing-data handling</span><span class="ja">18.6 欠損データの取り扱い</span></h3>
+    <p><span class="en">The observatory does not interpolate. If the prior snapshot at or before <code>t − n days</code> is missing, the flow value is <code>null</code>. A DRep that entered the top-30 within the last <code>n</code> days has <code>null</code> flows for <code>n</code>-day intervals until enough snapshots have accumulated. For dates before the first deployment of the observatory, no value is ever reported.</span><span class="ja">本オブザバトリーは補間を行わない。<code>t − n 日</code>以前の基準スナップショットが存在しない場合、フロー値は <code>null</code> とする。直近 <code>n</code> 日以内に上位30に入った DRep は、十分なスナップショットが蓄積するまで <code>n</code> 日期間のフローが <code>null</code> である。本オブザバトリーの初回デプロイ前の日付については、いかなる値も報告しない。</span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">18.7 Edge cases that cannot be resolved from snapshot data</h3>
-    <p>These conditions produce snapshot-level flow values that are not directly attributable. The observatory reports raw numbers anyway, without editorial framing:</p>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">18.7 Edge cases that cannot be resolved from snapshot data</span><span class="ja">18.7 スナップショットデータからは解決できないエッジケース</span></h3>
+    <p><span class="en">These conditions produce snapshot-level flow values that are not directly attributable. The observatory reports raw numbers anyway, without editorial framing:</span><span class="ja">以下の状況では、スナップショットレベルのフロー値が直接的に帰属できない。本オブザバトリーは編集的なフレーミングを加えず、生の数値をそのまま報告する。</span></p>
     <table class="changelog">
-      <thead><tr><th>Condition</th><th>What the observatory sees</th><th>What it cannot tell</th></tr></thead>
+      <thead>
+        <tr>
+          <th><span class="en">Condition</span><span class="ja">状況</span></th>
+          <th><span class="en">What the observatory sees</span><span class="ja">本オブザバトリーが観測すること</span></th>
+          <th><span class="en">What it cannot tell</span><span class="ja">本オブザバトリーには判別できないこと</span></th>
+        </tr>
+      </thead>
       <tbody>
-        <tr><td>Stake holder rotates to a new stake key</td><td>One delegator disappears, one new appears</td><td>Whether it's the same person</td></tr>
-        <tr><td>Exchange shifts custody between wallets</td><td>Delegator and weight movements</td><td>Whether the same custodian is involved</td></tr>
-        <tr><td>Holder consolidates multiple stake keys</td><td>Multiple delegators disappear, one appears</td><td>Whether it's one person consolidating</td></tr>
-        <tr><td>DRep metadata changes (name update)</td><td>Display name changes; <code>drep_id</code> stable</td><td>(no flow implication)</td></tr>
-        <tr><td>DRep deregisters</td><td>Voting weight → 0; delegators' stake unassigned</td><td>Whether delegators will re-delegate elsewhere</td></tr>
+        <tr>
+          <td><span class="en">Stake holder rotates to a new stake key</span><span class="ja">保有者が新しいステーク鍵にローテートする</span></td>
+          <td><span class="en">One delegator disappears, one new appears</span><span class="ja">委任者が1減り、別の1が出現する</span></td>
+          <td><span class="en">Whether it's the same person</span><span class="ja">同一人物かどうか</span></td>
+        </tr>
+        <tr>
+          <td><span class="en">Exchange shifts custody between wallets</span><span class="ja">取引所がウォレット間で保管を移す</span></td>
+          <td><span class="en">Delegator and weight movements</span><span class="ja">委任者と投票権の動き</span></td>
+          <td><span class="en">Whether the same custodian is involved</span><span class="ja">同一のカストディアンが関与しているか</span></td>
+        </tr>
+        <tr>
+          <td><span class="en">Holder consolidates multiple stake keys</span><span class="ja">保有者が複数のステーク鍵を統合する</span></td>
+          <td><span class="en">Multiple delegators disappear, one appears</span><span class="ja">複数の委任者が消え、1つが出現する</span></td>
+          <td><span class="en">Whether it's one person consolidating</span><span class="ja">1人による統合かどうか</span></td>
+        </tr>
+        <tr>
+          <td><span class="en">DRep metadata changes (name update)</span><span class="ja">DRep メタデータが変わる(名称更新)</span></td>
+          <td><span class="en">Display name changes; <code>drep_id</code> stable</span><span class="ja">表示名が変わる。<code>drep_id</code> は不変</span></td>
+          <td><span class="en">(no flow implication)</span><span class="ja">(フローへの影響はない)</span></td>
+        </tr>
+        <tr>
+          <td><span class="en">DRep deregisters</span><span class="ja">DRep が登録解除する</span></td>
+          <td><span class="en">Voting weight → 0; delegators' stake unassigned</span><span class="ja">投票権が0になる。委任者のステークは未割当となる</span></td>
+          <td><span class="en">Whether delegators will re-delegate elsewhere</span><span class="ja">委任者が他へ再委任するかどうか</span></td>
+        </tr>
       </tbody>
     </table>
 
-    <h3 style="font-size:14px; margin-top:18px;">18.8 What flow data does NOT mean</h3>
-    <p>Flow data is a record of <em>what changed</em>, not <em>why</em>. The observatory cannot resolve motive from snapshot deltas. In particular:</p>
-    <ul>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">18.8 What flow data does NOT mean</span><span class="ja">18.8 フローデータが意味しないこと</span></h3>
+    <p><span class="en">Flow data is a record of <em>what changed</em>, not <em>why</em>. The observatory cannot resolve motive from snapshot deltas. In particular:</span><span class="ja">フローデータは<em>何が変わったか</em>の記録であって、<em>なぜ</em>変わったかではない。本オブザバトリーはスナップショット差分から動機を解き明かすことはできない。具体的には以下の通り。</span></p>
+    <ul class="en">
       <li><strong>A DRep gaining ADA does not imply approval, trust, endorsement, or agreement.</strong></li>
       <li><strong>A DRep losing ADA does not imply rejection, disagreement, failure, or decline.</strong></li>
       <li><strong>Large movements may originate from wallet software defaults, custodial infrastructure, exchange operations, stake-key changes, or delegation decisions.</strong> The observatory records the movement itself and does not attribute motive. The mechanism behind a delegation change is invisible from snapshot data.</li>
@@ -344,39 +478,54 @@
       <li><strong>Movement near a governance event is not evidence of voting motive.</strong></li>
       <li><strong>The largest movers are not "winners" or "losers."</strong> Magnitude reflects the scale of delegation activity, not its quality or normative direction.</li>
     </ul>
-    <p>Readers — researchers, journalists, DReps themselves — interpret what they see. The site does not.</p>
+    <ul class="ja">
+      <li><strong>DRep が ADA を獲得しても、それは承認、信頼、推薦、賛同を意味しない。</strong></li>
+      <li><strong>DRep が ADA を失っても、それは拒絶、不同意、失敗、衰退を意味しない。</strong></li>
+      <li><strong>大きな動きはウォレット既定設定、カストディアン基盤、取引所運用、ステーク鍵の変更、委任の意思決定のいずれからも生じ得る。</strong>本オブザバトリーは動きそのものを記録するのみであり、動機を帰属させない。委任変更の背後にある機構は、スナップショットデータからは見えない。</li>
+      <li><strong>協調しているように見える動きは、協調の証拠ではない。</strong></li>
+      <li><strong>ガバナンスイベント近傍の動きは、投票動機の証拠ではない。</strong></li>
+      <li><strong>最も大きく動いた者は「勝者」でも「敗者」でもない。</strong>大きさは委任活動の規模を反映するのみで、その質や規範的方向を反映しない。</li>
+    </ul>
+    <p><span class="en">Readers — researchers, journalists, DReps themselves — interpret what they see. The site does not.</span><span class="ja">読者 — 研究者、ジャーナリスト、DRep 自身 — が観測したものを解釈する。サイトは解釈しない。</span></p>
 
-    <h2 id="section-19">19. Governance event overlays (FLOW-2)</h2>
-    <p>This section defines how governance actions are displayed in time alongside delegation movement on the per-DRep voting weight chart. The boundary is sharp: the observatory shows <em>temporal proximity</em> between delegation movement and governance events; it makes no claim about <em>causation</em>.</p>
+    <h2 id="section-19"><span class="en">19. Governance event overlays (FLOW-2)</span><span class="ja">19. ガバナンスイベント・オーバーレイ (FLOW-2)</span></h2>
+    <p><span class="en">This section defines how governance actions are displayed in time alongside delegation movement on the per-DRep voting weight chart. The boundary is sharp: the observatory shows <em>temporal proximity</em> between delegation movement and governance events; it makes no claim about <em>causation</em>.</span><span class="ja">本節は、DRep ごとの投票権チャート上で、ガバナンスアクションを委任の動きと時系列上どのように並置するかを規定する。境界は明瞭である。本オブザバトリーは委任の動きとガバナンスイベントの<em>時間的近接性</em>を示すのみであり、<em>因果関係</em>に関するいかなる主張も行わない。</span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">19.1 Event types overlaid</h3>
-    <p>For each governance action, up to five events may be drawn on the chart, depending on which fields are populated:</p>
-    <ul>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">19.1 Event types overlaid</span><span class="ja">19.1 重ねるイベントの種別</span></h3>
+    <p><span class="en">For each governance action, up to five events may be drawn on the chart, depending on which fields are populated:</span><span class="ja">各ガバナンスアクションについて、対応するフィールドが埋まっている場合、最大5種類のイベントをチャートに描画する。</span></p>
+    <ul class="en">
       <li><strong>Submission</strong> — UTC date of <code>block_time</code> from Koios <code>/proposal_list</code>.</li>
       <li><strong>Ratification</strong> — start date of <code>ratified_epoch</code>.</li>
       <li><strong>Enactment</strong> — start date of <code>enacted_epoch</code>.</li>
       <li><strong>Expiration</strong> — start date of <code>expires_epoch</code>.</li>
       <li><strong>Drop</strong> — start date of <code>dropped_epoch</code>.</li>
     </ul>
+    <ul class="ja">
+      <li><strong>提出</strong> — Koios <code>/proposal_list</code> の <code>block_time</code> の UTC 日。</li>
+      <li><strong>批准</strong> — <code>ratified_epoch</code> の開始日。</li>
+      <li><strong>施行</strong> — <code>enacted_epoch</code> の開始日。</li>
+      <li><strong>失効</strong> — <code>expires_epoch</code> の開始日。</li>
+      <li><strong>廃案</strong> — <code>dropped_epoch</code> の開始日。</li>
+    </ul>
 
-    <h3 style="font-size:14px; margin-top:18px;">19.2 Time alignment between epochs and snapshot dates</h3>
-    <p>Submission events use the exact UTC date of submission. State-transition events use the UTC date the relevant epoch began, sourced from Koios <code>/epoch_info</code> (canonical). When no source is available, the overlay is omitted rather than approximated.</p>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">19.2 Time alignment between epochs and snapshot dates</span><span class="ja">19.2 エポックとスナップショット日付の時刻整合</span></h3>
+    <p><span class="en">Submission events use the exact UTC date of submission. State-transition events use the UTC date the relevant epoch began, sourced from Koios <code>/epoch_info</code> (canonical). When no source is available, the overlay is omitted rather than approximated.</span><span class="ja">提出イベントは正確な提出 UTC 日を用いる。状態遷移イベントは該当エポックの開始 UTC 日を用い、正準ソースとして Koios <code>/epoch_info</code> から取得する。ソースが取得できない場合は、近似せず、オーバーレイ自体を省く。</span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">19.3 What an overlay marker means — and does not mean</h3>
-    <p>An overlay marker at date <em>D</em> for event <em>E</em> concerning action <em>A</em> means exactly: <em>Event E for action A occurred on date D</em> (approximately, at epoch granularity for state transitions).</p>
-    <p>The marker does <strong>not</strong> mean that any delegation movement on or near <em>D</em> was caused by <em>A</em>, that movement was a reaction to <em>A</em>, that voters coordinated, that <em>A</em> is more or less important than other actions, or that any DRep voted on <em>A</em> in any particular way.</p>
-    <p><strong>Multiple governance events may occur within the same visual window without any observable delegation response. The observatory records both the events and the delegation state independently.</strong> Proximity on the same time axis does not imply influence in either direction.</p>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">19.3 What an overlay marker means — and does not mean</span><span class="ja">19.3 オーバーレイマーカーが意味すること、そして意味しないこと</span></h3>
+    <p><span class="en">An overlay marker at date <em>D</em> for event <em>E</em> concerning action <em>A</em> means exactly: <em>Event E for action A occurred on date D</em> (approximately, at epoch granularity for state transitions).</span><span class="ja">アクション <em>A</em> に関するイベント <em>E</em> を日付 <em>D</em> に置いたオーバーレイマーカーが意味するのは厳密に次のみである:<em>アクション A のイベント E は日付 D に発生した</em>(状態遷移についてはエポック粒度での近似)。</span></p>
+    <p><span class="en">The marker does <strong>not</strong> mean that any delegation movement on or near <em>D</em> was caused by <em>A</em>, that movement was a reaction to <em>A</em>, that voters coordinated, that <em>A</em> is more or less important than other actions, or that any DRep voted on <em>A</em> in any particular way.</span><span class="ja">マーカーは以下を意味<strong>しない</strong>。<em>D</em> 近傍の委任の動きが <em>A</em> によって引き起こされたこと、当該動きが <em>A</em> への反応であったこと、投票者が協調したこと、<em>A</em> が他のアクションより重要または重要でないこと、いずれかの DRep が <em>A</em> に対し特定の投票をしたこと。</span></p>
+    <p><span class="en"><strong>Multiple governance events may occur within the same visual window without any observable delegation response. The observatory records both the events and the delegation state independently.</strong> Proximity on the same time axis does not imply influence in either direction.</span><span class="ja"><strong>同一の視覚的ウィンドウ内に複数のガバナンスイベントが、観測可能な委任応答を伴わずに発生し得る。本オブザバトリーはイベントと委任状態をそれぞれ独立に記録する。</strong>同一時間軸上の近接は、いずれの方向の影響も含意しない。</span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">19.4 Visual conventions</h3>
-    <p>Overlays appear as subtle vertical markers on the chart, in a single calm neutral color, with <strong>no outcome-based color coding</strong> (enacted is the same color as dropped; ratified is the same color as expired).</p>
-    <p><strong>Overlay markers are rendered behind the delegation series and never obscure the underlying governance data.</strong> The delegation line and its data points are always drawn on top of the marker layer.</p>
-    <p>Hovering or tapping a marker reveals plain text: action ID, action type, event type, event date. Markers for the same action at different events are <strong>not</strong> connected by lines or arrows.</p>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">19.4 Visual conventions</span><span class="ja">19.4 視覚的慣習</span></h3>
+    <p><span class="en">Overlays appear as subtle vertical markers on the chart, in a single calm neutral color, with <strong>no outcome-based color coding</strong> (enacted is the same color as dropped; ratified is the same color as expired).</span><span class="ja">オーバーレイはチャート上に控えめな縦マーカーとして、単一の落ち着いた中立色で表示する。<strong>結果に基づく色分けは行わない</strong>(施行は廃案と同色、批准は失効と同色)。</span></p>
+    <p><span class="en"><strong>Overlay markers are rendered behind the delegation series and never obscure the underlying governance data.</strong> The delegation line and its data points are always drawn on top of the marker layer.</span><span class="ja"><strong>オーバーレイマーカーは委任系列の背後に描画し、基礎となるガバナンスデータを覆い隠さない。</strong>委任ラインとそのデータ点は常にマーカー層の上に描画する。</span></p>
+    <p><span class="en">Hovering or tapping a marker reveals plain text: action ID, action type, event type, event date. Markers for the same action at different events are <strong>not</strong> connected by lines or arrows.</span><span class="ja">マーカーへのホバーまたはタップでプレーンテキストを表示する: アクション ID、種別、イベント種別、イベント日付。同一アクションの異なるイベントに対するマーカーは、線や矢印で接続<strong>しない</strong>。</span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">19.5 Scope of which actions appear on which charts</h3>
-    <p>The observatory overlays <strong>all governance actions whose any event date falls within the chart's visible 90-day window.</strong> It does not pre-filter by whether the DRep voted on the action. Pre-filtering would implicitly editorialize relevance; showing all events presents the governance environment the DRep was operating in.</p>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">19.5 Scope of which actions appear on which charts</span><span class="ja">19.5 どのアクションをどのチャートに表示するか</span></h3>
+    <p><span class="en">The observatory overlays <strong>all governance actions whose any event date falls within the chart's visible 90-day window.</strong> It does not pre-filter by whether the DRep voted on the action. Pre-filtering would implicitly editorialize relevance; showing all events presents the governance environment the DRep was operating in.</span><span class="ja">本オブザバトリーは、<strong>いずれかのイベント日がチャートの可視90日ウィンドウに入るガバナンスアクションをすべて</strong>重ねる。当該 DRep が当該アクションに投票したかどうかで事前フィルタすることはない。事前フィルタは関連性を暗黙に編集することになる。すべてのイベントを表示することで、当該 DRep が活動していたガバナンス環境を提示する。</span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">19.6 What FLOW-2 does NOT do</h3>
-    <ul>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">19.6 What FLOW-2 does NOT do</span><span class="ja">19.6 FLOW-2 が行わないこと</span></h3>
+    <ul class="en">
       <li>No causal claims; no correlation computations.</li>
       <li>No highlighting of actions near large delegation movements.</li>
       <li>No ranking of actions by proximity.</li>
@@ -384,9 +533,17 @@
       <li>No forecasts.</li>
       <li>No per-DRep filtering of which actions appear.</li>
     </ul>
+    <ul class="ja">
+      <li>因果の主張も相関の計算も行わない。</li>
+      <li>大きな委任の動きの近傍にあるアクションを強調しない。</li>
+      <li>近接性によるアクションの順位付けを行わない。</li>
+      <li>結果による色シグナルをチャート上に置かない。</li>
+      <li>予測は行わない。</li>
+      <li>表示するアクションを DRep ごとにフィルタしない。</li>
+    </ul>
 
-    <h3 style="font-size:14px; margin-top:18px;">19.7 Edge cases</h3>
-    <ul>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">19.7 Edge cases</span><span class="ja">19.7 エッジケース</span></h3>
+    <ul class="en">
       <li><strong>Action submitted before deployment:</strong> overlay placed at the submission date with no chart context to its left. Honest, not hidden.</li>
       <li><strong>Multiple events on same date for same action:</strong> drawn as separate markers with small horizontal offset; tooltip lists all events.</li>
       <li><strong>Still-active action:</strong> only submission marker is drawn.</li>
@@ -394,40 +551,54 @@
       <li><strong>Action in window but DRep not yet in top-30:</strong> marker still appears; voting weight series may be null for earlier dates.</li>
       <li><strong>Fewer than 90 days of snapshots:</strong> overlay window matches actual snapshot range, not synthetic 90 days.</li>
     </ul>
+    <ul class="ja">
+      <li><strong>デプロイ前に提出されたアクション:</strong> オーバーレイは提出日に置く。左側にはチャート文脈がない。隠さず誠実に表示する。</li>
+      <li><strong>同一アクションの同一日に複数イベント:</strong> 小さな水平オフセットを伴う独立マーカーとして描画する。ツールチップに全イベントを列挙する。</li>
+      <li><strong>進行中のアクション:</strong> 提出マーカーのみを描画する。</li>
+      <li><strong>ETL 実行が成功しなかった日のエポック境界:</strong> 境界日付は Koios <code>/epoch_info</code> から直接取得する。</li>
+      <li><strong>ウィンドウ内にアクションがあるが DRep がまだ上位30に入っていない場合:</strong> マーカーは表示する。投票権系列はその時点より前の日付では null になり得る。</li>
+      <li><strong>スナップショットが90日未満しかない場合:</strong> オーバーレイのウィンドウは実際のスナップショット範囲に一致する。架空の90日に合わせない。</li>
+    </ul>
 
-    <h3 style="font-size:14px; margin-top:18px;">19.8 Reproducibility commitment</h3>
-    <p>Every overlay marker is derivable from <code>governance_actions</code> (action_id + epoch fields), <code>proposal_list.block_time</code>, and the <code>epoch_info</code> mapping. All three are CC0; FLOW-2 adds the export at <code>/data/snapshots/epoch_info.json</code>.</p>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">19.8 Reproducibility commitment</span><span class="ja">19.8 再現性のコミットメント</span></h3>
+    <p><span class="en">Every overlay marker is derivable from <code>governance_actions</code> (action_id + epoch fields), <code>proposal_list.block_time</code>, and the <code>epoch_info</code> mapping. All three are CC0; FLOW-2 adds the export at <code>/data/snapshots/epoch_info.json</code>.</span><span class="ja">すべてのオーバーレイマーカーは、<code>governance_actions</code>(action_id + エポックフィールド)、<code>proposal_list.block_time</code>、<code>epoch_info</code> マッピングから導出可能である。三者すべて CC0 である。FLOW-2 は <code>/data/snapshots/epoch_info.json</code> にエクスポートを追加する。</span></p>
 
-    <h2 id="section-20">20. Governance history layer (FLOW-3)</h2>
-    <p>This section defines how the observatory retains, organizes, and presents historical governance data. The boundary is sharp: the observatory records <em>what happened</em> (actions, votes, dates, state transitions) without claiming what was important, significant, successful, or popular.</p>
+    <h2 id="section-20"><span class="en">20. Governance history layer (FLOW-3)</span><span class="ja">20. ガバナンス履歴層 (FLOW-3)</span></h2>
+    <p><span class="en">This section defines how the observatory retains, organizes, and presents historical governance data. The boundary is sharp: the observatory records <em>what happened</em> (actions, votes, dates, state transitions) without claiming what was important, significant, successful, or popular.</span><span class="ja">本節は、本オブザバトリーが履歴上のガバナンスデータをどう保持し、整理し、提示するかを規定する。境界は明瞭である。本オブザバトリーは<em>何が起きたか</em>(アクション、投票、日付、状態遷移)を記録するのみであり、何が重要で、有意で、成功で、人気だったかについては主張しない。</span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">20.1 Scope</h3>
-    <ul>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">20.1 Scope</span><span class="ja">20.1 対象範囲</span></h3>
+    <ul class="en">
       <li>Every governance action observed on chain, indexed by canonical <code>action_id</code> (bech32 <code>gov_action1...</code>).</li>
       <li>Every DRep vote on every action (yes / no / abstain), with chronologically-latest semantics from §6.</li>
       <li>Every state transition observed: submission, ratification, enactment, expiration, drop.</li>
       <li>Every epoch boundary referenced by an action.</li>
     </ul>
+    <ul class="ja">
+      <li>オンチェーンで観測されたすべてのガバナンスアクションを、正準 <code>action_id</code>(bech32 <code>gov_action1...</code>)で索引付けする。</li>
+      <li>すべてのアクションに対するすべての DRep 投票(賛成 / 反対 / 棄権)を、§6 の「時系列上最新」セマンティクスのもとで保持する。</li>
+      <li>観測されたすべての状態遷移: 提出、批准、施行、失効、廃案。</li>
+      <li>いずれかのアクションが参照するすべてのエポック境界。</li>
+    </ul>
 
-    <h3 style="font-size:14px; margin-top:18px;">20.2 The action record</h3>
-    <p>Keyed on <code>action_id</code>. Contains <code>action_type</code>, <code>title</code>, <code>submission_block_time</code>, <code>submitted_epoch</code>, state-transition epochs (<code>expires</code>, <code>expired</code>, <code>ratified</code>, <code>enacted</code>, <code>dropped</code>), deterministic <code>outcome</code>, and joined vote rows.</p>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">20.2 The action record</span><span class="ja">20.2 アクションレコード</span></h3>
+    <p><span class="en">Keyed on <code>action_id</code>. Contains <code>action_type</code>, <code>title</code>, <code>submission_block_time</code>, <code>submitted_epoch</code>, state-transition epochs (<code>expires</code>, <code>expired</code>, <code>ratified</code>, <code>enacted</code>, <code>dropped</code>), deterministic <code>outcome</code>, and joined vote rows.</span><span class="ja">主キーは <code>action_id</code>。<code>action_type</code>、<code>title</code>、<code>submission_block_time</code>、<code>submitted_epoch</code>、状態遷移エポック(<code>expires</code>、<code>expired</code>、<code>ratified</code>、<code>enacted</code>、<code>dropped</code>)、決定的に導出された <code>outcome</code>、結合された投票行を含む。</span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">20.3 Action timeline</h3>
-    <p>Chronologically-ordered events per action: submission → voting period → terminal state. Active actions have no terminal state until observed. The timeline shows protocol-observed facts; no "importance" annotations, no "successful" / "failed" framings.</p>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">20.3 Action timeline</span><span class="ja">20.3 アクションのタイムライン</span></h3>
+    <p><span class="en">Chronologically-ordered events per action: submission → voting period → terminal state. Active actions have no terminal state until observed. The timeline shows protocol-observed facts; no "importance" annotations, no "successful" / "failed" framings.</span><span class="ja">アクション単位の時系列順イベント: 提出 → 投票期間 → 終局状態。進行中のアクションは観測されるまで終局状態を持たない。タイムラインはプロトコルが観測した事実のみを示す。「重要性」の注釈は行わず、「成功」「失敗」のフレーミングも行わない。</span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">20.4 Retention</h3>
-    <p><strong>Permanent</strong>: <code>action_id</code>, <code>submission_block_time</code>, each state-transition epoch, vote rows (except revote replacement per §6).</p>
-    <p><strong>Mutable</strong> across ETL runs: <code>title</code> (off-chain metadata), outcome derivation (only on forward progress when a new state transition is observed). No previously-captured row is ever deleted or replaced by a less-complete row.</p>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">20.4 Retention</span><span class="ja">20.4 保持</span></h3>
+    <p><span class="en"><strong>Permanent</strong>: <code>action_id</code>, <code>submission_block_time</code>, each state-transition epoch, vote rows (except revote replacement per §6).</span><span class="ja"><strong>永続</strong>: <code>action_id</code>、<code>submission_block_time</code>、各状態遷移エポック、投票行(§6 の再投票置換を除く)。</span></p>
+    <p><span class="en"><strong>Mutable</strong> across ETL runs: <code>title</code> (off-chain metadata), outcome derivation (only on forward progress when a new state transition is observed). No previously-captured row is ever deleted or replaced by a less-complete row.</span><span class="ja"><strong>可変</strong>(ETL 実行をまたぐ): <code>title</code>(オフチェーン・メタデータ)、結果の導出(新規状態遷移が観測された前進時のみ)。以前に取得した行が削除されたり、より不完全な行で置換されることは一切ない。</span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">20.5 Canonical sources</h3>
-    <p>Identity, state transitions, submission timestamp, vote facts, and epoch start dates all derive from Koios endpoints (<code>/proposal_list</code>, <code>/vote_list</code>, <code>/epoch_info</code>). An independent observatory would produce identical records.</p>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">20.5 Canonical sources</span><span class="ja">20.5 正準ソース</span></h3>
+    <p><span class="en">Identity, state transitions, submission timestamp, vote facts, and epoch start dates all derive from Koios endpoints (<code>/proposal_list</code>, <code>/vote_list</code>, <code>/epoch_info</code>). An independent observatory would produce identical records.</span><span class="ja">識別子、状態遷移、提出タイムスタンプ、投票事実、エポック開始日はすべて Koios のエンドポイント(<code>/proposal_list</code>、<code>/vote_list</code>、<code>/epoch_info</code>)に由来する。独立に運営される別のオブザバトリーが同一の記録を生成するはずである。</span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">20.6 Representation</h3>
-    <p>Two places: aggregate <code>actions.json</code> (v0.2) and per-action <code>/data/snapshots/actions/{action_id}.json</code> (FLOW-3). The action detail page at <code>/action.html?id=gov_action1...</code> reads the per-action file.</p>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">20.6 Representation</span><span class="ja">20.6 表現形式</span></h3>
+    <p><span class="en">Two places: aggregate <code>actions.json</code> (v0.2) and per-action <code>/data/snapshots/actions/{action_id}.json</code> (FLOW-3). The action detail page at <code>/action.html?id=gov_action1...</code> reads the per-action file.</span><span class="ja">2 箇所に表現する: 集約 <code>actions.json</code>(v0.2)とアクション単位の <code>/data/snapshots/actions/{action_id}.json</code>(FLOW-3)。<code>/action.html?id=gov_action1...</code> のアクション詳細ページは、アクション単位のファイルを読む。</span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">20.7 What is not inferred</h3>
-    <p>The history layer surfaces only protocol-observed facts. It does not generate:</p>
-    <ul>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">20.7 What is not inferred</span><span class="ja">20.7 推定しない事柄</span></h3>
+    <p><span class="en">The history layer surfaces only protocol-observed facts. It does not generate:</span><span class="ja">履歴層はプロトコルが観測した事実のみを露出させる。以下は生成しない。</span></p>
+    <ul class="en">
       <li>"Importance," "significance," "major," or "watched" classifications.</li>
       <li>"Successful" / "failed" / "rejected" framings — only protocol terms.</li>
       <li>"Support" / "opposition" labels on DRep votes — only <code>yes</code> / <code>no</code> / <code>abstain</code>.</li>
@@ -437,14 +608,24 @@
       <li>Causal links between an action and any other action's outcome.</li>
       <li>"Trending" or "popular" derivations.</li>
     </ul>
-    <p><strong>Actions are presented in historical order. The observatory does not distinguish between "major" and "minor" governance actions.</strong> Vote tallies and submission dates determine order; nothing else.</p>
-    <p>The canonical action identity is <code>action_id</code>. Titles and types are display conveniences derived from on-chain metadata and protocol fields; they do not change the identity of an action. <strong>Action detail pages display the canonical <code>action_id</code> prominently near the top of the page — never as an afterthought.</strong></p>
+    <ul class="ja">
+      <li>「重要」「有意」「主要」「注目」といった分類。</li>
+      <li>「成功」「失敗」「拒絶」といったフレーミング — プロトコル用語のみを用いる。</li>
+      <li>DRep 投票に対する「支持」「反対」のラベル — <code>yes</code> / <code>no</code> / <code>abstain</code> のみ。</li>
+      <li>参加率を「高い」「低い」と表現するフレーミング。</li>
+      <li>結果のリーダーボードや、何らかの基準による順位付け。</li>
+      <li>アクションや DRep への遡及的スコアリング。</li>
+      <li>あるアクションと他のアクションの結果との因果関係。</li>
+      <li>「トレンド」「人気」といった導出。</li>
+    </ul>
+    <p><span class="en"><strong>Actions are presented in historical order. The observatory does not distinguish between "major" and "minor" governance actions.</strong> Vote tallies and submission dates determine order; nothing else.</span><span class="ja"><strong>アクションは履歴順に提示する。本オブザバトリーは「主要」と「従属」のガバナンスアクションを区別しない。</strong>投票集計と提出日が順序を決める。それ以外の基準は用いない。</span></p>
+    <p><span class="en">The canonical action identity is <code>action_id</code>. Titles and types are display conveniences derived from on-chain metadata and protocol fields; they do not change the identity of an action. <strong>Action detail pages display the canonical <code>action_id</code> prominently near the top of the page — never as an afterthought.</strong></span><span class="ja">アクションの正準の同一性は <code>action_id</code> である。タイトルと種別はオンチェーン・メタデータとプロトコルフィールドから導かれる表示の便宜であり、アクションの同一性を変更しない。<strong>アクション詳細ページは正準 <code>action_id</code> をページ上部に目立つ位置で表示する。後付けの位置に置かない。</strong></span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">20.8 Revisions and reconciliation</h3>
-    <p>State-transition epochs are immutable on chain. Metadata titles may change between ETL runs; the current value is shown and prior titles are not retained in v0.5. Vote rows can be replaced per the revote rule (§6).</p>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">20.8 Revisions and reconciliation</span><span class="ja">20.8 改訂と突合</span></h3>
+    <p><span class="en">State-transition epochs are immutable on chain. Metadata titles may change between ETL runs; the current value is shown and prior titles are not retained in v0.5. Vote rows can be replaced per the revote rule (§6).</span><span class="ja">状態遷移エポックはオンチェーン上で不変である。メタデータのタイトルは ETL 実行間で変わり得る。現在値を表示し、v0.5 では以前のタイトルは保持しない。投票行は §6 の再投票ルールに従って置換され得る。</span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">20.9 What FLOW-3 does NOT do</h3>
-    <ul>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">20.9 What FLOW-3 does NOT do</span><span class="ja">20.9 FLOW-3 が行わないこと</span></h3>
+    <ul class="en">
       <li>No "top N actions" or "most-engaged actions" rankings.</li>
       <li>No action similarity, sentiment, or alignment computations.</li>
       <li>No outcome prediction.</li>
@@ -453,40 +634,55 @@
       <li>No commentary on action content.</li>
       <li>No comparison of DRep voting patterns across actions.</li>
     </ul>
+    <ul class="ja">
+      <li>「トップ N アクション」「最も関心を集めたアクション」などの順位付けは行わない。</li>
+      <li>アクションの類似度、感情、整合性の計算は行わない。</li>
+      <li>結果の予測は行わない。</li>
+      <li>委任が動いたアクションを強調することはしない。</li>
+      <li>トピック、時代、導出カテゴリーによるアクションのクラスタリングは行わない。</li>
+      <li>アクション内容に対する論評は行わない。</li>
+      <li>アクションを横断した DRep 投票パターンの比較は行わない。</li>
+    </ul>
 
-    <h3 style="font-size:14px; margin-top:18px;">20.10 Edge cases</h3>
-    <ul>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">20.10 Edge cases</span><span class="ja">20.10 エッジケース</span></h3>
+    <ul class="en">
       <li><strong>Action with no metadata title:</strong> displayed as truncated <code>action_id</code> with <code>action_type</code>. No fallback name fabricated.</li>
       <li><strong>Action with invalid title:</strong> same — only <code>action_id</code> and <code>action_type</code>.</li>
       <li><strong>Active action with no state transitions:</strong> timeline shows submission only; terminal state displays as <code>active</code>.</li>
       <li><strong>Vote from a DRep outside top-60 candidates:</strong> vote appears in the action's vote list; DRep shown by truncated <code>drep_id</code> only. No fabricated names.</li>
     </ul>
+    <ul class="ja">
+      <li><strong>メタデータタイトルがないアクション:</strong> 切り詰めた <code>action_id</code> と <code>action_type</code> を表示する。代替の名称を捏造しない。</li>
+      <li><strong>タイトルが無効なアクション:</strong> 同様に <code>action_id</code> と <code>action_type</code> のみを表示する。</li>
+      <li><strong>状態遷移のない進行中アクション:</strong> タイムラインは提出のみを表示する。終局状態は <code>active</code> として表示する。</li>
+      <li><strong>上位60候補外の DRep からの投票:</strong> 投票はアクションの投票一覧に現れる。DRep は切り詰めた <code>drep_id</code> のみで表示する。名称を捏造しない。</li>
+    </ul>
 
-    <h3 style="font-size:14px; margin-top:18px;">20.11 Reproducibility commitment</h3>
-    <p>Every action detail page is derivable from <code>actions.json</code> plus the <code>votes</code> records. For voters outside the top-30, names are not shown; this constraint applies equally to anyone running an independent observatory (the operator has no special data access).</p>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">20.11 Reproducibility commitment</span><span class="ja">20.11 再現性のコミットメント</span></h3>
+    <p><span class="en">Every action detail page is derivable from <code>actions.json</code> plus the <code>votes</code> records. For voters outside the top-30, names are not shown; this constraint applies equally to anyone running an independent observatory (the operator has no special data access).</span><span class="ja">すべてのアクション詳細ページは、<code>actions.json</code> と <code>votes</code> 記録から導出可能である。上位30外の投票者については名称を表示しない。この制約は、独立に別のオブザバトリーを運営する者にも同等に適用される(運営者は特別なデータアクセスを持たない)。</span></p>
 
-    <h2 id="section-21">21. Historical snapshot browser (FLOW-4)</h2>
-    <p>This section defines how the observatory exposes its accumulated daily snapshots as a navigable historical record. The boundary is sharp: the browser surfaces <em>the state that existed</em> at a given date or epoch; it does not interpret, narrate, or contextualize that state.</p>
+    <h2 id="section-21"><span class="en">21. Historical snapshot browser (FLOW-4)</span><span class="ja">21. 履歴スナップショットブラウザ (FLOW-4)</span></h2>
+    <p><span class="en">This section defines how the observatory exposes its accumulated daily snapshots as a navigable historical record. The boundary is sharp: the browser surfaces <em>the state that existed</em> at a given date or epoch; it does not interpret, narrate, or contextualize that state.</span><span class="ja">本節は、本オブザバトリーが蓄積した日次スナップショットを、ナビゲート可能な履歴記録として露出させる方法を規定する。境界は明瞭である。ブラウザは特定の日付またはエポック時点に<em>存在していた状態</em>を表示するのみで、その状態を解釈、語り、文脈化することはしない。</span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">21.1 What a historical state is</h3>
-    <p>The published snapshot record for a specific UTC date: <code>snapshots</code> rows with <code>snapshot_date = D</code>; <code>dreps</code>, <code>governance_actions</code>, <code>votes</code>, and <code>epoch_info</code> as they stood when that snapshot was written. The browser does not invent or interpolate fields that were absent at the time.</p>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">21.1 What a historical state is</span><span class="ja">21.1 履歴状態とは何か</span></h3>
+    <p><span class="en">The published snapshot record for a specific UTC date: <code>snapshots</code> rows with <code>snapshot_date = D</code>; <code>dreps</code>, <code>governance_actions</code>, <code>votes</code>, and <code>epoch_info</code> as they stood when that snapshot was written. The browser does not invent or interpolate fields that were absent at the time.</span><span class="ja">特定の UTC 日について公開されたスナップショット記録のこと。<code>snapshot_date = D</code> の <code>snapshots</code> 行、ならびにそのスナップショット書き込み時点での <code>dreps</code>、<code>governance_actions</code>、<code>votes</code>、<code>epoch_info</code>。ブラウザは当時欠落していたフィールドを捏造も補間もしない。</span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">21.2 What a snapshot is</h3>
-    <p>The canonical published output of a single daily ETL run. For date <code>D</code>: <code>top30.json</code>, <code>actions.json</code>, <code>dreps/{drep_id}.json</code>, <code>actions/{action_id}.json</code>, <code>epoch_info.json</code>, and <code>meta.json</code>. <strong>Snapshots are immutable once published.</strong></p>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">21.2 What a snapshot is</span><span class="ja">21.2 スナップショットとは何か</span></h3>
+    <p><span class="en">The canonical published output of a single daily ETL run. For date <code>D</code>: <code>top30.json</code>, <code>actions.json</code>, <code>dreps/{drep_id}.json</code>, <code>actions/{action_id}.json</code>, <code>epoch_info.json</code>, and <code>meta.json</code>. <strong>Snapshots are immutable once published.</strong></span><span class="ja">単一の日次 ETL 実行による、正準の公開アウトプットのこと。日付 <code>D</code> について: <code>top30.json</code>、<code>actions.json</code>、<code>dreps/{drep_id}.json</code>、<code>actions/{action_id}.json</code>、<code>epoch_info.json</code>、<code>meta.json</code>。<strong>スナップショットは公開された時点で不変である。</strong></span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">21.3 Snapshot persistence and addressing</h3>
-    <p>The daily ETL writes outputs in two parallel locations: <strong>Current</strong> (overwritten each run, current behavior) and <strong>Dated archive</strong> at <code>/data/snapshots/by-date/{YYYY-MM-DD}/</code>.</p>
-    <p>URLs: <code>/?date=YYYY-MM-DD</code>, <code>/drep.html?id=...&amp;date=YYYY-MM-DD</code>, <code>/action.html?id=...&amp;date=YYYY-MM-DD</code>, <code>/actions.html?date=YYYY-MM-DD</code>. Without the <code>date</code> parameter, the URL serves the current snapshot.</p>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">21.3 Snapshot persistence and addressing</span><span class="ja">21.3 スナップショットの永続化と参照</span></h3>
+    <p><span class="en">The daily ETL writes outputs in two parallel locations: <strong>Current</strong> (overwritten each run, current behavior) and <strong>Dated archive</strong> at <code>/data/snapshots/by-date/{YYYY-MM-DD}/</code>.</span><span class="ja">日次 ETL はアウトプットを2つの並行する場所に書き込む: <strong>現行</strong>(各実行で上書き、現状の挙動)、ならびに <strong>日付付きアーカイブ</strong> として <code>/data/snapshots/by-date/{YYYY-MM-DD}/</code>。</span></p>
+    <p><span class="en">URLs: <code>/?date=YYYY-MM-DD</code>, <code>/drep.html?id=...&amp;date=YYYY-MM-DD</code>, <code>/action.html?id=...&amp;date=YYYY-MM-DD</code>, <code>/actions.html?date=YYYY-MM-DD</code>. Without the <code>date</code> parameter, the URL serves the current snapshot.</span><span class="ja">URL: <code>/?date=YYYY-MM-DD</code>、<code>/drep.html?id=...&amp;date=YYYY-MM-DD</code>、<code>/action.html?id=...&amp;date=YYYY-MM-DD</code>、<code>/actions.html?date=YYYY-MM-DD</code>。<code>date</code> パラメータがない場合、URL は現行スナップショットを返す。</span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">21.4 Missing periods</h3>
-    <p>If a daily ETL failed, no archive entry exists. The browser does not interpolate. A request for a missing date returns an explicit gap notice and a pointer to the nearest prior published date. The list of available and missing dates is published at <code>/data/snapshots/by-date/index.json</code>.</p>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">21.4 Missing periods</span><span class="ja">21.4 欠損期間</span></h3>
+    <p><span class="en">If a daily ETL failed, no archive entry exists. The browser does not interpolate. A request for a missing date returns an explicit gap notice and a pointer to the nearest prior published date. The list of available and missing dates is published at <code>/data/snapshots/by-date/index.json</code>.</span><span class="ja">日次 ETL が失敗した場合、アーカイブエントリは存在しない。ブラウザは補間しない。欠損日へのリクエストには明示的な欠損通知と、直前に公開された日付へのポインタを返す。利用可能な日付と欠損日付の一覧は <code>/data/snapshots/by-date/index.json</code> に公開する。</span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">21.5 Historical ranking derivation</h3>
-    <p>The top-30 ranking for date <code>D</code> is the ranking that was published on date <code>D</code>. It is not retroactively recomputed and is not adjusted for DReps who deregistered later.</p>
-    <p><strong>Historical rankings are preserved exactly as published on the snapshot date, even if later governance developments would change how a reader interprets them.</strong> The observatory's role is to retain what was; readers reason about what it meant.</p>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">21.5 Historical ranking derivation</span><span class="ja">21.5 履歴順位の導出</span></h3>
+    <p><span class="en">The top-30 ranking for date <code>D</code> is the ranking that was published on date <code>D</code>. It is not retroactively recomputed and is not adjusted for DReps who deregistered later.</span><span class="ja">日付 <code>D</code> の上位30順位は、日付 <code>D</code> に公開された順位そのものである。遡及的に再計算することはなく、後に登録解除した DRep に対する調整も行わない。</span></p>
+    <p><span class="en"><strong>Historical rankings are preserved exactly as published on the snapshot date, even if later governance developments would change how a reader interprets them.</strong> The observatory's role is to retain what was; readers reason about what it meant.</span><span class="ja"><strong>履歴上の順位は、後のガバナンスの展開が読者の解釈を変え得るとしても、スナップショット日に公開されたままの形で保持する。</strong>本オブザバトリーの役割は、起きたことを保持することにある。それが何を意味したかは読者が論じる。</span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">21.6 What the browser refuses to infer</h3>
-    <ul>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">21.6 What the browser refuses to infer</span><span class="ja">21.6 ブラウザが推定を拒む事項</span></h3>
+    <ul class="en">
       <li>Trends between historical states.</li>
       <li>Comparison framings ("more delegators than before").</li>
       <li>Significance annotations on past events.</li>
@@ -495,16 +691,25 @@
       <li>Retrospective re-ranking using current data.</li>
       <li>"Notable moments" or "key dates" curation.</li>
     </ul>
+    <ul class="ja">
+      <li>履歴状態間のトレンド。</li>
+      <li>比較フレーミング(「以前より委任者が多い」など)。</li>
+      <li>過去のイベントに対する有意性の注釈。</li>
+      <li>本オブザバトリーがスナップショットを取得していないエポックに対する合成「エポック X 時点の状態」。</li>
+      <li>当時 null だったフィールドのバックフィル。</li>
+      <li>現在のデータを用いた遡及的な再順位付け。</li>
+      <li>「注目すべき瞬間」「重要な日付」のキュレーション。</li>
+    </ul>
 
-    <h3 style="font-size:14px; margin-top:18px;">21.7 What is immutable</h3>
-    <p>Once a date has passed and its snapshot was published, all artifacts at <code>by-date/{date}/</code> are immutable, enforced by file path. The ETL never overwrites a past date. <code>methodology_version</code> and <code>schema_version</code> stamps are preserved with the historical snapshot regardless of subsequent updates.</p>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">21.7 What is immutable</span><span class="ja">21.7 不変であるもの</span></h3>
+    <p><span class="en">Once a date has passed and its snapshot was published, all artifacts at <code>by-date/{date}/</code> are immutable, enforced by file path. The ETL never overwrites a past date. <code>methodology_version</code> and <code>schema_version</code> stamps are preserved with the historical snapshot regardless of subsequent updates.</span><span class="ja">日付が過ぎ、そのスナップショットが公開されたあと、<code>by-date/{date}/</code> 配下のすべての成果物は不変である。これはファイルパスによって強制される。ETL は過去の日付を上書きしない。<code>methodology_version</code> と <code>schema_version</code> の刻印は、その後の更新にかかわらず、当該履歴スナップショットとともに保持される。</span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">21.8 Historical navigation</h3>
-    <p>Simple chronological list of dates (latest first, paginated) — not a calendar widget (which would imply continuous coverage). Adjacent navigation (previous/next snapshot date) skips missing dates explicitly.</p>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">21.8 Historical navigation</span><span class="ja">21.8 履歴ナビゲーション</span></h3>
+    <p><span class="en">Simple chronological list of dates (latest first, paginated) — not a calendar widget (which would imply continuous coverage). Adjacent navigation (previous/next snapshot date) skips missing dates explicitly.</span><span class="ja">日付の単純な時系列リスト(新しい順、ページング) — カレンダーウィジェット(連続的なカバレッジを含意してしまう)は用いない。隣接ナビゲーション(前/次のスナップショット日)は欠損日を明示的にスキップする。</span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">21.9 Snapshot provenance</h3>
-    <p>Every historical view displays a small provenance strip containing:</p>
-    <ul>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">21.9 Snapshot provenance</span><span class="ja">21.9 スナップショットの来歴</span></h3>
+    <p><span class="en">Every historical view displays a small provenance strip containing:</span><span class="ja">すべての履歴ビューには、以下を含む小さな来歴ストリップを表示する。</span></p>
+    <ul class="en">
       <li>Snapshot date</li>
       <li><strong>Snapshot archive path</strong> — the canonical filesystem path under <code>/data/snapshots/by-date/{YYYY-MM-DD}/</code>, shown in monospace as a citable identifier for research references</li>
       <li>ETL run completion timestamp from that date's <code>meta.json</code></li>
@@ -512,25 +717,40 @@
       <li>Schema version active when the snapshot was published</li>
       <li>Direct download link to the canonical archive path</li>
     </ul>
+    <ul class="ja">
+      <li>スナップショット日</li>
+      <li><strong>スナップショットアーカイブパス</strong> — <code>/data/snapshots/by-date/{YYYY-MM-DD}/</code> 配下の正準ファイルシステムパス。等幅で表示し、研究引用のための引用可能な識別子として機能させる</li>
+      <li>当該日の <code>meta.json</code> から得る ETL 実行完了タイムスタンプ</li>
+      <li>スナップショット公開時に有効だった方法論バージョン</li>
+      <li>スナップショット公開時に有効だったスキーマバージョン</li>
+      <li>正準アーカイブパスへの直接ダウンロードリンク</li>
+    </ul>
 
-    <h3 style="font-size:14px; margin-top:18px;">21.10 Scope of historical coverage</h3>
-    <p>Only snapshots published by this observatory. No pre-deployment backfill, even if Koios would support reconstruction. §15's pre-launch rule applies.</p>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">21.10 Scope of historical coverage</span><span class="ja">21.10 履歴カバレッジの範囲</span></h3>
+    <p><span class="en">Only snapshots published by this observatory. No pre-deployment backfill, even if Koios would support reconstruction. §15's pre-launch rule applies.</span><span class="ja">本オブザバトリーが公開したスナップショットのみが対象である。Koios で再構成可能だとしても、デプロイ前のバックフィルは行わない。§15 のローンチ前ルールが適用される。</span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">21.11 What FLOW-4 does NOT do</h3>
-    <ul>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">21.11 What FLOW-4 does NOT do</span><span class="ja">21.11 FLOW-4 が行わないこと</span></h3>
+    <ul class="en">
       <li>No "evolution charts" over time beyond the existing per-DRep 90-day current view.</li>
       <li>No "rank on every past date" derived series — that is FLOW-8 territory.</li>
       <li>No labeling of past dates as "milestones" or "key events."</li>
       <li>No side-by-side historical comparison.</li>
       <li>No ranking-of-dates.</li>
     </ul>
+    <ul class="ja">
+      <li>既存の DRep ごとの90日現行ビュー以外の「進化チャート」は行わない。</li>
+      <li>「過去の各日付における順位」の派生系列は提供しない — これは FLOW-8 の領域である。</li>
+      <li>過去の日付を「マイルストーン」や「重要イベント」とラベル付けしない。</li>
+      <li>履歴の並列比較は行わない。</li>
+      <li>日付の順位付けは行わない。</li>
+    </ul>
 
-    <h3 style="font-size:14px; margin-top:18px;">21.12 Reproducibility</h3>
-    <p>The JSON returned for a historical date matches the file in the dated archive byte-for-byte (subject only to nginx compression negotiation). Any third party who archived the original snapshots when they were current can reproduce every historical view.</p>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">21.12 Reproducibility</span><span class="ja">21.12 再現性</span></h3>
+    <p><span class="en">The JSON returned for a historical date matches the file in the dated archive byte-for-byte (subject only to nginx compression negotiation). Any third party who archived the original snapshots when they were current can reproduce every historical view.</span><span class="ja">履歴日付に対して返される JSON は、日付付きアーカイブ内のファイルとバイト単位で一致する(nginx の圧縮ネゴシエーションの影響のみを除く)。当時現行だったスナップショットをアーカイブした第三者は、すべての履歴ビューを再現できる。</span></p>
 
-    <h3 style="font-size:14px; margin-top:18px;">21.13 Archive integrity hashing</h3>
-    <p>Each dated snapshot archive includes a <code>sha256.json</code> file at <code>/data/snapshots/by-date/{YYYY-MM-DD}/sha256.json</code> listing the SHA-256 hash of every other file in that archive. Written last, after all other archive files are in place.</p>
-    <p><strong>Shape:</strong></p>
+    <h3 style="font-size:14px; margin-top:18px;"><span class="en">21.13 Archive integrity hashing</span><span class="ja">21.13 アーカイブ完全性のハッシュ</span></h3>
+    <p><span class="en">Each dated snapshot archive includes a <code>sha256.json</code> file at <code>/data/snapshots/by-date/{YYYY-MM-DD}/sha256.json</code> listing the SHA-256 hash of every other file in that archive. Written last, after all other archive files are in place.</span><span class="ja">日付付きスナップショットアーカイブには、<code>/data/snapshots/by-date/{YYYY-MM-DD}/sha256.json</code> として <code>sha256.json</code> ファイルを同梱する。同ファイルは、当該アーカイブ内の他のすべてのファイルの SHA-256 ハッシュを列挙する。他のアーカイブファイルがすべて揃った後、最後に書き込む。</span></p>
+    <p><span class="en"><strong>Shape:</strong></span><span class="ja"><strong>構造:</strong></span></p>
     <pre style="background:var(--accent-soft);padding:10px;border-radius:4px;font-size:12px;overflow-x:auto;">{
   "schema_version": 1,
   "methodology_version": "0.7",
@@ -544,19 +764,23 @@
     "actions/gov_action1…json": "…"
   }
 }</pre>
-    <p>The hashed files include every file in the dated archive <strong>except</strong> <code>sha256.json</code> itself. The hash digest covers raw file bytes as written, before any HTTP-layer compression negotiation.</p>
-    <p><strong>Verification protocol.</strong> Any third party can: (1) compute SHA-256 of each file in a downloaded archive (excluding <code>sha256.json</code>); (2) compare against the corresponding entry in <code>sha256.json</code>; (3) treat any mismatch as evidence that one of the files has been modified after the snapshot was sealed.</p>
-    <p>Hashes are not cryptographically signed in v0.7. Signing is a v0.8+ candidate.</p>
+    <p><span class="en">The hashed files include every file in the dated archive <strong>except</strong> <code>sha256.json</code> itself. The hash digest covers raw file bytes as written, before any HTTP-layer compression negotiation.</span><span class="ja">ハッシュ対象のファイルは、日付付きアーカイブ内のすべてのファイルである。ただし <code>sha256.json</code> 自身は<strong>除く</strong>。ハッシュは書き込まれた生のファイルバイトを対象とし、HTTP 層の圧縮ネゴシエーションを経る前の値である。</span></p>
+    <p><span class="en"><strong>Verification protocol.</strong> Any third party can: (1) compute SHA-256 of each file in a downloaded archive (excluding <code>sha256.json</code>); (2) compare against the corresponding entry in <code>sha256.json</code>; (3) treat any mismatch as evidence that one of the files has been modified after the snapshot was sealed.</span><span class="ja"><strong>検証プロトコル。</strong>第三者は次の手順を踏める: (1) ダウンロードしたアーカイブ内の各ファイル(<code>sha256.json</code> を除く)の SHA-256 を計算する; (2) <code>sha256.json</code> の対応エントリと比較する; (3) 不一致があれば、当該ファイルがスナップショット封印後に改変された証拠と扱う。</span></p>
+    <p><span class="en">Hashes are not cryptographically signed in v0.7. Signing is a v0.8+ candidate.</span><span class="ja">v0.7 ではハッシュに暗号署名を付けない。署名は v0.8 以降の候補である。</span></p>
 
-    <h2 id="section-12">12. v0.1 scope limitations</h2>
-    <p>The site is deliberately narrow at v0.1. The following are out of scope for this version and disclosed here transparently rather than masked with synthetic or interpolated values:</p>
-    <ul>
+    <h2 id="section-12"><span class="en">12. v0.1 scope limitations</span><span class="ja">12. v0.1 における対象範囲の制限</span></h2>
+    <p><span class="en">The site is deliberately narrow at v0.1. The following are out of scope for this version and disclosed here transparently rather than masked with synthetic or interpolated values:</span><span class="ja">v0.1 では本サイトを意図的に狭く保つ。以下は本バージョンの対象範囲外であり、合成値や補間値で覆い隠すことなく、ここに透明性をもって開示する。</span></p>
+    <ul class="en">
       <li><strong>Delegator counts</strong> are fetched only for the top 60 candidates per daily run (to support top-30 ranking with headroom), not all active DReps. The remaining active DReps are visible via the underlying Koios API for anyone who needs them.</li>
       <li><strong>Historical backfill is not yet implemented.</strong> The Δ7d and Δ30d fields will appear as <code>—</code> until daily snapshots have accumulated for 7 and 30 days respectively from first deployment. The 90-day chart will populate forward from launch.</li>
       <li><strong>Vote outcomes are not editorialized.</strong> The <code>votes</code> table stores facts only — <code>(action_id, drep_id, vote ∈ {yes, no, abstain}, vote_epoch)</code>. No alignment scoring, no "voted with consensus" / "voted against consensus" framing, no per-vote interpretation. Governance action outcomes (<code>enacted</code>, <code>ratified</code>, <code>dropped</code>, <code>expired</code>, <code>active</code>) are derived deterministically from Koios fields and likewise carry no value judgment.</li>
-      <li><strong>Japanese methodology page</strong> is being translated; this English page is currently the source-of-truth.</li>
     </ul>
-    <p>These limitations resolve over time. They are not concealed and are not approximated.</p>
+    <ul class="ja">
+      <li><strong>委任者数</strong>は、日次実行ごとに上位60候補に対してのみ取得する(余裕を持って上位30順位を支えるため)。すべての現役 DRep については取得しない。残りの現役 DRep は、必要な者が下層の Koios API 経由で参照できる。</li>
+      <li><strong>履歴のバックフィルはまだ実装していない。</strong>Δ7日間 と Δ30日間 の各フィールドは、初回デプロイから7日分・30日分の日次スナップショットが蓄積するまで <code>—</code> として表示される。90日チャートはローンチ以降の前進累積で値が入る。</li>
+      <li><strong>投票結果は編集的に解釈しない。</strong><code>votes</code> テーブルは事実のみを保持する — <code>(action_id, drep_id, vote ∈ {yes, no, abstain}, vote_epoch)</code>。整合性スコアリングも、「コンセンサスとともに投票」「コンセンサスに反して投票」のフレーミングも、投票ごとの解釈も行わない。ガバナンスアクションの結果(<code>enacted</code>、<code>ratified</code>、<code>dropped</code>、<code>expired</code>、<code>active</code>)は Koios フィールドから決定的に導出され、同様に価値判断を含まない。</li>
+    </ul>
+    <p><span class="en">These limitations resolve over time. They are not concealed and are not approximated.</span><span class="ja">これらの制限は時間とともに解消される。隠蔽もしないし、近似値で覆うこともしない。</span></p>
 
   </article>
 </main>
