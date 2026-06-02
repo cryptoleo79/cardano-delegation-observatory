@@ -4,6 +4,12 @@
 
 const i18n = {
   en: {
+    /* Ecosystem strip */
+    "eco-label": "Ecosystem",
+    "eco-link-observatory": "Observatory",
+    "eco-link-voting": "Voting",
+    "eco-link-governance": "Governance",
+
     /* Header / nav */
     "h-brand": "Cardano Delegation Observatory",
     "h-nav-methodology": "Methodology",
@@ -178,6 +184,12 @@ const i18n = {
   },
 
   ja: {
+    /* Ecosystem strip */
+    "eco-label": "エコシステム",
+    "eco-link-observatory": "Observatory",
+    "eco-link-voting": "投票",
+    "eco-link-governance": "ガバナンス",
+
     /* Header / nav */
     "h-brand": "Cardano Delegation Observatory",
     "h-nav-methodology": "方法論",
@@ -348,8 +360,22 @@ const i18n = {
 
     /* Loading + error */
     "loading-msg": "読み込み中…",
-    "load-error": "スナップショットを読み込めなかった。データファイルが存在しないか到達できない。",
+    "load-error": "スナップショットを読み込めませんでした。データファイルが存在しないか到達できません。",
   },
+};
+
+/* String lookup against the currently active language. Defined on window so
+ * dynamic-render JS (action.js timeline events, historical.js missing-date
+ * notices and provenance strip, future enum renderers) can resolve a key to
+ * its display string without owning their own copy of the dict.
+ *
+ * Returns the JA string when lang=ja, otherwise the EN string. Falls back to
+ * EN if a key is missing from the active dict, and to the key itself if it
+ * is missing from both — that last case surfaces typos rather than rendering
+ * an empty string. */
+window.cdoT = function (key) {
+  const lang = (document.documentElement.lang === "ja") ? "ja" : "en";
+  return (i18n[lang] && i18n[lang][key]) || (i18n.en && i18n.en[key]) || key;
 };
 
 function setLang(lang) {
