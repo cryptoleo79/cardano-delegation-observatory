@@ -70,7 +70,8 @@ async function renderProvenanceStrip() {
   const header = document.createElement("div");
   header.className = "provenance-header";
   const title = document.createElement("strong");
-  title.textContent = `HISTORICAL SNAPSHOT · ${d}`;
+  const titleText = (window.cdoT ? window.cdoT("prov-title") : "HISTORICAL SNAPSHOT");
+  title.textContent = `${titleText} · ${d}`;
   header.appendChild(title);
   const viewCurrent = document.createElement("a");
   viewCurrent.className = "provenance-view-current";
@@ -90,13 +91,14 @@ async function renderProvenanceStrip() {
     if (res.ok) meta = await res.json();
   } catch (e) { /* meta may not exist; archive-path line still rendered */ }
 
+  const cdoT = window.cdoT || ((k) => k);
   const lines = [];
-  lines.push({ label: "archive path", value: `/data/snapshots/by-date/${d}/`, mono: true });
+  lines.push({ label: cdoT("prov-label-archive"), value: `/data/snapshots/by-date/${d}/`, mono: true });
   if (meta && meta.last_run) {
-    lines.push({ label: "ETL completed", value: meta.last_run.run_completed_at || "—" });
+    lines.push({ label: cdoT("prov-label-etl-completed"), value: meta.last_run.run_completed_at || "—" });
   }
-  lines.push({ label: "methodology", value: (meta && meta.methodology_version) || "?" });
-  lines.push({ label: "schema", value: (meta && meta.schema_version != null) ? String(meta.schema_version) : "?" });
+  lines.push({ label: cdoT("prov-label-methodology"), value: (meta && meta.methodology_version) || "?" });
+  lines.push({ label: cdoT("prov-label-schema"), value: (meta && meta.schema_version != null) ? String(meta.schema_version) : "?" });
 
   const table = document.createElement("div");
   table.className = "provenance-grid";
