@@ -20,7 +20,7 @@ Quoted from `METHODOLOGY.md §24.3`. The class determines preservation priority 
 | Class | Description | Example | Preservation needed? |
 |---|---|---|---|
 | A | On-chain (Cardano blockchain via Koios) | `vote_list`, `proposal_list`, treasury withdrawal transactions | No proactive capture — protocol preserves it |
-| B | Official Catalyst-issued | `projectcatalyst.io`, `input-output-hk/catalyst-core` (archived) | Yes — quarterly re-fetch plus mirror |
+| B | Official Catalyst-issued | `projectcatalyst.io`, `cardano-foundation/catalyst-core` (dormant, repo relocated from `input-output-hk/catalyst-core`) | Yes — quarterly re-fetch plus mirror |
 | C | Catalyst-platform-hosted at-risk | `cardano.ideascale.com`, future Catalyst Voices archive surfaces | **Yes — highest priority** before platform sunset |
 | D | Community-maintained | `catalystexplorer.com`, `lidonation.com` | Yes — corroboration capture on fund-close |
 | E | Researcher capture | Individual researchers contributing with attribution | Treated as primary record only after chain-of-custody review |
@@ -41,7 +41,7 @@ The status is descriptive, not predictive. It records what is observed at inspec
 
 Per `METHODOLOGY.md §24.9`. Each fund inherits the highest-risk band of its primary source.
 
-- **Band 1** — at-risk Class C platforms (capture before sunset, before observed 404s, or before IO removes the `catalyst-core` archive flag).
+- **Band 1** — at-risk Class C platforms (capture before sunset, before observed 404s, or before the `catalyst-core` repository is marked archived or deleted).
 - **Band 2** — Class B canonical sources (capture on a quarterly schedule and on observed structural changes).
 - **Band 3** — Class A on-chain (no proactive capture; the canonical query record is sufficient).
 - **Band 4** — Class D community (capture on fund-close and on community source updates).
@@ -90,7 +90,7 @@ Sept 2020. Pilot event with no on-chain proposal vote and no ADA disbursement. L
 | Field | Value |
 |---|---|
 | Primary source | `https://projectcatalyst.io/funds/1` (Class B) |
-| Secondary source | `https://drive.google.com/file/d/1UmAGBRxWbQtpWjrNnvGuybgLiWs2zFMS/view` (Class B by issuance, but hosted on a single-owner third-party service — the weakest Class B URL in the entire registry); `input-output-hk/catalyst-core` at `src/event-db/historic_data/fund_1.sql` (Class B) |
+| Secondary source | `https://drive.google.com/file/d/1UmAGBRxWbQtpWjrNnvGuybgLiWs2zFMS/view` (Class B by issuance, but hosted on a single-owner third-party service — the weakest Class B URL in the entire registry); `cardano-foundation/catalyst-core` at `src/event-db/historic_data/fund_1.sql` (Class B) |
 | Preservation status | Live and intact (verified 2026-06-02) |
 | Authority class | B (primary), B/B (secondaries) |
 | Capture risk | Band 2 |
@@ -104,12 +104,12 @@ Late 2020. First funding event. Pre-IdeaScale era — proposal text exists in `c
 | Field | Value |
 |---|---|
 | Primary source | `https://projectcatalyst.io/funds/2` (Class B) |
-| Secondary source | `https://projectcatalyst.io/funds/2/voting-results` (Class B — in-page explorer, no public CSV export); `input-output-hk/catalyst-core` at `src/event-db/historic_data/fund_2/` (Class B); `https://www.catalystexplorer.com/en/funds` (Class D) |
+| Secondary source | `https://projectcatalyst.io/funds/2/voting-results` (Class B — in-page explorer, no public CSV export); `cardano-foundation/catalyst-core` at `src/event-db/historic_data/fund_2/` (Class B); `https://www.catalystexplorer.com/en/funds` (Class D) |
 | Preservation status | Live and intact (verified 2026-06-02) |
 | Authority class | B (primary), B/B/D (secondaries) |
 | Capture risk | Band 2 |
 | Completeness | Substantial |
-| Known gaps | Pre-IdeaScale era — full proposal long-form text exists only in `catalyst-core` SQL dumps; no Class C surface for this fund. USD-denominated era — ADA pool size is not surfaced on `projectcatalyst.io` and must be reconstructed from forum posts. Submitted ≈ 78 / Funded ≈ 11. |
+| Known gaps | Pre-IdeaScale era — full proposal long-form text lives in `catalyst-core` at `src/event-db/historic_data/fund_2/`, but **the per-fund data is stored as an encrypted SQLite database (`fund2_database_encrypted.sqlite3`)** whose decryption key is not currently published. The bytes are preservable verbatim under FLOW-6; their interior content is not extractable without the key. No Class C surface for this fund. USD-denominated era. Submitted ≈ 78 / Funded ≈ 11. |
 
 ### Fund 3 — Catalyst Fund 3
 
@@ -118,12 +118,12 @@ Early 2021. First fund with public per-proposal voting results page (Google Shee
 | Field | Value |
 |---|---|
 | Primary source | `https://projectcatalyst.io/funds/3` (Class B) |
-| Secondary source | `https://projectcatalyst.io/funds/3/voting-results` (Class B); `input-output-hk/catalyst-core` at `src/event-db/historic_data/fund_3/` (Class B); `https://www.catalystexplorer.com/en/funds` (Class D) |
+| Secondary source | `https://projectcatalyst.io/funds/3/voting-results` (Class B); `cardano-foundation/catalyst-core` at `src/event-db/historic_data/fund_3/` (Class B); `https://www.catalystexplorer.com/en/funds` (Class D) |
 | Preservation status | Live and intact (verified 2026-06-02) |
 | Authority class | B (primary), B/B/D (secondaries) |
 | Capture risk | Band 2 |
 | Completeness | Substantial |
-| Known gaps | Pre-IdeaScale era for proposal long-form text — only in `catalyst-core`. Voting-results page is an in-page explorer with no published CSV export — capture method will need to scrape the rendered table rather than download a structured file. USD-denominated era. Submitted ≈ 150 / Funded ≈ 21. |
+| Known gaps | Pre-IdeaScale era for proposal long-form text. Per the same encrypted-SQLite finding noted on Fund 2, the `catalyst-core` `fund_3/` directory holds an encrypted SQLite database whose key is not published — proposal-text extraction from that source is gated on the key. Voting-results page is an in-page explorer with no published CSV export — capture method will need to capture the rendered table rather than download a structured file. USD-denominated era. Submitted ≈ 150 / Funded ≈ 21. |
 
 ### Fund 4 — Catalyst Fund 4
 
@@ -132,12 +132,12 @@ Jun 2021. **First fund with IdeaScale-hosted proposal pages.** This is the bound
 | Field | Value |
 |---|---|
 | Primary source | `https://projectcatalyst.io/funds/4` (Class B) |
-| Secondary source | `https://projectcatalyst.io/funds/4/voting-results` (Class B); `input-output-hk/catalyst-core` at `src/event-db/historic_data/fund_4/` (Class B); `cardano.ideascale.com/c/campaigns/{id}/about` for each F4 campaign (Class C — opaque per-campaign numeric IDs; enumeration is a Phase 3 task); `https://www.catalystexplorer.com/en/funds` (Class D) |
+| Secondary source | `https://projectcatalyst.io/funds/4/voting-results` (Class B); `cardano-foundation/catalyst-core` at `src/event-db/historic_data/fund_4/` (Class B); `cardano.ideascale.com/c/campaigns/{id}/about` for each F4 campaign (Class C — opaque per-campaign numeric IDs; enumeration is a Phase 3 task); `https://www.catalystexplorer.com/en/funds` (Class D) |
 | Preservation status | Live and intact (verified 2026-06-02) — but Class C surface is the highest-risk component. |
 | Authority class | B (primary), B/B/C/D (secondaries) |
 | Capture risk | **Band 1** (IdeaScale is the only source of full proposal long-form text + comments) |
 | Completeness | Substantial |
-| Known gaps | IdeaScale URL structure is per-campaign with opaque numeric IDs, not per-fund — there is no clean `cardano.ideascale.com/c/c/F4` root URL. Campaign-ID enumeration per fund is deferred to Phase 3. USD-denominated era. Submitted ≈ 277 / Funded ≈ 51. |
+| Known gaps | IdeaScale URL structure is per-campaign with opaque numeric IDs, not per-fund — there is no clean `cardano.ideascale.com/c/c/F4` root URL. **Campaign-ID enumeration is resolved by the Phase 3 capture plan (`docs/CATALYST_CAPTURE_PLAN.md §3.2`)** via the Wayback Machine CDX index plus catalystexplorer cross-reference. Note also that `catalyst-core/fund_4/` is an encrypted SQLite — proposal-text extraction from catalyst-core requires the decryption key, which is not published. USD-denominated era. Submitted ≈ 277 / Funded ≈ 51. |
 
 ### Fund 5 — Catalyst Fund 5
 
@@ -146,12 +146,12 @@ Aug–Sep 2021.
 | Field | Value |
 |---|---|
 | Primary source | `https://projectcatalyst.io/funds/5` (Class B) |
-| Secondary source | `https://projectcatalyst.io/funds/5/voting-results` (Class B); `input-output-hk/catalyst-core` at `src/event-db/historic_data/fund_5/` (Class B); `cardano.ideascale.com/c/campaigns/{id}/about` for each F5 campaign (Class C); `catalystexplorer.com/en/funds` (Class D) |
+| Secondary source | `https://projectcatalyst.io/funds/5/voting-results` (Class B); `cardano-foundation/catalyst-core` at `src/event-db/historic_data/fund_5/` (Class B); `cardano.ideascale.com/c/campaigns/{id}/about` for each F5 campaign (Class C); `catalystexplorer.com/en/funds` (Class D) |
 | Preservation status | Live and intact (verified 2026-06-02) |
 | Authority class | B (primary), B/B/C/D (secondaries) |
 | Capture risk | Band 1 |
 | Completeness | Substantial |
-| Known gaps | IdeaScale per-campaign IDs to enumerate in Phase 3. USD-denominated era. Submitted ≈ 267 / Funded ≈ 69. |
+| Known gaps | IdeaScale campaign IDs enumerated via Phase 3's Wayback CDX approach (`docs/CATALYST_CAPTURE_PLAN.md §3.2`). `catalyst-core/fund_5/` is encrypted SQLite — key not published. USD-denominated era. Submitted ≈ 267 / Funded ≈ 69. |
 
 ### Fund 6 — Catalyst Fund 6
 
@@ -160,12 +160,12 @@ Nov–Dec 2021.
 | Field | Value |
 |---|---|
 | Primary source | `https://projectcatalyst.io/funds/6` (Class B) |
-| Secondary source | `https://projectcatalyst.io/funds/6/voting-results` (Class B); `input-output-hk/catalyst-core` at `src/event-db/historic_data/fund_6/` (Class B); `cardano.ideascale.com/c/campaigns/{id}/about` for each F6 campaign (Class C); `catalystexplorer.com/en/funds` (Class D) |
+| Secondary source | `https://projectcatalyst.io/funds/6/voting-results` (Class B); `cardano-foundation/catalyst-core` at `src/event-db/historic_data/fund_6/` (Class B); `cardano.ideascale.com/c/campaigns/{id}/about` for each F6 campaign (Class C); `catalystexplorer.com/en/funds` (Class D) |
 | Preservation status | Live and intact (verified 2026-06-02) |
 | Authority class | B (primary), B/B/C/D (secondaries) |
 | Capture risk | Band 1 |
 | Completeness | Substantial |
-| Known gaps | IdeaScale per-campaign IDs to enumerate in Phase 3. USD-denominated era. Submitted ≈ 711 / Funded ≈ 151. |
+| Known gaps | IdeaScale campaign IDs enumerated via Phase 3's Wayback CDX approach. `catalyst-core/fund_6/` is encrypted SQLite — key not published. USD-denominated era. Submitted ≈ 711 / Funded ≈ 151. |
 
 ### Fund 7 — Catalyst Fund 7
 
@@ -174,12 +174,12 @@ Jan–Feb 2022 (voting closed 3 Feb 2022).
 | Field | Value |
 |---|---|
 | Primary source | `https://projectcatalyst.io/funds/7` (Class B) |
-| Secondary source | `https://projectcatalyst.io/funds/7/voting-results` (Class B); `input-output-hk/catalyst-core` at `src/event-db/historic_data/fund_7/` (Class B); `cardano.ideascale.com/c/campaigns/{id}/about` for each F7 campaign (Class C); `catalystexplorer.com/en/funds` (Class D) |
+| Secondary source | `https://projectcatalyst.io/funds/7/voting-results` (Class B); `cardano-foundation/catalyst-core` at `src/event-db/historic_data/fund_7/` (Class B); `cardano.ideascale.com/c/campaigns/{id}/about` for each F7 campaign (Class C); `catalystexplorer.com/en/funds` (Class D) |
 | Preservation status | Live and intact (verified 2026-06-02) |
 | Authority class | B (primary), B/B/C/D (secondaries) |
 | Capture risk | Band 1 |
 | Completeness | Substantial |
-| Known gaps | IdeaScale per-campaign IDs to enumerate in Phase 3. USD-denominated era. Submitted ≈ 936 / Funded ≈ 264. |
+| Known gaps | IdeaScale campaign IDs enumerated via Phase 3's Wayback CDX approach. `catalyst-core/fund_7/` is encrypted SQLite — key not published. USD-denominated era. Submitted ≈ 936 / Funded ≈ 264. |
 
 ### Fund 8 — Catalyst Fund 8
 
@@ -188,12 +188,12 @@ Jan–Feb 2022 (voting closed 3 Feb 2022).
 | Field | Value |
 |---|---|
 | Primary source | `https://projectcatalyst.io/funds/8` (Class B) |
-| Secondary source | `https://projectcatalyst.io/funds/8/voting-results` (Class B); `input-output-hk/catalyst-core` at `src/event-db/historic_data/fund_8/` (Class B); `cardano.ideascale.com/c/campaigns/{id}/about` for each F8 campaign (Class C); `catalystexplorer.com/en/funds` (Class D) |
+| Secondary source | `https://projectcatalyst.io/funds/8/voting-results` (Class B); `cardano-foundation/catalyst-core` at `src/event-db/historic_data/fund_8/` (Class B); `cardano.ideascale.com/c/campaigns/{id}/about` for each F8 campaign (Class C); `catalystexplorer.com/en/funds` (Class D) |
 | Preservation status | Live and intact (verified 2026-06-02) |
 | Authority class | B (primary), B/B/C/D (secondaries) |
 | Capture risk | Band 1 |
 | Completeness | Substantial |
-| Known gaps | IdeaScale per-campaign IDs to enumerate in Phase 3. **Last USD-denominated fund** — ~$16M USD pool, ~$11.2M to proposals. Submitted ≈ 1,134 / Funded ≈ 367. |
+| Known gaps | IdeaScale campaign IDs enumerated via Phase 3's Wayback CDX approach. `catalyst-core/fund_8/` is encrypted SQLite — key not published. **Last USD-denominated fund** — ~$16M USD pool, ~$11.2M to proposals. Submitted ≈ 1,134 / Funded ≈ 367. |
 
 ### Fund 9 — Catalyst Fund 9
 
@@ -202,12 +202,12 @@ Jan–Feb 2022 (voting closed 3 Feb 2022).
 | Field | Value |
 |---|---|
 | Primary source | `https://projectcatalyst.io/funds/9` (Class B) |
-| Secondary source | `https://projectcatalyst.io/funds/9/voting-results` (Class B); `input-output-hk/catalyst-core` at `src/event-db/historic_data/fund_9/` (Class B — **last fund covered by `catalyst-core`**); `cardano.ideascale.com/c/campaigns/332/about` and other F9 campaigns (Class C); `catalystexplorer.com/en/funds` (Class D) |
+| Secondary source | `https://projectcatalyst.io/funds/9/voting-results` (Class B); `cardano-foundation/catalyst-core` at `src/event-db/historic_data/fund_9/` (Class B — **last fund covered by `catalyst-core`**); `cardano.ideascale.com/c/campaigns/332/about` and other F9 campaigns (Class C); `catalystexplorer.com/en/funds` (Class D) |
 | Preservation status | Live and intact (verified 2026-06-02) |
 | Authority class | B (primary), B/B/C/D (secondaries) |
 | Capture risk | Band 1 |
 | Completeness | Full |
-| Known gaps | Submitted-proposal count not surfaced on the `projectcatalyst.io` summary page (Funded ≈ 207). **First ADA-denominated era** — earlier fund pool sizes need separate reconstruction. **Final fund with `catalyst-core` coverage** — F10 onward has no `catalyst-core` snapshot. |
+| Known gaps | Submitted-proposal count not surfaced on the `projectcatalyst.io` summary page (Funded ≈ 207). **First ADA-denominated era** — earlier fund pool sizes need separate reconstruction. **Final fund with `catalyst-core` coverage** — F10 onward has no `catalyst-core` snapshot. `catalyst-core/fund_9/` is encrypted SQLite — key not published. F9 campaign 332 ("Great Migration") is one of the campaign IDs confirmed present in the Wayback CDX index. |
 
 ### Fund 10 — Catalyst Fund 10
 
@@ -321,25 +321,29 @@ Eleven of fifteen funds (F4 through F14) carry Band 1 capture risk because their
 
 Cross-fund observations from the Phase 2 inspection pass. These drive Phase 3 capture-plan priorities.
 
-1. **`catalyst-core` boundary is hard at F9/F10.** The repository `input-output-hk/catalyst-core` contains `src/event-db/historic_data/` with `fund_0.sql`, `fund_1.sql`, then `fund_2/` through `fund_9/` as directories. There is no `fund_10/` or later. Fund 10 onward depends entirely on `projectcatalyst.io` + IdeaScale for its off-chain record. This boundary is not a gradient — it is a hard cutoff that the registry must record. The `METHODOLOGY.md §24.9 Band 2` description was amended in the same commit as this registry to reflect this finding.
+1. **`catalyst-core` boundary is hard at F9/F10.** The repository `cardano-foundation/catalyst-core` contains `src/event-db/historic_data/` with `fund_0.sql`, `fund_1.sql`, then `fund_2/` through `fund_9/` as directories. There is no `fund_10/` or later. Fund 10 onward depends entirely on `projectcatalyst.io` + IdeaScale for its off-chain record. This boundary is not a gradient — it is a hard cutoff that the registry must record. The `METHODOLOGY.md §24.9 Band 2` description was amended in the same commit as this registry to reflect this finding.
 
-2. **`catalyst-core` is dormant, not archived.** Despite the framing in the earlier planning artifact and the original §24 draft, the repository is not marked archived on GitHub. The last release was December 2025 and the repo retains ~16,800 commits with no archival flag. The risk is dormant-tooling-eventually-becoming-deleted, not already-archived-might-disappear. `METHODOLOGY.md §24.9 Band 1 trigger (c)` was amended to match: the trigger is "IO marks the repository as archived or deleted" rather than "IO removes the deleted flag." This is a factual correction, not a methodology change.
+2. **`catalyst-core` is dormant, not archived. The repository also relocated** from its original `input-output-hk/catalyst-core` URL to `cardano-foundation/catalyst-core`, indicating shared custody between IO and Cardano Foundation (positive for long-term preservation, but means historical citations to the old URL must be updated or accepted as redirects). The repo is not marked archived on GitHub; last release December 2025, ~16,800 commits, no archival flag. The risk is dormant-tooling-eventually-becoming-deleted, not already-archived-might-disappear.
 
-3. **IdeaScale uses per-campaign opaque numeric IDs, not per-fund roots.** The Class C surface for any given fund is *N* IdeaScale campaign URLs at `cardano.ideascale.com/c/campaigns/{id}/about` where `{id}` is an opaque numeric like `332` (F9 "Great Migration"), `343` and `348` (two of F10's campaigns), `423` (an F13 workflow page). There is no canonical `cardano.ideascale.com/c/c/F9` URL pattern. **Enumerating which campaign IDs belong to which fund is a Phase 3 task.** Without that enumeration, a `wget --mirror` of the IdeaScale root would either fetch too much (all campaigns across all funds) or too little (only the campaigns whose IDs we already know). This is the single largest operational unknown for Phase 3.
+3. **`catalyst-core` F2–F9 data is encrypted SQLite, not plain SQL.** A Phase 3 inspection finding: the `fund_2/` through `fund_9/` directories contain `block0.bin` files, generator scripts (`mk_fundN_sql.py`), and **`fundN_database_encrypted.sqlite3`** sealed databases. The proposal URL fields and other per-proposal metadata live inside the encrypted blob. **No decryption key has been published** by IO or Cardano Foundation as of 2026-06-02. FLOW-6 preserves the encrypted bytes verbatim; the interior content is not extractable without the key. F0 and F1 remain as plain `.sql` (pre-IdeaScale). This is a known-but-unresolvable gap until/unless a key is published.
 
-4. **F1 voting results live on a single-owner Google Drive link.** This is the weakest Class B URL in the entire registry. A single drive-owner takedown, account closure, or sharing-permission change would orphan F1's voting record entirely. F1 capture priority should include both the `projectcatalyst.io` landing page **and** an early Wayback Machine submission of the Google Drive URL. The capture plan in Phase 3 must specify this as a special case.
+4. **IdeaScale today is a JavaScript SPA returning an empty 852-byte shell for every URL.** A Phase 3 inspection finding: `cardano.ideascale.com/c/campaigns/{id}/about` returns byte-identical empty HTML regardless of whether `{id}` is valid (332, 343, 348, 423) or bogus (1, 99999). No body diff, no status-code diff, no signal channel. **Direct `wget --mirror` of the live IdeaScale would capture useless artifacts.** The only path to real preservation is the Wayback Machine, which archived IdeaScale before its SPA conversion and holds server-rendered snapshots for ~238 distinct campaign IDs. The Phase 3 capture plan resolves this by sourcing IdeaScale content from Wayback rather than from IdeaScale directly (see `docs/CATALYST_CAPTURE_PLAN.md §2.3` and `§3.2`).
 
-5. **F10 voting results are a single styled PDF carrying an "Internal Copy – [confidential]" marking.** F10 is the only fund whose canonical voting results are a standalone PDF — every other fund uses an in-page explorer with CSV download. The "[confidential]" stamp on a publicly-linked file is unexplained; preserve the artifact verbatim including the stamp. Do not edit the PDF. The artifact-as-found is the historical record.
+5. **IdeaScale uses per-campaign opaque numeric IDs, not per-fund roots.** Campaign IDs like 332 (F9 "Great Migration"), 343 and 348 (F10), 423 (F13). There is no canonical `cardano.ideascale.com/c/c/F9` URL pattern. **The Phase 3 capture plan resolves this** via the Wayback CDX index → snapshot-parse → catalystexplorer name-match approach (`docs/CATALYST_CAPTURE_PLAN.md §3.2`). The chosen path is reversible by any researcher and does not require an IdeaScale API token.
 
-6. **USD-denominated era vs ADA-denominated era boundary at F8/F9.** Funds F1–F8 report pool sizes in USD; Funds F9–F15 report in ADA. For F1–F8, ADA pool sizes are not surfaced on `projectcatalyst.io` and must be reconstructed from contemporaneous Cardano Forum posts or IO blog posts. This reconstruction work is downstream-analytical, not preservation — the registry records the USD pool sizes as captured, and any researcher who wants ADA equivalents reconstructs them from the on-chain treasury record + ADA/USD price at the relevant date.
+6. **F1 voting results live on a single-owner Google Drive link.** This is the weakest Class B URL in the entire registry. A single drive-owner takedown, account closure, or sharing-permission change would orphan F1's voting record entirely. F1 capture priority should include both the `projectcatalyst.io` landing page **and** an early Wayback Machine submission of the Google Drive URL. The Phase 3 capture plan addresses this as a special case under `§2.1`.
 
-7. **F14 pool drop from ~46.5M ADA to 18.59M ADA.** F11–F13 each had ~46.5M ADA pools; F14 dropped to 18.59M ADA. This is a fund-level fact about Catalyst funding policy in 2025. The registry records the drop without editorial framing; researchers can investigate the underlying governance decision separately. Per §24.8, the archive does not generate narrative for this drop.
+7. **F10 voting results are a single styled PDF carrying an "Internal Copy – [confidential]" marking.** F10 is the only fund whose canonical voting results are a standalone PDF — every other fund uses an in-page explorer with CSV download. The "[confidential]" stamp on a publicly-linked file is unexplained; preserve the artifact verbatim including the stamp. Do not edit the PDF. The artifact-as-found is the historical record.
 
-8. **F15 is in-progress and excluded from closed-fund preservation activity per §24.1.** Innovation phase closed Jan 8 2026; voting dates TBA. F15 is also the first fund mixing ADA with USDM stablecoin (18.5M ADA + 250K USDM). When F15 officially closes and a canonical voting record is issued, this registry will be revised to add F15 to the Band 1 capture queue.
+8. **USD-denominated era vs ADA-denominated era boundary at F8/F9.** Funds F1–F8 report pool sizes in USD; Funds F9–F15 report in ADA. For F1–F8, ADA pool sizes are not surfaced on `projectcatalyst.io` and must be reconstructed from contemporaneous Cardano Forum posts or IO blog posts. This reconstruction work is downstream-analytical, not preservation — the registry records the USD pool sizes as captured, and any researcher who wants ADA equivalents reconstructs them from the on-chain treasury record + ADA/USD price at the relevant date.
 
-9. **`catalystexplorer.com` covers F1–F14 per its `/funds` index, but no public OpenAPI surface was discoverable during the Phase 2 inspection.** The community-maintained mirror is Class D — useful as corroboration but not as a primary source. The Phase 3 capture plan should treat `catalystexplorer.com` as an HTML mirror target rather than an API consumer; if an OpenAPI surface is later documented by the project, that becomes a future Phase 3 amendment.
+9. **F14 pool drop from ~46.5M ADA to 18.59M ADA.** F11–F13 each had ~46.5M ADA pools; F14 dropped to 18.59M ADA. This is a fund-level fact about Catalyst funding policy in 2025. The registry records the drop without editorial framing; researchers can investigate the underlying governance decision separately. Per §24.8, the archive does not generate narrative for this drop.
 
-10. **No fund has been observed to be Live but drifting, Partially orphaned, or Fully orphaned as of 2026-06-02.** Every primary URL inspected during this pass resolved successfully. This is the single most important fact in the registry: the at-risk Class C surface (IdeaScale) is still intact today. The Phase 3 capture plan should treat this as a perishable window — the window's existence is the only reason FLOW-6 can hope to preserve everything Class C.
+10. **F15 is in-progress and excluded from closed-fund preservation activity per §24.1.** Innovation phase closed Jan 8 2026; voting dates TBA. F15 is also the first fund mixing ADA with USDM stablecoin (18.5M ADA + 250K USDM). When F15 officially closes and a canonical voting record is issued, this registry will be revised to add F15 to the Band 1 capture queue.
+
+11. **`catalystexplorer.com` has an undocumented but unauthenticated JSON API.** A Phase 3 inspection finding (Phase 2 had missed it): `https://catalystexplorer.com/api/campaigns?page=N` returns 140 campaigns across 6 pages with fund-prefixed titles (`F9: Fund10 challenge setting` etc.) — the cleanest fund→campaign-name mapping available without authentication. The site's `/docs.openapi` returns HTTP 500, so the API is undocumented but functional. The Phase 3 capture plan uses this API as the cross-validation for the Wayback-parsed fund mapping (per `docs/CATALYST_CAPTURE_PLAN.md §3.2`). Note: catalystexplorer's per-proposal `ideascale_id` field is wired in the schema but `null` for every sampled proposal — the explorer's developers wired the field but never populated it.
+
+12. **The "Live and intact" status from Phase 2 is misleading for IdeaScale specifically.** Phase 2 verified that `cardano.ideascale.com/c/campaigns/{id}/about` URLs return HTTP 200. Phase 3 verified that they return the same 852-byte SPA shell *regardless of ID validity*. The URLs technically "resolve" but the content is gone from the live surface — only Wayback's archived snapshots carry the actual campaign HTML. **This means the perishable Class C window is more closed than Phase 2 acknowledged.** The 238 campaign IDs Wayback already archived are effectively the preservable corpus; any campaign that exists per catalystexplorer's record but was never archived by Wayback is a true gap (per `docs/CATALYST_CAPTURE_PLAN.md §3.4`). The Phase 3 capture plan should be treated as urgent — Wayback's continued operation is now the load-bearing dependency, not IdeaScale's.
 
 ## Next phases
 
