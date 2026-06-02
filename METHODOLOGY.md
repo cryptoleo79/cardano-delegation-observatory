@@ -133,6 +133,7 @@ The source code, deployment configuration, and data schema are all public in thi
 
 | Date | Version | Change |
 |---|---|---|
+| 2026-06-02 | v0.9 (methodology only — Phase 1 of FLOW-6, no implementation) | FLOW-6 methodology §24 added: defines the Catalyst preservation methodology. §24.1 scope (proposal text, voting tallies, milestone records, on-chain payouts, fund metadata; explicit non-scope items including private drafts, deanonymization, editorial commentary). §24.2 preservation ≠ endorsement — the load-bearing framing, applied symmetrically to funded/unfunded, delivered/undelivered, prominent/non-prominent recipients. §24.3 source authority hierarchy (Class A on-chain, B official Catalyst, C platform-hosted at-risk, D community, E researcher capture). §24.4 chain-of-custody requirements: sidecar `.custody.json` manifest with `source_url`, `capture_date`, `capture_method`, `capture_operator`, `sha256`, `content_type`, `http_status`, `source_authority_class`, `notes`; bulk-capture wrapper emits `CAPTURE_LOG.json`. §24.5 provenance retention via Wayback Machine submission (belt-and-suspenders). §24.6 verifiability chain (file integrity, provenance, authority, capture transparency). §24.7 separate-repository rule (the Catalyst archive is NOT in this observatory repo; footprint, lifecycle, license, and trust-boundary reasons). §24.8 explicit non-goals: no NLP/sentiment/topic modeling, no rankings, no milestone scoring, no off-chain identity linkage, no editorial trigger conditions, no proposer deduplication across funds. §24.9 lifecycle and trigger conditions (Bands 1–4 by source authority and sunset risk; re-captures produce dated artifacts, never overwrite — mirrors §21.7). §24.10 versioning: schema_version stays 2 (no observatory tables added); methodology_version bumps 0.8 → 0.9. §24.11 relationship to existing methodology (§2/§10/§13/§20/§21/§22). §24.12 enumerates the remaining FLOW-6 phases (Phase 2 fund-by-fund source registry, Phase 3 IdeaScale capture strategy, Phase 4 preservation repository design, Phase 5 capture itself — gated on Phases 2-4 approval). No scraping, no `wget --mirror`, no `git clone --mirror` before Phases 2-4 are in place and approved. The gate is non-negotiable. |
 | 2026-05-31 | v0.8 (methodology only — code follows after approval) | FLOW-5 methodology §22 added: defines treasury observability. Records the on-chain treasury balance at each epoch boundary (per Koios `/totals`) and the governance-action-driven withdrawals from that treasury (per `/proposal_list` filtered to `TreasuryWithdrawals`), joined to the governance actions and DRep votes the observatory already captures under §6 and §20. **Important source-model correction:** Koios `/treasury_withdrawals`, despite the name, returns stake-credential reward withdrawals with no governance linkage (no `action_id`, no `proposal_id`, no governance fields of any kind — verified by direct probe on 2026-05-30). FLOW-5 explicitly excludes it and uses `/proposal_list?proposal_type=eq.TreasuryWithdrawals` as the canonical source. Two schema additions: `treasury_snapshot` (per-epoch tokenomics) and `treasury_withdrawals` (normalized per-recipient withdrawal rows keyed by `action_id`). §22.5 defines the observed-vs-governance-attributed reconciliation rule and explicitly disclaims interpretation of the residual (deposit refunds, protocol-level transfers, pre-Conway MIR movements are legitimate non-governance reasons treasury changes). No code, no schema changes, no frontend yet — methodology-only commit per discipline. schema_version → 2, methodology_version → 0.8 when FLOW-5 code lands. |
 | 2026-05-29 | v0.7 (addendum) | §21.14 added: explicit invariant that `snapshot_date` is the sole authority for archive placement; wall-clock UTC of the ETL run is irrelevant. Closes a real reproducibility hazard discovered during FLOW-4 verification, where two export functions (`export_epoch_info`, `export_action_detail`) silently recomputed `datetime.now(UTC)` instead of receiving `snapshot_date` as a parameter, splitting a single logical snapshot across two date directories whenever the wall-clock date differed from the requested snapshot_date (midnight-crossing runs and any backfill). Same-commit code fix: both functions now accept `snapshot_date` and never recompute it; `--snapshot-date YYYY-MM-DD` CLI flag added for backfill, archive repair, and reproducibility tests. |
 | 2026-05-29 | v0.7 (methodology only — code follows after verification gate) | FLOW-4 methodology §21 added: defines the historical snapshot browser. Scope, what a historical state is, what a snapshot is, snapshot persistence and addressing (dual write to current + `/by-date/{YYYY-MM-DD}/` immutable archive), missing-period handling (gap notice, no interpolation), historical ranking derivation (preserved exactly as published, even if later developments would change interpretation), what the browser refuses to infer, immutability rules enforced by file path, navigation primitives (list — never calendar — to honor the discrete-with-gaps reality), provenance strip including stable canonical archive path as citable identifier, scope of coverage (no pre-deployment backfill), explicit non-goals, and reproducibility commitment (byte-for-byte equivalence between served JSON and archived file). Code and frontend wait for the 02:05 UTC verification gate. |
@@ -943,6 +944,167 @@ The reconciliation residual is `observed_Δ(N) − governance_attributed(N)`, ad
 **Verification date for this addendum.** 2026-06-01. The finding will be re-verified by inspection on each future methodology version bump; if Koios begins populating these fields, this addendum will be revised in place rather than removed (the historical observation that the fields *were* null through 2026-06-01 is itself a fact about the chain explorer ecosystem and worth preserving).
 
 `methodology_version` remains `0.8`. This addendum is a clarification of the existing §22.5 and §22.13 language, not a new methodological commitment, so no version bump is warranted. `schema_version` remains `2`.
+
+## 24. Catalyst preservation methodology (FLOW-6)
+
+FLOW-6 extends the observatory's "preserve governance memory" posture to the Cardano Catalyst funding program. It commits the project to the preservation, provenance, and chain-of-custody of Catalyst's historical record before that record disappears with the sunset of `cardano.ideascale.com`. It does not analyze, rank, score, or interpret what is preserved. It is an archival commitment, not an analytical one.
+
+This section defines the principles, requirements, and boundaries of the preservation effort. Operational specifics — the fund-by-fund source registry, the IdeaScale capture strategy, and the preservation repository design — are documented in companion planning artifacts (`docs/IDEASCALE_PRESERVATION.md` today; further fund-registry and capture-strategy artifacts in subsequent phases). The methodology in this section governs all of them. If a planning artifact specifies a behavior that contradicts §24, this section is the authoritative description and the planning artifact must be revised.
+
+### 24.1 Scope
+
+FLOW-6 preserves the following classes of Catalyst record, in priority order:
+
+- **Proposal text and content.** The full submitted text of every Catalyst proposal as it appeared in the Catalyst voting record, including the proposal title, the problem statement, the solution description, the requested funding amount, and the proposer-supplied metadata (links, team members, milestones as proposed).
+- **Voting tallies.** The on-chain or platform-reported vote counts for each proposal, by fund and round. Includes yes / no / abstain (or the equivalent for the relevant fund's voting model), and the funded / not-funded outcome.
+- **Milestone records.** The status of each funded proposal's delivery milestones as recorded by `milestones.projectcatalyst.io` or any successor tool: planned milestones, claimed completions, signoff status, and any milestone-level revisions.
+- **Catalyst payout transactions.** On-chain ADA transfers from the Catalyst-fund-controlled accounts to recipient stake addresses. These are independently reconstructible from the Cardano blockchain via Koios; preservation of the on-chain transaction record is therefore lower priority than the off-chain content above, but the linkage between an on-chain payout and the off-chain proposal it funded is in scope.
+- **Fund-level metadata.** Per-fund landing page content, vote-result CSVs and PDFs, fund-level timeline information, and any IO- or Catalyst-Voices-published canonical record about how the fund operated.
+
+The preservation covers Funds 1 through the latest closed fund at the time of capture, including funds whose IdeaScale entries are already partially orphaned and including funds for which the on-chain record is the only intact source.
+
+What §24 does **not** preserve:
+
+- **Catalyst Voices governance content** (the successor platform). Once Catalyst Voices is the canonical surface, FLOW-6 may extend to it, but that is an extension that requires its own scope clarification at that time.
+- **Private proposal drafts** or workspace content not published in a fund's voting record.
+- **Personal information about proposers or voters** beyond what appears in the public Catalyst record (stake address, proposer-supplied team listing, public ideascale username, etc.). The observatory does not deanonymize or attempt off-chain identity linkage; §24's preservation surface inherits the §10 / §7 / §18.8 non-goals of the observatory at large.
+- **Editorial commentary about Catalyst funds**, whether community-authored or operator-authored.
+
+### 24.2 Preservation is not endorsement
+
+This is the load-bearing framing of FLOW-6, and it inherits from the planning artifact at `docs/IDEASCALE_PRESERVATION.md`:
+
+> The purpose of this preservation effort is **historical continuity, reproducibility, and governance memory.** It is **not** validation, promotion, or endorsement of any proposal, recipient, fund, or methodology.
+
+The archive surfaces every captured record without ranking, framing, commentary, classification, or value judgment. This applies symmetrically to:
+
+- Successfully funded proposals **and** unfunded proposals.
+- Proposals that delivered their milestones **and** those that did not.
+- Recipients who later became prominent ecosystem participants **and** those who did not.
+- Funds the community considers successes **and** those it considers failures.
+- Proposals that align with the operator's views **and** proposals that do not.
+
+The archive does not score recipients, does not flag "failed" milestones as failures, does not categorize proposals by quality, and does not connect proposals to off-chain identity. Capturing a record is the act of recording. Reasoning about what a record *means* is the reader's job, not the archive's.
+
+This rule is identical in spirit to §20.7 ("no major/minor distinction"), §22.7 ("no recipient evaluation"), and §18.8 ("flow data does not mean approval"). FLOW-6 extends the same posture to a new corpus.
+
+### 24.3 Source authority hierarchy
+
+For every captured artifact, the archive identifies the source's authority class. The classes are ordered by preference; when more than one source is available for the same datum, the higher-authority source is the canonical reference and the lower-authority sources are preserved as corroboration.
+
+- **Class A — On-chain.** The Cardano blockchain itself, accessed via Koios or an equivalent open API. This is the only class of source for which the observatory does not require an independent capture: the chain is already preserved by the protocol, and any reproducer can re-query Koios to verify. The archive records the canonical query (endpoint + parameters + a snapshot date) rather than the response bytes.
+- **Class B — Official Catalyst-issued.** Published artifacts from `projectcatalyst.io`, IO-published GitHub repositories (e.g., `input-output-hk/catalyst-core`), and any successor official Catalyst publication channel. These are the highest-authority off-chain sources. The archive captures the bytes plus full chain-of-custody manifest per §24.4.
+- **Class C — Catalyst-platform-hosted.** Content hosted on `cardano.ideascale.com` while IdeaScale remains live, and on Catalyst Voices once it is the active platform. This is the highest-risk class because the platforms themselves may sunset. Capture priority is highest here.
+- **Class D — Community-maintained.** Mirrors and aggregations from `catalystexplorer.com`, `lidonation.com`, and similar community-run sources. These are preserved as corroboration when they cover the same record as a Class B or C source, and as a primary record when no higher-authority source exists for a given datum.
+- **Class E — Researcher capture.** Captures performed by individual researchers, contributed to the archive with attribution. Used when no other source is available. Treated as a primary record only after a chain-of-custody review per §24.4.
+
+When a datum exists in multiple classes, the archive cites the highest-authority class as canonical and records the others as supporting. The fund-by-fund source registry (Phase 2 of FLOW-6) makes the authority assignment explicit per fund.
+
+### 24.4 Chain-of-custody requirements
+
+Every captured artifact has a chain-of-custody manifest. No artifact enters the archive without one. The manifest format is the JSON sidecar specified in `docs/IDEASCALE_PRESERVATION.md` and is canonicalized here:
+
+For an artifact stored at relative path `{P}`, a sidecar at `{P}.custody.json` records, at minimum:
+
+| Field | Required | Description |
+|---|---|---|
+| `source_url` | yes | The exact URL the artifact was fetched from, including query parameters. |
+| `capture_date` | yes | UTC timestamp of the fetch, ISO 8601, second precision or better. |
+| `capture_method` | yes | The tool and flags used (`wget --mirror --convert-links --adjust-extension`, `curl -sL`, `git clone --mirror`, `browser-save-as`, `manual-screenshot`, etc.). |
+| `capture_operator` | yes | Who performed the capture. The operator's GitHub handle, or an attribution string for community-contributed captures, or `anonymous` if the contributor requested anonymity (still recorded so the *fact* of anonymity is transparent). |
+| `sha256` | yes | SHA-256 hash of the raw captured bytes, as written to disk, before any post-processing. |
+| `content_type` | yes | The HTTP `Content-Type` header value (or, for non-HTTP captures, the equivalent — `application/json`, `text/html`, `application/pdf`, etc.). |
+| `http_status` | when applicable | The HTTP response status code (`200`, `301→200`, etc.). |
+| `source_authority_class` | yes | One of `A` / `B` / `C` / `D` / `E` per §24.3. |
+| `notes` | optional | Operationally relevant context: retries needed, partial fetches, encoding peculiarities, etc. Never editorial. |
+
+A bulk capture operation (e.g., `wget --mirror` of a fund's IdeaScale section) generates per-file custody manifests automatically via a wrapper script. The wrapper additionally writes a `CAPTURE_LOG.json` for that session recording the parent capture command, total bytes, file count, and start/end timestamps. The per-file manifests reference the session log by `capture_session_id`.
+
+When the same artifact is captured by multiple methods (e.g., direct `wget` AND a Wayback Machine submission of the same URL on the same date), each capture has its own manifest. The archive does not deduplicate at the manifest layer; researchers can compare hashes to confirm independence.
+
+### 24.5 Provenance retention
+
+For every URL captured under Class B or Class C, the archive also submits the URL to a public web archival service (Wayback Machine, `archive.today`, or both, per the contributor's discretion) within 24 hours of the capture. The capture manifest records the resulting archive URL in a `wayback_url` field. This is the belt-and-suspenders for cases where:
+
+- The captured bytes are later challenged on authenticity grounds.
+- The captured file is corrupted at rest.
+- The local archive's continued accessibility is in doubt.
+
+A future researcher can verify the captured artifact's content matches the Wayback Machine snapshot taken at the same `capture_date`. If they match, the bytes are authentic regardless of whether the original `source_url` still resolves.
+
+The archive does not depend on the Wayback Machine being available. The local capture is canonical; the Wayback submission is supplementary. If the Wayback submission fails, the manifest records the attempt with a null `wayback_url` and the capture still enters the archive.
+
+### 24.6 Reproducibility and verifiability
+
+The archive is designed so that an independent researcher can perform the following verification chain without operator cooperation:
+
+1. **File integrity.** Compute SHA-256 of the artifact at path `{P}` in their local copy and compare to `sha256` in `{P}.custody.json`. If they match, the file has not been corrupted at rest.
+2. **Provenance integrity.** Fetch the artifact from `wayback_url` (or, if available, from `source_url` if still live). Verify the content matches the local file. If they match, the local file is what was captured.
+3. **Authority integrity.** Cross-reference the `source_url` against the source authority hierarchy in §24.3. Confirm the assigned `source_authority_class` matches the URL's actual authority.
+4. **Capture transparency.** The `capture_method`, `capture_operator`, and `capture_date` fields disclose how, by whom, and when. A researcher can replicate the capture (modulo content drift since `capture_date`) to confirm the method produces output consistent with the archive.
+
+Any researcher publication that cites a captured Catalyst proposal can include the artifact's SHA-256 hash and `wayback_url` as the canonical reference. Subsequent readers can verify the same file is what was cited. This makes the archive citable, auditable, and durable.
+
+### 24.7 Repository separation
+
+The Catalyst preservation archive is **a separate repository** from the observatory at `~/observatory/`. It is not committed to the observatory's git history, is not deployed by the observatory's nginx, and is not consumed by the observatory's ETL.
+
+Reasons:
+
+- **Footprint.** A full IdeaScale mirror is hundreds of megabytes to gigabytes. The observatory's repo is intentionally lean (current `data/snapshots/` excluded; code only). Mixing them is operationally hostile.
+- **Lifecycle.** The observatory updates daily and is high-tempo. The Catalyst archive is mostly write-once-then-read; its commit cadence is bursty (during capture phases) and then near-zero (during steady-state).
+- **License surface.** The observatory is Apache 2.0 (code) and CC0 (data). The Catalyst archive contains third-party content whose licensing varies by source; the archive's storage repo carries its own LICENSE statement clarifying that the captured content is preserved under fair-use / archival-preservation grounds and that downstream use must follow each captured artifact's own license terms. Co-locating with observatory CC0 would create confusion about what is and is not CC0.
+- **Trust boundary.** The observatory is a numerical data layer. The Catalyst archive is a content-preservation layer. Their failure modes are different and their reviewers will be different.
+
+The Catalyst archive's repository is the canonical home for the artifacts. The observatory may, in a future FLOW-6 surfacing phase (the analytical phase, explicitly NOT part of §24 itself), index *into* the archive's URLs and surface limited cross-references. That surfacing is out of scope for this section.
+
+### 24.8 What §24 explicitly does NOT do
+
+- It does not analyze proposal content. No NLP, no topic modeling, no sentiment classification, no automated categorization. The archive is bytes plus manifests; interpretation is downstream.
+- It does not rank funds, proposals, or recipients. No "top funded," no "most controversial," no "successful fund." Rank framings are exactly the kind of editorial dimension §20.7 already prohibits in the observatory; the archive inherits the same prohibition.
+- It does not score milestone completion. A proposal whose milestones were not signed off is preserved as-is, with whatever milestone tracker state existed at capture date. No "missed" / "delivered" / "stalled" flags are computed by the archive.
+- It does not link proposals to off-chain identities beyond what the proposer themselves recorded in the on-platform record. Catalyst is full of public-figure proposers; the archive does not add Wikipedia links, X/Twitter handles, or any other off-platform identity hint.
+- It does not editorialize trigger conditions for capture beyond the operational signals documented in the planning artifact (sunset announcements, observed 404s, repo archival flags).
+- It does not deduplicate proposers across funds. If a single proposer submitted to multiple funds, each submission is a separate archived record. Identity-linking is a downstream analytical task that the archive deliberately leaves to researchers.
+- It does not interpret missing records as evidence of anything. If a fund's IdeaScale section is incomplete at capture time, the archive records what it could capture and flags the gap honestly in the manifest. No claims are made about why a record is missing.
+
+### 24.9 Lifecycle and trigger conditions
+
+Capture proceeds in priority bands defined by source authority class and platform-sunset risk:
+
+- **Band 1 — At-risk Class C platforms.** Capture before any of (a) IdeaScale announces a sunset date, (b) the first observed 404 on a previously-working `cardano.ideascale.com` URL, (c) IO archives `catalyst-core` with a "deleted" indicator (currently archived-but-browsable). The first signal is the most likely; the second is the hard deadline.
+- **Band 2 — Class B canonical sources.** Capture on a schedule that re-fetches each Class B source quarterly or on any observed structural change. Includes per-fund landing pages, voting result PDFs and CSVs, and `catalyst-core` archival snapshots.
+- **Band 3 — Class A on-chain.** Reconstructed on demand from Koios; no proactive capture beyond the canonical query record. Re-reconstructible by any third party with Koios access.
+- **Band 4 — Class D community.** Mirrored when a new fund closes and when the community source publishes a new full-dump; otherwise tracked by the source's own update cadence.
+
+The archive's `INDEX.json` at each subfolder level records the last capture date per artifact. Re-captures of the same `source_url` produce a new dated artifact (`{date}/path/file.html`) rather than overwriting the prior capture; the prior capture remains in place as a historical record of what the source looked like at that date. This is the same immutability rule that §21.7 enforces on observatory snapshots, applied to the Catalyst archive.
+
+### 24.10 Versioning
+
+This section ships with `methodology_version = "0.9"`. The bump from `0.8` to `0.9` reflects the new commitment to the Catalyst preservation surface; the observatory's existing schema and code paths are unchanged by §24 (the preservation archive lives in its own repository per §24.7).
+
+`schema_version` remains `2`. No tables are added to the observatory's SQLite database; no exports are added under `/data/snapshots/`. If a future analytical phase surfaces archive cross-references in the observatory, that phase will define its own schema additions and bump `schema_version` at that time.
+
+### 24.11 Relationship to existing methodology sections
+
+§24 inherits from and respects the existing methodology framework:
+
+- §2 (what this site does not do): the §2 list extends to "scoring or ranking Catalyst proposals" implicitly via §24.8.
+- §10 (operator disclosure): the operator's COI disclosure already covers stake pool, DRep registration, and CTF authorship. The operator is also a Catalyst voter and may have submitted to past funds; this is a class-of-COI that exists for many ecosystem participants. The archive's content-neutrality (§24.2) is the structural guarantee that operator involvement does not bias the archive. No additional per-fund disclosure is required so long as the operator is acting as archive operator only, not as commentator.
+- §13 (pages and public exports): §24 adds no public export under the observatory's data URLs. The archive's own publication channel is documented in its own repository's README.
+- §20 (governance history layer): §24 is the off-chain governance history complement to §20's on-chain governance history. The two are conceptually parallel: one preserves what the protocol recorded about governance, the other preserves what the off-chain Catalyst process recorded about proposals.
+- §21 (historical snapshot browser): §24's "re-captures produce new dated artifacts, never overwrite" rule mirrors §21.7's immutability rule.
+- §22 (treasury observability): §24 has no direct treasury connection in v0.9. A future phase may link Catalyst payout transactions to treasury events, but that linkage is downstream analysis and explicitly out of scope here.
+
+### 24.12 Phases beyond §24
+
+Phase 2 of FLOW-6 produces the **fund-by-fund source registry**, listing per-fund (Fund 1 through Current) the primary source, secondary source(s), preservation status (planned / in-progress / captured / verified), and authority class assignment. This artifact is `docs/CATALYST_SOURCE_REGISTRY.md` once drafted.
+
+Phase 3 of FLOW-6 produces the **IdeaScale capture strategy** with explicit answers to: what gets captured (URL set + per-fund extent), what format (HTML mirror via `wget --mirror`, JSON via `catalystexplorer.com` OpenAPI, PDFs verbatim), where stored (path conventions in the separate archive repo), hash strategy (per §24.4), and chain-of-custody specifics (the wrapper script for bulk captures, the Wayback submission workflow). This artifact is `docs/IDEASCALE_CAPTURE_STRATEGY.md` once drafted.
+
+Phase 4 of FLOW-6 produces the **preservation repository design**: the new repository's layout, README, LICENSE handling, INDEX.json schema, and the boundary contract between it and the observatory repository. This is documented in the new repository's own `README.md` when created.
+
+Phase 5 — **capture itself** — is gated on Phases 2, 3, and 4 being complete and approved. No scraping, no `wget --mirror`, no `git clone --mirror`, no manual capture happens before the methodology in §24 plus the operational artifacts in Phases 2–4 are in place. This gate is non-negotiable; it exists to ensure that the very first byte ever captured under the archive carries a chain-of-custody manifest that satisfies §24.4 from artifact zero onward.
 
 ## 12. v0.1 scope limitations
 
