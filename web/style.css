@@ -488,3 +488,20 @@ tr.expand-row:hover { background: var(--card); }
   border-bottom: 0.5px solid var(--border);
 }
 .methodology table.changelog th { font-weight: 600; color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* JA-3: inline EN/JA bilingual blocks (used in methodology.html and on any
+ * page where translated content contains hyperlinks that textContent-based
+ * i18n cannot preserve). Pairs of <span class="en">...</span><span
+ * class="ja">...</span> (or block-level pairs of <p class="en"> / <p class="ja">)
+ * are shown/hidden by the html[lang] attribute that i18n.js setLang() sets.
+ * Note the unobservable side-effect of always rendering both halves in the
+ * DOM, which is fine for our sizes (each methodology section's JA is a few
+ * hundred bytes) and is exactly what enables hyperlink preservation across
+ * language toggles — the anchor children are real DOM, not textContent. */
+html[lang="en"] .ja { display: none; }
+html[lang="ja"] .en { display: none; }
+/* When EN/JA siblings sit inline in a paragraph, there can be a residual
+ * space-or-newline between the hidden element and its visible sibling. The
+ * normal whitespace-collapse handles most cases; this rule prevents an
+ * extra leading space at the start of the visible block in flex contexts. */
+.lang-block { display: contents; }

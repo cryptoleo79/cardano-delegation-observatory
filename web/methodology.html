@@ -54,7 +54,7 @@
     <p class="lede">This document describes exactly what data the Cardano Delegation Observatory collects, how the values shown on the site are computed, what is deliberately not included, and how anyone can reproduce the published results from public data.</p>
     <p class="lede">This page is the legitimacy core of the project. Every operational decision is documented here. If you find an inconsistency between this page and what the site shows, this page is the authoritative description; please open an issue.</p>
 
-    <h2>1. What this site does</h2>
+    <h2 id="section-1">1. What this site does</h2>
     <p>The Cardano Delegation Observatory takes a daily snapshot of voting weight delegated to active Cardano DReps and publishes:</p>
     <ul>
       <li>The 30 DReps with the highest current voting weight.</li>
@@ -63,7 +63,7 @@
     </ul>
     <p>All data is derived from the Cardano blockchain via the Koios API. No private data sources are used.</p>
 
-    <h2>2. What this site does not do</h2>
+    <h2 id="section-2">2. What this site does not do</h2>
     <p>The site does not compute or display:</p>
     <ul>
       <li>Trust scores or composite ratings of any kind.</li>
@@ -79,7 +79,7 @@
     </ul>
     <p>If a future version of the site is considered for any of these, this document and the project's changelog (§11) will be updated <em>before</em> the feature is shipped, and a comment period will be provided.</p>
 
-    <h2>3. Data sources</h2>
+    <h2 id="section-3">3. Data sources</h2>
     <p><strong>Primary:</strong> <a href="https://api.koios.rest/" target="_blank" rel="noopener">Koios API</a> — a community-run REST interface over Cardano <code>db-sync</code>. Free tier is sufficient for the daily snapshot pattern this site uses.</p>
     <p>Endpoints used (reproducible from the source at <code>etl/snapshot.py</code>):</p>
     <ul>
@@ -93,14 +93,14 @@
     </ul>
     <p>DRep metadata content is consumed via Koios's <code>drep_metadata</code> endpoint and its <code>is_valid</code> flag; see §8 for the full handling chain and the v0.2 plan for independent fetch + verification.</p>
 
-    <h2>4. Update cadence</h2>
+    <h2 id="section-4">4. Update cadence</h2>
     <p>The observatory has two cadences. The <strong>daily layer</strong> is canonical for everything reported as "Data through {date}"; the <strong>live telemetry layer</strong> (described in §14) is supplemental and refreshes more often but writes a narrower set of data.</p>
     <p>The <strong>daily ETL</strong> runs once a day at <strong>02:00 UTC</strong>.</p>
     <p>Each daily run captures live DRep state at the moment of the run. The site displays the daily snapshot under the label <strong>"Data through {YYYY-MM-DD}"</strong>. Daily updates happen at most once per day, so lag from any on-chain event to its appearance in the daily layer is <strong>at most approximately 24 hours</strong>.</p>
     <p>If the daily ETL run fails, the prior daily snapshot remains displayed unchanged. No partial or potentially inconsistent daily data is ever published. The site's <strong>"Last successful update"</strong> timestamp signals staleness if the daily data is older than 36 hours.</p>
     <p>The <strong>live telemetry layer</strong> runs every 10 minutes via a separate cron entry; its cadence, scope, and limitations are defined in §14.</p>
 
-    <h2>5. Selection criteria</h2>
+    <h2 id="section-5">5. Selection criteria</h2>
     <p>The 30 DReps shown on the main page are selected by:</p>
     <ul>
       <li><strong>Active registration status</strong> — Koios <code>drep_info.active = true</code> for the current epoch. This excludes DReps whose registration has expired or been deregistered.</li>
@@ -110,7 +110,7 @@
     </ul>
     <p>This selection is fully deterministic and reproducible from public data. There is <strong>no manual curation, no featured selection, and no operator-influenced ranking</strong>. The ranking criteria above are the only criteria; changes to them will be documented in §11 with rationale.</p>
 
-    <h2>6. Fields displayed per DRep</h2>
+    <h2 id="section-6">6. Fields displayed per DRep</h2>
     <ul>
       <li><strong>DRep ID</strong> — the bech32 <code>drep1...</code> identifier from the on-chain registration certificate.</li>
       <li><strong>Name</strong> — the value of the <code>givenName</code> field in the DRep's on-chain metadata, if present and verified. If the metadata fails hash verification, contains no <code>givenName</code> field, or no metadata URL was registered, this field is empty.</li>
@@ -122,7 +122,7 @@
       <li><strong>90-day chart</strong> (per-DRep expand) — the daily series of voting weight for the last 90 snapshots, with epoch boundaries shown as light vertical markers and governance action submission dates shown as labeled vertical markers.</li>
     </ul>
 
-    <h2>7. Fields not displayed</h2>
+    <h2 id="section-7">7. Fields not displayed</h2>
     <p>This list is exhaustive for v0.1. Any addition requires a §11 changelog entry written <em>before</em> the change ships:</p>
     <ul>
       <li>Off-chain identity not provided by the DRep.</li>
@@ -133,7 +133,7 @@
       <li>Any "highlights," "alerts," or "of note" framing.</li>
     </ul>
 
-    <h2>8. Metadata handling</h2>
+    <h2 id="section-8">8. Metadata handling</h2>
     <p>DRep metadata URLs may return arbitrary content. In v0.1, metadata content is consumed via the Koios <code>drep_metadata</code> endpoint, which fetches the off-chain JSON, hashes it, and applies CIP-100/CIP-119 validation. The observatory uses Koios's <code>is_valid</code> flag as the validation gate.</p>
     <ul>
       <li><strong>Validation gate</strong> — metadata flagged <code>is_valid = false</code> by Koios is ignored entirely. No name is extracted; the DRep entry shows the bech32 DRep ID only.</li>
@@ -143,12 +143,12 @@
     </ul>
     <p>In v0.2, the observatory may move to fetching metadata directly from the on-chain URL with independent SHA-256 verification, removing Koios from the trust path for metadata content. This is a v0.2 candidate, not a v0.1 commitment.</p>
 
-    <h2>9. Right of reply</h2>
+    <h2 id="section-9">9. Right of reply</h2>
     <p>A DRep who wants to add context to their entry on this site should update their on-chain metadata. The observatory fetches the latest metadata each day and the new content will appear on the next snapshot.</p>
     <p>There is <strong>no operator-mediated channel</strong> for adding text, links, badges, or commentary to any DRep's entry. This is deliberate: the moment the operator can edit per-DRep content, the site has an editorial dimension.</p>
     <p>If a DRep believes a published number is computationally incorrect, please open an issue on the <a href="https://github.com/cryptoleo79/cardano-delegation-observatory" target="_blank" rel="noopener">GitHub repository</a> with the snapshot date, the field in question, and the value you expect. Computational corrections will be made publicly, with the changelog noting the affected dates.</p>
 
-    <h2>10. Operator</h2>
+    <h2 id="section-10">10. Operator</h2>
     <p>This observatory is operated by <a href="https://github.com/cryptoleo79" target="_blank" rel="noopener">cryptoleo79</a>, an independent Cardano stake pool operator and DRep.</p>
     <p><strong>Conflicts of interest disclosure:</strong></p>
     <ul>
@@ -158,7 +158,7 @@
     </ul>
     <p>The source code, deployment configuration, and data schema are all public in the <a href="https://github.com/cryptoleo79/cardano-delegation-observatory" target="_blank" rel="noopener">GitHub repository</a> under Apache 2.0. The published data is CC0. Anyone can independently reproduce all results from the cited public endpoints.</p>
 
-    <h2>11. Changelog</h2>
+    <h2 id="section-11">11. Changelog</h2>
     <p>For the canonical record, see <a href="https://github.com/cryptoleo79/cardano-delegation-observatory/blob/main/METHODOLOGY.md" target="_blank" rel="noopener">METHODOLOGY.md</a> in the repository. The summary below is mirrored from there:</p>
     <table class="changelog">
       <thead>
@@ -213,7 +213,7 @@
       </tbody>
     </table>
 
-    <h2>13. Pages and public exports</h2>
+    <h2 id="section-13">13. Pages and public exports</h2>
     <p>The observatory comprises four pages:</p>
     <ul>
       <li><strong>Observatory</strong> (<code>/</code>) — top-30 DReps by current voting weight, with Δ7d, Δ30d, delegator count, last vote epoch. Daily snapshot. Click any row to expand inline detail, or follow the "open full page" link to the per-DRep permalink page.</li>
@@ -232,7 +232,7 @@
     <p>The format is stable within a major version. Any field additions or removals are recorded in the §11 changelog before the change ships.</p>
     <p><strong>Vote tally semantics</strong> (in <code>actions.json</code>): the counts <code>drep_yes_count</code>, <code>drep_no_count</code>, <code>drep_abstain_count</code> for each action represent the most recent vote each DRep has cast on that action. When a DRep has revoted on the same action, only their chronologically latest vote is counted (see §6 for the revote-ordering rule). The counts are facts, not interpretations; they do not constitute approval or rejection signals.</p>
 
-    <h2>14. Live telemetry layer</h2>
+    <h2 id="section-14">14. Live telemetry layer</h2>
     <p>In addition to the daily snapshot, the observatory runs a <strong>live telemetry</strong> ETL every <strong>10 minutes</strong> to surface near-real-time governance pulse. This layer is deliberately narrow.</p>
     <p><strong>What the live layer fetches each run:</strong></p>
     <ul>
@@ -254,7 +254,7 @@
     </ul>
     <p>The daily ETL at 02:00 UTC is the source of truth and reconciles any divergence on its next run.</p>
 
-    <h2>15. Eventual consistency</h2>
+    <h2 id="section-15">15. Eventual consistency</h2>
     <p>Because two ETL processes share the same SQLite database, brief inconsistencies are possible:</p>
     <ul>
       <li>A vote captured by the live layer at 10:07 UTC may appear on the site at 10:08, before the next daily ETL run codifies it into the daily snapshot.</li>
@@ -264,7 +264,7 @@
     <p><strong>Reconciliation rule:</strong> the daily layer is canonical. If a discrepancy is observed between live and daily reports of the same fact, the daily value is the one to cite. The live layer exists to shorten the visibility lag, not to replace the daily layer.</p>
     <p>The site UI labels live-layer-sourced fields with an explicit "Live" indicator. Daily-layer fields have no such indicator; absence of label = canonical daily data.</p>
 
-    <h2>16. Koios rate-limit discipline</h2>
+    <h2 id="section-16">16. Koios rate-limit discipline</h2>
     <p>The observatory is a polite consumer of the Koios free tier. Estimated combined load with the live layer at 10-minute cadence:</p>
     <ul>
       <li>Daily ETL: ~136 calls/day</li>
@@ -273,7 +273,7 @@
     </ul>
     <p>This is well under typical free-tier limits. If Koios returns a 429 or persistent 5xx error, individual call retries use exponential backoff up to 2 retries (same as the daily layer). If retries fail, the run aborts cleanly, writes a failure record to <code>etl_runs</code>, and leaves all existing files in place. The next 10-minute cron tick is independent and will retry. There is no behavior that polls more aggressively under failure.</p>
 
-    <h2>17. Live-only data exports</h2>
+    <h2 id="section-17">17. Live-only data exports</h2>
     <p>All paths below are under <code>/data/snapshots/live/</code>, are CC0 licensed, and are regenerated by each successful live ETL run (every ~10 minutes). Format is stable within a major version.</p>
     <ul>
       <li><code>GET /data/snapshots/live/tip.json</code> — current epoch, block height, block time, last-fetched timestamp.</li>
@@ -282,7 +282,7 @@
     </ul>
     <p>The live exports do not duplicate any field that the daily layer publishes. They complement, never replace.</p>
 
-    <h2>18. Delegation flow (FLOW-1)</h2>
+    <h2 id="section-18">18. Delegation flow (FLOW-1)</h2>
     <p>This section defines exactly what "delegation movement" means within the observatory. The boundary is sharp: the observatory measures <em>what changed</em> between two snapshots; it does not infer <em>why</em> the change happened. Every flow metric below is computed directly from the daily snapshot record (§5) and carries no editorial dimension.</p>
 
     <h3 style="font-size:14px; margin-top:18px;">18.1 Quantities measured</h3>
@@ -346,7 +346,7 @@
     </ul>
     <p>Readers — researchers, journalists, DReps themselves — interpret what they see. The site does not.</p>
 
-    <h2>19. Governance event overlays (FLOW-2)</h2>
+    <h2 id="section-19">19. Governance event overlays (FLOW-2)</h2>
     <p>This section defines how governance actions are displayed in time alongside delegation movement on the per-DRep voting weight chart. The boundary is sharp: the observatory shows <em>temporal proximity</em> between delegation movement and governance events; it makes no claim about <em>causation</em>.</p>
 
     <h3 style="font-size:14px; margin-top:18px;">19.1 Event types overlaid</h3>
@@ -398,7 +398,7 @@
     <h3 style="font-size:14px; margin-top:18px;">19.8 Reproducibility commitment</h3>
     <p>Every overlay marker is derivable from <code>governance_actions</code> (action_id + epoch fields), <code>proposal_list.block_time</code>, and the <code>epoch_info</code> mapping. All three are CC0; FLOW-2 adds the export at <code>/data/snapshots/epoch_info.json</code>.</p>
 
-    <h2>20. Governance history layer (FLOW-3)</h2>
+    <h2 id="section-20">20. Governance history layer (FLOW-3)</h2>
     <p>This section defines how the observatory retains, organizes, and presents historical governance data. The boundary is sharp: the observatory records <em>what happened</em> (actions, votes, dates, state transitions) without claiming what was important, significant, successful, or popular.</p>
 
     <h3 style="font-size:14px; margin-top:18px;">20.1 Scope</h3>
@@ -465,7 +465,7 @@
     <h3 style="font-size:14px; margin-top:18px;">20.11 Reproducibility commitment</h3>
     <p>Every action detail page is derivable from <code>actions.json</code> plus the <code>votes</code> records. For voters outside the top-30, names are not shown; this constraint applies equally to anyone running an independent observatory (the operator has no special data access).</p>
 
-    <h2>21. Historical snapshot browser (FLOW-4)</h2>
+    <h2 id="section-21">21. Historical snapshot browser (FLOW-4)</h2>
     <p>This section defines how the observatory exposes its accumulated daily snapshots as a navigable historical record. The boundary is sharp: the browser surfaces <em>the state that existed</em> at a given date or epoch; it does not interpret, narrate, or contextualize that state.</p>
 
     <h3 style="font-size:14px; margin-top:18px;">21.1 What a historical state is</h3>
@@ -548,7 +548,7 @@
     <p><strong>Verification protocol.</strong> Any third party can: (1) compute SHA-256 of each file in a downloaded archive (excluding <code>sha256.json</code>); (2) compare against the corresponding entry in <code>sha256.json</code>; (3) treat any mismatch as evidence that one of the files has been modified after the snapshot was sealed.</p>
     <p>Hashes are not cryptographically signed in v0.7. Signing is a v0.8+ candidate.</p>
 
-    <h2>12. v0.1 scope limitations</h2>
+    <h2 id="section-12">12. v0.1 scope limitations</h2>
     <p>The site is deliberately narrow at v0.1. The following are out of scope for this version and disclosed here transparently rather than masked with synthetic or interpolated values:</p>
     <ul>
       <li><strong>Delegator counts</strong> are fetched only for the top 60 candidates per daily run (to support top-30 ranking with headroom), not all active DReps. The remaining active DReps are visible via the underlying Koios API for anyone who needs them.</li>

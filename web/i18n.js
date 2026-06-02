@@ -27,7 +27,8 @@ const i18n = {
 
     /* Recent activity section */
     "recent-activity-title": "Recent governance activity",
-    "recent-activity-lede": "Most recent DRep votes recorded on chain, refreshed every ~10 minutes from the live telemetry layer. Timestamps are exact UTC. See Methodology §14 for cadence and reconciliation rules.",
+    "recent-activity-lede": "Most recent DRep votes recorded on chain, refreshed every ~10 minutes from the live telemetry layer. Timestamps are exact UTC.",
+    "cite-s14": "See Methodology §14.",
     "recent-activity-footnote": "Source: /data/snapshots/live/recent_votes.json · CC0.",
     "th-act-time": "Block time (UTC)",
     "th-act-epoch": "Epoch",
@@ -92,7 +93,8 @@ const i18n = {
     "th-act-yes": "DRep yes",
     "th-act-no": "DRep no",
     "th-act-abstain": "DRep abstain",
-    "footnote-actions": "Vote counts are the most recent vote cast by each DRep on each action. When a DRep revoted on the same action, only the chronologically latest vote is counted. See Methodology §6.",
+    "footnote-actions": "Vote counts are the most recent vote cast by each DRep on each action. When a DRep revoted on the same action, only the chronologically latest vote is counted.",
+    "cite-s6-actions": "See Methodology §6.",
 
     /* Download row */
     "download-label": "Download this snapshot:",
@@ -116,7 +118,8 @@ const i18n = {
     /* FLOW-4 — History page + provenance strip */
     "h-nav-history": "History",
     "history-title": "Historical snapshots",
-    "history-lede": "Every daily snapshot archived under /data/snapshots/by-date/{YYYY-MM-DD}/. Snapshots are immutable once published. Missing dates (failed ETL runs) are not interpolated; they simply do not appear. See Methodology §21.",
+    "history-lede": "Every daily snapshot archived under /data/snapshots/by-date/{YYYY-MM-DD}/. Snapshots are immutable once published. Missing dates (failed ETL runs) are not interpolated; they simply do not appear.",
+    "cite-s21": "See Methodology §21.",
     "hs-first-label": "First archived",
     "hs-latest-label": "Latest archived",
     "hs-total-label": "Total days",
@@ -136,7 +139,8 @@ const i18n = {
 
     /* FLOW-1 — Recent net change panel */
     "drep-recent-change-label": "Recent net change",
-    "drep-recent-change-help": "Net snapshot-to-snapshot deltas. See Methodology §18. Movement only; not migration; not attributable to motive.",
+    "drep-recent-change-help": "Net snapshot-to-snapshot deltas. Movement only; not migration; not attributable to motive.",
+    "cite-s18": "See Methodology §18.",
     "th-rc-interval": "Interval",
     "th-rc-vw": "Net voting weight (ADA)",
     "th-rc-dc": "Net delegators",
@@ -155,7 +159,8 @@ const i18n = {
     "stat-no-label": "No",
     "stat-abstain-label": "Abstain",
     "action-timeline-label": "Timeline",
-    "action-timeline-help": "Protocol-observed events. Active actions show submission only until a terminal state is observed. See Methodology §20.3.",
+    "action-timeline-help": "Protocol-observed events. Active actions show submission only until a terminal state is observed.",
+    "cite-s20-3": "See Methodology §20.3.",
     "th-tl-event": "Event",
     "th-tl-date": "Date (UTC)",
     "th-tl-epoch": "Epoch",
@@ -168,7 +173,8 @@ const i18n = {
     "action-withdrawals-total-label": "Total",
 
     "action-tally-label": "Vote tally",
-    "action-tally-help": "Counts are the most recent vote cast by each DRep on this action (per §6 revote rule). No approval/rejection framing — protocol terms only.",
+    "action-tally-help": "Counts are the most recent vote cast by each DRep on this action. Revoted positions use the chronologically latest. No approval/rejection framing — protocol terms only.",
+    "cite-s6-action": "See Methodology §6.",
     "action-votes-label": "DRep votes",
     "action-votes-help": "DRep names appear only when registered in on-chain metadata. Other voters appear by truncated DRep ID.",
     "action-votes-show-all": "Show all votes",
@@ -207,7 +213,8 @@ const i18n = {
 
     /* Recent activity section */
     "recent-activity-title": "最近のガバナンス・アクティビティ",
-    "recent-activity-lede": "オンチェーンに記録された直近のDRep投票。ライブテレメトリー層から約10分ごとに更新される。タイムスタンプはUTCの絶対時刻。更新頻度と整合性ルールは方法論 §14 を参照。",
+    "recent-activity-lede": "オンチェーンに記録された直近のDRep投票。ライブテレメトリー層から約10分ごとに更新される。タイムスタンプはUTCの絶対時刻である。",
+    "cite-s14": "方法論 §14 を参照。",
     "recent-activity-footnote": "ソース: /data/snapshots/live/recent_votes.json · CC0。",
     "th-act-time": "ブロック時刻 (UTC)",
     "th-act-epoch": "エポック",
@@ -272,7 +279,8 @@ const i18n = {
     "th-act-yes": "DRep 賛成",
     "th-act-no": "DRep 反対",
     "th-act-abstain": "DRep 棄権",
-    "footnote-actions": "投票数は、各DRepが各アクションに対して最後に投じた票に基づく。DRepが同じアクションに対して再投票した場合は、時系列上で最新の票のみが集計される。詳細は方法論 §6 を参照。",
+    "footnote-actions": "投票数は、各DRepが各アクションに対して最後に投じた票に基づく。DRepが同じアクションに対して再投票した場合は、時系列上で最新の票のみが集計される。",
+    "cite-s6-actions": "方法論 §6 を参照。",
 
     /* Download row */
     "download-label": "このスナップショットをダウンロード:",
@@ -296,7 +304,8 @@ const i18n = {
     /* FLOW-4 — History page + provenance strip */
     "h-nav-history": "履歴",
     "history-title": "履歴スナップショット",
-    "history-lede": "/data/snapshots/by-date/{YYYY-MM-DD}/ 配下に保管された日次スナップショット一覧。公開後は不変。欠損日(ETL失敗)は補間せず、単純に表示しない。方法論 §21 を参照。",
+    "history-lede": "/data/snapshots/by-date/{YYYY-MM-DD}/ 配下に保管された日次スナップショット一覧。公開後は不変。欠損日(ETL失敗)は補間せず、単純に表示しない。",
+    "cite-s21": "方法論 §21 を参照。",
     "hs-first-label": "最古",
     "hs-latest-label": "最新",
     "hs-total-label": "総日数",
@@ -316,7 +325,8 @@ const i18n = {
 
     /* FLOW-1 — Recent net change panel */
     "drep-recent-change-label": "直近の純変動",
-    "drep-recent-change-help": "スナップショット間の純差分。詳細は方法論 §18 を参照。表示は変動のみ。移行(migration)とは別概念であり、動機は推定しない。",
+    "drep-recent-change-help": "スナップショット間の純差分。変動のみ。移行(migration)とは別概念であり、動機は推定しない。",
+    "cite-s18": "方法論 §18 を参照。",
     "th-rc-interval": "期間",
     "th-rc-vw": "投票権の純差分 (ADA)",
     "th-rc-dc": "委任者数の純差分",
@@ -335,7 +345,8 @@ const i18n = {
     "stat-no-label": "反対",
     "stat-abstain-label": "棄権",
     "action-timeline-label": "タイムライン",
-    "action-timeline-help": "プロトコルが観測したイベント。進行中のアクションは終局状態が観測されるまで「提出」のみを表示する。詳細は方法論 §20.3 を参照。",
+    "action-timeline-help": "プロトコルが観測したイベント。進行中のアクションは終局状態が観測されるまで「提出」のみを表示する。",
+    "cite-s20-3": "方法論 §20.3 を参照。",
     "th-tl-event": "イベント",
     "th-tl-date": "日付 (UTC)",
     "th-tl-epoch": "エポック",
@@ -348,7 +359,8 @@ const i18n = {
     "action-withdrawals-total-label": "合計",
 
     "action-tally-label": "投票集計",
-    "action-tally-help": "集計は各DRepがこのアクションに対して最後に投じた票(§6 の再投票ルール)。承認や否決といった言い方はせず、プロトコル上の用語のみを用いる。",
+    "action-tally-help": "集計は各DRepがこのアクションに対して最後に投じた票。再投票された場合は時系列上で最新の票のみを用いる。承認や否決といった言い方はせず、プロトコル上の用語のみを用いる。",
+    "cite-s6-action": "方法論 §6 を参照。",
     "action-votes-label": "DRep投票",
     "action-votes-help": "DRep名はオンチェーン・メタデータに登録されている場合のみ表示。それ以外はDRep IDの一部のみ。",
     "action-votes-show-all": "すべての投票を表示",
