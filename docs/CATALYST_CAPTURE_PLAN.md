@@ -240,11 +240,19 @@ A campaign present in catalystexplorer but absent from Wayback is a **known-miss
 
 The presence of known-missing campaigns triggers a Phase 5 escalation: either (a) the operator requests an IdeaScale API token from Catalyst Foundation via formal channels to capture the missing campaigns, or (b) those campaigns are recorded as lost in the archive's documentation and FLOW-6 proceeds with the Wayback-known subset. The escalation decision is made *after* the Wayback enumeration is complete and the gap is quantified, not pre-decided here.
 
-### 3.5 Tertiary path: IdeaScale API token (gated externally)
+### 3.5 Path explicitly not pursued: IdeaScale API token
 
-If §3.3's gap analysis reveals significant missing campaigns, the operator may request an IdeaScale API token from Catalyst Foundation. The endpoint `GET /a/rest/v1/campaigns/groups/{fund_group_id}` returns the authoritative campaign list per fund. Known `fund_group_id` mappings: F9 = 8104; F11 = 91 (in the `temp-cardano-sandbox.ideascale.com` workspace). Other fund_group_ids would need to be discovered as part of the token request.
+The endpoint `GET /a/rest/v1/campaigns/groups/{fund_group_id}` exists. It returns the authoritative campaign list per fund. Known `fund_group_id` mappings observed during research: F9 = 8104; F11 = 91 (in the `temp-cardano-sandbox.ideascale.com` workspace). Other fund_group_ids would need to be discovered separately.
 
-**This path is gated externally** — it requires obtaining a token from Catalyst Foundation. The plan documents the path so it is ready to execute if Phase 5 escalation calls for it, but does not assume the token is obtainable. **Per robots.txt, this path also requires explicit authorization** since `/a/rest/` is disallowed for the wildcard user-agent; the API-token request implicitly carries that authorization.
+**FLOW-6 does not pursue this path.** Reasons:
+
+- The endpoint is `robots.txt`-disallowed for `User-agent: *`.
+- Access requires a token historically held by IOG that appears to be burned.
+- Obtaining a new token would require explicit arrangement with Catalyst Foundation — a private-access dependency that runs counter to the archive's commitment to be reproducible by ordinary researchers (per `METHODOLOGY.md §24` and `docs/CATALYST_ARCHIVE_REPOSITORY_DESIGN.md` "Architectural facts" item 4).
+
+The path is documented here as a factual observation about IdeaScale's API surface, not as part of the FLOW-6 capture plan. If Catalyst Foundation independently publishes a structured Catalyst dataset that supersedes the IdeaScale API path (without per-researcher token gating), the archive can add it as a new Class B source at that time. Until then, the Wayback CDX → snapshot-parse path (§3.2) is the canonical IdeaScale source under FLOW-6.
+
+Known-missing campaigns identified by the §3.4 gap detection are recorded in `ideascale/known-missing.json` and remain known-missing. They are not pursued via API.
 
 ### 3.6 What this strategy implies for §2.3
 
@@ -475,8 +483,8 @@ Until Phase 4 is drafted and approved, no Catalyst archive repository exists. Ph
 - **Headless-browser escalation policy.** If a milestone-tracker page is JS-rendered to the point where polite-client GET captures meaningless HTML, the plan as written says "Phase 5 produces a documented amendment." Phase 4 may want to pre-approve a headless-browser escalation policy so Phase 5 has clear permission.
 - **Researcher contribution workflow.** Class E (researcher capture) requires a contribution path. Phase 4 defines the PR template, chain-of-custody review checklist, and the gating for accepting a Class E capture as a primary record (per `§24.3`).
 - **Repository size budget.** Now revised downward given the Phase 3 finding that IdeaScale is preserved via Wayback (which already holds the archived bytes) and that the local archive holds only the post-strip Wayback snapshots: estimated size is in the tens-to-low-hundreds of megabytes per fund's IdeaScale content rather than gigabytes. Still — the catalyst-core bare mirror plus all of `projectcatalyst.io` plus 238 IdeaScale campaigns × ~50 KB per snapshot × multiple snapshots over time is non-trivial. Phase 4 decides: git LFS, separate object-storage host with manifests-in-repo + objects-out-of-repo, or full in-repo storage. Each has trade-offs.
-- **IdeaScale API token request.** Phase 3 documented the API-token path (`§3.5`) as a tertiary fallback for campaigns Wayback never archived. Phase 4 decides: should the operator initiate a formal token request to Catalyst Foundation as a precondition to Phase 5, or wait until the Wayback enumeration has run and the gap is quantified? Recommend the latter — the token request has external dependency and unknown response time; deferring it until the gap is quantified means the request can be specific about which campaigns are missing rather than a generic ask.
-- **catalyst-core decryption key.** The F2–F9 encrypted SQLite databases are a known gap. Phase 4 decides: should the operator request the decryption key from IO / Cardano Foundation as part of the FLOW-6 preservation effort? If yes, what is the request channel — GitHub issue on `cardano-foundation/catalyst-core`, direct email, Catalyst Foundation governance proposal? Independent of the request outcome, the encrypted bytes are preserved verbatim so the question can be revisited at any time.
+- **IdeaScale API token request.** Resolved by Phase 4: NOT pursued under FLOW-6. The archive's commitment to remain reproducible by ordinary researchers excludes private-access dependencies. The Wayback CDX path (§3.2) is the canonical IdeaScale source. Known-missing campaigns remain known-missing; they are not chased via API.
+- **catalyst-core decryption key.** Resolved by Phase 4: NOT requested under FLOW-6. Same reasoning — building on a special-arrangement dependency runs counter to the archive's reproducibility commitment. The encrypted bytes are preserved verbatim; if a key is later published openly by IO or Cardano Foundation, the archive's verify tooling can decrypt at that time and surface the interior content. Until then, the F2–F9 catalyst-core data is preserved as bytes-on-record, with the interior content gated on key availability.
 
 ## 12. Change log
 
