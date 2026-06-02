@@ -137,7 +137,9 @@ function buildChart(series, overlayEvents) {
       line.setAttribute("class", "chart-overlay");
       const title = document.createElementNS("http://www.w3.org/2000/svg", "title");
       const shortId = ev.action_id ? ev.action_id.slice(0, 16) + "…" : "—";
-      title.textContent = `${ev.event} · ${ev.action_type || "—"}\n${ev.date}\n${shortId}`;
+      const evDisp = window.cdoEnum("event", ev.event);
+      const atDisp = ev.action_type ? window.cdoEnum("action_type", ev.action_type) : "—";
+      title.textContent = `${evDisp} · ${atDisp}\n${ev.date}\n${shortId}`;
       line.appendChild(title);
       overlayGroup.appendChild(line);
     }
@@ -286,7 +288,7 @@ function render() {
     tr.appendChild(tdE);
     const tdV = document.createElement("td");
     tdV.className = "vote-cell";
-    tdV.textContent = safeText(v.vote);
+    tdV.textContent = window.cdoEnum("vote", v.vote);
     tr.appendChild(tdV);
     const tdA = document.createElement("td");
     tdA.className = "vote-action-title";
@@ -296,13 +298,13 @@ function render() {
     if (v.action_type) {
       const type = document.createElement("div");
       type.className = "vote-action-type";
-      type.textContent = safeText(v.action_type);
+      type.textContent = window.cdoEnum("action_type", v.action_type);
       tdA.appendChild(type);
     }
     tr.appendChild(tdA);
     const tdO = document.createElement("td");
     tdO.className = "vote-cell";
-    tdO.textContent = safeText(v.outcome) || "—";
+    tdO.textContent = v.outcome ? window.cdoEnum("outcome", v.outcome) : "—";
     tr.appendChild(tdO);
     tbody.appendChild(tr);
   }

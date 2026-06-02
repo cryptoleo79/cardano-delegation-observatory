@@ -96,7 +96,7 @@ function renderTimeline(d) {
     const tr = document.createElement("tr");
     const tdE = document.createElement("td");
     tdE.className = "vote-cell";
-    tdE.textContent = safeText(e.event);
+    tdE.textContent = window.cdoEnum("event", e.event);
     tr.appendChild(tdE);
     const tdD = document.createElement("td");
     tdD.textContent = safeText(e.date) || "—";
@@ -209,7 +209,7 @@ function renderVotes() {
 
     const tdV = document.createElement("td");
     tdV.className = "vote-cell";
-    tdV.textContent = safeText(v.vote);
+    tdV.textContent = window.cdoEnum("vote", v.vote);
     tr.appendChild(tdV);
 
     const tdE = document.createElement("td");
@@ -270,9 +270,9 @@ function render() {
     return;
   }
   document.getElementById("action-title").textContent = d.title || "—";
-  document.getElementById("action-type-line").textContent = d.action_type || "";
-  document.getElementById("stat-type").textContent = d.action_type || "—";
-  document.getElementById("stat-outcome").textContent = d.outcome || "—";
+  document.getElementById("action-type-line").textContent = d.action_type ? window.cdoEnum("action_type", d.action_type) : "";
+  document.getElementById("stat-type").textContent = d.action_type ? window.cdoEnum("action_type", d.action_type) : "—";
+  document.getElementById("stat-outcome").textContent = d.outcome ? window.cdoEnum("outcome", d.outcome) : "—";
   document.getElementById("stat-submitted").textContent = d.submission_date || "—";
   document.getElementById("stat-votes").textContent = fmtNum(d.votes ? d.votes.length : 0);
 

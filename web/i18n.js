@@ -364,9 +364,55 @@ const i18n = {
   },
 };
 
+/* Protocol enum translations. Keyed by category and raw value (case-sensitive,
+ * matching the data values exported by the ETL — see docs/JA_STYLE_GUIDE.md
+ * §1.1). The EN side renders the source value verbatim; the JA side maps to
+ * the locked Japanese vocabulary. Categories: action_type, outcome, vote,
+ * event (action-page timeline). */
+const enum_map = {
+  action_type: {
+    ja: {
+      "TreasuryWithdrawals": "トレジャリー引き出し",
+      "ParameterChange":     "パラメータ変更",
+      "HardForkInitiation":  "ハードフォーク起動",
+      "NoConfidence":        "不信任",
+      "NewCommittee":        "新規委員会",
+      "NewConstitution":     "新規憲法",
+      "InfoAction":          "情報アクション",
+    },
+  },
+  outcome: {
+    ja: {
+      "active":   "進行中",
+      "ratified": "批准",
+      "enacted":  "施行",
+      "expired":  "失効",
+      "dropped":  "廃案",
+    },
+  },
+  vote: {
+    ja: {
+      "yes":     "賛成",
+      "no":      "反対",
+      "abstain": "棄権",
+    },
+  },
+  event: {
+    /* Action-detail timeline events as emitted by action.js renderTimeline. */
+    ja: {
+      "submission": "提出",
+      "expires":    "失効予定",
+      "expired":    "失効",
+      "ratified":   "批准",
+      "enacted":    "施行",
+      "dropped":    "廃案",
+    },
+  },
+};
+
 /* String lookup against the currently active language. Defined on window so
  * dynamic-render JS (action.js timeline events, historical.js missing-date
- * notices and provenance strip, future enum renderers) can resolve a key to
+ * notices and provenance strip, enum renderers below) can resolve a key to
  * its display string without owning their own copy of the dict.
  *
  * Returns the JA string when lang=ja, otherwise the EN string. Falls back to
@@ -376,6 +422,22 @@ const i18n = {
 window.cdoT = function (key) {
   const lang = (document.documentElement.lang === "ja") ? "ja" : "en";
   return (i18n[lang] && i18n[lang][key]) || (i18n.en && i18n.en[key]) || key;
+};
+
+/* Enum lookup against the currently active language. Returns the locked JA
+ * translation when the active lang is ja AND the value is mapped; otherwise
+ * returns the source value verbatim. Unmapped values fall through unchanged
+ * — that is by design, so a new enum value added by the protocol surfaces as
+ * its raw protocol name rather than disappearing or rendering as something
+ * misleading. When the unmapped value appears, the fix is to add the
+ * translation to docs/JA_STYLE_GUIDE.md §1 and to enum_map above. */
+window.cdoEnum = function (category, value) {
+  if (value == null || value === "") return value;
+  const lang = (document.documentElement.lang === "ja") ? "ja" : "en";
+  if (lang === "en") return value;
+  const cat = enum_map[category];
+  if (!cat || !cat.ja) return value;
+  return (value in cat.ja) ? cat.ja[value] : value;
 };
 
 function setLang(lang) {

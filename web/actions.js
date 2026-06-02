@@ -74,7 +74,9 @@ function populateFilters() {
   if (typeSel.options.length === 1) {
     for (const v of types) {
       const o = document.createElement("option");
-      o.value = v; o.textContent = v;
+      o.value = v;
+      o.dataset.enum = v;
+      o.textContent = window.cdoEnum("action_type", v);
       typeSel.appendChild(o);
     }
     typeSel.addEventListener("change", (ev) => { state.filterType = ev.target.value; render(); });
@@ -82,10 +84,27 @@ function populateFilters() {
   if (outSel.options.length === 1) {
     for (const v of outcomes) {
       const o = document.createElement("option");
-      o.value = v; o.textContent = v;
+      o.value = v;
+      o.dataset.enum = v;
+      o.textContent = window.cdoEnum("outcome", v);
       outSel.appendChild(o);
     }
     outSel.addEventListener("change", (ev) => { state.filterOutcome = ev.target.value; render(); });
+  }
+}
+
+/* Re-translate filter dropdown option labels on language change. The
+ * underlying `value` (and the canonical enum stashed in data-enum) stays
+ * fixed so the filter logic continues to match against the data unchanged. */
+function refreshFilterLabels() {
+  for (const selId of ["filter-type", "filter-outcome"]) {
+    const sel = document.getElementById(selId);
+    if (!sel) continue;
+    const category = selId === "filter-type" ? "action_type" : "outcome";
+    for (const opt of sel.options) {
+      const raw = opt.dataset.enum;
+      if (raw) opt.textContent = window.cdoEnum(category, raw);
+    }
   }
 }
 
@@ -125,11 +144,11 @@ function render() {
     tr.appendChild(tdTitle);
 
     const tdType = document.createElement("td");
-    tdType.textContent = a.action_type || "—";
+    tdType.textContent = a.action_type ? window.cdoEnum("action_type", a.action_type) : "—";
     tr.appendChild(tdType);
 
     const tdOut = document.createElement("td");
-    tdOut.textContent = a.outcome || "—";
+    tdOut.textContent = a.outcome ? window.cdoEnum("outcome", a.outcome) : "—";
     tr.appendChild(tdOut);
 
     const tdExp = document.createElement("td");
@@ -188,7 +207,7 @@ async function boot() {
   document.querySelectorAll("table.observatory thead th").forEach((th) => {
     if (th.dataset.sort) th.addEventListener("click", onSortClick);
   });
-  document.addEventListener("cdo-lang", () => render());
+  document.addEventListener("cdo-lang", () => { refreshFilterLabels(); render(); });
 
   try {
     state.actions = await fetchJson(`${DATA_ROOT()}/actions.json`);

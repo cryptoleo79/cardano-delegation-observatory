@@ -464,7 +464,7 @@ function buildVoteTable(votes) {
 
     const tdV = document.createElement("td");
     tdV.className = "vote-cell";
-    tdV.textContent = safeText(v.vote);
+    tdV.textContent = window.cdoEnum("vote", v.vote);
     tr.appendChild(tdV);
 
     const tdA = document.createElement("td");
@@ -475,14 +475,14 @@ function buildVoteTable(votes) {
     if (v.action_type) {
       const type = document.createElement("div");
       type.className = "vote-action-type";
-      type.textContent = safeText(v.action_type);
+      type.textContent = window.cdoEnum("action_type", v.action_type);
       tdA.appendChild(type);
     }
     tr.appendChild(tdA);
 
     const tdO = document.createElement("td");
     tdO.className = "vote-cell";
-    tdO.textContent = safeText(v.outcome) || "—";
+    tdO.textContent = v.outcome ? window.cdoEnum("outcome", v.outcome) : "—";
     tr.appendChild(tdO);
 
     tbody.appendChild(tr);
@@ -572,7 +572,7 @@ function renderRecentActivity(payload) {
 
     const tdVote = document.createElement("td");
     tdVote.className = "vote-cell";
-    tdVote.textContent = safeText(v.vote);
+    tdVote.textContent = window.cdoEnum("vote", v.vote);
     tr.appendChild(tdVote);
 
     const tdAction = document.createElement("td");
@@ -583,7 +583,7 @@ function renderRecentActivity(payload) {
     if (v.action_type) {
       const type = document.createElement("div");
       type.className = "vote-action-type";
-      type.textContent = safeText(v.action_type);
+      type.textContent = window.cdoEnum("action_type", v.action_type);
       tdAction.appendChild(type);
     }
     tr.appendChild(tdAction);
