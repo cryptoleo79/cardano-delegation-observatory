@@ -1,10 +1,10 @@
 # Project Memory source registry
 
-**Status:** draft. The cardanocube section is populated after the parallel inventory research returns; everything else is the planning baseline.
+**Status:** active. PM-1 (TapTools-via-Wayback) and PM-2 (cardanocube) first captures are complete as of 2026-06-03; see the change log at the bottom. All source sections are populated.
 **Owner:** observatory operator (`cryptoleo79`).
 **Phase:** PM-3 of the Project Memory work (per user direction, 2026-06-03).
 **Authoritative reference:** `docs/CARDANO_MEMORY_LAYER.md` — the meta-methodology governing all memory layers in this project. If this document contradicts it, the meta-methodology wins.
-**Companion documents:** `docs/TAPTOOLS_INVENTORY.md`, `docs/TAPTOOLS_GAP_ANALYSIS.md` (the analysis that drove the source authority class assignments here).
+**Companion documents:** `docs/TAPTOOLS_INVENTORY.md`, `docs/TAPTOOLS_GAP_ANALYSIS.md` (the analysis that drove the source authority class assignments here), `docs/PROJECT_MEMORY_GOVERNANCE_MODEL.md` (who may add/update/challenge the curated editorial layer and how its history is preserved).
 
 ## What this document is
 
@@ -14,7 +14,7 @@ For every source the operator has identified as carrying editorial Cardano-ecosy
 
 This is the mapping layer. The capture plan that follows it (`docs/PROJECT_MEMORY_CAPTURE_PLAN.md`, not yet drafted) will define *how* each source is captured. Capture itself comes after the plan is reviewed.
 
-**No capture has been performed for Project Memory as of the date on this document.** The exception is that `docs/TAPTOOLS_INVENTORY.md` recorded a read-only surface inspection of TapTools, which did not download bytes for archival.
+**First captures are complete (2026-06-03).** The archive lives at `~/cardano-project-memory-archive/` (repository name resolved; see Open questions). PM-1 mirrored 21 TapTools pre-SPA ranking-grid snapshots plus a 2,224-URL historical-project-metadata index; PM-2 wayback-pinned the cardanocube taxonomy root, `/projects/graveyard`, and all 20 graveyard (defunct) project profiles. All 45 archive artifacts pass `_verify/verify-archive.sh`. The remaining sources (Built on Cardano, cardano.org/discover, CIP-26 registry, DefiLlama, on-chain) are registered here but not yet captured — they are lower-urgency Band 2–4. The earlier `docs/TAPTOOLS_INVENTORY.md` read-only surface inspection downloaded no bytes for archival.
 
 ## Authority class framework
 
@@ -74,25 +74,47 @@ The 2026-06-03 inspection pass at `docs/TAPTOOLS_INVENTORY.md` established the a
 |---|---|
 | Primary source | Wayback Machine snapshots of `taptools.io/charts/token/*`, `taptools.io/charts/nft/*`, and the ranking-grid root with subcategory filter parameters. Class C accessed via Class C-equivalent Wayback preservation. |
 | Secondary source | The live `openapi.taptools.io` spec page (HTML render of the OpenAPI document; Class B-equivalent because it documents what the data was supposed to be, even though the live API is gated). |
-| Preservation status | Live and intact (verified 2026-06-03 — the Wayback CDX returned ~2000 archived URLs; spot-checks confirmed snapshots resolve and contain server-rendered HTML from pre-SPA conversion era). |
+| Preservation status | Captured (2026-06-03). CDX returned 2,224 archived `/charts/*` URLs. **PM-1 capture finding:** server-rendered ranking content exists only in the pre-SPA era — the `/charts` root snapshots from 2022-05 to 2022-10 carry a genuine server-rendered top-N ranked token list (e.g. AADA, MELD, WMT, HOSKY, AGIX, SUNDAE…) with % changes plus the featured token's full metadata panel (volume, holders, supply, pool-created date); snapshots from 2023 onward are empty Next.js SPA shells (ranking numbers are XHR-loaded and not captured by Wayback). Mirrored: 21 grid-root snapshots (`rankings/{charts,token,nft}/`) + a 2,224-row index (`_inventory/cdx-charts-all.jsonl`). |
 | Authority class | C (via Wayback) for ranking-grid + per-token + per-collection editorial; B for the OpenAPI spec page. |
 | Capture risk | **Band 1** — the Wayback snapshots are themselves perishable to the extent that Wayback's own retention policy is not infinite; and TapTools live access (even read-only via Wayback) may be impacted if TapTools issues content takedowns to the Wayback Machine. |
 | Completeness | Comprehensive for tokens and NFT collections that TapTools indexed during its active period; index-only for projects that TapTools did not surface as separate per-project pages (TapTools has no `/projects/{id}` route per the inventory). |
 | Known gaps | **No historical-state endpoints** — TapTools never exposed historical category memberships or historical ranking states; the only place those exist is in Wayback's incidental ranking-grid captures. Coverage is incidental, not systematic. Specific per-token and per-collection editorial overlays (`/token/links` + `/nft/collection/info` payloads as captured by API) are NOT preservable from Wayback because Wayback does not capture XHR responses. The captured ranking grid HTML pages contain the editorial overlay text, however, which is the substantive recovery path. |
 
-### cardanocube.io
+### cardanocube.com (canonical host; `cardanocube.io` 301-redirects)
 
-_Per-source detail awaits the parallel cardanocube inventory research. Confirmed structural facts from the prior reproducibility analysis: cardanocube is community-maintained, narrower in coverage than TapTools but accessible without API keys, and the closest open substitute for TapTools' editorial categorization layer. The capture plan that follows this registry will specify the capture method (direct polite-client GET vs Wayback path) based on the cardanocube inspection findings._
+A 2026-06-03 inspection pass returned substantive findings that shape both the capture method and a new methodology pattern for the Project Memory layer. Findings:
+
+- **Architecture: server-rendered Ruby on Rails / Hotwire application.** Full HTML on first GET. Side-panels load lazily via Turbo frames but the main content is present in the initial response. Operationally a friendly preservation target — no SPA hydration problem, unlike TapTools.
+- **No public API.** No `/api`, `/graphql`, OpenAPI surface, or documented data export. The website is the only public surface; turbo-stream fragments are not an API.
+- **No robots.txt rules** (single comment line; no Disallow / Allow / Sitemap declaration). No sitemap.xml (404). No User-Agent restrictions in evidence.
+- **Catalog size estimated 1,500–3,000+ projects.** Wayback Machine CDX returns ~964 distinct `/projects/{slug}` URLs on `.com` and ~1,245 on `.io` (older domain), an aggregate lower bound of ~1,500+ slugs already in Wayback.
+- **73 editorial categories** at `/categories`. The taxonomy is human-curated (defi, nft, wallets, light-wallets, hardware-wallets, exchanges-dex, lending-borrowing, stablecoin, gaming, metaverse, dao-tools, governance, launchpad, oracles, identity, ispo, layer-2-solution, partner-chain, meme-coins, shitcoin, graveyard, etc.).
+- **`/projects/graveyard`** — the most time-sensitive sub-target. Projects that cardanocube's curators have already declared dead. The editorial commentary attached to graveyard entries is the exact memory-layer content the Project Memory layer is designed to preserve.
+- **Operator is effectively anonymous.** No /about-the-team, no jurisdiction disclosure, no named operator. Only contact: `hello@cardanocube.io` (footer). License-renegotiation paths are fragile because there is no named counterparty.
+- **Terms of Service: "All rights reserved."** No Creative Commons license, no open-data clause, no affirmative grant of republication rights. The site's standard Rails-template ToS includes user-submission grants to Cardano Cube and a $100 / 12-month liability cap. Republication of the site's editorial content as bytes-in-our-archive would be a fair-use / quotation argument, not a license-backed right.
+
+The ToS finding drives a methodology refinement that distinguishes Project Memory's cardanocube preservation pattern from the Catalyst archive's IdeaScale preservation pattern:
 
 | Field | Value |
 |---|---|
-| Primary source | `https://cardanocube.io/` (root + per-project pages, exact URL pattern TBD pending inventory) |
-| Secondary source | Wayback Machine snapshots of cardanocube.io; the cardanocube GitHub repository if the dataset is open-published there |
-| Preservation status | Unknown — pending inventory pass |
+| Primary source | `https://cardanocube.com/projects/{slug}` per project; `/projects/graveyard` for the at-risk subset; `/categories/{slug}` for the taxonomy itself |
+| Secondary source | Wayback Machine snapshots of the same URLs (already ~1,500 slugs indexed) |
+| Preservation status | Captured (2026-06-03, wayback-pin). Site live and intact (server-rendered Rails, all major routes HTTP 200). **PM-2 capture:** pinned the taxonomy root `/categories` (~74 categories), `/projects/graveyard`, and all 20 graveyard (curator-declared dead) project profiles, with `bytes_stored:false` custody manifests (Wayback holds the bytes; the archive holds chain-of-custody references). No gaps — every targeted slug resolved via existing Wayback snapshots or a fresh Save-Page-Now. |
 | Authority class | D (community-maintained) |
-| Capture risk | Band 4 (community-maintained baseline; may escalate to Band 2 if cardanocube announces sunset or substantial structural changes) |
-| Completeness | Pending inventory — estimated comprehensive for active community projects, narrower than TapTools |
-| Known gaps | Pending inventory |
+| Capture risk | Band 4 (community-maintained baseline). May escalate to Band 2 if cardanocube announces sunset, paywalls the catalog, or substantially restructures. |
+| Completeness | Comprehensive for active community projects (1,500–3,000+ projects spanning 73 categories). Narrower than TapTools' breadth but with richer per-project editorial than the Class B Cardano Foundation sources. |
+| Known gaps | (1) The site's ToS is "All rights reserved" with no Creative Commons grant. (2) Operator is effectively anonymous; a license-renegotiation conversation has no clear counterparty. (3) Update cadence is opaque — no visible `<time>` tags, no "last updated" timestamps, so deriving the recency of any given project's editorial state requires diffing across Wayback snapshots. (4) Some per-project fields (policy ID, DRep, pool) are not consistently rendered across all project pages; the schema appears to expose them per-project but uniform coverage was not confirmed in the inspection. |
+
+**Capture method: wayback-pin, not wayback-mirror.** Given the ToS, the Project Memory layer's cardanocube preservation does NOT mirror cardanocube's bytes into our archive. Instead:
+
+1. For each cardanocube project page targeted for preservation, the operator submits the URL to the Wayback Machine's Save Page Now (SPN) endpoint if Wayback does not already have a recent snapshot.
+2. The resulting Wayback snapshot URL is recorded in a `.custody.json` manifest in our archive.
+3. The manifest carries `bytes_stored: false` (new field) to indicate the archive holds a reference, not the bytes themselves. The `sha256` field is still populated — it records the SHA-256 of the Wayback-fetched content at capture time, computed for forensic evidence but not stored in the archive. Researchers verifying the manifest fetch from `wayback_url` and re-compute the hash; a match proves the captured content is what we observed.
+4. The cardanocube editorial content lives on the Wayback Machine (already archive-friendly per their public-mission charter). Our archive holds the references with chain-of-custody — not the redistributed content.
+
+This pattern preserves the Project Memory layer's value (durable references to editorial content, byte-verifiable via Wayback re-fetch) without redistributing content whose ToS does not grant republication. The companion capture plan (PROJECT_MEMORY_CAPTURE_PLAN.md, not yet drafted) will specify the wayback-pin operational details.
+
+The wayback-pin pattern is a new addition to the Memory Layer methodology. It may retroactively apply to the FLOW-6 Catalyst archive's IdeaScale captures if the operator chooses to revisit that decision in a future amendment; that revisitation is not committed here.
 
 ### Built on Cardano (`builtoncardano.com`)
 
@@ -179,7 +201,7 @@ At-a-glance summary across all sources. The per-source subsections above are the
 | Source | Authority class (primary) | Capture risk band | Preservation status | Completeness |
 |---|---|---|---|---|
 | TapTools (via Wayback) | C | **Band 1** | Live and intact (Wayback CDX returns ~2000 URLs) | Comprehensive for indexed tokens / NFT collections; no per-project pages |
-| cardanocube.io | D | Band 4 | Unknown (pending inventory) | Pending |
+| cardanocube.com | D | Band 4 | Live and intact (server-rendered Rails, 1,500-3,000+ projects, 73 categories, /projects/graveyard is the time-sensitive sub-target) | Comprehensive for community projects |
 | Built on Cardano | B | Band 2 | Live and intact | Curated |
 | cardano.org/discover | B | Band 2 | Live and intact | Index-only / curated |
 | cardano-foundation/cardano-token-registry | B | Band 2 | Live and intact | Opt-in token catalog |
@@ -226,7 +248,11 @@ This registry is re-verified on every methodology version bump and whenever any 
 
 ## Open questions
 
-- **Repository name for the second archive.** Proposed `cardano-project-memory-archive`. Alternatives: `cardano-ecosystem-archive`, `cardano-project-archive`. The user's decision is welcomed; defaulting to the proposed name if no preference is expressed.
+- ~~**Repository name for the second archive.**~~ **Resolved:** `cardano-project-memory-archive` (created at `~/cardano-project-memory-archive/`, scaffold mirrors `cardano-catalyst-archive`).
 - **Does Project Memory warrant a §25 methodology section in `METHODOLOGY.md`?** The Catalyst pattern (§24) suggests yes for consistency. The `CARDANO_MEMORY_LAYER.md` pattern suggests the meta-methodology may be sufficient and per-layer methodology proliferation could be scope creep. Deferred decision; can be added later if needed.
 - **Coordination with the on-chain Project Memory upstream.** Several DRep metadata URLs and stake-pool metadata URLs point at off-chain editorial content that overlaps with Project Memory scope. Whether to capture those alongside the dedicated Project Memory sources is a future scope decision.
 - **Coordination with the Catalyst archive.** Some Catalyst proposals contain project descriptions that overlap with Project Memory scope. Cross-links between the two archives are documented as references, not data flows, per the `CARDANO_MEMORY_LAYER.md` separate-trust-boundary principle.
+
+## Change log
+
+- **2026-06-03 — first captures.** Status moved draft → active. Archive repository `cardano-project-memory-archive` created (scaffold mirrors `cardano-catalyst-archive`). **PM-1 (TapTools-via-Wayback, Class C, Band 1):** mirrored 21 ranking-grid root snapshots (`rankings/{charts,token,nft}/`) and a 2,224-row historical-project-metadata index (`_inventory/cdx-charts-all.jsonl`). Capture finding: only the 2022-05..2022-10 `/charts` snapshots are server-rendered with real ranking rows; 2023+ are empty SPA shells. **PM-2 (cardanocube, Class D, Band 4, wayback-pin):** pinned `/categories` (~74 categories), `/projects/graveyard`, and all 20 graveyard project profiles (`bytes_stored:false`), no gaps. All 45 archive artifacts pass `_verify/verify-archive.sh`; two wayback-pins additionally re-verified over the network. The triggering context — TapTools announced a full company wind-down on 2026-06-02 (~2 weeks to shutdown) — elevates the TapTools entry from anticipated sunset to active sunset; the Class C escalation note now applies in practice. (The live-API replacement question raised by the shutdown is tracked separately under the Cardano **Data Layer** research, `~/cardano-data-layer/`, which is out of scope for this preservation registry.)

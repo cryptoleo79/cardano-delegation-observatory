@@ -65,19 +65,33 @@ What it deliberately does not preserve:
 - Proposal quality scores, recipient rankings, milestone-completion judgments
 - Anything derived from API tokens or special-access arrangements
 
-### Project Memory — proposed; not yet committed
+### Project Memory — `cardano-project-memory-archive` (active 2026-06-03)
 
-The plausible next layer, surfaced by the question "what disappears if TapTools shuts down?" The answer is: the editorial Cardano ecosystem layer — project descriptions, team attestations, audit links, partnership lists, category classifications, launch date attestations, and historical ecosystem-wide ranking snapshots.
+The fourth layer, surfaced by the question "what disappears if TapTools shuts down?" — a question that became concrete when TapTools announced a full company wind-down on 2026-06-02. The layer preserves the editorial Cardano ecosystem layer — project descriptions, team attestations, audit links, partnership lists, category classifications, launch date attestations, and historical ecosystem-wide ranking snapshots.
 
 These are not on-chain. They are not in any single canonical off-chain registry. They are human-curated metadata that has accumulated across third-party ecosystem-discovery platforms (TapTools, cardanocube, "Built on Cardano," various forum threads, README files on GitHub). If those platforms disappear, the metadata orphans.
 
-This document does not commit the project to building Project Memory. It identifies the gap and notes that it fits the memory-layer pattern: an editorial off-chain layer that lacks a durable preservation home. Whether to act on it is a decision separate from this document.
+Companion artifacts: `docs/TAPTOOLS_INVENTORY.md` (surface inspection), `docs/TAPTOOLS_GAP_ANALYSIS.md` (preservation priorities), `docs/PROJECT_MEMORY_REGISTRY.md` (the source-of-record registry).
 
-Companion artifacts in this commit:
-- `docs/TAPTOOLS_INVENTORY.md` (when complete) — what surfaces TapTools exposes
-- `docs/TAPTOOLS_GAP_ANALYSIS.md` (when complete) — which surfaces are HIGH preservation priority
+First captures completed 2026-06-03: TapTools pre-SPA ranking grids + a 2,224-URL historical-project-metadata index (Class C, via Wayback); cardanocube taxonomy, `/projects/graveyard`, and all 20 graveyard project profiles (Class D, wayback-pin). See the registry for status.
 
-If those documents conclude that the editorial Cardano ecosystem layer warrants preservation, Project Memory becomes a Phase 0 of a future preservation effort. If they conclude that existing community alternatives (cardanocube, Built on Cardano) provide sufficient redundancy, Project Memory may not need to exist as a separate effort at all.
+#### Scope discipline — what Project Memory is and is not
+
+Project Memory is **preservation of editorial ecosystem metadata that would otherwise orphan**. It is bounded as follows.
+
+**In scope:**
+- Project descriptions, team/social attestations, audit links, partnership lists as published by ecosystem-discovery sources, captured as-found.
+- Category classifications and taxonomies, preserved per-source (each source's taxonomy as-is, cross-referenced — never consolidated into one "canonical" taxonomy, which would be interpretation).
+- Launch-date attestations and historical ecosystem-wide ranking snapshots (the perishable historical *state*).
+- Chain-of-custody manifests and source enumeration indexes (e.g. the TapTools CDX index) that make the editorial layer enumerable and verifiable.
+
+**Out of scope:**
+- **A live data API or a TapTools replacement.** The memory layer preserves *what disappears*; it does not serve live prices, OHLCV, floors, liquidity, or portfolios, and it does not rebuild TapTools' product. Whether the ecosystem should build a neutral live **Data Layer** is a separate question tracked outside this preservation effort (`~/cardano-data-layer/`), under its own trust boundary and its own decision.
+- Trader tooling, charts, portfolio features, and live market surfaces — these are product, not memory.
+- Re-derived or recomputed metrics. The layer stores what a source published, not a new calculation over it.
+- A consolidated "master" ecosystem registry that picks winners among sources' differing taxonomies or descriptions (that is curation/interpretation, barred by the shared principles below).
+
+This boundary is the application of "Preservation, not replacement" (below) to the Project Memory layer specifically.
 
 ## Shared principles
 
@@ -98,6 +112,14 @@ This rule is repeated across every layer's "what this layer does NOT do" subsect
 ### Preservation, not ranking
 
 No "top N", no "most important", no "best", no "most successful", no "most controversial." Magnitude is preserved as a number; rank is preserved only when rank was the canonical record at the time (e.g., observatory snapshot rankings are preserved as published, but the memory layer does not re-rank historical data using current values).
+
+### Preservation, not replacement
+
+The memory layer preserves what disappears. It does not rebuild what disappeared as a live service. When a platform sunsets, the memory-layer response is to capture its perishable record with chain-of-custody — not to stand up a replacement product that serves the same live queries.
+
+This matters because the sunset of a useful platform (TapTools, jpg.store) creates two distinct, legitimate opportunities that must not be conflated: (1) **preserve** the historical and editorial data that would otherwise orphan — this layer's job; and (2) **replace** the live API capability for consumers who depended on it — a separate data-infrastructure effort with its own trust boundary, sustainability model, and governance. The memory layer may serve as a *seed source* for a replacement (referenced under chain-of-custody), but the two are different systems with different obligations. Folding a live replacement into the preservation effort would compromise the preservation guarantees (immutability, neutrality, reproducibility) that make the archive trustworthy.
+
+A layer that starts serving live, recomputed, or product-shaped queries has stopped being memory and become a product. The discipline is to keep the archive an archive.
 
 ### Reproducibility by ordinary researchers
 
