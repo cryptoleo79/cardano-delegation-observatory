@@ -1,0 +1,146 @@
+{
+  "project": {
+    "id": "tt:ADAX",
+    "kind": "token",
+    "name": null,
+    "status": null,
+    "unclassified": true,
+    "fields": {
+      "rank": [
+        {
+          "claim_id": "clm_196",
+          "field": "rank",
+          "value": "20",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "taptools-wayback",
+              "kind": "taptools-wayback",
+              "authority_class": "C",
+              "url": "https://taptools.io",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "TapTools (preserved via Wayback Machine)"
+            },
+            "authority_class": "C",
+            "as_of": "2026-06-03T08:00:00Z",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20220620210558id_/https://taptools.io/charts",
+                "sha256": "3194d1a28910cc9d3ae7da62d3bceb599ef7da8091549fe884bc4dd9dc9611c4",
+                "description": "TapTools ranking-grid snapshot 20220620210558.html (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 196,
+          "superseded_by_seq": null
+        }
+      ],
+      "ticker": [
+        {
+          "claim_id": "clm_195",
+          "field": "ticker",
+          "value": "ADAX",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "taptools-wayback",
+              "kind": "taptools-wayback",
+              "authority_class": "C",
+              "url": "https://taptools.io",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "TapTools (preserved via Wayback Machine)"
+            },
+            "authority_class": "C",
+            "as_of": "2026-06-03T08:00:00Z",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20220620210558id_/https://taptools.io/charts",
+                "sha256": "3194d1a28910cc9d3ae7da62d3bceb599ef7da8091549fe884bc4dd9dc9611c4",
+                "description": "TapTools ranking-grid snapshot 20220620210558.html (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 195,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [],
+    "superseded_claim_count": 0,
+    "created_seq": 194,
+    "last_seq": 196
+  },
+  "history": [
+    {
+      "seq": 194,
+      "ts": "2026-06-03T08:00:00Z",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "tt:ADAX",
+        "kind": "token"
+      },
+      "hash": "cec27d6059171d6941131baeee0655c1ae239d2f72986e144684179fbdb62ebd",
+      "prev_hash": "121891c6de4013cba7ae9025a09a5d41ef1b89a03c3cf041691ed229b7ecaa3b"
+    },
+    {
+      "seq": 195,
+      "ts": "2026-06-03T08:00:00Z",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "tt:ADAX",
+        "field": "ticker",
+        "value": "ADAX",
+        "source_id": "taptools-wayback",
+        "authority_class": "C",
+        "as_of": "2026-06-03T08:00:00Z",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20220620210558id_/https://taptools.io/charts",
+            "sha256": "3194d1a28910cc9d3ae7da62d3bceb599ef7da8091549fe884bc4dd9dc9611c4",
+            "description": "TapTools ranking-grid snapshot 20220620210558.html (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "70ee4f638659de22dc358d2a7f135adc83b029f903cb9a5b74955964c20a6bf0",
+      "prev_hash": "cec27d6059171d6941131baeee0655c1ae239d2f72986e144684179fbdb62ebd"
+    },
+    {
+      "seq": 196,
+      "ts": "2026-06-03T08:00:00Z",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "tt:ADAX",
+        "field": "rank",
+        "value": 20,
+        "source_id": "taptools-wayback",
+        "authority_class": "C",
+        "as_of": "2026-06-03T08:00:00Z",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20220620210558id_/https://taptools.io/charts",
+            "sha256": "3194d1a28910cc9d3ae7da62d3bceb599ef7da8091549fe884bc4dd9dc9611c4",
+            "description": "TapTools ranking-grid snapshot 20220620210558.html (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "c1b87ff1b38228d66c63be14c01c043b767fa5665c737a3791b4a5455637554d",
+      "prev_hash": "70ee4f638659de22dc358d2a7f135adc83b029f903cb9a5b74955964c20a6bf0"
+    }
+  ],
+  "generated_at": "2026-06-04T22:01:00.532Z"
+}

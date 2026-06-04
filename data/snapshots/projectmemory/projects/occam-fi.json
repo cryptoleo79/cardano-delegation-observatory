@@ -1,0 +1,146 @@
+{
+  "project": {
+    "id": "occam-fi",
+    "kind": "project",
+    "name": "Occam FI",
+    "status": "defunct",
+    "unclassified": true,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_123",
+          "field": "name",
+          "value": "Occam FI",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250523211043id_/https://cardanocube.com/projects/occam-fi",
+                "sha256": "90c0bf911f80fe10fe2a329a98b7f44bc73427a26871f37038c6f6f5b6bda547",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 123,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_124",
+          "field": "status",
+          "value": "defunct",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250523211043id_/https://cardanocube.com/projects/occam-fi",
+                "sha256": "90c0bf911f80fe10fe2a329a98b7f44bc73427a26871f37038c6f6f5b6bda547",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 124,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [],
+    "superseded_claim_count": 0,
+    "created_seq": 122,
+    "last_seq": 124
+  },
+  "history": [
+    {
+      "seq": 122,
+      "ts": "2026-06-03",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "occam-fi",
+        "kind": "project"
+      },
+      "hash": "51979a9e51ba4267e01bc8a7d79090c669ee8358ee7563353c9af2b1ed32cc51",
+      "prev_hash": "3204005775b056a8e17a530199a26c6d147cb2baffad4bc6f57a41d25dcb45c7"
+    },
+    {
+      "seq": 123,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "occam-fi",
+        "field": "name",
+        "value": "Occam FI",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250523211043id_/https://cardanocube.com/projects/occam-fi",
+            "sha256": "90c0bf911f80fe10fe2a329a98b7f44bc73427a26871f37038c6f6f5b6bda547",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "c8649cd7253ae7c695030b50358f21097c6e6bce4f73ed269349f0129650946f",
+      "prev_hash": "51979a9e51ba4267e01bc8a7d79090c669ee8358ee7563353c9af2b1ed32cc51"
+    },
+    {
+      "seq": 124,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "occam-fi",
+        "field": "status",
+        "value": "defunct",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250523211043id_/https://cardanocube.com/projects/occam-fi",
+            "sha256": "90c0bf911f80fe10fe2a329a98b7f44bc73427a26871f37038c6f6f5b6bda547",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "ce98c2c5036fb8c8e02c9a1df3173b9496d5ddd641e5b911e7d134fc62dfe719",
+      "prev_hash": "c8649cd7253ae7c695030b50358f21097c6e6bce4f73ed269349f0129650946f"
+    }
+  ],
+  "generated_at": "2026-06-04T22:01:00.532Z"
+}

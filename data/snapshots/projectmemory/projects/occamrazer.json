@@ -1,0 +1,146 @@
+{
+  "project": {
+    "id": "occamrazer",
+    "kind": "project",
+    "name": "Occamrazer",
+    "status": "defunct",
+    "unclassified": true,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_126",
+          "field": "name",
+          "value": "Occamrazer",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20240714113029id_/https://cardanocube.com/projects/occamrazer",
+                "sha256": "e3983ebeba93e0b6f656e30e5ee8b75b008830484b587e7c66c08e6e34b15240",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 126,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_127",
+          "field": "status",
+          "value": "defunct",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20240714113029id_/https://cardanocube.com/projects/occamrazer",
+                "sha256": "e3983ebeba93e0b6f656e30e5ee8b75b008830484b587e7c66c08e6e34b15240",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 127,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [],
+    "superseded_claim_count": 0,
+    "created_seq": 125,
+    "last_seq": 127
+  },
+  "history": [
+    {
+      "seq": 125,
+      "ts": "2026-06-03",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "occamrazer",
+        "kind": "project"
+      },
+      "hash": "ab378f4e83f8649d720440b7533570b3309a39984b3baa89e3efdc9c44211844",
+      "prev_hash": "ce98c2c5036fb8c8e02c9a1df3173b9496d5ddd641e5b911e7d134fc62dfe719"
+    },
+    {
+      "seq": 126,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "occamrazer",
+        "field": "name",
+        "value": "Occamrazer",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20240714113029id_/https://cardanocube.com/projects/occamrazer",
+            "sha256": "e3983ebeba93e0b6f656e30e5ee8b75b008830484b587e7c66c08e6e34b15240",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "25424aa0e1a5d938339a9908dbe4201c0b363b44c6d8ada0461ed3c8905ee21e",
+      "prev_hash": "ab378f4e83f8649d720440b7533570b3309a39984b3baa89e3efdc9c44211844"
+    },
+    {
+      "seq": 127,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "occamrazer",
+        "field": "status",
+        "value": "defunct",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20240714113029id_/https://cardanocube.com/projects/occamrazer",
+            "sha256": "e3983ebeba93e0b6f656e30e5ee8b75b008830484b587e7c66c08e6e34b15240",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "2a9cebe33a39f9ad5edbd9e3a7c266ab0b8ffcebe1530209fadb71616c9f9ead",
+      "prev_hash": "25424aa0e1a5d938339a9908dbe4201c0b363b44c6d8ada0461ed3c8905ee21e"
+    }
+  ],
+  "generated_at": "2026-06-04T22:01:00.532Z"
+}

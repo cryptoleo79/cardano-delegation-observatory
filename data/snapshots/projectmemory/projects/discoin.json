@@ -1,0 +1,146 @@
+{
+  "project": {
+    "id": "discoin",
+    "kind": "project",
+    "name": "Discoin",
+    "status": "defunct",
+    "unclassified": true,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_108",
+          "field": "name",
+          "value": "Discoin",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603134209id_/https://cardanocube.com/projects/discoin",
+                "sha256": "cb72d31f176e890e289efb94a55fd59077c4d07d1ce2a0f1198f517abcad8714",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 108,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_109",
+          "field": "status",
+          "value": "defunct",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603134209id_/https://cardanocube.com/projects/discoin",
+                "sha256": "cb72d31f176e890e289efb94a55fd59077c4d07d1ce2a0f1198f517abcad8714",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 109,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [],
+    "superseded_claim_count": 0,
+    "created_seq": 107,
+    "last_seq": 109
+  },
+  "history": [
+    {
+      "seq": 107,
+      "ts": "2026-06-03",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "discoin",
+        "kind": "project"
+      },
+      "hash": "443130c45d9dd442388b0d626277cea9f118ad4b7a05119c5ba6559cda0b482e",
+      "prev_hash": "93ba87532f5d03a5ca6a39de4ce2955cb06cdc14498bc1d277c2a190c0230052"
+    },
+    {
+      "seq": 108,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "discoin",
+        "field": "name",
+        "value": "Discoin",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603134209id_/https://cardanocube.com/projects/discoin",
+            "sha256": "cb72d31f176e890e289efb94a55fd59077c4d07d1ce2a0f1198f517abcad8714",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "3242fbdfb1f0f269c89389bef330cfd897cc8f94b5dc14429ee3b3c25999b8c0",
+      "prev_hash": "443130c45d9dd442388b0d626277cea9f118ad4b7a05119c5ba6559cda0b482e"
+    },
+    {
+      "seq": 109,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "discoin",
+        "field": "status",
+        "value": "defunct",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603134209id_/https://cardanocube.com/projects/discoin",
+            "sha256": "cb72d31f176e890e289efb94a55fd59077c4d07d1ce2a0f1198f517abcad8714",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "a18eadb9018cd3a0a4c88aafcfe113588efd9154b9c26c87c7569e64aaed4897",
+      "prev_hash": "3242fbdfb1f0f269c89389bef330cfd897cc8f94b5dc14429ee3b3c25999b8c0"
+    }
+  ],
+  "generated_at": "2026-06-04T22:01:00.532Z"
+}

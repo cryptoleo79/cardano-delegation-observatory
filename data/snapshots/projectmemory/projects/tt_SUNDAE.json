@@ -1,0 +1,146 @@
+{
+  "project": {
+    "id": "tt:SUNDAE",
+    "kind": "token",
+    "name": null,
+    "status": null,
+    "unclassified": true,
+    "fields": {
+      "rank": [
+        {
+          "claim_id": "clm_145",
+          "field": "rank",
+          "value": "3",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "taptools-wayback",
+              "kind": "taptools-wayback",
+              "authority_class": "C",
+              "url": "https://taptools.io",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "TapTools (preserved via Wayback Machine)"
+            },
+            "authority_class": "C",
+            "as_of": "2026-06-03T08:00:00Z",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20220620210558id_/https://taptools.io/charts",
+                "sha256": "3194d1a28910cc9d3ae7da62d3bceb599ef7da8091549fe884bc4dd9dc9611c4",
+                "description": "TapTools ranking-grid snapshot 20220620210558.html (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 145,
+          "superseded_by_seq": null
+        }
+      ],
+      "ticker": [
+        {
+          "claim_id": "clm_144",
+          "field": "ticker",
+          "value": "SUNDAE",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "taptools-wayback",
+              "kind": "taptools-wayback",
+              "authority_class": "C",
+              "url": "https://taptools.io",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "TapTools (preserved via Wayback Machine)"
+            },
+            "authority_class": "C",
+            "as_of": "2026-06-03T08:00:00Z",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20220620210558id_/https://taptools.io/charts",
+                "sha256": "3194d1a28910cc9d3ae7da62d3bceb599ef7da8091549fe884bc4dd9dc9611c4",
+                "description": "TapTools ranking-grid snapshot 20220620210558.html (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 144,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [],
+    "superseded_claim_count": 0,
+    "created_seq": 143,
+    "last_seq": 145
+  },
+  "history": [
+    {
+      "seq": 143,
+      "ts": "2026-06-03T08:00:00Z",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "tt:SUNDAE",
+        "kind": "token"
+      },
+      "hash": "1705f57b98a84c53709e34314d62c07ec69025a6efe8b4622295d69cef68849c",
+      "prev_hash": "ece185c055d6be55889e172e26cd346bdad60ffc498512586410bd0390a22964"
+    },
+    {
+      "seq": 144,
+      "ts": "2026-06-03T08:00:00Z",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "tt:SUNDAE",
+        "field": "ticker",
+        "value": "SUNDAE",
+        "source_id": "taptools-wayback",
+        "authority_class": "C",
+        "as_of": "2026-06-03T08:00:00Z",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20220620210558id_/https://taptools.io/charts",
+            "sha256": "3194d1a28910cc9d3ae7da62d3bceb599ef7da8091549fe884bc4dd9dc9611c4",
+            "description": "TapTools ranking-grid snapshot 20220620210558.html (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "50aa5093412c341a2e064b5f247e557aa1092787bd5b102a91c87cad7aa5e3ad",
+      "prev_hash": "1705f57b98a84c53709e34314d62c07ec69025a6efe8b4622295d69cef68849c"
+    },
+    {
+      "seq": 145,
+      "ts": "2026-06-03T08:00:00Z",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "tt:SUNDAE",
+        "field": "rank",
+        "value": 3,
+        "source_id": "taptools-wayback",
+        "authority_class": "C",
+        "as_of": "2026-06-03T08:00:00Z",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20220620210558id_/https://taptools.io/charts",
+            "sha256": "3194d1a28910cc9d3ae7da62d3bceb599ef7da8091549fe884bc4dd9dc9611c4",
+            "description": "TapTools ranking-grid snapshot 20220620210558.html (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "55ff0f2c031433cd740d92d75b1817efbd7f7afe37fc72242794c7d32d8cd4a9",
+      "prev_hash": "50aa5093412c341a2e064b5f247e557aa1092787bd5b102a91c87cad7aa5e3ad"
+    }
+  ],
+  "generated_at": "2026-06-04T22:01:00.532Z"
+}

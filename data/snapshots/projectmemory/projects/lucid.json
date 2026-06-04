@@ -1,0 +1,146 @@
+{
+  "project": {
+    "id": "lucid",
+    "kind": "project",
+    "name": "Lucid",
+    "status": "defunct",
+    "unclassified": true,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_117",
+          "field": "name",
+          "value": "Lucid",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603134246id_/https://cardanocube.com/projects/lucid",
+                "sha256": "7020169202d281ffb125da32424dc17e3ae04595b47d3ae394161b60f61d01fe",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 117,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_118",
+          "field": "status",
+          "value": "defunct",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603134246id_/https://cardanocube.com/projects/lucid",
+                "sha256": "7020169202d281ffb125da32424dc17e3ae04595b47d3ae394161b60f61d01fe",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 118,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [],
+    "superseded_claim_count": 0,
+    "created_seq": 116,
+    "last_seq": 118
+  },
+  "history": [
+    {
+      "seq": 116,
+      "ts": "2026-06-03",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "lucid",
+        "kind": "project"
+      },
+      "hash": "1f4fba105a90730ecd1905955856002d43db261a7775d4529e88cec210b883e1",
+      "prev_hash": "c81e148192fb80f0ad035487831b5bb4a624dd2e949b23c66f8f7f8e9d1b9d3b"
+    },
+    {
+      "seq": 117,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "lucid",
+        "field": "name",
+        "value": "Lucid",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603134246id_/https://cardanocube.com/projects/lucid",
+            "sha256": "7020169202d281ffb125da32424dc17e3ae04595b47d3ae394161b60f61d01fe",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "8302611cc9652ad2956f6c43c07bf914badff5ff96978519bc393a12a22ecd9a",
+      "prev_hash": "1f4fba105a90730ecd1905955856002d43db261a7775d4529e88cec210b883e1"
+    },
+    {
+      "seq": 118,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "lucid",
+        "field": "status",
+        "value": "defunct",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603134246id_/https://cardanocube.com/projects/lucid",
+            "sha256": "7020169202d281ffb125da32424dc17e3ae04595b47d3ae394161b60f61d01fe",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "0339ddb56ed5038ccb443bbb5c39fe590eb71eb78242a4536f80e438a85e561e",
+      "prev_hash": "8302611cc9652ad2956f6c43c07bf914badff5ff96978519bc393a12a22ecd9a"
+    }
+  ],
+  "generated_at": "2026-06-04T22:01:00.532Z"
+}

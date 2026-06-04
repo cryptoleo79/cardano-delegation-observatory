@@ -1,0 +1,146 @@
+{
+  "project": {
+    "id": "cardano-nuts",
+    "kind": "project",
+    "name": "Cardano Nuts",
+    "status": "defunct",
+    "unclassified": true,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_84",
+          "field": "name",
+          "value": "Cardano Nuts",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20241204052929id_/https://cardanocube.com/projects/cardano-nuts",
+                "sha256": "e38840a137b1fa633067566f261ae9b126edee58caa2312972acbf4d90ffe156",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 84,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_85",
+          "field": "status",
+          "value": "defunct",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20241204052929id_/https://cardanocube.com/projects/cardano-nuts",
+                "sha256": "e38840a137b1fa633067566f261ae9b126edee58caa2312972acbf4d90ffe156",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 85,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [],
+    "superseded_claim_count": 0,
+    "created_seq": 83,
+    "last_seq": 85
+  },
+  "history": [
+    {
+      "seq": 83,
+      "ts": "2026-06-03",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "cardano-nuts",
+        "kind": "project"
+      },
+      "hash": "ee1b4cc136bf869b1ff2fde877c8f253ed3e8aa48692b5d1b6448c64185baaec",
+      "prev_hash": "02cc8dc2c85ef8ff4d328c4c0fcc6d6b694574885bc715fe9a6334d76c5fd45d"
+    },
+    {
+      "seq": 84,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardano-nuts",
+        "field": "name",
+        "value": "Cardano Nuts",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20241204052929id_/https://cardanocube.com/projects/cardano-nuts",
+            "sha256": "e38840a137b1fa633067566f261ae9b126edee58caa2312972acbf4d90ffe156",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "cb192191c703f0b985811b62b2f13cbcdb6d4f9dfa61d1b6b72510fcc9f10eb5",
+      "prev_hash": "ee1b4cc136bf869b1ff2fde877c8f253ed3e8aa48692b5d1b6448c64185baaec"
+    },
+    {
+      "seq": 85,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardano-nuts",
+        "field": "status",
+        "value": "defunct",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20241204052929id_/https://cardanocube.com/projects/cardano-nuts",
+            "sha256": "e38840a137b1fa633067566f261ae9b126edee58caa2312972acbf4d90ffe156",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "c821763b9bd02b1eb2dd27ca7c8fc3463bd808cb531d8f06d790e3a036282780",
+      "prev_hash": "cb192191c703f0b985811b62b2f13cbcdb6d4f9dfa61d1b6b72510fcc9f10eb5"
+    }
+  ],
+  "generated_at": "2026-06-04T22:01:00.532Z"
+}

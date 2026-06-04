@@ -1,0 +1,146 @@
+{
+  "project": {
+    "id": "entheosai",
+    "kind": "project",
+    "name": "Entheosai",
+    "status": "defunct",
+    "unclassified": true,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_114",
+          "field": "name",
+          "value": "Entheosai",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250313005217id_/https://cardanocube.com/projects/entheosai",
+                "sha256": "55db8eb0a78a531502ecbcbfb3d50ebc5c2cdfe402ef2379335c73ff48505140",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 114,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_115",
+          "field": "status",
+          "value": "defunct",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250313005217id_/https://cardanocube.com/projects/entheosai",
+                "sha256": "55db8eb0a78a531502ecbcbfb3d50ebc5c2cdfe402ef2379335c73ff48505140",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 115,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [],
+    "superseded_claim_count": 0,
+    "created_seq": 113,
+    "last_seq": 115
+  },
+  "history": [
+    {
+      "seq": 113,
+      "ts": "2026-06-03",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "entheosai",
+        "kind": "project"
+      },
+      "hash": "089156456be72f2b265b31a5d55f7f0208f5895a0b4db5f9df4c6a8d4f35b5b5",
+      "prev_hash": "dcf6035a253fcb4f8e2a76330a422c1782d7e1295d148cc86becbe7e3b5d63ea"
+    },
+    {
+      "seq": 114,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "entheosai",
+        "field": "name",
+        "value": "Entheosai",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250313005217id_/https://cardanocube.com/projects/entheosai",
+            "sha256": "55db8eb0a78a531502ecbcbfb3d50ebc5c2cdfe402ef2379335c73ff48505140",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "d0d879ee5f5cdcaf5e6a7977ffc77f5d2a5aa8340c3aade0b30732e34a2472c5",
+      "prev_hash": "089156456be72f2b265b31a5d55f7f0208f5895a0b4db5f9df4c6a8d4f35b5b5"
+    },
+    {
+      "seq": 115,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "entheosai",
+        "field": "status",
+        "value": "defunct",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250313005217id_/https://cardanocube.com/projects/entheosai",
+            "sha256": "55db8eb0a78a531502ecbcbfb3d50ebc5c2cdfe402ef2379335c73ff48505140",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "c81e148192fb80f0ad035487831b5bb4a624dd2e949b23c66f8f7f8e9d1b9d3b",
+      "prev_hash": "d0d879ee5f5cdcaf5e6a7977ffc77f5d2a5aa8340c3aade0b30732e34a2472c5"
+    }
+  ],
+  "generated_at": "2026-06-04T22:01:00.532Z"
+}

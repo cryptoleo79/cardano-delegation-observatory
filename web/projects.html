@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Memory — Cardano Delegation Observatory</title>
+<meta name="description" content="Cardano Project Memory: preserved, provenance-bearing project and category metadata. Read-only.">
+<meta name="theme-color" content="#fafaf7">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="ecosystem-strip">
+  <div class="ecosystem-strip-inner">
+    <span class="eco-label" id="eco-label">Ecosystem</span>
+    <a href="https://ctf.asy.life" class="eco-link">CTF</a>
+    <span class="eco-sep">·</span>
+    <a href="/" class="eco-link eco-active" id="eco-link-observatory">Observatory</a>
+    <span class="eco-sep">·</span>
+    <a href="https://voting.asy.life" class="eco-link" id="eco-link-voting">Voting</a>
+    <span class="eco-sep">·</span>
+    <a href="https://governance.asy.life" class="eco-link" id="eco-link-governance">Governance</a>
+    <span class="eco-sep">·</span>
+    <a href="https://github.com/cryptoleo79" class="eco-link" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand">
+      <span class="brand-mark">CDO</span>
+      <span class="brand-text" id="h-brand">Cardano Delegation Observatory</span>
+    </a>
+    <nav class="site-nav">
+      <a href="/" id="h-nav-observatory">Observatory</a>
+      <a href="actions.html" id="h-nav-actions">Actions</a>
+      <a href="projects.html" class="active" id="h-nav-projects">Projects</a>
+      <a href="categories.html" id="h-nav-categories">Categories</a>
+      <a href="methodology.html" id="h-nav-methodology">Methodology</a>
+      <a href="https://github.com/cryptoleo79/cardano-data-layer" target="_blank" rel="noopener" id="h-nav-source">Source</a>
+      <div class="lang-toggle">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-ja" onclick="setLang('ja')">日本語</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <article class="container">
+    <h1 id="pm-title">Cardano Project Memory</h1>
+    <p class="lede" id="pm-lede">Preserved metadata for Cardano projects and the ecosystem taxonomy — every value carries its provenance (who said it, where it came from, when, and what archived evidence supports it). Read-only. Nothing here is overwritten or deleted; the record is reconstructed from an append-only event log seeded from the preservation archive.</p>
+
+    <div class="meta-strip"><div class="meta-strip-inner" id="pm-meta"></div></div>
+
+    <div class="actions-filters">
+      <label class="filter-label">
+        <span id="f-status-label">Status</span>
+        <select id="f-status"><option value="">All</option><option value="defunct">Defunct</option><option value="active">Active</option></select>
+      </label>
+      <label class="filter-label">
+        <span id="f-kind-label">Kind</span>
+        <select id="f-kind"><option value="">All</option><option value="project">Project</option><option value="token">Token</option></select>
+      </label>
+      <label class="filter-label">
+        <span id="f-q-label">Search</span>
+        <input type="search" id="f-q" placeholder="name or id">
+      </label>
+      <span class="filter-count" id="f-count"></span>
+    </div>
+
+    <div class="table-scroll">
+      <table class="vote-table" id="pm-table">
+        <thead>
+          <tr>
+            <th id="th-pm-name">Name / ID</th>
+            <th id="th-pm-kind">Kind</th>
+            <th id="th-pm-status">Status</th>
+            <th id="th-pm-cats">Categories</th>
+            <th id="th-pm-source">Source</th>
+            <th id="th-pm-authority">Authority</th>
+            <th id="th-pm-evidence">Evidence</th>
+            <th id="th-pm-history">History</th>
+          </tr>
+        </thead>
+        <tbody id="pm-tbody"><tr><td colspan="8" class="loading" id="pm-loading">Loading…</td></tr></tbody>
+      </table>
+    </div>
+
+    <p class="footnote" id="pm-foot">Source: <code>/data/snapshots/projectmemory/index.json</code> · CC0. Seeded from the <a href="https://github.com/cryptoleo79/cardano-project-memory-archive" target="_blank" rel="noopener">Cardano Project Memory archive</a> (chain-of-custody preserved). Authority classes: A on-chain · B official · C at-risk platform · D community · E researcher.</p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div><span id="ft-license">Apache 2.0 code · CC0 data</span></div>
+    <div>
+      <a href="/" id="ft-observatory">Observatory</a>
+      <a href="methodology.html" id="ft-methodology">Methodology</a>
+      <a href="https://github.com/cryptoleo79/cardano-data-layer" target="_blank" rel="noopener" id="ft-source">Source</a>
+    </div>
+    <div class="footer-note" id="ft-pm-note">Project Memory is read-only. Adding, updating, and challenging metadata is a governed write path that is not yet built.</div>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="projects-page.js"></script>
+</body>
+</html>

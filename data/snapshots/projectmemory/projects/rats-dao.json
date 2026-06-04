@@ -1,0 +1,146 @@
+{
+  "project": {
+    "id": "rats-dao",
+    "kind": "project",
+    "name": "Rats DAO",
+    "status": "defunct",
+    "unclassified": true,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_132",
+          "field": "name",
+          "value": "Rats DAO",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250116072946id_/https://cardanocube.com/projects/rats-dao",
+                "sha256": "8e561718e4327be0b6de462f7c3120cafda5597e5e7e3c5c5f76e2804dddf3a0",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 132,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_133",
+          "field": "status",
+          "value": "defunct",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250116072946id_/https://cardanocube.com/projects/rats-dao",
+                "sha256": "8e561718e4327be0b6de462f7c3120cafda5597e5e7e3c5c5f76e2804dddf3a0",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 133,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [],
+    "superseded_claim_count": 0,
+    "created_seq": 131,
+    "last_seq": 133
+  },
+  "history": [
+    {
+      "seq": 131,
+      "ts": "2026-06-03",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "rats-dao",
+        "kind": "project"
+      },
+      "hash": "6a50554ca1c51704144974ed3300db3dbb3b298774aebd59be9f4d76d3ae384e",
+      "prev_hash": "7dc9b27677578e816280ee975cb8732ff2d7a94692af73152e896576c2c46223"
+    },
+    {
+      "seq": 132,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "rats-dao",
+        "field": "name",
+        "value": "Rats DAO",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250116072946id_/https://cardanocube.com/projects/rats-dao",
+            "sha256": "8e561718e4327be0b6de462f7c3120cafda5597e5e7e3c5c5f76e2804dddf3a0",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "b8d086c550e640c17d9de591314d23b89b63f10331d92d6006da0216873ce18c",
+      "prev_hash": "6a50554ca1c51704144974ed3300db3dbb3b298774aebd59be9f4d76d3ae384e"
+    },
+    {
+      "seq": 133,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "rats-dao",
+        "field": "status",
+        "value": "defunct",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250116072946id_/https://cardanocube.com/projects/rats-dao",
+            "sha256": "8e561718e4327be0b6de462f7c3120cafda5597e5e7e3c5c5f76e2804dddf3a0",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "22e2d5008aa64a7b24ae2726919b0a7f49a643850ef7049d11893e616395f6a9",
+      "prev_hash": "b8d086c550e640c17d9de591314d23b89b63f10331d92d6006da0216873ce18c"
+    }
+  ],
+  "generated_at": "2026-06-04T22:01:00.532Z"
+}

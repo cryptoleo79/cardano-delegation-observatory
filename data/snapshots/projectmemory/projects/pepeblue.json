@@ -1,0 +1,146 @@
+{
+  "project": {
+    "id": "pepeblue",
+    "kind": "project",
+    "name": "Pepeblue",
+    "status": "defunct",
+    "unclassified": true,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_129",
+          "field": "name",
+          "value": "Pepeblue",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20241204053033id_/https://cardanocube.com/projects/pepeblue",
+                "sha256": "c6d3db08ba13c7084e543505bb2c0b4c64de0b02fdeedc2ebabf042995e5b3e6",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 129,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_130",
+          "field": "status",
+          "value": "defunct",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20241204053033id_/https://cardanocube.com/projects/pepeblue",
+                "sha256": "c6d3db08ba13c7084e543505bb2c0b4c64de0b02fdeedc2ebabf042995e5b3e6",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 130,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [],
+    "superseded_claim_count": 0,
+    "created_seq": 128,
+    "last_seq": 130
+  },
+  "history": [
+    {
+      "seq": 128,
+      "ts": "2026-06-03",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "pepeblue",
+        "kind": "project"
+      },
+      "hash": "5cfe19c15a6e0187abfbd47cdd8ca3f47295a3439d5122a86859a7c60422907e",
+      "prev_hash": "2a9cebe33a39f9ad5edbd9e3a7c266ab0b8ffcebe1530209fadb71616c9f9ead"
+    },
+    {
+      "seq": 129,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "pepeblue",
+        "field": "name",
+        "value": "Pepeblue",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20241204053033id_/https://cardanocube.com/projects/pepeblue",
+            "sha256": "c6d3db08ba13c7084e543505bb2c0b4c64de0b02fdeedc2ebabf042995e5b3e6",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "bed495ec937499c1ddb8892338e533d49d9eb52858e5be8cd14a7540306cd8b2",
+      "prev_hash": "5cfe19c15a6e0187abfbd47cdd8ca3f47295a3439d5122a86859a7c60422907e"
+    },
+    {
+      "seq": 130,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "pepeblue",
+        "field": "status",
+        "value": "defunct",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20241204053033id_/https://cardanocube.com/projects/pepeblue",
+            "sha256": "c6d3db08ba13c7084e543505bb2c0b4c64de0b02fdeedc2ebabf042995e5b3e6",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "7dc9b27677578e816280ee975cb8732ff2d7a94692af73152e896576c2c46223",
+      "prev_hash": "bed495ec937499c1ddb8892338e533d49d9eb52858e5be8cd14a7540306cd8b2"
+    }
+  ],
+  "generated_at": "2026-06-04T22:01:00.532Z"
+}

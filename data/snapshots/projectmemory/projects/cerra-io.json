@@ -1,0 +1,146 @@
+{
+  "project": {
+    "id": "cerra-io",
+    "kind": "project",
+    "name": "Cerra IO",
+    "status": "defunct",
+    "unclassified": true,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_87",
+          "field": "name",
+          "value": "Cerra IO",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133802id_/https://cardanocube.com/projects/cerra-io",
+                "sha256": "b9ac50e69a5192ea5293189c209e2d10852621a517fc3e5a091e8f483554e195",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 87,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_88",
+          "field": "status",
+          "value": "defunct",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133802id_/https://cardanocube.com/projects/cerra-io",
+                "sha256": "b9ac50e69a5192ea5293189c209e2d10852621a517fc3e5a091e8f483554e195",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 88,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [],
+    "superseded_claim_count": 0,
+    "created_seq": 86,
+    "last_seq": 88
+  },
+  "history": [
+    {
+      "seq": 86,
+      "ts": "2026-06-03",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "cerra-io",
+        "kind": "project"
+      },
+      "hash": "c32a77a5483549603361c927d896c42c80a7af900b82b2434cb6c820c5f1b67f",
+      "prev_hash": "c821763b9bd02b1eb2dd27ca7c8fc3463bd808cb531d8f06d790e3a036282780"
+    },
+    {
+      "seq": 87,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cerra-io",
+        "field": "name",
+        "value": "Cerra IO",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133802id_/https://cardanocube.com/projects/cerra-io",
+            "sha256": "b9ac50e69a5192ea5293189c209e2d10852621a517fc3e5a091e8f483554e195",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "67f82da35b6ebd35830a43196750b8b0d108c2de95fc70a33c0e7c43d77b82a7",
+      "prev_hash": "c32a77a5483549603361c927d896c42c80a7af900b82b2434cb6c820c5f1b67f"
+    },
+    {
+      "seq": 88,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cerra-io",
+        "field": "status",
+        "value": "defunct",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133802id_/https://cardanocube.com/projects/cerra-io",
+            "sha256": "b9ac50e69a5192ea5293189c209e2d10852621a517fc3e5a091e8f483554e195",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "20692abd27b2dc3dfa997172b0766f691d08bd656feed348ccbdd4fa5f5c0817",
+      "prev_hash": "67f82da35b6ebd35830a43196750b8b0d108c2de95fc70a33c0e7c43d77b82a7"
+    }
+  ],
+  "generated_at": "2026-06-04T22:01:00.532Z"
+}

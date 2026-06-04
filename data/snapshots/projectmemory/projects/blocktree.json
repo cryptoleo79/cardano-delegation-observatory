@@ -1,0 +1,146 @@
+{
+  "project": {
+    "id": "blocktree",
+    "kind": "project",
+    "name": "Blocktree",
+    "status": "defunct",
+    "unclassified": true,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_81",
+          "field": "name",
+          "value": "Blocktree",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250317233214id_/https://cardanocube.com/projects/blocktree",
+                "sha256": "609f70e857206be2d53fb2f2c0f81601e18f763550d1119d1bd51a94468fc29a",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 81,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_82",
+          "field": "status",
+          "value": "defunct",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250317233214id_/https://cardanocube.com/projects/blocktree",
+                "sha256": "609f70e857206be2d53fb2f2c0f81601e18f763550d1119d1bd51a94468fc29a",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 82,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [],
+    "superseded_claim_count": 0,
+    "created_seq": 80,
+    "last_seq": 82
+  },
+  "history": [
+    {
+      "seq": 80,
+      "ts": "2026-06-03",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "blocktree",
+        "kind": "project"
+      },
+      "hash": "98250138fd5fc87b6da876db94fc8406856bde948957c690803dab3c597de405",
+      "prev_hash": "a2b6a566e924a3f6f96036e51c4a23b46bc2a7c338f7cff32bc906c1fa0621e6"
+    },
+    {
+      "seq": 81,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "blocktree",
+        "field": "name",
+        "value": "Blocktree",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250317233214id_/https://cardanocube.com/projects/blocktree",
+            "sha256": "609f70e857206be2d53fb2f2c0f81601e18f763550d1119d1bd51a94468fc29a",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "a6ca95d4280b8799115bd7b9134c172ff79617278534df73500315aa9f328bab",
+      "prev_hash": "98250138fd5fc87b6da876db94fc8406856bde948957c690803dab3c597de405"
+    },
+    {
+      "seq": 82,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "blocktree",
+        "field": "status",
+        "value": "defunct",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250317233214id_/https://cardanocube.com/projects/blocktree",
+            "sha256": "609f70e857206be2d53fb2f2c0f81601e18f763550d1119d1bd51a94468fc29a",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "02cc8dc2c85ef8ff4d328c4c0fcc6d6b694574885bc715fe9a6334d76c5fd45d",
+      "prev_hash": "a6ca95d4280b8799115bd7b9134c172ff79617278534df73500315aa9f328bab"
+    }
+  ],
+  "generated_at": "2026-06-04T22:01:00.532Z"
+}

@@ -1,0 +1,146 @@
+{
+  "project": {
+    "id": "cns",
+    "kind": "project",
+    "name": "CNS",
+    "status": "defunct",
+    "unclassified": true,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_96",
+          "field": "name",
+          "value": "CNS",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260204042051id_/https://cardanocube.com/projects/cns",
+                "sha256": "850c7bea9569b9a76ed85f549ed39949af89e1fb9d4c4ca1fbbcfcb4366fc6d1",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 96,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_97",
+          "field": "status",
+          "value": "defunct",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260204042051id_/https://cardanocube.com/projects/cns",
+                "sha256": "850c7bea9569b9a76ed85f549ed39949af89e1fb9d4c4ca1fbbcfcb4366fc6d1",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 97,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [],
+    "superseded_claim_count": 0,
+    "created_seq": 95,
+    "last_seq": 97
+  },
+  "history": [
+    {
+      "seq": 95,
+      "ts": "2026-06-03",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "cns",
+        "kind": "project"
+      },
+      "hash": "c1de0593be7158c3bc7b685e9ae294e651390185c77a25636f37eaccc04e6793",
+      "prev_hash": "b40a260ef7fce0cea77f3ca8c13c40f72f123e9d015fe1afa99c94608cab15c5"
+    },
+    {
+      "seq": 96,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cns",
+        "field": "name",
+        "value": "CNS",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204042051id_/https://cardanocube.com/projects/cns",
+            "sha256": "850c7bea9569b9a76ed85f549ed39949af89e1fb9d4c4ca1fbbcfcb4366fc6d1",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "f842bb54e219abea06c34e6b92280759215cfbec207e82491b17e22ebef84991",
+      "prev_hash": "c1de0593be7158c3bc7b685e9ae294e651390185c77a25636f37eaccc04e6793"
+    },
+    {
+      "seq": 97,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cns",
+        "field": "status",
+        "value": "defunct",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204042051id_/https://cardanocube.com/projects/cns",
+            "sha256": "850c7bea9569b9a76ed85f549ed39949af89e1fb9d4c4ca1fbbcfcb4366fc6d1",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "0dd4f8ed871d9b608c7cc2d9370c64d5581e6f0ac1216807ec7c7911edd816e0",
+      "prev_hash": "f842bb54e219abea06c34e6b92280759215cfbec207e82491b17e22ebef84991"
+    }
+  ],
+  "generated_at": "2026-06-04T22:01:00.532Z"
+}

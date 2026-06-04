@@ -1,0 +1,146 @@
+{
+  "project": {
+    "id": "adax",
+    "kind": "project",
+    "name": "Adax",
+    "status": "defunct",
+    "unclassified": true,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_78",
+          "field": "name",
+          "value": "Adax",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20241204064152id_/https://cardanocube.com/projects/adax",
+                "sha256": "df45b12b464eccec871c065a3502b672a5c41c6c5a94eb4e2b6a6d014e087ee8",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 78,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_79",
+          "field": "status",
+          "value": "defunct",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20241204064152id_/https://cardanocube.com/projects/adax",
+                "sha256": "df45b12b464eccec871c065a3502b672a5c41c6c5a94eb4e2b6a6d014e087ee8",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 79,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [],
+    "superseded_claim_count": 0,
+    "created_seq": 77,
+    "last_seq": 79
+  },
+  "history": [
+    {
+      "seq": 77,
+      "ts": "2026-06-03",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "adax",
+        "kind": "project"
+      },
+      "hash": "4b21f32e673af918f0153b04af02a1f10a9fbe848d6d79e50053eee559645f75",
+      "prev_hash": "dbe1a162d5972635d131a98041b2a08196803ed2c1c013f68ccd8cea8b890c3a"
+    },
+    {
+      "seq": 78,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adax",
+        "field": "name",
+        "value": "Adax",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20241204064152id_/https://cardanocube.com/projects/adax",
+            "sha256": "df45b12b464eccec871c065a3502b672a5c41c6c5a94eb4e2b6a6d014e087ee8",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "84816f6392f19e2b67ab41118a1633ec8f152d4b0ece2fcf1a417dbb0364cdc2",
+      "prev_hash": "4b21f32e673af918f0153b04af02a1f10a9fbe848d6d79e50053eee559645f75"
+    },
+    {
+      "seq": 79,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adax",
+        "field": "status",
+        "value": "defunct",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20241204064152id_/https://cardanocube.com/projects/adax",
+            "sha256": "df45b12b464eccec871c065a3502b672a5c41c6c5a94eb4e2b6a6d014e087ee8",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "a2b6a566e924a3f6f96036e51c4a23b46bc2a7c338f7cff32bc906c1fa0621e6",
+      "prev_hash": "84816f6392f19e2b67ab41118a1633ec8f152d4b0ece2fcf1a417dbb0364cdc2"
+    }
+  ],
+  "generated_at": "2026-06-04T22:01:00.532Z"
+}

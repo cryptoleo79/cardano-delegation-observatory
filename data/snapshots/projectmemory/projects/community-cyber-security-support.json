@@ -1,0 +1,146 @@
+{
+  "project": {
+    "id": "community-cyber-security-support",
+    "kind": "project",
+    "name": "Community Cyber Security Support",
+    "status": "defunct",
+    "unclassified": true,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_102",
+          "field": "name",
+          "value": "Community Cyber Security Support",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603134016id_/https://cardanocube.com/projects/community-cyber-security-support",
+                "sha256": "52f6fe4ff135d25a1d0b4a6ed5509e70ee8006879da219a4cce3bf05c1a42895",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 102,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_103",
+          "field": "status",
+          "value": "defunct",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603134016id_/https://cardanocube.com/projects/community-cyber-security-support",
+                "sha256": "52f6fe4ff135d25a1d0b4a6ed5509e70ee8006879da219a4cce3bf05c1a42895",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 103,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [],
+    "superseded_claim_count": 0,
+    "created_seq": 101,
+    "last_seq": 103
+  },
+  "history": [
+    {
+      "seq": 101,
+      "ts": "2026-06-03",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "community-cyber-security-support",
+        "kind": "project"
+      },
+      "hash": "757daad2f7661a4f30b6a34c98bc1d0a1c2025f47e349c862de1b999a3253a38",
+      "prev_hash": "e0013daaae14ba626be183d89e783848a36d0bdd56d13d1a6a135fe42e10da94"
+    },
+    {
+      "seq": 102,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "community-cyber-security-support",
+        "field": "name",
+        "value": "Community Cyber Security Support",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603134016id_/https://cardanocube.com/projects/community-cyber-security-support",
+            "sha256": "52f6fe4ff135d25a1d0b4a6ed5509e70ee8006879da219a4cce3bf05c1a42895",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "89e3e5cc8beee74be5271f95d8f0e3af62e1dbaec895dd578586f76f21c9c74b",
+      "prev_hash": "757daad2f7661a4f30b6a34c98bc1d0a1c2025f47e349c862de1b999a3253a38"
+    },
+    {
+      "seq": 103,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "community-cyber-security-support",
+        "field": "status",
+        "value": "defunct",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603134016id_/https://cardanocube.com/projects/community-cyber-security-support",
+            "sha256": "52f6fe4ff135d25a1d0b4a6ed5509e70ee8006879da219a4cce3bf05c1a42895",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "6acaf06812074a808ae26be8d50b4e0dcbe0df842e3882710c5b7c6d5ef3340d",
+      "prev_hash": "89e3e5cc8beee74be5271f95d8f0e3af62e1dbaec895dd578586f76f21c9c74b"
+    }
+  ],
+  "generated_at": "2026-06-04T22:01:00.532Z"
+}

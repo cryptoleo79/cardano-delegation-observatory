@@ -1,0 +1,146 @@
+{
+  "project": {
+    "id": "cobraking",
+    "kind": "project",
+    "name": "Cobraking",
+    "status": "defunct",
+    "unclassified": true,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_99",
+          "field": "name",
+          "value": "Cobraking",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250119224421id_/https://cardanocube.com/projects/cobraking",
+                "sha256": "7bc2122078eb6641edd66575eb9099d5a93d8fc6079aceedbd1ee09252bcbb88",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 99,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_100",
+          "field": "status",
+          "value": "defunct",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250119224421id_/https://cardanocube.com/projects/cobraking",
+                "sha256": "7bc2122078eb6641edd66575eb9099d5a93d8fc6079aceedbd1ee09252bcbb88",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 100,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [],
+    "superseded_claim_count": 0,
+    "created_seq": 98,
+    "last_seq": 100
+  },
+  "history": [
+    {
+      "seq": 98,
+      "ts": "2026-06-03",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "cobraking",
+        "kind": "project"
+      },
+      "hash": "3fca70bd5d68e629a570500be298cc04058dff2533d4283254f21ab462f5a1d3",
+      "prev_hash": "0dd4f8ed871d9b608c7cc2d9370c64d5581e6f0ac1216807ec7c7911edd816e0"
+    },
+    {
+      "seq": 99,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cobraking",
+        "field": "name",
+        "value": "Cobraking",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250119224421id_/https://cardanocube.com/projects/cobraking",
+            "sha256": "7bc2122078eb6641edd66575eb9099d5a93d8fc6079aceedbd1ee09252bcbb88",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "b2f2a9bb7f53c9c6d5d49cfddbbe8f17d1e006a1fcf982f008d966053bfff1f5",
+      "prev_hash": "3fca70bd5d68e629a570500be298cc04058dff2533d4283254f21ab462f5a1d3"
+    },
+    {
+      "seq": 100,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cobraking",
+        "field": "status",
+        "value": "defunct",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250119224421id_/https://cardanocube.com/projects/cobraking",
+            "sha256": "7bc2122078eb6641edd66575eb9099d5a93d8fc6079aceedbd1ee09252bcbb88",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "e0013daaae14ba626be183d89e783848a36d0bdd56d13d1a6a135fe42e10da94",
+      "prev_hash": "b2f2a9bb7f53c9c6d5d49cfddbbe8f17d1e006a1fcf982f008d966053bfff1f5"
+    }
+  ],
+  "generated_at": "2026-06-04T22:01:00.532Z"
+}

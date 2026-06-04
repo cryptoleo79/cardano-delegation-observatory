@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project — Cardano Project Memory</title>
+<meta name="description" content="Project detail: claims, provenance, source authority, archived evidence, and append-only history. Read-only.">
+<meta name="theme-color" content="#fafaf7">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="ecosystem-strip">
+  <div class="ecosystem-strip-inner">
+    <span class="eco-label" id="eco-label">Ecosystem</span>
+    <a href="https://ctf.asy.life" class="eco-link">CTF</a>
+    <span class="eco-sep">·</span>
+    <a href="/" class="eco-link eco-active" id="eco-link-observatory">Observatory</a>
+    <span class="eco-sep">·</span>
+    <a href="https://voting.asy.life" class="eco-link" id="eco-link-voting">Voting</a>
+    <span class="eco-sep">·</span>
+    <a href="https://governance.asy.life" class="eco-link" id="eco-link-governance">Governance</a>
+    <span class="eco-sep">·</span>
+    <a href="https://github.com/cryptoleo79" class="eco-link" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand">
+      <span class="brand-mark">CDO</span>
+      <span class="brand-text" id="h-brand">Cardano Delegation Observatory</span>
+    </a>
+    <nav class="site-nav">
+      <a href="/" id="h-nav-observatory">Observatory</a>
+      <a href="actions.html" id="h-nav-actions">Actions</a>
+      <a href="projects.html" id="h-nav-projects">Projects</a>
+      <a href="categories.html" id="h-nav-categories">Categories</a>
+      <a href="methodology.html" id="h-nav-methodology">Methodology</a>
+      <a href="https://github.com/cryptoleo79/cardano-data-layer" target="_blank" rel="noopener" id="h-nav-source">Source</a>
+      <div class="lang-toggle">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-ja" onclick="setLang('ja')">日本語</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <article class="container drep-page">
+    <p class="back-link"><a href="projects.html" id="back-link-projects">← Project Memory</a></p>
+    <h1 id="p-name">…</h1>
+    <p class="drep-id-full" id="p-id"></p>
+
+    <section class="drep-stats" id="p-stats">
+      <div class="stat-card"><div class="stat-label" id="p-stat-kind-label">Kind</div><div class="stat-value" id="p-stat-kind">—</div></div>
+      <div class="stat-card"><div class="stat-label" id="p-stat-status-label">Status</div><div class="stat-value" id="p-stat-status">—</div></div>
+      <div class="stat-card"><div class="stat-label" id="p-stat-claims-label">Claims</div><div class="stat-value" id="p-stat-claims">—</div></div>
+      <div class="stat-card"><div class="stat-label" id="p-stat-evidence-label">Evidence</div><div class="stat-value" id="p-stat-evidence">—</div></div>
+    </section>
+
+    <section class="drep-section">
+      <div class="expand-section-label" id="p-claims-label">Claims &amp; provenance</div>
+      <p class="footnote" id="p-claims-help">Every field is a sourced claim: who asserted it, where it came from (with authority class), when, and what archived evidence supports it. Superseded values are preserved in history below — nothing is overwritten.</p>
+      <div id="p-claims"></div>
+    </section>
+
+    <section class="drep-section">
+      <div class="expand-section-label" id="p-cats-label">Categories</div>
+      <div id="p-cats"></div>
+    </section>
+
+    <section class="drep-section" id="history">
+      <div class="expand-section-label" id="p-history-label">History timeline</div>
+      <p class="footnote" id="p-history-help">The append-only event log for this project. Hash-chained; nothing is deleted. This is the source of truth from which the values above are derived.</p>
+      <div id="p-history"></div>
+    </section>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div><span id="ft-license">Apache 2.0 code · CC0 data</span></div>
+    <div>
+      <a href="projects.html" id="ft-projects">Projects</a>
+      <a href="categories.html" id="ft-categories">Categories</a>
+      <a href="https://github.com/cryptoleo79/cardano-data-layer" target="_blank" rel="noopener" id="ft-source">Source</a>
+    </div>
+    <div class="footer-note" id="ft-pm-note2">Read-only. Provenance and evidence trace to the preservation archive via the Wayback Machine.</div>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="project-page.js"></script>
+</body>
+</html>

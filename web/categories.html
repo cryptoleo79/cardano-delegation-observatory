@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Categories — Cardano Project Memory</title>
+<meta name="description" content="Cardano ecosystem taxonomy: categories, project counts, and source provenance. Read-only.">
+<meta name="theme-color" content="#fafaf7">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="ecosystem-strip">
+  <div class="ecosystem-strip-inner">
+    <span class="eco-label" id="eco-label">Ecosystem</span>
+    <a href="https://ctf.asy.life" class="eco-link">CTF</a>
+    <span class="eco-sep">·</span>
+    <a href="/" class="eco-link eco-active" id="eco-link-observatory">Observatory</a>
+    <span class="eco-sep">·</span>
+    <a href="https://voting.asy.life" class="eco-link" id="eco-link-voting">Voting</a>
+    <span class="eco-sep">·</span>
+    <a href="https://governance.asy.life" class="eco-link" id="eco-link-governance">Governance</a>
+    <span class="eco-sep">·</span>
+    <a href="https://github.com/cryptoleo79" class="eco-link" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand">
+      <span class="brand-mark">CDO</span>
+      <span class="brand-text" id="h-brand">Cardano Delegation Observatory</span>
+    </a>
+    <nav class="site-nav">
+      <a href="/" id="h-nav-observatory">Observatory</a>
+      <a href="actions.html" id="h-nav-actions">Actions</a>
+      <a href="projects.html" id="h-nav-projects">Projects</a>
+      <a href="categories.html" class="active" id="h-nav-categories">Categories</a>
+      <a href="methodology.html" id="h-nav-methodology">Methodology</a>
+      <a href="https://github.com/cryptoleo79/cardano-data-layer" target="_blank" rel="noopener" id="h-nav-source">Source</a>
+      <div class="lang-toggle">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-ja" onclick="setLang('ja')">日本語</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <article class="container">
+    <h1 id="cat-title">Cardano ecosystem taxonomy</h1>
+    <p class="lede" id="cat-lede">The category taxonomy preserved from the ecosystem, as-found. Each category keeps its source and authority class; taxonomy is preserved per-source, never silently merged. Read-only.</p>
+
+    <div class="meta-strip"><div class="meta-strip-inner" id="cat-meta"></div></div>
+
+    <div class="actions-filters">
+      <label class="filter-label">
+        <span id="cf-q-label">Search</span>
+        <input type="search" id="cf-q" placeholder="category">
+      </label>
+      <span class="filter-count" id="cf-count"></span>
+    </div>
+
+    <div class="table-scroll">
+      <table class="vote-table" id="cat-table">
+        <thead>
+          <tr>
+            <th id="th-cat-name">Category</th>
+            <th id="th-cat-slug">Slug</th>
+            <th id="th-cat-count">Projects</th>
+            <th id="th-cat-source">Source</th>
+            <th id="th-cat-authority">Authority</th>
+            <th id="th-cat-asof">Added (as-of)</th>
+          </tr>
+        </thead>
+        <tbody id="cat-tbody"><tr><td colspan="6" class="loading" id="cat-loading">Loading…</td></tr></tbody>
+      </table>
+    </div>
+
+    <p class="footnote" id="cat-foot">Source: <code>/data/snapshots/projectmemory/index.json</code> · CC0. Category-version change history (rename / merge / deprecate) will populate here as the taxonomy is versioned; today this is the as-found snapshot. Project→category assignments are not invented — projects are shown as <em>unclassified</em> until verified assignments exist.</p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div><span id="ft-license">Apache 2.0 code · CC0 data</span></div>
+    <div>
+      <a href="projects.html" id="ft-projects">Projects</a>
+      <a href="/" id="ft-observatory">Observatory</a>
+      <a href="https://github.com/cryptoleo79/cardano-data-layer" target="_blank" rel="noopener" id="ft-source">Source</a>
+    </div>
+    <div class="footer-note" id="ft-cat-note">Taxonomy preserved as-found; per-source, never consolidated.</div>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="categories-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+{
+  "project": {
+    "id": "virusx",
+    "kind": "project",
+    "name": "Virusx",
+    "status": "defunct",
+    "unclassified": true,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_135",
+          "field": "name",
+          "value": "Virusx",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20240722133646id_/https://cardanocube.com/projects/virusx",
+                "sha256": "7e0ea52040e6630518f62e9f1c01a175ee41f936e3aee718c1916b08553647c2",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 135,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_136",
+          "field": "status",
+          "value": "defunct",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20240722133646id_/https://cardanocube.com/projects/virusx",
+                "sha256": "7e0ea52040e6630518f62e9f1c01a175ee41f936e3aee718c1916b08553647c2",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 136,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [],
+    "superseded_claim_count": 0,
+    "created_seq": 134,
+    "last_seq": 136
+  },
+  "history": [
+    {
+      "seq": 134,
+      "ts": "2026-06-03",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "virusx",
+        "kind": "project"
+      },
+      "hash": "d55865f3d8546761d2e73bfaedca854d8e937079e3d57c7e333cdc111516ce1e",
+      "prev_hash": "22e2d5008aa64a7b24ae2726919b0a7f49a643850ef7049d11893e616395f6a9"
+    },
+    {
+      "seq": 135,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "virusx",
+        "field": "name",
+        "value": "Virusx",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20240722133646id_/https://cardanocube.com/projects/virusx",
+            "sha256": "7e0ea52040e6630518f62e9f1c01a175ee41f936e3aee718c1916b08553647c2",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "69f1892c9ae37a517193c55a5324e236a8ece5533d3d1cc1a5deeefd72e26054",
+      "prev_hash": "d55865f3d8546761d2e73bfaedca854d8e937079e3d57c7e333cdc111516ce1e"
+    },
+    {
+      "seq": 136,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "virusx",
+        "field": "status",
+        "value": "defunct",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20240722133646id_/https://cardanocube.com/projects/virusx",
+            "sha256": "7e0ea52040e6630518f62e9f1c01a175ee41f936e3aee718c1916b08553647c2",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "6938bfe6fd82ddc4342ba15d5d9843bc1f498c6f1e9421d70c9f0ec8d45223bc",
+      "prev_hash": "69f1892c9ae37a517193c55a5324e236a8ece5533d3d1cc1a5deeefd72e26054"
+    }
+  ],
+  "generated_at": "2026-06-04T22:01:00.532Z"
+}

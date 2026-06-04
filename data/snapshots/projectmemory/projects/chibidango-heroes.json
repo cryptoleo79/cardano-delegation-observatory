@@ -1,0 +1,146 @@
+{
+  "project": {
+    "id": "chibidango-heroes",
+    "kind": "project",
+    "name": "Chibidango Heroes",
+    "status": "defunct",
+    "unclassified": true,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_93",
+          "field": "name",
+          "value": "Chibidango Heroes",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133938id_/https://cardanocube.com/projects/chibidango-heroes",
+                "sha256": "9fd38c6c9dfae9401882ab0facdc66c7815e1f9788da0d8ff264008db7eda060",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 93,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_94",
+          "field": "status",
+          "value": "defunct",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-03",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133938id_/https://cardanocube.com/projects/chibidango-heroes",
+                "sha256": "9fd38c6c9dfae9401882ab0facdc66c7815e1f9788da0d8ff264008db7eda060",
+                "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+              }
+            ]
+          },
+          "asserted_seq": 94,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [],
+    "superseded_claim_count": 0,
+    "created_seq": 92,
+    "last_seq": 94
+  },
+  "history": [
+    {
+      "seq": 92,
+      "ts": "2026-06-03",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "chibidango-heroes",
+        "kind": "project"
+      },
+      "hash": "39935ac8d8d9981bd4d79dce6975ac7bf190c11f2df4f06bee7581665ec0e7d6",
+      "prev_hash": "c05dae910991e25fd52124a2e130710daa749cbd31fee558b13bab4c1b7b148a"
+    },
+    {
+      "seq": 93,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "chibidango-heroes",
+        "field": "name",
+        "value": "Chibidango Heroes",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133938id_/https://cardanocube.com/projects/chibidango-heroes",
+            "sha256": "9fd38c6c9dfae9401882ab0facdc66c7815e1f9788da0d8ff264008db7eda060",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "34df4349f26d05da0bd16a220c1b2108655c262ec401c041c5931de6c58c2afb",
+      "prev_hash": "39935ac8d8d9981bd4d79dce6975ac7bf190c11f2df4f06bee7581665ec0e7d6"
+    },
+    {
+      "seq": 94,
+      "ts": "2026-06-03",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "chibidango-heroes",
+        "field": "status",
+        "value": "defunct",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-03",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133938id_/https://cardanocube.com/projects/chibidango-heroes",
+            "sha256": "9fd38c6c9dfae9401882ab0facdc66c7815e1f9788da0d8ff264008db7eda060",
+            "description": "Archived editorial profile (chain-of-custody from cardano-project-memory-archive)"
+          }
+        ]
+      },
+      "hash": "b40a260ef7fce0cea77f3ca8c13c40f72f123e9d015fe1afa99c94608cab15c5",
+      "prev_hash": "34df4349f26d05da0bd16a220c1b2108655c262ec401c041c5931de6c58c2afb"
+    }
+  ],
+  "generated_at": "2026-06-04T22:01:00.532Z"
+}

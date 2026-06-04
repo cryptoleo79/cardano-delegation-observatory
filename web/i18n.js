@@ -80,6 +80,8 @@ const i18n = {
     /* Nav (cross-page) */
     "h-nav-observatory": "Observatory",
     "h-nav-actions": "Actions",
+    "h-nav-projects": "Projects",
+    "h-nav-categories": "Categories",
 
     /* Actions page */
     "actions-title": "Governance actions",
@@ -272,6 +274,8 @@ const i18n = {
     /* Nav (cross-page) */
     "h-nav-observatory": "Observatory",
     "h-nav-actions": "ガバナンスアクション",
+    "h-nav-projects": "プロジェクト",
+    "h-nav-categories": "カテゴリ",
 
     /* Actions page */
     "actions-title": "ガバナンスアクション一覧",
