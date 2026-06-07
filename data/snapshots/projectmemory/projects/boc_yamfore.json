@@ -1,0 +1,280 @@
+{
+  "project": {
+    "id": "boc:yamfore",
+    "kind": "project",
+    "name": "Yamfore",
+    "status": "active",
+    "unclassified": false,
+    "fields": {
+      "description": [
+        {
+          "claim_id": "clm_4127",
+          "field": "description",
+          "value": "A crypto backed loan platform with no liquidation events, no interest payments, and indefinite loan periods. Fundamentally long on the price of ada.",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 4127,
+          "superseded_by_seq": null
+        }
+      ],
+      "name": [
+        {
+          "claim_id": "clm_4126",
+          "field": "name",
+          "value": "Yamfore",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 4126,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_4128",
+          "field": "status",
+          "value": "active",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 4128,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "defi",
+        "name": "Defi",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "source": {
+          "source_id": "builtoncardano",
+          "kind": "builtoncardano",
+          "authority_class": "B",
+          "url": "https://builtoncardano.com/ecosystem/all",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "Built on Cardano directory (Cardano Foundation)"
+        }
+      },
+      {
+        "slug": "lending-borrowing",
+        "name": "Lending Borrowing",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "source": {
+          "source_id": "builtoncardano",
+          "kind": "builtoncardano",
+          "authority_class": "B",
+          "url": "https://builtoncardano.com/ecosystem/all",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "Built on Cardano directory (Cardano Foundation)"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4125,
+    "last_seq": 4130
+  },
+  "history": [
+    {
+      "seq": 4125,
+      "ts": "2026-06-07",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "boc:yamfore",
+        "kind": "project"
+      },
+      "hash": "66c7453abc7b77e28051ced2a78a68eaddbbdd2e50b5ffa89e66976f9098cf74",
+      "prev_hash": "ea02cf224e625d063980791dbc435dd2b4b3bad2272c203ba965f75941417837"
+    },
+    {
+      "seq": 4126,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:yamfore",
+        "field": "name",
+        "value": "Yamfore",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "a47eb8dae17f1e7616c3bf32dbab0a9b0c4cbc263c161ecd500117d7b712ceae",
+      "prev_hash": "66c7453abc7b77e28051ced2a78a68eaddbbdd2e50b5ffa89e66976f9098cf74"
+    },
+    {
+      "seq": 4127,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:yamfore",
+        "field": "description",
+        "value": "A crypto backed loan platform with no liquidation events, no interest payments, and indefinite loan periods. Fundamentally long on the price of ada.",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "15caa6e8ceee1060f1ec5706476f07e8685583bdcab124afa5e42f11016fdcfa",
+      "prev_hash": "a47eb8dae17f1e7616c3bf32dbab0a9b0c4cbc263c161ecd500117d7b712ceae"
+    },
+    {
+      "seq": 4128,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:yamfore",
+        "field": "status",
+        "value": "active",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "fd190b63282e231c31f31f574feb740bedd4bd11496775fab262a87842680fdd",
+      "prev_hash": "15caa6e8ceee1060f1ec5706476f07e8685583bdcab124afa5e42f11016fdcfa"
+    },
+    {
+      "seq": 4129,
+      "ts": "2026-06-07",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:yamfore",
+        "category_slug": "defi",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "confidence": "high",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "cb0ecf2d8c3ff458b35590293d9aabc2881b5a2552e6e86e3b71d40a42ae7226",
+      "prev_hash": "fd190b63282e231c31f31f574feb740bedd4bd11496775fab262a87842680fdd"
+    },
+    {
+      "seq": 4130,
+      "ts": "2026-06-07",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:yamfore",
+        "category_slug": "lending-borrowing",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "confidence": "high",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "c10a0a5efaf7677b8e5f2e377557c5070fb37252b0b362b4fc8f7271f22215d2",
+      "prev_hash": "cb0ecf2d8c3ff458b35590293d9aabc2881b5a2552e6e86e3b71d40a42ae7226"
+    }
+  ],
+  "generated_at": "2026-06-07T18:30:24.044Z"
+}

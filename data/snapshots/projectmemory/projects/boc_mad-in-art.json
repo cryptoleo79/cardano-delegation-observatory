@@ -1,0 +1,258 @@
+{
+  "project": {
+    "id": "boc:mad-in-art",
+    "kind": "project",
+    "name": "Mad in Art",
+    "status": "defunct",
+    "unclassified": true,
+    "fields": {
+      "description": [
+        {
+          "claim_id": "clm_2648",
+          "field": "description",
+          "value": "Combining fine art with digital graphic design to create NFTs from real world art.",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 2648,
+          "superseded_by_seq": null
+        }
+      ],
+      "name": [
+        {
+          "claim_id": "clm_2646",
+          "field": "name",
+          "value": "Mad in Art",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 2646,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_2649",
+          "field": "status",
+          "value": "defunct",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 2649,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_2647",
+          "field": "website",
+          "value": "https://madinart.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 2647,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [],
+    "superseded_claim_count": 0,
+    "created_seq": 2645,
+    "last_seq": 2649
+  },
+  "history": [
+    {
+      "seq": 2645,
+      "ts": "2026-06-07",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "boc:mad-in-art",
+        "kind": "project"
+      },
+      "hash": "108872e89e6b7be8970a220c969657ab4499373515646843608138a6941e94d2",
+      "prev_hash": "871ef52771a2d1ee7de65faf16719cff0aa32dab1e91c97dd1570750e7c377de"
+    },
+    {
+      "seq": 2646,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:mad-in-art",
+        "field": "name",
+        "value": "Mad in Art",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "fb422f4ba497b4b4054892f95b3042fb979d3cb7de605f963f871dc64143e4b9",
+      "prev_hash": "108872e89e6b7be8970a220c969657ab4499373515646843608138a6941e94d2"
+    },
+    {
+      "seq": 2647,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:mad-in-art",
+        "field": "website",
+        "value": "https://madinart.io/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "306d567ec6a693938bea10935a76ec48ae3517205ba098c64c4dc2ac7d601fc7",
+      "prev_hash": "fb422f4ba497b4b4054892f95b3042fb979d3cb7de605f963f871dc64143e4b9"
+    },
+    {
+      "seq": 2648,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:mad-in-art",
+        "field": "description",
+        "value": "Combining fine art with digital graphic design to create NFTs from real world art.",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "b2bacc92b28e4c488dff27ba8663c523d3771f5e718f9dd0d9b07cba9e4d9618",
+      "prev_hash": "306d567ec6a693938bea10935a76ec48ae3517205ba098c64c4dc2ac7d601fc7"
+    },
+    {
+      "seq": 2649,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:mad-in-art",
+        "field": "status",
+        "value": "defunct",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "62309e0e0c7662ab93f0ce2b4befdab8c0f42d8dac89324247c5913f871e217a",
+      "prev_hash": "b2bacc92b28e4c488dff27ba8663c523d3771f5e718f9dd0d9b07cba9e4d9618"
+    }
+  ],
+  "generated_at": "2026-06-07T18:30:24.044Z"
+}

@@ -1,0 +1,280 @@
+{
+  "project": {
+    "id": "boc:mint-matrix",
+    "kind": "project",
+    "name": "MintMatrix",
+    "status": "active",
+    "unclassified": false,
+    "fields": {
+      "description": [
+        {
+          "claim_id": "clm_2804",
+          "field": "description",
+          "value": "Digital id issuance, real world asset tokenization, & smart contracts for leasing, amortization, bonding, shared ownership, custom financial instrumentation.",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 2804,
+          "superseded_by_seq": null
+        }
+      ],
+      "name": [
+        {
+          "claim_id": "clm_2803",
+          "field": "name",
+          "value": "MintMatrix",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 2803,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_2805",
+          "field": "status",
+          "value": "active",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 2805,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "asset-tokenization",
+        "name": "Asset Tokenization",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "source": {
+          "source_id": "builtoncardano",
+          "kind": "builtoncardano",
+          "authority_class": "B",
+          "url": "https://builtoncardano.com/ecosystem/all",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "Built on Cardano directory (Cardano Foundation)"
+        }
+      },
+      {
+        "slug": "defi",
+        "name": "Defi",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "source": {
+          "source_id": "builtoncardano",
+          "kind": "builtoncardano",
+          "authority_class": "B",
+          "url": "https://builtoncardano.com/ecosystem/all",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "Built on Cardano directory (Cardano Foundation)"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 2802,
+    "last_seq": 2807
+  },
+  "history": [
+    {
+      "seq": 2802,
+      "ts": "2026-06-07",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "boc:mint-matrix",
+        "kind": "project"
+      },
+      "hash": "acbf42a1b1acb36584128a6bc7787c71dd7f4f06ea35a14735468b616699074e",
+      "prev_hash": "cf3ef58be27a3de92aa6e473fd07d5067f44ece0d3d7f859f97751f8c922d4b1"
+    },
+    {
+      "seq": 2803,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:mint-matrix",
+        "field": "name",
+        "value": "MintMatrix",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "2a6fbd170f5ceca568515a86c29b3dbc3f350aabfa7ce8defc4e0dbc6c3d1a74",
+      "prev_hash": "acbf42a1b1acb36584128a6bc7787c71dd7f4f06ea35a14735468b616699074e"
+    },
+    {
+      "seq": 2804,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:mint-matrix",
+        "field": "description",
+        "value": "Digital id issuance, real world asset tokenization, & smart contracts for leasing, amortization, bonding, shared ownership, custom financial instrumentation.",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "5e4392957162bf26f277f41b04ca5b4e8531f0060e16b7c7d36b6deb4e0ba97c",
+      "prev_hash": "2a6fbd170f5ceca568515a86c29b3dbc3f350aabfa7ce8defc4e0dbc6c3d1a74"
+    },
+    {
+      "seq": 2805,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:mint-matrix",
+        "field": "status",
+        "value": "active",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "2bc8c6139210003d7aa9818216275ccd001846dfc63a39498f963a959bace39c",
+      "prev_hash": "5e4392957162bf26f277f41b04ca5b4e8531f0060e16b7c7d36b6deb4e0ba97c"
+    },
+    {
+      "seq": 2806,
+      "ts": "2026-06-07",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:mint-matrix",
+        "category_slug": "defi",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "confidence": "high",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "cd4824c363992eeb49847dfad89f97dcdff71d505b46bde7932c0bdfe5322f8d",
+      "prev_hash": "2bc8c6139210003d7aa9818216275ccd001846dfc63a39498f963a959bace39c"
+    },
+    {
+      "seq": 2807,
+      "ts": "2026-06-07",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:mint-matrix",
+        "category_slug": "asset-tokenization",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "confidence": "high",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "b00a6f98af81ddffcf70e268573c7a419aabb8bdecd1a481f98ca2b5733959f0",
+      "prev_hash": "cd4824c363992eeb49847dfad89f97dcdff71d505b46bde7932c0bdfe5322f8d"
+    }
+  ],
+  "generated_at": "2026-06-07T18:30:24.044Z"
+}

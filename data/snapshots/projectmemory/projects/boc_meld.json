@@ -1,0 +1,337 @@
+{
+  "project": {
+    "id": "boc:meld",
+    "kind": "project",
+    "name": "MELD",
+    "status": "active",
+    "unclassified": false,
+    "fields": {
+      "description": [
+        {
+          "claim_id": "clm_2718",
+          "field": "description",
+          "value": "Deposit crypto to use as collateral and receive a cash loan, deposited into any bank account in the world.",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 2718,
+          "superseded_by_seq": null
+        }
+      ],
+      "name": [
+        {
+          "claim_id": "clm_2716",
+          "field": "name",
+          "value": "MELD",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 2716,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_2719",
+          "field": "status",
+          "value": "active",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 2719,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_2717",
+          "field": "website",
+          "value": "https://www.meld.com/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 2717,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "defi",
+        "name": "Defi",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "source": {
+          "source_id": "builtoncardano",
+          "kind": "builtoncardano",
+          "authority_class": "B",
+          "url": "https://builtoncardano.com/ecosystem/all",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "Built on Cardano directory (Cardano Foundation)"
+        }
+      },
+      {
+        "slug": "lending-borrowing",
+        "name": "Lending Borrowing",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "source": {
+          "source_id": "builtoncardano",
+          "kind": "builtoncardano",
+          "authority_class": "B",
+          "url": "https://builtoncardano.com/ecosystem/all",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "Built on Cardano directory (Cardano Foundation)"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 2715,
+    "last_seq": 2721
+  },
+  "history": [
+    {
+      "seq": 2715,
+      "ts": "2026-06-07",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "boc:meld",
+        "kind": "project"
+      },
+      "hash": "f988bc834c967dc52069b39be8f2f4f3be267d392115ce22884523f76808a334",
+      "prev_hash": "75d01a291eff1438d49ab2ab7aba1b211d27de7070fe194085663adacacd8f75"
+    },
+    {
+      "seq": 2716,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:meld",
+        "field": "name",
+        "value": "MELD",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "d0699a0f03bc7321c03657e075019312a987b28ae80306ffdd11b551990ba93d",
+      "prev_hash": "f988bc834c967dc52069b39be8f2f4f3be267d392115ce22884523f76808a334"
+    },
+    {
+      "seq": 2717,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:meld",
+        "field": "website",
+        "value": "https://www.meld.com/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "4d4e8c7b34dae9e9a02b8a80dda373e627b3a6fd76a6446108dab4acfb5dabed",
+      "prev_hash": "d0699a0f03bc7321c03657e075019312a987b28ae80306ffdd11b551990ba93d"
+    },
+    {
+      "seq": 2718,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:meld",
+        "field": "description",
+        "value": "Deposit crypto to use as collateral and receive a cash loan, deposited into any bank account in the world.",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "335e4ce053455507c3216ab1a3ebd71ac71f03b2fcad3fbbd01481bc9c444e2d",
+      "prev_hash": "4d4e8c7b34dae9e9a02b8a80dda373e627b3a6fd76a6446108dab4acfb5dabed"
+    },
+    {
+      "seq": 2719,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:meld",
+        "field": "status",
+        "value": "active",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "f7802050910c33dd0779f1f3a78b0cdcafe84f9044b953c7089d9ce3f6547bee",
+      "prev_hash": "335e4ce053455507c3216ab1a3ebd71ac71f03b2fcad3fbbd01481bc9c444e2d"
+    },
+    {
+      "seq": 2720,
+      "ts": "2026-06-07",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:meld",
+        "category_slug": "defi",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "confidence": "high",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "eb5db71d9b8f0e9c612d5fdef8f9c48905b7f35a1a9e79c10ae652b8b3c00040",
+      "prev_hash": "f7802050910c33dd0779f1f3a78b0cdcafe84f9044b953c7089d9ce3f6547bee"
+    },
+    {
+      "seq": 2721,
+      "ts": "2026-06-07",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:meld",
+        "category_slug": "lending-borrowing",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "confidence": "high",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "1f90072021d8fdb1f2d2c241383d776e330d6f264fb0cc9a08d19dd4038109e5",
+      "prev_hash": "eb5db71d9b8f0e9c612d5fdef8f9c48905b7f35a1a9e79c10ae652b8b3c00040"
+    }
+  ],
+  "generated_at": "2026-06-07T18:30:24.044Z"
+}

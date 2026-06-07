@@ -1,0 +1,280 @@
+{
+  "project": {
+    "id": "boc:gem-wallet",
+    "kind": "project",
+    "name": "Gem Wallet",
+    "status": "active",
+    "unclassified": false,
+    "fields": {
+      "description": [
+        {
+          "claim_id": "clm_2177",
+          "field": "description",
+          "value": "Gem Wallet is an open-source and self-custodial crypto wallet that lets you send, receive, swap, use dApps, buy, and stake cryptocurrencies",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 2177,
+          "superseded_by_seq": null
+        }
+      ],
+      "name": [
+        {
+          "claim_id": "clm_2176",
+          "field": "name",
+          "value": "Gem Wallet",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 2176,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_2178",
+          "field": "status",
+          "value": "active",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 2178,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "light-wallets",
+        "name": "Light Wallets",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "source": {
+          "source_id": "builtoncardano",
+          "kind": "builtoncardano",
+          "authority_class": "B",
+          "url": "https://builtoncardano.com/ecosystem/all",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "Built on Cardano directory (Cardano Foundation)"
+        }
+      },
+      {
+        "slug": "wallets",
+        "name": "Wallets",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "source": {
+          "source_id": "builtoncardano",
+          "kind": "builtoncardano",
+          "authority_class": "B",
+          "url": "https://builtoncardano.com/ecosystem/all",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "Built on Cardano directory (Cardano Foundation)"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 2175,
+    "last_seq": 2180
+  },
+  "history": [
+    {
+      "seq": 2175,
+      "ts": "2026-06-07",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "boc:gem-wallet",
+        "kind": "project"
+      },
+      "hash": "be39c41959e2a764ee05dbac933acd9c778380656dfb5f5e458c10fb1ed22c44",
+      "prev_hash": "9faa70f97df53d30792bfb054795c903acfca48ecc7b6a4a67005613b486795a"
+    },
+    {
+      "seq": 2176,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:gem-wallet",
+        "field": "name",
+        "value": "Gem Wallet",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "a2aad7f2f8c0d60c71226197b82c1c0217605527d7c2a20236772215af378b6a",
+      "prev_hash": "be39c41959e2a764ee05dbac933acd9c778380656dfb5f5e458c10fb1ed22c44"
+    },
+    {
+      "seq": 2177,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:gem-wallet",
+        "field": "description",
+        "value": "Gem Wallet is an open-source and self-custodial crypto wallet that lets you send, receive, swap, use dApps, buy, and stake cryptocurrencies",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "7ec465d1152ea0ecb41a051843a13809e5e12e20ee4b54085d723bdf60ebb5ef",
+      "prev_hash": "a2aad7f2f8c0d60c71226197b82c1c0217605527d7c2a20236772215af378b6a"
+    },
+    {
+      "seq": 2178,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:gem-wallet",
+        "field": "status",
+        "value": "active",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "43c39ad5ef48fa35960282ddccade1786981fb8994def42c3ea779761a92c3d4",
+      "prev_hash": "7ec465d1152ea0ecb41a051843a13809e5e12e20ee4b54085d723bdf60ebb5ef"
+    },
+    {
+      "seq": 2179,
+      "ts": "2026-06-07",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:gem-wallet",
+        "category_slug": "wallets",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "confidence": "high",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "efaf8d304d17861b23ba658bffb0e46f6a4c53ac3d0e96ef922b67a3fb40989c",
+      "prev_hash": "43c39ad5ef48fa35960282ddccade1786981fb8994def42c3ea779761a92c3d4"
+    },
+    {
+      "seq": 2180,
+      "ts": "2026-06-07",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:gem-wallet",
+        "category_slug": "light-wallets",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "confidence": "high",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "33c4b1c0c3989189ddb24dc2205f0f05ccf73b5c00bfc537e9463c6cddd88a08",
+      "prev_hash": "efaf8d304d17861b23ba658bffb0e46f6a4c53ac3d0e96ef922b67a3fb40989c"
+    }
+  ],
+  "generated_at": "2026-06-07T18:30:24.044Z"
+}

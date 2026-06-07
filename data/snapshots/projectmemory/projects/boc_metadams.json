@@ -1,0 +1,241 @@
+{
+  "project": {
+    "id": "boc:metadams",
+    "kind": "project",
+    "name": "Metadams",
+    "status": "active",
+    "unclassified": false,
+    "fields": {
+      "description": [
+        {
+          "claim_id": "clm_2768",
+          "field": "description",
+          "value": "A play-to-stake metaverse game where staking rewards are distributed between player based on player performance in harnessing energy reserves.",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 2768,
+          "superseded_by_seq": null
+        }
+      ],
+      "name": [
+        {
+          "claim_id": "clm_2767",
+          "field": "name",
+          "value": "Metadams",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 2767,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_2769",
+          "field": "status",
+          "value": "active",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 2769,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "metaverse",
+        "name": "Metaverse",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "source": {
+          "source_id": "builtoncardano",
+          "kind": "builtoncardano",
+          "authority_class": "B",
+          "url": "https://builtoncardano.com/ecosystem/all",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "Built on Cardano directory (Cardano Foundation)"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 2766,
+    "last_seq": 2770
+  },
+  "history": [
+    {
+      "seq": 2766,
+      "ts": "2026-06-07",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "boc:metadams",
+        "kind": "project"
+      },
+      "hash": "c3972c407bd397c798406829095e4fa2bccdc7b2b3271a0b7ce41999ce01798e",
+      "prev_hash": "e078e8a64ff0ce3b1247fcc03513809f3e46179ea3c1aff5ba37e05a01269a5a"
+    },
+    {
+      "seq": 2767,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:metadams",
+        "field": "name",
+        "value": "Metadams",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "1b2c3d8c220847eb7392dec633378166014cf0bd11e8228601af3bfa9d0b322e",
+      "prev_hash": "c3972c407bd397c798406829095e4fa2bccdc7b2b3271a0b7ce41999ce01798e"
+    },
+    {
+      "seq": 2768,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:metadams",
+        "field": "description",
+        "value": "A play-to-stake metaverse game where staking rewards are distributed between player based on player performance in harnessing energy reserves.",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "fa28b9a79d5f0dc040cd2e52ff2eb00d1b4a81f20cbfdd5615156d4db19d8cfa",
+      "prev_hash": "1b2c3d8c220847eb7392dec633378166014cf0bd11e8228601af3bfa9d0b322e"
+    },
+    {
+      "seq": 2769,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:metadams",
+        "field": "status",
+        "value": "active",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "1f4591fb5f66905555e56b28324607d8c7a4a83177d50a5f917d81c71c4a699a",
+      "prev_hash": "fa28b9a79d5f0dc040cd2e52ff2eb00d1b4a81f20cbfdd5615156d4db19d8cfa"
+    },
+    {
+      "seq": 2770,
+      "ts": "2026-06-07",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:metadams",
+        "category_slug": "metaverse",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "confidence": "high",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "2d467f7ea6fda7ef8d0015be0116935ffd468c621d9de596f9866f6791452bdb",
+      "prev_hash": "1f4591fb5f66905555e56b28324607d8c7a4a83177d50a5f917d81c71c4a699a"
+    }
+  ],
+  "generated_at": "2026-06-07T18:30:24.044Z"
+}

@@ -1,0 +1,201 @@
+{
+  "project": {
+    "id": "boc:sassy-shark",
+    "kind": "project",
+    "name": "SassyShark",
+    "status": "defunct",
+    "unclassified": true,
+    "fields": {
+      "description": [
+        {
+          "claim_id": "clm_3444",
+          "field": "description",
+          "value": "A collection of 10,000 unique, hand-drawn NFTs with the goal of raising ocean awareness and providing a positive impact on sea life.",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 3444,
+          "superseded_by_seq": null
+        }
+      ],
+      "name": [
+        {
+          "claim_id": "clm_3443",
+          "field": "name",
+          "value": "SassyShark",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 3443,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_3445",
+          "field": "status",
+          "value": "defunct",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 3445,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [],
+    "superseded_claim_count": 0,
+    "created_seq": 3442,
+    "last_seq": 3445
+  },
+  "history": [
+    {
+      "seq": 3442,
+      "ts": "2026-06-07",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "boc:sassy-shark",
+        "kind": "project"
+      },
+      "hash": "00b9e66368e49817f53acd2ccebde42159a8352ea93fa2ca2185fe37f6531f6e",
+      "prev_hash": "fbf0e73112906c01caaebb13e79c2494bcf2e2914741bcf4aacd367cec46bd6e"
+    },
+    {
+      "seq": 3443,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:sassy-shark",
+        "field": "name",
+        "value": "SassyShark",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "4892b5d1cb813fb7dfdbedd451c54226ed48231db7154a9d10cf80fd40bbe2a0",
+      "prev_hash": "00b9e66368e49817f53acd2ccebde42159a8352ea93fa2ca2185fe37f6531f6e"
+    },
+    {
+      "seq": 3444,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:sassy-shark",
+        "field": "description",
+        "value": "A collection of 10,000 unique, hand-drawn NFTs with the goal of raising ocean awareness and providing a positive impact on sea life.",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "4f7dec1e01e7ec9d3508247b2d9fb13d9c6f0ec1b6f638c9ccee1abe7bf4d091",
+      "prev_hash": "4892b5d1cb813fb7dfdbedd451c54226ed48231db7154a9d10cf80fd40bbe2a0"
+    },
+    {
+      "seq": 3445,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:sassy-shark",
+        "field": "status",
+        "value": "defunct",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "c616c52b699f7c2801c8d3bacfe0827fc0951da8c6b6283377bdd458428bfd41",
+      "prev_hash": "4f7dec1e01e7ec9d3508247b2d9fb13d9c6f0ec1b6f638c9ccee1abe7bf4d091"
+    }
+  ],
+  "generated_at": "2026-06-07T18:30:24.044Z"
+}

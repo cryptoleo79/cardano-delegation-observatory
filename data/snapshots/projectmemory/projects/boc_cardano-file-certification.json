@@ -1,0 +1,201 @@
+{
+  "project": {
+    "id": "boc:cardano-file-certification",
+    "kind": "project",
+    "name": "Cardano File Certification",
+    "status": "defunct",
+    "unclassified": true,
+    "fields": {
+      "description": [
+        {
+          "claim_id": "clm_1130",
+          "field": "description",
+          "value": "hash file secure data proof data file certification certification EMail contract art",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 1130,
+          "superseded_by_seq": null
+        }
+      ],
+      "name": [
+        {
+          "claim_id": "clm_1129",
+          "field": "name",
+          "value": "Cardano File Certification",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 1129,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_1131",
+          "field": "status",
+          "value": "defunct",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 1131,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [],
+    "superseded_claim_count": 0,
+    "created_seq": 1128,
+    "last_seq": 1131
+  },
+  "history": [
+    {
+      "seq": 1128,
+      "ts": "2026-06-07",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "boc:cardano-file-certification",
+        "kind": "project"
+      },
+      "hash": "eb592f9fb46cacebc264738167343c9dc54c19b24a9ddfde8e7e74a162593d0c",
+      "prev_hash": "eb139d1d4d4b4b26b7aefd6a2c75c151714b9cda6aa72efe1896a7188a3c922a"
+    },
+    {
+      "seq": 1129,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:cardano-file-certification",
+        "field": "name",
+        "value": "Cardano File Certification",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "95273d65616b1ad8836460492553327943fac7384c7dd830b2649761d025055b",
+      "prev_hash": "eb592f9fb46cacebc264738167343c9dc54c19b24a9ddfde8e7e74a162593d0c"
+    },
+    {
+      "seq": 1130,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:cardano-file-certification",
+        "field": "description",
+        "value": "hash file secure data proof data file certification certification EMail contract art",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "39fb4fbbd332484d9c08f4c56b024a0ae0ef8e79fb780b634cc737c8568e5881",
+      "prev_hash": "95273d65616b1ad8836460492553327943fac7384c7dd830b2649761d025055b"
+    },
+    {
+      "seq": 1131,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:cardano-file-certification",
+        "field": "status",
+        "value": "defunct",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "45cd7e94c56645fbd51236e5224114b4da905445686c0f4dd3e0d7848998fd4c",
+      "prev_hash": "39fb4fbbd332484d9c08f4c56b024a0ae0ef8e79fb780b634cc737c8568e5881"
+    }
+  ],
+  "generated_at": "2026-06-07T18:30:24.044Z"
+}

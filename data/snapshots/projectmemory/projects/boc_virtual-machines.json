@@ -1,0 +1,258 @@
+{
+  "project": {
+    "id": "boc:virtual-machines",
+    "kind": "project",
+    "name": "Virtual Machines",
+    "status": "defunct",
+    "unclassified": true,
+    "fields": {
+      "description": [
+        {
+          "claim_id": "clm_4006",
+          "field": "description",
+          "value": "Opening up Cardano to the Solidity/Ethereum and wider blockchain community through the K framework.",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 4006,
+          "superseded_by_seq": null
+        }
+      ],
+      "name": [
+        {
+          "claim_id": "clm_4004",
+          "field": "name",
+          "value": "Virtual Machines",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 4004,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_4007",
+          "field": "status",
+          "value": "defunct",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 4007,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_4005",
+          "field": "website",
+          "value": "https://testnets.cardano.org/en/virtual-machines/welcome/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 4005,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [],
+    "superseded_claim_count": 0,
+    "created_seq": 4003,
+    "last_seq": 4007
+  },
+  "history": [
+    {
+      "seq": 4003,
+      "ts": "2026-06-07",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "boc:virtual-machines",
+        "kind": "project"
+      },
+      "hash": "95e8b09f637e7100e8aad9b59102ef96afcdf463326efd8c6f1cc173216d1d98",
+      "prev_hash": "4d7bbf460f693f8d4d797590cd11643f0a8425b5994ef6b281307502d9f0dd05"
+    },
+    {
+      "seq": 4004,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:virtual-machines",
+        "field": "name",
+        "value": "Virtual Machines",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "4ec89d7dee67b278e156246d8f4ff1838e5e6878af175c69215f9c802b1f61e6",
+      "prev_hash": "95e8b09f637e7100e8aad9b59102ef96afcdf463326efd8c6f1cc173216d1d98"
+    },
+    {
+      "seq": 4005,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:virtual-machines",
+        "field": "website",
+        "value": "https://testnets.cardano.org/en/virtual-machines/welcome/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "3992da9d0bb311972ad8d5f216b1959c72a236e0794e543473ce8f252bed1913",
+      "prev_hash": "4ec89d7dee67b278e156246d8f4ff1838e5e6878af175c69215f9c802b1f61e6"
+    },
+    {
+      "seq": 4006,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:virtual-machines",
+        "field": "description",
+        "value": "Opening up Cardano to the Solidity/Ethereum and wider blockchain community through the K framework.",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "c5bf26e5d02cdf19544297c0e72f6a1c579de8df176cb464294d0fd794a4ebba",
+      "prev_hash": "3992da9d0bb311972ad8d5f216b1959c72a236e0794e543473ce8f252bed1913"
+    },
+    {
+      "seq": 4007,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:virtual-machines",
+        "field": "status",
+        "value": "defunct",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "c52f006b0bc47ec80ac83fba32cc52a0ee979cf10d37b60c02d92c0017e24c14",
+      "prev_hash": "c5bf26e5d02cdf19544297c0e72f6a1c579de8df176cb464294d0fd794a4ebba"
+    }
+  ],
+  "generated_at": "2026-06-07T18:30:24.044Z"
+}

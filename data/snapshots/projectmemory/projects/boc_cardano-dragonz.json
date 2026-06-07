@@ -1,0 +1,201 @@
+{
+  "project": {
+    "id": "boc:cardano-dragonz",
+    "kind": "project",
+    "name": "Cardano Dragonz",
+    "status": "defunct",
+    "unclassified": true,
+    "fields": {
+      "description": [
+        {
+          "claim_id": "clm_1094",
+          "field": "description",
+          "value": "A collection of hand-drawn, algorithmically generated NFT Dragonz. A game involving them will begin development in late 2022.",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 1094,
+          "superseded_by_seq": null
+        }
+      ],
+      "name": [
+        {
+          "claim_id": "clm_1093",
+          "field": "name",
+          "value": "Cardano Dragonz",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 1093,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_1095",
+          "field": "status",
+          "value": "defunct",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 1095,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [],
+    "superseded_claim_count": 0,
+    "created_seq": 1092,
+    "last_seq": 1095
+  },
+  "history": [
+    {
+      "seq": 1092,
+      "ts": "2026-06-07",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "boc:cardano-dragonz",
+        "kind": "project"
+      },
+      "hash": "c93f2f050a2fdf7c40ce9ece9e74eeff68e32a64ca45d45692c9d1b36a0b8f29",
+      "prev_hash": "21d7517b755a50583cb002b6e4f3f38eb284a7d78ea9192beb83f21834502803"
+    },
+    {
+      "seq": 1093,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:cardano-dragonz",
+        "field": "name",
+        "value": "Cardano Dragonz",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "1ba972937ad662ac83812b6dc6c04576813f4ae49f4f077603552f66a2c9e590",
+      "prev_hash": "c93f2f050a2fdf7c40ce9ece9e74eeff68e32a64ca45d45692c9d1b36a0b8f29"
+    },
+    {
+      "seq": 1094,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:cardano-dragonz",
+        "field": "description",
+        "value": "A collection of hand-drawn, algorithmically generated NFT Dragonz. A game involving them will begin development in late 2022.",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "b59557c2ecc9013532e0c3ca33a390758264aff2f5e3762f9b41d4f3641dab33",
+      "prev_hash": "1ba972937ad662ac83812b6dc6c04576813f4ae49f4f077603552f66a2c9e590"
+    },
+    {
+      "seq": 1095,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:cardano-dragonz",
+        "field": "status",
+        "value": "defunct",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "e7c47eed980a968e57259f50396b178449312498865945157daf8a77973878f2",
+      "prev_hash": "b59557c2ecc9013532e0c3ca33a390758264aff2f5e3762f9b41d4f3641dab33"
+    }
+  ],
+  "generated_at": "2026-06-07T18:30:24.044Z"
+}

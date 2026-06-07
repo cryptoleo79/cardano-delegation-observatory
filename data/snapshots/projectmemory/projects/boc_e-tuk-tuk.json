@@ -1,0 +1,184 @@
+{
+  "project": {
+    "id": "boc:e-tuk-tuk",
+    "kind": "project",
+    "name": "eTukTuk",
+    "status": "active",
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_1944",
+          "field": "name",
+          "value": "eTukTuk",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 1944,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_1945",
+          "field": "status",
+          "value": "active",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 1945,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "industry-solutions",
+        "name": "Industry Solutions",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "source": {
+          "source_id": "builtoncardano",
+          "kind": "builtoncardano",
+          "authority_class": "B",
+          "url": "https://builtoncardano.com/ecosystem/all",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "Built on Cardano directory (Cardano Foundation)"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 1943,
+    "last_seq": 1946
+  },
+  "history": [
+    {
+      "seq": 1943,
+      "ts": "2026-06-07",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "boc:e-tuk-tuk",
+        "kind": "project"
+      },
+      "hash": "6c95460ad1b30892a78cd20bffe8840be922379dd86b466d9c36dd720c867492",
+      "prev_hash": "757053816901903b60eb21843ec73ae091150f1ffa11e4ac342e4ea7fa9c2e9c"
+    },
+    {
+      "seq": 1944,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:e-tuk-tuk",
+        "field": "name",
+        "value": "eTukTuk",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "3ab45f680341ad1e8eb9dd05dbfc81d592e5f63a5aea7778b6ec73b280776c08",
+      "prev_hash": "6c95460ad1b30892a78cd20bffe8840be922379dd86b466d9c36dd720c867492"
+    },
+    {
+      "seq": 1945,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:e-tuk-tuk",
+        "field": "status",
+        "value": "active",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "5a6f942628a7c95194d60de3f8c5ac3f870e5673eddbc70870faf75d86a6d643",
+      "prev_hash": "3ab45f680341ad1e8eb9dd05dbfc81d592e5f63a5aea7778b6ec73b280776c08"
+    },
+    {
+      "seq": 1946,
+      "ts": "2026-06-07",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:e-tuk-tuk",
+        "category_slug": "industry-solutions",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "confidence": "high",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "63f3e76f05783ca691ef18ea92637837a0d08d8893284f81c8e5442bd761f706",
+      "prev_hash": "5a6f942628a7c95194d60de3f8c5ac3f870e5673eddbc70870faf75d86a6d643"
+    }
+  ],
+  "generated_at": "2026-06-07T18:30:24.044Z"
+}

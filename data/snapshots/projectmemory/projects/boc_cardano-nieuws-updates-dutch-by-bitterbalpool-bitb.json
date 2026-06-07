@@ -1,0 +1,280 @@
+{
+  "project": {
+    "id": "boc:cardano-nieuws-updates-dutch-by-bitterbalpool-bitb",
+    "kind": "project",
+    "name": "Cardano Nieuws Updates (Dutch) by Bitterbalpool (BITB)",
+    "status": "active",
+    "unclassified": false,
+    "fields": {
+      "description": [
+        {
+          "claim_id": "clm_1237",
+          "field": "description",
+          "value": "Dutch Youtube Channel for educational content about Cardano. We create weekly news updates about the Cardano ecosystem and organise Dutch twitter spaces.",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 1237,
+          "superseded_by_seq": null
+        }
+      ],
+      "name": [
+        {
+          "claim_id": "clm_1236",
+          "field": "name",
+          "value": "Cardano Nieuws Updates (Dutch) by Bitterbalpool (BITB)",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 1236,
+          "superseded_by_seq": null
+        }
+      ],
+      "status": [
+        {
+          "claim_id": "clm_1238",
+          "field": "status",
+          "value": "active",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-07",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": null,
+                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+              }
+            ]
+          },
+          "asserted_seq": 1238,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "community",
+        "name": "Community",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "source": {
+          "source_id": "builtoncardano",
+          "kind": "builtoncardano",
+          "authority_class": "B",
+          "url": "https://builtoncardano.com/ecosystem/all",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "Built on Cardano directory (Cardano Foundation)"
+        }
+      },
+      {
+        "slug": "youtube",
+        "name": "Youtube",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "source": {
+          "source_id": "builtoncardano",
+          "kind": "builtoncardano",
+          "authority_class": "B",
+          "url": "https://builtoncardano.com/ecosystem/all",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "Built on Cardano directory (Cardano Foundation)"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 1235,
+    "last_seq": 1240
+  },
+  "history": [
+    {
+      "seq": 1235,
+      "ts": "2026-06-07",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "boc:cardano-nieuws-updates-dutch-by-bitterbalpool-bitb",
+        "kind": "project"
+      },
+      "hash": "40c9ca140233f032d4387a71f69a900fef0f4ac3fac6c6d83d9cd1cc0a4f76e5",
+      "prev_hash": "e502c6dd5b912fde5f57e182253773774d235c097e5c6c88ee557b8b2964fc83"
+    },
+    {
+      "seq": 1236,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:cardano-nieuws-updates-dutch-by-bitterbalpool-bitb",
+        "field": "name",
+        "value": "Cardano Nieuws Updates (Dutch) by Bitterbalpool (BITB)",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "c10e2da2ff24463507c45b3e9b6483a33d364b3591652d73c62c62f10d357da6",
+      "prev_hash": "40c9ca140233f032d4387a71f69a900fef0f4ac3fac6c6d83d9cd1cc0a4f76e5"
+    },
+    {
+      "seq": 1237,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:cardano-nieuws-updates-dutch-by-bitterbalpool-bitb",
+        "field": "description",
+        "value": "Dutch Youtube Channel for educational content about Cardano. We create weekly news updates about the Cardano ecosystem and organise Dutch twitter spaces.",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "1067619b11c4579fa00f615a9ac512ed06bcb4e4cad09e19c46d3e096ea61732",
+      "prev_hash": "c10e2da2ff24463507c45b3e9b6483a33d364b3591652d73c62c62f10d357da6"
+    },
+    {
+      "seq": 1238,
+      "ts": "2026-06-07",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:cardano-nieuws-updates-dutch-by-bitterbalpool-bitb",
+        "field": "status",
+        "value": "active",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "0f7dbcfcc31a5b924a6e50b3bae3343fba0b9f2fcdad5aa0288acdcfa0c90680",
+      "prev_hash": "1067619b11c4579fa00f615a9ac512ed06bcb4e4cad09e19c46d3e096ea61732"
+    },
+    {
+      "seq": 1239,
+      "ts": "2026-06-07",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:cardano-nieuws-updates-dutch-by-bitterbalpool-bitb",
+        "category_slug": "community",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "confidence": "high",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "90c91d4ab9b64ef0673f098fd11c49509e957480d84a5486bb172c282335065e",
+      "prev_hash": "0f7dbcfcc31a5b924a6e50b3bae3343fba0b9f2fcdad5aa0288acdcfa0c90680"
+    },
+    {
+      "seq": 1240,
+      "ts": "2026-06-07",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:cardano-nieuws-updates-dutch-by-bitterbalpool-bitb",
+        "category_slug": "youtube",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-07",
+        "confidence": "high",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+          }
+        ]
+      },
+      "hash": "360855cb8b393c602b1b873c7680e640e66ce4b13d678815f4266ced85d44d30",
+      "prev_hash": "90c91d4ab9b64ef0673f098fd11c49509e957480d84a5486bb172c282335065e"
+    }
+  ],
+  "generated_at": "2026-06-07T18:30:24.044Z"
+}
