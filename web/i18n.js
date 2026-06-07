@@ -9,6 +9,7 @@ const i18n = {
     "eco-link-observatory": "Observatory",
     "eco-link-voting": "Voting",
     "eco-link-governance": "Governance",
+    "eco-link-api": "API",
 
     /* Header / nav */
     "h-brand": "Cardano Delegation Observatory",
@@ -203,6 +204,7 @@ const i18n = {
     "eco-link-observatory": "Observatory",
     "eco-link-voting": "投票",
     "eco-link-governance": "ガバナンス",
+    "eco-link-api": "API",
 
     /* Header / nav */
     "h-brand": "Cardano Delegation Observatory",
