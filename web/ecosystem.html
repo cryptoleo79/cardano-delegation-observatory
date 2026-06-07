@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ecosystem — Cardano Project Memory</title>
+<meta name="description" content="Cardano ecosystem explorer: the Project Memory category taxonomy preserved as-found, with project counts and source provenance. Read-only.">
+<meta name="theme-color" content="#fafaf7">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ecosystem.html — page-specific styles only (card grid). */
+  .eco-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
+    margin-top: 4px;
+  }
+  .eco-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px 16px 14px;
+    background: var(--card);
+    border: 0.5px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color .12s ease, box-shadow .12s ease, transform .12s ease;
+  }
+  .eco-card:hover {
+    border-color: var(--border-strong);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transform: translateY(-1px);
+    text-decoration: none;
+  }
+  .eco-card-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .eco-card-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent);
+    line-height: 1.25;
+  }
+  .eco-card-count {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text);
+    white-space: nowrap;
+  }
+  .eco-card-count.eco-zero { color: var(--faint); }
+  .eco-card-count .eco-count-label { color: var(--faint); font-size: 11px; margin-left: 3px; }
+  .eco-card-slug {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--faint);
+    word-break: break-all;
+  }
+  .eco-card-foot {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 6px;
+    flex-wrap: wrap;
+  }
+  .eco-card-src { font-size: 11px; color: var(--muted); }
+  .eco-flag {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 1px 6px;
+    border-radius: 10px;
+    border: 0.5px solid var(--border);
+    background: rgba(150, 40, 40, 0.08);
+    color: #963232;
+  }
+  .eco-note {
+    background: var(--accent-soft);
+    border: 0.5px solid var(--border);
+    border-radius: 6px;
+    padding: 12px 14px;
+    color: var(--muted);
+    font-size: 13px;
+    max-width: 720px;
+    margin: 0 0 22px;
+  }
+  .eco-empty { color: var(--faint); padding: 28px 4px; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<div class="ecosystem-strip"><div class="ecosystem-strip-inner">
+  <span class="eco-label" id="eco-label">Ecosystem</span>
+  <a href="https://ctf.asy.life" class="eco-link">CTF</a><span class="eco-sep">·</span>
+  <a href="https://observatory.asy.life" class="eco-link" id="eco-link-observatory">Observatory</a><span class="eco-sep">·</span>
+  <a href="https://voting.asy.life" class="eco-link" id="eco-link-voting">Voting</a><span class="eco-sep">·</span>
+  <a href="https://governance.asy.life" class="eco-link" id="eco-link-governance">Governance</a><span class="eco-sep">·</span>
+  <a href="https://api.asy.life" class="eco-link" id="eco-link-api">API</a><span class="eco-sep">·</span>
+  <a href="https://github.com/cryptoleo79" class="eco-link" target="_blank" rel="noopener">GitHub</a>
+</div></div>
+<header class="site-header"><div class="container header-inner">
+  <a href="/" class="brand"><span class="brand-mark">CDO</span><span class="brand-text" id="h-brand">Cardano Delegation Observatory</span></a>
+  <nav class="site-nav">
+    <a href="/" id="h-nav-observatory">Observatory</a>
+    <a href="tokens.html" id="h-nav-tokens">Tokens</a>
+    <a href="rankings.html" id="h-nav-rankings">Rankings</a>
+    <a href="projects.html" id="h-nav-projects">Projects</a>
+    <a href="ecosystem.html" class="active" id="h-nav-ecosystem">Ecosystem</a>
+    <a href="treasury.html" id="h-nav-treasury">Treasury</a>
+    <a href="catalyst.html" id="h-nav-catalyst">Catalyst</a>
+    <a href="memory.html" id="h-nav-memory">Memory</a>
+    <div class="lang-toggle"><button id="btn-en" class="active" onclick="setLang('en')">EN</button><button id="btn-ja" onclick="setLang('ja')">日本語</button></div>
+  </nav>
+</div></header>
+
+<main>
+  <article class="container">
+    <h1 id="eco-title">Cardano ecosystem explorer</h1>
+    <p class="lede" id="eco-lede">The bridge from CardanoCube-style discovery into Project Memory. Browse the ecosystem taxonomy — preserved as-found, each category carrying its source and authority class. Read-only; every value carries its provenance.</p>
+
+    <div class="meta-strip"><div class="meta-strip-inner" id="eco-meta"></div></div>
+
+    <p class="eco-note" id="eco-honest">Category → project assignments are still being built. Most counts below are currently 0 (unclassified) — this view shows the preserved taxonomy, not a finished census of which project belongs where. Counts will fill in as verified assignments land.</p>
+
+    <div class="actions-filters">
+      <label class="filter-label">
+        <span id="ef-q-label">Search</span>
+        <input type="search" id="ef-q" placeholder="category name or slug">
+      </label>
+      <span class="filter-count" id="ef-count"></span>
+    </div>
+
+    <div id="eco-grid" class="eco-grid">
+      <div class="eco-empty" id="eco-loading">Loading…</div>
+    </div>
+
+    <p class="footnote" id="eco-foot">Source: live Cardano Data Layer API <code>/categories</code> · CC0. Taxonomy seeded from the CardanoCube community directory and preserved per-source — never silently merged. Categories link through to per-category project lists; projects appear as <em>unclassified</em> until verified assignments exist.</p>
+  </article>
+</main>
+
+<footer class="site-footer"><div class="container footer-inner">
+  <div><span id="ft-license">Apache 2.0 code · CC0 data</span></div>
+  <div><a href="/" id="ft-observatory">Observatory</a> <a href="https://api.asy.life/docs" id="ft-api">API docs</a> <a href="methodology.html" id="ft-methodology">Methodology</a></div>
+  <div class="footer-note">Data via the Cardano Data Layer API. Read-only; every value carries provenance.</div>
+</div></footer>
+
+<script src="i18n.js"></script>
+<script src="ecosystem.js"></script>
+</body>
+</html>

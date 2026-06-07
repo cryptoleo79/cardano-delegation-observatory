@@ -76,6 +76,7 @@ const i18n = {
     "ft-methodology": "Methodology",
     "ft-source": "Source",
     "ft-observatory": "Observatory",
+    "ft-api": "API docs",
     "ft-repro": "Reproducible from public Koios API endpoints.",
 
     /* Nav (cross-page) */
@@ -83,6 +84,12 @@ const i18n = {
     "h-nav-actions": "Actions",
     "h-nav-projects": "Projects",
     "h-nav-categories": "Categories",
+    "h-nav-tokens": "Tokens",
+    "h-nav-rankings": "Rankings",
+    "h-nav-ecosystem": "Ecosystem",
+    "h-nav-treasury": "Treasury",
+    "h-nav-catalyst": "Catalyst",
+    "h-nav-memory": "Memory",
 
     /* Actions page */
     "actions-title": "Governance actions",
@@ -271,6 +278,7 @@ const i18n = {
     "ft-methodology": "方法論",
     "ft-source": "ソース",
     "ft-observatory": "Observatory",
+    "ft-api": "API ドキュメント",
     "ft-repro": "公開Koios API エンドポイントから再現可能。",
 
     /* Nav (cross-page) */
@@ -278,6 +286,12 @@ const i18n = {
     "h-nav-actions": "ガバナンスアクション",
     "h-nav-projects": "プロジェクト",
     "h-nav-categories": "カテゴリ",
+    "h-nav-tokens": "トークン",
+    "h-nav-rankings": "ランキング",
+    "h-nav-ecosystem": "エコシステム",
+    "h-nav-treasury": "トレジャリー",
+    "h-nav-catalyst": "Catalyst",
+    "h-nav-memory": "メモリ",
 
     /* Actions page */
     "actions-title": "ガバナンスアクション一覧",

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Market Rankings — Cardano Delegation Observatory</title>
+<meta name="description" content="Live Cardano token market rankings — top by market cap, volume, and liquidity over a tracked seed set. Read-only, provenance-bearing.">
+<meta name="theme-color" content="#fafaf7">
+<link rel="stylesheet" href="style.css">
+<style>
+  .rk-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin: 22px 0 18px; }
+  .rk-tab {
+    font: inherit; font-size: 12px; font-weight: 600; letter-spacing: 0.03em;
+    padding: 8px 16px; border: 0.5px solid var(--border); border-radius: 6px;
+    background: var(--card); color: var(--muted); cursor: pointer;
+  }
+  .rk-tab:hover { color: var(--text); }
+  .rk-tab.active { background: var(--accent-soft, rgba(38,110,70,0.10)); color: var(--text); border-color: var(--accent, #1d6b46); }
+  .rk-col-rank { width: 48px; color: var(--faint); font-variant-numeric: tabular-nums; }
+  .rk-col-num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .rk-ticker { font-weight: 600; }
+  .rk-na { color: var(--faint); }
+  .rk-chart { margin: 8px 0 4px; }
+  .rk-gl { margin-top: 30px; }
+  .rk-gl .stat-card { max-width: 720px; }
+  .rk-note { color: var(--muted); font-size: 13px; max-width: 720px; margin: 6px 0 0; }
+  .rk-quality { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+
+<div class="ecosystem-strip">
+  <div class="ecosystem-strip-inner">
+    <span class="eco-label" id="eco-label">Ecosystem</span>
+    <a href="https://ctf.asy.life" class="eco-link">CTF</a>
+    <span class="eco-sep">·</span>
+    <a href="https://observatory.asy.life" class="eco-link eco-active" id="eco-link-observatory">Observatory</a>
+    <span class="eco-sep">·</span>
+    <a href="https://voting.asy.life" class="eco-link" id="eco-link-voting">Voting</a>
+    <span class="eco-sep">·</span>
+    <a href="https://governance.asy.life" class="eco-link" id="eco-link-governance">Governance</a>
+    <span class="eco-sep">·</span>
+    <a href="https://api.asy.life" class="eco-link" id="eco-link-api">API</a>
+    <span class="eco-sep">·</span>
+    <a href="https://github.com/cryptoleo79" class="eco-link" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand">
+      <span class="brand-mark">CDO</span>
+      <span class="brand-text" id="h-brand">Cardano Delegation Observatory</span>
+    </a>
+    <nav class="site-nav">
+      <a href="/" id="h-nav-observatory">Observatory</a>
+      <a href="tokens.html" id="h-nav-tokens">Tokens</a>
+      <a href="rankings.html" class="active" id="h-nav-rankings">Rankings</a>
+      <a href="projects.html" id="h-nav-projects">Projects</a>
+      <a href="ecosystem.html" id="h-nav-ecosystem">Ecosystem</a>
+      <a href="treasury.html" id="h-nav-treasury">Treasury</a>
+      <a href="catalyst.html" id="h-nav-catalyst">Catalyst</a>
+      <a href="memory.html" id="h-nav-memory">Memory</a>
+      <div class="lang-toggle">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-ja" onclick="setLang('ja')">日本語</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <article class="container">
+    <h1 id="rk-title">Market Rankings</h1>
+    <p class="lede" id="rk-lede">Live Cardano token rankings — ordered by market cap, traded volume, or pool liquidity. This is a partial ranking over a tracked seed set, not a full-ecosystem leaderboard. No opinions, no judgment: just the numbers and where they came from.</p>
+
+    <div class="meta-strip"><div class="meta-strip-inner" id="rk-meta"></div></div>
+
+    <div class="rk-tabs" id="rk-tabs" role="tablist">
+      <button class="rk-tab active" id="tab-mcap" data-by="mcap" role="tab">Market cap</button>
+      <button class="rk-tab" id="tab-volume" data-by="volume" role="tab">Volume</button>
+      <button class="rk-tab" id="tab-liquidity" data-by="liquidity" role="tab">Liquidity</button>
+    </div>
+
+    <div class="rk-chart" id="rk-chart"></div>
+
+    <div class="table-scroll">
+      <table class="vote-table" id="rk-table">
+        <thead>
+          <tr>
+            <th class="rk-col-rank" id="th-rk-rank">#</th>
+            <th id="th-rk-ticker">Ticker</th>
+            <th class="rk-col-num" id="th-rk-price">Price (ADA)</th>
+            <th class="rk-col-num" id="th-rk-priceusd">Price (USD)</th>
+            <th class="rk-col-num" id="th-rk-metric">Metric (ADA)</th>
+            <th class="rk-col-num" id="th-rk-metricusd">Metric (USD)</th>
+          </tr>
+        </thead>
+        <tbody id="rk-tbody"><tr><td colspan="6" class="loading" id="rk-loading">Loading…</td></tr></tbody>
+      </table>
+    </div>
+
+    <p class="rk-note" id="rk-note"></p>
+
+    <div class="rk-gl">
+      <h2 id="rk-gl-title">Gainers &amp; Losers</h2>
+      <div class="stat-card">
+        <div class="stat-label" id="rk-gl-label">Top movers (24h)</div>
+        <div class="stat-value" id="rk-gl-value">Not yet available</div>
+        <div class="stat-sub" id="rk-gl-sub">The Data Layer API does not yet expose a gainers/losers endpoint. Rather than fabricate price-change figures, this section is intentionally left empty until a verified change feed exists.</div>
+      </div>
+    </div>
+
+    <p class="footnote" id="rk-foot">Source: <code>GET /tokens/top?by=mcap|volume|liquidity</code> on the Cardano Data Layer API. Rankings cover a tracked/seed set only (DexHunter · Minswap · Koios), not the whole ecosystem. Every value carries provenance via the API <code>_quality</code> block. Authority classes: A on-chain · B official · C at-risk platform · D community · E researcher.</p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div><span id="ft-license">Apache 2.0 code · CC0 data</span></div>
+    <div>
+      <a href="/" id="ft-observatory">Observatory</a>
+      <a href="https://api.asy.life/docs" id="ft-api">API docs</a>
+      <a href="methodology.html" id="ft-methodology">Methodology</a>
+    </div>
+    <div class="footer-note">Data via the Cardano Data Layer API. Read-only; every value carries provenance.</div>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="charts.js"></script>
+<script src="rankings.js"></script>
+</body>
+</html>

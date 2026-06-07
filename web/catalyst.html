@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catalyst Archive — Cardano Delegation Observatory</title>
+<meta name="description" content="Cardano Catalyst preservation archive: provenance-bearing captures of Catalyst sources and funds. Read-only. Coverage equals what has been preserved.">
+<meta name="theme-color" content="#fafaf7">
+<link rel="stylesheet" href="style.css">
+<style>
+  .cat-section { margin-top: 32px; }
+  .cat-section > h2 { font-size: 16px; margin: 0 0 6px; }
+  .cat-section-note { color: var(--muted); font-size: 13px; max-width: 720px; margin: 0 0 14px; }
+  .coverage-callout {
+    border: 0.5px solid var(--border); border-left: 3px solid var(--accent-strong);
+    background: var(--card); border-radius: 6px; padding: 12px 16px; margin: 8px 0 4px;
+    color: var(--text); font-size: 13px; max-width: 760px;
+  }
+  .coverage-callout .cc-label { display: block; font-size: 11px; font-weight: 600; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .cat-zero td { color: var(--faint); }
+  .cat-fund-link { background: none; border: 0; padding: 0; cursor: pointer; color: var(--accent-strong);
+    font: inherit; text-decoration: underline; }
+  .cat-detail { margin-top: 20px; border: 0.5px solid var(--border); border-radius: 6px;
+    background: var(--card); padding: 16px 18px; }
+  .cat-detail h3 { margin: 0 0 10px; font-size: 14px; }
+  .cat-detail-meta { color: var(--muted); font-size: 12px; margin-bottom: 12px; }
+  .cat-mono { font-family: var(--mono); font-size: 11px; word-break: break-all; }
+  .cat-kind { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--muted); border: 0.5px solid var(--border); border-radius: 3px; padding: 1px 5px; }
+  .cat-close { float: right; background: none; border: 0.5px solid var(--border); border-radius: 4px;
+    cursor: pointer; font-size: 11px; padding: 2px 8px; color: var(--muted); }
+  .cat-detail-empty { color: var(--muted); font-size: 13px; }
+  .cat-notes { color: var(--faint); font-size: 11px; max-width: 320px; }
+  .quality-line { color: var(--faint); font-size: 11px; margin-top: 8px; }
+</style>
+</head>
+<body>
+
+<div class="ecosystem-strip">
+  <div class="ecosystem-strip-inner">
+    <span class="eco-label" id="eco-label">Ecosystem</span>
+    <a href="https://ctf.asy.life" class="eco-link">CTF</a>
+    <span class="eco-sep">·</span>
+    <a href="https://observatory.asy.life" class="eco-link eco-active" id="eco-link-observatory">Observatory</a>
+    <span class="eco-sep">·</span>
+    <a href="https://voting.asy.life" class="eco-link" id="eco-link-voting">Voting</a>
+    <span class="eco-sep">·</span>
+    <a href="https://governance.asy.life" class="eco-link" id="eco-link-governance">Governance</a>
+    <span class="eco-sep">·</span>
+    <a href="https://api.asy.life" class="eco-link" id="eco-link-api">API</a>
+    <span class="eco-sep">·</span>
+    <a href="https://github.com/cryptoleo79" class="eco-link" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand">
+      <span class="brand-mark">CDO</span>
+      <span class="brand-text" id="h-brand">Cardano Delegation Observatory</span>
+    </a>
+    <nav class="site-nav">
+      <a href="/" id="h-nav-observatory">Observatory</a>
+      <a href="tokens.html" id="h-nav-tokens">Tokens</a>
+      <a href="rankings.html" id="h-nav-rankings">Rankings</a>
+      <a href="projects.html" id="h-nav-projects">Projects</a>
+      <a href="ecosystem.html" id="h-nav-ecosystem">Ecosystem</a>
+      <a href="treasury.html" id="h-nav-treasury">Treasury</a>
+      <a href="catalyst.html" class="active" id="h-nav-catalyst">Catalyst</a>
+      <a href="memory.html" id="h-nav-memory">Memory</a>
+      <div class="lang-toggle">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-ja" onclick="setLang('ja')">日本語</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <article class="container">
+    <h1 id="cat-title">Cardano Catalyst Archive</h1>
+    <p class="lede" id="cat-lede">A preservation archive of Project Catalyst sources and funds. Every capture carries its provenance — source URL, Wayback snapshot, SHA-256, capture date, and source authority class. Read-only. This is not a directory of Catalyst proposals or a ranking: coverage equals what has been preserved, and the archive is deliberately sparse.</p>
+
+    <div class="meta-strip"><div class="meta-strip-inner" id="cat-meta"></div></div>
+
+    <div class="coverage-callout" id="cat-coverage">
+      <span class="cc-label" id="cat-coverage-label">Coverage honesty</span>
+      <span id="cat-coverage-note">Loading…</span>
+    </div>
+
+    <section class="cat-section" id="sec-preservation">
+      <h2 id="cat-h-preservation">Preservation status</h2>
+      <p class="cat-section-note" id="cat-n-preservation">Each subfolder is a preservation target. Most are registered with zero captures so far — that absence is recorded honestly rather than hidden.</p>
+      <div class="table-scroll">
+        <table class="vote-table" id="cat-sub-table">
+          <thead>
+            <tr>
+              <th id="th-cat-name">Subfolder</th>
+              <th id="th-cat-auth">Authority</th>
+              <th id="th-cat-count">Artifacts</th>
+              <th id="th-cat-last">Last capture</th>
+              <th id="th-cat-pattern">Capture pattern</th>
+            </tr>
+          </thead>
+          <tbody id="cat-sub-tbody"><tr><td colspan="5" class="loading" id="cat-sub-loading">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="cat-section" id="sec-funds">
+      <h2 id="cat-h-funds">Fund coverage</h2>
+      <p class="cat-section-note" id="cat-n-funds">Funds for which at least one artifact has been captured. Select a fund to load its captures.</p>
+      <div class="table-scroll">
+        <table class="vote-table" id="cat-fund-table">
+          <thead>
+            <tr>
+              <th id="th-fund">Fund</th>
+              <th id="th-fund-arts">Artifacts</th>
+              <th id="th-fund-sess">Sessions</th>
+              <th id="th-fund-src">Sources</th>
+            </tr>
+          </thead>
+          <tbody id="cat-fund-tbody"><tr><td colspan="4" class="loading" id="cat-fund-loading">Loading…</td></tr></tbody>
+        </table>
+      </div>
+      <div id="cat-fund-detail"></div>
+    </section>
+
+    <section class="cat-section" id="sec-registry">
+      <h2 id="cat-h-registry">Source registry</h2>
+      <p class="cat-section-note" id="cat-n-registry">The registered preservation sources behind the archive, with their authority class and any capture notes.</p>
+      <div class="table-scroll">
+        <table class="vote-table" id="cat-reg-table">
+          <thead>
+            <tr>
+              <th id="th-reg-name">Source</th>
+              <th id="th-reg-auth">Authority</th>
+              <th id="th-reg-index">Subfolder index</th>
+              <th id="th-reg-notes">Notes</th>
+            </tr>
+          </thead>
+          <tbody id="cat-reg-tbody"><tr><td colspan="4" class="loading" id="cat-reg-loading">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <p class="footnote" id="cat-foot">Source: live Catalyst preservation archive via the Cardano Data Layer API. Authority classes: A on-chain · B official · C at-risk platform · D community · E researcher.</p>
+    <p class="quality-line" id="cat-quality"></p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div><span id="ft-license">Apache 2.0 code · CC0 data</span></div>
+    <div>
+      <a href="/" id="ft-observatory">Observatory</a>
+      <a href="https://api.asy.life/docs" id="ft-api">API docs</a>
+      <a href="methodology.html" id="ft-methodology">Methodology</a>
+    </div>
+    <div class="footer-note">Data via the Cardano Data Layer API. Read-only; every value carries provenance.</div>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="catalyst.js"></script>
+</body>
+</html>

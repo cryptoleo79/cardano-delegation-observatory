@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tokens — Cardano Delegation Observatory</title>
+<meta name="description" content="Token discovery on the Cardano Data Layer: search tokens and browse a tracked top-tokens table by market cap, volume, or liquidity. Read-only; partial coverage, honestly labelled.">
+<meta name="theme-color" content="#fafaf7">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* tokens.html page-specific styles only */
+  .tok-search { position: relative; margin: 8px 0 22px; max-width: 460px; }
+  .tok-search input[type="search"] {
+    width: 100%; box-sizing: border-box; padding: 10px 12px;
+    font-size: 0.95rem; border: 1px solid var(--border); border-radius: 6px;
+    background: var(--bg); color: var(--text);
+  }
+  .tok-results {
+    list-style: none; margin: 4px 0 0; padding: 0;
+    border: 1px solid var(--border); border-radius: 6px; background: var(--card, #fff);
+    max-height: 320px; overflow-y: auto;
+  }
+  .tok-results:empty { display: none; }
+  .tok-results li { border-bottom: 1px solid var(--border); }
+  .tok-results li:last-child { border-bottom: 0; }
+  .tok-results a { display: block; padding: 8px 12px; text-decoration: none; color: var(--text); }
+  .tok-results a:hover, .tok-results a:focus { background: var(--hover, #f2f2ee); }
+  .tok-results .tok-r-ticker { font-weight: 600; }
+  .tok-results .tok-r-name { color: var(--muted); margin-left: 6px; }
+  .tok-results .tok-r-msg { padding: 8px 12px; color: var(--muted); font-size: 0.85rem; }
+  .tok-price-usd { color: var(--muted); font-size: 0.8rem; }
+  .tok-num { font-family: var(--mono); white-space: nowrap; }
+  .tok-ticker { font-weight: 600; }
+  .tok-coverage-note { font-size: 0.82rem; color: var(--muted); margin: 4px 0 16px; }
+  .auth-chip-line { display: inline-flex; align-items: center; gap: 6px; }
+</style>
+</head>
+<body>
+
+<div class="ecosystem-strip">
+  <div class="ecosystem-strip-inner">
+    <span class="eco-label" id="eco-label">Ecosystem</span>
+    <a href="https://ctf.asy.life" class="eco-link">CTF</a>
+    <span class="eco-sep">·</span>
+    <a href="https://observatory.asy.life" class="eco-link" id="eco-link-observatory">Observatory</a>
+    <span class="eco-sep">·</span>
+    <a href="https://voting.asy.life" class="eco-link" id="eco-link-voting">Voting</a>
+    <span class="eco-sep">·</span>
+    <a href="https://governance.asy.life" class="eco-link" id="eco-link-governance">Governance</a>
+    <span class="eco-sep">·</span>
+    <a href="https://api.asy.life" class="eco-link" id="eco-link-api">API</a>
+    <span class="eco-sep">·</span>
+    <a href="https://github.com/cryptoleo79" class="eco-link" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand">
+      <span class="brand-mark">CDO</span>
+      <span class="brand-text" id="h-brand">Cardano Delegation Observatory</span>
+    </a>
+    <nav class="site-nav">
+      <a href="/" id="h-nav-observatory">Observatory</a>
+      <a href="tokens.html" class="active" id="h-nav-tokens">Tokens</a>
+      <a href="rankings.html" id="h-nav-rankings">Rankings</a>
+      <a href="projects.html" id="h-nav-projects">Projects</a>
+      <a href="ecosystem.html" id="h-nav-ecosystem">Ecosystem</a>
+      <a href="treasury.html" id="h-nav-treasury">Treasury</a>
+      <a href="catalyst.html" id="h-nav-catalyst">Catalyst</a>
+      <a href="memory.html" id="h-nav-memory">Memory</a>
+      <div class="lang-toggle">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-ja" onclick="setLang('ja')">日本語</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <article class="container">
+    <h1 id="tok-title">Tokens</h1>
+    <p class="lede" id="tok-lede">Discover Cardano native tokens on the Data Layer. Search by ticker or name, and browse the top tracked tokens by market cap, volume, or liquidity. Read-only; every value carries its provenance.</p>
+
+    <div class="tok-search">
+      <label class="filter-label" for="tok-q"><span id="tok-search-label">Search tokens</span></label>
+      <input type="search" id="tok-q" placeholder="ticker or name (e.g. SNEK)" autocomplete="off">
+      <ul class="tok-results" id="tok-results" role="listbox" aria-label="Token search results"></ul>
+    </div>
+
+    <h2 id="tok-top-title">Top tokens</h2>
+    <p class="tok-coverage-note" id="tok-coverage-note"></p>
+
+    <div class="actions-filters" role="group" aria-label="Rank by metric">
+      <span class="filter-label" id="tok-by-label">Rank by</span>
+      <button class="filter-count" id="tok-by-mcap" type="button" data-by="mcap">Market cap</button>
+      <button class="filter-count" id="tok-by-volume" type="button" data-by="volume">Volume</button>
+      <button class="filter-count" id="tok-by-liquidity" type="button" data-by="liquidity">Liquidity</button>
+    </div>
+
+    <div class="meta-strip"><div class="meta-strip-inner" id="tok-meta"></div></div>
+
+    <div class="table-scroll">
+      <table class="vote-table" id="tok-table">
+        <thead>
+          <tr>
+            <th id="th-tok-ticker">Token</th>
+            <th id="th-tok-price">Price</th>
+            <th id="th-tok-metric">Metric</th>
+            <th id="th-tok-link"></th>
+          </tr>
+        </thead>
+        <tbody id="tok-tbody"><tr><td colspan="4" class="loading" id="tok-loading">Loading…</td></tr></tbody>
+      </table>
+    </div>
+
+    <p class="footnote" id="tok-foot">Coverage is a tracked/seed set only — NOT a full ecosystem list. Prices via DexHunter / Minswap / Koios. USD may be unavailable (shown as “—”). Authority classes: A on-chain · B official · C at-risk platform · D community · E researcher.</p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div><span id="ft-license">Apache 2.0 code · CC0 data</span></div>
+    <div>
+      <a href="/" id="ft-observatory">Observatory</a>
+      <a href="https://api.asy.life/docs" id="ft-api">API docs</a>
+      <a href="methodology.html" id="ft-methodology">Methodology</a>
+    </div>
+    <div class="footer-note">Data via the Cardano Data Layer API. Read-only; every value carries provenance.</div>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="tokens.js"></script>
+</body>
+</html>

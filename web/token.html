@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Token — Cardano Delegation Observatory</title>
+<meta name="description" content="Deep token inspection: metadata, on-chain supply, price, holders, and OHLCV price history. Read-only; every value carries provenance.">
+<meta name="theme-color" content="#fafaf7">
+<link rel="stylesheet" href="style.css">
+<style>
+  .tok-head { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 4px; }
+  .tok-logo { width: 48px; height: 48px; border-radius: 8px; border: 0.5px solid var(--border); background: var(--card); object-fit: contain; flex: none; }
+  .tok-ticker { font-family: var(--mono); font-size: 14px; color: var(--muted); padding: 2px 8px; border: 0.5px solid var(--border); border-radius: 5px; }
+  .tok-meta-row { margin-top: 8px; font-size: 13px; color: var(--muted); }
+  .tok-meta-row a { color: var(--muted); }
+  .tok-desc { font-size: 14px; color: var(--text); margin-top: 6px; max-width: 720px; }
+  .tok-chart { width: 100%; min-height: 260px; }
+  .tok-confidence { font-size: 11px; }
+  .tok-related a { margin-right: 16px; }
+  .tok-quality { font-size: 12px; color: var(--faint); margin-top: 10px; line-height: 1.6; }
+  .tok-quality code { font-family: var(--mono); }
+</style>
+</head>
+<body>
+
+<div class="ecosystem-strip">
+  <div class="ecosystem-strip-inner">
+    <span class="eco-label" id="eco-label">Ecosystem</span>
+    <a href="https://ctf.asy.life" class="eco-link">CTF</a>
+    <span class="eco-sep">·</span>
+    <a href="https://observatory.asy.life" class="eco-link eco-active" id="eco-link-observatory">Observatory</a>
+    <span class="eco-sep">·</span>
+    <a href="https://voting.asy.life" class="eco-link" id="eco-link-voting">Voting</a>
+    <span class="eco-sep">·</span>
+    <a href="https://governance.asy.life" class="eco-link" id="eco-link-governance">Governance</a>
+    <span class="eco-sep">·</span>
+    <a href="https://api.asy.life" class="eco-link" id="eco-link-api">API</a>
+    <span class="eco-sep">·</span>
+    <a href="https://github.com/cryptoleo79" class="eco-link" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand">
+      <span class="brand-mark">CDO</span>
+      <span class="brand-text" id="h-brand">Cardano Delegation Observatory</span>
+    </a>
+    <nav class="site-nav">
+      <a href="/" id="h-nav-observatory">Observatory</a>
+      <a href="tokens.html" class="active" id="h-nav-tokens">Tokens</a>
+      <a href="rankings.html" id="h-nav-rankings">Rankings</a>
+      <a href="projects.html" id="h-nav-projects">Projects</a>
+      <a href="ecosystem.html" id="h-nav-ecosystem">Ecosystem</a>
+      <a href="treasury.html" id="h-nav-treasury">Treasury</a>
+      <a href="catalyst.html" id="h-nav-catalyst">Catalyst</a>
+      <a href="memory.html" id="h-nav-memory">Memory</a>
+      <div class="lang-toggle">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-ja" onclick="setLang('ja')">日本語</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <article class="container drep-page">
+    <p class="back-link"><a href="tokens.html" id="back-link-tokens">← Tokens</a></p>
+
+    <div class="tok-head">
+      <img id="tok-logo" class="tok-logo" alt="" hidden>
+      <h1 id="tok-name">…</h1>
+      <span id="tok-ticker" class="tok-ticker" hidden></span>
+    </div>
+    <p class="drep-id-full" id="tok-policy"></p>
+    <div class="tok-meta-row" id="tok-links"></div>
+    <p class="tok-desc" id="tok-desc"></p>
+
+    <section class="drep-stats" id="tok-stats">
+      <div class="stat-card">
+        <div class="stat-label" id="tok-stat-price-label">Price</div>
+        <div class="stat-value" id="tok-stat-price">—</div>
+        <div class="stat-sub" id="tok-stat-price-sub"></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label" id="tok-stat-usd-label">Price (USD)</div>
+        <div class="stat-value" id="tok-stat-usd">—</div>
+        <div class="stat-sub tok-confidence" id="tok-stat-confidence"></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label" id="tok-stat-supply-label">Supply</div>
+        <div class="stat-value" id="tok-stat-supply">—</div>
+        <div class="stat-sub" id="tok-stat-supply-sub"></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label" id="tok-stat-holders-label">Holders</div>
+        <div class="stat-value" id="tok-stat-holders">—</div>
+        <div class="stat-sub" id="tok-stat-holders-sub"></div>
+      </div>
+    </section>
+
+    <section class="drep-section">
+      <div class="expand-section-label" id="tok-chart-label">Price history (OHLCV)</div>
+      <p class="footnote" id="tok-chart-help">Hourly candles from on-chain DEX aggregators, aggregated on read. Per-interval volume is not yet captured. Read-only — not financial advice.</p>
+      <div id="tok-chart" class="tok-chart"></div>
+      <div class="tok-quality" id="tok-chart-quality"></div>
+    </section>
+
+    <section class="drep-section">
+      <div class="expand-section-label" id="tok-identity-label">On-chain identity</div>
+      <div class="table-scroll">
+        <table class="vote-table">
+          <tbody>
+            <tr><th id="tok-id-unit-label">Unit</th><td class="stake-addr" id="tok-id-unit"></td></tr>
+            <tr><th id="tok-id-policy-label">Policy ID</th><td class="stake-addr" id="tok-id-policy"></td></tr>
+            <tr><th id="tok-id-asset-label">Asset name (hex)</th><td class="stake-addr" id="tok-id-asset"></td></tr>
+            <tr><th id="tok-id-source-label">Source</th><td id="tok-id-source"></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tok-quality" id="tok-meta-quality"></div>
+    </section>
+
+    <section class="drep-section">
+      <div class="expand-section-label" id="tok-related-label">Related</div>
+      <div class="tok-related" id="tok-related"></div>
+    </section>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div><span id="ft-license">Apache 2.0 code · CC0 data</span></div>
+    <div>
+      <a href="/" id="ft-observatory">Observatory</a>
+      <a href="https://api.asy.life/docs" id="ft-api">API docs</a>
+      <a href="methodology.html" id="ft-methodology">Methodology</a>
+    </div>
+    <div class="footer-note">Data via the Cardano Data Layer API. Read-only; every value carries provenance.</div>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="charts.js"></script>
+<script src="token.js"></script>
+</body>
+</html>
