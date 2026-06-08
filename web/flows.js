@@ -37,6 +37,13 @@ function render() {
     `<span class="meta-item"><span class="meta-label">Snapshot</span> ${esc(m.snapshot_date || "—")}</span>` +
     `<span class="meta-item"><span class="meta-label">With ${state.window} data</span> ${priced.length}</span>` +
     `<span class="meta-item meta-item-right">source: observatory · authority A</span>`;
+  // Honest accumulating-state banner: net flow needs two snapshots a full window
+  // apart; until that history exists the window is null (never faked).
+  const banner = document.getElementById("fl-accum");
+  if (banner) {
+    banner.style.display = priced.length ? "none" : "block";
+    if (!priced.length) banner.innerHTML = `<strong>${state.window === "d7d" ? "7-day" : "30-day"} net flow is accumulating.</strong> It populates once two daily snapshots a full ${state.window === "d7d" ? "7" : "30"} days apart exist. Current snapshot ${esc(m.snapshot_date || "—")} (epoch ${esc(String(m.epoch || "—"))}). Values are <em>null</em> until then — never interpolated, never faked.`;
+  }
 }
 async function boot() {
   document.addEventListener("cdo-lang", render);
