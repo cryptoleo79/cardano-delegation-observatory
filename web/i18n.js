@@ -88,6 +88,7 @@ const i18n = {
     "h-nav-rankings": "Rankings",
     "h-nav-ecosystem": "Ecosystem",
     "h-nav-treasury": "Treasury",
+    "h-nav-catalyst": "Catalyst",
     "h-nav-market": "Market",
     "h-nav-health": "Health",
     "h-nav-memory": "Memory",

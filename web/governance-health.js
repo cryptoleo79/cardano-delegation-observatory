@@ -9,12 +9,14 @@ const num = (n) => n == null ? "—" : Number(n).toLocaleString(currentLang() ==
 const cards = (el, items) => { const e = document.getElementById(el); if (e) e.innerHTML = items.map(([v, l, sub]) => `<div class="stat-card"><div class="stat-value">${v}</div><div class="stat-label">${esc(l)}</div>${sub ? `<div class="stat-sub">${esc(sub)}</div>` : ""}</div>`).join(""); };
 
 const PAGE_I18N = {
-  en: { "gh-title": "Governance health" },
-  ja: { "gh-title": "ガバナンスの健全性" },
+  en: { "gh-title": "Governance health", "gh-err": "Could not load this section from the API." },
+  ja: { "gh-title": "ガバナンスの健全性", "gh-err": "このセクションをAPIから読み込めませんでした。" },
 };
 if (typeof i18n !== "undefined") { Object.assign(i18n.en, PAGE_I18N.en); Object.assign(i18n.ja, PAGE_I18N.ja); if (typeof setLang === "function") setLang(currentLang()); }
 
 async function j(p) { try { const r = await fetch(API + p, { cache: "no-cache" }); if (!r.ok) return null; return await r.json(); } catch { return null; } }
+
+const errMsg = (el) => { const e = document.getElementById(el); if (e) e.innerHTML = `<p class="loading">${t("gh-err")}</p>`; };
 
 async function boot() {
   const [dreps, actions, votes, treasury] = await Promise.all([
@@ -41,7 +43,7 @@ async function boot() {
       [top(1), "Top-1 weight share"], [top(5), "Top-5 weight share"],
       [top(10), "Top-10 weight share"], [num(hhi), "HHI (0–10,000)"],
     ]);
-  }
+  } else { errMsg("gh-drep"); errMsg("gh-conc"); }
   // Voting activity
   if (actions && actions.actions) {
     const a = actions.actions;
@@ -56,7 +58,7 @@ async function boot() {
     const order = Object.entries(byOutcome).sort((x, y) => y[1] - x[1]);
     document.getElementById("gh-outcomes").innerHTML = `<div class="table-scroll"><table class="vote-table"><thead><tr><th>Outcome</th><th>Actions</th></tr></thead><tbody>` +
       order.map(([o, c]) => `<tr><td>${esc(o)}</td><td>${num(c)}</td></tr>`).join("") + `</tbody></table></div>`;
-  }
+  } else { errMsg("gh-vote"); errMsg("gh-outcomes"); }
   // Treasury activity
   if (treasury) {
     const latest = treasury.latest || {};
@@ -69,7 +71,7 @@ async function boot() {
       [num(wdCount), "Treasury withdrawals", "all-time"],
       [esc(treasury.snapshot_date || "—"), "Snapshot date", ""],
     ]);
-  }
+  } else { errMsg("gh-tre"); }
   const m = dreps || {};
   document.getElementById("gh-meta").innerHTML =
     `<span class="meta-item"><span class="meta-label">Snapshot</span> ${esc(m.snapshot_date || "—")}</span>` +

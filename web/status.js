@@ -30,10 +30,11 @@ async function boot() {
   const subf = archive ? Object.keys(archive.subfolders || {}).length : null;
 
   // headline cards
+  const routeN = health ? health.routes : null;
   const cards = [
     [projTotal, "Projects"], [catPop != null ? `${catPop}/${catTotal}` : null, "Categories populated"],
     [tokens, "Tracked tokens"], [fundN, "Catalyst funds"], [actN, "Governance actions"],
-    [epochs, "Treasury epochs"],
+    [epochs, "Treasury epochs"], [routeN, "API routes"],
   ];
   document.getElementById("st-cards").innerHTML = cards.map(([n, l]) =>
     `<div class="st-card"><div class="st-num">${n == null ? "—" : (typeof n === "string" ? n : num(n))}</div><div class="st-lbl">${esc(l)}</div></div>`).join("");
@@ -48,6 +49,7 @@ async function boot() {
     ["Governance", (drepN != null ? num(drepN) + " DReps · " : "") + (actN != null ? num(actN) + " actions" : ""), "Observatory CC0 export", "daily (votes ~10m)", "top-30 DReps (by methodology) + all actions", "DRep set bounded to top-30 by design"],
     ["Catalyst", fundN != null ? num(fundN) + " funds archived" : "—", "projectcatalyst.io (chain-of-custody)", "static (archive)", `Funds 1-${fundN || "?"}`, "Funds 14-15 + proposal-level capture pending"],
     ["Market events", "31 markers", "EVENT_REGISTRY (curated)", "static", "major ecosystem events", "observability only; no price overlay"],
+    ["API", (health ? num(health.routes) + " routes" : "—") + (health && health.version ? " · v" + health.version : ""), "api.asy.life (read-only, no key, CORS *)", health && health.uptime_s != null ? "live (up " + Math.floor(health.uptime_s / 3600) + "h)" : "live", "every response carries _quality provenance", "—"],
   ];
   document.getElementById("st-tbody").innerHTML = rows.map((r) =>
     `<tr><td><strong>${esc(r[0])}</strong></td><td>${esc(r[1])}</td><td>${esc(r[2])}</td><td>${esc(r[3])}</td><td>${esc(r[4])}</td><td>${r[5] === "—" ? '<span class="st-ok">none</span>' : `<span class="st-pend">${esc(r[5])}</span>`}</td></tr>`).join("");
