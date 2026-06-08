@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ecosystem map — asy.life</title>
+<meta name="description" content="One visual map of the asy.life Cardano ecosystem: CTF, Observatory, Projects, Categories, Memory, Catalyst, and the read-only Data Layer API — with live public metrics.">
+<meta name="theme-color" content="#fafaf7">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Live public-metrics hero */
+  .em-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:18px 0 26px}
+  .em-metric{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 12px;text-align:center}
+  .em-metric .em-n{font-size:1.7rem;font-weight:700;color:var(--accent);line-height:1.1;font-variant-numeric:tabular-nums}
+  .em-metric .em-l{color:var(--muted);font-size:.8rem;margin-top:3px}
+  /* Vertical flow map */
+  .em-flow{max-width:640px;margin:8px auto 0;display:flex;flex-direction:column;align-items:stretch}
+  .em-node{background:var(--card);border:1px solid var(--border-strong);border-radius:12px;padding:16px 18px;display:block;text-decoration:none;color:inherit;transition:border-color .15s,box-shadow .15s}
+  .em-node:hover{border-color:var(--accent);box-shadow:0 2px 14px rgba(44,86,112,.10)}
+  .em-node .em-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .em-node .em-title{font-size:1.12rem;font-weight:700;color:var(--accent-strong)}
+  .em-node .em-where{font-family:var(--mono);font-size:.74rem;color:var(--faint)}
+  .em-node .em-desc{color:var(--muted);font-size:.9rem;margin-top:4px;line-height:1.45}
+  .em-arrow{align-self:center;color:var(--border-strong);font-size:1.3rem;line-height:1;margin:7px 0}
+  .em-tier{font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);margin-left:auto}
+  .em-foot-api{background:var(--accent-soft);border-style:dashed}
+</style>
+</head>
+<body>
+<div class="ecosystem-strip"><div class="ecosystem-strip-inner">
+  <span class="eco-label" id="eco-label">Ecosystem</span>
+  <a href="https://ctf.asy.life" class="eco-link">CTF</a><span class="eco-sep">·</span>
+  <a href="https://observatory.asy.life" class="eco-link" id="eco-link-observatory">Observatory</a><span class="eco-sep">·</span>
+  <a href="https://voting.asy.life" class="eco-link" id="eco-link-voting">Voting</a><span class="eco-sep">·</span>
+  <a href="https://governance.asy.life" class="eco-link" id="eco-link-governance">Governance</a><span class="eco-sep">·</span>
+  <a href="https://api.asy.life" class="eco-link" id="eco-link-api">API</a><span class="eco-sep">·</span>
+  <a href="https://github.com/cryptoleo79" class="eco-link" target="_blank" rel="noopener">GitHub</a>
+</div></div>
+<header class="site-header"><div class="container header-inner">
+  <a href="/" class="brand"><span class="brand-mark">CDO</span><span class="brand-text" id="h-brand">Cardano Delegation Observatory</span></a>
+  <nav class="site-nav">
+    <a href="/" id="h-nav-observatory">Observatory</a>
+    <a href="tokens.html" id="h-nav-tokens">Tokens</a>
+    <a href="rankings.html" id="h-nav-rankings">Rankings</a>
+    <a href="projects.html" id="h-nav-projects">Projects</a>
+    <a href="ecosystem.html" id="h-nav-ecosystem">Ecosystem</a>
+    <a href="treasury.html" id="h-nav-treasury">Treasury</a>
+    <a href="catalyst.html" id="h-nav-catalyst">Catalyst</a>
+    <a href="market.html" id="h-nav-market">Market</a>
+    <a href="governance-health.html" id="h-nav-health">Health</a>
+    <a href="memory.html" id="h-nav-memory">Memory</a>
+    <div class="lang-toggle"><button id="btn-en" class="active" onclick="setLang('en')">EN</button><button id="btn-ja" onclick="setLang('ja')">日本語</button></div>
+  </nav>
+</div></header>
+
+<main><article class="container">
+  <h1 id="em-title">Ecosystem map</h1>
+  <p class="lede" id="em-lede">One picture of how the asy.life Cardano ecosystem fits together — the public surfaces, the data domains they share, and the read-only API that serves them all. Live metrics below are fetched from the API in real time.</p>
+
+  <h2 class="section-h2" id="em-metrics-h">Public metrics</h2>
+  <div class="em-metrics" id="em-metrics"></div>
+
+  <h2 class="section-h2" id="em-map-h">The map</h2>
+  <div class="em-flow">
+    <a class="em-node" href="https://ctf.asy.life">
+      <div class="em-head"><span class="em-title">CTF</span><span class="em-where">ctf.asy.life</span><span class="em-tier" id="em-t-frame">framework</span></div>
+      <div class="em-desc" id="em-d-ctf">Connected Treasury Framework — the proposal and framework layer for how a connected Cardano treasury could work.</div>
+    </a>
+    <div class="em-arrow">↓</div>
+    <a class="em-node" href="/">
+      <div class="em-head"><span class="em-title">Observatory</span><span class="em-where">observatory.asy.life</span><span class="em-tier" id="em-t-observe">observe</span></div>
+      <div class="em-desc" id="em-d-obs">Governance observability — top-30 DReps, governance actions, treasury, delegation flows, concentration, and governance health. Numbers only.</div>
+    </a>
+    <div class="em-arrow">↓</div>
+    <a class="em-node" href="projects.html">
+      <div class="em-head"><span class="em-title" id="em-n-projects">Projects</span><span class="em-where">projects.html</span><span class="em-tier" id="em-t-data1">data</span></div>
+      <div class="em-desc" id="em-d-proj">The ecosystem's projects, event-sourced — each with a profile and per-claim provenance.</div>
+    </a>
+    <div class="em-arrow">↓</div>
+    <a class="em-node" href="categories.html">
+      <div class="em-head"><span class="em-title" id="em-n-categories">Categories</span><span class="em-where">categories.html</span><span class="em-tier" id="em-t-data2">data</span></div>
+      <div class="em-desc" id="em-d-cat">The taxonomy that organizes projects into the parts of the ecosystem — DeFi, NFT, infrastructure, governance, and more.</div>
+    </a>
+    <div class="em-arrow">↓</div>
+    <a class="em-node" href="memory.html">
+      <div class="em-head"><span class="em-title" id="em-n-memory">Memory</span><span class="em-where">memory.html</span><span class="em-tier" id="em-t-memory">memory</span></div>
+      <div class="em-desc" id="em-d-mem">The memory layer — preserve what would otherwise disappear; observe and record, never interpret. Governance, Treasury, Catalyst, and Project memory.</div>
+    </a>
+    <div class="em-arrow">↓</div>
+    <a class="em-node" href="catalyst.html">
+      <div class="em-head"><span class="em-title" id="em-n-catalyst">Catalyst</span><span class="em-where">catalyst.html</span><span class="em-tier" id="em-t-archive">archive</span></div>
+      <div class="em-desc" id="em-d-catl">The Catalyst preservation archive — Funds 1–13 captured with chain-of-custody before they can be lost.</div>
+    </a>
+    <div class="em-arrow">↓</div>
+    <a class="em-node em-foot-api" href="https://api.asy.life">
+      <div class="em-head"><span class="em-title">API</span><span class="em-where">api.asy.life</span><span class="em-tier" id="em-t-serve">serves all</span></div>
+      <div class="em-desc" id="em-d-api">The read-only Data Layer. Every domain above is served here as JSON — no key, open CORS, and a provenance block on every response. This is the foundation the whole map stands on.</div>
+    </a>
+  </div>
+
+  <p class="footnote" id="em-foot"><strong>Read-only · provenance-first · observability, not attribution.</strong> Apache-2.0 code · CC0 data. New here? Start at <a href="about.html">About</a>, browse the <a href="docs.html">documentation index</a>, or read the live <a href="status.html">status &amp; coverage</a>.</p>
+</article></main>
+
+<footer class="site-footer"><div class="container footer-inner">
+  <div><span id="ft-license">Apache 2.0 code · CC0 data</span></div>
+  <div><a href="about.html" id="ft-about">About</a> <a href="docs.html" id="ft-docs">Docs</a> <a href="status.html" id="ft-status">Status</a> <a href="https://api.asy.life/docs" id="ft-api">API docs</a></div>
+  <div class="footer-note" id="ft-note">One ecosystem. Observe · preserve · serve.</div>
+</div></footer>
+<script src="i18n.js"></script>
+<script>
+"use strict";
+(function () {
+  const API = new URLSearchParams(location.search).get("api") || "https://api.asy.life";
+  function lang() { return document.documentElement.lang === "ja" ? "ja" : "en"; }
+  const num = (n) => n == null ? "—" : Number(n).toLocaleString(lang() === "ja" ? "ja-JP" : "en-US");
+  function tt(k) { return (i18n[lang()] && i18n[lang()][k]) || (i18n.en[k] || k); }
+
+  const P = {
+    en: {
+      "em-title": "Ecosystem map",
+      "em-lede": "One picture of how the asy.life Cardano ecosystem fits together — the public surfaces, the data domains they share, and the read-only API that serves them all. Live metrics below are fetched from the API in real time.",
+      "em-metrics-h": "Public metrics", "em-map-h": "The map",
+      "em-t-frame": "framework", "em-t-observe": "observe", "em-t-data1": "data", "em-t-data2": "data", "em-t-memory": "memory", "em-t-archive": "archive", "em-t-serve": "serves all",
+      "em-n-projects": "Projects", "em-n-categories": "Categories", "em-n-memory": "Memory", "em-n-catalyst": "Catalyst",
+      "em-d-ctf": "Connected Treasury Framework — the proposal and framework layer for how a connected Cardano treasury could work.",
+      "em-d-obs": "Governance observability — top-30 DReps, governance actions, treasury, delegation flows, concentration, and governance health. Numbers only.",
+      "em-d-proj": "The ecosystem's projects, event-sourced — each with a profile and per-claim provenance.",
+      "em-d-cat": "The taxonomy that organizes projects into the parts of the ecosystem — DeFi, NFT, infrastructure, governance, and more.",
+      "em-d-mem": "The memory layer — preserve what would otherwise disappear; observe and record, never interpret. Governance, Treasury, Catalyst, and Project memory.",
+      "em-d-catl": "The Catalyst preservation archive — Funds 1–13 captured with chain-of-custody before they can be lost.",
+      "em-d-api": "The read-only Data Layer. Every domain above is served here as JSON — no key, open CORS, and a provenance block on every response. This is the foundation the whole map stands on.",
+      "ml-projects": "Projects", "ml-categories": "Categories", "ml-tokens": "Tracked tokens", "ml-funds": "Catalyst funds", "ml-actions": "Governance actions", "ml-epochs": "Treasury epochs", "ml-routes": "API routes",
+      "ft-about": "About", "ft-docs": "Docs", "ft-status": "Status", "ft-note": "One ecosystem. Observe · preserve · serve.",
+      "em-foot-html": "<strong>Read-only · provenance-first · observability, not attribution.</strong> Apache-2.0 code · CC0 data. New here? Start at <a href=\"about.html\">About</a>, browse the <a href=\"docs.html\">documentation index</a>, or read the live <a href=\"status.html\">status &amp; coverage</a>.",
+    },
+    ja: {
+      "em-title": "エコシステムマップ",
+      "em-lede": "asy.life の Cardano エコシステムがどう組み合わさっているかを一枚で — 公開サーフェス、それらが共有するデータ領域、そしてすべてを提供する読み取り専用API。下の指標はAPIからリアルタイムで取得しています。",
+      "em-metrics-h": "公開指標", "em-map-h": "マップ",
+      "em-t-frame": "フレームワーク", "em-t-observe": "観測", "em-t-data1": "データ", "em-t-data2": "データ", "em-t-memory": "メモリ", "em-t-archive": "アーカイブ", "em-t-serve": "全体を提供",
+      "em-n-projects": "プロジェクト", "em-n-categories": "カテゴリ", "em-n-memory": "メモリ", "em-n-catalyst": "カタリスト",
+      "em-d-ctf": "Connected Treasury Framework — Cardano の連結トレジャリーがどう機能しうるかを示す提案・フレームワーク層。",
+      "em-d-obs": "ガバナンスの観測 — 上位30 DRep、ガバナンスアクション、トレジャリー、委任フロー、集中度、ガバナンスの健全性。数値のみ。",
+      "em-d-proj": "エコシステムのプロジェクトをイベントソーシングで記録 — それぞれにプロフィールと主張ごとの来歴があります。",
+      "em-d-cat": "プロジェクトをエコシステムの各分野（DeFi、NFT、インフラ、ガバナンスなど）に整理する分類。",
+      "em-d-mem": "メモリ層 — 失われかねないものを保全し、観測・記録する。解釈はしません。ガバナンス・トレジャリー・カタリスト・プロジェクトのメモリ。",
+      "em-d-catl": "カタリスト保全アーカイブ — Funds 1〜13 を消失前にチェーン・オブ・カストディ付きで取得。",
+      "em-d-api": "読み取り専用のData Layer。上記のすべての領域がJSONで提供されます — キー不要、CORS開放、すべての応答に来歴ブロック。マップ全体を支える基盤です。",
+      "ml-projects": "プロジェクト", "ml-categories": "カテゴリ", "ml-tokens": "追跡トークン", "ml-funds": "カタリストFund", "ml-actions": "ガバナンスアクション", "ml-epochs": "トレジャリーエポック", "ml-routes": "APIルート",
+      "ft-about": "概要", "ft-docs": "ドキュメント", "ft-status": "ステータス", "ft-note": "ひとつのエコシステム。観測・保全・提供。",
+      "em-foot-html": "<strong>読み取り専用 · 来歴優先 · 原因特定ではなく観測。</strong> Apache-2.0 コード · CC0 データ。はじめての方は <a href=\"about.html\">概要</a> から、<a href=\"docs.html\">ドキュメント索引</a>を見る、または<a href=\"status.html\">ステータスとカバレッジ</a>をご覧ください。",
+    },
+  };
+  if (typeof i18n !== "undefined") { Object.assign(i18n.en, P.en); Object.assign(i18n.ja, P.ja); if (typeof setLang === "function") setLang(lang()); }
+  function paintStatic() { const f = document.getElementById("em-foot"); if (f) f.innerHTML = tt("em-foot-html"); }
+
+  const metrics = [
+    ["ml-projects", null], ["ml-categories", null], ["ml-tokens", null], ["ml-funds", null],
+    ["ml-actions", null], ["ml-epochs", null], ["ml-routes", null],
+  ];
+  function paintMetrics() {
+    document.getElementById("em-metrics").innerHTML = metrics.map(([k, v]) =>
+      `<div class="em-metric"><div class="em-n">${v == null ? "…" : num(v)}</div><div class="em-l">${tt(k)}</div></div>`).join("");
+  }
+  async function j(p) { try { const r = await fetch(API + p, { cache: "no-cache" }); if (!r.ok) return null; return await r.json(); } catch { return null; } }
+  async function loadMetrics() {
+    const [projs, cats, markets, funds, actions, treasury, health] = await Promise.all([
+      j("/projects?limit=1"), j("/categories"), j("/markets"), j("/funds"), j("/actions?limit=1"), j("/treasury"), j("/health"),
+    ]);
+    metrics[0][1] = projs ? projs.total : null;
+    metrics[1][1] = cats ? cats.count : null;
+    metrics[2][1] = markets ? markets.tracked_units : null;
+    metrics[3][1] = funds ? funds.total_funds : null;
+    metrics[4][1] = actions ? actions.total : null;
+    metrics[5][1] = treasury ? treasury.n_epochs : null;
+    metrics[6][1] = health ? health.routes : null;
+    paintMetrics();
+  }
+  function boot() {
+    document.addEventListener("cdo-lang", () => { paintStatic(); paintMetrics(); });
+    paintStatic(); paintMetrics(); loadMetrics();
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
+})();
+</script>
+</body>
+</html>

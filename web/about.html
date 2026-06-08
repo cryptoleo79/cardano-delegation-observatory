@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — asy.life</title>
+<meta name="description" content="What the asy.life Cardano ecosystem is, why it exists, and what we mean by Memory and Data. Read-only, provenance-first, observability — not attribution.">
+<meta name="theme-color" content="#fafaf7">
+<link rel="stylesheet" href="style.css">
+<style>
+  .ab-block{margin:22px 0}
+  .ab-block h2{font-size:1.25rem;color:var(--accent-strong);margin:0 0 6px}
+  .ab-block p{color:var(--text);line-height:1.6;margin:0 0 10px}
+  .ab-pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:14px 0}
+  .ab-pillar{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+  .ab-pillar .ab-p-h{font-weight:700;color:var(--accent-strong);margin-bottom:4px}
+  .ab-pillar .ab-p-d{color:var(--muted);font-size:.9rem;line-height:1.45}
+</style>
+</head>
+<body>
+<div class="ecosystem-strip"><div class="ecosystem-strip-inner">
+  <span class="eco-label" id="eco-label">Ecosystem</span>
+  <a href="https://ctf.asy.life" class="eco-link">CTF</a><span class="eco-sep">·</span>
+  <a href="https://observatory.asy.life" class="eco-link" id="eco-link-observatory">Observatory</a><span class="eco-sep">·</span>
+  <a href="https://voting.asy.life" class="eco-link" id="eco-link-voting">Voting</a><span class="eco-sep">·</span>
+  <a href="https://governance.asy.life" class="eco-link" id="eco-link-governance">Governance</a><span class="eco-sep">·</span>
+  <a href="https://api.asy.life" class="eco-link" id="eco-link-api">API</a><span class="eco-sep">·</span>
+  <a href="https://github.com/cryptoleo79" class="eco-link" target="_blank" rel="noopener">GitHub</a>
+</div></div>
+<header class="site-header"><div class="container header-inner">
+  <a href="/" class="brand"><span class="brand-mark">CDO</span><span class="brand-text" id="h-brand">Cardano Delegation Observatory</span></a>
+  <nav class="site-nav">
+    <a href="/" id="h-nav-observatory">Observatory</a>
+    <a href="tokens.html" id="h-nav-tokens">Tokens</a>
+    <a href="rankings.html" id="h-nav-rankings">Rankings</a>
+    <a href="projects.html" id="h-nav-projects">Projects</a>
+    <a href="ecosystem.html" id="h-nav-ecosystem">Ecosystem</a>
+    <a href="treasury.html" id="h-nav-treasury">Treasury</a>
+    <a href="catalyst.html" id="h-nav-catalyst">Catalyst</a>
+    <a href="market.html" id="h-nav-market">Market</a>
+    <a href="governance-health.html" id="h-nav-health">Health</a>
+    <a href="memory.html" id="h-nav-memory">Memory</a>
+    <div class="lang-toggle"><button id="btn-en" class="active" onclick="setLang('en')">EN</button><button id="btn-ja" onclick="setLang('ja')">日本語</button></div>
+  </nav>
+</div></header>
+
+<main><article class="container">
+  <h1 id="ab-title">About this ecosystem</h1>
+  <p class="lede" id="ab-lede">asy.life is a small, open set of tools that observe and preserve the public life of the Cardano ecosystem — governance, treasury, projects, and funding history — and serve all of it through one read-only API. It does not rank, score, or guess at intent. It records what is verifiably there, with its source attached.</p>
+
+  <div class="ab-block">
+    <h2 id="ab-what-h">What is this ecosystem?</h2>
+    <p id="ab-what-1">Several connected surfaces, one shared foundation. The <strong>Observatory</strong> shows Cardano on-chain governance — the top-30 DReps, governance actions, the treasury, and delegation movement. <strong>Project Memory</strong> records the ecosystem's projects and the categories that organize them. The <strong>Catalyst archive</strong> preserves the community-funding history. The <strong>Connected Treasury Framework (CTF)</strong> is a proposal layer for how a connected treasury could work. Underneath them all is the <strong>Data Layer API</strong>, which serves every piece as plain JSON.</p>
+    <p id="ab-what-2">Everything is bilingual (English and Japanese), the code is Apache-2.0, and the data is CC0. There are no accounts, no wallet connections, no trading, and nothing to log into. It is a public reference, not a product.</p>
+  </div>
+
+  <div class="ab-block">
+    <h2 id="ab-why-h">Why does it exist?</h2>
+    <p id="ab-why-1">Because the public record of an ecosystem is fragile. Funding rounds close and their portals go offline. Project directories vanish. Governance data is spread across tools that come and go. When that happens, the shared memory of what was built, funded, and decided quietly disappears — and with it the ability to hold a clear, common view of the ecosystem.</p>
+    <p id="ab-why-2">This project exists to keep that record open, sourced, and durable — and to make it observable without imposing a judgment on it. The guiding line is simple: <em>observe movement, do not infer motive</em>. We show what happened and where the data came from; the reader draws the conclusions.</p>
+  </div>
+
+  <div class="ab-block">
+    <h2 id="ab-mem-h">What is Memory?</h2>
+    <p id="ab-mem-1">Memory is the preservation half of the project. It is an append-only, event-sourced record: facts are written as claims, each claim carries its provenance, and the log is hash-chained so the history cannot be quietly rewritten. Nothing is overwritten — corrections are added as new events, and the past stays legible.</p>
+    <p id="ab-mem-2">There are four memory layers — Governance, Treasury, Catalyst, and Project memory. Together they answer a single question honestly: <em>what do we actually know, and how do we know it?</em> Memory preserves and observes. It never interprets, ranks, or speculates about intent.</p>
+  </div>
+
+  <div class="ab-block">
+    <h2 id="ab-data-h">What is Data?</h2>
+    <p id="ab-data-1">Data is the access half. The Data Layer API (<code>api.asy.life</code>) serves the whole ecosystem as read-only JSON — no API key, open CORS, so anyone can build on it. Every response carries a <code>_quality</code> block stating the source, an authority class (A on-chain · B official · C at-risk · D community · E researcher), the refresh cadence, and a confidence note.</p>
+    <p id="ab-data-2">Coverage is stated honestly rather than implied. Where data is partial — for example the tracked token set is a curated <em>seed set</em>, not the whole ecosystem — the page and the API say so. Where a value is unknown, it is returned as <code>null</code> with a note, never invented. Nothing is fabricated to look more complete than it is.</p>
+  </div>
+
+  <h2 class="section-h2" id="ab-pillars-h">The principles</h2>
+  <div class="ab-pillars">
+    <div class="ab-pillar"><div class="ab-p-h" id="ab-pl1-h">Read-only</div><div class="ab-p-d" id="ab-pl1-d">No accounts, no writes, no trading. A reference you observe, not a service you log into.</div></div>
+    <div class="ab-pillar"><div class="ab-p-h" id="ab-pl2-h">Provenance-first</div><div class="ab-p-d" id="ab-pl2-d">Every fact carries its source and authority class. If we can't source it, we don't claim it.</div></div>
+    <div class="ab-pillar"><div class="ab-p-h" id="ab-pl3-h">Observability, not attribution</div><div class="ab-p-d" id="ab-pl3-d">We record what happened and when — never that one event caused another, or what anyone intended.</div></div>
+    <div class="ab-pillar"><div class="ab-p-h" id="ab-pl4-h">Open</div><div class="ab-p-d" id="ab-pl4-d">Apache-2.0 code, CC0 data, bilingual. Built to be reused, checked, and outlived.</div></div>
+  </div>
+
+  <p class="footnote" id="ab-foot"><strong>Where to go next.</strong> See the <a href="ecosystem-map.html">ecosystem map</a>, the live <a href="status.html">status &amp; coverage</a>, the <a href="docs.html">documentation index</a>, or the API at <a href="https://api.asy.life/docs">api.asy.life/docs</a>.</p>
+</article></main>
+
+<footer class="site-footer"><div class="container footer-inner">
+  <div><span id="ft-license">Apache 2.0 code · CC0 data</span></div>
+  <div><a href="ecosystem-map.html" id="ft-map">Map</a> <a href="docs.html" id="ft-docs">Docs</a> <a href="status.html" id="ft-status">Status</a> <a href="https://api.asy.life/docs" id="ft-api">API docs</a></div>
+  <div class="footer-note" id="ft-note">Observe · preserve · serve. No scores, no judgment.</div>
+</div></footer>
+<script src="i18n.js"></script>
+<script>
+"use strict";
+(function () {
+  function lang() { return document.documentElement.lang === "ja" ? "ja" : "en"; }
+  function tt(k) { return (i18n[lang()] && i18n[lang()][k]) || (i18n.en[k] || k); }
+  const P = {
+    en: {
+      "ab-title": "About this ecosystem",
+      "ab-lede": "asy.life is a small, open set of tools that observe and preserve the public life of the Cardano ecosystem — governance, treasury, projects, and funding history — and serve all of it through one read-only API. It does not rank, score, or guess at intent. It records what is verifiably there, with its source attached.",
+      "ab-what-h": "What is this ecosystem?", "ab-why-h": "Why does it exist?", "ab-mem-h": "What is Memory?", "ab-data-h": "What is Data?",
+      "ab-pillars-h": "The principles",
+      "ab-pl1-h": "Read-only", "ab-pl1-d": "No accounts, no writes, no trading. A reference you observe, not a service you log into.",
+      "ab-pl2-h": "Provenance-first", "ab-pl2-d": "Every fact carries its source and authority class. If we can't source it, we don't claim it.",
+      "ab-pl3-h": "Observability, not attribution", "ab-pl3-d": "We record what happened and when — never that one event caused another, or what anyone intended.",
+      "ab-pl4-h": "Open", "ab-pl4-d": "Apache-2.0 code, CC0 data, bilingual. Built to be reused, checked, and outlived.",
+      "ft-map": "Map", "ft-docs": "Docs", "ft-status": "Status", "ft-note": "Observe · preserve · serve. No scores, no judgment.",
+      "ab-what-1-html": "Several connected surfaces, one shared foundation. The <strong>Observatory</strong> shows Cardano on-chain governance — the top-30 DReps, governance actions, the treasury, and delegation movement. <strong>Project Memory</strong> records the ecosystem's projects and the categories that organize them. The <strong>Catalyst archive</strong> preserves the community-funding history. The <strong>Connected Treasury Framework (CTF)</strong> is a proposal layer for how a connected treasury could work. Underneath them all is the <strong>Data Layer API</strong>, which serves every piece as plain JSON.",
+      "ab-what-2-html": "Everything is bilingual (English and Japanese), the code is Apache-2.0, and the data is CC0. There are no accounts, no wallet connections, no trading, and nothing to log into. It is a public reference, not a product.",
+      "ab-why-1-html": "Because the public record of an ecosystem is fragile. Funding rounds close and their portals go offline. Project directories vanish. Governance data is spread across tools that come and go. When that happens, the shared memory of what was built, funded, and decided quietly disappears — and with it the ability to hold a clear, common view of the ecosystem.",
+      "ab-why-2-html": "This project exists to keep that record open, sourced, and durable — and to make it observable without imposing a judgment on it. The guiding line is simple: <em>observe movement, do not infer motive</em>. We show what happened and where the data came from; the reader draws the conclusions.",
+      "ab-mem-1-html": "Memory is the preservation half of the project. It is an append-only, event-sourced record: facts are written as claims, each claim carries its provenance, and the log is hash-chained so the history cannot be quietly rewritten. Nothing is overwritten — corrections are added as new events, and the past stays legible.",
+      "ab-mem-2-html": "There are four memory layers — Governance, Treasury, Catalyst, and Project memory. Together they answer a single question honestly: <em>what do we actually know, and how do we know it?</em> Memory preserves and observes. It never interprets, ranks, or speculates about intent.",
+      "ab-data-1-html": "Data is the access half. The Data Layer API (<code>api.asy.life</code>) serves the whole ecosystem as read-only JSON — no API key, open CORS, so anyone can build on it. Every response carries a <code>_quality</code> block stating the source, an authority class (A on-chain · B official · C at-risk · D community · E researcher), the refresh cadence, and a confidence note.",
+      "ab-data-2-html": "Coverage is stated honestly rather than implied. Where data is partial — for example the tracked token set is a curated <em>seed set</em>, not the whole ecosystem — the page and the API say so. Where a value is unknown, it is returned as <code>null</code> with a note, never invented. Nothing is fabricated to look more complete than it is.",
+      "ab-foot-html": "<strong>Where to go next.</strong> See the <a href=\"ecosystem-map.html\">ecosystem map</a>, the live <a href=\"status.html\">status &amp; coverage</a>, the <a href=\"docs.html\">documentation index</a>, or the API at <a href=\"https://api.asy.life/docs\">api.asy.life/docs</a>.",
+    },
+    ja: {
+      "ab-title": "このエコシステムについて",
+      "ab-lede": "asy.life は、Cardano エコシステムの公的な営み — ガバナンス、トレジャリー、プロジェクト、資金提供の歴史 — を観測・保全し、そのすべてを一つの読み取り専用APIで提供する、小さくオープンなツール群です。順位付けも、スコア化も、意図の推測もしません。出典を添えて、検証可能な事実だけを記録します。",
+      "ab-what-h": "このエコシステムとは？", "ab-why-h": "なぜ存在するのか？", "ab-mem-h": "メモリとは？", "ab-data-h": "データとは？",
+      "ab-pillars-h": "原則",
+      "ab-pl1-h": "読み取り専用", "ab-pl1-d": "アカウントも書き込みも取引もありません。ログインするサービスではなく、観測する参照先です。",
+      "ab-pl2-h": "来歴優先", "ab-pl2-d": "すべての事実が出典と権威クラスを伴います。出典を示せないものは主張しません。",
+      "ab-pl3-h": "原因特定ではなく観測", "ab-pl3-d": "何がいつ起きたかを記録します — ある事象が別の事象を引き起こしたとも、誰が何を意図したとも言いません。",
+      "ab-pl4-h": "オープン", "ab-pl4-d": "Apache-2.0 コード、CC0 データ、二言語対応。再利用・検証され、長く残るように作られています。",
+      "ft-map": "マップ", "ft-docs": "ドキュメント", "ft-status": "ステータス", "ft-note": "観測・保全・提供。スコアも判断もありません。",
+      "ab-what-1-html": "いくつかの連結したサーフェスと、一つの共有基盤。<strong>Observatory</strong> は Cardano のオンチェーンガバナンス — 上位30 DRep、ガバナンスアクション、トレジャリー、委任の動き — を示します。<strong>Project Memory</strong> はエコシステムのプロジェクトと、それらを整理するカテゴリを記録します。<strong>Catalyst アーカイブ</strong> はコミュニティ資金提供の歴史を保全します。<strong>Connected Treasury Framework (CTF)</strong> は連結トレジャリーがどう機能しうるかの提案層です。これらすべての下にあるのが、各要素を素のJSONで提供する <strong>Data Layer API</strong> です。",
+      "ab-what-2-html": "すべて二言語対応（英語・日本語）、コードは Apache-2.0、データは CC0 です。アカウントもウォレット接続も取引もなく、ログインするものは何もありません。プロダクトではなく、公的な参照先です。",
+      "ab-why-1-html": "エコシステムの公的な記録は脆いからです。資金提供ラウンドは終了し、そのポータルはオフラインになります。プロジェクト一覧は消えます。ガバナンスデータは現れては消えるツールに散らばっています。そうなると、何が作られ、資金提供され、決定されたかという共有された記憶が静かに失われ — それとともに、エコシステムを明確で共通の視点で捉える力も失われます。",
+      "ab-why-2-html": "本プロジェクトは、その記録をオープンに、出典付きで、永続的に保ち — そして判断を押し付けずに観測可能にするために存在します。指針はシンプルです: <em>動きを観測し、動機を推論しない</em>。何が起き、データがどこから来たかを示します。結論は読者が導きます。",
+      "ab-mem-1-html": "メモリはプロジェクトの保全側です。追記専用・イベントソーシングの記録で、事実は主張として書かれ、各主張は来歴を伴い、ログはハッシュチェーンで連結されるため履歴を密かに書き換えることはできません。上書きはありません — 訂正は新しいイベントとして追加され、過去は読める状態のまま残ります。",
+      "ab-mem-2-html": "メモリ層は4つ — ガバナンス、トレジャリー、カタリスト、プロジェクトのメモリです。これらは一つの問いに誠実に答えます: <em>私たちは実際に何を知っていて、どう知っているのか？</em> メモリは保全し、観測します。解釈も順位付けも、意図の推測もしません。",
+      "ab-data-1-html": "データはアクセス側です。Data Layer API（<code>api.asy.life</code>）はエコシステム全体を読み取り専用のJSONで提供します — APIキー不要、CORS開放で、誰でもその上に構築できます。すべての応答に <code>_quality</code> ブロックが付き、出典、権威クラス（A オンチェーン · B 公式 · C 消失リスク · D コミュニティ · E 研究者）、更新頻度、確信度の注記を示します。",
+      "ab-data-2-html": "カバレッジは暗示せず、正直に明示します。データが部分的な場合 — 例えば追跡トークンセットは全エコシステムではなく厳選された<em>シードセット</em>です — ページとAPIがそう述べます。値が不明な場合は注記付きの <code>null</code> として返し、決して捏造しません。実態より完全に見せかけることはありません。",
+      "ab-foot-html": "<strong>次に見るべき場所。</strong> <a href=\"ecosystem-map.html\">エコシステムマップ</a>、ライブの<a href=\"status.html\">ステータスとカバレッジ</a>、<a href=\"docs.html\">ドキュメント索引</a>、または <a href=\"https://api.asy.life/docs\">api.asy.life/docs</a> のAPIをご覧ください。",
+    },
+  };
+  if (typeof i18n !== "undefined") { Object.assign(i18n.en, P.en); Object.assign(i18n.ja, P.ja); if (typeof setLang === "function") setLang(lang()); }
+  const HTML_IDS = ["ab-what-1", "ab-what-2", "ab-why-1", "ab-why-2", "ab-mem-1", "ab-mem-2", "ab-data-1", "ab-data-2", "ab-foot"];
+  function paintStatic() { HTML_IDS.forEach((id) => { const el = document.getElementById(id); if (el) el.innerHTML = tt(id + "-html"); }); }
+  function boot() { document.addEventListener("cdo-lang", paintStatic); paintStatic(); }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
+})();
+</script>
+</body>
+</html>

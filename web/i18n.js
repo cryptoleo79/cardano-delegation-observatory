@@ -73,6 +73,10 @@ const i18n = {
 
     /* Footer */
     "ft-license": "Apache 2.0 code · CC0 data",
+    "ft-about": "About",
+    "ft-map": "Map",
+    "ft-docs": "Docs",
+    "ft-status": "Status",
     "ft-methodology": "Methodology",
     "ft-source": "Source",
     "ft-observatory": "Observatory",
@@ -277,6 +281,10 @@ const i18n = {
 
     /* Footer */
     "ft-license": "コードはApache 2.0、データはCC0",
+    "ft-about": "概要",
+    "ft-map": "マップ",
+    "ft-docs": "ドキュメント",
+    "ft-status": "ステータス",
     "ft-methodology": "方法論",
     "ft-source": "ソース",
     "ft-observatory": "Observatory",
