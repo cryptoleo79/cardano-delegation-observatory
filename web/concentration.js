@@ -9,10 +9,31 @@ const num = (n) => n == null ? "—" : Number(n).toLocaleString(currentLang() ==
 const state = { dreps: [], meta: null };
 
 const PAGE_I18N = {
-  en: { "cn-title": "Delegation concentration", "cn-share-h": "Top-N share of top-30 voting weight", "cn-dist-h": "Voting-weight distribution (top-30)" },
-  ja: { "cn-title": "委任の集中度", "cn-share-h": "上位30の投票力に占める上位N比率", "cn-dist-h": "投票力の分布 (上位30)" },
+  en: {
+    "cn-title": "Delegation concentration",
+    "cn-lede": "How concentrated voting weight is across the top-30 DReps — top-N share, the Herfindahl-Hirschman Index (HHI), and the Gini coefficient.",
+    "cn-share-h": "Top-N share of top-30 voting weight", "cn-dist-h": "Voting-weight distribution (top-30)",
+    "cn-c1": "Top 1 share", "cn-c3": "Top 3 share", "cn-c5": "Top 5 share", "cn-c10": "Top 10 share",
+    "cn-hhi": "HHI (0–10,000)", "cn-gini": "Gini (0–1)",
+    "cn-h-bucket": "Bucket", "cn-h-share": "Share of top-30 weight", "cn-h-ada": "ADA",
+    "cn-top": "Top", "cn-all": "All", "cn-m-dreps": "DReps", "cn-m-snapshot": "Snapshot", "cn-m-epoch": "Epoch",
+    "cn-m-source": "source: observatory · authority A",
+    "cn-foot-html": "<strong>Descriptive, not a judgment.</strong> These indices report observed concentration across the tracked top-30 DReps (which hold the large majority of registered voting weight); they are not a network-wide measure and carry no \"centralization risk\" or \"capture\" claim — the reader interprets. HHI is the sum of squared percentage shares (0–10,000). Gini is 0 (equal) to 1 (concentrated). Source: <code>api.asy.life/dreps</code> · authority A. Related: <a href=\"flows.html\">Flows</a> · <a href=\"governance-health.html\">Governance health</a>.",
+  },
+  ja: {
+    "cn-title": "委任の集中度",
+    "cn-lede": "上位30のDRepに投票力がどれだけ集中しているか — 上位N比率、ハーフィンダール・ハーシュマン指数 (HHI)、ジニ係数で示します。",
+    "cn-share-h": "上位30の投票力に占める上位N比率", "cn-dist-h": "投票力の分布 (上位30)",
+    "cn-c1": "上位1の比率", "cn-c3": "上位3の比率", "cn-c5": "上位5の比率", "cn-c10": "上位10の比率",
+    "cn-hhi": "HHI (0〜10,000)", "cn-gini": "ジニ係数 (0〜1)",
+    "cn-h-bucket": "区分", "cn-h-share": "上位30の投票力に占める比率", "cn-h-ada": "ADA",
+    "cn-top": "上位", "cn-all": "全", "cn-m-dreps": "DRep数", "cn-m-snapshot": "スナップショット", "cn-m-epoch": "エポック",
+    "cn-m-source": "出典: observatory · 権威クラス A",
+    "cn-foot-html": "<strong>記述であり、判断ではありません。</strong> これらの指標は追跡対象の上位30 DRep（登録投票力の大半を保有）における観測された集中度を報告するものであり、ネットワーク全体の指標ではなく、「中央集権リスク」や「キャプチャ」の主張も含みません — 解釈は読者に委ねられます。HHIはパーセント比率の二乗和 (0〜10,000)。ジニ係数は0（均等）〜1（集中）。出典: <code>api.asy.life/dreps</code> · 権威クラス A。関連: <a href=\"flows.html\">フロー</a> · <a href=\"governance-health.html\">ガバナンスの健全性</a>。",
+  },
 };
 if (typeof i18n !== "undefined") { Object.assign(i18n.en, PAGE_I18N.en); Object.assign(i18n.ja, PAGE_I18N.ja); if (typeof setLang === "function") setLang(currentLang()); }
+function paintStatic() { const f = document.getElementById("cn-foot"); if (f) f.innerHTML = t("cn-foot-html"); }
 
 function hhi(shares) { return shares.reduce((s, p) => s + (p * 100) * (p * 100), 0); } // shares are fractions; ×100 → pct
 function gini(vals) {
@@ -35,16 +56,17 @@ function render() {
   const shares = weights.map((w) => total ? w / total : 0);
   const H = hhi(shares), G = gini(weights), n = weights.length;
   document.getElementById("cn-cards").innerHTML = [
-    [pct(topShare(weights, 1)), "Top 1 share"], [pct(topShare(weights, 3)), "Top 3 share"],
-    [pct(topShare(weights, 5)), "Top 5 share"], [pct(topShare(weights, 10)), "Top 10 share"],
-    [Math.round(H).toLocaleString(), "HHI (0–10,000)"], [G.toFixed(3), "Gini (0–1)"],
+    [pct(topShare(weights, 1)), t("cn-c1")], [pct(topShare(weights, 3)), t("cn-c3")],
+    [pct(topShare(weights, 5)), t("cn-c5")], [pct(topShare(weights, 10)), t("cn-c10")],
+    [Math.round(H).toLocaleString(), t("cn-hhi")], [G.toFixed(3), t("cn-gini")],
   ].map(([v, l]) => `<div class="stat-card"><div class="stat-value">${v}</div><div class="stat-label">${esc(l)}</div></div>`).join("");
   // top-N share table
-  document.getElementById("cn-share").innerHTML = `<div class="table-scroll"><table class="vote-table"><thead><tr><th>Bucket</th><th>Share of top-30 weight</th><th>ADA</th></tr></thead><tbody>` +
+  const ja = currentLang() === "ja";
+  document.getElementById("cn-share").innerHTML = `<div class="table-scroll"><table class="vote-table"><thead><tr><th>${esc(t("cn-h-bucket"))}</th><th>${esc(t("cn-h-share"))}</th><th>${esc(t("cn-h-ada"))}</th></tr></thead><tbody>` +
     [1, 3, 5, 10, n].map((k) => {
-      const lab = k === n ? `All ${n}` : `Top ${k}`;
+      const lab = k === n ? (ja ? `${t("cn-all")}${n}` : `${t("cn-all")} ${n}`) : (ja ? `${t("cn-top")}${k}` : `${t("cn-top")} ${k}`);
       const ada = Math.trunc(weights.slice(0, k).reduce((a, b) => a + b, 0) / 1e6);
-      return `<tr><td>${lab}</td><td>${pct(topShare(weights, k))}</td><td>${num(ada)}</td></tr>`;
+      return `<tr><td>${esc(lab)}</td><td>${pct(topShare(weights, k))}</td><td>${num(ada)}</td></tr>`;
     }).join("") + `</tbody></table></div>`;
   // distribution — CSS-grid horizontal bars (fixed label / bar / value columns;
   // names wrap, never truncated; values in their own column, never on the bar).
@@ -62,13 +84,14 @@ function render() {
   }).join("") + `</div>`;
   const m = state.meta || {};
   document.getElementById("cn-meta").innerHTML =
-    `<span class="meta-item"><span class="meta-label">DReps</span> ${n} (top-30)</span>` +
-    `<span class="meta-item"><span class="meta-label">Snapshot</span> ${esc(m.snapshot_date || "—")}</span>` +
-    `<span class="meta-item"><span class="meta-label">Epoch</span> ${esc(String(m.epoch || "—"))}</span>` +
-    `<span class="meta-item meta-item-right">source: observatory · authority A</span>`;
+    `<span class="meta-item"><span class="meta-label">${esc(t("cn-m-dreps"))}</span> ${n} (top-30)</span>` +
+    `<span class="meta-item"><span class="meta-label">${esc(t("cn-m-snapshot"))}</span> ${esc(m.snapshot_date || "—")}</span>` +
+    `<span class="meta-item"><span class="meta-label">${esc(t("cn-m-epoch"))}</span> ${esc(String(m.epoch || "—"))}</span>` +
+    `<span class="meta-item meta-item-right">${esc(t("cn-m-source"))}</span>`;
 }
 async function boot() {
-  document.addEventListener("cdo-lang", render);
+  document.addEventListener("cdo-lang", () => { render(); paintStatic(); });
+  paintStatic();
   try {
     const r = await fetch(API + "/dreps?limit=30", { cache: "no-cache" });
     const j = await r.json();

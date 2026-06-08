@@ -7,21 +7,63 @@ function t(k) { const l = currentLang(); return (i18n[l] && i18n[l][k]) || (i18n
 function esc(s) { return s == null ? "" : String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
 const num = (n) => n == null ? "—" : Number(n).toLocaleString(currentLang() === "ja" ? "ja-JP" : "en-US");
 const cards = (el, items) => { const e = document.getElementById(el); if (e) e.innerHTML = items.map(([v, l, sub]) => `<div class="stat-card"><div class="stat-value">${v}</div><div class="stat-label">${esc(l)}</div>${sub ? `<div class="stat-sub">${esc(sub)}</div>` : ""}</div>`).join(""); };
+const state = { dreps: null, actions: null, votes: null, treasury: null };
 
 const PAGE_I18N = {
-  en: { "gh-title": "Governance health", "gh-err": "Could not load this section from the API." },
-  ja: { "gh-title": "ガバナンスの健全性", "gh-err": "このセクションをAPIから読み込めませんでした。" },
+  en: {
+    "gh-title": "Governance health",
+    "gh-lede": "Observed indicators of Cardano on-chain governance — DRep participation, delegation concentration, voting activity, and treasury activity. Numbers only.",
+    "gh-conc-h": "Delegation concentration", "gh-vote-h": "Voting activity", "gh-tre-h": "Treasury activity",
+    "gh-conc-link": "Full concentration breakdown →", "gh-flows-link": "Delegation flow →",
+    "gh-tre-link": "Full treasury view →", "gh-act-link": "Governance actions →",
+    "gh-err": "Could not load this section from the API.",
+    "gh-l-tracked": "DReps tracked", "gh-s-meth": "top-30 by methodology",
+    "gh-l-active": "Active DReps", "gh-s-active": "voted ≤10 epochs",
+    "gh-l-rate": "Participation rate", "gh-s-rate": "active / tracked",
+    "gh-l-ever": "Ever voted", "gh-s-ever": "of tracked",
+    "gh-l-t1": "Top-1 weight share", "gh-l-t5": "Top-5 weight share", "gh-l-t10": "Top-10 weight share", "gh-l-hhi": "HHI (0–10,000)",
+    "gh-l-actions": "Governance actions", "gh-s-alltime": "all-time",
+    "gh-l-rvotes": "Recent votes", "gh-l-enacted": "Enacted", "gh-l-ratified": "Ratified",
+    "gh-h-outcome": "Outcome", "gh-h-actions": "Actions",
+    "gh-l-tbal": "Treasury balance", "gh-l-epochs": "Epochs recorded", "gh-l-wd": "Treasury withdrawals", "gh-l-snapdate": "Snapshot date",
+    "gh-m-snapshot": "Snapshot", "gh-m-epoch": "Epoch", "gh-m-sources": "sources: /dreps /actions /votes /treasury · authority A",
+    "gh-drep-h-html": "DRep participation <span class=\"pm-muted\" style=\"font-weight:400\">(tracked top-30)</span>",
+    "gh-foot-html": "<strong>Observability only — no scores, no judgments.</strong> DRep-level figures are scoped to the tracked top-30 by methodology (not network-wide); governance actions and treasury are full. \"Active\" = a DRep with a recorded vote within ~10 epochs of the current snapshot. Sources: <code>api.asy.life</code> /dreps · /actions · /votes · /treasury (observatory CC0, Koios-derived) · authority A. No ranking beyond the published data.",
+  },
+  ja: {
+    "gh-title": "ガバナンスの健全性",
+    "gh-lede": "Cardano オンチェーンガバナンスの観測指標 — DRep参加、委任の集中度、投票活動、トレジャリー活動。数値のみ。",
+    "gh-conc-h": "委任の集中度", "gh-vote-h": "投票活動", "gh-tre-h": "トレジャリー活動",
+    "gh-conc-link": "集中度の詳細 →", "gh-flows-link": "委任フロー →",
+    "gh-tre-link": "トレジャリーの詳細 →", "gh-act-link": "ガバナンスアクション →",
+    "gh-err": "このセクションをAPIから読み込めませんでした。",
+    "gh-l-tracked": "追跡DRep数", "gh-s-meth": "方法論による上位30",
+    "gh-l-active": "活動中のDRep", "gh-s-active": "10エポック以内に投票",
+    "gh-l-rate": "参加率", "gh-s-rate": "活動中 / 追跡対象",
+    "gh-l-ever": "投票経験あり", "gh-s-ever": "追跡対象のうち",
+    "gh-l-t1": "上位1の投票力比率", "gh-l-t5": "上位5の投票力比率", "gh-l-t10": "上位10の投票力比率", "gh-l-hhi": "HHI (0〜10,000)",
+    "gh-l-actions": "ガバナンスアクション", "gh-s-alltime": "全期間",
+    "gh-l-rvotes": "直近の投票", "gh-l-enacted": "施行", "gh-l-ratified": "承認",
+    "gh-h-outcome": "結果", "gh-h-actions": "アクション数",
+    "gh-l-tbal": "トレジャリー残高", "gh-l-epochs": "記録エポック数", "gh-l-wd": "トレジャリー引出し", "gh-l-snapdate": "スナップショット日",
+    "gh-m-snapshot": "スナップショット", "gh-m-epoch": "エポック", "gh-m-sources": "出典: /dreps /actions /votes /treasury · 権威クラス A",
+    "gh-drep-h-html": "DRep参加 <span class=\"pm-muted\" style=\"font-weight:400\">(追跡対象の上位30)</span>",
+    "gh-foot-html": "<strong>観測のみ — スコアも判断もありません。</strong> DRepレベルの数値は方法論による追跡対象の上位30に限定されます（ネットワーク全体ではありません）。ガバナンスアクションとトレジャリーは全件です。「活動中」=現在のスナップショットから約10エポック以内に投票記録のあるDRep。出典: <code>api.asy.life</code> /dreps · /actions · /votes · /treasury（observatory CC0、Koios由来）· 権威クラス A。公開データを超える順位付けはしません。",
+  },
 };
 if (typeof i18n !== "undefined") { Object.assign(i18n.en, PAGE_I18N.en); Object.assign(i18n.ja, PAGE_I18N.ja); if (typeof setLang === "function") setLang(currentLang()); }
 
+const errMsg = (el) => { const e = document.getElementById(el); if (e) e.innerHTML = `<p class="loading">${t("gh-err")}</p>`; };
 async function j(p) { try { const r = await fetch(API + p, { cache: "no-cache" }); if (!r.ok) return null; return await r.json(); } catch { return null; } }
 
-const errMsg = (el) => { const e = document.getElementById(el); if (e) e.innerHTML = `<p class="loading">${t("gh-err")}</p>`; };
+function paintStatic() {
+  const h = document.getElementById("gh-drep-h"); if (h) h.innerHTML = t("gh-drep-h-html");
+  const f = document.getElementById("gh-foot"); if (f) f.innerHTML = t("gh-foot-html");
+}
 
-async function boot() {
-  const [dreps, actions, votes, treasury] = await Promise.all([
-    j("/dreps?limit=30"), j("/actions"), j("/votes"), j("/treasury"),
-  ]);
+function render() {
+  const ja = currentLang() === "ja";
+  const { dreps, actions, votes, treasury } = state;
   // DRep participation (tracked top-30)
   if (dreps && dreps.dreps) {
     const ds = dreps.dreps, epoch = dreps.epoch || 0;
@@ -29,10 +71,10 @@ async function boot() {
     const everVoted = ds.filter((d) => d.last_vote_epoch != null).length;
     const rate = ds.length ? (100 * active / ds.length).toFixed(0) + "%" : "—";
     cards("gh-drep", [
-      [num(ds.length), "DReps tracked", "top-30 by methodology"],
-      [num(active), "Active DReps", "voted ≤10 epochs"],
-      [rate, "Participation rate", "active / tracked"],
-      [num(everVoted), "Ever voted", "of tracked"],
+      [num(ds.length), t("gh-l-tracked"), t("gh-s-meth")],
+      [num(active), t("gh-l-active"), t("gh-s-active")],
+      [rate, t("gh-l-rate"), t("gh-s-rate")],
+      [num(everVoted), t("gh-l-ever"), t("gh-s-ever")],
     ]);
     // concentration (reuse weights)
     const w = ds.map((d) => Number(d.voting_weight_lovelace || 0)).sort((a, b) => b - a);
@@ -40,8 +82,8 @@ async function boot() {
     const top = (k) => total ? (100 * w.slice(0, k).reduce((a, b) => a + b, 0) / total).toFixed(1) + "%" : "—";
     const hhi = total ? Math.round(w.reduce((s, x) => s + Math.pow(100 * x / total, 2), 0)) : null;
     cards("gh-conc", [
-      [top(1), "Top-1 weight share"], [top(5), "Top-5 weight share"],
-      [top(10), "Top-10 weight share"], [num(hhi), "HHI (0–10,000)"],
+      [top(1), t("gh-l-t1")], [top(5), t("gh-l-t5")],
+      [top(10), t("gh-l-t10")], [num(hhi), t("gh-l-hhi")],
     ]);
   } else { errMsg("gh-drep"); errMsg("gh-conc"); }
   // Voting activity
@@ -49,14 +91,15 @@ async function boot() {
     const a = actions.actions;
     const byOutcome = {};
     a.forEach((x) => { const o = x.outcome || "unknown"; byOutcome[o] = (byOutcome[o] || 0) + 1; });
+    const last = votes ? (ja ? `直近${votes.window_hours || 24}時間` : `last ${votes.window_hours || 24}h`) : "";
     cards("gh-vote", [
-      [num(actions.total ?? a.length), "Governance actions", "all-time"],
-      [num(votes ? votes.total : null), "Recent votes", votes ? `last ${votes.window_hours || 24}h` : ""],
-      [num(byOutcome.enacted || 0), "Enacted", ""],
-      [num(byOutcome.ratified || 0), "Ratified", ""],
+      [num(actions.total ?? a.length), t("gh-l-actions"), t("gh-s-alltime")],
+      [num(votes ? votes.total : null), t("gh-l-rvotes"), last],
+      [num(byOutcome.enacted || 0), t("gh-l-enacted"), ""],
+      [num(byOutcome.ratified || 0), t("gh-l-ratified"), ""],
     ]);
     const order = Object.entries(byOutcome).sort((x, y) => y[1] - x[1]);
-    document.getElementById("gh-outcomes").innerHTML = `<div class="table-scroll"><table class="vote-table"><thead><tr><th>Outcome</th><th>Actions</th></tr></thead><tbody>` +
+    document.getElementById("gh-outcomes").innerHTML = `<div class="table-scroll"><table class="vote-table"><thead><tr><th>${esc(t("gh-h-outcome"))}</th><th>${esc(t("gh-h-actions"))}</th></tr></thead><tbody>` +
       order.map(([o, c]) => `<tr><td>${esc(o)}</td><td>${num(c)}</td></tr>`).join("") + `</tbody></table></div>`;
   } else { errMsg("gh-vote"); errMsg("gh-outcomes"); }
   // Treasury activity
@@ -65,17 +108,28 @@ async function boot() {
     const tre = latest.treasury_lovelace != null ? Math.trunc(latest.treasury_lovelace / 1e6) : null;
     const wd = treasury.withdrawals;
     const wdCount = wd ? (wd.count != null ? wd.count : (Array.isArray(wd) ? wd.length : null)) : null;
+    const epLabel = (ja ? "エポック " : "epoch ") + (latest.epoch_no ?? "—");
     cards("gh-tre", [
-      [tre != null ? num(tre) + " ₳" : "—", "Treasury balance", `epoch ${latest.epoch_no ?? "—"}`],
-      [num(treasury.n_epochs), "Epochs recorded", ""],
-      [num(wdCount), "Treasury withdrawals", "all-time"],
-      [esc(treasury.snapshot_date || "—"), "Snapshot date", ""],
+      [tre != null ? num(tre) + " ₳" : "—", t("gh-l-tbal"), epLabel],
+      [num(treasury.n_epochs), t("gh-l-epochs"), ""],
+      [num(wdCount), t("gh-l-wd"), t("gh-s-alltime")],
+      [esc(treasury.snapshot_date || "—"), t("gh-l-snapdate"), ""],
     ]);
   } else { errMsg("gh-tre"); }
   const m = dreps || {};
   document.getElementById("gh-meta").innerHTML =
-    `<span class="meta-item"><span class="meta-label">Snapshot</span> ${esc(m.snapshot_date || "—")}</span>` +
-    `<span class="meta-item"><span class="meta-label">Epoch</span> ${esc(String(m.epoch || "—"))}</span>` +
-    `<span class="meta-item meta-item-right">sources: /dreps /actions /votes /treasury · authority A</span>`;
+    `<span class="meta-item"><span class="meta-label">${esc(t("gh-m-snapshot"))}</span> ${esc(m.snapshot_date || "—")}</span>` +
+    `<span class="meta-item"><span class="meta-label">${esc(t("gh-m-epoch"))}</span> ${esc(String(m.epoch || "—"))}</span>` +
+    `<span class="meta-item meta-item-right">${esc(t("gh-m-sources"))}</span>`;
+}
+
+async function boot() {
+  document.addEventListener("cdo-lang", () => { render(); paintStatic(); });
+  paintStatic();
+  const [dreps, actions, votes, treasury] = await Promise.all([
+    j("/dreps?limit=30"), j("/actions"), j("/votes"), j("/treasury"),
+  ]);
+  state.dreps = dreps; state.actions = actions; state.votes = votes; state.treasury = treasury;
+  render();
 }
 if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
