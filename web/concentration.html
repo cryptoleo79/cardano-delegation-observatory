@@ -3,18 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Status & coverage — Cardano Data Layer</title>
-<meta name="description" content="Live coverage and status of the Cardano Memory Layer + Data Layer: what data exists, where it comes from, how often it refreshes, how complete it is, and what is missing.">
+<title>Delegation concentration — Observatory</title>
+<meta name="description" content="Observed concentration of DRep voting weight: top-N share, HHI, Gini, and the weight distribution. Descriptive only — no centralization judgment.">
 <meta name="theme-color" content="#fafaf7">
 <link rel="stylesheet" href="style.css">
-<style>
-  .st-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin:16px 0}
-  .st-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-align:center}
-  .st-num{font-size:1.6rem;font-weight:700;color:var(--accent)}
-  .st-lbl{color:var(--muted);font-size:.85rem;margin-top:2px}
-  table.st td,table.st th{vertical-align:top}
-  .st-ok{color:#1d6b46}.st-pend{color:#8a5a10}
-</style>
 </head>
 <body>
 <div class="ecosystem-strip"><div class="ecosystem-strip-inner">
@@ -44,23 +36,23 @@
 </div></header>
 
 <main><article class="container">
-  <h1 id="st-title">Status &amp; coverage</h1>
-  <p class="lede" id="st-lede">Live coverage of the Cardano Memory Layer and Data Layer — what exists, where it comes from, how fresh it is, how complete it is, and what is still missing. Counts are fetched live from the public API.</p>
-  <div class="st-grid" id="st-cards"></div>
-  <h2 class="section-h2" id="st-cov-h">Coverage by domain</h2>
-  <div class="table-scroll"><table class="vote-table st" id="st-table"><thead><tr>
-    <th id="st-th-domain">Domain</th><th id="st-th-count">Coverage</th><th id="st-th-source">Source</th>
-    <th id="st-th-refresh">Refresh</th><th id="st-th-complete">Completeness</th><th id="st-th-missing">Known gaps</th>
-  </tr></thead><tbody id="st-tbody"><tr><td colspan="6" class="loading" id="st-loading">Loading live coverage…</td></tr></tbody></table></div>
-  <p class="footnote" id="st-foot">Every API response also carries a per-endpoint <code>_quality</code> block (source · authority class · refresh · confidence · provenance). API: <a href="https://api.asy.life/docs">api.asy.life/docs</a>. This page itself reads <code>api.asy.life</code> live.</p>
+  <h1 id="cn-title">Delegation concentration</h1>
+  <p class="lede" id="cn-lede">How concentrated voting weight is across the top-30 DReps — top-N share, the Herfindahl-Hirschman Index (HHI), and the Gini coefficient.</p>
+  <div class="meta-strip"><div class="meta-strip-inner" id="cn-meta"></div></div>
+  <section class="drep-stats" id="cn-cards"></section>
+  <div class="drep-section"><div class="expand-section-label" id="cn-share-h">Top-N share of top-30 voting weight</div>
+    <div id="cn-share"></div></div>
+  <div class="drep-section"><div class="expand-section-label" id="cn-dist-h">Voting-weight distribution (top-30)</div>
+    <div id="cn-chart"></div></div>
+  <p class="footnote" id="cn-foot"><strong>Descriptive, not a judgment.</strong> These indices report observed concentration across the tracked top-30 DReps (which hold the large majority of registered voting weight); they are not a network-wide measure and carry no "centralization risk" or "capture" claim — the reader interprets. HHI is the sum of squared percentage shares (0–10,000). Gini is 0 (equal) to 1 (concentrated). Source: <code>api.asy.life/dreps</code> · authority A. Related: <a href="flows.html">Flows</a> · <a href="governance-health.html">Governance health</a>.</p>
 </article></main>
-
 <footer class="site-footer"><div class="container footer-inner">
   <div><span id="ft-license">Apache 2.0 code · CC0 data</span></div>
-  <div><a href="/" id="ft-observatory">Observatory</a> <a href="memory.html" id="ft-memory">Memory</a> <a href="https://api.asy.life/docs" id="ft-api">API docs</a></div>
-  <div class="footer-note">Honest coverage: populated, pending, and missing are stated explicitly.</div>
+  <div><a href="/" id="ft-observatory">Observatory</a> <a href="https://api.asy.life/docs" id="ft-api">API docs</a></div>
+  <div class="footer-note">Observe concentration. No score, no judgment.</div>
 </div></footer>
 <script src="i18n.js"></script>
-<script src="status.js"></script>
+<script src="charts.js"></script>
+<script src="concentration.js"></script>
 </body>
 </html>

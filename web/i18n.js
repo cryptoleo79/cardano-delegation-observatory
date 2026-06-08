@@ -89,6 +89,7 @@ const i18n = {
     "h-nav-ecosystem": "Ecosystem",
     "h-nav-treasury": "Treasury",
     "h-nav-market": "Market",
+    "h-nav-health": "Health",
     "h-nav-memory": "Memory",
 
     /* Actions page */
@@ -292,6 +293,7 @@ const i18n = {
     "h-nav-treasury": "トレジャリー",
     "h-nav-catalyst": "Catalyst",
     "h-nav-market": "Market",
+    "h-nav-health": "Health",
     "h-nav-memory": "メモリ",
 
     /* Actions page */

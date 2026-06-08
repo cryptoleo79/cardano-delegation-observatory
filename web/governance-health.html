@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Governance health — Observatory</title>
+<meta name="description" content="Observed Cardano governance indicators: DReps tracked, active DReps, participation, delegation concentration, voting activity, treasury activity. Observability only — no scores, no judgments.">
+<meta name="theme-color" content="#fafaf7">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="ecosystem-strip"><div class="ecosystem-strip-inner">
+  <span class="eco-label" id="eco-label">Ecosystem</span>
+  <a href="https://ctf.asy.life" class="eco-link">CTF</a><span class="eco-sep">·</span>
+  <a href="https://observatory.asy.life" class="eco-link" id="eco-link-observatory">Observatory</a><span class="eco-sep">·</span>
+  <a href="https://voting.asy.life" class="eco-link" id="eco-link-voting">Voting</a><span class="eco-sep">·</span>
+  <a href="https://governance.asy.life" class="eco-link" id="eco-link-governance">Governance</a><span class="eco-sep">·</span>
+  <a href="https://api.asy.life" class="eco-link" id="eco-link-api">API</a><span class="eco-sep">·</span>
+  <a href="https://github.com/cryptoleo79" class="eco-link" target="_blank" rel="noopener">GitHub</a>
+</div></div>
+<header class="site-header"><div class="container header-inner">
+  <a href="/" class="brand"><span class="brand-mark">CDO</span><span class="brand-text" id="h-brand">Cardano Delegation Observatory</span></a>
+  <nav class="site-nav">
+    <a href="/" id="h-nav-observatory">Observatory</a>
+    <a href="tokens.html" id="h-nav-tokens">Tokens</a>
+    <a href="rankings.html" id="h-nav-rankings">Rankings</a>
+    <a href="projects.html" id="h-nav-projects">Projects</a>
+    <a href="ecosystem.html" id="h-nav-ecosystem">Ecosystem</a>
+    <a href="treasury.html" id="h-nav-treasury">Treasury</a>
+    <a href="catalyst.html" id="h-nav-catalyst">Catalyst</a>
+    <a href="market.html" id="h-nav-market">Market</a>
+    <a href="governance-health.html" class="active" id="h-nav-health">Health</a>
+    <a href="memory.html" id="h-nav-memory">Memory</a>
+    <div class="lang-toggle"><button id="btn-en" class="active" onclick="setLang('en')">EN</button><button id="btn-ja" onclick="setLang('ja')">日本語</button></div>
+  </nav>
+</div></header>
+
+<main><article class="container">
+  <h1 id="gh-title">Governance health</h1>
+  <p class="lede" id="gh-lede">Observed indicators of Cardano on-chain governance — DRep participation, delegation concentration, voting activity, and treasury activity. Numbers only.</p>
+  <div class="meta-strip"><div class="meta-strip-inner" id="gh-meta"></div></div>
+
+  <div class="drep-section"><div class="expand-section-label" id="gh-drep-h">DRep participation <span class="pm-muted" style="font-weight:400">(tracked top-30)</span></div>
+    <section class="drep-stats" id="gh-drep"></section></div>
+  <div class="drep-section"><div class="expand-section-label" id="gh-conc-h">Delegation concentration</div>
+    <section class="drep-stats" id="gh-conc"></section>
+    <p class="footnote"><a href="concentration.html" id="gh-conc-link">Full concentration breakdown →</a> · <a href="flows.html" id="gh-flows-link">Delegation flow →</a></p></div>
+  <div class="drep-section"><div class="expand-section-label" id="gh-vote-h">Voting activity</div>
+    <section class="drep-stats" id="gh-vote"></section>
+    <div id="gh-outcomes"></div></div>
+  <div class="drep-section"><div class="expand-section-label" id="gh-tre-h">Treasury activity</div>
+    <section class="drep-stats" id="gh-tre"></section>
+    <p class="footnote"><a href="treasury.html" id="gh-tre-link">Full treasury view →</a> · <a href="actions.html" id="gh-act-link">Governance actions →</a></p></div>
+
+  <p class="footnote" id="gh-foot"><strong>Observability only — no scores, no judgments.</strong> DRep-level figures are scoped to the tracked top-30 by methodology (not network-wide); governance actions and treasury are full. "Active" = a DRep with a recorded vote within ~10 epochs of the current snapshot. Sources: <code>api.asy.life</code> /dreps · /actions · /votes · /treasury (observatory CC0, Koios-derived) · authority A. No ranking beyond the published data.</p>
+</article></main>
+<footer class="site-footer"><div class="container footer-inner">
+  <div><span id="ft-license">Apache 2.0 code · CC0 data</span></div>
+  <div><a href="/" id="ft-observatory">Observatory</a> <a href="https://api.asy.life/docs" id="ft-api">API docs</a></div>
+  <div class="footer-note">Observe · measure · archive. No scores, no rankings beyond the data.</div>
+</div></footer>
+<script src="i18n.js"></script>
+<script src="governance-health.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DRep delegation flow — Observatory</title>
+<meta name="description" content="Per-DRep net delegation flow (voting weight and delegator count) over 7 and 30 days. Aggregate net only — observability, not migration or motive.">
+<meta name="theme-color" content="#fafaf7">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="ecosystem-strip"><div class="ecosystem-strip-inner">
+  <span class="eco-label" id="eco-label">Ecosystem</span>
+  <a href="https://ctf.asy.life" class="eco-link">CTF</a><span class="eco-sep">·</span>
+  <a href="https://observatory.asy.life" class="eco-link" id="eco-link-observatory">Observatory</a><span class="eco-sep">·</span>
+  <a href="https://voting.asy.life" class="eco-link" id="eco-link-voting">Voting</a><span class="eco-sep">·</span>
+  <a href="https://governance.asy.life" class="eco-link" id="eco-link-governance">Governance</a><span class="eco-sep">·</span>
+  <a href="https://api.asy.life" class="eco-link" id="eco-link-api">API</a><span class="eco-sep">·</span>
+  <a href="https://github.com/cryptoleo79" class="eco-link" target="_blank" rel="noopener">GitHub</a>
+</div></div>
+<header class="site-header"><div class="container header-inner">
+  <a href="/" class="brand"><span class="brand-mark">CDO</span><span class="brand-text" id="h-brand">Cardano Delegation Observatory</span></a>
+  <nav class="site-nav">
+    <a href="/" id="h-nav-observatory">Observatory</a>
+    <a href="tokens.html" id="h-nav-tokens">Tokens</a>
+    <a href="rankings.html" id="h-nav-rankings">Rankings</a>
+    <a href="projects.html" id="h-nav-projects">Projects</a>
+    <a href="ecosystem.html" id="h-nav-ecosystem">Ecosystem</a>
+    <a href="treasury.html" id="h-nav-treasury">Treasury</a>
+    <a href="catalyst.html" id="h-nav-catalyst">Catalyst</a>
+    <a href="market.html" id="h-nav-market">Market</a>
+    <a href="governance-health.html" id="h-nav-health">Health</a>
+    <a href="memory.html" id="h-nav-memory">Memory</a>
+    <div class="lang-toggle"><button id="btn-en" class="active" onclick="setLang('en')">EN</button><button id="btn-ja" onclick="setLang('ja')">日本語</button></div>
+  </nav>
+</div></header>
+
+<main><article class="container">
+  <h1 id="fl-title">DRep delegation flow</h1>
+  <p class="lede" id="fl-lede">Net change in each top-30 DRep's voting weight and delegator count over the last 7 and 30 days, from daily snapshots.</p>
+  <div class="meta-strip"><div class="meta-strip-inner" id="fl-meta"></div></div>
+  <p class="footnote" id="fl-rule"><strong>Net only — not migration, not motive.</strong> These are per-DRep net deltas. They do <em>not</em> show where delegation came from or went to (that would require per-delegator tracking, which the methodology forbids — see <a href="https://github.com/cryptoleo79/cardano-delegation-observatory/blob/main/docs/DREP_FLOW_OBSERVATORY.md" target="_blank" rel="noopener">methodology</a>). A net of ~0 can hide large offsetting moves. The two lists below are independent rankings — do not pair a "decrease" row with an "increase" row.</p>
+
+  <div class="actions-filters"><label class="filter-label"><span id="fl-win-label">Window</span>
+    <select id="fl-window"><option value="d7d">7 days</option><option value="d30d">30 days</option></select></label></div>
+
+  <div class="drep-section"><div class="expand-section-label" id="fl-inc-h">Largest net increase</div>
+    <div class="table-scroll"><table class="vote-table" id="fl-inc"><thead><tr>
+      <th id="fl-th-d1">DRep</th><th id="fl-th-d2">Net voting weight (ADA)</th><th id="fl-th-d3">Net delegators</th><th id="fl-th-d4">Since</th></tr></thead>
+      <tbody id="fl-inc-b"><tr><td colspan="4" class="loading">Loading…</td></tr></tbody></table></div></div>
+
+  <div class="drep-section"><div class="expand-section-label" id="fl-dec-h">Largest net decrease</div>
+    <div class="table-scroll"><table class="vote-table" id="fl-dec"><thead><tr>
+      <th>DRep</th><th>Net voting weight (ADA)</th><th>Net delegators</th><th>Since</th></tr></thead>
+      <tbody id="fl-dec-b"><tr><td colspan="4" class="loading">Loading…</td></tr></tbody></table></div></div>
+
+  <p class="footnote" id="fl-foot">Source: <code>api.asy.life/dreps</code> (observatory CC0 export, Koios-derived) · authority A. Null where fewer than the window's snapshots have accumulated. Related: <a href="concentration.html">Concentration</a> · <a href="governance-health.html">Governance health</a>. No "winners/losers".</p>
+</article></main>
+<footer class="site-footer"><div class="container footer-inner">
+  <div><span id="ft-license">Apache 2.0 code · CC0 data</span></div>
+  <div><a href="/" id="ft-observatory">Observatory</a> <a href="https://api.asy.life/docs" id="ft-api">API docs</a></div>
+  <div class="footer-note">Observe movement. The reader draws conclusions.</div>
+</div></footer>
+<script src="i18n.js"></script>
+<script src="flows.js"></script>
+</body>
+</html>
