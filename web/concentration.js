@@ -46,12 +46,20 @@ function render() {
       const ada = Math.trunc(weights.slice(0, k).reduce((a, b) => a + b, 0) / 1e6);
       return `<tr><td>${lab}</td><td>${pct(topShare(weights, k))}</td><td>${num(ada)}</td></tr>`;
     }).join("") + `</tbody></table></div>`;
-  // distribution chart
-  if (window.CDLChart && CDLChart.bars) {
-    CDLChart.bars("cn-chart", sorted.map((d) => ({ label: (d.name && d.name.trim()) ? d.name : d.drep_id.slice(0, 10), value: Math.trunc((d.voting_weight_lovelace || 0) / 1e6) })), { height: 360, valueFormat: (v) => num(v) + " ₳" });
-  } else {
-    document.getElementById("cn-chart").innerHTML = `<p class="pm-muted">chart unavailable</p>`;
-  }
+  // distribution — CSS-grid horizontal bars (fixed label / bar / value columns;
+  // names wrap, never truncated; values in their own column, never on the bar).
+  const max = Math.max(...weights, 1);
+  document.getElementById("cn-chart").innerHTML = `<div class="bar-rows">` + sorted.map((d) => {
+    const w = Number(d.voting_weight_lovelace || 0);
+    const ada = Math.trunc(w / 1e6);
+    const pctW = Math.max(0.5, (w / max) * 100);
+    const name = (d.name && d.name.trim()) ? d.name : d.drep_id;
+    return `<div class="bar-row">
+      <div class="bar-label">${esc(name)}<span class="bar-sub">${esc(d.drep_id.slice(0, 18))}…</span></div>
+      <div class="bar-track"><div class="bar-fill" style="width:${pctW.toFixed(2)}%"></div></div>
+      <div class="bar-val">${num(ada)} ₳ · ${(total ? 100 * w / total : 0).toFixed(1)}%</div>
+    </div>`;
+  }).join("") + `</div>`;
   const m = state.meta || {};
   document.getElementById("cn-meta").innerHTML =
     `<span class="meta-item"><span class="meta-label">DReps</span> ${n} (top-30)</span>` +

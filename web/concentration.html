@@ -7,6 +7,22 @@
 <meta name="description" content="Observed concentration of DRep voting weight: top-N share, HHI, Gini, and the weight distribution. Descriptive only — no centralization judgment.">
 <meta name="theme-color" content="#fafaf7">
 <link rel="stylesheet" href="style.css">
+<style>
+  /* Horizontal bar chart: fixed label + flexible bar + fixed value columns.
+     Names wrap (never truncated / no ellipsis); values never sit on bars. */
+  .bar-rows { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+  .bar-row { display: grid; grid-template-columns: 320px 1fr 140px; gap: 14px; align-items: center; }
+  .bar-label { font-size: 0.88rem; line-height: 1.25; word-break: break-word; overflow-wrap: anywhere; }
+  .bar-label .bar-sub { display: block; font-family: var(--mono); font-size: 0.7rem; color: var(--faint); }
+  .bar-track { background: var(--accent-soft); border-radius: 4px; height: 24px; width: 100%; overflow: hidden; }
+  .bar-fill { background: var(--accent); height: 100%; border-radius: 4px 0 0 4px; min-width: 2px; }
+  .bar-val { text-align: right; font-variant-numeric: tabular-nums; font-size: 0.85rem; color: var(--text); white-space: nowrap; }
+  @media (max-width: 720px) {
+    /* Stack: name, then bar, then value — no horizontal compression. */
+    .bar-row { grid-template-columns: 1fr; gap: 4px; padding-bottom: 6px; border-bottom: 0.5px solid var(--border); }
+    .bar-val { text-align: left; }
+  }
+</style>
 </head>
 <body>
 <div class="ecosystem-strip"><div class="ecosystem-strip-inner">
@@ -52,7 +68,6 @@
   <div class="footer-note">Observe concentration. No score, no judgment.</div>
 </div></footer>
 <script src="i18n.js"></script>
-<script src="charts.js"></script>
 <script src="concentration.js"></script>
 </body>
 </html>
