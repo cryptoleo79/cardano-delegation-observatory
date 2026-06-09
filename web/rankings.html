@@ -25,6 +25,10 @@
   .rk-gl .stat-card { max-width: 720px; }
   .rk-note { color: var(--muted); font-size: 13px; max-width: 720px; margin: 6px 0 0; }
   .rk-quality { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .rk-banner { background: var(--accent-soft); border: 1px solid var(--border-strong); border-radius: 8px; padding: 12px 16px; margin: 14px 0; font-size: 0.92rem; line-height: 1.5; }
+  .rk-banner strong { color: var(--accent-strong); }
+  .rk-banner a { color: var(--accent); }
+  .rk-empty-metric { background: #fff; border: 1px dashed var(--border-strong); border-radius: 8px; padding: 16px; color: #8a5a10; font-size: 0.9rem; line-height: 1.5; }
 </style>
 </head>
 <body>
@@ -72,8 +76,10 @@
 
 <main>
   <article class="container">
-    <h1 id="rk-title">Market Rankings</h1>
+    <h1 id="rk-title">Market Rankings (Tracked Set)</h1>
     <p class="lede" id="rk-lede">Live Cardano token rankings — ordered by market cap, traded volume, or pool liquidity. This is a partial ranking over a tracked seed set, not a full-ecosystem leaderboard. No opinions, no judgment: just the numbers and where they came from.</p>
+
+    <div class="rk-banner" id="rk-banner"></div>
 
     <div class="meta-strip"><div class="meta-strip-inner" id="rk-meta"></div></div>
 

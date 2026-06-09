@@ -10,6 +10,9 @@
 const API = new URLSearchParams(location.search).get("api") || "https://api.asy.life";
 const NUM_LOCALE = { en: "en-US", ja: "ja-JP" };
 const BYS = ["mcap", "volume", "liquidity"];
+// DexHunter's verified tradeable-token count — the honest denominator for an
+// "ecosystem coverage" estimate (measured live 2026-06; refresh periodically).
+const ECOSYSTEM_DENOM = 1044;
 
 const state = { by: "mcap", data: {} /* by -> response */, loading: {} };
 
@@ -36,8 +39,13 @@ function naCell(v) { return v == null ? `<span class="rk-na">${t("rk-na")}</span
 const PAGE_I18N = {
   en: {
     "h-nav-rankings": "Rankings",
-    "rk-title": "Market Rankings",
+    "rk-title": "Market Rankings (Tracked Set)",
     "rk-lede": "Live Cardano token rankings — ordered by market cap, traded volume, or pool liquidity. This is a partial ranking over a tracked seed set, not a full-ecosystem leaderboard. No opinions, no judgment: just the numbers and where they came from.",
+    "rk-banner-html": "<strong>Experimental coverage.</strong> This ranking covers only the currently tracked token set — a curated seed of about 110 tokens, roughly 11% of the ~1,044 verified tradeable Cardano tokens — not the whole ecosystem. Market cap uses on-chain <em>total</em> supply (not circulating), so some stablecoins are distorted; volume and liquidity are not yet populated. Read the <a href=\"https://github.com/cryptoleo79/cardano-data-layer/blob/main/MARKET_COVERAGE_AUDIT.md\" target=\"_blank\" rel=\"noopener\">coverage audit</a>.",
+    "rk-m-priced": "Priced", "rk-m-eco": "Ecosystem coverage",
+    "rk-empty-volume": "Volume data is not available for the tracked set — the price poller does not yet capture on-chain volume, so this metric is empty. Rather than show an arbitrary order, the ranking is withheld.",
+    "rk-empty-liquidity": "Liquidity data is not available for the tracked set — it currently depends on a single DEX source (Minswap), which is returning no data. Rather than show an arbitrary order, the ranking is withheld.",
+    "rk-empty-mcap": "Market-cap data is not available right now.",
     "tab-mcap": "Market cap", "tab-volume": "Volume", "tab-liquidity": "Liquidity",
     "th-rk-rank": "#", "th-rk-ticker": "Ticker", "th-rk-price": "Price (ADA)", "th-rk-priceusd": "Price (USD)",
     "th-rk-metric-mcap": "Market cap (ADA)", "th-rk-metricusd-mcap": "Market cap (USD)",
@@ -52,8 +60,13 @@ const PAGE_I18N = {
   },
   ja: {
     "h-nav-rankings": "ランキング",
-    "rk-title": "マーケットランキング",
+    "rk-title": "マーケットランキング（追跡セット）",
     "rk-lede": "Cardano トークンのライブランキング — 時価総額・取引量・プール流動性で並び替え。これは追跡対象のシードセットに対する部分的なランキングであり、エコシステム全体の順位ではありません。意見も判断もなく、数値とその出典のみを示します。",
+    "rk-banner-html": "<strong>実験的なカバレッジ。</strong> このランキングは現在の追跡トークンセット — 厳選された約110トークン、検証済みの取引可能なCardanoトークン（約1,044）のおよそ11% — のみを対象とし、エコシステム全体ではありません。時価総額はオンチェーンの<em>総</em>供給量（循環供給ではない）を用いるため、一部のステーブルコインは歪んでいます。取引量と流動性はまだ整備されていません。<a href=\"https://github.com/cryptoleo79/cardano-data-layer/blob/main/MARKET_COVERAGE_AUDIT.md\" target=\"_blank\" rel=\"noopener\">カバレッジ監査</a>をご覧ください。",
+    "rk-m-priced": "価格付き", "rk-m-eco": "エコシステムカバレッジ",
+    "rk-empty-volume": "追跡セットの取引量データはありません — 価格ポーラーはまだオンチェーン取引量を取得しないため、この指標は空です。恣意的な順序を示す代わりに、ランキングは保留します。",
+    "rk-empty-liquidity": "追跡セットの流動性データはありません — 現在は単一のDEXソース（Minswap）に依存しており、データが返っていません。恣意的な順序を示す代わりに、ランキングは保留します。",
+    "rk-empty-mcap": "現在、時価総額データはありません。",
     "tab-mcap": "時価総額", "tab-volume": "取引量", "tab-liquidity": "流動性",
     "th-rk-rank": "#", "th-rk-ticker": "ティッカー", "th-rk-price": "価格 (ADA)", "th-rk-priceusd": "価格 (USD)",
     "th-rk-metric-mcap": "時価総額 (ADA)", "th-rk-metricusd-mcap": "時価総額 (USD)",
@@ -85,6 +98,11 @@ function authChip(cls) {
   return ` <span class="auth-chip auth-${esc(cls)}" title="${esc(legend[cls] || "")}">${esc(cls)}</span>`;
 }
 
+function renderBanner() {
+  const el = document.getElementById("rk-banner");
+  if (el) el.innerHTML = t("rk-banner-html");
+}
+
 function renderMeta(d) {
   const el = document.getElementById("rk-meta");
   if (!el) return;
@@ -93,9 +111,14 @@ function renderMeta(d) {
   const src = q.source || d.source || "—";
   const asOf = q.as_of || d.as_of;
   const asOfTxt = asOf ? new Date(asOf).toLocaleString(NUM_LOCALE[currentLang()] || "en-US") : "—";
+  const tracked = d.tracked_units;
+  const ecoPct = tracked != null ? Math.round((tracked / ECOSYSTEM_DENOM) * 100) : null;
+  const ecoTxt = ecoPct != null ? `≈${ecoPct}% (of ~${fmtNum(ECOSYSTEM_DENOM)})` : "—";
+  const priced = (d.computable != null && tracked != null) ? `${fmtNum(d.computable)}/${fmtNum(tracked)}` : "—";
   el.innerHTML = [
-    `<span class="meta-item"><span class="meta-label">${t("rk-m-coverage")}</span> ${esc(d.coverage || "—")}</span>`,
-    `<span class="meta-item"><span class="meta-label">${t("rk-m-tracked")}</span> ${fmtNum(d.tracked_units) || "—"}</span>`,
+    `<span class="meta-item"><span class="meta-label">${t("rk-m-tracked")}</span> ${fmtNum(tracked) || "—"}</span>`,
+    `<span class="meta-item"><span class="meta-label">${t("rk-m-priced")}</span> ${priced}</span>`,
+    `<span class="meta-item"><span class="meta-label">${t("rk-m-eco")}</span> ${ecoTxt}</span>`,
     `<span class="meta-item rk-quality"><span class="meta-label">${t("rk-m-source")}</span> ${esc(src)}${authChip(q.authority_class)}</span>`,
     `<span class="meta-item meta-item-right"><span class="meta-label">${t("rk-m-asof")}</span> ${esc(asOfTxt)}</span>`,
   ].join("");
@@ -125,6 +148,12 @@ function renderChart(d) {
 function renderTable(d) {
   const tbody = document.getElementById("rk-tbody");
   if (!tbody) return;
+  // Honest empty-state: when no row has a computable metric, show why instead of
+  // an arbitrary-order table that merely *looks* ranked.
+  if (d && d.computable === 0) {
+    tbody.innerHTML = `<tr><td colspan="6"><div class="rk-empty-metric">${t("rk-empty-" + state.by)}</div></td></tr>`;
+    return;
+  }
   const rows = (d && d.ranking) || [];
   if (!rows.length) { tbody.innerHTML = `<tr><td colspan="6" class="loading">${t("rk-empty")}</td></tr>`; return; }
   tbody.innerHTML = rows.map((r, i) => {
@@ -167,6 +196,7 @@ function renderActiveTab() {
 function renderCurrent() {
   const d = state.data[state.by];
   renderActiveTab();
+  renderBanner();
   renderHeaders();
   renderMeta(d);
   renderChart(d);
@@ -217,9 +247,11 @@ function wireTabs() {
 
 async function boot() {
   document.addEventListener("cdo-lang", () => {
+    renderBanner();
     const d = state.data[state.by];
     if (d && !d.__error) renderCurrent(); else renderGainersLosers();
   });
+  renderBanner();
   wireTabs();
   renderGainersLosers();
   await selectBy("mcap");
