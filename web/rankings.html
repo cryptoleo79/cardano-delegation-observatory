@@ -29,6 +29,7 @@
   .rk-banner strong { color: var(--accent-strong); }
   .rk-banner a { color: var(--accent); }
   .rk-empty-metric { background: #fff; border: 1px dashed var(--border-strong); border-radius: 8px; padding: 16px; color: #8a5a10; font-size: 0.9rem; line-height: 1.5; }
+  .rk-fdv { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 0.04em; padding: 1px 5px; border-radius: 4px; background: rgba(138,90,16,0.10); color: #8a5a10; border: 0.5px solid rgba(138,90,16,0.30); vertical-align: middle; cursor: help; }
 </style>
 </head>
 <body>
@@ -118,7 +119,7 @@
       </div>
     </div>
 
-    <p class="footnote" id="rk-foot">Source: <code>GET /tokens/top?by=mcap|volume|liquidity</code> on the Cardano Data Layer API. Rankings cover a tracked/seed set only (DexHunter · Minswap · Koios), not the whole ecosystem. Every value carries provenance via the API <code>_quality</code> block. Authority classes: A on-chain · B official · C at-risk platform · D community · E researcher.</p>
+    <p class="footnote" id="rk-foot">Source: <code>GET /tokens/top?by=mcap|volume|liquidity</code> on the Cardano Data Layer API. Market cap, liquidity, and 24h volume come from GeckoTerminal (on-chain DEX aggregation; circulating supply via CoinGecko); ADA values are derived from the on-chain ADA/USD rate. Rankings cover a tracked/seed set only, not the whole ecosystem. Every value carries provenance via the API <code>_quality</code> block. Authority classes: A on-chain · B official · C at-risk platform · D community · E researcher.</p>
   </article>
 </main>
 

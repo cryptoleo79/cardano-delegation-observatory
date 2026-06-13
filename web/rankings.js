@@ -41,11 +41,13 @@ const PAGE_I18N = {
     "h-nav-rankings": "Rankings",
     "rk-title": "Market Rankings (Tracked Set)",
     "rk-lede": "Live Cardano token rankings — ordered by market cap, traded volume, or pool liquidity. This is a partial ranking over a tracked seed set, not a full-ecosystem leaderboard. No opinions, no judgment: just the numbers and where they came from.",
-    "rk-banner-html": "<strong>Experimental coverage.</strong> This ranking covers only the currently tracked token set — a curated seed of about 110 tokens, roughly 11% of the ~1,044 verified tradeable Cardano tokens — not the whole ecosystem. Market cap uses on-chain <em>total</em> supply (not circulating), so some stablecoins are distorted; volume and liquidity are not yet populated. Read the <a href=\"https://github.com/cryptoleo79/cardano-data-layer/blob/main/MARKET_COVERAGE_AUDIT.md\" target=\"_blank\" rel=\"noopener\">coverage audit</a>.",
+    "rk-banner-html": "<strong>Experimental coverage.</strong> This ranking covers the currently tracked token set — a curated seed of about 110 tokens, roughly 11% of the ~1,044 verified tradeable Cardano tokens — not the whole ecosystem. Market cap uses <em>circulating</em> supply where available (via GeckoTerminal / CoinGecko); tokens without a circulating figure are ranked by fully-diluted valuation and flagged <strong>FDV</strong>, always below circulating-mcap tokens. Liquidity and 24h volume are live from on-chain DEX aggregation. Read the <a href=\"https://github.com/cryptoleo79/cardano-data-layer/blob/main/MARKET_COVERAGE_AUDIT.md\" target=\"_blank\" rel=\"noopener\">coverage audit</a>.",
     "rk-m-priced": "Priced", "rk-m-eco": "Ecosystem coverage",
-    "rk-empty-volume": "Volume data is not available for the tracked set — the price poller does not yet capture on-chain volume, so this metric is empty. Rather than show an arbitrary order, the ranking is withheld.",
-    "rk-empty-liquidity": "Liquidity data is not available for the tracked set — it currently depends on a single DEX source (Minswap), which is returning no data. Rather than show an arbitrary order, the ranking is withheld.",
+    "rk-empty-volume": "24h volume is not available for the tracked set right now. Rather than show an arbitrary order, the ranking is withheld.",
+    "rk-empty-liquidity": "Liquidity is not available for the tracked set right now. Rather than show an arbitrary order, the ranking is withheld.",
     "rk-empty-mcap": "Market-cap data is not available right now.",
+    "rk-fdv": "FDV", "rk-fdv-title": "Fully-diluted valuation (price × total supply) — no circulating-supply figure available. Ranked below circulating-mcap tokens.",
+    "rk-conf-title": "Confidence: ",
     "tab-mcap": "Market cap", "tab-volume": "Volume", "tab-liquidity": "Liquidity",
     "th-rk-rank": "#", "th-rk-ticker": "Ticker", "th-rk-price": "Price (ADA)", "th-rk-priceusd": "Price (USD)",
     "th-rk-metric-mcap": "Market cap (ADA)", "th-rk-metricusd-mcap": "Market cap (USD)",
@@ -62,11 +64,13 @@ const PAGE_I18N = {
     "h-nav-rankings": "ランキング",
     "rk-title": "マーケットランキング（追跡セット）",
     "rk-lede": "Cardano トークンのライブランキング — 時価総額・取引量・プール流動性で並び替え。これは追跡対象のシードセットに対する部分的なランキングであり、エコシステム全体の順位ではありません。意見も判断もなく、数値とその出典のみを示します。",
-    "rk-banner-html": "<strong>実験的なカバレッジ。</strong> このランキングは現在の追跡トークンセット — 厳選された約110トークン、検証済みの取引可能なCardanoトークン（約1,044）のおよそ11% — のみを対象とし、エコシステム全体ではありません。時価総額はオンチェーンの<em>総</em>供給量（循環供給ではない）を用いるため、一部のステーブルコインは歪んでいます。取引量と流動性はまだ整備されていません。<a href=\"https://github.com/cryptoleo79/cardano-data-layer/blob/main/MARKET_COVERAGE_AUDIT.md\" target=\"_blank\" rel=\"noopener\">カバレッジ監査</a>をご覧ください。",
+    "rk-banner-html": "<strong>実験的なカバレッジ。</strong> このランキングは現在の追跡トークンセット — 厳選された約110トークン、検証済みの取引可能なCardanoトークン（約1,044）のおよそ11% — を対象とし、エコシステム全体ではありません。時価総額は利用可能な場合は<em>循環</em>供給量（GeckoTerminal / CoinGecko 経由）を用います。循環供給量が無いトークンは完全希薄化評価額でランク付けし<strong>FDV</strong>と表示され、常に循環時価総額のトークンより下に並びます。流動性と24時間取引量はオンチェーンDEX集計からライブ取得しています。<a href=\"https://github.com/cryptoleo79/cardano-data-layer/blob/main/MARKET_COVERAGE_AUDIT.md\" target=\"_blank\" rel=\"noopener\">カバレッジ監査</a>をご覧ください。",
     "rk-m-priced": "価格付き", "rk-m-eco": "エコシステムカバレッジ",
-    "rk-empty-volume": "追跡セットの取引量データはありません — 価格ポーラーはまだオンチェーン取引量を取得しないため、この指標は空です。恣意的な順序を示す代わりに、ランキングは保留します。",
-    "rk-empty-liquidity": "追跡セットの流動性データはありません — 現在は単一のDEXソース（Minswap）に依存しており、データが返っていません。恣意的な順序を示す代わりに、ランキングは保留します。",
+    "rk-empty-volume": "現在、追跡セットの24時間取引量データはありません。恣意的な順序を示す代わりに、ランキングは保留します。",
+    "rk-empty-liquidity": "現在、追跡セットの流動性データはありません。恣意的な順序を示す代わりに、ランキングは保留します。",
     "rk-empty-mcap": "現在、時価総額データはありません。",
+    "rk-fdv": "FDV", "rk-fdv-title": "完全希薄化評価額（価格 × 総供給量）— 循環供給量のデータがありません。循環時価総額のトークンより下に並びます。",
+    "rk-conf-title": "信頼度: ",
     "tab-mcap": "時価総額", "tab-volume": "取引量", "tab-liquidity": "流動性",
     "th-rk-rank": "#", "th-rk-ticker": "ティッカー", "th-rk-price": "価格 (ADA)", "th-rk-priceusd": "価格 (USD)",
     "th-rk-metric-mcap": "時価総額 (ADA)", "th-rk-metricusd-mcap": "時価総額 (USD)",
@@ -163,9 +167,14 @@ function renderTable(d) {
     const priceUsd = r.price ? fmtMoney(r.price.usd) : null;
     const metAda = r.metric ? fmtMoney(r.metric.ada) : null;
     const metUsd = r.metric ? fmtMoney(r.metric.usd) : null;
+    // On the market-cap tab, flag rows ranked by fully-diluted valuation (no
+    // circulating-supply figure) so an FDV number is never mistaken for a real
+    // circulating market cap.
+    const fdvBadge = (state.by === "mcap" && r.basis === "fdv")
+      ? ` <span class="rk-fdv" title="${esc(t("rk-fdv-title"))}">${esc(t("rk-fdv"))}</span>` : "";
     return `<tr>
       <td class="rk-col-rank">${i + 1}</td>
-      <td><a class="rk-ticker" href="${href}">${esc(label)}</a></td>
+      <td><a class="rk-ticker" href="${href}">${esc(label)}</a>${fdvBadge}</td>
       <td class="rk-col-num">${naCell(priceAda)}</td>
       <td class="rk-col-num">${naCell(priceUsd == null ? null : "$" + priceUsd)}</td>
       <td class="rk-col-num">${naCell(metAda)}</td>
