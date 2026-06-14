@@ -12,7 +12,7 @@ const NUM_LOCALE = { en: "en-US", ja: "ja-JP" };
 const BYS = ["mcap", "volume", "liquidity"];
 // DexHunter's verified tradeable-token count — the honest denominator for an
 // "ecosystem coverage" estimate (measured live 2026-06; refresh periodically).
-const ECOSYSTEM_DENOM = 1044;
+const ECOSYSTEM_DENOM = 1046;
 
 const state = { by: "mcap", data: {} /* by -> response */, loading: {} };
 
@@ -41,8 +41,9 @@ const PAGE_I18N = {
     "h-nav-rankings": "Rankings",
     "rk-title": "Market Rankings (Tracked Set)",
     "rk-lede": "Live Cardano token rankings — ordered by market cap, traded volume, or pool liquidity. This is a partial ranking over a tracked seed set, not a full-ecosystem leaderboard. No opinions, no judgment: just the numbers and where they came from.",
-    "rk-banner-html": "<strong>Experimental coverage.</strong> This ranking covers the currently tracked token set — a curated seed of about 110 tokens, roughly 11% of the ~1,044 verified tradeable Cardano tokens — not the whole ecosystem. Market cap uses <em>circulating</em> supply where available (via GeckoTerminal / CoinGecko); tokens without a circulating figure are ranked by fully-diluted valuation and flagged <strong>FDV</strong>, always below circulating-mcap tokens. Liquidity and 24h volume are live from on-chain DEX aggregation. Read the <a href=\"https://github.com/cryptoleo79/cardano-data-layer/blob/main/MARKET_COVERAGE_AUDIT.md\" target=\"_blank\" rel=\"noopener\">coverage audit</a>.",
+    "rk-banner-html": "<strong>Experimental coverage.</strong> This ranking now sweeps the full verified tradeable universe — about 1,046 DexHunter-verified Cardano tokens. Market data (circulating market cap via GeckoTerminal / CoinGecko, plus live DEX liquidity and 24h volume) is refreshed on a rotating schedule, so the count <em>with live data</em> grows over time and deep-tail tokens may be flagged stale. Market cap prefers <em>circulating</em> supply; tokens without one are ranked by fully-diluted valuation and flagged <strong>FDV</strong>, always below circulating-mcap tokens. Read the <a href=\"https://github.com/cryptoleo79/cardano-data-layer/blob/main/MARKET_COVERAGE_AUDIT.md\" target=\"_blank\" rel=\"noopener\">coverage audit</a>.",
     "rk-m-priced": "Priced", "rk-m-eco": "Ecosystem coverage",
+    "rk-m-universe": "Universe", "rk-m-withdata": "With market data", "rk-m-ranked": "Ranked",
     "rk-empty-volume": "24h volume is not available for the tracked set right now. Rather than show an arbitrary order, the ranking is withheld.",
     "rk-empty-liquidity": "Liquidity is not available for the tracked set right now. Rather than show an arbitrary order, the ranking is withheld.",
     "rk-empty-mcap": "Market-cap data is not available right now.",
@@ -64,8 +65,9 @@ const PAGE_I18N = {
     "h-nav-rankings": "ランキング",
     "rk-title": "マーケットランキング（追跡セット）",
     "rk-lede": "Cardano トークンのライブランキング — 時価総額・取引量・プール流動性で並び替え。これは追跡対象のシードセットに対する部分的なランキングであり、エコシステム全体の順位ではありません。意見も判断もなく、数値とその出典のみを示します。",
-    "rk-banner-html": "<strong>実験的なカバレッジ。</strong> このランキングは現在の追跡トークンセット — 厳選された約110トークン、検証済みの取引可能なCardanoトークン（約1,044）のおよそ11% — を対象とし、エコシステム全体ではありません。時価総額は利用可能な場合は<em>循環</em>供給量（GeckoTerminal / CoinGecko 経由）を用います。循環供給量が無いトークンは完全希薄化評価額でランク付けし<strong>FDV</strong>と表示され、常に循環時価総額のトークンより下に並びます。流動性と24時間取引量はオンチェーンDEX集計からライブ取得しています。<a href=\"https://github.com/cryptoleo79/cardano-data-layer/blob/main/MARKET_COVERAGE_AUDIT.md\" target=\"_blank\" rel=\"noopener\">カバレッジ監査</a>をご覧ください。",
+    "rk-banner-html": "<strong>実験的なカバレッジ。</strong> このランキングは検証済みの取引可能なユニバース全体 — DexHunterで検証された約1,046のCardanoトークン — を対象とします。市場データ（GeckoTerminal / CoinGecko 経由の循環時価総額、ライブのDEX流動性と24時間取引量）はローテーション方式で更新されるため、<em>ライブデータあり</em>の件数は時間とともに増加し、末端のトークンは古いと表示される場合があります。時価総額は<em>循環</em>供給量を優先します。循環供給量が無いトークンは完全希薄化評価額でランク付けし<strong>FDV</strong>と表示され、常に循環時価総額のトークンより下に並びます。<a href=\"https://github.com/cryptoleo79/cardano-data-layer/blob/main/MARKET_COVERAGE_AUDIT.md\" target=\"_blank\" rel=\"noopener\">カバレッジ監査</a>をご覧ください。",
     "rk-m-priced": "価格付き", "rk-m-eco": "エコシステムカバレッジ",
+    "rk-m-universe": "対象ユニバース", "rk-m-withdata": "市場データあり", "rk-m-ranked": "ランク対象",
     "rk-empty-volume": "現在、追跡セットの24時間取引量データはありません。恣意的な順序を示す代わりに、ランキングは保留します。",
     "rk-empty-liquidity": "現在、追跡セットの流動性データはありません。恣意的な順序を示す代わりに、ランキングは保留します。",
     "rk-empty-mcap": "現在、時価総額データはありません。",
@@ -115,13 +117,18 @@ function renderMeta(d) {
   const src = q.source || d.source || "—";
   const asOf = q.as_of || d.as_of;
   const asOfTxt = asOf ? new Date(asOf).toLocaleString(NUM_LOCALE[currentLang()] || "en-US") : "—";
-  const tracked = d.tracked_units;
-  const ecoPct = tracked != null ? Math.round((tracked / ECOSYSTEM_DENOM) * 100) : null;
-  const ecoTxt = ecoPct != null ? `≈${ecoPct}% (of ~${fmtNum(ECOSYSTEM_DENOM)})` : "—";
-  const priced = (d.computable != null && tracked != null) ? `${fmtNum(d.computable)}/${fmtNum(tracked)}` : "—";
+  // Universe = full verified set we sweep; with-data = tokens that returned live
+  // market data; ranked = those rankable by the current metric. Older payloads
+  // (pre-expansion) only have tracked_units — fall back to it gracefully.
+  const universe = d.universe ?? d.tracked_units;
+  const withData = d.with_data ?? d.tracked_units;
+  const ecoPct = universe != null ? Math.round((universe / ECOSYSTEM_DENOM) * 100) : null;
+  const ecoTxt = ecoPct != null ? `≈${Math.min(ecoPct, 100)}% (of ~${fmtNum(ECOSYSTEM_DENOM)})` : "—";
+  const rankedTxt = (d.computable != null && withData != null) ? `${fmtNum(d.computable)}/${fmtNum(withData)}` : "—";
   el.innerHTML = [
-    `<span class="meta-item"><span class="meta-label">${t("rk-m-tracked")}</span> ${fmtNum(tracked) || "—"}</span>`,
-    `<span class="meta-item"><span class="meta-label">${t("rk-m-priced")}</span> ${priced}</span>`,
+    `<span class="meta-item"><span class="meta-label">${t("rk-m-universe")}</span> ${fmtNum(universe) || "—"}</span>`,
+    `<span class="meta-item"><span class="meta-label">${t("rk-m-withdata")}</span> ${fmtNum(withData) || "—"}</span>`,
+    `<span class="meta-item"><span class="meta-label">${t("rk-m-ranked")}</span> ${rankedTxt}</span>`,
     `<span class="meta-item"><span class="meta-label">${t("rk-m-eco")}</span> ${ecoTxt}</span>`,
     `<span class="meta-item rk-quality"><span class="meta-label">${t("rk-m-source")}</span> ${esc(src)}${authChip(q.authority_class)}</span>`,
     `<span class="meta-item meta-item-right"><span class="meta-label">${t("rk-m-asof")}</span> ${esc(asOfTxt)}</span>`,
