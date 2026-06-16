@@ -121,13 +121,12 @@ a:hover { text-decoration: underline; }
 }
 .meta-strip-inner {
   display: flex; flex-wrap: wrap; align-items: center;
-  gap: 6px 22px;
-  padding: 10px 24px;
-  font-family: var(--mono);
+  gap: 8px 26px;
+  padding: 13px 24px;
 }
-.meta-item { display: inline-flex; align-items: baseline; gap: 6px; }
-.meta-label { color: var(--faint); }
-.meta-item strong { color: var(--text); font-weight: 600; }
+.meta-item { display: inline-flex; align-items: baseline; gap: 7px; font-variant-numeric: tabular-nums; }
+.meta-label { color: var(--faint); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; }
+.meta-item strong { color: var(--text); font-weight: 650; }
 .meta-item-right { margin-left: auto; }
 
 @media (max-width: 720px) {
@@ -151,14 +150,14 @@ h1 {
 }
 
 /* Table */
-.table-scroll { overflow-x: auto; border: 0.5px solid var(--border); border-radius: 6px; background: var(--card); }
+.table-scroll { overflow-x: auto; border: 0.5px solid var(--border); border-radius: 12px; background: var(--card); box-shadow: var(--shadow); }
 table.observatory {
   width: 100%; border-collapse: collapse;
   font-size: 13px;
   font-variant-numeric: tabular-nums;
 }
 table.observatory th, table.observatory td {
-  padding: 10px 14px;
+  padding: 13px 16px;
   text-align: left;
   border-bottom: 0.5px solid var(--border);
   white-space: nowrap;
@@ -167,11 +166,11 @@ table.observatory tr:last-child td { border-bottom: none; }
 
 table.observatory thead th {
   background: rgba(0, 0, 0, 0.015);
-  color: var(--muted);
+  color: var(--faint);
   font-weight: 600;
   font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   cursor: pointer;
   user-select: none;
   position: relative;
