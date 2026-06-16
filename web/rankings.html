@@ -8,28 +8,7 @@
 <meta name="theme-color" content="#fafaf7">
 <link rel="stylesheet" href="style.css">
 <style>
-  .rk-tabs { display: flex; gap: 6px; flex-wrap: wrap; margin: 22px 0 18px; }
-  .rk-tab {
-    font: inherit; font-size: 12px; font-weight: 600; letter-spacing: 0.03em;
-    padding: 8px 16px; border: 0.5px solid var(--border); border-radius: 6px;
-    background: var(--card); color: var(--muted); cursor: pointer;
-  }
-  .rk-tab:hover { color: var(--text); }
-  .rk-tab.active { background: var(--accent-soft, rgba(38,110,70,0.10)); color: var(--text); border-color: var(--accent, #1d6b46); }
-  .rk-col-rank { width: 48px; color: var(--faint); font-variant-numeric: tabular-nums; }
-  .rk-col-num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
-  .rk-ticker { font-weight: 600; }
-  .rk-na { color: var(--faint); }
-  .rk-chart { margin: 8px 0 4px; }
-  .rk-gl { margin-top: 30px; }
-  .rk-gl .stat-card { max-width: 720px; }
-  .rk-note { color: var(--muted); font-size: 13px; max-width: 720px; margin: 6px 0 0; }
-  .rk-quality { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-  .rk-banner { background: var(--accent-soft); border: 1px solid var(--border-strong); border-radius: 8px; padding: 12px 16px; margin: 14px 0; font-size: 0.92rem; line-height: 1.5; }
-  .rk-banner strong { color: var(--accent-strong); }
-  .rk-banner a { color: var(--accent); }
-  .rk-empty-metric { background: #fff; border: 1px dashed var(--border-strong); border-radius: 8px; padding: 16px; color: #8a5a10; font-size: 0.9rem; line-height: 1.5; }
-  .rk-fdv { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 0.04em; padding: 1px 5px; border-radius: 4px; background: rgba(138,90,16,0.10); color: #8a5a10; border: 0.5px solid rgba(138,90,16,0.30); vertical-align: middle; cursor: help; }
+  .rk-note { color: var(--muted); font-size: 13px; max-width: 760px; margin: 16px 0 0; }
 </style>
 </head>
 <body>
@@ -77,49 +56,53 @@
 
 <main>
   <article class="container">
-    <h1 id="rk-title">Market Rankings (Tracked Set)</h1>
-    <p class="lede" id="rk-lede">Live Cardano token rankings — ordered by market cap, traded volume, or pool liquidity. This is a partial ranking over a tracked seed set, not a full-ecosystem leaderboard. No opinions, no judgment: just the numbers and where they came from.</p>
-
-    <div class="rk-banner" id="rk-banner"></div>
-
-    <div class="meta-strip"><div class="meta-strip-inner" id="rk-meta"></div></div>
-
-    <div class="rk-tabs" id="rk-tabs" role="tablist">
-      <button class="rk-tab active" id="tab-mcap" data-by="mcap" role="tab">Market cap</button>
-      <button class="rk-tab" id="tab-volume" data-by="volume" role="tab">Volume</button>
-      <button class="rk-tab" id="tab-liquidity" data-by="liquidity" role="tab">Liquidity</button>
+    <!-- Hero -->
+    <div class="page-hero">
+      <div class="hero-main">
+        <h1 id="rk-title">Market Rankings</h1>
+        <p class="lede" id="rk-lede">Live Cardano token rankings by market cap, traded volume, and pool liquidity — sourced on-chain, with provenance on every value.</p>
+      </div>
+      <div class="hero-aside" id="rk-hero-aside"></div>
     </div>
 
-    <div class="rk-chart" id="rk-chart"></div>
+    <!-- Metric cards -->
+    <div class="metric-grid" id="rk-metrics"></div>
 
-    <div class="table-scroll">
-      <table class="vote-table" id="rk-table">
+    <!-- Ranking controls -->
+    <div class="segmented" id="rk-tabs" role="tablist">
+      <button class="active" id="tab-mcap" data-by="mcap" role="tab">Market cap</button>
+      <button id="tab-volume" data-by="volume" role="tab">Volume</button>
+      <button id="tab-liquidity" data-by="liquidity" role="tab">Liquidity</button>
+    </div>
+
+    <!-- Ranking table -->
+    <div class="rank-table-wrap">
+      <table class="rank-table">
         <thead>
           <tr>
-            <th class="rk-col-rank" id="th-rk-rank">#</th>
-            <th id="th-rk-ticker">Ticker</th>
-            <th class="rk-col-num" id="th-rk-price">Price (ADA)</th>
-            <th class="rk-col-num" id="th-rk-priceusd">Price (USD)</th>
-            <th class="rk-col-num" id="th-rk-metric">Metric (ADA)</th>
-            <th class="rk-col-num" id="th-rk-metricusd">Metric (USD)</th>
+            <th class="rt-rank" id="th-rk-rank">#</th>
+            <th id="th-rk-ticker">Token</th>
+            <th class="num" id="th-rk-price">Price</th>
+            <th class="num" id="th-rk-metric">Market cap</th>
           </tr>
         </thead>
-        <tbody id="rk-tbody"><tr><td colspan="6" class="loading" id="rk-loading">Loading…</td></tr></tbody>
+        <tbody id="rk-tbody"><tr><td colspan="4" class="rank-empty" id="rk-loading">Loading…</td></tr></tbody>
       </table>
     </div>
 
     <p class="rk-note" id="rk-note"></p>
 
-    <div class="rk-gl">
-      <h2 id="rk-gl-title">Gainers &amp; Losers</h2>
-      <div class="stat-card">
-        <div class="stat-label" id="rk-gl-label">Top movers (24h)</div>
-        <div class="stat-value" id="rk-gl-value">Not yet available</div>
-        <div class="stat-sub" id="rk-gl-sub">The Data Layer API does not yet expose a gainers/losers endpoint. Rather than fabricate price-change figures, this section is intentionally left empty until a verified change feed exists.</div>
-      </div>
-    </div>
+    <!-- Coverage / methodology — present but not dominating -->
+    <details class="info-card" id="rk-infocard">
+      <summary>
+        <span class="ic-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span>
+        <span id="rk-info-title">About this ranking &amp; coverage</span>
+        <span class="ic-chev" aria-hidden="true">▾</span>
+      </summary>
+      <div class="ic-body" id="rk-info-body"></div>
+    </details>
 
-    <p class="footnote" id="rk-foot">Source: <code>GET /tokens/top?by=mcap|volume|liquidity</code> on the Cardano Data Layer API. Market cap, liquidity, and 24h volume come from GeckoTerminal (on-chain DEX aggregation; circulating supply via CoinGecko); ADA values are derived from the on-chain ADA/USD rate. Rankings cover a tracked/seed set only, not the whole ecosystem. Every value carries provenance via the API <code>_quality</code> block. Authority classes: A on-chain · B official · C at-risk platform · D community · E researcher.</p>
+    <p class="footnote" id="rk-foot">Source: <code>GET /tokens/top?by=mcap|volume|liquidity</code> on the Cardano Data Layer API. Market cap, liquidity, and 24h volume come from GeckoTerminal (on-chain DEX aggregation; circulating supply via CoinGecko); ADA values are derived from the on-chain ADA/USD rate. Every value carries provenance via the API <code>_quality</code> block. Authority classes: A on-chain · B official · C at-risk platform · D community · E researcher.</p>
   </article>
 </main>
 
@@ -136,7 +119,6 @@
 </footer>
 
 <script src="i18n.js"></script>
-<script src="charts.js"></script>
 <script src="rankings.js"></script>
 </body>
 </html>
