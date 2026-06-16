@@ -55,6 +55,8 @@ const i18n = {
     "th-delegators": "Delegators",
     "th-d7d": "Δ 7d (ADA)",
     "th-d30d": "Δ 30d (ADA)",
+    "th-deleg-d7d": "Δ 7d",
+    "th-deleg-d30d": "Δ 30d",
     "th-lastvote": "Last vote (epoch)",
 
     /* Expanded row labels */
@@ -263,6 +265,8 @@ const i18n = {
     "th-delegators": "委任者数",
     "th-d7d": "Δ 7日間 (ADA)",
     "th-d30d": "Δ 30日間 (ADA)",
+    "th-deleg-d7d": "Δ 7日間",
+    "th-deleg-d30d": "Δ 30日間",
     "th-lastvote": "最終投票 (エポック)",
 
     /* Expanded row labels */

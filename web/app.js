@@ -45,6 +45,14 @@ function fmtDelta(lovelace) {
   return sign + ada.toLocaleString(NUM_LOCALE[currentLang()] || "en-US");
 }
 
+/* Signed integer delta (e.g. delegator-count change) — no lovelace scaling. */
+function fmtDeltaCount(n) {
+  if (n === null || n === undefined) return null;
+  const v = Number(n);
+  const sign = v > 0 ? "+" : "";
+  return sign + v.toLocaleString(NUM_LOCALE[currentLang()] || "en-US");
+}
+
 function shortId(drepId) {
   if (!drepId) return "";
   if (drepId.length <= 18) return drepId;
@@ -126,7 +134,7 @@ function renderTable() {
     tbody.innerHTML = "";
     const tr = document.createElement("tr");
     const td = document.createElement("td");
-    td.colSpan = 7;
+    td.colSpan = 9;
     td.className = "loading";
     td.textContent = t("load-error");
     tr.appendChild(td);
@@ -161,11 +169,7 @@ function renderTable() {
     tdWeight.textContent = fmtNum(e.voting_weight_ada);
     tr.appendChild(tdWeight);
 
-    const tdDeleg = document.createElement("td");
-    tdDeleg.className = "col-num";
-    tdDeleg.textContent = fmtNum(e.delegator_count);
-    tr.appendChild(tdDeleg);
-
+    /* Voting-weight net change (ADA) over 7d / 30d. */
     const tdD7 = document.createElement("td");
     tdD7.className = "col-num delta-cell";
     const d7 = fmtDelta(e.d7d_lovelace);
@@ -179,6 +183,26 @@ function renderTable() {
     if (d30 === null) { tdD30.textContent = "—"; tdD30.classList.add("delta-empty"); }
     else tdD30.textContent = d30;
     tr.appendChild(tdD30);
+
+    const tdDeleg = document.createElement("td");
+    tdDeleg.className = "col-num";
+    tdDeleg.textContent = fmtNum(e.delegator_count);
+    tr.appendChild(tdDeleg);
+
+    /* Delegator-count net change over 7d / 30d — same treatment as voting weight. */
+    const tdDc7 = document.createElement("td");
+    tdDc7.className = "col-num delta-cell";
+    const dc7 = fmtDeltaCount(e.delegator_count_d7d);
+    if (dc7 === null) { tdDc7.textContent = "—"; tdDc7.classList.add("delta-empty"); }
+    else tdDc7.textContent = dc7;
+    tr.appendChild(tdDc7);
+
+    const tdDc30 = document.createElement("td");
+    tdDc30.className = "col-num delta-cell";
+    const dc30 = fmtDeltaCount(e.delegator_count_d30d);
+    if (dc30 === null) { tdDc30.textContent = "—"; tdDc30.classList.add("delta-empty"); }
+    else tdDc30.textContent = dc30;
+    tr.appendChild(tdDc30);
 
     const tdVote = document.createElement("td");
     tdVote.className = "col-num";
@@ -258,7 +282,7 @@ function buildExpandRow(drepId) {
   const tr = document.createElement("tr");
   tr.className = "expand-row";
   const td = document.createElement("td");
-  td.colSpan = 7;
+  td.colSpan = 9;
 
   const inner = document.createElement("div");
   inner.className = "expand-inner";
