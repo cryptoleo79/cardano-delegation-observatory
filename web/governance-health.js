@@ -27,6 +27,12 @@ const PAGE_I18N = {
     "gh-h-outcome": "Outcome", "gh-h-actions": "Actions",
     "gh-l-tbal": "Treasury balance", "gh-l-epochs": "Epochs recorded", "gh-l-wd": "Treasury withdrawals", "gh-l-snapdate": "Snapshot date",
     "gh-m-snapshot": "Snapshot", "gh-m-epoch": "Epoch", "gh-m-sources": "sources: /dreps /actions /votes /treasury · authority A",
+    "gh-hero-updated": "Snapshot",
+    "gh-mc-tracked": "DReps tracked", "gh-mc-tracked-sub": "top-30 by methodology",
+    "gh-mc-active": "Active DReps", "gh-mc-active-sub": "voted ≤10 epochs",
+    "gh-mc-rate": "Participation", "gh-mc-rate-sub": "active / tracked",
+    "gh-mc-conc": "Top-5 share", "gh-mc-conc-sub": "of tracked weight",
+    "gh-mc-tre": "Treasury", "gh-mc-tre-sub": "current balance",
     "gh-drep-h-html": "DRep participation <span class=\"pm-muted\" style=\"font-weight:400\">(tracked top-30)</span>",
     "gh-foot-html": "<strong>Observability only — no scores, no judgments.</strong> DRep-level figures are scoped to the tracked top-30 by methodology (not network-wide); governance actions and treasury are full. \"Active\" = a DRep with a recorded vote within ~10 epochs of the current snapshot. Sources: <code>api.asy.life</code> /dreps · /actions · /votes · /treasury (observatory CC0, Koios-derived) · authority A. No ranking beyond the published data.",
   },
@@ -47,6 +53,12 @@ const PAGE_I18N = {
     "gh-h-outcome": "結果", "gh-h-actions": "アクション数",
     "gh-l-tbal": "トレジャリー残高", "gh-l-epochs": "記録エポック数", "gh-l-wd": "トレジャリー引出し", "gh-l-snapdate": "スナップショット日",
     "gh-m-snapshot": "スナップショット", "gh-m-epoch": "エポック", "gh-m-sources": "出典: /dreps /actions /votes /treasury · 権威クラス A",
+    "gh-hero-updated": "スナップショット",
+    "gh-mc-tracked": "追跡DRep数", "gh-mc-tracked-sub": "方法論による上位30",
+    "gh-mc-active": "活動中のDRep", "gh-mc-active-sub": "10エポック以内に投票",
+    "gh-mc-rate": "参加率", "gh-mc-rate-sub": "活動中 / 追跡対象",
+    "gh-mc-conc": "上位5の比率", "gh-mc-conc-sub": "追跡投票力のうち",
+    "gh-mc-tre": "トレジャリー", "gh-mc-tre-sub": "現在残高",
     "gh-drep-h-html": "DRep参加 <span class=\"pm-muted\" style=\"font-weight:400\">(追跡対象の上位30)</span>",
     "gh-foot-html": "<strong>観測のみ — スコアも判断もありません。</strong> DRepレベルの数値は方法論による追跡対象の上位30に限定されます（ネットワーク全体ではありません）。ガバナンスアクションとトレジャリーは全件です。「活動中」=現在のスナップショットから約10エポック以内に投票記録のあるDRep。出典: <code>api.asy.life</code> /dreps · /actions · /votes · /treasury（observatory CC0、Koios由来）· 権威クラス A。公開データを超える順位付けはしません。",
   },
@@ -55,6 +67,76 @@ if (typeof i18n !== "undefined") { Object.assign(i18n.en, PAGE_I18N.en); Object.
 
 const errMsg = (el) => { const e = document.getElementById(el); if (e) e.innerHTML = `<p class="loading">${t("gh-err")}</p>`; };
 async function j(p) { try { const r = await fetch(API + p, { cache: "no-cache" }); if (!r.ok) return null; return await r.json(); } catch { return null; } }
+
+/* Small inline icon set (stroke, currentColor). */
+const ICON = {
+  tracked: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+  active: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>',
+  rate: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 21H3"/><path d="M7 21V11"/><path d="M12 21V3"/><path d="M17 21v-7"/></svg>',
+  conc: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>',
+  treasury: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>',
+};
+
+/* Compact ADA for headline figures (₳1.2B, ₳930M). */
+function fmtAdaCompact(n) {
+  if (n == null || !isFinite(n)) return null;
+  return "₳" + Number(n).toLocaleString(currentLang() === "ja" ? "ja-JP" : "en-US", { notation: "compact", maximumFractionDigits: 2 });
+}
+
+function authChip(cls) {
+  if (!cls) return "";
+  const legend = { A: "On-chain", B: "Official", C: "At-risk platform", D: "Community", E: "Researcher" };
+  return ` <span class="auth-chip auth-${esc(cls)}" title="${esc(legend[cls] || "")}">${esc(cls)}</span>`;
+}
+
+function renderHeroAside() {
+  const el = document.getElementById("gh-hero-aside");
+  if (!el) return;
+  const d = state.dreps || {};
+  const snap = d.snapshot_date || "—";
+  const epoch = d.epoch != null ? d.epoch : null;
+  const epLabel = epoch != null ? (currentLang() === "ja" ? "エポック " : "epoch ") + epoch : "";
+  el.innerHTML =
+    `<div class="ha-label">${esc(t("gh-hero-updated"))}</div>` +
+    `<div class="ha-value">${esc(snap)}</div>` +
+    `<div class="ha-sub">${esc(epLabel)}${authChip("A")}</div>`;
+}
+
+function metricCard(icon, value, isText, label, sub) {
+  return `<div class="metric-card">
+    <div class="mc-icon">${icon}</div>
+    <div class="mc-value${isText ? " mc-text" : ""}">${value}</div>
+    <div class="mc-label">${esc(label)}</div>
+    <div class="mc-sub">${esc(sub)}</div>
+  </div>`;
+}
+
+function renderMetrics() {
+  const el = document.getElementById("gh-metrics");
+  if (!el) return;
+  const { dreps, treasury } = state;
+  let tracked = "—", active = "—", rate = "—", top5 = "—", treBal = "—";
+  if (dreps && dreps.dreps) {
+    const ds = dreps.dreps, epoch = dreps.epoch || 0;
+    const activeN = ds.filter((d) => d.last_vote_epoch != null && (epoch - d.last_vote_epoch) <= 10).length;
+    tracked = num(ds.length);
+    active = num(activeN);
+    rate = ds.length ? (100 * activeN / ds.length).toFixed(0) + "%" : "—";
+    const w = ds.map((d) => Number(d.voting_weight_lovelace || 0)).sort((a, b) => b - a);
+    const total = w.reduce((a, b) => a + b, 0);
+    top5 = total ? (100 * w.slice(0, 5).reduce((a, b) => a + b, 0) / total).toFixed(1) + "%" : "—";
+  }
+  if (treasury && treasury.latest && treasury.latest.treasury_lovelace != null) {
+    treBal = fmtAdaCompact(Math.trunc(treasury.latest.treasury_lovelace / 1e6)) || "—";
+  }
+  el.innerHTML = [
+    metricCard(ICON.tracked, tracked, false, t("gh-mc-tracked"), t("gh-mc-tracked-sub")),
+    metricCard(ICON.active, active, false, t("gh-mc-active"), t("gh-mc-active-sub")),
+    metricCard(ICON.rate, rate, false, t("gh-mc-rate"), t("gh-mc-rate-sub")),
+    metricCard(ICON.conc, top5, false, t("gh-mc-conc"), t("gh-mc-conc-sub")),
+    metricCard(ICON.treasury, treBal, false, t("gh-mc-tre"), t("gh-mc-tre-sub")),
+  ].join("");
+}
 
 function paintStatic() {
   const h = document.getElementById("gh-drep-h"); if (h) h.innerHTML = t("gh-drep-h-html");
@@ -116,11 +198,8 @@ function render() {
       [esc(treasury.snapshot_date || "—"), t("gh-l-snapdate"), ""],
     ]);
   } else { errMsg("gh-tre"); }
-  const m = dreps || {};
-  document.getElementById("gh-meta").innerHTML =
-    `<span class="meta-item"><span class="meta-label">${esc(t("gh-m-snapshot"))}</span> ${esc(m.snapshot_date || "—")}</span>` +
-    `<span class="meta-item"><span class="meta-label">${esc(t("gh-m-epoch"))}</span> ${esc(String(m.epoch || "—"))}</span>` +
-    `<span class="meta-item meta-item-right">${esc(t("gh-m-sources"))}</span>`;
+  renderHeroAside();
+  renderMetrics();
 }
 
 async function boot() {

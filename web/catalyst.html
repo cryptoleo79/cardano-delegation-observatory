@@ -11,13 +11,6 @@
   .cat-section { margin-top: 32px; }
   .cat-section > h2 { font-size: 16px; margin: 0 0 6px; }
   .cat-section-note { color: var(--muted); font-size: 13px; max-width: 720px; margin: 0 0 14px; }
-  .coverage-callout {
-    border: 0.5px solid var(--border); border-left: 3px solid var(--accent-strong);
-    background: var(--card); border-radius: 6px; padding: 12px 16px; margin: 8px 0 4px;
-    color: var(--text); font-size: 13px; max-width: 760px;
-  }
-  .coverage-callout .cc-label { display: block; font-size: 11px; font-weight: 600; color: var(--muted);
-    text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
   .cat-zero td { color: var(--faint); }
   .cat-fund-link { background: none; border: 0; padding: 0; cursor: pointer; color: var(--accent-strong);
     font: inherit; text-decoration: underline; }
@@ -80,15 +73,27 @@
 
 <main>
   <article class="container">
-    <h1 id="cat-title">Cardano Catalyst Archive</h1>
-    <p class="lede" id="cat-lede">A preservation archive of Project Catalyst sources and funds. Every capture carries its provenance — source URL, Wayback snapshot, SHA-256, capture date, and source authority class. Read-only. This is not a directory of Catalyst proposals or a ranking: coverage equals what has been preserved, and the archive is deliberately sparse.</p>
-
-    <div class="meta-strip"><div class="meta-strip-inner" id="cat-meta"></div></div>
-
-    <div class="coverage-callout" id="cat-coverage">
-      <span class="cc-label" id="cat-coverage-label">Coverage honesty</span>
-      <span id="cat-coverage-note">Loading…</span>
+    <!-- Hero -->
+    <div class="page-hero">
+      <div class="hero-main">
+        <h1 id="cat-title">Cardano Catalyst Archive</h1>
+        <p class="lede" id="cat-lede">A preservation archive of Project Catalyst sources and funds. Every capture carries its provenance — source URL, Wayback snapshot, SHA-256, capture date, and source authority class. Read-only. This is not a directory of Catalyst proposals or a ranking: coverage equals what has been preserved, and the archive is deliberately sparse.</p>
+      </div>
+      <div class="hero-aside" id="cat-hero-aside"></div>
     </div>
+
+    <!-- Metric cards -->
+    <div class="metric-grid" id="cat-metrics"></div>
+
+    <!-- Coverage honesty — present but not dominating -->
+    <details class="info-card" id="cat-infocard">
+      <summary>
+        <span class="ic-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span>
+        <span id="cat-coverage-label">Coverage honesty</span>
+        <span class="ic-chev" aria-hidden="true">▾</span>
+      </summary>
+      <div class="ic-body" id="cat-coverage-note">Loading…</div>
+    </details>
 
     <section class="cat-section" id="sec-preservation">
       <h2 id="cat-h-preservation">Preservation status</h2>
@@ -104,7 +109,7 @@
               <th id="th-cat-pattern">Capture pattern</th>
             </tr>
           </thead>
-          <tbody id="cat-sub-tbody"><tr><td colspan="5" class="loading" id="cat-sub-loading">Loading…</td></tr></tbody>
+          <tbody id="cat-sub-tbody"><tr><td colspan="5" class="rank-empty" id="cat-sub-loading">Loading…</td></tr></tbody>
         </table>
       </div>
     </section>
@@ -122,7 +127,7 @@
               <th id="th-fund-src">Sources</th>
             </tr>
           </thead>
-          <tbody id="cat-fund-tbody"><tr><td colspan="4" class="loading" id="cat-fund-loading">Loading…</td></tr></tbody>
+          <tbody id="cat-fund-tbody"><tr><td colspan="4" class="rank-empty" id="cat-fund-loading">Loading…</td></tr></tbody>
         </table>
       </div>
       <div id="cat-fund-detail"></div>
@@ -141,7 +146,7 @@
               <th id="th-reg-notes">Notes</th>
             </tr>
           </thead>
-          <tbody id="cat-reg-tbody"><tr><td colspan="4" class="loading" id="cat-reg-loading">Loading…</td></tr></tbody>
+          <tbody id="cat-reg-tbody"><tr><td colspan="4" class="rank-empty" id="cat-reg-loading">Loading…</td></tr></tbody>
         </table>
       </div>
     </section>

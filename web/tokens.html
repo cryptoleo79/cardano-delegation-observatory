@@ -80,8 +80,14 @@
 
 <main>
   <article class="container">
-    <h1 id="tok-title">Tokens</h1>
-    <p class="lede" id="tok-lede">Discover Cardano native tokens on the Data Layer. Search by ticker or name, and browse the top tracked tokens by market cap, volume, or liquidity. Read-only; every value carries its provenance.</p>
+    <!-- Hero -->
+    <div class="page-hero">
+      <div class="hero-main">
+        <h1 id="tok-title">Tokens</h1>
+        <p class="lede" id="tok-lede">Discover Cardano native tokens on the Data Layer. Search by ticker or name, and browse the top tracked tokens by market cap, volume, or liquidity. Read-only; every value carries its provenance.</p>
+      </div>
+      <div class="hero-aside" id="tok-hero-aside"></div>
+    </div>
 
     <div class="tok-search">
       <label class="filter-label" for="tok-q"><span id="tok-search-label">Search tokens</span></label>
@@ -99,7 +105,7 @@
       <button class="filter-count" id="tok-by-liquidity" type="button" data-by="liquidity">Liquidity</button>
     </div>
 
-    <div class="meta-strip"><div class="meta-strip-inner" id="tok-meta"></div></div>
+    <div class="metric-grid" id="tok-metrics"></div>
 
     <div class="table-scroll">
       <table class="vote-table" id="tok-table">
@@ -111,7 +117,7 @@
             <th id="th-tok-link"></th>
           </tr>
         </thead>
-        <tbody id="tok-tbody"><tr><td colspan="4" class="loading" id="tok-loading">Loading…</td></tr></tbody>
+        <tbody id="tok-tbody"><tr><td colspan="4" class="rank-empty" id="tok-loading">Loading…</td></tr></tbody>
       </table>
     </div>
 

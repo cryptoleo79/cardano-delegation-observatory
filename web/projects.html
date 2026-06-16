@@ -53,10 +53,17 @@
 
 <main>
   <article class="container">
-    <h1 id="pm-title">Cardano Project Memory</h1>
-    <p class="lede" id="pm-lede">Preserved metadata for Cardano projects and the ecosystem taxonomy — every value carries its provenance (who said it, where it came from, when, and what archived evidence supports it). Read-only. Nothing here is overwritten or deleted; the record is reconstructed from an append-only event log seeded from the preservation archive.</p>
+    <!-- Hero -->
+    <div class="page-hero">
+      <div class="hero-main">
+        <h1 id="pm-title">Cardano Project Memory</h1>
+        <p class="lede" id="pm-lede">Preserved metadata for Cardano projects and the ecosystem taxonomy — every value carries its provenance (who said it, where it came from, when, and what archived evidence supports it). Read-only. Nothing here is overwritten or deleted; the record is reconstructed from an append-only event log seeded from the preservation archive.</p>
+      </div>
+      <div class="hero-aside" id="pm-hero-aside"></div>
+    </div>
 
-    <div class="meta-strip"><div class="meta-strip-inner" id="pm-meta"></div></div>
+    <!-- Metric cards -->
+    <div class="metric-grid" id="pm-metrics"></div>
 
     <div class="actions-filters">
       <label class="filter-label">
@@ -88,7 +95,7 @@
             <th id="th-pm-history">History</th>
           </tr>
         </thead>
-        <tbody id="pm-tbody"><tr><td colspan="8" class="loading" id="pm-loading">Loading…</td></tr></tbody>
+        <tbody id="pm-tbody"><tr><td colspan="8" class="rank-empty" id="pm-loading">Loading…</td></tr></tbody>
       </table>
     </div>
 

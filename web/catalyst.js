@@ -30,7 +30,11 @@ const PAGE_I18N = {
     "cat-n-registry": "The registered preservation sources behind the archive, with their authority class and any capture notes.",
     "th-reg-name": "Source", "th-reg-auth": "Authority", "th-reg-index": "Subfolder index", "th-reg-notes": "Notes",
     "cat-foot": "Source: live Catalyst preservation archive via the Cardano Data Layer API. Authority classes: A on-chain · B official · C at-risk platform · D community · E researcher.",
+    "cat-hero-updated": "Last updated",
     "cat-m-version": "Archive version", "cat-m-updated": "Last updated", "cat-m-subfolders": "Subfolders", "cat-m-artifacts": "Captured artifacts", "cat-m-funds": "Funds",
+    "cat-m-version-sub": "preservation schema", "cat-m-subfolders-sub": "preservation targets",
+    "cat-m-artifacts-sub": "provenance-bearing captures", "cat-m-funds-sub": "with at least one capture",
+    "cat-m-sources-label": "Sources", "cat-m-sources-sub": "registered authorities",
     "cat-none-sub": "No subfolders registered.", "cat-none-fund": "No funds captured yet.",
     "cat-dt-title": "Fund {f} captures", "cat-dt-meta": "{a} artifact(s) · {s} session(s)",
     "cat-dt-empty": "No captures recorded for this fund.", "cat-dt-loading": "Loading captures…",
@@ -54,7 +58,11 @@ const PAGE_I18N = {
     "cat-n-registry": "アーカイブを支える登録済み保存出典です。権威クラスと取得に関する注記を示します。",
     "th-reg-name": "出典", "th-reg-auth": "権威", "th-reg-index": "サブフォルダ索引", "th-reg-notes": "注記",
     "cat-foot": "出典: Cardano データレイヤー API 経由のライブ Catalyst 保存アーカイブ。権威クラス: A オンチェーン・B 公式・C 消失リスクのあるプラットフォーム・D コミュニティ・E 研究者。",
+    "cat-hero-updated": "最終更新",
     "cat-m-version": "アーカイブ版", "cat-m-updated": "最終更新", "cat-m-subfolders": "サブフォルダ", "cat-m-artifacts": "取得済み成果物", "cat-m-funds": "ファンド",
+    "cat-m-version-sub": "保存スキーマ", "cat-m-subfolders-sub": "保存対象",
+    "cat-m-artifacts-sub": "来歴付きキャプチャ", "cat-m-funds-sub": "1件以上のキャプチャあり",
+    "cat-m-sources-label": "出典", "cat-m-sources-sub": "登録済み権威",
     "cat-none-sub": "登録されたサブフォルダはありません。", "cat-none-fund": "キャプチャ済みのファンドはまだありません。",
     "cat-dt-title": "ファンド {f} のキャプチャ", "cat-dt-meta": "成果物 {a} 件 · セッション {s} 件",
     "cat-dt-empty": "このファンドに記録されたキャプチャはありません。", "cat-dt-loading": "キャプチャを読み込み中…",
@@ -83,6 +91,38 @@ function authChip(cls) {
   return `<span class="auth-chip auth-${esc(cls)}" title="${esc(legend[cls] || "")}">${esc(cls)}</span>`;
 }
 
+/* Small inline icon set (stroke, currentColor). */
+const ICON = {
+  version: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 4.9v9.8L12 22l-9-5.3V6.9L12 2z"/><path d="M12 22V12"/><path d="M21 6.9 12 12 3 6.9"/></svg>',
+  subfolders: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 3h8a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/></svg>',
+  artifacts: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>',
+  funds: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>',
+  sources: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>',
+};
+
+function renderHeroAside() {
+  const el = document.getElementById("cat-hero-aside");
+  if (!el || !state.archive) return;
+  const a = state.archive;
+  const q = a._quality || {};
+  const asOf = a.last_updated || q.as_of;
+  const asOfTxt = asOf ? new Date(asOf).toLocaleString(NUM_LOCALE[currentLang()] || "en-US") : "—";
+  const src = q.source || "Catalyst preservation archive";
+  el.innerHTML =
+    `<div class="ha-label">${t("cat-hero-updated")}</div>` +
+    `<div class="ha-value">${esc(asOfTxt)}</div>` +
+    `<div class="ha-sub">${esc(src)} ${authChip(q.authority_class)}</div>`;
+}
+
+function metricCard(icon, value, isText, label, sub) {
+  return `<div class="metric-card">
+    <div class="mc-icon">${icon}</div>
+    <div class="mc-value${isText ? " mc-text" : ""}">${value}</div>
+    <div class="mc-label">${esc(label)}</div>
+    <div class="mc-sub">${esc(sub)}</div>
+  </div>`;
+}
+
 /* The live archive describes a subfolder's capture pattern via its `notes`
  * (e.g. Wayback-only, git mirror, query specs). Surface honestly, no fabrication. */
 function capturePattern(meta) {
@@ -96,20 +136,22 @@ function renderCoverage() {
   if (note) note.textContent = (state.archive && state.archive.coverage_note) || "";
 }
 
-function renderMeta() {
-  const el = document.getElementById("cat-meta");
+function renderMetrics() {
+  const el = document.getElementById("cat-metrics");
   if (!el || !state.archive) return;
   const a = state.archive;
   const subs = a.subfolders || {};
   const subCount = Object.keys(subs).length;
   const artifactTotal = Object.values(subs).reduce((s, m) => s + (Number(m.artifact_count) || 0), 0);
   const fundCount = state.funds ? (state.funds.total_funds != null ? state.funds.total_funds : (state.funds.funds || []).length) : 0;
+  // Distinct registered source authorities across subfolders.
+  const sourceCount = new Set(Object.values(subs).map((m) => m.source_authority_class).filter(Boolean)).size;
   el.innerHTML = [
-    `<span class="meta-item"><span class="meta-label">${t("cat-m-version")}</span> ${esc(a.archive_version || "—")}</span>`,
-    `<span class="meta-item"><span class="meta-label">${t("cat-m-updated")}</span> ${fmtDate(a.last_updated)}</span>`,
-    `<span class="meta-item"><span class="meta-label">${t("cat-m-subfolders")}</span> ${fmtNum(subCount)}</span>`,
-    `<span class="meta-item"><span class="meta-label">${t("cat-m-artifacts")}</span> ${fmtNum(artifactTotal)}</span>`,
-    `<span class="meta-item"><span class="meta-label">${t("cat-m-funds")}</span> ${fmtNum(fundCount)}</span>`,
+    metricCard(ICON.version, esc(a.archive_version || "—"), true, t("cat-m-version"), t("cat-m-version-sub")),
+    metricCard(ICON.subfolders, fmtNum(subCount), false, t("cat-m-subfolders"), t("cat-m-subfolders-sub")),
+    metricCard(ICON.artifacts, fmtNum(artifactTotal), false, t("cat-m-artifacts"), t("cat-m-artifacts-sub")),
+    metricCard(ICON.funds, fmtNum(fundCount), false, t("cat-m-funds"), t("cat-m-funds-sub")),
+    metricCard(ICON.sources, fmtNum(sourceCount), false, t("cat-m-sources-label"), t("cat-m-sources-sub")),
   ].join("");
 }
 
@@ -122,7 +164,7 @@ function renderSubfolders() {
   const tbody = document.getElementById("cat-sub-tbody");
   if (!tbody) return;
   const rows = subfolderEntries();
-  if (!rows.length) { tbody.innerHTML = `<tr><td colspan="5" class="loading">${t("cat-none-sub")}</td></tr>`; return; }
+  if (!rows.length) { tbody.innerHTML = `<tr><td colspan="5" class="rank-empty">${t("cat-none-sub")}</td></tr>`; return; }
   tbody.innerHTML = rows.map(([name, m]) => {
     const zero = !(Number(m.artifact_count) > 0);
     return `<tr class="${zero ? "cat-zero" : ""}">
@@ -139,7 +181,7 @@ function renderFunds() {
   const tbody = document.getElementById("cat-fund-tbody");
   if (!tbody) return;
   const funds = (state.funds && state.funds.funds) || [];
-  if (!funds.length) { tbody.innerHTML = `<tr><td colspan="4" class="loading">${t("cat-none-fund")}</td></tr>`; return; }
+  if (!funds.length) { tbody.innerHTML = `<tr><td colspan="4" class="rank-empty">${t("cat-none-fund")}</td></tr>`; return; }
   tbody.innerHTML = funds.map((f) => {
     const id = f.fund;
     const label = f.fund_label || ("F" + id);
@@ -160,7 +202,7 @@ function renderRegistry() {
   const tbody = document.getElementById("cat-reg-tbody");
   if (!tbody) return;
   const rows = subfolderEntries();
-  if (!rows.length) { tbody.innerHTML = `<tr><td colspan="4" class="loading">${t("cat-none-sub")}</td></tr>`; return; }
+  if (!rows.length) { tbody.innerHTML = `<tr><td colspan="4" class="rank-empty">${t("cat-none-sub")}</td></tr>`; return; }
   tbody.innerHTML = rows.map(([name, m]) => `<tr>
       <td><span class="cat-mono">${esc(name)}</span></td>
       <td>${authChip(m.source_authority_class)}</td>
@@ -252,8 +294,9 @@ async function openFund(id) {
 }
 
 function render() {
+  renderHeroAside();
   renderCoverage();
-  renderMeta();
+  renderMetrics();
   renderSubfolders();
   renderFunds();
   renderRegistry();
@@ -265,11 +308,11 @@ function showLoadError() {
   const cov = document.getElementById("cat-coverage-note");
   if (cov) cov.textContent = t("cat-load-error");
   const sub = document.getElementById("cat-sub-tbody");
-  if (sub) sub.innerHTML = `<tr><td colspan="5" class="loading">${t("cat-load-error")}</td></tr>`;
+  if (sub) sub.innerHTML = `<tr><td colspan="5" class="rank-empty">${t("cat-load-error")}</td></tr>`;
   const fnd = document.getElementById("cat-fund-tbody");
-  if (fnd) fnd.innerHTML = `<tr><td colspan="4" class="loading">${t("cat-load-error")}</td></tr>`;
+  if (fnd) fnd.innerHTML = `<tr><td colspan="4" class="rank-empty">${t("cat-load-error")}</td></tr>`;
   const reg = document.getElementById("cat-reg-tbody");
-  if (reg) reg.innerHTML = `<tr><td colspan="4" class="loading">${t("cat-load-error")}</td></tr>`;
+  if (reg) reg.innerHTML = `<tr><td colspan="4" class="rank-empty">${t("cat-load-error")}</td></tr>`;
 }
 
 async function boot() {

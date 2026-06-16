@@ -8,23 +8,22 @@
 <meta name="theme-color" content="#fafaf7">
 <link rel="stylesheet" href="style.css">
 <style>
-  /* Page-specific bits only; all prose styling reuses the .methodology classes. */
-  .mem-grid { display: grid; gap: 18px; margin: 8px 0 24px; }
+  /* Page-specific bits only; carded record blocks reuse the shared component palette. */
+  .mem-grid { display: grid; gap: 18px; margin: 6px 0 28px; }
   .mem-card {
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 20px 22px;
-    background: var(--surface, #fff);
+    background: var(--card); border: 0.5px solid var(--border);
+    border-radius: 14px; box-shadow: var(--shadow); padding: 22px 24px;
+    transition: transform .15s ease, box-shadow .15s ease;
   }
+  .mem-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,0.07); }
   .mem-card h2 { border-top: none; padding-top: 0; margin-top: 0; }
-  .mem-card .mem-where { margin-top: 12px; font-size: 13px; }
+  .mem-card .mem-where { margin-top: 14px; font-size: 13px; }
   .mem-card .mem-where a { margin-right: 4px; }
   .mem-links { list-style: none; margin: 8px 0 0 0; padding: 0; }
-  .mem-links li { margin-bottom: 4px; }
+  .mem-links li { margin-bottom: 5px; }
   .mem-count { font-variant-numeric: tabular-nums; }
   .mem-count:empty { display: none; }
   .mem-count[data-filled]::before { content: " · "; color: var(--faint); }
-  .mem-api-note { margin-top: 8px; }
 </style>
 </head>
 <body>
@@ -73,13 +72,31 @@
 <main>
   <article class="methodology container">
 
-    <h1><span class="en">The Cardano Memory Layer</span><span class="ja">Cardano メモリレイヤー</span></h1>
-    <p class="lede"><span class="en">The Cardano Memory Layer is the front door to a single, durable record of the things this ecosystem produces and then tends to forget: how governance was decided, how the treasury moved, what Catalyst funded, and which projects existed. It exists to <strong>observe, measure, and archive</strong> — not to accuse, rank, or interpret.</span><span class="ja">Cardano メモリレイヤーは、このエコシステムが生み出しながらも忘れ去りがちなもの——ガバナンスがどう決まり、トレジャリーがどう動き、Catalyst が何に資金を出し、どのプロジェクトが存在したか——を、単一かつ永続的な記録としてまとめた入口です。その目的は<strong>観測・計測・保存</strong>にあり、糾弾・順位付け・解釈ではありません。</span></p>
+    <!-- Hero -->
+    <div class="page-hero">
+      <div class="hero-main">
+        <h1 style="border:0;margin:0 0 12px;padding:0;"><span class="en">The Cardano Memory Layer</span><span class="ja">Cardano メモリレイヤー</span></h1>
+        <p class="lede" style="margin:0;"><span class="en">The Cardano Memory Layer is the front door to a single, durable record of the things this ecosystem produces and then tends to forget: how governance was decided, how the treasury moved, what Catalyst funded, and which projects existed. It exists to <strong>observe, measure, and archive</strong> — not to accuse, rank, or interpret.</span><span class="ja">Cardano メモリレイヤーは、このエコシステムが生み出しながらも忘れ去りがちなもの——ガバナンスがどう決まり、トレジャリーがどう動き、Catalyst が何に資金を出し、どのプロジェクトが存在したか——を、単一かつ永続的な記録としてまとめた入口です。その目的は<strong>観測・計測・保存</strong>にあり、糾弾・順位付け・解釈ではありません。</span></p>
+      </div>
+      <div class="hero-aside" id="mem-hero-aside"></div>
+    </div>
+
+    <!-- Metric cards: live counts across the four records (progressive enhancement) -->
+    <div class="metric-grid" id="mem-metrics"></div>
 
     <h2 id="why"><span class="en">Why memory matters</span><span class="ja">なぜメモリが重要か</span></h2>
     <p><span class="en">Most of the Cardano ecosystem's record is perishable. Off-chain metadata URLs go dark. Funding platforms sunset and take their proposal history with them. Project sites disappear when a team disbands. Even on-chain governance — durable in principle — is hard to read after the fact without the surrounding context that explained what each action meant at the time it was decided.</span><span class="ja">Cardano エコシステムの記録の多くは消えやすいものです。オフチェーンのメタデータ URL は到達不能になり、資金調達プラットフォームは終了とともに提案履歴を持ち去ります。チームが解散すればプロジェクトのサイトは消えます。原理的には永続するオンチェーンのガバナンスでさえ、各アクションが決定された当時に何を意味したかという周辺文脈なしには、後から読み解くのが困難です。</span></p>
     <p><span class="en">A memory layer treats that record as worth keeping for its own sake. The principle throughout is narrow and deliberate: capture what is verifiable, attach where it came from, and never overwrite it. Every value carries provenance — who said it, where it came from, when, and what archived evidence supports it. Nothing here is a score, a judgment, or a prediction. The record is the product.</span><span class="ja">メモリレイヤーは、その記録それ自体に保存する価値があるものとして扱います。一貫する原則は狭く、かつ意図的です——検証可能なものを取得し、その出所を付し、決して上書きしないこと。各値には来歴(誰が・どこから・いつ・どの保存証拠に基づくか)が付随します。ここにはスコアも判断も予測もありません。記録そのものが成果物です。</span></p>
-    <p class="footnote"><span class="en">The Memory Layer is composed of four records, described below. Each says what it is, why it is preserved, and where it lives — both the underlying archive and the live view on this site.</span><span class="ja">メモリレイヤーは以下の4つの記録から成ります。各記録について、それが何であるか、なぜ保存されるか、どこに存在するか(基盤となるアーカイブと本サイト上のライブ表示の双方)を記します。</span></p>
+    <details class="info-card" id="mem-infocard">
+      <summary>
+        <span class="ic-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></span>
+        <span class="en">How the record is structured</span><span class="ja">記録の構成について</span>
+        <span class="ic-chev" aria-hidden="true">▾</span>
+      </summary>
+      <div class="ic-body">
+        <span class="en">The Memory Layer is composed of four records, described below. Each says what it is, why it is preserved, and where it lives — both the underlying archive and the live view on this site. Nothing here is a score, a judgment, or a prediction; every value carries provenance — who said it, where it came from, when, and what archived evidence supports it.</span><span class="ja">メモリレイヤーは以下の4つの記録から成ります。各記録について、それが何であるか、なぜ保存されるか、どこに存在するか(基盤となるアーカイブと本サイト上のライブ表示の双方)を記します。ここにはスコアも判断も予測もありません。各値には来歴(誰が・どこから・いつ・どの保存証拠に基づくか)が付随します。</span>
+      </div>
+    </details>
 
     <div class="mem-grid">
 

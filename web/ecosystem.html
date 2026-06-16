@@ -121,12 +121,19 @@
 
 <main>
   <article class="container">
-    <h1 id="eco-title">Cardano ecosystem explorer</h1>
-    <p class="lede" id="eco-lede">The bridge from CardanoCube-style discovery into Project Memory. Browse the ecosystem taxonomy — preserved as-found, each category carrying its source and authority class. Read-only; every value carries its provenance.</p>
+    <!-- Hero -->
+    <div class="page-hero">
+      <div class="hero-main">
+        <h1 id="eco-title">Cardano ecosystem explorer</h1>
+        <p class="lede" id="eco-lede">The bridge from CardanoCube-style discovery into Project Memory. Browse the ecosystem taxonomy — preserved as-found, each category carrying its source and authority class. Read-only; every value carries its provenance.</p>
+      </div>
+      <div class="hero-aside" id="eco-hero-aside"></div>
+    </div>
 
-    <div class="meta-strip"><div class="meta-strip-inner" id="eco-meta"></div></div>
+    <!-- Metric cards -->
+    <div class="metric-grid" id="eco-meta"></div>
 
-    <p class="eco-note" id="eco-honest">Category → project assignments are still being built. Most counts below are currently 0 (unclassified) — this view shows the preserved taxonomy, not a finished census of which project belongs where. Counts will fill in as verified assignments land.</p>
+    <p class="eco-note" id="eco-honest">Categories come from the CardanoCube taxonomy; project assignments are sourced from the Built on Cardano directory and CardanoCube's own category listings. 73 of 74 categories are now populated. Counts reflect preserved, provenance-bearing assignments — not an exhaustive census of every project.</p>
 
     <div class="actions-filters">
       <label class="filter-label">
@@ -137,7 +144,7 @@
     </div>
 
     <div id="eco-grid" class="eco-grid">
-      <div class="eco-empty" id="eco-loading">Loading…</div>
+      <div class="rank-empty" id="eco-loading" style="grid-column:1/-1">Loading…</div>
     </div>
 
     <p class="footnote" id="eco-foot">Source: live Cardano Data Layer API <code>/categories</code> · CC0. Taxonomy seeded from the CardanoCube community directory and preserved per-source — never silently merged. Categories link through to per-category project lists; projects appear as <em>unclassified</em> until verified assignments exist.</p>

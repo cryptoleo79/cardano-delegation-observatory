@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="style.css">
 <style>
   /* Page-specific bits only (shared classes live in style.css). */
-  .tr-chart-wrap { background: var(--card); border: 0.5px solid var(--border); border-radius: 6px; padding: 16px; margin: 4px 0 8px; }
+  .tr-chart-wrap { background: var(--card); border: 0.5px solid var(--border); border-radius: 14px; box-shadow: var(--shadow); padding: 18px; margin: 4px 0 8px; }
   .tr-chart-empty { min-height: 200px; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 13px; }
   .tr-section { margin-top: 28px; }
   .tr-section h2 { font-size: 15px; font-weight: 600; margin: 0 0 6px; }
@@ -69,17 +69,17 @@
 
 <main>
   <article class="container">
-    <h1 id="tr-title">Cardano Treasury</h1>
-    <p class="lede" id="tr-lede">The on-chain Cardano treasury balance, reserves, and total supply observed across epochs, with the record of treasury-withdrawal governance actions. Read-only; values are derived from the chain and carry their provenance. No interpretation.</p>
-
-    <div class="meta-strip"><div class="meta-strip-inner" id="tr-meta"></div></div>
-
-    <div class="drep-stats" id="tr-stats">
-      <div class="stat-card"><div class="stat-label" id="tr-s-treasury">Treasury</div><div class="stat-value" id="tr-v-treasury">—</div><div class="stat-sub" id="tr-sub-treasury"></div></div>
-      <div class="stat-card"><div class="stat-label" id="tr-s-reserves">Reserves</div><div class="stat-value" id="tr-v-reserves">—</div><div class="stat-sub" id="tr-sub-reserves"></div></div>
-      <div class="stat-card"><div class="stat-label" id="tr-s-supply">Total supply</div><div class="stat-value" id="tr-v-supply">—</div><div class="stat-sub" id="tr-sub-supply"></div></div>
-      <div class="stat-card"><div class="stat-label" id="tr-s-snapshot">Snapshot</div><div class="stat-value" id="tr-v-snapshot">—</div><div class="stat-sub" id="tr-sub-snapshot"></div></div>
+    <!-- Hero -->
+    <div class="page-hero">
+      <div class="hero-main">
+        <h1 id="tr-title">Cardano Treasury</h1>
+        <p class="lede" id="tr-lede">The on-chain Cardano treasury balance, reserves, and total supply observed across epochs, with the record of treasury-withdrawal governance actions. Read-only; values are derived from the chain and carry their provenance. No interpretation.</p>
+      </div>
+      <div class="hero-aside" id="tr-hero-aside"></div>
     </div>
+
+    <!-- Metric cards -->
+    <div class="metric-grid" id="tr-metrics"></div>
 
     <div class="tr-section">
       <h2 id="tr-chart-title">Treasury balance over epochs</h2>
@@ -101,7 +101,7 @@
               <th id="th-tr-outcome">Outcome</th>
             </tr>
           </thead>
-          <tbody id="tr-w-tbody"><tr><td colspan="5" class="loading" id="tr-w-loading">Loading…</td></tr></tbody>
+          <tbody id="tr-w-tbody"><tr><td colspan="5" class="rank-empty" id="tr-w-loading">Loading…</td></tr></tbody>
         </table>
       </div>
     </div>

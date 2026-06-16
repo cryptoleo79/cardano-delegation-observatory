@@ -37,14 +37,17 @@ const PAGE_I18N = {
   en: {
     "tr-title": "Cardano Treasury",
     "tr-lede": "The on-chain Cardano treasury balance, reserves, and total supply observed across epochs, with the record of treasury-withdrawal governance actions. Read-only; values are derived from the chain and carry their provenance. No interpretation.",
-    "tr-s-treasury": "Treasury balance", "tr-s-reserves": "Reserves", "tr-s-supply": "Total supply", "tr-s-snapshot": "Snapshot",
     "tr-chart-title": "Treasury balance over epochs",
     "tr-chart-note": "Treasury balance (ADA) per epoch.",
     "tr-w-title": "Treasury withdrawals",
     "tr-w-note": "Treasury-withdrawal governance actions and their outcome.",
     "th-tr-action": "Action ID", "th-tr-recipient": "Recipient", "th-tr-amount": "Amount", "th-tr-epoch": "Enacted epoch", "th-tr-outcome": "Outcome",
-    "tr-m-epoch": "Latest epoch", "tr-m-epochs": "Epochs", "tr-m-snapshot": "Snapshot date",
-    "tr-m-withdrawals": "Withdrawals", "tr-m-source": "Source", "tr-m-authority": "Authority", "tr-m-asof": "As of",
+    "tr-hero-updated": "Last updated",
+    "tr-m-treasury": "Treasury balance", "tr-m-reserves": "Reserves", "tr-m-supply": "Total supply",
+    "tr-m-epochs": "Epochs tracked", "tr-m-withdrawals": "Withdrawals",
+    "tr-m-treasury-sub": "current on-chain treasury", "tr-m-reserves-sub": "monetary reserves",
+    "tr-m-supply-sub": "total ADA supply", "tr-m-epochs-sub": "epochs observed",
+    "tr-m-withdrawals-sub": "withdrawal actions recorded",
     "tr-sub-epoch": "epoch",
     "tr-w-none": "No withdrawals recorded.", "tr-w-unavailable": "Withdrawals not available.",
     "tr-chart-fallback": "Recent epochs", "tr-chart-empty": "No epoch data.",
@@ -54,14 +57,17 @@ const PAGE_I18N = {
   ja: {
     "tr-title": "Cardano トレジャリー",
     "tr-lede": "オンチェーンの Cardano トレジャリー残高・リザーブ・総供給量をエポックごとに観測し、トレジャリー引出しのガバナンスアクションの記録を併記します。読み取り専用。値はチェーン由来で来歴を伴います。解釈は行いません。",
-    "tr-s-treasury": "トレジャリー残高", "tr-s-reserves": "リザーブ", "tr-s-supply": "総供給量", "tr-s-snapshot": "スナップショット",
     "tr-chart-title": "エポックごとのトレジャリー残高",
     "tr-chart-note": "エポックごとのトレジャリー残高（ADA）。",
     "tr-w-title": "トレジャリー引出し",
     "tr-w-note": "トレジャリー引出しのガバナンスアクションとその結果。",
     "th-tr-action": "アクション ID", "th-tr-recipient": "受取人", "th-tr-amount": "金額", "th-tr-epoch": "施行エポック", "th-tr-outcome": "結果",
-    "tr-m-epoch": "最新エポック", "tr-m-epochs": "エポック数", "tr-m-snapshot": "スナップショット日",
-    "tr-m-withdrawals": "引出し件数", "tr-m-source": "出典", "tr-m-authority": "権威クラス", "tr-m-asof": "時点",
+    "tr-hero-updated": "最終更新",
+    "tr-m-treasury": "トレジャリー残高", "tr-m-reserves": "リザーブ", "tr-m-supply": "総供給量",
+    "tr-m-epochs": "対象エポック数", "tr-m-withdrawals": "引出し件数",
+    "tr-m-treasury-sub": "現在のオンチェーン残高", "tr-m-reserves-sub": "通貨リザーブ",
+    "tr-m-supply-sub": "ADA 総供給量", "tr-m-epochs-sub": "観測エポック数",
+    "tr-m-withdrawals-sub": "記録された引出しアクション",
     "tr-sub-epoch": "エポック",
     "tr-w-none": "記録された引出しはありません。", "tr-w-unavailable": "引出しデータは利用できません。",
     "tr-chart-fallback": "直近のエポック", "tr-chart-empty": "エポックデータがありません。",
@@ -81,10 +87,19 @@ async function fetchJson(url) {
   return res.json();
 }
 
+/* Small inline icon set (stroke, currentColor). */
+const ICON = {
+  treasury: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>',
+  reserves: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>',
+  supply: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
+  epochs: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
+  withdrawals: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>',
+};
+
 function authChip(cls) {
-  if (!cls) return "—";
+  if (!cls) return "";
   const legend = { A: "On-chain", B: "Official", C: "At-risk platform", D: "Community", E: "Researcher" };
-  return `<span class="auth-chip auth-${esc(cls)}" title="${esc(legend[cls] || "")}">${esc(cls)}</span>`;
+  return ` <span class="auth-chip auth-${esc(cls)}" title="${esc(legend[cls] || "")}">${esc(cls)}</span>`;
 }
 
 function epochList() {
@@ -104,43 +119,49 @@ function withdrawalsAvailable() {
   return false;
 }
 
-/* ---- stat cards ---- */
-function renderStats() {
+/* ---- hero aside: last-updated / source provenance card ---- */
+function renderHeroAside() {
+  const el = document.getElementById("tr-hero-aside");
+  if (!el) return;
   const d = state.data;
-  if (!d) return;
-  const latest = d.latest || (epochList().length ? epochList()[epochList().length - 1] : {}) || {};
-  const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
-  set("tr-v-treasury", fmtAda(latest.treasury_lovelace));
-  set("tr-v-reserves", fmtAda(latest.reserves_lovelace));
-  set("tr-v-supply", fmtAda(latest.supply_lovelace));
-
-  const epochSub = latest.epoch_no != null ? `${t("tr-sub-epoch")} ${fmtInt(latest.epoch_no)}` : "";
-  set("tr-sub-treasury", epochSub);
-  set("tr-sub-reserves", epochSub);
-  set("tr-sub-supply", epochSub);
-
-  // snapshot card: prefer epoch number as the headline, date as sub.
-  set("tr-v-snapshot", latest.epoch_no != null ? fmtInt(latest.epoch_no) : (d.snapshot_date || "—"));
-  set("tr-sub-snapshot", d.snapshot_date || "");
+  const q = (d && d._quality) || {};
+  const asOf = q.as_of || (d && d.snapshot_date);
+  const asOfTxt = asOf
+    ? (String(asOf).length > 10 ? new Date(asOf).toLocaleString(NUM_LOCALE[currentLang()] || "en-US") : String(asOf))
+    : "—";
+  const src = q.source || (d && d.source) || "—";
+  el.innerHTML =
+    `<div class="ha-label">${esc(t("tr-hero-updated"))}</div>` +
+    `<div class="ha-value">${esc(asOfTxt)}</div>` +
+    `<div class="ha-sub">${esc(src)}${authChip(q.authority_class)}</div>`;
 }
 
-/* ---- meta strip (provenance / _quality) ---- */
-function renderMeta() {
+function metricCard(icon, value, isText, label, sub) {
+  return `<div class="metric-card">
+    <div class="mc-icon">${icon}</div>
+    <div class="mc-value${isText ? " mc-text" : ""}">${value}</div>
+    <div class="mc-label">${esc(label)}</div>
+    <div class="mc-sub">${esc(sub)}</div>
+  </div>`;
+}
+
+/* ---- metric cards (consolidated headline stats) ---- */
+function renderMetrics() {
+  const el = document.getElementById("tr-metrics");
+  if (!el) return;
   const d = state.data;
-  const el = document.getElementById("tr-meta");
-  if (!el || !d) return;
-  const q = d._quality || {};
-  const items = [];
+  if (!d) { el.innerHTML = ""; return; }
   const epochs = epochList();
-  const latestEpoch = (d.latest && d.latest.epoch_no) != null ? d.latest.epoch_no : (epochs.length ? epochs[epochs.length - 1].epoch_no : null);
-  if (latestEpoch != null) items.push(`<span class="meta-item"><span class="meta-label">${t("tr-m-epoch")}</span> ${fmtInt(latestEpoch)}</span>`);
-  items.push(`<span class="meta-item"><span class="meta-label">${t("tr-m-epochs")}</span> ${fmtInt(d.n_epochs != null ? d.n_epochs : epochs.length)}</span>`);
-  if (d.snapshot_date) items.push(`<span class="meta-item"><span class="meta-label">${t("tr-m-snapshot")}</span> ${esc(d.snapshot_date)}</span>`);
-  items.push(`<span class="meta-item"><span class="meta-label">${t("tr-m-withdrawals")}</span> ${fmtInt(withdrawalList().length)}</span>`);
-  if (q.source) items.push(`<span class="meta-item"><span class="meta-label">${t("tr-m-source")}</span> ${esc(q.source)}</span>`);
-  if (q.authority_class) items.push(`<span class="meta-item"><span class="meta-label">${t("tr-m-authority")}</span> ${authChip(q.authority_class)}</span>`);
-  if (q.as_of) items.push(`<span class="meta-item meta-item-right"><span class="meta-label">${t("tr-m-asof")}</span> ${esc(String(q.as_of).slice(0, 10))}</span>`);
-  el.innerHTML = items.join("");
+  const latest = d.latest || (epochs.length ? epochs[epochs.length - 1] : {}) || {};
+  const epochSub = latest.epoch_no != null ? `${t("tr-sub-epoch")} ${fmtInt(latest.epoch_no)}` : t("tr-m-treasury-sub");
+  const nEpochs = d.n_epochs != null ? d.n_epochs : epochs.length;
+  el.innerHTML = [
+    metricCard(ICON.treasury, fmtAda(latest.treasury_lovelace), false, t("tr-m-treasury"), epochSub),
+    metricCard(ICON.reserves, fmtAda(latest.reserves_lovelace), false, t("tr-m-reserves"), epochSub),
+    metricCard(ICON.supply, fmtAda(latest.supply_lovelace), false, t("tr-m-supply"), epochSub),
+    metricCard(ICON.epochs, fmtInt(nEpochs), false, t("tr-m-epochs"), t("tr-m-epochs-sub")),
+    metricCard(ICON.withdrawals, fmtInt(withdrawalList().length), false, t("tr-m-withdrawals"), t("tr-m-withdrawals-sub")),
+  ].join("");
 }
 
 /* ---- balance-over-epochs chart (CDLChart.line) or table fallback ---- */
@@ -197,12 +218,12 @@ function renderWithdrawals() {
   if (note) note.textContent = t("tr-w-note");
 
   if (!withdrawalsAvailable()) {
-    tbody.innerHTML = `<tr><td colspan="5" class="loading">${t("tr-w-unavailable")}</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="5" class="rank-empty">${t("tr-w-unavailable")}</td></tr>`;
     return;
   }
   const rows = withdrawalList();
   if (!rows.length) {
-    tbody.innerHTML = `<tr><td colspan="5" class="loading">${t("tr-w-none")}</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="5" class="rank-empty">${t("tr-w-none")}</td></tr>`;
     return;
   }
   tbody.innerHTML = rows.map((w) => `<tr>
@@ -216,8 +237,8 @@ function renderWithdrawals() {
 
 function render() {
   if (!state.data) return;
-  renderStats();
-  renderMeta();
+  renderHeroAside();
+  renderMetrics();
   renderChart();
   renderWithdrawals();
 }
@@ -230,7 +251,7 @@ async function boot() {
   } catch (err) {
     console.error("treasury load failed", err);
     const tbody = document.getElementById("tr-w-tbody");
-    if (tbody) tbody.innerHTML = `<tr><td colspan="5" class="loading">${t("tr-load-error")}</td></tr>`;
+    if (tbody) tbody.innerHTML = `<tr><td colspan="5" class="rank-empty">${t("tr-load-error")}</td></tr>`;
     const chart = document.getElementById("tr-chart");
     if (chart) { chart.className = "tr-chart-empty"; chart.textContent = t("tr-load-error"); }
   }

@@ -51,7 +51,10 @@ const PAGE_I18N = {
     "tok-view": "View",
     "tok-empty": "No tracked tokens for this metric yet.",
     "tok-load-error": "Could not load top tokens.",
-    "tok-m-coverage": "Coverage", "tok-m-tracked": "Tracked units", "tok-m-source": "Source", "tok-m-as-of": "As of",
+    "tok-loading": "Loading…",
+    "tok-hero-updated": "Last updated",
+    "tok-m-coverage": "Coverage", "tok-m-tracked": "Tracked units", "tok-m-source": "Source",
+    "tok-m-coverage-sub": "scope of this table", "tok-m-tracked-sub": "tokens in the seed set", "tok-m-source-sub": "price provenance",
     "tok-cov-partial": "Partial — a tracked/seed set only, not a full ecosystem ranking.",
     "metric-mcap": "Market cap", "metric-volume": "Volume", "metric-liquidity": "Liquidity",
   },
@@ -71,7 +74,10 @@ const PAGE_I18N = {
     "tok-view": "表示",
     "tok-empty": "この指標の追跡対象トークンはまだありません。",
     "tok-load-error": "上位トークンを読み込めませんでした。",
-    "tok-m-coverage": "対象範囲", "tok-m-tracked": "追跡ユニット数", "tok-m-source": "出典", "tok-m-as-of": "時点",
+    "tok-loading": "読み込み中…",
+    "tok-hero-updated": "最終更新",
+    "tok-m-coverage": "対象範囲", "tok-m-tracked": "追跡ユニット数", "tok-m-source": "出典",
+    "tok-m-coverage-sub": "この表の対象範囲", "tok-m-tracked-sub": "シード集合内のトークン", "tok-m-source-sub": "価格の来歴",
     "tok-cov-partial": "部分的 — 追跡／シード集合のみで、エコシステム全体のランキングではありません。",
     "metric-mcap": "時価総額", "metric-volume": "出来高", "metric-liquidity": "流動性",
   },
@@ -92,6 +98,37 @@ function authChip(cls) {
   if (!cls) return "—";
   const legend = { A: "On-chain", B: "Official", C: "At-risk platform", D: "Community", E: "Researcher" };
   return `<span class="auth-chip auth-${esc(cls)}" title="${esc(legend[cls] || "")}">${esc(cls)}</span>`;
+}
+
+/* Small inline icon set (stroke, currentColor, viewBox 0 0 24 24). */
+const ICON = {
+  coverage: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>',
+  tracked: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>',
+  source: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>',
+};
+
+function renderHeroAside() {
+  const el = document.getElementById("tok-hero-aside");
+  const d = state.top;
+  if (!el) return;
+  const q = (d && d._quality) || {};
+  const asOf = q.as_of || (d && d.as_of);
+  const asOfTxt = asOf ? new Date(asOf).toLocaleString(NUM_LOCALE[currentLang()] || "en-US") : "—";
+  const src = (q.source || (d && d.source) || "—");
+  const auth = q.authority_class;
+  el.innerHTML =
+    `<div class="ha-label">${t("tok-hero-updated")}</div>` +
+    `<div class="ha-value">${esc(asOfTxt)}</div>` +
+    `<div class="ha-sub">${esc(src)}${auth ? " " + authChip(auth) : ""}</div>`;
+}
+
+function metricCard(icon, value, isText, label, sub) {
+  return `<div class="metric-card">
+    <div class="mc-icon">${icon}</div>
+    <div class="mc-value${isText ? " mc-text" : ""}">${value}</div>
+    <div class="mc-label">${esc(label)}</div>
+    <div class="mc-sub">${esc(sub)}</div>
+  </div>`;
 }
 
 /* ---- search ---- */
@@ -148,20 +185,19 @@ function wireSearch() {
 /* ---- top tokens table ---- */
 function metricLabel(by) { return t("metric-" + by) || by; }
 
-function renderMeta() {
-  const el = document.getElementById("tok-meta");
+function renderMetrics() {
+  const el = document.getElementById("tok-metrics");
   const d = state.top;
-  if (!el || !d) return;
+  if (!el) return;
+  if (!d) { el.innerHTML = ""; return; }
   const q = d._quality || {};
-  const src = esc(q.source || d.source || "—");
-  const auth = q.authority_class;
-  const asOf = q.as_of || d.as_of;
-  const asOfTxt = asOf ? esc(String(asOf).replace("T", " ").replace(/\..*$/, " UTC")) : "—";
+  const src = q.source || d.source || "—";
+  const coverage = d.coverage || "—";
+  const tracked = d.tracked_units == null ? "—" : String(d.tracked_units);
   el.innerHTML = [
-    `<span class="meta-item"><span class="meta-label">${t("tok-m-coverage")}</span> ${esc(d.coverage || "—")}</span>`,
-    `<span class="meta-item"><span class="meta-label">${t("tok-m-tracked")}</span> ${d.tracked_units == null ? "—" : esc(d.tracked_units)}</span>`,
-    `<span class="meta-item auth-chip-line"><span class="meta-label">${t("tok-m-source")}</span> ${src} ${auth ? authChip(auth) : ""}</span>`,
-    `<span class="meta-item meta-item-right"><span class="meta-label">${t("tok-m-as-of")}</span> ${asOfTxt}</span>`,
+    metricCard(ICON.tracked, esc(tracked), false, t("tok-m-tracked"), t("tok-m-tracked-sub")),
+    metricCard(ICON.coverage, esc(coverage), true, t("tok-m-coverage"), t("tok-m-coverage-sub")),
+    metricCard(ICON.source, esc(src), true, t("tok-m-source"), t("tok-m-source-sub")),
   ].join("");
 }
 
@@ -179,7 +215,7 @@ function renderTable() {
   const d = state.top;
   const rows = (d && d.ranking) || [];
   if (!rows.length) {
-    tbody.innerHTML = `<tr><td colspan="4" class="loading">${t("tok-empty")}</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="4" class="rank-empty">${esc(t("tok-empty"))}</td></tr>`;
     return;
   }
   tbody.innerHTML = rows.map((r) => {
@@ -208,8 +244,9 @@ function renderMetricHeader() {
 
 function renderTop() {
   renderMetricHeader();
+  renderHeroAside();
   if (!state.top) return;
-  renderMeta();
+  renderMetrics();
   renderCoverageNote();
   renderTable();
 }
@@ -223,7 +260,7 @@ function setActiveBy() {
 
 async function loadTop() {
   const tbody = document.getElementById("tok-tbody");
-  if (tbody) tbody.innerHTML = `<tr><td colspan="4" class="loading">…</td></tr>`;
+  if (tbody) tbody.innerHTML = `<tr><td colspan="4" class="rank-empty">${esc(t("tok-loading"))}</td></tr>`;
   setActiveBy();
   renderMetricHeader();
   try {
@@ -232,9 +269,10 @@ async function loadTop() {
   } catch (err) {
     console.error("top tokens load failed", err);
     state.top = null;
-    if (tbody) tbody.innerHTML = `<tr><td colspan="4" class="loading">${t("tok-load-error")}</td></tr>`;
-    const meta = document.getElementById("tok-meta");
-    if (meta) meta.innerHTML = "";
+    if (tbody) tbody.innerHTML = `<tr><td colspan="4" class="rank-empty">${esc(t("tok-load-error"))}</td></tr>`;
+    renderHeroAside();
+    const metrics = document.getElementById("tok-metrics");
+    if (metrics) metrics.innerHTML = "";
   }
 }
 
