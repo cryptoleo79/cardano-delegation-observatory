@@ -79,12 +79,20 @@ function evidenceHtml(ev) {
   }).join("");
 }
 
+/* Render a claim value — linkify URLs (website/github/docs/whitepaper claims). */
+function valueHtml(v) {
+  if (v != null && /^https?:\/\/\S+$/.test(String(v))) {
+    return `<a href="${esc(v)}" target="_blank" rel="noopener">${esc(String(v).replace(/^https?:\/\//, ""))}</a>`;
+  }
+  return esc(v);
+}
+
 function claimHtml(c) {
   const pr = c.provenance || {};
   const src = pr.source || {};
   const stateBadge = c.state && c.state !== "active" ? `<span class="pm-claim-state pm-claim-${esc(c.state)}">${esc(c.state)}</span>` : "";
   return `<div class="provenance-grid pm-claim">
-    <div class="provenance-cell"><div class="provenance-label">${t("p-value")}</div><div class="provenance-value">${esc(c.value)} ${stateBadge}</div></div>
+    <div class="provenance-cell"><div class="provenance-label">${t("p-value")}</div><div class="provenance-value">${valueHtml(c.value)} ${stateBadge}</div></div>
     <div class="provenance-cell"><div class="provenance-label">${t("p-source")}</div><div class="provenance-value">${esc(src.label || src.source_id || "—")} ${authChip(pr.authority_class)}</div></div>
     <div class="provenance-cell"><div class="provenance-label">${t("p-asserted-by")}</div><div class="provenance-value">${esc(pr.asserted_by || "—")}</div></div>
     <div class="provenance-cell"><div class="provenance-label">${t("p-as-of")}</div><div class="provenance-value">${esc(pr.as_of || "—")}</div></div>
