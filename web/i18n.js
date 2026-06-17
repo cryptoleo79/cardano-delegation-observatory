@@ -21,6 +21,10 @@ const i18n = {
     "m-date-label": "Data through",
     "m-lag": "Canonical daily governance snapshot · up to ~24h lag",
     "m-source-label": "Source",
+    "home-m-dreps": "DReps tracked", "home-m-dreps-sub": "top by voting weight",
+    "home-m-weight": "Total voting weight", "home-m-weight-sub": "ADA · top 30",
+    "home-m-delegators": "Total delegators", "home-m-delegators-sub": "across the top 30",
+    "home-m-epoch": "Snapshot epoch", "home-m-epoch-sub": "current daily snapshot",
 
     /* Live telemetry strip */
     "live-badge-label": "Live telemetry",
@@ -231,6 +235,10 @@ const i18n = {
     "m-date-label": "データ対象日",
     "m-lag": "正準となる日次ガバナンススナップショット · 最大約24時間の遅延",
     "m-source-label": "ソース",
+    "home-m-dreps": "追跡DRep数", "home-m-dreps-sub": "投票権上位",
+    "home-m-weight": "総投票権", "home-m-weight-sub": "ADA・上位30",
+    "home-m-delegators": "総委任者数", "home-m-delegators-sub": "上位30の合計",
+    "home-m-epoch": "スナップショットエポック", "home-m-epoch-sub": "現在の日次スナップショット",
 
     /* Live telemetry strip */
     "live-badge-label": "ライブテレメトリー",

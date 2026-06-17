@@ -103,6 +103,45 @@ function renderMeta(meta) {
   }
 }
 
+/* ── metric cards ─────────────────────────────────────────────────────── */
+
+const HOME_ICON = {
+  dreps: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+  weight: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"/><path d="M5 7l7-4 7 4"/><path d="M5 7l-3 6a4 4 0 0 0 6 0z"/><path d="M19 7l3 6a4 4 0 0 1-6 0z"/></svg>',
+  delegators: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>',
+  epoch: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
+};
+
+function fmtCompactAda(n) {
+  if (n == null || !isFinite(n)) return "—";
+  return "₳" + Number(n).toLocaleString(NUM_LOCALE[currentLang()] || "en-US", { notation: "compact", maximumFractionDigits: 2 });
+}
+
+function metricCard(icon, value, label, sub) {
+  return `<div class="metric-card">
+    <div class="mc-icon">${icon}</div>
+    <div class="mc-value">${value}</div>
+    <div class="mc-label">${label}</div>
+    <div class="mc-sub">${sub}</div>
+  </div>`;
+}
+
+function renderMetrics() {
+  const el = document.getElementById("home-metrics");
+  if (!el) return;
+  const entries = (state.top30 && state.top30.entries) || [];
+  if (!entries.length) { el.innerHTML = ""; return; }
+  const totalWeight = entries.reduce((s, e) => s + (Number(e.voting_weight_ada) || 0), 0);
+  const totalDeleg = entries.reduce((s, e) => s + (Number(e.delegator_count) || 0), 0);
+  const epoch = state.meta && state.meta.tip_epoch;
+  el.innerHTML = [
+    metricCard(HOME_ICON.dreps, fmtNum(entries.length), t("home-m-dreps"), t("home-m-dreps-sub")),
+    metricCard(HOME_ICON.weight, fmtCompactAda(totalWeight), t("home-m-weight"), t("home-m-weight-sub")),
+    metricCard(HOME_ICON.delegators, fmtNum(totalDeleg), t("home-m-delegators"), t("home-m-delegators-sub")),
+    metricCard(HOME_ICON.epoch, epoch == null ? "—" : fmtNum(epoch), t("home-m-epoch"), t("home-m-epoch-sub")),
+  ].join("");
+}
+
 /* ── table ────────────────────────────────────────────────────────────── */
 
 function sortedEntries() {
@@ -651,6 +690,7 @@ async function boot() {
   document.addEventListener("cdo-lang", () => {
     /* Re-render dynamic content in the new locale. */
     renderMeta(state.meta);
+    renderMetrics();
     renderTable();
   });
 
@@ -662,12 +702,14 @@ async function boot() {
     state.top30 = top30;
     state.meta = meta;
     renderMeta(meta);
+    renderMetrics();
     renderTable();
   } catch (err) {
     console.error("boot failed", err);
     state.top30 = { entries: [] };
     state.meta = null;
     renderMeta(null);
+    renderMetrics();
     renderTable();
   }
   /* Live layer loads independently; failure to load it is silent.

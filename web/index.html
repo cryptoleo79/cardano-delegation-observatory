@@ -53,28 +53,23 @@
   </div>
 </header>
 
-<section class="meta-strip">
-  <div class="container meta-strip-inner">
-    <span class="meta-item"><span class="meta-label" id="m-epoch-label">Epoch</span> <strong id="m-epoch">—</strong></span>
-    <span class="meta-item"><span class="meta-label" id="m-date-label">Data through</span> <strong id="m-date">—</strong></span>
-    <span class="meta-item" id="m-lag">Canonical daily governance snapshot · up to ~24h lag</span>
-    <span class="meta-item"><span class="meta-label" id="m-source-label">Source</span> <strong>Koios</strong></span>
-    <span class="meta-item meta-item-right" id="m-status">—</span>
-  </div>
-  <div class="container meta-strip-inner meta-strip-live">
-    <span class="meta-item" id="live-badge-wrap" style="display:none">
-      <span class="live-dot"></span>
-      <span class="meta-label" id="live-badge-label">Live telemetry</span>
-      <strong id="live-last-refresh">—</strong>
-    </span>
-    <span class="meta-item" id="live-cadence-label">Supplemental · refreshed every ~10 min</span>
-  </div>
-</section>
-
 <main>
   <div class="container">
-    <h1 id="page-title">Top 30 DReps by voting weight</h1>
-    <p class="lede" id="page-lede">Daily snapshot of voting weight, delegation, and recorded votes. The data reflects the most recent ETL run from the Cardano blockchain via Koios. Numbers only — methodology is public and reproducible.</p>
+    <div class="page-hero">
+      <div class="hero-main">
+        <h1 id="page-title">Top 30 DReps by voting weight</h1>
+        <p class="lede" id="page-lede">Daily snapshot of voting weight, delegation, and recorded votes. The data reflects the most recent ETL run from the Cardano blockchain via Koios. Numbers only — methodology is public and reproducible.</p>
+      </div>
+      <div class="hero-aside" id="home-hero-aside">
+        <div class="ha-label" id="m-date-label">Data through</div>
+        <div class="ha-value" id="m-date">—</div>
+        <div class="ha-sub"><span id="m-epoch-label">Epoch</span> <strong id="m-epoch">—</strong> · <span id="m-source-label">Source</span> Koios</div>
+        <div class="ha-sub" id="m-status">—</div>
+        <div class="ha-sub" id="live-badge-wrap" style="display:none"><span class="live-dot"></span> <span id="live-badge-label">Live</span> <strong id="live-last-refresh">—</strong></div>
+      </div>
+    </div>
+
+    <div class="metric-grid" id="home-metrics"></div>
 
     <div class="table-scroll">
       <table class="observatory" id="dreps-table">
