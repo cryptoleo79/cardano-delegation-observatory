@@ -877,6 +877,150 @@ def export_top30(db: sqlite3.Connection, snapshot_date: str, out_dir: Path) -> d
     return payload
 
 
+# Change-feed windows. (1d/7d/30d/90d.) Deltas use the nearest snapshot at or
+# before (date - N days); a window with no old-enough snapshot reports null/empty
+# and available=false — never a fabricated zero.
+CHANGE_WINDOWS = ((1, "1d"), (7, "7d"), (30, "30d"), (90, "90d"))
+CHANGE_TOP_LIMIT = 10      # rows per gainers/losers/growth/decline list
+CHANGE_RECENT_LIMIT = 40   # rows in the "what changed today" live feed
+_PSEUDO_DREPS = ("drep_always_abstain", "drep_always_no_confidence")
+
+
+def _top30_ids_back(db: sqlite3.Connection, snapshot_date: str, days: int):
+    """The top-30 drep_id set as of the nearest snapshot <= (snapshot_date - days).
+    Returns (reference_date|None, set_of_ids). Empty set when no old-enough snapshot."""
+    row = db.execute(
+        "SELECT MAX(snapshot_date) AS d FROM snapshots WHERE snapshot_date <= date(?, ?)",
+        (snapshot_date, f"-{days} day"),
+    ).fetchone()
+    if not row or not row["d"]:
+        return None, set()
+    d = row["d"]
+    ids = [r["drep_id"] for r in db.execute(
+        f"""SELECT drep_id FROM snapshots
+             WHERE snapshot_date = ? AND drep_id NOT IN ({','.join('?' * len(_PSEUDO_DREPS))})
+             ORDER BY voting_weight_lovelace DESC LIMIT ?""",
+        (d, *_PSEUDO_DREPS, TOP_N),
+    ).fetchall()]
+    return d, set(ids)
+
+
+def export_changes(db: sqlite3.Connection, snapshot_date: str, out_dir: Path) -> dict:
+    """DRep change feed — 'what changed', movement only, no inference.
+
+    For each window (1d/7d/30d/90d) over the CURRENT top-30: net voting-weight and
+    delegator-count deltas, ranked into gainers/losers and delegator growth/decline,
+    plus who ENTERED or EXITED the top-30 vs that window ago. Also a 'recent' feed
+    (the latest day's movements). Writes changes.json + top_gainers.json +
+    top_losers.json + top_delegator_growth.json. Every figure is a measured
+    difference between two snapshots — we never explain or speculate."""
+    # Current top-30 (ranked by weight on the snapshot date), with names.
+    cur_rows = db.execute(
+        f"""SELECT s.drep_id, s.voting_weight_lovelace, s.delegator_count, d.metadata_name
+              FROM snapshots s LEFT JOIN dreps d ON d.drep_id = s.drep_id
+             WHERE s.snapshot_date = ? AND s.drep_id NOT IN ({','.join('?' * len(_PSEUDO_DREPS))})
+             ORDER BY s.voting_weight_lovelace DESC LIMIT ?""",
+        (snapshot_date, *_PSEUDO_DREPS, TOP_N),
+    ).fetchall()
+    epoch_row = db.execute(
+        "SELECT epoch FROM snapshots WHERE snapshot_date = ? LIMIT 1", (snapshot_date,)
+    ).fetchone()
+
+    name_cache: dict[str, str | None] = {}
+    for r in cur_rows:
+        name_cache[r["drep_id"]] = r["metadata_name"]
+
+    def name_of(did: str):
+        if did in name_cache:
+            return name_cache[did]
+        row = db.execute("SELECT metadata_name FROM dreps WHERE drep_id = ?", (did,)).fetchone()
+        name_cache[did] = row["metadata_name"] if row else None
+        return name_cache[did]
+
+    current_ids = [r["drep_id"] for r in cur_rows]
+    cur_by_id = {r["drep_id"]: r for r in cur_rows}
+
+    def row_for(did: str, days: int):
+        wdelta, wref = query_flow(db, did, snapshot_date, days)
+        ddelta, dref = query_delegator_count_delta(db, did, snapshot_date, days)
+        cur = cur_by_id.get(did)
+        return {
+            "drep_id": did,
+            "name": name_of(did),
+            "weight_delta_lovelace": wdelta,
+            "weight_delta_ada": (int(wdelta) // LOVELACE_PER_ADA) if wdelta is not None else None,
+            "delegator_delta": ddelta,
+            "current_weight_ada": (int(cur["voting_weight_lovelace"]) // LOVELACE_PER_ADA) if cur else None,
+            "current_delegators": int(cur["delegator_count"]) if cur else None,
+            "reference_date": wref or dref,
+        }
+
+    windows: dict = {}
+    for days, key in CHANGE_WINDOWS:
+        rows = [row_for(did, days) for did in current_ids]
+        have_w = [r for r in rows if r["weight_delta_lovelace"] is not None]
+        have_d = [r for r in rows if r["delegator_delta"] is not None]
+        gainers = sorted((r for r in have_w if r["weight_delta_lovelace"] > 0),
+                         key=lambda r: -r["weight_delta_lovelace"])[:CHANGE_TOP_LIMIT]
+        losers = sorted((r for r in have_w if r["weight_delta_lovelace"] < 0),
+                        key=lambda r: r["weight_delta_lovelace"])[:CHANGE_TOP_LIMIT]
+        growth = sorted((r for r in have_d if r["delegator_delta"] > 0),
+                        key=lambda r: -r["delegator_delta"])[:CHANGE_TOP_LIMIT]
+        decline = sorted((r for r in have_d if r["delegator_delta"] < 0),
+                         key=lambda r: r["delegator_delta"])[:CHANGE_TOP_LIMIT]
+        ref_date, past_ids = _top30_ids_back(db, snapshot_date, days)
+        entrants, exits = [], []
+        if past_ids:
+            cur_set = set(current_ids)
+            entrants = [{"drep_id": did, "name": name_of(did),
+                         "current_weight_ada": (int(cur_by_id[did]["voting_weight_lovelace"]) // LOVELACE_PER_ADA)}
+                        for did in current_ids if did not in past_ids]
+            exits = [{"drep_id": did, "name": name_of(did)} for did in past_ids if did not in cur_set]
+        windows[key] = {
+            "lookback_days": days,
+            "available": bool(have_w) or bool(past_ids),
+            "reference_date": ref_date,
+            "gainers": gainers,
+            "losers": losers,
+            "delegator_growth": growth,
+            "delegator_decline": decline,
+            "entrants": entrants,
+            "exits": exits,
+        }
+
+    # "What changed today" live feed: the 1d movements, largest absolute first.
+    recent = [r for r in (row_for(did, 1) for did in current_ids)
+              if r["weight_delta_lovelace"] not in (None, 0) or r["delegator_delta"] not in (None, 0)]
+    recent.sort(key=lambda r: -abs(r["weight_delta_lovelace"] or 0))
+    recent = [{"date": snapshot_date, "drep_id": r["drep_id"], "name": r["name"],
+               "weight_delta_ada": r["weight_delta_ada"], "delegator_delta": r["delegator_delta"],
+               "reference_date": r["reference_date"]}
+              for r in recent[:CHANGE_RECENT_LIMIT]]
+
+    base = {
+        "schema_version": SCHEMA_VERSION,
+        "methodology_version": METHODOLOGY_VERSION,
+        "layer": "daily",
+        "snapshot_date": snapshot_date,
+        "epoch": epoch_row["epoch"] if epoch_row else None,
+        "top_n": TOP_N,
+        "note": ("Movement only — measured differences between daily snapshots. "
+                 "No inference of cause or intent. A window is empty/'available:false' "
+                 "until a snapshot at least that many days old exists."),
+    }
+    changes = {**base, "windows": windows, "recent": recent}
+    gainers_doc = {**base, "windows": {k: windows[k]["gainers"] for k in windows}}
+    losers_doc = {**base, "windows": {k: windows[k]["losers"] for k in windows}}
+    deleg_doc = {**base, "windows": {k: {"growth": windows[k]["delegator_growth"],
+                                         "decline": windows[k]["delegator_decline"]} for k in windows}}
+
+    for fname, doc in (("changes.json", changes), ("top_gainers.json", gainers_doc),
+                       ("top_losers.json", losers_doc), ("top_delegator_growth.json", deleg_doc)):
+        atomic_write_json(out_dir / fname, doc)
+        write_archive(out_dir, snapshot_date, fname, doc)
+    return changes
+
+
 def build_overlay_events(db: sqlite3.Connection, window_start_date: str,
                          window_end_date: str) -> list[dict]:
     """Per METHODOLOGY §19.5: all governance actions whose any event date falls
@@ -1459,6 +1603,11 @@ def run(args: argparse.Namespace) -> int:
 
         export_top30_csv(top30, snapshot_date, Path(args.out))
         log.info("wrote top30.csv")
+
+        # DREP change feed — what changed (movement only, no inference).
+        changes = export_changes(db, snapshot_date, Path(args.out))
+        log.info("wrote changes.json + top_gainers/losers/delegator_growth (recent=%d)",
+                 len(changes.get("recent", [])))
 
         # FLOW-5 §22.10: treasury exports
         n_ep = export_treasury_snapshot(db, snapshot_date, Path(args.out))
