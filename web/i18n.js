@@ -105,6 +105,7 @@ const i18n = {
     "h-nav-catalyst": "Catalyst",
     "h-nav-market": "Market",
     "h-nav-health": "Health",
+    "h-nav-changes": "Changes",
     "h-nav-memory": "Memory",
 
     /* Actions page */
@@ -323,6 +324,7 @@ const i18n = {
     "h-nav-catalyst": "Catalyst",
     "h-nav-market": "Market",
     "h-nav-health": "Health",
+    "h-nav-changes": "変化",
     "h-nav-memory": "メモリ",
 
     /* Actions page */

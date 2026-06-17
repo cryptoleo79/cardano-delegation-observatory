@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Governance change feed — Cardano Delegation Observatory</title>
+<meta name="description" content="What changed among the top-30 Cardano DReps — voting-weight and delegator movement measured between daily snapshots. Movement only, no inference.">
+<meta name="theme-color" content="#fafaf7">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Page-local: change-feed sections, signed deltas, live-feed table. */
+  .ch-window-notice {
+    background: var(--card); border: 0.5px solid var(--border); border-left: 3px solid var(--accent);
+    border-radius: 11px; box-shadow: var(--shadow); padding: 16px 18px; margin: 0 0 26px;
+    color: var(--muted); font-size: 14px; line-height: 1.6;
+  }
+  .ch-section { margin: 0 0 26px; }
+  .ch-section-head {
+    font-size: 12px; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--faint); font-weight: 600; margin: 30px 0 12px;
+  }
+  .ch-card {
+    background: var(--card); border: 0.5px solid var(--border); border-radius: 14px;
+    box-shadow: var(--shadow); overflow: hidden;
+  }
+  .ch-row {
+    display: flex; align-items: center; gap: 14px; padding: 13px 18px;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .ch-row:last-child { border-bottom: 0; }
+  .ch-row:hover { background: var(--row-hover); }
+  .ch-row-main { flex: 1 1 auto; min-width: 0; }
+  .ch-row-name { font-weight: 600; color: var(--text); line-height: 1.2; }
+  .ch-row-name a { color: var(--text); text-decoration: none; }
+  .ch-row-name a:hover { color: var(--accent); }
+  .ch-row-sub { font-size: 11px; color: var(--faint); font-family: var(--mono); margin-top: 2px; }
+  .ch-row-when { font-size: 11px; color: var(--faint); margin-top: 3px; }
+  .ch-row-deltas { flex: 0 0 auto; text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .ch-delta-ada { font-weight: 600; }
+  .ch-delta-dele { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .delta-pos { color: #1f7a4d; }
+  .delta-neg { color: #b3261e; }
+  .delta-zero { color: var(--muted); }
+  .ch-foot-dl { margin-top: 6px; }
+  .ch-foot-dl a { color: var(--accent); }
+  @media (max-width: 640px) {
+    .ch-row { padding: 12px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="ecosystem-strip">
+  <div class="ecosystem-strip-inner">
+    <span class="eco-label" id="eco-label">Ecosystem</span>
+    <a href="https://ctf.asy.life" class="eco-link">CTF</a>
+    <span class="eco-sep">·</span>
+    <a href="https://observatory.asy.life" class="eco-link eco-active" id="eco-link-observatory">Observatory</a>
+    <span class="eco-sep">·</span>
+    <a href="https://voting.asy.life" class="eco-link" id="eco-link-voting">Voting</a>
+    <span class="eco-sep">·</span>
+    <a href="https://governance.asy.life" class="eco-link" id="eco-link-governance">Governance</a>
+    <span class="eco-sep">·</span>
+    <a href="https://api.asy.life" class="eco-link" id="eco-link-api">API</a>
+    <span class="eco-sep">·</span>
+    <a href="https://github.com/cryptoleo79" class="eco-link" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand">
+      <span class="brand-mark">CDO</span>
+      <span class="brand-text" id="h-brand">Cardano Delegation Observatory</span>
+    </a>
+    <nav class="site-nav">
+      <a href="/" id="h-nav-observatory">Observatory</a>
+      <a href="tokens.html" id="h-nav-tokens">Tokens</a>
+      <a href="rankings.html" id="h-nav-rankings">Rankings</a>
+      <a href="projects.html" id="h-nav-projects">Projects</a>
+      <a href="ecosystem.html" id="h-nav-ecosystem">Ecosystem</a>
+      <a href="treasury.html" id="h-nav-treasury">Treasury</a>
+      <a href="catalyst.html" id="h-nav-catalyst">Catalyst</a>
+    <a href="market.html" id="h-nav-market">Market</a>
+    <a href="governance-health.html" id="h-nav-health">Health</a>
+    <a href="changes.html" class="active" id="h-nav-changes">Changes</a>
+      <a href="memory.html" id="h-nav-memory">Memory</a>
+      <div class="lang-toggle">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-ja" onclick="setLang('ja')">日本語</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <article class="container">
+    <!-- Hero -->
+    <div class="page-hero">
+      <div class="hero-main">
+        <h1 id="ch-title">Governance change feed</h1>
+        <p class="lede" id="ch-lede">What changed — movement only, measured between daily snapshots. No inference.</p>
+      </div>
+      <div class="hero-aside" id="ch-hero-aside"></div>
+    </div>
+
+    <!-- Window selector -->
+    <div class="segmented" id="ch-tabs" role="tablist">
+      <button class="active" id="tab-1d" data-win="1d" role="tab">24h</button>
+      <button id="tab-7d" data-win="7d" role="tab">7d</button>
+      <button id="tab-30d" data-win="30d" role="tab">30d</button>
+      <button id="tab-90d" data-win="90d" role="tab">90d</button>
+    </div>
+
+    <!-- Window-unavailable notice -->
+    <div class="ch-window-notice" id="ch-window-notice" style="display:none"></div>
+
+    <!-- Summary metric cards -->
+    <div class="metric-grid" id="ch-metrics"></div>
+
+    <!-- Movement sections (populated by JS) -->
+    <div id="ch-sections"></div>
+
+    <!-- Live feed -->
+    <h2 class="ch-section-head" id="ch-feed-head">Live feed</h2>
+    <div class="rank-table-wrap">
+      <table class="rank-table">
+        <thead>
+          <tr>
+            <th id="th-ch-date">Date</th>
+            <th id="th-ch-drep">DRep</th>
+            <th class="num" id="th-ch-weight">Δ Voting weight (ADA)</th>
+            <th class="num" id="th-ch-dele">Δ Delegators</th>
+          </tr>
+        </thead>
+        <tbody id="ch-feed-tbody"><tr><td colspan="4" class="rank-empty" id="ch-loading">Loading…</td></tr></tbody>
+      </table>
+    </div>
+
+    <p class="footnote" id="ch-foot"></p>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div><span id="ft-license">Apache 2.0 code · CC0 data</span></div>
+    <div>
+      <a href="/" id="ft-observatory">Observatory</a>
+      <a href="https://api.asy.life/docs" id="ft-api">API docs</a>
+      <a href="methodology.html" id="ft-methodology">Methodology</a>
+    </div>
+    <div class="footer-note">Data via the Cardano Delegation Observatory. Read-only; every value carries provenance.</div>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="changes.js"></script>
+</body>
+</html>
