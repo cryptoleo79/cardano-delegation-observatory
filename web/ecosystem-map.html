@@ -89,7 +89,7 @@
     <div class="em-arrow">↓</div>
     <a class="em-node" href="catalyst.html">
       <div class="em-head"><span class="em-title" id="em-n-catalyst">Catalyst</span><span class="em-where">catalyst.html</span><span class="em-tier" id="em-t-archive">archive</span></div>
-      <div class="em-desc" id="em-d-catl">The Catalyst preservation archive — Funds 1–13 captured with chain-of-custody before they can be lost.</div>
+      <div class="em-desc" id="em-d-catl">The Catalyst preservation archive — Funds 1–15 captured with chain-of-custody before they can be lost.</div>
     </a>
     <div class="em-arrow">↓</div>
     <a class="em-node em-foot-api" href="https://api.asy.life">
@@ -127,7 +127,7 @@
       "em-d-proj": "The ecosystem's projects, event-sourced — each with a profile and per-claim provenance.",
       "em-d-cat": "The taxonomy that organizes projects into the parts of the ecosystem — DeFi, NFT, infrastructure, governance, and more.",
       "em-d-mem": "The memory layer — preserve what would otherwise disappear; observe and record, never interpret. Governance, Treasury, Catalyst, and Project memory.",
-      "em-d-catl": "The Catalyst preservation archive — Funds 1–13 captured with chain-of-custody before they can be lost.",
+      "em-d-catl": "The Catalyst preservation archive — Funds 1–15 captured with chain-of-custody before they can be lost.",
       "em-d-api": "The read-only Data Layer. Every domain above is served here as JSON — no key, open CORS, and a provenance block on every response. This is the foundation the whole map stands on.",
       "ml-projects": "Projects", "ml-categories": "Categories", "ml-tokens": "Tracked tokens", "ml-funds": "Catalyst funds", "ml-actions": "Governance actions", "ml-epochs": "Treasury epochs", "ml-routes": "API routes",
       "ft-about": "About", "ft-docs": "Docs", "ft-status": "Status", "ft-note": "One ecosystem. Observe · preserve · serve.",
@@ -144,7 +144,7 @@
       "em-d-proj": "エコシステムのプロジェクトをイベントソーシングで記録 — それぞれにプロフィールと主張ごとの来歴があります。",
       "em-d-cat": "プロジェクトをエコシステムの各分野（DeFi、NFT、インフラ、ガバナンスなど）に整理する分類。",
       "em-d-mem": "メモリ層 — 失われかねないものを保全し、観測・記録する。解釈はしません。ガバナンス・トレジャリー・カタリスト・プロジェクトのメモリ。",
-      "em-d-catl": "カタリスト保全アーカイブ — Funds 1〜13 を消失前にチェーン・オブ・カストディ付きで取得。",
+      "em-d-catl": "カタリスト保全アーカイブ — Funds 1〜15 を消失前にチェーン・オブ・カストディ付きで取得。",
       "em-d-api": "読み取り専用のData Layer。上記のすべての領域がJSONで提供されます — キー不要、CORS開放、すべての応答に来歴ブロック。マップ全体を支える基盤です。",
       "ml-projects": "プロジェクト", "ml-categories": "カテゴリ", "ml-tokens": "追跡トークン", "ml-funds": "カタリストFund", "ml-actions": "ガバナンスアクション", "ml-epochs": "トレジャリーエポック", "ml-routes": "APIルート",
       "ft-about": "概要", "ft-docs": "ドキュメント", "ft-status": "ステータス", "ft-note": "ひとつのエコシステム。観測・保全・提供。",
@@ -164,12 +164,12 @@
   }
   async function j(p) { try { const r = await fetch(API + p, { cache: "no-cache" }); if (!r.ok) return null; return await r.json(); } catch { return null; } }
   async function loadMetrics() {
-    const [projs, cats, markets, funds, actions, treasury, health] = await Promise.all([
-      j("/projects?limit=1"), j("/categories"), j("/markets"), j("/funds"), j("/actions?limit=1"), j("/treasury"), j("/health"),
+    const [projs, cats, top, funds, actions, treasury, health] = await Promise.all([
+      j("/projects?limit=1"), j("/categories"), j("/tokens/top?by=mcap&limit=1"), j("/funds"), j("/actions?limit=1"), j("/treasury"), j("/health"),
     ]);
     metrics[0][1] = projs ? projs.total : null;
     metrics[1][1] = cats ? cats.count : null;
-    metrics[2][1] = markets ? markets.tracked_units : null;
+    metrics[2][1] = top ? (top.universe != null ? top.universe : top.tracked_units) : null;
     metrics[3][1] = funds ? funds.total_funds : null;
     metrics[4][1] = actions ? actions.total : null;
     metrics[5][1] = treasury ? treasury.n_epochs : null;

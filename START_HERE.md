@@ -121,7 +121,7 @@ down, every day, with chain-of-custody, and no fanfare. That is the entire ambit
 
 ## Catalyst — the preservation archive
 
-**What:** A standalone archive of Cardano Catalyst's historical record across **Funds 1–13** —
+**What:** A standalone archive of Cardano Catalyst's historical record across **Funds 1–15** —
 per-fund landing pages and voting results from `projectcatalyst.io`, IdeaScale campaign/proposal
 pages captured via the Wayback Machine (the live IdeaScale site is a JS shell), the
 `catalyst-core` repository as a bare git mirror, `catalystexplorer.com` community-mirror pages,

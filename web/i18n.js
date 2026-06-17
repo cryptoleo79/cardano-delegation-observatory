@@ -25,6 +25,10 @@ const i18n = {
     "home-m-weight": "Total voting weight", "home-m-weight-sub": "ADA · top 30",
     "home-m-delegators": "Total delegators", "home-m-delegators-sub": "across the top 30",
     "home-m-epoch": "Snapshot epoch", "home-m-epoch-sub": "current daily snapshot",
+    "home-scale-label": "Across the asy.life ecosystem", "home-dreps-head": "Today's governance snapshot",
+    "scale-projects": "Projects", "scale-categories": "Categories", "scale-tokens": "Tokens",
+    "scale-funds": "Catalyst funds", "scale-actions": "Governance actions",
+    "scale-epochs": "Treasury epochs", "scale-routes": "API routes",
 
     /* Live telemetry strip */
     "live-badge-label": "Live telemetry",
@@ -239,6 +243,10 @@ const i18n = {
     "home-m-weight": "総投票権", "home-m-weight-sub": "ADA・上位30",
     "home-m-delegators": "総委任者数", "home-m-delegators-sub": "上位30の合計",
     "home-m-epoch": "スナップショットエポック", "home-m-epoch-sub": "現在の日次スナップショット",
+    "home-scale-label": "asy.life エコシステム全体", "home-dreps-head": "本日のガバナンススナップショット",
+    "scale-projects": "プロジェクト", "scale-categories": "カテゴリ", "scale-tokens": "トークン",
+    "scale-funds": "Catalyst ファンド", "scale-actions": "ガバナンスアクション",
+    "scale-epochs": "トレジャリーエポック", "scale-routes": "API ルート",
 
     /* Live telemetry strip */
     "live-badge-label": "ライブテレメトリー",

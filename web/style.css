@@ -107,9 +107,18 @@ a:hover { text-decoration: underline; }
 .lang-toggle button.active:hover { color: white; }
 
 @media (max-width: 720px) {
-  .header-inner { padding: 10px 14px; }
-  .site-nav { gap: 12px; }
+  .header-inner { padding: 10px 14px; flex-wrap: wrap; gap: 8px 14px; }
   .brand-text { display: none; }
+  /* 10-item nav can't fit a phone width — make it a horizontally swipeable
+     strip on its own row instead of overflowing or squishing. */
+  .site-nav {
+    gap: 18px; width: 100%; order: 3;
+    overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; padding-bottom: 2px;
+  }
+  .site-nav::-webkit-scrollbar { display: none; }
+  .site-nav a { white-space: nowrap; }
+  .lang-toggle { flex: 0 0 auto; }
 }
 
 /* Meta strip */
@@ -659,4 +668,17 @@ table.rank-table tbody tr:hover { background: var(--row-hover); }
   .hero-aside { width: 100%; }
   .metric-card .mc-value { font-size: 21px; }
   table.rank-table thead th, table.rank-table tbody td { padding: 12px 12px; }
+  /* Full-width segmented control with equal buttons reads better on phones. */
+  .segmented { display: flex; width: 100%; }
+  .segmented button { flex: 1; padding: 9px 8px; text-align: center; }
 }
+
+/* Ecosystem-scale band (home) + section headings + clickable metric cards. */
+.eco-scale { margin: 0 0 8px; }
+.eco-scale-label, .section-head {
+  font-size: 12px; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--faint); font-weight: 600; margin: 0 0 12px;
+}
+.section-head { margin: 30px 0 12px; }
+.metric-card.is-link { text-decoration: none; cursor: pointer; }
+.metric-card.is-link:hover { text-decoration: none; border-color: var(--accent); }
