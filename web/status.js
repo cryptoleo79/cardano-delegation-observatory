@@ -25,6 +25,9 @@ async function boot() {
   const tokens = markets ? markets.tracked_units : null;
   const fundN = funds ? funds.total_funds : null;
   const epochs = treasury ? treasury.n_epochs : null;
+  // Market-event count, read live from the registry file so it can't go stale.
+  const mev = await fetch("market-events.json", { cache: "no-cache" }).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+  const eventsN = mev && Array.isArray(mev.events) ? mev.events.length : (Array.isArray(mev) ? mev.length : null);
   const drepN = dreps ? dreps.total : null;
   const actN = actions ? actions.total : null;
   const subf = archive ? Object.keys(archive.subfolders || {}).length : null;
@@ -47,8 +50,8 @@ async function boot() {
     ["Rankings", "tracked set", "OHLCV poller + Koios", "~5m", "partial (tracked set)", "gainers/losers (no endpoint)"],
     ["Treasury", epochs != null ? num(epochs) + " epochs" : "—", "Observatory CC0 export (Koios-derived)", "daily", "full epoch series + withdrawals", "—"],
     ["Governance", (drepN != null ? num(drepN) + " DReps · " : "") + (actN != null ? num(actN) + " actions" : ""), "Observatory CC0 export", "daily (votes ~10m)", "top-30 DReps (by methodology) + all actions", "DRep set bounded to top-30 by design"],
-    ["Catalyst", fundN != null ? num(fundN) + " funds archived" : "—", "projectcatalyst.io (chain-of-custody)", "static (archive)", `Funds 1-${fundN || "?"}`, "Funds 14-15 + proposal-level capture pending"],
-    ["Market events", "31 markers", "EVENT_REGISTRY (curated)", "static", "major ecosystem events", "observability only; no price overlay"],
+    ["Catalyst", fundN != null ? num(fundN) + " funds archived" : "—", "projectcatalyst.io (chain-of-custody)", "static (archive)", `Funds 1-${fundN || "?"} (15/15)`, "proposal-level capture pending"],
+    ["Market events", (eventsN != null ? eventsN : "—") + " markers", "EVENT_REGISTRY (curated)", "static", "major ecosystem events", "observability only; no price overlay"],
     ["API", (health ? num(health.routes) + " routes" : "—") + (health && health.version ? " · v" + health.version : ""), "api.asy.life (read-only, no key, CORS *)", health && health.uptime_s != null ? "live (up " + Math.floor(health.uptime_s / 3600) + "h)" : "live", "every response carries _quality provenance", "—"],
   ];
   document.getElementById("st-tbody").innerHTML = rows.map((r) =>

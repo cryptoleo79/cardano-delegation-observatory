@@ -109,7 +109,7 @@ a:hover { text-decoration: underline; }
 @media (max-width: 720px) {
   .header-inner { padding: 10px 14px; flex-wrap: wrap; gap: 8px 14px; }
   .brand-text { display: none; }
-  /* 10-item nav can't fit a phone width — make it a horizontally swipeable
+  /* 11-item nav can't fit a phone width — make it a horizontally swipeable
      strip on its own row instead of overflowing or squishing. */
   .site-nav {
     gap: 18px; width: 100%; order: 3;
