@@ -1,0 +1,6 @@
+# cardano-delegation-observatory — active heartbeat alerting.
+# Checks API liveness + governance ETL freshness + market poller freshness every
+# 10 min and alerts (once per transition) to the destination in monitor/alert.env.
+# Thresholds: governance 36h fail / 48h critical; poller 30m fail / 2h critical.
+# Install: ( crontab -l 2>/dev/null; grep -v '^#' monitor/deploy/monitor.crontab | grep . ) | crontab -
+*/10 * * * * cd /home/midnight/observatory && /usr/bin/node monitor/heartbeat-check.mjs >/dev/null 2>>/home/midnight/observatory/monitor/cron.err
