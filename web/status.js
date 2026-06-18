@@ -7,18 +7,50 @@ function esc(s) { return s == null ? "" : String(s).replace(/[&<>"']/g, (c) => (
 const num = (n) => n == null ? "—" : Number(n).toLocaleString(currentLang() === "ja" ? "ja-JP" : "en-US");
 
 const PAGE_I18N = {
-  en: { "st-title": "Status & coverage", "ft-memory": "Memory" },
-  ja: { "st-title": "ステータスとカバレッジ", "ft-memory": "メモリ" },
+  en: {
+    "st-title": "Status & coverage", "ft-memory": "Memory",
+    "st-ha-status": "live", "st-ha-offline": "offline",
+    "st-ha-label": "Coverage snapshot", "st-ha-checked": "checked", "st-ha-source": "source",
+  },
+  ja: {
+    "st-title": "ステータスとカバレッジ", "ft-memory": "メモリ",
+    "st-ha-status": "稼働中", "st-ha-offline": "オフライン",
+    "st-ha-label": "カバレッジスナップショット", "st-ha-checked": "確認", "st-ha-source": "出典",
+  },
 };
 if (typeof i18n !== "undefined") { Object.assign(i18n.en, PAGE_I18N.en); Object.assign(i18n.ja, PAGE_I18N.ja); if (typeof setLang === "function") setLang(currentLang()); }
+
+// Most-recent successful fetch state, used to (re-)render the hero aside on lang change.
+const st = { health: null, checkedAt: null };
+
+function renderHeroAside() {
+  const el = document.getElementById("st-hero-aside");
+  if (!el) return;
+  const live = !!st.health;
+  const dot = `<span class="ha-dot ${live ? "ha-dot-ok" : "ha-dot-off"}"></span>`;
+  const statusTxt = live ? t("st-ha-status") : t("st-ha-offline");
+  const checkedTxt = st.checkedAt
+    ? new Date(st.checkedAt).toLocaleString(currentLang() === "ja" ? "ja-JP" : "en-US")
+    : "—";
+  el.innerHTML =
+    `<div class="ha-label">${esc(t("st-ha-label"))}</div>` +
+    `<div class="ha-value">${dot}${esc(statusTxt)}</div>` +
+    `<div class="ha-sub">${esc(t("st-ha-checked"))} <time datetime="${esc(st.checkedAt || "")}">${esc(checkedTxt)}</time></div>` +
+    `<div class="ha-sub">${esc(t("st-ha-source"))} api.asy.life</div>`;
+}
 
 async function j(path) { try { const r = await fetch(API + path, { cache: "no-cache" }); if (!r.ok) return null; return await r.json(); } catch { return null; } }
 
 async function boot() {
+  document.addEventListener("cdo-lang", renderHeroAside);
+  renderHeroAside();
   const [cats, projs, markets, funds, archive, treasury, dreps, actions, health] = await Promise.all([
     j("/categories"), j("/projects?limit=1"), j("/markets"), j("/funds"), j("/archive"),
     j("/treasury"), j("/dreps?limit=1"), j("/actions?limit=1"), j("/health"),
   ]);
+  st.health = health;
+  st.checkedAt = new Date().toISOString();
+  renderHeroAside();
   const catTotal = cats ? cats.count : null;
   const catPop = cats ? cats.categories.filter((c) => c.project_count > 0).length : null;
   const projTotal = projs ? projs.total : null;

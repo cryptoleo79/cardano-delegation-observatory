@@ -18,6 +18,7 @@ const PAGE_I18N = {
     "cn-h-bucket": "Bucket", "cn-h-share": "Share of top-30 weight", "cn-h-ada": "ADA",
     "cn-top": "Top", "cn-all": "All", "cn-m-dreps": "DReps", "cn-m-snapshot": "Snapshot", "cn-m-epoch": "Epoch",
     "cn-m-source": "source: observatory · authority A",
+    "cn-hero-snapshot": "Snapshot", "cn-hero-source": "Observatory DRep registry",
     "cn-foot-html": "<strong>Descriptive, not a judgment.</strong> These indices report observed concentration across the tracked top-30 DReps (which hold the large majority of registered voting weight); they are not a network-wide measure and carry no \"centralization risk\" or \"capture\" claim — the reader interprets. HHI is the sum of squared percentage shares (0–10,000). Gini is 0 (equal) to 1 (concentrated). Source: <code>api.asy.life/dreps</code> · authority A. Related: <a href=\"flows.html\">Flows</a> · <a href=\"governance-health.html\">Governance health</a>.",
   },
   ja: {
@@ -29,11 +30,31 @@ const PAGE_I18N = {
     "cn-h-bucket": "区分", "cn-h-share": "上位30の投票力に占める比率", "cn-h-ada": "ADA",
     "cn-top": "上位", "cn-all": "全", "cn-m-dreps": "DRep数", "cn-m-snapshot": "スナップショット", "cn-m-epoch": "エポック",
     "cn-m-source": "出典: observatory · 権威クラス A",
+    "cn-hero-snapshot": "スナップショット", "cn-hero-source": "Observatory DRepレジストリ",
     "cn-foot-html": "<strong>記述であり、判断ではありません。</strong> これらの指標は追跡対象の上位30 DRep（登録投票力の大半を保有）における観測された集中度を報告するものであり、ネットワーク全体の指標ではなく、「中央集権リスク」や「キャプチャ」の主張も含みません — 解釈は読者に委ねられます。HHIはパーセント比率の二乗和 (0〜10,000)。ジニ係数は0（均等）〜1（集中）。出典: <code>api.asy.life/dreps</code> · 権威クラス A。関連: <a href=\"flows.html\">フロー</a> · <a href=\"governance-health.html\">ガバナンスの健全性</a>。",
   },
 };
 if (typeof i18n !== "undefined") { Object.assign(i18n.en, PAGE_I18N.en); Object.assign(i18n.ja, PAGE_I18N.ja); if (typeof setLang === "function") setLang(currentLang()); }
 function paintStatic() { const f = document.getElementById("cn-foot"); if (f) f.innerHTML = t("cn-foot-html"); }
+
+function authChip(cls) {
+  if (!cls) return "";
+  const legend = { A: "On-chain", B: "Official", C: "At-risk platform", D: "Community", E: "Researcher" };
+  return ` <span class="auth-chip auth-${esc(cls)}" title="${esc(legend[cls] || "")}">${esc(cls)}</span>`;
+}
+
+/* Hero aside — mirrors rankings.js: snapshot date + source signal from the
+ * cached /dreps payload's snapshot metadata. The DRep registry is authority A. */
+function renderHeroAside() {
+  const el = document.getElementById("cn-hero-aside");
+  if (!el) return;
+  const m = state.meta || {};
+  const asOfTxt = m.snapshot_date || "—";
+  el.innerHTML =
+    `<div class="ha-label">${esc(t("cn-hero-snapshot"))}</div>` +
+    `<div class="ha-value">${esc(asOfTxt)}</div>` +
+    `<div class="ha-sub">${esc(t("cn-hero-source"))}${authChip("A")}</div>`;
+}
 
 function hhi(shares) { return shares.reduce((s, p) => s + (p * 100) * (p * 100), 0); } // shares are fractions; ×100 → pct
 function gini(vals) {
@@ -49,6 +70,7 @@ function topShare(weights, k) {
 function pct(x) { return (x * 100).toFixed(1) + "%"; }
 
 function render() {
+  renderHeroAside();
   if (!state.dreps.length) return;
   const sorted = state.dreps.slice().sort((a, b) => (b.voting_weight_lovelace || 0) - (a.voting_weight_lovelace || 0));
   const weights = sorted.map((d) => Number(d.voting_weight_lovelace || 0));
@@ -90,8 +112,9 @@ function render() {
     `<span class="meta-item meta-item-right">${esc(t("cn-m-source"))}</span>`;
 }
 async function boot() {
-  document.addEventListener("cdo-lang", () => { render(); paintStatic(); });
+  document.addEventListener("cdo-lang", () => { render(); paintStatic(); renderHeroAside(); });
   paintStatic();
+  renderHeroAside();
   try {
     const r = await fetch(API + "/dreps?limit=30", { cache: "no-cache" });
     const j = await r.json();

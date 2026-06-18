@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Status & coverage — Cardano Data Layer</title>
 <meta name="description" content="Live coverage and status of the Cardano Memory Layer + Data Layer: what data exists, where it comes from, how often it refreshes, how complete it is, and what is missing.">
+<meta property="og:title" content="Status & coverage — Cardano Data Layer">
+<meta property="og:description" content="Live coverage of the Cardano Memory Layer and Data Layer — what exists, where it comes from, how fresh it is, how complete it is, and what is still missing.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://observatory.asy.life/status.html">
+<meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#fafaf7">
 <link rel="stylesheet" href="style.css">
 <style>
@@ -14,6 +19,8 @@
   .st-lbl{color:var(--muted);font-size:.85rem;margin-top:2px}
   table.st td,table.st th{vertical-align:top}
   .st-ok{color:#1d6b46}.st-pend{color:#8a5a10}
+  .ha-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:middle}
+  .ha-dot-ok{background:#1d6b46}.ha-dot-off{background:var(--muted)}
 </style>
 </head>
 <body>
@@ -45,8 +52,13 @@
 </div></header>
 
 <main><article class="container">
-  <h1 id="st-title">Status &amp; coverage</h1>
-  <p class="lede" id="st-lede">Live coverage of the Cardano Memory Layer and Data Layer — what exists, where it comes from, how fresh it is, how complete it is, and what is still missing. Counts are fetched live from the public API. For per-pipeline freshness (Fresh / Warning / Stale), see the <a href="heartbeat.html">system heartbeat →</a></p>
+  <div class="page-hero">
+    <div class="hero-main">
+      <h1 id="st-title">Status &amp; coverage</h1>
+      <p class="lede" id="st-lede">Live coverage of the Cardano Memory Layer and Data Layer — what exists, where it comes from, how fresh it is, how complete it is, and what is still missing. Counts are fetched live from the public API. For per-pipeline freshness (Fresh / Warning / Stale), see the <a href="heartbeat.html">system heartbeat →</a></p>
+    </div>
+    <div class="hero-aside" id="st-hero-aside"></div>
+  </div>
   <div class="st-grid" id="st-cards"></div>
   <h2 class="section-h2" id="st-cov-h">Coverage by domain</h2>
   <div class="table-scroll"><table class="vote-table st" id="st-table"><thead><tr>

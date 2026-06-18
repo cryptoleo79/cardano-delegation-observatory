@@ -1,7 +1,7 @@
 /* Market Reality — neutral Cardano event timeline. Observability, not attribution.
  * Renders market-events.json; no price/causal overlay, no inference. */
 "use strict";
-const state = { events: [], type: "all" };
+const state = { events: [], type: "all", meta: null };
 function currentLang() { return document.documentElement.lang === "ja" ? "ja" : "en"; }
 function t(k) { const l = currentLang(); return (i18n[l] && i18n[l][k]) || (i18n.en[k] || k); }
 function esc(s) { return s == null ? "" : String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
@@ -16,6 +16,7 @@ const PAGE_I18N = {
     "mr-lede": "A neutral, chronological record of Cardano ecosystem events as timeline markers.",
     "ft-memory": "Memory", "mr-none": "No events for this filter.",
     "mr-err": "Could not load events.", "mr-approx": "(approx)", "mr-source": "source",
+    "mr-ha-label": "Tracked events", "mr-ha-source": "EVENT_REGISTRY · market-events.json", "mr-ha-range": "spanning", "mr-ha-empty": "—",
     "mr-ty-all": "All", "mr-ty-hard-fork": "Hard fork", "mr-ty-governance": "Governance", "mr-ty-treasury": "Treasury",
     "mr-ty-catalyst": "Catalyst", "mr-ty-ecosystem": "Ecosystem", "mr-ty-protocol-release": "Protocol release",
     "mr-auth-a": "On-chain", "mr-auth-b": "Official", "mr-auth-c": "At-risk platform", "mr-auth-d": "Community", "mr-auth-e": "Researcher",
@@ -27,6 +28,7 @@ const PAGE_I18N = {
     "mr-lede": "Cardano エコシステムのイベントを中立的・時系列の目印として記録します。",
     "ft-memory": "メモリ", "mr-none": "この絞り込みに該当するイベントはありません。",
     "mr-err": "イベントを読み込めませんでした。", "mr-approx": "(概算)", "mr-source": "出典",
+    "mr-ha-label": "記録イベント数", "mr-ha-source": "EVENT_REGISTRY · market-events.json", "mr-ha-range": "対象期間", "mr-ha-empty": "—",
     "mr-ty-all": "すべて", "mr-ty-hard-fork": "ハードフォーク", "mr-ty-governance": "ガバナンス", "mr-ty-treasury": "トレジャリー",
     "mr-ty-catalyst": "カタリスト", "mr-ty-ecosystem": "エコシステム", "mr-ty-protocol-release": "プロトコルリリース",
     "mr-auth-a": "オンチェーン", "mr-auth-b": "公式", "mr-auth-c": "消失リスクのあるプラットフォーム", "mr-auth-d": "コミュニティ", "mr-auth-e": "研究者",
@@ -38,6 +40,29 @@ if (typeof i18n !== "undefined") { Object.assign(i18n.en, PAGE_I18N.en); Object.
 function paintStatic() {
   const r = document.getElementById("mr-rule"); if (r) r.innerHTML = t("mr-rule-html");
   const f = document.getElementById("mr-foot"); if (f) f.innerHTML = t("mr-foot-html");
+}
+
+/* Hero aside — a small context card built from the page's own signal:
+ * the count of tracked events, their source, and the date range covered. */
+function renderHeroAside() {
+  const el = document.getElementById("mr-hero-aside");
+  if (!el) return;
+  const m = state.meta || {};
+  const count = (m.count != null ? m.count : state.events.length);
+  const value = count ? fmtNum(count) : t("mr-ha-empty");
+  const earliest = m.earliest, latest = m.latest;
+  const range = (earliest && latest)
+    ? `${t("mr-ha-range")} ${esc(earliest)} – ${esc(latest)}`
+    : t("mr-ha-source");
+  el.innerHTML =
+    `<div class="ha-label">${esc(t("mr-ha-label"))}</div>` +
+    `<div class="ha-value">${esc(value)}</div>` +
+    `<div class="ha-sub">${range}</div>`;
+}
+function fmtNum(n) {
+  if (n == null || !isFinite(n)) return "";
+  const loc = currentLang() === "ja" ? "ja-JP" : "en-US";
+  return Number(n).toLocaleString(loc);
 }
 
 function fmtDate(e) { return e.date_precision === "month" ? e.date : e.date; }
@@ -60,14 +85,17 @@ function renderTimeline() {
   </li>`).join("");
 }
 async function boot() {
-  document.addEventListener("cdo-lang", () => { renderFilters(); renderTimeline(); paintStatic(); });
+  document.addEventListener("cdo-lang", () => { renderFilters(); renderTimeline(); paintStatic(); renderHeroAside(); });
   paintStatic();
   renderFilters();
+  renderHeroAside();
   try {
     const res = await fetch("market-events.json", { cache: "no-cache" });
     const j = await res.json();
     state.events = j.events || [];
+    state.meta = j.meta || null;
     renderTimeline();
+    renderHeroAside();
   } catch (e) {
     document.getElementById("mr-tl").innerHTML = `<li class="loading">${t("mr-err")}</li>`;
   }

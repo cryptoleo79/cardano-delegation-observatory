@@ -6,6 +6,11 @@
 <title>Delegation concentration — Observatory</title>
 <meta name="description" content="Observed concentration of DRep voting weight: top-N share, HHI, Gini, and the weight distribution. Descriptive only — no centralization judgment.">
 <meta name="theme-color" content="#fafaf7">
+<meta property="og:title" content="Delegation concentration — Cardano Delegation Observatory">
+<meta property="og:description" content="Observed concentration of DRep voting weight: top-N share, HHI, Gini, and the weight distribution. Descriptive only — no centralization judgment.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://observatory.asy.life/concentration.html">
+<meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="style.css">
 <style>
   /* Horizontal bar chart: fixed label + flexible bar + fixed value columns.
@@ -53,8 +58,13 @@
 </div></header>
 
 <main><article class="container">
-  <h1 id="cn-title">Delegation concentration</h1>
-  <p class="lede" id="cn-lede">How concentrated voting weight is across the top-30 DReps — top-N share, the Herfindahl-Hirschman Index (HHI), and the Gini coefficient.</p>
+  <div class="page-hero">
+    <div class="hero-main">
+      <h1 id="cn-title">Delegation concentration</h1>
+      <p class="lede" id="cn-lede">How concentrated voting weight is across the top-30 DReps — top-N share, the Herfindahl-Hirschman Index (HHI), and the Gini coefficient.</p>
+    </div>
+    <div class="hero-aside" id="cn-hero-aside"></div>
+  </div>
   <div class="meta-strip"><div class="meta-strip-inner" id="cn-meta"></div></div>
   <section class="drep-stats" id="cn-cards"></section>
   <div class="drep-section"><div class="expand-section-label" id="cn-share-h">Top-N share of top-30 voting weight</div>

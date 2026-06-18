@@ -6,6 +6,11 @@
 <title>Governance Actions — Cardano Delegation Observatory</title>
 <meta name="description" content="Every governance action on Cardano, indexed by type and outcome. Numbers only.">
 <meta name="theme-color" content="#fafaf7">
+<meta property="og:title" content="Governance Actions — Cardano Delegation Observatory">
+<meta property="og:description" content="Every governance action on Cardano, indexed by type, outcome, expiration epoch, and DRep vote tallies. Numbers only.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://observatory.asy.life/actions.html">
+<meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -54,8 +59,13 @@
 
 <main>
   <div class="container">
-    <h1 id="actions-title">Governance actions</h1>
-    <p class="lede" id="actions-lede">Every governance action recorded on the Cardano blockchain, with type, outcome, expiration epoch, and DRep vote tallies. Sorted by expiration epoch descending by default. No editorial fields.</p>
+    <div class="page-hero">
+      <div class="hero-main">
+        <h1 id="actions-title">Governance actions</h1>
+        <p class="lede" id="actions-lede">Every governance action recorded on the Cardano blockchain, with type, outcome, expiration epoch, and DRep vote tallies. Sorted by expiration epoch descending by default. No editorial fields.</p>
+      </div>
+      <div class="hero-aside" id="act-hero-aside"></div>
+    </div>
 
     <div class="actions-filters" id="actions-filters">
       <label class="filter-label">

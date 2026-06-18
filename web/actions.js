@@ -25,6 +25,29 @@ function t(key) {
   return (i18n[lang] && i18n[lang][key]) || (i18n.en[key] || key);
 }
 
+function esc(s) {
+  return s == null ? "" : String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+/* Page-local i18n, merged into the global dict then applied. */
+const PAGE_I18N = {
+  en: {
+    "act-hero-updated": "Snapshot date",
+    "act-hero-source": "Source",
+    "act-hero-none": "—",
+  },
+  ja: {
+    "act-hero-updated": "スナップショット日",
+    "act-hero-source": "出典",
+    "act-hero-none": "—",
+  },
+};
+if (typeof i18n !== "undefined") {
+  Object.assign(i18n.en, PAGE_I18N.en);
+  Object.assign(i18n.ja, PAGE_I18N.ja);
+  if (typeof setLang === "function") setLang(currentLang());
+}
+
 function fmtNum(n) {
   if (n === null || n === undefined) return "—";
   return Number(n).toLocaleString(NUM_LOCALE[currentLang()] || "en-US");
@@ -106,6 +129,23 @@ function refreshFilterLabels() {
       if (raw) opt.textContent = window.cdoEnum(category, raw);
     }
   }
+}
+
+/* Hero aside — mirrors rankings.js: surface the snapshot date + source from
+ * the loaded governance-actions signal. Source is Koios (public Cardano
+ * governance data; see methodology). Re-rendered on cdo-lang. */
+function renderHeroAside() {
+  const el = document.getElementById("act-hero-aside");
+  if (!el) return;
+  const d = state.actions || {};
+  const q = d._quality || {};
+  const asOf = q.as_of || d.snapshot_date || d.as_of;
+  const asOfTxt = asOf ? esc(String(asOf)) : t("act-hero-none");
+  const src = q.source || d.source || "Koios";
+  el.innerHTML =
+    `<div class="ha-label">${esc(t("act-hero-updated"))}</div>` +
+    `<div class="ha-value">${asOfTxt}</div>` +
+    `<div class="ha-sub">${esc(t("act-hero-source"))}: ${esc(src)}</div>`;
 }
 
 function render() {
@@ -207,15 +247,17 @@ async function boot() {
   document.querySelectorAll("table.observatory thead th").forEach((th) => {
     if (th.dataset.sort) th.addEventListener("click", onSortClick);
   });
-  document.addEventListener("cdo-lang", () => { refreshFilterLabels(); render(); });
+  document.addEventListener("cdo-lang", () => { refreshFilterLabels(); renderHeroAside(); render(); });
 
   try {
     state.actions = await fetchJson(`${DATA_ROOT()}/actions.json`);
     populateFilters();
+    renderHeroAside();
     render();
   } catch (err) {
     console.error("actions boot failed", err);
     state.actions = { actions: [], n_actions: 0 };
+    renderHeroAside();
     render();
   }
 }

@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DRep delegation flow — Observatory</title>
 <meta name="description" content="Per-DRep net delegation flow (voting weight and delegator count) over 7 and 30 days. Aggregate net only — observability, not migration or motive.">
+<meta property="og:title" content="DRep delegation flow — Observatory">
+<meta property="og:description" content="Per-DRep net delegation flow (voting weight and delegator count) over 7 and 30 days. Aggregate net only — observability, not migration or motive.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://observatory.asy.life/flows.html">
+<meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#fafaf7">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -37,8 +42,13 @@
 </div></header>
 
 <main><article class="container">
-  <h1 id="fl-title">DRep delegation flow</h1>
-  <p class="lede" id="fl-lede">Net change in each top-30 DRep's voting weight and delegator count over the last 7 and 30 days, from daily snapshots.</p>
+  <div class="page-hero">
+    <div class="hero-main">
+      <h1 id="fl-title">DRep delegation flow</h1>
+      <p class="lede" id="fl-lede">Net change in each top-30 DRep's voting weight and delegator count over the last 7 and 30 days, from daily snapshots.</p>
+    </div>
+    <div class="hero-aside" id="fl-hero-aside"></div>
+  </div>
   <div class="meta-strip"><div class="meta-strip-inner" id="fl-meta"></div></div>
   <p class="footnote" id="fl-rule"><strong>Net only — not migration, not motive.</strong> These are per-DRep net deltas. They do <em>not</em> show where delegation came from or went to (that would require per-delegator tracking, which the methodology forbids — see <a href="https://github.com/cryptoleo79/cardano-delegation-observatory/blob/main/docs/DREP_FLOW_OBSERVATORY.md" target="_blank" rel="noopener">methodology</a>). A net of ~0 can hide large offsetting moves. The two lists below are independent rankings — do not pair a "decrease" row with an "increase" row.</p>
 
