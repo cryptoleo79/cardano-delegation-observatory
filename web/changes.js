@@ -72,6 +72,9 @@ const PAGE_I18N = {
     "ch-load-error": "Couldn't load the change feed (changes.json).",
     "ch-foot": "Movement only — no inference of cause or intent. Top-30 DReps only; no wallet-level data. Source: Koios daily snapshots (observatory CC0 export).",
     "ch-foot-dl": "Downloads:",
+    "ch-cov-title": "History coverage",
+    "ch-cov-full": "full", "ch-cov-partial": "partial", "ch-cov-pending": "accumulating",
+    "ch-cov-note": "✓ full · ⚠ partial (nearest older snapshot used, so the span is longer than labelled) · ○ accumulating. Each window is computed from real snapshots back to epoch 508 (Sep 2024); per-epoch granularity means some windows resolve to the nearest snapshot. Windows become richer as daily snapshots accumulate.",
   },
   ja: {
     "h-nav-changes": "変化",
@@ -97,6 +100,9 @@ const PAGE_I18N = {
     "ch-load-error": "変化フィード（changes.json）を読み込めませんでした。",
     "ch-foot": "動きのみ — 原因や意図の推測はしません。上位30のDRepのみ。ウォレット単位のデータはありません。出典: Koios 日次スナップショット（observatory CC0エクスポート）。",
     "ch-foot-dl": "ダウンロード:",
+    "ch-cov-title": "履歴カバレッジ",
+    "ch-cov-full": "完全", "ch-cov-partial": "部分的", "ch-cov-pending": "蓄積中",
+    "ch-cov-note": "✓ 完全 · ⚠ 部分的（最も近い過去のスナップショットを使用するため、期間はラベルより長くなります）· ○ 蓄積中。各ウィンドウはエポック508（2024年9月）まで遡る実スナップショットから計算されます。エポック単位の粒度のため、一部のウィンドウは最も近いスナップショットに解決されます。日次スナップショットが蓄積されるにつれて充実します。",
   },
 };
 if (typeof i18n !== "undefined") {
@@ -237,6 +243,24 @@ function renderFoot() {
   el.innerHTML = `${esc(t("ch-foot"))}<span class="ch-foot-dl"><br>${esc(t("ch-foot-dl"))} ${links}</span>`;
 }
 
+const COV_LABEL = { "1d": "24h", "7d": "7d", "30d": "30d", "90d": "90d" };
+const COV_ICON = { full: "✓", partial: "⚠", pending: "○" };
+function renderCoverage() {
+  const wrap = document.getElementById("ch-coverage");
+  if (!wrap) return;
+  const cov = state.data && Array.isArray(state.data.coverage) ? state.data.coverage : null;
+  if (!cov || !cov.length) { wrap.style.display = "none"; return; }
+  wrap.style.display = "";
+  const head = document.getElementById("ch-cov-head"); if (head) head.textContent = t("ch-cov-title");
+  const grid = document.getElementById("ch-cov-grid");
+  if (grid) grid.innerHTML = cov.map((c) => {
+    const st = (c.status === "full" || c.status === "partial") ? c.status : "pending";
+    const lbl = COV_LABEL[c.window] || c.window;
+    return `<span class="ch-cov-pill ch-cov-${st}"><span class="w">${esc(lbl)}</span> ${COV_ICON[st]} ${esc(t("ch-cov-" + st))}</span>`;
+  }).join("");
+  const note = document.getElementById("ch-cov-note"); if (note) note.textContent = t("ch-cov-note");
+}
+
 function renderActiveTab() {
   document.querySelectorAll("#ch-tabs button").forEach((b) => {
     b.classList.toggle("active", b.getAttribute("data-win") === state.window);
@@ -261,6 +285,7 @@ function renderCurrent() {
   renderHeaders();
   renderHeroAside();
   renderFoot();
+  renderCoverage();
 
   if (state.error) {
     const tbody = document.getElementById("ch-feed-tbody");

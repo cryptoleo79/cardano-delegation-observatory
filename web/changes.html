@@ -14,6 +14,16 @@
     border-radius: 11px; box-shadow: var(--shadow); padding: 16px 18px; margin: 0 0 26px;
     color: var(--muted); font-size: 14px; line-height: 1.6;
   }
+  /* History coverage panel — honest per-window data depth. */
+  .ch-coverage { background: var(--card); border: 0.5px solid var(--border); border-radius: 12px; box-shadow: var(--shadow); padding: 14px 16px; margin: 0 0 24px; }
+  .ch-cov-head { font-size: 12px; letter-spacing: .05em; text-transform: uppercase; color: var(--faint); font-weight: 600; margin-bottom: 10px; }
+  .ch-cov-grid { display: flex; gap: 10px; flex-wrap: wrap; }
+  .ch-cov-pill { display: inline-flex; align-items: center; gap: 7px; padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; border: 0.5px solid var(--border); }
+  .ch-cov-pill .w { color: var(--muted); }
+  .ch-cov-full { background: rgba(29,107,70,.08); color: #1d6b46; }
+  .ch-cov-partial { background: rgba(185,130,31,.10); color: #8a5a10; }
+  .ch-cov-pending { background: rgba(120,120,120,.08); color: var(--muted); }
+  .ch-cov-note { font-size: 12.5px; color: var(--muted); margin-top: 10px; line-height: 1.55; }
   .ch-section { margin: 0 0 26px; }
   .ch-section-head {
     font-size: 12px; letter-spacing: .06em; text-transform: uppercase;
@@ -116,6 +126,12 @@
 
     <!-- Summary metric cards -->
     <div class="metric-grid" id="ch-metrics"></div>
+
+    <div class="ch-coverage" id="ch-coverage" style="display:none">
+      <div class="ch-cov-head" id="ch-cov-head">History coverage</div>
+      <div class="ch-cov-grid" id="ch-cov-grid"></div>
+      <div class="ch-cov-note" id="ch-cov-note"></div>
+    </div>
 
     <!-- Movement sections (populated by JS) -->
     <div id="ch-sections"></div>
