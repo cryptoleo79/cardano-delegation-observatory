@@ -45,6 +45,19 @@ function fmtDelta(lovelace) {
   return sign + ada.toLocaleString(NUM_LOCALE[currentLang()] || "en-US");
 }
 
+/* A leaderboard delta cell: arrow + magnitude, colored green (up) / red (down).
+ * `raw` gives the direction; `formatted` is the already-signed display string. */
+function deltaCell(raw, formatted) {
+  const td = document.createElement("td");
+  td.className = "col-num delta-cell";
+  if (formatted == null || raw == null) { td.textContent = "—"; td.classList.add("delta-empty"); return td; }
+  const mag = String(formatted).replace(/^[+-]/, "");
+  if (raw > 0) { td.classList.add("delta-up"); td.textContent = "▲ " + mag; }
+  else if (raw < 0) { td.classList.add("delta-down"); td.textContent = "▼ " + mag; }
+  else { td.classList.add("delta-flat"); td.textContent = mag; }
+  return td;
+}
+
 /* Signed integer delta (e.g. delegator-count change) — no lovelace scaling. */
 function fmtDeltaCount(n) {
   if (n === null || n === undefined) return null;
@@ -252,19 +265,8 @@ function renderTable() {
     tr.appendChild(tdWeight);
 
     /* Voting-weight net change (ADA) over 7d / 30d. */
-    const tdD7 = document.createElement("td");
-    tdD7.className = "col-num delta-cell";
-    const d7 = fmtDelta(e.d7d_lovelace);
-    if (d7 === null) { tdD7.textContent = "—"; tdD7.classList.add("delta-empty"); }
-    else tdD7.textContent = d7;
-    tr.appendChild(tdD7);
-
-    const tdD30 = document.createElement("td");
-    tdD30.className = "col-num delta-cell";
-    const d30 = fmtDelta(e.d30d_lovelace);
-    if (d30 === null) { tdD30.textContent = "—"; tdD30.classList.add("delta-empty"); }
-    else tdD30.textContent = d30;
-    tr.appendChild(tdD30);
+    tr.appendChild(deltaCell(e.d7d_lovelace, fmtDelta(e.d7d_lovelace)));
+    tr.appendChild(deltaCell(e.d30d_lovelace, fmtDelta(e.d30d_lovelace)));
 
     const tdDeleg = document.createElement("td");
     tdDeleg.className = "col-num";
@@ -272,19 +274,8 @@ function renderTable() {
     tr.appendChild(tdDeleg);
 
     /* Delegator-count net change over 7d / 30d — same treatment as voting weight. */
-    const tdDc7 = document.createElement("td");
-    tdDc7.className = "col-num delta-cell";
-    const dc7 = fmtDeltaCount(e.delegator_count_d7d);
-    if (dc7 === null) { tdDc7.textContent = "—"; tdDc7.classList.add("delta-empty"); }
-    else tdDc7.textContent = dc7;
-    tr.appendChild(tdDc7);
-
-    const tdDc30 = document.createElement("td");
-    tdDc30.className = "col-num delta-cell";
-    const dc30 = fmtDeltaCount(e.delegator_count_d30d);
-    if (dc30 === null) { tdDc30.textContent = "—"; tdDc30.classList.add("delta-empty"); }
-    else tdDc30.textContent = dc30;
-    tr.appendChild(tdDc30);
+    tr.appendChild(deltaCell(e.delegator_count_d7d, fmtDeltaCount(e.delegator_count_d7d)));
+    tr.appendChild(deltaCell(e.delegator_count_d30d, fmtDeltaCount(e.delegator_count_d30d)));
 
     const tdVote = document.createElement("td");
     tdVote.className = "col-num";

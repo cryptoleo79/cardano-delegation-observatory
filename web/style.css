@@ -14,6 +14,7 @@
   --border: rgba(0, 0, 0, 0.1);
   --border-strong: rgba(0, 0, 0, 0.18);
   --row-hover: rgba(44, 86, 112, 0.04);
+  --row-hover-solid: #eff4f7;
   --shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 }
@@ -216,6 +217,23 @@ td.name-cell {
 
 .delta-cell { color: var(--muted); }
 .delta-empty { color: var(--faint); }
+/* Leaderboard delta coloring — gains green, losses red, and make them pop. */
+.delta-up { color: #1d6b46; font-weight: 650; }
+.delta-down { color: #963232; font-weight: 650; }
+.delta-flat { color: var(--faint); }
+
+/* Top-30 leaderboard: freeze the rank + name columns so metrics scroll under
+   them; keep them readable on hover/expand. Scoped to #dreps-table only. */
+#dreps-table .col-rank { width: 52px; min-width: 52px; }
+#dreps-table th.col-rank, #dreps-table td.col-rank { position: sticky; left: 0; z-index: 2; background: var(--card); }
+#dreps-table th.col-name, #dreps-table td.col-name { position: sticky; left: 52px; z-index: 2; background: var(--card); box-shadow: 1px 0 0 var(--border); }
+#dreps-table thead th.col-rank { background: #f4f5f5; z-index: 3; }
+#dreps-table thead th.col-name { background: #f4f5f5; z-index: 3; }
+#dreps-table tbody tr:hover td.col-rank, #dreps-table tbody tr:hover td.col-name { background: var(--row-hover-solid); }
+#dreps-table tbody tr.expanded td.col-rank, #dreps-table tbody tr.expanded td.col-name { background: #eef3f6; }
+@media (max-width: 640px) {
+  #dreps-table .col-name { min-width: 150px; }
+}
 
 .loading { padding: 32px; text-align: center; color: var(--muted); }
 
