@@ -1,0 +1,6 @@
+# cardano-delegation-observatory — governance snapshot ETL ("the heartbeat").
+# Daily DRep/governance/treasury snapshot from Koios; regenerates all snapshot
+# exports (top30, actions, treasury, change feed). Twice daily for resilience;
+# re-running a date upserts (idempotent). Stalled 2026-06-01 — see ROOT_CAUSE.md.
+# Install: ( crontab -l 2>/dev/null; grep -v "^#" etl/deploy/etl.crontab | grep . ) | crontab -
+10 8,20 * * * cd /home/midnight/observatory && /usr/bin/python3 etl/snapshot.py >> /home/midnight/observatory/data/etl.log 2>&1
