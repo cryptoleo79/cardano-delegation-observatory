@@ -13,13 +13,23 @@ CREATE TABLE IF NOT EXISTS dreps (
     last_seen_epoch      INTEGER
 );
 
--- Daily snapshot of voting weight per DRep
+-- Daily snapshot of voting weight per DRep.
+--
+-- delegator_count is NULLABLE: live daily snapshots populate it from Koios
+-- /drep_delegators (a current-only endpoint), but historical epoch-boundary
+-- rows backfilled from Koios /drep_voting_power_history have NO real delegator
+-- count available at that past epoch. Per the project's real-data-only rule we
+-- store NULL there rather than fabricate (or copy forward/backward) a count.
+-- A NULL delegator_count means "delegator count unavailable for this row";
+-- the change feed already treats null delegator deltas as "unavailable".
+-- voting_weight_lovelace remains NOT NULL — every row's weight traces to a
+-- real Koios response.
 CREATE TABLE IF NOT EXISTS snapshots (
     snapshot_date           DATE NOT NULL,
     epoch                   INTEGER NOT NULL,
     drep_id                 TEXT NOT NULL,
     voting_weight_lovelace  INTEGER NOT NULL,
-    delegator_count         INTEGER NOT NULL,
+    delegator_count         INTEGER,
     PRIMARY KEY (snapshot_date, drep_id)
 );
 CREATE INDEX IF NOT EXISTS idx_snapshots_drep ON snapshots (drep_id, snapshot_date);

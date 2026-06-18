@@ -317,6 +317,37 @@ def open_db(db_path: Path, schema_path: Path) -> sqlite3.Connection:
     ):
         if col not in ga_cols:
             db.execute(f"ALTER TABLE governance_actions ADD COLUMN {col} {ctype}")
+    # Change-feed backfill migration: snapshots.delegator_count must be NULLABLE
+    # so historical epoch-boundary rows (from /drep_voting_power_history, which
+    # has no delegator count) can store NULL instead of a fabricated value.
+    # SQLite cannot drop a NOT NULL constraint via ALTER, so rebuild the table
+    # when the old NOT NULL definition is still in place. Idempotent: detected
+    # via PRAGMA table_info notnull flag.
+    snap_cols = {row[1]: row for row in db.execute("PRAGMA table_info(snapshots)").fetchall()}
+    dc = snap_cols.get("delegator_count")
+    if dc is not None and dc[3] == 1:  # column index 3 == "notnull"
+        log.info("migrating snapshots.delegator_count to NULLABLE")
+        db.executescript(
+            """
+            CREATE TABLE snapshots_new (
+                snapshot_date           DATE NOT NULL,
+                epoch                   INTEGER NOT NULL,
+                drep_id                 TEXT NOT NULL,
+                voting_weight_lovelace  INTEGER NOT NULL,
+                delegator_count         INTEGER,
+                PRIMARY KEY (snapshot_date, drep_id)
+            );
+            INSERT INTO snapshots_new (snapshot_date, epoch, drep_id,
+                                       voting_weight_lovelace, delegator_count)
+                SELECT snapshot_date, epoch, drep_id,
+                       voting_weight_lovelace, delegator_count
+                  FROM snapshots;
+            DROP TABLE snapshots;
+            ALTER TABLE snapshots_new RENAME TO snapshots;
+            CREATE INDEX IF NOT EXISTS idx_snapshots_drep ON snapshots (drep_id, snapshot_date);
+            CREATE INDEX IF NOT EXISTS idx_snapshots_date ON snapshots (snapshot_date);
+            """
+        )
     db.commit()
     return db
 
@@ -657,6 +688,11 @@ def query_delegator_count_delta(db: sqlite3.Connection, drep_id: str,
     ).fetchone()
     if not today_row:
         return None, None
+    # delegator_count is nullable on backfilled historical rows (real count
+    # unavailable). A delta is only meaningful when BOTH endpoints have a real
+    # count; otherwise report None ("unavailable"), never a fabricated number.
+    if today_row["delegator_count"] is None or ref["delegator_count"] is None:
+        return None, ref["snapshot_date"]
     return int(today_row["delegator_count"]) - int(ref["delegator_count"]), ref["snapshot_date"]
 
 
@@ -700,11 +736,17 @@ def daily_flow_series(db: sqlite3.Connection, drep_id: str,
     out: list[dict] = []
     for i in range(1, len(rows)):
         prev, curr = rows[i - 1], rows[i]
+        # delegator_count is nullable on backfilled historical rows; only emit a
+        # real delta when both endpoints carry a real count (never fabricate).
+        if curr["delegator_count"] is None or prev["delegator_count"] is None:
+            dc_delta = None
+        else:
+            dc_delta = int(curr["delegator_count"]) - int(prev["delegator_count"])
         out.append({
             "date": curr["snapshot_date"],
             "ref_date": prev["snapshot_date"],
             "voting_weight_delta_lovelace": int(curr["voting_weight_lovelace"]) - int(prev["voting_weight_lovelace"]),
-            "delegator_count_delta": int(curr["delegator_count"]) - int(prev["delegator_count"]),
+            "delegator_count_delta": dc_delta,
         })
     return out
 
@@ -858,7 +900,9 @@ def export_top30(db: sqlite3.Connection, snapshot_date: str, out_dir: Path) -> d
             "name": row["metadata_name"],
             "voting_weight_lovelace": int(row["voting_weight_lovelace"]),
             "voting_weight_ada": int(row["voting_weight_lovelace"]) // LOVELACE_PER_ADA,
-            "delegator_count": int(row["delegator_count"]),
+            # delegator_count is nullable on backfilled historical epoch rows
+            # (no real count available); pass NULL through rather than fabricate.
+            "delegator_count": int(row["delegator_count"]) if row["delegator_count"] is not None else None,
             "last_vote_epoch": last_vote,
             **flow_fields,
         })
@@ -951,7 +995,7 @@ def export_changes(db: sqlite3.Connection, snapshot_date: str, out_dir: Path) ->
             "weight_delta_ada": (int(wdelta) // LOVELACE_PER_ADA) if wdelta is not None else None,
             "delegator_delta": ddelta,
             "current_weight_ada": (int(cur["voting_weight_lovelace"]) // LOVELACE_PER_ADA) if cur else None,
-            "current_delegators": int(cur["delegator_count"]) if cur else None,
+            "current_delegators": (int(cur["delegator_count"]) if (cur and cur["delegator_count"] is not None) else None),
             "reference_date": wref or dref,
         }
 
@@ -997,6 +1041,39 @@ def export_changes(db: sqlite3.Connection, snapshot_date: str, out_dir: Path) ->
                "reference_date": r["reference_date"]}
               for r in recent[:CHANGE_RECENT_LIMIT]]
 
+    # Coverage: for each window, find the nearest reference snapshot at or before
+    # (snapshot_date - lookback_days) and classify how well the available history
+    # actually covers that window. status:
+    #   "full"    — a reference snapshot exists within ~1.5x the nominal window
+    #               (the lookback is genuinely satisfied);
+    #   "partial" — a nearest-prior reference exists but is OLDER than 1.5x the
+    #               window (deltas computed against a stale-but-real reference);
+    #   "pending" — no snapshot old enough exists yet (window not yet computable).
+    # Every reference_date is a real snapshot date; actual_lookback_days is the
+    # measured age of that reference relative to snapshot_date.
+    coverage = []
+    snap_dt = datetime.strptime(snapshot_date, "%Y-%m-%d").date()
+    for days, key in CHANGE_WINDOWS:
+        ref_row = db.execute(
+            """SELECT MAX(snapshot_date) AS d FROM snapshots
+                WHERE snapshot_date <= date(?, ?)""",
+            (snapshot_date, f"-{days} day"),
+        ).fetchone()
+        ref_date = ref_row["d"] if ref_row else None
+        if not ref_date:
+            status = "pending"
+            actual = None
+        else:
+            actual = (snap_dt - datetime.strptime(ref_date, "%Y-%m-%d").date()).days
+            status = "full" if actual <= days * 1.5 else "partial"
+        coverage.append({
+            "window": key,
+            "lookback_days": days,
+            "status": status,
+            "reference_date": ref_date,
+            "actual_lookback_days": actual,
+        })
+
     base = {
         "schema_version": SCHEMA_VERSION,
         "methodology_version": METHODOLOGY_VERSION,
@@ -1008,7 +1085,7 @@ def export_changes(db: sqlite3.Connection, snapshot_date: str, out_dir: Path) ->
                  "No inference of cause or intent. A window is empty/'available:false' "
                  "until a snapshot at least that many days old exists."),
     }
-    changes = {**base, "windows": windows, "recent": recent}
+    changes = {**base, "windows": windows, "coverage": coverage, "recent": recent}
     gainers_doc = {**base, "windows": {k: windows[k]["gainers"] for k in windows}}
     losers_doc = {**base, "windows": {k: windows[k]["losers"] for k in windows}}
     deleg_doc = {**base, "windows": {k: {"growth": windows[k]["delegator_growth"],
