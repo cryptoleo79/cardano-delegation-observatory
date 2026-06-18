@@ -96,15 +96,24 @@ a:hover { text-decoration: underline; }
 .site-nav a { color: var(--muted); }
 .site-nav a:hover { color: var(--text); text-decoration: none; }
 
-.lang-toggle { display: flex; gap: 2px; }
-.lang-toggle button {
-  background: transparent; border: 0.5px solid var(--border-strong);
-  border-radius: 5px; padding: 3px 9px; font-size: 11px;
-  cursor: pointer; color: var(--muted); font-family: inherit;
+/* Language switcher — a balanced segmented control, not a utility widget.
+   Same look as the .segmented ranking control: one pill, equal-width tabs. */
+.lang-toggle {
+  display: inline-flex; align-items: stretch; flex: 0 0 auto;
+  background: var(--accent-soft); border: 0.5px solid var(--border);
+  border-radius: 8px; padding: 2px; gap: 2px;
 }
-.lang-toggle button.active { background: var(--accent); color: white; border-color: var(--accent); }
+.lang-toggle button {
+  font: inherit; font-size: 11px; font-weight: 600; line-height: 1;
+  min-width: 54px; padding: 6px 10px; border: 0; border-radius: 6px;
+  background: transparent; color: var(--muted); cursor: pointer;
+  white-space: nowrap; text-align: center;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: color .12s ease, background .12s ease;
+}
 .lang-toggle button:hover { color: var(--text); }
-.lang-toggle button.active:hover { color: white; }
+.lang-toggle button.active { background: var(--card); color: var(--accent-strong); box-shadow: var(--shadow); }
+.lang-toggle button.active:hover { color: var(--accent-strong); }
 
 @media (max-width: 720px) {
   .header-inner { padding: 10px 14px; flex-wrap: wrap; gap: 8px 14px; }
