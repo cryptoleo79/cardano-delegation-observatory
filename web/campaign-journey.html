@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How a campaign works — Builders Fund preview — asy.life</title>
+<meta name="description" content="The Builders Fund campaign lifecycle: the states a campaign moves through, the milestone state machine, and what counts as sourced evidence. Read-only preview — no money, no custody, no settlement.">
+<meta name="theme-color" content="#fafaf7">
+<meta property="og:title" content="How a campaign works — Builders Fund preview">
+<meta property="og:description" content="Campaign states, milestone states, and sourced evidence — shown with demonstration records. Read-only preview, no funds.">
+<link rel="stylesheet" href="style.css">
+<style>
+  .bf-demo-banner{background:rgba(180,140,30,.10);border:1px solid rgba(180,140,30,.30);border-radius:10px;padding:12px 16px;margin:0 0 22px;color:#7a5f10;font-size:.92rem;line-height:1.5}
+  .bf-demo-banner strong{color:#6a520d}
+  .bf-block{margin:26px 0}
+  .bf-block h2{font-size:1.25rem;color:var(--accent-strong);margin:0 0 8px}
+  .bf-block p{color:var(--text);line-height:1.6;margin:0 0 10px}
+  .bf-flow{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;margin:14px 0}
+  .bf-state{flex:1 1 150px;min-width:140px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 14px;position:relative}
+  .bf-state .bf-st-n{font-family:var(--mono);font-size:.7rem;color:var(--faint)}
+  .bf-state .bf-st-h{font-weight:700;color:var(--accent-strong);margin:2px 0 4px;font-size:.96rem}
+  .bf-state .bf-st-d{font-size:.84rem;color:var(--muted);line-height:1.45}
+  .bf-pill{display:inline-block;font-size:.72rem;font-weight:600;padding:2px 9px;border-radius:11px;border:1px solid var(--border);letter-spacing:.02em;vertical-align:middle}
+  .bf-ok{background:rgba(38,110,70,.10);color:#1d6b46;border-color:rgba(38,110,70,.25)}
+  .bf-go{background:var(--accent-soft);color:var(--accent-strong);border-color:rgba(44,86,112,.25)}
+  .bf-wait{background:rgba(180,140,30,.12);color:#8a6d12;border-color:rgba(180,140,30,.28)}
+  .bf-muted{background:rgba(0,0,0,.04);color:var(--muted)}
+  .bf-stop{background:rgba(150,40,40,.10);color:#963232;border-color:rgba(150,40,40,.25)}
+  .bf-authleg{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin:12px 0}
+  .bf-authleg div{font-size:.86rem;color:var(--muted)}
+  .bf-example{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin:16px 0}
+  .bf-ex-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+  .bf-ex-name{font-weight:700;font-size:1.1rem;color:var(--accent-strong)}
+  .bf-ex-kind{font-size:.82rem;color:var(--faint)}
+  .bf-ex-goal{font-size:.92rem;color:var(--muted);line-height:1.5;margin:6px 0 12px}
+  .bf-ms{border-top:1px solid var(--border);padding:12px 0 4px}
+  .bf-ms-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+  .bf-ms-title{font-weight:650;font-size:.96rem}
+  .bf-ms-n{font-family:var(--mono);font-size:.72rem;color:var(--faint);margin-right:6px}
+  .bf-ms-crit{font-size:.86rem;color:var(--muted);line-height:1.5;margin:4px 0 8px}
+  .bf-ev{font-size:.82rem;background:var(--accent-soft);border:1px solid rgba(44,86,112,.14);border-radius:7px;padding:7px 10px;margin:5px 0}
+  .bf-ev a{word-break:break-all}
+  .bf-ev .bf-ev-meta{color:var(--faint);font-family:var(--mono);font-size:.72rem;margin-top:3px}
+  .bf-ev-none{font-size:.82rem;color:var(--faint);font-style:italic;margin:4px 0}
+  .bf-boundary{background:rgba(150,40,40,.06);border:1px solid rgba(150,40,40,.22);border-radius:10px;padding:14px 18px;margin:26px 0}
+  .bf-boundary h2{color:#8a2f2f;font-size:1.1rem;margin:0 0 8px}
+  .bf-boundary ul{margin:6px 0 0;padding-left:20px;color:var(--text)}
+  .bf-boundary li{margin:3px 0;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="ecosystem-strip"><div class="ecosystem-strip-inner">
+  <span class="eco-label" id="eco-label">Ecosystem</span>
+  <a href="https://ctf.asy.life" class="eco-link">CTF</a><span class="eco-sep">·</span>
+  <a href="https://observatory.asy.life" class="eco-link" id="eco-link-observatory">Observatory</a><span class="eco-sep">·</span>
+  <a href="https://voting.asy.life" class="eco-link" id="eco-link-voting">Voting</a><span class="eco-sep">·</span>
+  <a href="https://governance.asy.life" class="eco-link" id="eco-link-governance">Governance</a><span class="eco-sep">·</span>
+  <a href="https://api.asy.life" class="eco-link" id="eco-link-api">API</a><span class="eco-sep">·</span>
+  <a href="https://github.com/cryptoleo79" class="eco-link" target="_blank" rel="noopener">GitHub</a>
+</div></div>
+<header class="site-header"><div class="container header-inner">
+  <a href="/" class="brand"><span class="brand-mark">CDO</span><span class="brand-text" id="h-brand">Cardano Delegation Observatory</span></a>
+  <nav class="site-nav">
+    <a href="/" id="h-nav-observatory">Observatory</a>
+    <a href="tokens.html" id="h-nav-tokens">Tokens</a>
+    <a href="rankings.html" id="h-nav-rankings">Rankings</a>
+    <a href="projects.html" id="h-nav-projects">Projects</a>
+    <a href="ecosystem.html" id="h-nav-ecosystem">Ecosystem</a>
+    <a href="treasury.html" id="h-nav-treasury">Treasury</a>
+    <a href="catalyst.html" id="h-nav-catalyst">Catalyst</a>
+    <a href="market.html" id="h-nav-market">Market</a>
+    <a href="governance-health.html" id="h-nav-health">Health</a>
+    <a href="changes.html" id="h-nav-changes">Changes</a>
+    <a href="memory.html" id="h-nav-memory">Memory</a>
+    <div class="lang-toggle"><button id="btn-en" class="active" onclick="setLang('en')">EN</button><button id="btn-ja" onclick="setLang('ja')">日本語</button></div>
+  </nav>
+</div></header>
+
+<main><article class="container">
+  <div class="page-hero">
+    <div class="hero-main">
+      <h1 id="cj-title">How a campaign works</h1>
+      <p class="lede" id="cj-lede">A campaign is one scoped body of work, broken into milestones, each backed by sourced evidence. This page shows the states a campaign moves through, the states a milestone moves through, and what counts as evidence — illustrated with demonstration records. Read-only preview: nothing here involves money.</p>
+    </div>
+    <div class="hero-aside">
+      <div><span class="ha-label" id="cj-ha-l1">Lifecycle</span><div class="ha-value" id="cj-ha-v1">Submitted → Verified</div></div>
+      <div style="margin-top:10px"><span class="ha-label" id="cj-ha-l2">Gating</span><div class="ha-value" id="cj-ha-v2">Evidence-backed</div></div>
+      <div style="margin-top:10px"><span class="ha-label" id="cj-ha-l3">Funds</span><div class="ha-value" id="cj-ha-v3">None — not enabled</div></div>
+    </div>
+  </div>
+
+  <div class="bf-demo-banner" id="cj-demo"></div>
+
+  <div class="bf-block">
+    <h2 id="cj-camp-h">The campaign lifecycle</h2>
+    <p id="cj-camp-p"></p>
+    <div class="bf-flow">
+      <div class="bf-state"><div class="bf-st-n">1</div><div class="bf-st-h"><span class="bf-pill bf-muted" id="cj-c1-pill">Submitted</span></div><div class="bf-st-d" id="cj-c1-d"></div></div>
+      <div class="bf-state"><div class="bf-st-n">2</div><div class="bf-st-h"><span class="bf-pill bf-wait" id="cj-c2-pill">Under review</span></div><div class="bf-st-d" id="cj-c2-d"></div></div>
+      <div class="bf-state"><div class="bf-st-n">3</div><div class="bf-st-h"><span class="bf-pill bf-go" id="cj-c3-pill">Active</span></div><div class="bf-st-d" id="cj-c3-d"></div></div>
+      <div class="bf-state"><div class="bf-st-n">4</div><div class="bf-st-h"><span class="bf-pill bf-ok" id="cj-c4-pill">Completed</span></div><div class="bf-st-d" id="cj-c4-d"></div></div>
+    </div>
+    <p class="footnote" id="cj-camp-foot"></p>
+  </div>
+
+  <div class="bf-block">
+    <h2 id="cj-ms-h">The milestone lifecycle</h2>
+    <p id="cj-ms-p"></p>
+    <div class="bf-flow">
+      <div class="bf-state"><div class="bf-st-n">1</div><div class="bf-st-h"><span class="bf-pill bf-muted" id="cj-m1-pill">Pending</span></div><div class="bf-st-d" id="cj-m1-d"></div></div>
+      <div class="bf-state"><div class="bf-st-n">2</div><div class="bf-st-h"><span class="bf-pill bf-go" id="cj-m2-pill">In progress</span></div><div class="bf-st-d" id="cj-m2-d"></div></div>
+      <div class="bf-state"><div class="bf-st-n">3</div><div class="bf-st-h"><span class="bf-pill bf-wait" id="cj-m3-pill">Evidence submitted</span></div><div class="bf-st-d" id="cj-m3-d"></div></div>
+      <div class="bf-state"><div class="bf-st-n">4</div><div class="bf-st-h"><span class="bf-pill bf-ok" id="cj-m4-pill">Verified</span></div><div class="bf-st-d" id="cj-m4-d"></div></div>
+    </div>
+    <p class="footnote" id="cj-ms-foot"></p>
+  </div>
+
+  <div class="bf-block">
+    <h2 id="cj-ev-h">What counts as evidence</h2>
+    <p id="cj-ev-1"></p>
+    <p id="cj-ev-2"></p>
+    <div class="bf-authleg">
+      <div><span class="auth-chip auth-A">A</span> <span id="cj-auth-A"></span></div>
+      <div><span class="auth-chip auth-B">B</span> <span id="cj-auth-B"></span></div>
+      <div><span class="auth-chip auth-C">C</span> <span id="cj-auth-C"></span></div>
+      <div><span class="auth-chip auth-D">D</span> <span id="cj-auth-D"></span></div>
+      <div><span class="auth-chip auth-E">E</span> <span id="cj-auth-E"></span></div>
+    </div>
+  </div>
+
+  <div class="bf-block">
+    <h2 id="cj-ex-h">Worked examples</h2>
+    <p id="cj-ex-intro"></p>
+    <div id="cj-examples"></div>
+  </div>
+
+  <div class="bf-boundary">
+    <h2 id="cj-bound-h">What is not enabled</h2>
+    <ul>
+      <li id="cj-bound-1"></li>
+      <li id="cj-bound-2"></li>
+      <li id="cj-bound-3"></li>
+      <li id="cj-bound-4"></li>
+    </ul>
+  </div>
+
+  <p class="footnote" id="cj-foot"></p>
+</article></main>
+
+<footer class="site-footer"><div class="container footer-inner">
+  <div><span id="ft-license">Apache 2.0 code · CC0 data</span></div>
+  <div><a href="builder-journey.html" id="ft-builder">Builder onboarding</a> <a href="projects.html" id="ft-projects">Projects</a> <a href="about.html" id="ft-about">About</a></div>
+  <div class="footer-note" id="ft-note">Observe · preserve · serve. No scores, no judgment.</div>
+</div></footer>
+<script src="i18n.js"></script>
+<script>
+"use strict";
+(function () {
+  function lang() { return document.documentElement.lang === "ja" ? "ja" : "en"; }
+  function tt(k) { return (i18n[lang()] && i18n[lang()][k]) || (i18n.en[k] || k); }
+  function pickL(o, base) { return (o[base + "_" + lang()] != null ? o[base + "_" + lang()] : o[base + "_en"]) || ""; }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+
+  const MS_PILL = { verified: "bf-ok", in_progress: "bf-go", evidence_submitted: "bf-wait", pending: "bf-muted", revision_requested: "bf-stop" };
+  const CAMP_PILL = { completed: "bf-ok", active: "bf-go", under_review: "bf-wait", submitted: "bf-wait", draft: "bf-muted", withdrawn: "bf-stop", lapsed: "bf-stop" };
+
+  const P = {
+    en: {
+      "cj-title": "How a campaign works",
+      "cj-lede": "A campaign is one scoped body of work, broken into milestones, each backed by sourced evidence. This page shows the states a campaign moves through, the states a milestone moves through, and what counts as evidence — illustrated with demonstration records. Read-only preview: nothing here involves money.",
+      "cj-ha-l1": "Lifecycle", "cj-ha-v1": "Submitted → Verified",
+      "cj-ha-l2": "Gating", "cj-ha-v2": "Evidence-backed",
+      "cj-ha-l3": "Funds", "cj-ha-v3": "None — not enabled",
+      "cj-camp-h": "The campaign lifecycle",
+      "cj-c1-pill": "Submitted", "cj-c2-pill": "Under review", "cj-c3-pill": "Active", "cj-c4-pill": "Completed",
+      "cj-c1-d": "The builder publishes a campaign: a goal and a set of milestones. Public from day one.",
+      "cj-c2-d": "The scope and milestones are read for clarity — are the acceptance criteria checkable in advance?",
+      "cj-c3-d": "Work is under way. Milestones are completed and their evidence submitted and verified one by one.",
+      "cj-c4-d": "Every milestone is verified. The campaign closes as a complete, sourced record of what was built.",
+      "cj-ms-h": "The milestone lifecycle",
+      "cj-m1-pill": "Pending", "cj-m2-pill": "In progress", "cj-m3-pill": "Evidence submitted", "cj-m4-pill": "Verified",
+      "cj-m1-d": "Defined with written acceptance criteria and a target epoch. Not started.",
+      "cj-m2-d": "The builder is working toward the criteria. No evidence yet.",
+      "cj-m3-d": "Evidence is attached and awaiting check against the criteria.",
+      "cj-m4-d": "The evidence meets the criteria. Recorded as a new event — never overwritten.",
+      "cj-ev-h": "What counts as evidence",
+      "cj-ex-h": "Worked examples",
+      "cj-bound-h": "What is not enabled",
+      "ft-builder": "Builder onboarding", "ft-projects": "Projects", "ft-about": "About",
+      "ms-verified": "Verified", "ms-in_progress": "In progress", "ms-evidence_submitted": "Evidence submitted", "ms-pending": "Pending", "ms-revision_requested": "Revision requested",
+      "camp-completed": "Completed", "camp-active": "Active", "camp-under_review": "Under review", "camp-submitted": "Submitted", "camp-draft": "Draft", "camp-withdrawn": "Withdrawn", "camp-lapsed": "Lapsed",
+      "cj-epoch": "epoch", "cj-scope": "of campaign scope", "cj-captured": "captured", "cj-noev": "No evidence yet — this milestone has not been completed.",
+      "cj-auth-A": "On-chain — objective and reproducible from the chain itself.",
+      "cj-auth-B": "Official — published by the team or program (a release, a deployed page).",
+      "cj-auth-C": "At-risk — a source likely to disappear; preserved here while it exists.",
+      "cj-auth-D": "Community — a third-party or directory record.",
+      "cj-auth-E": "Researcher — a derived or analytical observation.",
+      "cj-demo-html": "<strong>Demonstration only.</strong> The campaigns and evidence below are illustrative — not real, and no funds are involved. They exist so the full lifecycle can be seen before any real campaign or money exists.",
+      "cj-camp-p-html": "A campaign moves through visible states. It never jumps straight to an outcome — every state, and every change between states, is recorded. Two more states exist for honesty: a campaign can be <span class=\"bf-pill bf-stop\">Withdrawn</span> by the builder or <span class=\"bf-pill bf-stop\">Lapsed</span> if its milestones go unmet. Neither is hidden.",
+      "cj-camp-foot-html": "There are no scores and no ranking between campaigns. A campaign's state describes only itself.",
+      "cj-ms-p-html": "Each milestone has its own small lifecycle. This is the core idea of the Builders Fund: a campaign is checked <em>in pieces</em>, against criteria written in advance, rather than judged all at once at the end. A milestone that falls short returns to <span class=\"bf-pill bf-stop\">Revision requested</span> — recorded, not erased.",
+      "cj-ms-foot-html": "In a future governed version, reaching <span class=\"bf-pill bf-ok\">Verified</span> would be the gate that releases a funding tranche — proof first, funds after. That step is deliberately not built yet.",
+      "cj-ev-1-html": "Evidence is what makes a milestone checkable without trusting anyone. Each item is a concrete artifact — a release tag, a deployed page, a document, or an on-chain transaction — and each is preserved the same way the rest of this ecosystem preserves things: with a <strong>snapshot</strong> (so it survives link rot) and a <strong>SHA-256 hash</strong> (so it cannot be quietly changed). The record is append-only and hash-chained.",
+      "cj-ev-2-html": "Every piece of evidence carries an <strong>authority class</strong>, the same five-level scale used across the ecosystem, so the strength of a proof is always visible:",
+      "cj-ex-intro-html": "Three demonstration campaigns at three points in the lifecycle: one completed (every milestone verified, with evidence), one active (mixed states), and one just submitted (milestones defined, nothing started). This is the full lifecycle, end to end. The builder's-eye view is on the <a href=\"builder-journey.html\">builder onboarding</a> page.",
+      "cj-bound-1-html": "<strong>No money</strong> — no amounts, balances, or currency are handled or shown.",
+      "cj-bound-2-html": "<strong>No contributions</strong> — there is nothing to fund or pay into.",
+      "cj-bound-3-html": "<strong>No custody</strong> — no funds are held, escrowed, or controlled.",
+      "cj-bound-4-html": "<strong>No settlement</strong> — nothing is paid out or transferred. The preview ends at the public record.",
+      "cj-foot-html": "<strong>Next:</strong> read the <a href=\"builder-journey.html\">builder onboarding</a> path, browse <a href=\"projects.html\">projects</a> and the <a href=\"ecosystem.html\">ecosystem</a>, or the read-only API at <a href=\"https://api.asy.life/docs\">api.asy.life</a>.",
+    },
+    ja: {
+      "cj-title": "キャンペーンの仕組み",
+      "cj-lede": "キャンペーンとは、範囲の定まった一つの仕事であり、マイルストーンに分割され、それぞれが出典付きエビデンスで裏付けられます。このページは、キャンペーンが経る状態、マイルストーンが経る状態、そして何がエビデンスになるかを — デモ記録で示します。読み取り専用プレビュー: ここに資金は一切関与しません。",
+      "cj-ha-l1": "ライフサイクル", "cj-ha-v1": "提出 → 検証済み",
+      "cj-ha-l2": "ゲート", "cj-ha-v2": "エビデンス裏付け",
+      "cj-ha-l3": "資金", "cj-ha-v3": "なし — 未対応",
+      "cj-camp-h": "キャンペーンのライフサイクル",
+      "cj-c1-pill": "提出済み", "cj-c2-pill": "レビュー中", "cj-c3-pill": "進行中", "cj-c4-pill": "完了",
+      "cj-c1-d": "ビルダーがキャンペーンを公開します: 目標と一連のマイルストーン。初日から公開。",
+      "cj-c2-d": "範囲とマイルストーンが明確さの観点で読まれます — 受理条件は事前に確認可能か？",
+      "cj-c3-d": "作業が進行中。マイルストーンが一つずつ完了し、エビデンスが提出・検証されます。",
+      "cj-c4-d": "全マイルストーンが検証済み。キャンペーンは、何が作られたかの完全で出典付きの記録として終了します。",
+      "cj-ms-h": "マイルストーンのライフサイクル",
+      "cj-m1-pill": "未着手", "cj-m2-pill": "進行中", "cj-m3-pill": "エビデンス提出済み", "cj-m4-pill": "検証済み",
+      "cj-m1-d": "文書化された受理条件と目標エポックを伴い定義済み。未着手。",
+      "cj-m2-d": "ビルダーが条件に向けて作業中。まだエビデンスなし。",
+      "cj-m3-d": "エビデンスが添付され、条件との照合を待っています。",
+      "cj-m4-d": "エビデンスが条件を満たす。新しいイベントとして記録 — 上書きなし。",
+      "cj-ev-h": "何がエビデンスになるか",
+      "cj-ex-h": "実例",
+      "cj-bound-h": "対応していないこと",
+      "ft-builder": "ビルダー オンボーディング", "ft-projects": "プロジェクト", "ft-about": "概要",
+      "ms-verified": "検証済み", "ms-in_progress": "進行中", "ms-evidence_submitted": "エビデンス提出済み", "ms-pending": "未着手", "ms-revision_requested": "修正依頼",
+      "camp-completed": "完了", "camp-active": "進行中", "camp-under_review": "レビュー中", "camp-submitted": "提出済み", "camp-draft": "下書き", "camp-withdrawn": "取り下げ", "camp-lapsed": "失効",
+      "cj-epoch": "エポック", "cj-scope": "（キャンペーン全体に対する割合）", "cj-captured": "取得", "cj-noev": "まだエビデンスはありません — このマイルストーンは未完了です。",
+      "cj-auth-A": "オンチェーン — 客観的で、チェーン自体から再現可能。",
+      "cj-auth-B": "公式 — チームまたはプログラムが公開（リリース、公開ページ）。",
+      "cj-auth-C": "消失リスク — 消える可能性が高いソース。存在するうちにここで保全。",
+      "cj-auth-D": "コミュニティ — 第三者またはディレクトリの記録。",
+      "cj-auth-E": "研究者 — 導出または分析による観測。",
+      "cj-demo-html": "<strong>デモのみ。</strong> 以下のキャンペーンとエビデンスは説明用であり、実在せず、資金も一切関与しません。実際のキャンペーンや資金が存在する前に、ライフサイクル全体を確認できるようにするためのものです。",
+      "cj-camp-p-html": "キャンペーンは可視の状態を経て進みます。結果へ直接飛ぶことはなく — すべての状態と、状態間のすべての変化が記録されます。正直さのため、さらに2つの状態があります: キャンペーンはビルダーにより <span class=\"bf-pill bf-stop\">取り下げ</span> されることも、マイルストーンが未達なら <span class=\"bf-pill bf-stop\">失効</span> することもあります。どちらも隠されません。",
+      "cj-camp-foot-html": "スコアも、キャンペーン間の順位付けもありません。キャンペーンの状態は、それ自身だけを記述します。",
+      "cj-ms-p-html": "各マイルストーンには、それ自身の小さなライフサイクルがあります。これがビルダーズ・ファンドの核心です: キャンペーンは最後に一括で判断されるのではなく、事前に書かれた条件に照らして<em>小分けに</em>確認されます。条件に満たないマイルストーンは <span class=\"bf-pill bf-stop\">修正依頼</span> に戻ります — 消去ではなく、記録されます。",
+      "cj-ms-foot-html": "将来のガバナンス付きバージョンでは、<span class=\"bf-pill bf-ok\">検証済み</span> への到達が資金トランシェを解放するゲートとなります — 証明が先、資金が後。その段階は意図的にまだ構築されていません。",
+      "cj-ev-1-html": "エビデンスは、誰も信頼せずにマイルストーンを確認可能にするものです。各項目は具体的な成果物 — リリースタグ、公開ページ、ドキュメント、オンチェーン取引 — であり、それぞれがこのエコシステムの他の保全方法と同じく、<strong>スナップショット</strong>（リンク切れに耐える）と <strong>SHA-256 ハッシュ</strong>（密かな変更を防ぐ）で保全されます。記録は追記専用でハッシュチェーン連結です。",
+      "cj-ev-2-html": "すべてのエビデンスは、エコシステム全体で使われる同じ5段階の<strong>権威クラス</strong>を伴うため、証明の強さが常に可視です:",
+      "cj-ex-intro-html": "ライフサイクルの3地点にある3つのデモキャンペーン: 完了（全マイルストーン検証済み、エビデンス付き）、進行中（状態が混在）、提出直後（マイルストーン定義済み、未着手）。これが端から端までの完全なライフサイクルです。ビルダー視点は<a href=\"builder-journey.html\">ビルダー オンボーディング</a>ページにあります。",
+      "cj-bound-1-html": "<strong>資金なし</strong> — 金額・残高・通貨を扱わず、表示もしません。",
+      "cj-bound-2-html": "<strong>拠出なし</strong> — 資金提供や払込の対象はありません。",
+      "cj-bound-3-html": "<strong>保管なし</strong> — 資金を保持・エスクロー・管理しません。",
+      "cj-bound-4-html": "<strong>決済なし</strong> — 支払いも送金も行いません。プレビューは公開記録で終わります。",
+      "cj-foot-html": "<strong>次へ:</strong> <a href=\"builder-journey.html\">ビルダー オンボーディング</a>の行程を読む、<a href=\"projects.html\">プロジェクト</a>や<a href=\"ecosystem.html\">エコシステム</a>を閲覧する、または読み取り専用APIを <a href=\"https://api.asy.life/docs\">api.asy.life</a> で見る。",
+    },
+  };
+  if (typeof i18n !== "undefined") { Object.assign(i18n.en, P.en); Object.assign(i18n.ja, P.ja); if (typeof setLang === "function") setLang(lang()); }
+
+  const HTML_IDS = ["cj-demo", "cj-camp-p", "cj-camp-foot", "cj-ms-p", "cj-ms-foot", "cj-ev-1", "cj-ev-2", "cj-ex-intro", "cj-bound-1", "cj-bound-2", "cj-bound-3", "cj-bound-4", "cj-foot"];
+  function paintStatic() { HTML_IDS.forEach((id) => { const el = document.getElementById(id); if (el) el.innerHTML = tt(id + "-html"); }); }
+
+  function renderEvidence(ev) {
+    if (!ev || !ev.length) return '<div class="bf-ev-none">' + esc(tt("cj-noev")) + "</div>";
+    return ev.map(function (e) {
+      var link = e.url ? '<a href="' + esc(e.url) + '" target="_blank" rel="noopener">' + esc(pickL(e, "label")) + "</a>" : esc(pickL(e, "label"));
+      var wb = e.wayback_url ? ' · <a href="' + esc(e.wayback_url) + '" target="_blank" rel="noopener">Wayback</a>' : "";
+      var sha = e.sha256 ? "sha256 " + esc(e.sha256.slice(0, 12)) + "…" : "";
+      var authChip = '<span class="auth-chip auth-' + esc(e.authority_class || "D") + '">' + esc(e.authority_class || "D") + "</span>";
+      return '<div class="bf-ev">' + authChip + " " + link + wb +
+        '<div class="bf-ev-meta">' + esc(tt("cj-captured")) + " " + esc(e.captured_at || "—") + (sha ? " · " + sha : "") + "</div></div>";
+    }).join("");
+  }
+
+  function renderMilestone(m) {
+    var pill = MS_PILL[m.status] || "bf-muted";
+    return '<div class="bf-ms"><div class="bf-ms-head">' +
+      '<div class="bf-ms-title"><span class="bf-ms-n">' + esc(m.n) + "/" + esc(m.of) + "</span>" + esc(pickL(m, "title")) + "</div>" +
+      '<span class="bf-pill ' + pill + '">' + esc(tt("ms-" + m.status)) + "</span></div>" +
+      '<div class="bf-ms-crit">' + esc(pickL(m, "criteria")) + "</div>" +
+      '<div class="bf-ms-crit" style="color:var(--faint);font-size:.78rem">' + esc(m.scope_share) + "% " + esc(tt("cj-scope")) +
+      " · " + esc(tt("cj-epoch")) + " " + esc(m.target_epoch) + "</div>" +
+      renderEvidence(m.evidence) + "</div>";
+  }
+
+  function renderBuilderCard(b) {
+    var c = b.campaign;
+    var pill = CAMP_PILL[c.status] || "bf-muted";
+    return '<div class="bf-example"><div class="bf-ex-head">' +
+      '<div><span class="bf-ex-name">' + esc(b.name) + '</span> <span class="bf-ex-kind">· ' + esc(pickL(b, "kind")) + "</span></div>" +
+      '<span class="bf-pill ' + pill + '">' + esc(tt("camp-" + c.status)) + "</span></div>" +
+      '<div class="bf-ex-kind" style="font-weight:650;color:var(--text);margin-top:6px">' + esc(pickL(c, "title")) + "</div>" +
+      '<div class="bf-ex-goal">' + esc(pickL(c, "goal")) + "</div>" +
+      c.milestones.map(renderMilestone).join("") + "</div>";
+  }
+
+  var DATA = null;
+  function renderExamples() {
+    var host = document.getElementById("cj-examples");
+    if (!host) return;
+    if (!DATA) { host.innerHTML = ""; return; }
+    var order = { completed: 0, active: 1, under_review: 2, submitted: 3, draft: 4, withdrawn: 5, lapsed: 6 };
+    var bs = DATA.builders.slice().sort(function (a, b) { return (order[a.campaign.status] || 9) - (order[b.campaign.status] || 9); });
+    host.innerHTML = bs.map(renderBuilderCard).join("");
+  }
+
+  function repaint() { paintStatic(); renderExamples(); }
+
+  function boot() {
+    document.addEventListener("cdo-lang", repaint);
+    paintStatic();
+    fetch("builders-fund-demo.json").then(function (r) { return r.json(); }).then(function (j) { DATA = j; renderExamples(); }).catch(function () {
+      var host = document.getElementById("cj-examples"); if (host) host.innerHTML = '<p class="bf-ev-none">Demo records unavailable.</p>';
+    });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
+})();
+</script>
+</body>
+</html>

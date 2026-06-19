@@ -1,0 +1,221 @@
+{
+  "demo": true,
+  "notice_en": "Demonstration data only. These builders, campaigns, milestones, and evidence are illustrative — not real, and no funds are involved. This seed exists so the full lifecycle can be seen before any real campaign or money exists.",
+  "notice_ja": "これはデモ用データです。ここに表示されるビルダー・キャンペーン・マイルストーン・エビデンスは説明用であり、実在せず、資金も一切関与しません。実際のキャンペーンや資金が存在する前に、ライフサイクル全体を確認できるようにするためのシードです。",
+  "generated": "static demo seed · no database, no writes",
+  "fund": {
+    "name_en": "Builders Fund — preview",
+    "name_ja": "ビルダーズ・ファンド — プレビュー"
+  },
+  "builders": [
+    {
+      "id": "demo-meridian-tools",
+      "name": "Meridian Tooling Collective",
+      "kind_en": "Open-source developer tooling",
+      "kind_ja": "オープンソース開発者ツール",
+      "summary_en": "A small team building command-line tooling for Cardano governance participants. A completed campaign — every milestone verified, every claim sourced.",
+      "summary_ja": "Cardano ガバナンス参加者向けのコマンドラインツールを開発する小規模チーム。完了したキャンペーン — 全マイルストーンが検証済み、全主張が出典付き。",
+      "links": [
+        { "kind": "website", "url": "https://example.org/demo/meridian" },
+        { "kind": "github", "url": "https://github.com/example-demo/governance-cli" }
+      ],
+      "campaign": {
+        "id": "demo-campaign-gov-cli",
+        "title_en": "Governance CLI Toolkit",
+        "title_ja": "ガバナンスCLIツールキット",
+        "status": "completed",
+        "opened_epoch": 596,
+        "closed_epoch": 624,
+        "goal_en": "Ship an open-source command-line toolkit that lets any delegator inspect DRep voting records, governance actions, and treasury withdrawals directly from public data — no website required.",
+        "goal_ja": "あらゆる委任者が、DRepの投票記録・ガバナンスアクション・トレジャリー出金を公開データから直接確認できるオープンソースのコマンドラインツールキットを、ウェブサイト不要で提供する。",
+        "milestones": [
+          {
+            "id": "m1", "n": 1, "of": 4, "scope_share": 25,
+            "status": "verified", "target_epoch": 602,
+            "title_en": "Specification & public design doc",
+            "title_ja": "仕様書と公開設計ドキュメント",
+            "criteria_en": "A published, versioned design document describing the command set, the public data sources used, and the output formats. Acceptance: document is public and references only open, citable sources.",
+            "criteria_ja": "コマンド一式・使用する公開データソース・出力形式を記述した、公開・バージョン管理された設計ドキュメント。受理条件: ドキュメントが公開され、オープンで引用可能なソースのみを参照していること。",
+            "evidence": [
+              { "kind": "document", "label_en": "DESIGN.md v1.0", "label_ja": "DESIGN.md v1.0",
+                "url": "https://github.com/example-demo/governance-cli/blob/v0.1.0/DESIGN.md",
+                "captured_at": "2026-01-22", "wayback_url": "https://web.archive.org/web/20260122150400/https://github.com/example-demo/governance-cli/blob/v0.1.0/DESIGN.md",
+                "sha256": "a1b2c3d4e5f60718293a4b5c6d7e8f901a2b3c4d5e6f70819a2b3c4d5e6f7081", "authority_class": "B" }
+            ]
+          },
+          {
+            "id": "m2", "n": 2, "of": 4, "scope_share": 25,
+            "status": "verified", "target_epoch": 610,
+            "title_en": "Alpha release — read commands",
+            "title_ja": "アルファ版 — 読み取りコマンド",
+            "criteria_en": "A tagged alpha release implementing the read-only commands (dreps, actions, treasury) against public APIs. Acceptance: release is downloadable and a recorded run reproduces the documented output.",
+            "criteria_ja": "公開APIに対し読み取り専用コマンド（dreps・actions・treasury）を実装したタグ付きアルファ版。受理条件: リリースがダウンロード可能で、記録された実行がドキュメント通りの出力を再現すること。",
+            "evidence": [
+              { "kind": "github-release", "label_en": "v0.2.0-alpha release", "label_ja": "v0.2.0-alpha リリース",
+                "url": "https://github.com/example-demo/governance-cli/releases/tag/v0.2.0-alpha",
+                "captured_at": "2026-03-05", "wayback_url": "https://web.archive.org/web/20260305101200/https://github.com/example-demo/governance-cli/releases/tag/v0.2.0-alpha",
+                "sha256": "b2c3d4e5f60718293a4b5c6d7e8f901a2b3c4d5e6f70819a2b3c4d5e6f7081a2", "authority_class": "B" }
+            ]
+          },
+          {
+            "id": "m3", "n": 3, "of": 4, "scope_share": 25,
+            "status": "verified", "target_epoch": 618,
+            "title_en": "Documentation & reproducible examples",
+            "title_ja": "ドキュメントと再現可能な例",
+            "criteria_en": "Full command reference plus a set of copy-paste examples whose outputs can be independently reproduced. Acceptance: a reviewer reproduces three examples and the outputs match.",
+            "criteria_ja": "完全なコマンドリファレンスと、出力を独立に再現できるコピペ可能な例一式。受理条件: レビュアーが3つの例を再現し、出力が一致すること。",
+            "evidence": [
+              { "kind": "deployment", "label_en": "Published docs site", "label_ja": "公開ドキュメントサイト",
+                "url": "https://example.org/demo/meridian/docs",
+                "captured_at": "2026-04-11", "wayback_url": "https://web.archive.org/web/20260411090000/https://example.org/demo/meridian/docs",
+                "sha256": "c3d4e5f60718293a4b5c6d7e8f901a2b3c4d5e6f70819a2b3c4d5e6f7081a2b3", "authority_class": "B" }
+            ]
+          },
+          {
+            "id": "m4", "n": 4, "of": 4, "scope_share": 25,
+            "status": "verified", "target_epoch": 624,
+            "title_en": "v1.0 release & maintenance plan",
+            "title_ja": "v1.0 リリースと保守計画",
+            "criteria_en": "A stable v1.0 release under an open licence, plus a written maintenance commitment. Acceptance: release tag exists, licence is open (Apache-2.0/MIT), maintenance note is public.",
+            "criteria_ja": "オープンライセンス下での安定版v1.0リリースと、文書化された保守コミットメント。受理条件: リリースタグが存在し、ライセンスがオープン（Apache-2.0/MIT）で、保守に関する記載が公開されていること。",
+            "evidence": [
+              { "kind": "github-release", "label_en": "v1.0.0 release", "label_ja": "v1.0.0 リリース",
+                "url": "https://github.com/example-demo/governance-cli/releases/tag/v1.0.0",
+                "captured_at": "2026-05-28", "wayback_url": "https://web.archive.org/web/20260528120000/https://github.com/example-demo/governance-cli/releases/tag/v1.0.0",
+                "sha256": "d4e5f60718293a4b5c6d7e8f901a2b3c4d5e6f70819a2b3c4d5e6f7081a2b3c4", "authority_class": "B" },
+              { "kind": "on-chain-tx", "label_en": "Reference metadata transaction", "label_ja": "参照メタデータ取引",
+                "url": "https://cardanoscan.io/transaction/demo0000000000000000000000000000000000000000000000000000000000",
+                "captured_at": "2026-05-28", "wayback_url": "",
+                "sha256": "e5f60718293a4b5c6d7e8f901a2b3c4d5e6f70819a2b3c4d5e6f7081a2b3c4d5", "authority_class": "A" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "demo-aurora-wallet",
+      "name": "Aurora Wallet",
+      "kind_en": "Open wallet SDK",
+      "kind_ja": "オープン・ウォレットSDK",
+      "summary_en": "A team building an open wallet SDK. A campaign in flight — earlier milestones verified, one milestone under review, one still ahead.",
+      "summary_ja": "オープン・ウォレットSDKを開発するチーム。進行中のキャンペーン — 初期マイルストーンは検証済み、1件はレビュー中、1件はこれから。",
+      "links": [
+        { "kind": "website", "url": "https://example.org/demo/aurora" },
+        { "kind": "github", "url": "https://github.com/example-demo/wallet-sdk" }
+      ],
+      "campaign": {
+        "id": "demo-campaign-wallet-sdk",
+        "title_en": "Open Wallet SDK v1",
+        "title_ja": "オープン・ウォレットSDK v1",
+        "status": "active",
+        "opened_epoch": 614,
+        "closed_epoch": null,
+        "goal_en": "Build a documented, open-source SDK that lets developers add Cardano wallet features without depending on any single closed service.",
+        "goal_ja": "開発者が単一のクローズドなサービスに依存せず Cardano のウォレット機能を追加できる、ドキュメント完備のオープンソースSDKを構築する。",
+        "milestones": [
+          {
+            "id": "m1", "n": 1, "of": 4, "scope_share": 25,
+            "status": "verified", "target_epoch": 620,
+            "title_en": "API surface specification",
+            "title_ja": "APIサーフェス仕様",
+            "criteria_en": "A public specification of the SDK's API surface and supported standards. Acceptance: spec is public and lists each supported CIP.",
+            "criteria_ja": "SDKのAPIサーフェスと対応標準の公開仕様。受理条件: 仕様が公開され、対応する各CIPが列挙されていること。",
+            "evidence": [
+              { "kind": "document", "label_en": "API_SPEC.md", "label_ja": "API_SPEC.md",
+                "url": "https://github.com/example-demo/wallet-sdk/blob/main/API_SPEC.md",
+                "captured_at": "2026-05-30", "wayback_url": "https://web.archive.org/web/20260530080000/https://github.com/example-demo/wallet-sdk/blob/main/API_SPEC.md",
+                "sha256": "f60718293a4b5c6d7e8f901a2b3c4d5e6f70819a2b3c4d5e6f7081a2b3c4d5e6", "authority_class": "B" }
+            ]
+          },
+          {
+            "id": "m2", "n": 2, "of": 4, "scope_share": 25,
+            "status": "verified", "target_epoch": 628,
+            "title_en": "Alpha SDK with test suite",
+            "title_ja": "テストスイート付きアルファSDK",
+            "criteria_en": "A tagged alpha with a passing public test suite. Acceptance: CI run is public and green on the tagged commit.",
+            "criteria_ja": "公開テストスイートに合格したタグ付きアルファ。受理条件: タグ付きコミットでCIの実行が公開され成功していること。",
+            "evidence": [
+              { "kind": "github-release", "label_en": "v0.2.0-alpha", "label_ja": "v0.2.0-alpha",
+                "url": "https://github.com/example-demo/wallet-sdk/releases/tag/v0.2.0-alpha",
+                "captured_at": "2026-06-08", "wayback_url": "https://web.archive.org/web/20260608110000/https://github.com/example-demo/wallet-sdk/releases/tag/v0.2.0-alpha",
+                "sha256": "0718293a4b5c6d7e8f901a2b3c4d5e6f70819a2b3c4d5e6f7081a2b3c4d5e6f7", "authority_class": "B" }
+            ]
+          },
+          {
+            "id": "m3", "n": 3, "of": 4, "scope_share": 25,
+            "status": "evidence_submitted", "target_epoch": 636,
+            "title_en": "Beta SDK & integration guide",
+            "title_ja": "ベータSDKと統合ガイド",
+            "criteria_en": "A beta release plus an integration guide a third party can follow end-to-end. Acceptance pending: a reviewer must complete the guide against the beta and confirm it works.",
+            "criteria_ja": "ベータ版と、第三者が最初から最後まで辿れる統合ガイド。受理保留中: レビュアーがベータ版でガイドを完遂し、動作を確認する必要があります。",
+            "evidence": [
+              { "kind": "github-release", "label_en": "v0.3.0-beta (submitted, under review)", "label_ja": "v0.3.0-beta（提出済み・レビュー中）",
+                "url": "https://github.com/example-demo/wallet-sdk/releases/tag/v0.3.0-beta",
+                "captured_at": "2026-06-17", "wayback_url": "https://web.archive.org/web/20260617130000/https://github.com/example-demo/wallet-sdk/releases/tag/v0.3.0-beta",
+                "sha256": "18293a4b5c6d7e8f901a2b3c4d5e6f70819a2b3c4d5e6f7081a2b3c4d5e6f708", "authority_class": "B" }
+            ]
+          },
+          {
+            "id": "m4", "n": 4, "of": 4, "scope_share": 25,
+            "status": "pending", "target_epoch": 644,
+            "title_en": "v1.0 stable release",
+            "title_ja": "v1.0 安定版リリース",
+            "criteria_en": "A stable v1.0 under an open licence with semantic-versioning guarantees. Not started.",
+            "criteria_ja": "セマンティックバージョニングを保証するオープンライセンス下の安定版v1.0。未着手。",
+            "evidence": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "demo-plutus-forge",
+      "name": "Plutus Forge",
+      "kind_en": "Smart-contract audit framework",
+      "kind_ja": "スマートコントラクト監査フレームワーク",
+      "summary_en": "A team proposing an open audit framework. A newly submitted campaign — milestones defined, nothing started, awaiting review.",
+      "summary_ja": "オープンな監査フレームワークを提案するチーム。新規提出されたキャンペーン — マイルストーンは定義済み、未着手、レビュー待ち。",
+      "links": [
+        { "kind": "website", "url": "https://example.org/demo/plutus-forge" }
+      ],
+      "campaign": {
+        "id": "demo-campaign-audit-mvp",
+        "title_en": "Audit Framework MVP",
+        "title_ja": "監査フレームワークMVP",
+        "status": "submitted",
+        "opened_epoch": 632,
+        "closed_epoch": null,
+        "goal_en": "Produce an open, reproducible framework for documenting smart-contract audits so results can be verified by anyone, not just the auditor.",
+        "goal_ja": "監査結果を監査者以外の誰もが検証できるよう、スマートコントラクト監査を文書化するための、オープンで再現可能なフレームワークを作成する。",
+        "milestones": [
+          {
+            "id": "m1", "n": 1, "of": 3, "scope_share": 34,
+            "status": "pending", "target_epoch": 640,
+            "title_en": "Framework specification",
+            "title_ja": "フレームワーク仕様",
+            "criteria_en": "A public specification of the audit-record format and verification procedure. Not started.",
+            "criteria_ja": "監査記録の形式と検証手順の公開仕様。未着手。",
+            "evidence": []
+          },
+          {
+            "id": "m2", "n": 2, "of": 3, "scope_share": 33,
+            "status": "pending", "target_epoch": 648,
+            "title_en": "Reference implementation",
+            "title_ja": "リファレンス実装",
+            "criteria_en": "An open-source reference tool that produces and validates audit records. Not started.",
+            "criteria_ja": "監査記録を生成・検証するオープンソースの参照ツール。未着手。",
+            "evidence": []
+          },
+          {
+            "id": "m3", "n": 3, "of": 3, "scope_share": 33,
+            "status": "pending", "target_epoch": 656,
+            "title_en": "Worked example audit",
+            "title_ja": "実例による監査",
+            "criteria_en": "One complete, reproducible audit published using the framework. Not started.",
+            "criteria_ja": "フレームワークを用いて公開された、完全で再現可能な監査1件。未着手。",
+            "evidence": []
+          }
+        ]
+      }
+    }
+  ]
+}

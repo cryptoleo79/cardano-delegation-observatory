@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Builder onboarding — Builders Fund preview — asy.life</title>
+<meta name="description" content="How a builder would appear, propose a campaign, define milestones, and submit sourced evidence in the Builders Fund. Read-only preview — no money, no custody, no settlement.">
+<meta name="theme-color" content="#fafaf7">
+<meta property="og:title" content="Builder onboarding — Builders Fund preview">
+<meta property="og:description" content="The full builder lifecycle — campaign, milestones, evidence, verification — before any real funds exist. Read-only preview.">
+<link rel="stylesheet" href="style.css">
+<style>
+  .bf-demo-banner{background:rgba(180,140,30,.10);border:1px solid rgba(180,140,30,.30);border-radius:10px;padding:12px 16px;margin:0 0 22px;color:#7a5f10;font-size:.92rem;line-height:1.5}
+  .bf-demo-banner strong{color:#6a520d}
+  .bf-block{margin:24px 0}
+  .bf-block h2{font-size:1.25rem;color:var(--accent-strong);margin:0 0 8px}
+  .bf-block p{color:var(--text);line-height:1.6;margin:0 0 10px}
+  .bf-pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:14px 0}
+  .bf-pillar{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+  .bf-pillar .bf-p-h{font-weight:700;color:var(--accent-strong);margin-bottom:4px}
+  .bf-pillar .bf-p-d{color:var(--muted);font-size:.9rem;line-height:1.45}
+  .bf-steps{list-style:none;padding:0;margin:14px 0;counter-reset:bfstep}
+  .bf-step{position:relative;padding:0 0 18px 46px;border-left:2px solid var(--border-strong);margin-left:14px}
+  .bf-step:last-child{border-left-color:transparent}
+  .bf-step::before{counter-increment:bfstep;content:counter(bfstep);position:absolute;left:-15px;top:0;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;font-size:.85rem;display:flex;align-items:center;justify-content:center}
+  .bf-step h3{margin:2px 0 4px;font-size:1.02rem;color:var(--text)}
+  .bf-step p{margin:0;color:var(--muted);font-size:.92rem;line-height:1.5}
+  .bf-pill{display:inline-block;font-size:.72rem;font-weight:600;padding:2px 9px;border-radius:11px;border:1px solid var(--border);letter-spacing:.02em;vertical-align:middle}
+  .bf-ok{background:rgba(38,110,70,.10);color:#1d6b46;border-color:rgba(38,110,70,.25)}
+  .bf-go{background:var(--accent-soft);color:var(--accent-strong);border-color:rgba(44,86,112,.25)}
+  .bf-wait{background:rgba(180,140,30,.12);color:#8a6d12;border-color:rgba(180,140,30,.28)}
+  .bf-muted{background:rgba(0,0,0,.04);color:var(--muted)}
+  .bf-stop{background:rgba(150,40,40,.10);color:#963232;border-color:rgba(150,40,40,.25)}
+  .bf-example{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin:16px 0}
+  .bf-ex-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+  .bf-ex-name{font-weight:700;font-size:1.1rem;color:var(--accent-strong)}
+  .bf-ex-kind{font-size:.82rem;color:var(--faint)}
+  .bf-ex-goal{font-size:.92rem;color:var(--muted);line-height:1.5;margin:6px 0 12px}
+  .bf-ms{border-top:1px solid var(--border);padding:12px 0 4px}
+  .bf-ms-head{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+  .bf-ms-title{font-weight:650;font-size:.96rem}
+  .bf-ms-n{font-family:var(--mono);font-size:.72rem;color:var(--faint);margin-right:6px}
+  .bf-ms-crit{font-size:.86rem;color:var(--muted);line-height:1.5;margin:4px 0 8px}
+  .bf-ev{font-size:.82rem;background:var(--accent-soft);border:1px solid rgba(44,86,112,.14);border-radius:7px;padding:7px 10px;margin:5px 0}
+  .bf-ev a{word-break:break-all}
+  .bf-ev .bf-ev-meta{color:var(--faint);font-family:var(--mono);font-size:.72rem;margin-top:3px}
+  .bf-ev-none{font-size:.82rem;color:var(--faint);font-style:italic;margin:4px 0}
+  .bf-boundary{background:rgba(150,40,40,.06);border:1px solid rgba(150,40,40,.22);border-radius:10px;padding:14px 18px;margin:24px 0}
+  .bf-boundary h2{color:#8a2f2f;font-size:1.1rem;margin:0 0 8px}
+  .bf-boundary ul{margin:6px 0 0;padding-left:20px;color:var(--text)}
+  .bf-boundary li{margin:3px 0;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="ecosystem-strip"><div class="ecosystem-strip-inner">
+  <span class="eco-label" id="eco-label">Ecosystem</span>
+  <a href="https://ctf.asy.life" class="eco-link">CTF</a><span class="eco-sep">·</span>
+  <a href="https://observatory.asy.life" class="eco-link" id="eco-link-observatory">Observatory</a><span class="eco-sep">·</span>
+  <a href="https://voting.asy.life" class="eco-link" id="eco-link-voting">Voting</a><span class="eco-sep">·</span>
+  <a href="https://governance.asy.life" class="eco-link" id="eco-link-governance">Governance</a><span class="eco-sep">·</span>
+  <a href="https://api.asy.life" class="eco-link" id="eco-link-api">API</a><span class="eco-sep">·</span>
+  <a href="https://github.com/cryptoleo79" class="eco-link" target="_blank" rel="noopener">GitHub</a>
+</div></div>
+<header class="site-header"><div class="container header-inner">
+  <a href="/" class="brand"><span class="brand-mark">CDO</span><span class="brand-text" id="h-brand">Cardano Delegation Observatory</span></a>
+  <nav class="site-nav">
+    <a href="/" id="h-nav-observatory">Observatory</a>
+    <a href="tokens.html" id="h-nav-tokens">Tokens</a>
+    <a href="rankings.html" id="h-nav-rankings">Rankings</a>
+    <a href="projects.html" id="h-nav-projects">Projects</a>
+    <a href="ecosystem.html" id="h-nav-ecosystem">Ecosystem</a>
+    <a href="treasury.html" id="h-nav-treasury">Treasury</a>
+    <a href="catalyst.html" id="h-nav-catalyst">Catalyst</a>
+    <a href="market.html" id="h-nav-market">Market</a>
+    <a href="governance-health.html" id="h-nav-health">Health</a>
+    <a href="changes.html" id="h-nav-changes">Changes</a>
+    <a href="memory.html" id="h-nav-memory">Memory</a>
+    <div class="lang-toggle"><button id="btn-en" class="active" onclick="setLang('en')">EN</button><button id="btn-ja" onclick="setLang('ja')">日本語</button></div>
+  </nav>
+</div></header>
+
+<main><article class="container">
+  <div class="page-hero">
+    <div class="hero-main">
+      <h1 id="bj-title">Builder onboarding</h1>
+      <p class="lede" id="bj-lede">If you build on Cardano, here is how the Builders Fund would record your work — as a campaign, broken into milestones, each backed by sourced evidence anyone can check. You can read the whole path here without contacting anyone. This is a read-only preview: it shows the lifecycle, and nothing involves money.</p>
+    </div>
+    <div class="hero-aside">
+      <div><span class="ha-label" id="bj-ha-l1">Stage</span><div class="ha-value" id="bj-ha-v1">Preview — read-only</div></div>
+      <div style="margin-top:10px"><span class="ha-label" id="bj-ha-l2">Funds</span><div class="ha-value" id="bj-ha-v2">None — not enabled</div></div>
+      <div style="margin-top:10px"><span class="ha-label" id="bj-ha-l3">Records shown</span><div class="ha-value" id="bj-ha-v3">Demonstration only</div></div>
+    </div>
+  </div>
+
+  <div class="bf-demo-banner" id="bj-demo"></div>
+
+  <div class="bf-block">
+    <h2 id="bj-what-h">What is the Builders Fund?</h2>
+    <p id="bj-what-1"></p>
+    <p id="bj-what-2"></p>
+  </div>
+
+  <div class="bf-block">
+    <h2 id="bj-meet-h">Four things you will meet</h2>
+    <div class="bf-pillars">
+      <div class="bf-pillar"><div class="bf-p-h" id="bj-pl1-h">Builder</div><div class="bf-p-d" id="bj-pl1-d"></div></div>
+      <div class="bf-pillar"><div class="bf-p-h" id="bj-pl2-h">Campaign</div><div class="bf-p-d" id="bj-pl2-d"></div></div>
+      <div class="bf-pillar"><div class="bf-p-h" id="bj-pl3-h">Milestone</div><div class="bf-p-d" id="bj-pl3-d"></div></div>
+      <div class="bf-pillar"><div class="bf-p-h" id="bj-pl4-h">Evidence</div><div class="bf-p-d" id="bj-pl4-d"></div></div>
+    </div>
+  </div>
+
+  <div class="bf-block">
+    <h2 id="bj-path-h">Your journey, step by step</h2>
+    <ol class="bf-steps">
+      <li class="bf-step"><h3 id="bj-s1-h"></h3><p id="bj-s1-d"></p></li>
+      <li class="bf-step"><h3 id="bj-s2-h"></h3><p id="bj-s2-d"></p></li>
+      <li class="bf-step"><h3 id="bj-s3-h"></h3><p id="bj-s3-d"></p></li>
+      <li class="bf-step"><h3 id="bj-s4-h"></h3><p id="bj-s4-d"></p></li>
+      <li class="bf-step"><h3 id="bj-s5-h"></h3><p id="bj-s5-d"></p></li>
+      <li class="bf-step"><h3 id="bj-s6-h"></h3><p id="bj-s6-d"></p></li>
+    </ol>
+  </div>
+
+  <div class="bf-block">
+    <h2 id="bj-ex-h">A worked example</h2>
+    <p id="bj-ex-intro"></p>
+    <div id="bj-example"></div>
+  </div>
+
+  <div class="bf-boundary">
+    <h2 id="bj-bound-h">What is not enabled</h2>
+    <p id="bj-bound-p" style="margin:0 0 6px;color:var(--text);line-height:1.5"></p>
+    <ul>
+      <li id="bj-bound-1"></li>
+      <li id="bj-bound-2"></li>
+      <li id="bj-bound-3"></li>
+      <li id="bj-bound-4"></li>
+    </ul>
+  </div>
+
+  <p class="footnote" id="bj-foot"></p>
+</article></main>
+
+<footer class="site-footer"><div class="container footer-inner">
+  <div><span id="ft-license">Apache 2.0 code · CC0 data</span></div>
+  <div><a href="campaign-journey.html" id="ft-camp">How a campaign works</a> <a href="projects.html" id="ft-projects">Projects</a> <a href="about.html" id="ft-about">About</a></div>
+  <div class="footer-note" id="ft-note">Observe · preserve · serve. No scores, no judgment.</div>
+</div></footer>
+<script src="i18n.js"></script>
+<script>
+"use strict";
+(function () {
+  function lang() { return document.documentElement.lang === "ja" ? "ja" : "en"; }
+  function tt(k) { return (i18n[lang()] && i18n[lang()][k]) || (i18n.en[k] || k); }
+  function pickL(o, base) { return (o[base + "_" + lang()] != null ? o[base + "_" + lang()] : o[base + "_en"]) || ""; }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+
+  const MS_PILL = { verified: "bf-ok", in_progress: "bf-go", evidence_submitted: "bf-wait", pending: "bf-muted", revision_requested: "bf-stop" };
+  const CAMP_PILL = { completed: "bf-ok", active: "bf-go", under_review: "bf-wait", submitted: "bf-wait", draft: "bf-muted", withdrawn: "bf-stop", lapsed: "bf-stop" };
+
+  const P = {
+    en: {
+      "bj-title": "Builder onboarding",
+      "bj-lede": "If you build on Cardano, here is how the Builders Fund would record your work — as a campaign, broken into milestones, each backed by sourced evidence anyone can check. You can read the whole path here without contacting anyone. This is a read-only preview: it shows the lifecycle, and nothing involves money.",
+      "bj-ha-l1": "Stage", "bj-ha-v1": "Preview — read-only",
+      "bj-ha-l2": "Funds", "bj-ha-v2": "None — not enabled",
+      "bj-ha-l3": "Records shown", "bj-ha-v3": "Demonstration only",
+      "bj-what-h": "What is the Builders Fund?",
+      "bj-meet-h": "Four things you will meet",
+      "bj-pl1-h": "Builder", "bj-pl2-h": "Campaign", "bj-pl3-h": "Milestone", "bj-pl4-h": "Evidence",
+      "bj-path-h": "Your journey, step by step",
+      "bj-ex-h": "A worked example",
+      "bj-bound-h": "What is not enabled",
+      "ft-camp": "How a campaign works", "ft-projects": "Projects", "ft-about": "About",
+      "ms-verified": "Verified", "ms-in_progress": "In progress", "ms-evidence_submitted": "Evidence submitted", "ms-pending": "Pending", "ms-revision_requested": "Revision requested",
+      "camp-completed": "Completed", "camp-active": "Active", "camp-under_review": "Under review", "camp-submitted": "Submitted", "camp-draft": "Draft", "camp-withdrawn": "Withdrawn", "camp-lapsed": "Lapsed",
+      "bj-epoch": "epoch", "bj-scope": "of campaign scope", "bj-captured": "captured", "bj-noev": "No evidence yet — this milestone has not been completed.",
+      "auth-A-l": "A · on-chain", "auth-B-l": "B · official", "auth-C-l": "C · at-risk", "auth-D-l": "D · community", "auth-E-l": "E · researcher",
+      "bj-demo-html": "<strong>Demonstration only.</strong> The builders, campaigns, milestones, and evidence below are illustrative — not real, and no funds are involved. They exist so you can see the entire lifecycle before any real campaign or money exists.",
+      "bj-what-1-html": "The <strong>Builders Fund</strong> is a way to record builder funding the same way the rest of this ecosystem records everything else: as a public, sourced, append-only history. A builder proposes a <em>campaign</em>; the campaign is broken into <em>milestones</em>; each completed milestone is backed by <em>evidence</em> that carries its source and can be independently checked. Nothing is taken on trust, and nothing is overwritten.",
+      "bj-what-2-html": "Right now it is a <strong>read-only preview</strong>. There is no application form, no wallet connection, and no money. The point of this preview is understanding: a real builder should be able to see exactly how a campaign would work — what milestones are, what counts as evidence, and what happens at each step — without having to ask us.",
+      "bj-pl1-d-html": "You — a team or person building on Cardano. Your identity and profile come from <a href=\"projects.html\">Project Memory</a>, with its source attached. The Builders Fund does not re-invent who you are; it links to the record that already exists.",
+      "bj-pl2-d-html": "A scoped piece of work you propose: a clear goal and a set of milestones. A campaign moves through honest states — submitted, under review, active, completed — and the state is always visible.",
+      "bj-pl3-d-html": "A specific, verifiable deliverable inside a campaign, with written acceptance criteria and a target epoch. Milestones are how a campaign is checked in pieces, rather than judged all at once at the end.",
+      "bj-pl4-d-html": "The proof a milestone was met: a release, a deployed page, a document, or an on-chain transaction — each preserved with a snapshot and a SHA-256 hash, and tagged with an authority class. Evidence is what lets anyone verify a milestone without trusting anyone.",
+      "bj-s1-h": "You appear as a builder", "bj-s1-d": "Your team is identified from Project Memory — name, profile, links — with provenance already attached. If you are not in Project Memory yet, that record comes first; the Builders Fund links to it rather than duplicating it.",
+      "bj-s2-h": "You define a campaign", "bj-s2-d": "You describe one scoped body of work and its goal. The campaign starts as submitted and its state is public from the first day. No figures, no payment details — just the work and how it will be checked.",
+      "bj-s3-h": "You break it into milestones", "bj-s3-d": "You split the campaign into a small number of milestones, each with written acceptance criteria and a target epoch. Anyone reading them should be able to tell, in advance, what would count as done.",
+      "bj-s4-h": "You submit evidence", "bj-s4-d": "When a milestone is done, you attach evidence — a release tag, a deployed URL, a document, an on-chain transaction. Each item is preserved with a snapshot and a hash so the proof survives even if the original link later moves or disappears.",
+      "bj-s5-h": "Evidence is verified", "bj-s5-d": "A reviewer checks the evidence against the milestone's acceptance criteria. The milestone becomes Verified, or a revision is requested. Either outcome is recorded as a new event — nothing is erased, and the history stays legible.",
+      "bj-s6-h": "What happens next", "bj-s6-d": "In a future, governed version, each verified milestone would be the gate that releases a funding tranche — so funds would only ever follow proof, never precede it. That funded step is deliberately not built yet. This preview stops at the record of the work.",
+      "bj-ex-intro-html": "Here is one builder's path, drawn from the demonstration records. It is a campaign in flight — earlier milestones verified, one under review, one still ahead. For the full lifecycle across several campaigns, see <a href=\"campaign-journey.html\">how a campaign works</a>.",
+      "bj-bound-p-html": "This preview exists to build <strong>understanding</strong>, which is the current bottleneck — not payments. To be unambiguous, the following are <strong>not</strong> enabled anywhere in it:",
+      "bj-bound-1-html": "<strong>No money.</strong> No amounts, no balances, no currency of any kind is handled or displayed.",
+      "bj-bound-2-html": "<strong>No contributions.</strong> There is nothing to fund, pledge, or pay into.",
+      "bj-bound-3-html": "<strong>No custody.</strong> No funds are ever held, escrowed, or controlled.",
+      "bj-bound-4-html": "<strong>No settlement.</strong> Nothing is paid out, transferred, or settled. The preview ends at the public record of work and evidence.",
+      "bj-foot-html": "<strong>Next:</strong> see <a href=\"campaign-journey.html\">how a campaign works</a> in detail, browse real <a href=\"projects.html\">projects</a> and the <a href=\"ecosystem.html\">ecosystem</a>, or read the <a href=\"about.html\">about</a> page. The read-only data behind the ecosystem is at <a href=\"https://api.asy.life/docs\">api.asy.life</a>.",
+    },
+    ja: {
+      "bj-title": "ビルダー オンボーディング",
+      "bj-lede": "Cardano で開発するなら、ビルダーズ・ファンドがあなたの仕事をどう記録するかをここで確認できます — キャンペーンとして、マイルストーンに分割し、それぞれを誰でも検証できる出典付きエビデンスで裏付けます。誰にも問い合わせず、全行程をここで読めます。これは読み取り専用のプレビューで、ライフサイクルを示すものであり、資金は一切関与しません。",
+      "bj-ha-l1": "段階", "bj-ha-v1": "プレビュー — 読み取り専用",
+      "bj-ha-l2": "資金", "bj-ha-v2": "なし — 未対応",
+      "bj-ha-l3": "表示中の記録", "bj-ha-v3": "デモのみ",
+      "bj-what-h": "ビルダーズ・ファンドとは？",
+      "bj-meet-h": "出会う4つのもの",
+      "bj-pl1-h": "ビルダー", "bj-pl2-h": "キャンペーン", "bj-pl3-h": "マイルストーン", "bj-pl4-h": "エビデンス",
+      "bj-path-h": "あなたの行程、段階を追って",
+      "bj-ex-h": "実例による説明",
+      "bj-bound-h": "対応していないこと",
+      "ft-camp": "キャンペーンの仕組み", "ft-projects": "プロジェクト", "ft-about": "概要",
+      "ms-verified": "検証済み", "ms-in_progress": "進行中", "ms-evidence_submitted": "エビデンス提出済み", "ms-pending": "未着手", "ms-revision_requested": "修正依頼",
+      "camp-completed": "完了", "camp-active": "進行中", "camp-under_review": "レビュー中", "camp-submitted": "提出済み", "camp-draft": "下書き", "camp-withdrawn": "取り下げ", "camp-lapsed": "失効",
+      "bj-epoch": "エポック", "bj-scope": "（キャンペーン全体に対する割合）", "bj-captured": "取得", "bj-noev": "まだエビデンスはありません — このマイルストーンは未完了です。",
+      "auth-A-l": "A · オンチェーン", "auth-B-l": "B · 公式", "auth-C-l": "C · 消失リスク", "auth-D-l": "D · コミュニティ", "auth-E-l": "E · 研究者",
+      "bj-demo-html": "<strong>デモのみ。</strong> 以下のビルダー・キャンペーン・マイルストーン・エビデンスは説明用であり、実在せず、資金も一切関与しません。実際のキャンペーンや資金が存在する前に、ライフサイクル全体を確認できるようにするためのものです。",
+      "bj-what-1-html": "<strong>ビルダーズ・ファンド</strong>は、ビルダーへの資金提供を、このエコシステムが他のすべてを記録するのと同じ方法で記録する仕組みです: 公開・出典付き・追記専用の履歴として。ビルダーは<em>キャンペーン</em>を提案し、キャンペーンは<em>マイルストーン</em>に分割され、完了した各マイルストーンは、出典を伴い独立に検証できる<em>エビデンス</em>で裏付けられます。何も信頼に頼らず、何も上書きされません。",
+      "bj-what-2-html": "現在は<strong>読み取り専用のプレビュー</strong>です。申請フォームも、ウォレット接続も、資金もありません。このプレビューの目的は理解です: 実際のビルダーが、キャンペーンがどう機能するか — マイルストーンとは何か、何がエビデンスになるか、各段階で何が起きるか — を、私たちに尋ねることなく正確に把握できるようにすることです。",
+      "bj-pl1-d-html": "あなた — Cardano で開発するチームまたは個人。あなたの識別情報とプロフィールは<a href=\"projects.html\">Project Memory</a>から、出典を添えて取得されます。ビルダーズ・ファンドはあなたが誰かを作り直さず、既存の記録にリンクします。",
+      "bj-pl2-d-html": "あなたが提案する、範囲の定まった仕事: 明確な目標と一連のマイルストーン。キャンペーンは正直な状態 — 提出済み・レビュー中・進行中・完了 — を経て進み、状態は常に可視です。",
+      "bj-pl3-d-html": "キャンペーン内の、具体的で検証可能な成果物。文書化された受理条件と目標エポックを伴います。マイルストーンは、最後に一括で判断するのではなく、キャンペーンを小分けに確認する手段です。",
+      "bj-pl4-d-html": "マイルストーン達成の証明: リリース、公開ページ、ドキュメント、またはオンチェーン取引 — それぞれスナップショットとSHA-256ハッシュで保全され、権威クラスが付与されます。エビデンスは、誰も信頼せずにマイルストーンを検証可能にするものです。",
+      "bj-s1-h": "あなたはビルダーとして現れる", "bj-s1-d": "あなたのチームは Project Memory から識別されます — 名称・プロフィール・リンク — 出典付きで。まだ Project Memory にない場合は、その記録が先です。ビルダーズ・ファンドは複製せず、それにリンクします。",
+      "bj-s2-h": "あなたはキャンペーンを定義する", "bj-s2-d": "範囲の定まった一つの仕事とその目標を記述します。キャンペーンは提出済みとして始まり、初日から状態が公開されます。金額も支払い情報もなく — 仕事と、それをどう確認するかだけです。",
+      "bj-s3-h": "あなたはマイルストーンに分割する", "bj-s3-d": "キャンペーンを少数のマイルストーンに分け、それぞれに文書化された受理条件と目標エポックを設定します。読む人が、何をもって完了とするかを事前に判断できるべきです。",
+      "bj-s4-h": "あなたはエビデンスを提出する", "bj-s4-d": "マイルストーン完了時に、エビデンス — リリースタグ、公開URL、ドキュメント、オンチェーン取引 — を添付します。各項目はスナップショットとハッシュで保全され、元のリンクが後で移動・消失しても証明が残ります。",
+      "bj-s5-h": "エビデンスが検証される", "bj-s5-d": "レビュアーがエビデンスをマイルストーンの受理条件と照合します。マイルストーンは「検証済み」になるか、修正が依頼されます。いずれの結果も新しいイベントとして記録され — 何も消されず、履歴は読める状態のまま残ります。",
+      "bj-s6-h": "次に何が起きるか", "bj-s6-d": "将来のガバナンス付きバージョンでは、検証済みの各マイルストーンが資金トランシェを解放するゲートとなります — つまり資金は常に証明の後に続き、決して先行しません。その資金提供の段階は意図的にまだ構築されていません。このプレビューは仕事の記録までで止まります。",
+      "bj-ex-intro-html": "デモ記録から取った、あるビルダーの行程です。進行中のキャンペーン — 初期マイルストーンは検証済み、1件はレビュー中、1件はこれから。複数のキャンペーンにわたる完全なライフサイクルは、<a href=\"campaign-journey.html\">キャンペーンの仕組み</a>をご覧ください。",
+      "bj-bound-p-html": "このプレビューは、現在のボトルネックである<strong>理解</strong>を築くために存在します — 支払いではありません。誤解のないよう、以下はこのプレビューのどこでも<strong>対応していません</strong>:",
+      "bj-bound-1-html": "<strong>資金なし。</strong> 金額・残高・いかなる通貨も扱わず、表示もしません。",
+      "bj-bound-2-html": "<strong>拠出なし。</strong> 資金提供・誓約・払込の対象はありません。",
+      "bj-bound-3-html": "<strong>保管なし。</strong> 資金を保持・エスクロー・管理することは一切ありません。",
+      "bj-bound-4-html": "<strong>決済なし。</strong> 支払い・送金・決済は一切行いません。プレビューは仕事とエビデンスの公開記録で終わります。",
+      "bj-foot-html": "<strong>次へ:</strong> <a href=\"campaign-journey.html\">キャンペーンの仕組み</a>を詳しく見る、実際の<a href=\"projects.html\">プロジェクト</a>や<a href=\"ecosystem.html\">エコシステム</a>を閲覧する、または<a href=\"about.html\">概要</a>ページを読む。エコシステムを支える読み取り専用データは <a href=\"https://api.asy.life/docs\">api.asy.life</a> にあります。",
+    },
+  };
+  if (typeof i18n !== "undefined") { Object.assign(i18n.en, P.en); Object.assign(i18n.ja, P.ja); if (typeof setLang === "function") setLang(lang()); }
+
+  const HTML_IDS = ["bj-demo", "bj-what-1", "bj-what-2", "bj-pl1-d", "bj-pl2-d", "bj-pl3-d", "bj-pl4-d", "bj-ex-intro", "bj-bound-p", "bj-bound-1", "bj-bound-2", "bj-bound-3", "bj-bound-4", "bj-foot"];
+  function paintStatic() { HTML_IDS.forEach((id) => { const el = document.getElementById(id); if (el) el.innerHTML = tt(id + "-html"); }); }
+
+  function renderEvidence(ev) {
+    if (!ev || !ev.length) return '<div class="bf-ev-none">' + esc(tt("bj-noev")) + "</div>";
+    return ev.map(function (e) {
+      var link = e.url ? '<a href="' + esc(e.url) + '" target="_blank" rel="noopener">' + esc(pickL(e, "label")) + "</a>" : esc(pickL(e, "label"));
+      var wb = e.wayback_url ? ' · <a href="' + esc(e.wayback_url) + '" target="_blank" rel="noopener">Wayback</a>' : "";
+      var sha = e.sha256 ? "sha256 " + esc(e.sha256.slice(0, 12)) + "…" : "";
+      var cls = "auth-" + (e.authority_class || "D");
+      var authChip = '<span class="auth-chip ' + cls + '">' + esc(e.authority_class || "D") + "</span>";
+      return '<div class="bf-ev">' + authChip + " " + link + wb +
+        '<div class="bf-ev-meta">' + esc(tt("bj-captured")) + " " + esc(e.captured_at || "—") + (sha ? " · " + sha : "") + "</div></div>";
+    }).join("");
+  }
+
+  function renderMilestone(m) {
+    var pill = MS_PILL[m.status] || "bf-muted";
+    var statusLabel = tt("ms-" + m.status);
+    return '<div class="bf-ms"><div class="bf-ms-head">' +
+      '<div class="bf-ms-title"><span class="bf-ms-n">' + esc(m.n) + "/" + esc(m.of) + "</span>" + esc(pickL(m, "title")) + "</div>" +
+      '<span class="bf-pill ' + pill + '">' + esc(statusLabel) + "</span></div>" +
+      '<div class="bf-ms-crit">' + esc(pickL(m, "criteria")) + "</div>" +
+      '<div class="bf-ms-crit" style="color:var(--faint);font-size:.78rem">' + esc(m.scope_share) + "% " + esc(tt("bj-scope")) +
+      " · " + esc(tt("bj-epoch")) + " " + esc(m.target_epoch) + "</div>" +
+      renderEvidence(m.evidence) + "</div>";
+  }
+
+  function renderBuilderCard(b) {
+    var c = b.campaign;
+    var pill = CAMP_PILL[c.status] || "bf-muted";
+    return '<div class="bf-example"><div class="bf-ex-head">' +
+      '<div><span class="bf-ex-name">' + esc(b.name) + '</span> <span class="bf-ex-kind">· ' + esc(pickL(b, "kind")) + "</span></div>" +
+      '<span class="bf-pill ' + pill + '">' + esc(tt("camp-" + c.status)) + "</span></div>" +
+      '<div class="bf-ex-kind" style="font-weight:650;color:var(--text);margin-top:6px">' + esc(pickL(c, "title")) + "</div>" +
+      '<div class="bf-ex-goal">' + esc(pickL(c, "goal")) + "</div>" +
+      c.milestones.map(renderMilestone).join("") + "</div>";
+  }
+
+  var DATA = null;
+  function renderExample() {
+    var host = document.getElementById("bj-example");
+    if (!host) return;
+    if (!DATA) { host.innerHTML = ""; return; }
+    var b = DATA.builders.filter(function (x) { return x.campaign && x.campaign.status === "active"; })[0] || DATA.builders[0];
+    host.innerHTML = b ? renderBuilderCard(b) : "";
+  }
+
+  function repaint() { paintStatic(); renderExample(); }
+
+  function boot() {
+    document.addEventListener("cdo-lang", repaint);
+    paintStatic();
+    fetch("builders-fund-demo.json").then(function (r) { return r.json(); }).then(function (j) { DATA = j; renderExample(); }).catch(function () {
+      var host = document.getElementById("bj-example"); if (host) host.innerHTML = '<p class="bf-ev-none">Demo records unavailable.</p>';
+    });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
+})();
+</script>
+</body>
+</html>
