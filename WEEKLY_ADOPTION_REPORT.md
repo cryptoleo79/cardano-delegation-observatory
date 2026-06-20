@@ -14,10 +14,63 @@ the evidence supports. Keep prior weeks for trend.
 
 ---
 
-## Current status: AWAITING FIRST DATA
+## Current status: WEEK 1 RECORDED — first usage evidence in
 
-No `usage.md` has been produced yet, and no feedback has been logged. Per STEP 1, this
-report stays empty until usage decides. Nothing below is assumed.
+First `usage.md` exists. Page-traffic tiers and strongest API routes are from that
+report (relayed). Navigation/inbound-link figures are from a read-only code link-graph
+trace (`grep` over `web/*.html`) run to answer "find the path." No feedback logged yet
+(no outreach replies received). Nothing here is assumed.
+
+---
+
+## Week 1 · first usage report (7-day window ending 2026-06-20)
+
+### 1. Traffic
+- Page-traffic **tiers** (from usage.md): Winner **Projects** · Strong **Rankings, Catalyst** · Weak **Changes, Memory, Treasury** · Loser **Categories (0)**.
+- Raw request counts not transcribed here (only the digested verdict was relayed); the next run can paste the full `analyze-access-logs.mjs` table for exact numbers + trend.
+- _Navigation evidence (code trace): inbound-link counts per page below — these explain the tiers._
+
+### 2. Most used pages (winners)
+| Page | Tier | In nav? | Inbound links (sitewide) | Why it wins (evidence) |
+|------|------|---------|--------------------------|-------------------------|
+| Projects | WINNER | yes (pos 4) | **36 (most-linked page)** | Reachable by the most paths: nav + highest inbound + funneled by memory/ecosystem/about + new Builders Fund onboarding. `/projects` also a strong API route. |
+| Catalyst | strong | yes | 31 | Nav + well-linked. |
+| Rankings | strong | yes | 29 | Nav + well-linked. |
+
+_Winner confirmed by structure, not opinion: Projects is the single most-linked page on the site **and** in nav. The moat (Project Memory) is what people reach for._
+
+### 3. Least used pages (losers — diagnose, don't delete)
+| Page | Hits | Why | Action |
+|------|-----:|-----|--------|
+| **Categories** | **0** | **Discoverability, not value.** NOT in main nav; only **2** inbound links sitewide (`project.html`, `ecosystem-map.html`); 0 links from the homepage → structurally unreachable. | **Candidate fix: add Categories to main nav** (see Decisions). Do not deprecate. |
+| Changes / Memory / Treasury | weak (not zero) | NOT discoverability — all three are in nav and well-linked (29/32/31 inbound) yet under-chosen. "Findable but less compelling." | Watch only. No nav action. Needs a *reaction* signal (confusion/praise) before any change. |
+
+_Obj 4 gate satisfied for Categories: the **why** is evidenced (orphaned from nav + homepage), and the API contradiction (§4) proves demand is real._
+
+### 4. API usage
+| Signal | Evidence |
+|--------|----------|
+| Strongest routes | `/categories` · `/tokens/top` · `/treasury` · `/actions` · `/funds` · `/projects` |
+| **Most-used API route** | **`/categories`** |
+| **Least-used API route** | **Not provided** in this evidence drop — needs the full route table from `usage.md`. Not guessed. |
+| Page-vs-data gaps (key insight) | `/categories` is the **#1 route** while the categories *page* = **0 traffic** → data wanted, page unreachable. `/treasury` strong while treasury *page* weak → same pattern, milder. `/projects` strong **and** page is the winner → aligned; the moat is working. |
+| Caller diversity | Not relayed (distinct-/24 per route) — include it next run; one subnet = us, many = real adoption. |
+
+### 5. Feedback themes
+- bug: **0** · confusion: **0** · missing data: **0** · missing feature: **0** · praise: **0** · repeated request: **0**
+- _No outreach replies received yet. First-15 outreach not started. Nothing to classify._
+
+### 6. Repeated requests
+- _None yet (≥2× promotes here). Nothing authorizes new feature build under STEP 4B._
+
+### 7. Adoption blockers
+- **Categories is unreachable by normal navigation** (not in nav, 2 inbound, 0 from homepage) despite being the most-requested API resource. This is the one concrete, evidenced blocker this week.
+- All other findings are observations, not blockers.
+
+### Decisions this week
+- **Build authorized?** One candidate qualifies under **STEP 4A (real usage proves demand)**: `/categories` is the #1 API route → demand for category data is proven, but the page that serves it to humans has no nav path. The "fix" is a **one-line discoverability change** (add `Categories` to the canonical nav across pages), *not* a redesign or rebuild. **Held pending owner go** — this turn was scoped to "trace, find the path," so I traced and stopped. Awaiting your call to apply.
+- **Fixes (bugs / data correctness):** none pending.
+- **Outreach next:** First-15 still not started — DReps → Builders → Developers (`OUTREACH_TRACKER.md`).
 
 ---
 
