@@ -30,6 +30,21 @@ measured.
 
 ---
 
+## Milestone: FIRST 15 USERS (prove-the-platform target)
+
+The concrete near-term goal — small, reachable, evidence-generating. Not a vanity
+number; each one is a real interaction logged below.
+
+| Tier | Target | Contacted | Replied | Used (page/route) |
+|------|--------|-----------|---------|-------------------|
+| DReps | **5** | 0 | 0 | 0 |
+| Builders | **5** | 0 | 0 | 0 |
+| Developers | **5** | 0 | 0 | 0 |
+| **Total** | **15** | **0** | **0** | **0** |
+
+"Used" = there is evidence they actually opened/called the thing (a reply referencing
+it, a correction, a repeated API call). That column is the real success measure.
+
 ## What to send (copy-paste ready — neutral, no pitch)
 
 Fill the `<…>` placeholders. Keep it this short. Do not add adjectives.
@@ -61,6 +76,22 @@ Fill the `<…>` placeholders. Keep it this short. Do not add adjectives.
 
 > **Note:** actual sending (email/DM/forum posts) is an owner action — these templates
 > are ready to copy. Log each send below as it goes out.
+
+### Targeted validation asks (only after they've engaged — don't lead with these)
+
+**API validation — ask real developers (Obj 5):**
+1. Which endpoint would you actually use?
+2. Which endpoint is missing?
+3. What would stop you adopting it? (stability, license, rate limits, a missing field…)
+
+**Builders Fund validation — ask builders (Obj 6).** Money/custody/settlement stay off;
+this is purely "does the read-only journey make sense?":
+1. Does the builder → campaign → milestone → evidence journey make sense?
+2. Would you understand what a **milestone** is and what counts as done?
+3. Would you understand what counts as **evidence**?
+
+Log answers in §2 (categorize) and §3 (if it's a request). A "no, this is confusing"
+is a `confusion` data point — that's a win for evidence, not a failure.
 
 ---
 

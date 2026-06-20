@@ -23,10 +23,12 @@ Two streams: **passive** (what the infrastructure already records) and **active*
   - **Action 1 (quick win):** split the vhosts into separate access logs
     (`access_log /var/log/nginx/observatory.access.log;` in the observatory server
     block; same for api) so page traffic and API traffic are cleanly separable.
-  - **Action 2 (quick win):** a small read-only log-parsing script (run weekly by
-    cron, output a CC0-able aggregate table) → top pages, top API routes, 404s,
-    referrers. **Strip / truncate client IPs** before any output is stored — we
-    keep counts, never visitors.
+  - **Action 2 (built):** `scripts/analyze-access-logs.mjs` — read-only, zero-dep,
+    outputs an aggregate markdown report: the candidate-page winner/loser scoreboard
+    (Obj 3/4), top observatory pages, and top API routes with error % + distinct-/24
+    caller diversity (Obj 5). **No IPs stored** — an IP is folded to its /24 only to
+    count distinct callers, then discarded; bots dropped; the report is CC0-able.
+    Run: `sudo node scripts/analyze-access-logs.mjs --days 7 --out /tmp/usage.md`.
   - This requires sudo (logs are root-owned) → **owner runs it or grants read.**
 - **No JavaScript analytics by default.** Google Analytics / cookies are off the
   table — they contradict the neutral, surveillance-free posture and would be the
@@ -49,9 +51,24 @@ The site has no comments, ratings, or accounts (and never will). So the feedback
 
 ### One destination for everything
 Maintain a running **`docs/FEEDBACK_LOG.md`** (append-only, dated entries):
-`date · source · who-kind (DRep/SPO/builder/dev/gov/anon) · verbatim ask · our tag`.
-Tag every item to a roadmap bucket (see `ROADMAP_POST_LAUNCH.md`). This file is the
-raw material every future prioritization decision reads from.
+`date · source · who-kind (DRep/SPO/builder/dev/gov/anon) · verbatim · category · roadmap tag`.
+This file is the raw material every future prioritization decision reads from.
+
+**Every item gets exactly one category** (the prove-the-platform taxonomy):
+
+| Category | Meaning | What it triggers |
+|----------|---------|------------------|
+| **bug** | Something is broken / wrong / inaccurate | Fix-first (jumps the queue if data correctness) |
+| **confusion** | They didn't understand a page / term / flow | Clarify copy — *evidence of a loser page* (Obj 4) |
+| **missing data** | A real thing isn't covered / is stale | Coverage backlog |
+| **missing feature** | They want capability that doesn't exist | Parked until **repeated** (the no-build rule) |
+| **praise** | Positive signal on a page/route | *Evidence of a winner page* (Obj 3) — note which |
+| **repeated request** | Asked ≥2× across people | The only thing that promotes new work |
+
+**The rule (from the phase brief):** no new feature is built because we think it's
+cool. New work requires **real usage** or a **repeated request**. `missing feature`
+sits parked until it becomes `repeated request`. `bug` and `missing data` (correctness)
+are the exception — those are fixed on evidence, immediately.
 
 ---
 
@@ -93,6 +110,29 @@ For each low-traffic page record one of:
 
 Known suspects up front: the 13 empty categories and sparse Catalyst funds may make
 those pages feel hollow → traffic will tell us whether to invest or to label-and-move-on.
+
+### Page reaction scoreboard — find the winner & the loser (Obj 3 & 4)
+
+The phase asks for **evidence, not guesses** about which page lands and which is
+ignored. Score the candidate pages from two independent signals — passive **traffic**
+(the log parse) and active **reactions** (`praise`/`confusion` tags from §1). A page is
+a *winner* when both agree; a *loser* when traffic is low **and** reactions are
+confusion/none. Don't touch a loser until the evidence says *why*.
+
+| Candidate page | Path | Traffic (wk) | Praise | Confusion | Verdict |
+|----------------|------|-------------|--------|-----------|---------|
+| Changes | `/changes.html` | | | | |
+| Projects | `/projects.html` | | | | |
+| Categories | `/categories.html` | | | | |
+| Rankings | `/rankings.html` | | | | |
+| Memory | `/memory.html` | | | | |
+| Treasury | `/treasury.html` | | | | |
+| Catalyst | `/catalyst.html` | | | | |
+| API | `api.asy.life/docs` | | | | |
+
+Verdict ∈ winner · solid · quiet-by-design · **loser (diagnose)**. For a loser, record
+the *why* (confusing / not useful / poorly explained) before any fix — that's the Obj 4
+gate.
 
 ---
 
