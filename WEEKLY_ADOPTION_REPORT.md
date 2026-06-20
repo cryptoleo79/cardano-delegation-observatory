@@ -68,7 +68,8 @@ _Obj 4 gate satisfied for Categories: the **why** is evidenced (orphaned from na
 - All other findings are observations, not blockers.
 
 ### Decisions this week
-- **Build authorized?** One candidate qualifies under **STEP 4A (real usage proves demand)**: `/categories` is the #1 API route → demand for category data is proven, but the page that serves it to humans has no nav path. The "fix" is a **one-line discoverability change** (add `Categories` to the canonical nav across pages), *not* a redesign or rebuild. **Held pending owner go** — this turn was scoped to "trace, find the path," so I traced and stopped. Awaiting your call to apply.
+- **Build authorized? APPLIED 2026-06-20** under **STEP 4A (real usage proves demand)**: `/categories` is the #1 API route → demand proven; the page had no nav path. Fix = one discoverability change: `Categories` added to the canonical nav across all 29 pages (immediately after Ecosystem; `categories.html` self-highlights). No redesign, no restructure, no features.
+  - **A/B baseline for the 7-day measurement:** Categories page **before = 0 traffic** (this week). **Re-measure on/after 2026-06-27** via `analyze-access-logs.mjs`. **Success = Categories page no longer zero.** This is the first closed-loop evidence-driven change: shipped because the data demanded it, and verified by the data after.
 - **Fixes (bugs / data correctness):** none pending.
 - **Outreach next:** First-15 still not started — DReps → Builders → Developers (`OUTREACH_TRACKER.md`).
 
