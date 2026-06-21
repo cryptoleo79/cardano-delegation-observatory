@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memory Heat Map — Project Memory — asy.life</title>
+<meta name="description" content="A bird's-eye heat map of Cardano Project Memory: where the ecosystem's recorded knowledge is rich and where it is thin, by category — project density and enrichment coverage at a glance.">
+<meta name="theme-color" content="#fafaf7">
+<meta property="og:title" content="Memory Heat Map — Cardano Project Memory">
+<meta property="og:description" content="Where Project Memory is rich vs thin, by category — density and enrichment coverage at a glance. Read-only.">
+<link rel="stylesheet" href="style.css">
+<style>
+  .hm-controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:14px 0}
+  .hm-toggle{display:inline-flex;border:1px solid var(--border-strong);border-radius:8px;overflow:hidden}
+  .hm-toggle button{background:var(--card);border:none;padding:8px 14px;font-size:13px;cursor:pointer;color:var(--muted)}
+  .hm-toggle button.active{background:var(--accent);color:#fff}
+  .hm-legend{display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--muted);margin-left:auto}
+  .hm-legend .hm-grad{width:120px;height:10px;border-radius:5px}
+  .hm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:6px;margin:14px 0}
+  .hm-cell{position:relative;border-radius:8px;padding:10px 11px;min-height:62px;color:#fff;text-decoration:none;display:flex;flex-direction:column;justify-content:space-between;border:1px solid rgba(0,0,0,.06);transition:transform .08s}
+  .hm-cell:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.12)}
+  .hm-cell .hm-name{font-size:.8rem;font-weight:650;line-height:1.2;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+  .hm-cell .hm-num{font-size:1.05rem;font-weight:700;font-variant-numeric:tabular-nums;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+  .hm-cell .hm-sub{font-size:.7rem;opacity:.9}
+  .hm-cell.hm-pending{background:repeating-linear-gradient(45deg,#eee,#eee 6px,#e4e4e4 6px,#e4e4e4 12px) !important;color:var(--faint);border-color:var(--border)}
+  .hm-cell.hm-pending .hm-name,.hm-cell.hm-pending .hm-num,.hm-cell.hm-pending .hm-sub{text-shadow:none}
+  .hm-note{font-size:.82rem;color:var(--muted);margin:6px 0}
+</style>
+</head>
+<body>
+<div class="ecosystem-strip"><div class="ecosystem-strip-inner">
+  <span class="eco-label" id="eco-label">Ecosystem</span>
+  <a href="https://ctf.asy.life" class="eco-link">CTF</a><span class="eco-sep">·</span>
+  <a href="https://observatory.asy.life" class="eco-link" id="eco-link-observatory">Observatory</a><span class="eco-sep">·</span>
+  <a href="https://voting.asy.life" class="eco-link" id="eco-link-voting">Voting</a><span class="eco-sep">·</span>
+  <a href="https://governance.asy.life" class="eco-link" id="eco-link-governance">Governance</a><span class="eco-sep">·</span>
+  <a href="https://api.asy.life" class="eco-link" id="eco-link-api">API</a><span class="eco-sep">·</span>
+  <a href="https://github.com/cryptoleo79" class="eco-link" target="_blank" rel="noopener">GitHub</a>
+</div></div>
+<header class="site-header"><div class="container header-inner">
+  <a href="/" class="brand"><span class="brand-mark">CDO</span><span class="brand-text" id="h-brand">Cardano Delegation Observatory</span></a>
+  <nav class="site-nav">
+    <a href="/" id="h-nav-observatory">Observatory</a>
+    <a href="tokens.html" id="h-nav-tokens">Tokens</a>
+    <a href="rankings.html" id="h-nav-rankings">Rankings</a>
+    <a href="projects.html" id="h-nav-projects">Projects</a>
+    <a href="ecosystem.html" id="h-nav-ecosystem">Ecosystem</a>
+    <a href="categories.html" id="h-nav-categories">Categories</a>
+    <a href="treasury.html" id="h-nav-treasury">Treasury</a>
+    <a href="catalyst.html" id="h-nav-catalyst">Catalyst</a>
+    <a href="market.html" id="h-nav-market">Market</a>
+    <a href="governance-health.html" id="h-nav-health">Health</a>
+    <a href="changes.html" id="h-nav-changes">Changes</a>
+    <a href="memory.html" id="h-nav-memory">Memory</a>
+    <div class="lang-toggle"><button id="btn-en" class="active" onclick="setLang('en')">EN</button><button id="btn-ja" onclick="setLang('ja')">日本語</button></div>
+  </nav>
+</div></header>
+
+<main><article class="container">
+  <div class="page-hero">
+    <div class="hero-main">
+      <h1 id="hm-title">Memory Heat Map</h1>
+      <p class="lede" id="hm-lede">A single view of where the ecosystem's recorded knowledge is rich and where it is thin. Each tile is a category; switch the coloring between how many projects it holds and how much of it is enriched with sourced links. This is an honest picture of coverage — it shows the gaps rather than hiding them.</p>
+    </div>
+    <div class="hero-aside" id="hm-metrics"></div>
+  </div>
+
+  <div class="hm-controls">
+    <div class="hm-toggle">
+      <button id="hm-mode-cov" class="active" data-mode="coverage">Coverage %</button>
+      <button id="hm-mode-cnt" data-mode="count">Project count</button>
+    </div>
+    <div class="hm-legend"><span id="hm-leg-lo">low</span><div class="hm-grad" id="hm-grad"></div><span id="hm-leg-hi">high</span></div>
+  </div>
+  <p class="hm-note" id="hm-note"></p>
+
+  <div class="hm-grid" id="hm-grid"></div>
+  <p class="footnote" id="hm-foot"></p>
+</article></main>
+
+<footer class="site-footer"><div class="container footer-inner">
+  <div><span id="ft-license">Apache 2.0 code · CC0 data</span></div>
+  <div><a href="category-explorer.html" id="ft-catexp">Category Explorer</a> <a href="project-history.html" id="ft-hist">Project History</a> <a href="memory.html" id="ft-memory">Memory</a></div>
+  <div class="footer-note" id="ft-note">Observe · preserve · serve. No scores, no judgment.</div>
+</div></footer>
+<script src="i18n.js"></script>
+<script>
+"use strict";
+(function () {
+  function lang() { return document.documentElement.lang === "ja" ? "ja" : "en"; }
+  function tt(k) { return (i18n[lang()] && i18n[lang()][k]) || (i18n.en[k] || k); }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+  const SNAP = "data/snapshots/projectmemory";
+
+  const P = {
+    en: {
+      "hm-title": "Memory Heat Map",
+      "hm-lede": "A single view of where the ecosystem's recorded knowledge is rich and where it is thin. Each tile is a category; switch the coloring between how many projects it holds and how much of it is enriched with sourced links. This is an honest picture of coverage — it shows the gaps rather than hiding them.",
+      "hm-mode-cov": "Coverage %", "hm-mode-cnt": "Project count",
+      "hm-leg-lo": "low", "hm-leg-hi": "high",
+      "hm-m-cats": "Categories", "hm-m-proj": "Projects", "hm-m-enr": "Enriched",
+      "hm-note-cov": "Tile colour = share of the category's projects with at least one sourced link. Number = project count.",
+      "hm-note-cnt": "Tile colour = number of projects (relative to the largest category). Number = project count.",
+      "hm-pending": "empty",
+      "ft-catexp": "Category Explorer", "ft-hist": "Project History", "ft-memory": "Memory",
+      "hm-foot-html": "Hatched tiles are categories with no projects recorded yet — shown, not hidden. Click any tile to open its category. Drill into projects in the <a href=\"category-explorer.html\">Category Explorer</a> or a single project's trail in the <a href=\"project-history.html\">Project History Explorer</a>.",
+    },
+    ja: {
+      "hm-title": "メモリ ヒートマップ",
+      "hm-lede": "エコシステムの記録された知識が、どこで豊かでどこで薄いかを一望できるビューです。各タイルはカテゴリで、色分けを「保持するプロジェクト数」と「出典付きリンクでどれだけ充実しているか」で切り替えられます。これはカバレッジの正直な姿です — 隙間を隠さず示します。",
+      "hm-mode-cov": "カバレッジ %", "hm-mode-cnt": "プロジェクト数",
+      "hm-leg-lo": "低", "hm-leg-hi": "高",
+      "hm-m-cats": "カテゴリ", "hm-m-proj": "プロジェクト", "hm-m-enr": "充実",
+      "hm-note-cov": "タイルの色 = カテゴリ内で出典付きリンクを1つ以上持つプロジェクトの割合。数字 = プロジェクト数。",
+      "hm-note-cnt": "タイルの色 = プロジェクト数（最大カテゴリ比）。数字 = プロジェクト数。",
+      "hm-pending": "空",
+      "ft-catexp": "カテゴリ エクスプローラー", "ft-hist": "プロジェクト履歴", "ft-memory": "メモリ",
+      "hm-foot-html": "斜線のタイルは、まだプロジェクトが記録されていないカテゴリです — 隠さず表示しています。タイルをクリックするとそのカテゴリを開きます。<a href=\"category-explorer.html\">カテゴリ エクスプローラー</a>でプロジェクトを掘り下げるか、<a href=\"project-history.html\">プロジェクト履歴エクスプローラー</a>で個別の軌跡を辿れます。",
+    },
+  };
+  if (typeof i18n !== "undefined") { Object.assign(i18n.en, P.en); Object.assign(i18n.ja, P.ja); if (typeof setLang === "function") setLang(lang()); }
+
+  let DATA = null, MODE = "coverage", MAXC = 1;
+
+  // green scale for coverage (0..100), blue scale for count (0..1 normalized)
+  function covColor(p) { const t = Math.max(0, Math.min(1, p / 100)); const r = Math.round(220 - t * 190), g = Math.round(225 - t * 120), b = Math.round(210 - t * 140); return `rgb(${r},${g},${b})`; }
+  function cntColor(t) { t = Math.max(0, Math.min(1, t)); const r = Math.round(225 - t * 180), g = Math.round(232 - t * 150), b = Math.round(240 - t * 90); return `rgb(${r},${g},${b})`; }
+
+  function applyLabels() {
+    document.getElementById("hm-mode-cov").textContent = tt("hm-mode-cov");
+    document.getElementById("hm-mode-cnt").textContent = tt("hm-mode-cnt");
+    document.getElementById("hm-leg-lo").textContent = tt("hm-leg-lo");
+    document.getElementById("hm-leg-hi").textContent = tt("hm-leg-hi");
+    document.getElementById("hm-note").textContent = tt(MODE === "coverage" ? "hm-note-cov" : "hm-note-cnt");
+    document.getElementById("hm-grad").style.background = MODE === "coverage"
+      ? "linear-gradient(90deg," + covColor(0) + "," + covColor(100) + ")"
+      : "linear-gradient(90deg," + cntColor(0) + "," + cntColor(1) + ")";
+    const f = document.getElementById("hm-foot"); if (f) f.innerHTML = tt("hm-foot-html");
+  }
+
+  function renderMetrics() {
+    const m = DATA.meta.counts; const host = document.getElementById("hm-metrics");
+    const proj = DATA.categories.reduce((n, c) => n + c.project_count, 0);
+    const enr = DATA.categories.reduce((n, c) => n + c.enriched_count, 0);
+    host.innerHTML =
+      '<div><span class="ha-label">' + esc(tt("hm-m-cats")) + '</span><div class="ha-value">' + m.categories + "</div></div>"
+      + '<div style="margin-top:10px"><span class="ha-label">' + esc(tt("hm-m-proj")) + '</span><div class="ha-value">' + proj.toLocaleString() + "</div></div>"
+      + '<div style="margin-top:10px"><span class="ha-label">' + esc(tt("hm-m-enr")) + '</span><div class="ha-value">' + enr.toLocaleString() + "</div></div>";
+  }
+
+  function renderGrid() {
+    const grid = document.getElementById("hm-grid");
+    const cats = DATA.categories.slice().sort((a, b) => MODE === "coverage" ? (b.enriched_pct - a.enriched_pct || b.project_count - a.project_count) : b.project_count - a.project_count);
+    grid.innerHTML = cats.map(function (c) {
+      if (c.status !== "populated") {
+        return '<a class="hm-cell hm-pending" href="category.html?slug=' + encodeURIComponent(c.slug) + '" title="' + esc(c.name) + ' — 0 projects">'
+          + '<span class="hm-name">' + esc(c.name) + '</span><span class="hm-sub">' + esc(tt("hm-pending")) + (c.status === "deprecated" ? " · dep" : "") + "</span></a>";
+      }
+      const bg = MODE === "coverage" ? covColor(c.enriched_pct) : cntColor(c.project_count / MAXC);
+      const num = MODE === "coverage" ? c.enriched_pct + "%" : c.project_count;
+      const sub = MODE === "coverage" ? c.project_count + " " + esc(tt("hm-m-proj")).toLowerCase() : c.enriched_pct + "% " + esc(tt("hm-m-enr")).toLowerCase();
+      const title = c.name + " — " + c.project_count + " projects, " + c.enriched_pct + "% enriched";
+      return '<a class="hm-cell" style="background:' + bg + '" href="category.html?slug=' + encodeURIComponent(c.slug) + '" title="' + esc(title) + '">'
+        + '<span class="hm-name">' + esc(c.name) + "</span>"
+        + '<div><span class="hm-num">' + num + '</span> <span class="hm-sub">' + sub + "</span></div></a>";
+    }).join("");
+  }
+
+  function repaint() { if (!DATA) return; applyLabels(); renderMetrics(); renderGrid(); }
+
+  function boot() {
+    document.addEventListener("cdo-lang", repaint);
+    document.querySelectorAll(".hm-toggle button").forEach((b) => b.addEventListener("click", () => {
+      MODE = b.dataset.mode;
+      document.querySelectorAll(".hm-toggle button").forEach((x) => x.classList.toggle("active", x === b));
+      applyLabels(); renderGrid();
+    }));
+    fetch(SNAP + "/categories.json").then((r) => r.json()).then((d) => {
+      DATA = d; MAXC = Math.max(1, ...d.categories.map((c) => c.project_count)); repaint();
+    }).catch(() => { document.getElementById("hm-grid").innerHTML = '<p class="hm-note">Category data unavailable.</p>'; });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
+})();
+</script>
+</body>
+</html>

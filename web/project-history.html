@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project History Explorer — Project Memory — asy.life</title>
+<meta name="description" content="Explore the append-only, hash-chained history of any project in Cardano Project Memory — every claim, its provenance, and the evidence behind it, in order.">
+<meta name="theme-color" content="#fafaf7">
+<meta property="og:title" content="Project History Explorer — Cardano Project Memory">
+<meta property="og:description" content="The full event-sourced provenance trail for any project: claims, sources, evidence, hash chain.">
+<link rel="stylesheet" href="style.css">
+<style>
+  .ph-pick{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:16px 0}
+  .ph-search{flex:1 1 320px;min-width:240px;padding:9px 12px;border:1px solid var(--border-strong);border-radius:8px;font-size:15px;background:var(--card);color:var(--text)}
+  .ph-results{list-style:none;margin:6px 0 0;padding:0;max-height:280px;overflow:auto;border:1px solid var(--border);border-radius:8px;display:none}
+  .ph-results.show{display:block}
+  .ph-results li{padding:8px 12px;cursor:pointer;border-bottom:1px solid var(--border);font-size:14px;display:flex;justify-content:space-between;gap:10px}
+  .ph-results li:hover{background:var(--row-hover-solid)}
+  .ph-results .ph-r-meta{color:var(--faint);font-size:.8rem;font-family:var(--mono)}
+  .ph-proj{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;margin:14px 0}
+  .ph-proj-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+  .ph-proj-name{font-weight:700;font-size:1.2rem;color:var(--accent-strong)}
+  .ph-proj-id{font-family:var(--mono);font-size:.8rem;color:var(--faint)}
+  .ph-stats{display:flex;gap:14px;flex-wrap:wrap;margin:8px 0 4px;font-size:.84rem;color:var(--muted)}
+  .ph-stats b{color:var(--text);font-variant-numeric:tabular-nums}
+  .ph-chainbar{font-size:.8rem;color:#1d6b46;background:rgba(38,110,70,.08);border:1px solid rgba(38,110,70,.2);border-radius:7px;padding:6px 10px;margin:10px 0}
+  .ph-ev{font-size:.82rem;background:var(--accent-soft);border:1px solid rgba(44,86,112,.14);border-radius:6px;padding:6px 9px;margin:5px 0}
+  .ph-ev a{word-break:break-all}
+  .ph-ev .ph-ev-meta{color:var(--faint);font-family:var(--mono);font-size:.72rem;margin-top:2px}
+  .ph-val{font-weight:600;word-break:break-word}
+  .ph-val a{word-break:break-all}
+  .ph-sup{opacity:.6}
+  .ph-empty{color:var(--faint);font-style:italic;padding:14px 0}
+  .ph-hash{font-family:var(--mono);font-size:.7rem;color:var(--faint)}
+</style>
+</head>
+<body>
+<div class="ecosystem-strip"><div class="ecosystem-strip-inner">
+  <span class="eco-label" id="eco-label">Ecosystem</span>
+  <a href="https://ctf.asy.life" class="eco-link">CTF</a><span class="eco-sep">·</span>
+  <a href="https://observatory.asy.life" class="eco-link" id="eco-link-observatory">Observatory</a><span class="eco-sep">·</span>
+  <a href="https://voting.asy.life" class="eco-link" id="eco-link-voting">Voting</a><span class="eco-sep">·</span>
+  <a href="https://governance.asy.life" class="eco-link" id="eco-link-governance">Governance</a><span class="eco-sep">·</span>
+  <a href="https://api.asy.life" class="eco-link" id="eco-link-api">API</a><span class="eco-sep">·</span>
+  <a href="https://github.com/cryptoleo79" class="eco-link" target="_blank" rel="noopener">GitHub</a>
+</div></div>
+<header class="site-header"><div class="container header-inner">
+  <a href="/" class="brand"><span class="brand-mark">CDO</span><span class="brand-text" id="h-brand">Cardano Delegation Observatory</span></a>
+  <nav class="site-nav">
+    <a href="/" id="h-nav-observatory">Observatory</a>
+    <a href="tokens.html" id="h-nav-tokens">Tokens</a>
+    <a href="rankings.html" id="h-nav-rankings">Rankings</a>
+    <a href="projects.html" id="h-nav-projects">Projects</a>
+    <a href="ecosystem.html" id="h-nav-ecosystem">Ecosystem</a>
+    <a href="categories.html" id="h-nav-categories">Categories</a>
+    <a href="treasury.html" id="h-nav-treasury">Treasury</a>
+    <a href="catalyst.html" id="h-nav-catalyst">Catalyst</a>
+    <a href="market.html" id="h-nav-market">Market</a>
+    <a href="governance-health.html" id="h-nav-health">Health</a>
+    <a href="changes.html" id="h-nav-changes">Changes</a>
+    <a href="memory.html" id="h-nav-memory">Memory</a>
+    <div class="lang-toggle"><button id="btn-en" class="active" onclick="setLang('en')">EN</button><button id="btn-ja" onclick="setLang('ja')">日本語</button></div>
+  </nav>
+</div></header>
+
+<main><article class="container">
+  <div class="page-hero">
+    <div class="hero-main">
+      <h1 id="ph-title">Project History Explorer</h1>
+      <p class="lede" id="ph-lede">Project Memory is append-only and hash-chained: nothing is overwritten, and every fact about a project enters as a dated, sourced event. Pick a project to read its full provenance trail in order — each claim, where it came from, the evidence behind it, and how corrections were layered on without erasing the past.</p>
+    </div>
+    <div class="hero-aside">
+      <div><span class="ha-label" id="ph-ha-l1">Model</span><div class="ha-value" id="ph-ha-v1">Append-only · hash-chained</div></div>
+      <div style="margin-top:10px"><span class="ha-label" id="ph-ha-l2">Projects</span><div class="ha-value" id="ph-ha-v2">—</div></div>
+      <div style="margin-top:10px"><span class="ha-label" id="ph-ha-l3">Events</span><div class="ha-value" id="ph-ha-v3">—</div></div>
+    </div>
+  </div>
+
+  <div class="ph-pick">
+    <input class="ph-search" id="ph-search" type="text" placeholder="Search a project by name or id…" autocomplete="off">
+  </div>
+  <ul class="ph-results" id="ph-results"></ul>
+
+  <div id="ph-out"></div>
+  <p class="footnote" id="ph-foot"></p>
+</article></main>
+
+<footer class="site-footer"><div class="container footer-inner">
+  <div><span id="ft-license">Apache 2.0 code · CC0 data</span></div>
+  <div><a href="category-explorer.html" id="ft-catexp">Category Explorer</a> <a href="memory-heatmap.html" id="ft-heat">Memory Heat Map</a> <a href="memory.html" id="ft-memory">Memory</a></div>
+  <div class="footer-note" id="ft-note">Observe · preserve · serve. No scores, no judgment.</div>
+</div></footer>
+<script src="i18n.js"></script>
+<script>
+"use strict";
+(function () {
+  function lang() { return document.documentElement.lang === "ja" ? "ja" : "en"; }
+  function tt(k) { return (i18n[lang()] && i18n[lang()][k]) || (i18n.en[k] || k); }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+  const SNAP = "data/snapshots/projectmemory";
+  const isUrl = (s) => typeof s === "string" && /^https?:\/\//i.test(s);
+
+  const P = {
+    en: {
+      "ph-title": "Project History Explorer",
+      "ph-lede": "Project Memory is append-only and hash-chained: nothing is overwritten, and every fact about a project enters as a dated, sourced event. Pick a project to read its full provenance trail in order — each claim, where it came from, the evidence behind it, and how corrections were layered on without erasing the past.",
+      "ph-ha-l1": "Model", "ph-ha-v1": "Append-only · hash-chained",
+      "ph-ha-l2": "Projects", "ph-ha-l3": "Events",
+      "ev-project.imported": "Project imported", "ev-project.proposed": "Project proposed",
+      "ev-claim.asserted": "Claim asserted", "ev-claim.superseded": "Claim superseded",
+      "ev-category.assigned": "Category assigned", "ev-category.deprecated": "Category deprecated",
+      "ph-asserted": "asserted", "ph-supersedes": "supersedes earlier", "ph-source": "source", "ph-evidence": "evidence", "ph-sha": "sha256", "ph-seq": "seq",
+      "ph-noproj": "No project selected. Search above, or open a project link.",
+      "ph-notfound": "Project not found in the current snapshot.",
+      "ph-pick-hint": "Type to search 847 projects…",
+      "ft-catexp": "Category Explorer", "ft-heat": "Memory Heat Map", "ft-memory": "Memory",
+      "ph-foot-html": "Each event is hash-chained to the one before it, so the order and the history are tamper-evident. The same data is served read-only at <a href=\"https://api.asy.life/docs\">api.asy.life</a> (<code>/history/:project</code>). See also the <a href=\"category-explorer.html\">Category Explorer</a> and the <a href=\"memory-heatmap.html\">Memory Heat Map</a>.",
+      "ph-chain-html": "Append-only &amp; hash-chained — this trail cannot be silently rewritten; corrections are added as new events.",
+    },
+    ja: {
+      "ph-title": "プロジェクト履歴エクスプローラー",
+      "ph-lede": "Project Memory は追記専用・ハッシュチェーン式です。上書きはなく、プロジェクトに関するすべての事実が、日付と出典を伴うイベントとして記録されます。プロジェクトを選ぶと、その完全な来歴の軌跡を順に読めます — 各主張、その出典、裏付けとなるエビデンス、そして過去を消さずに訂正がどう重ねられたか。",
+      "ph-ha-l1": "モデル", "ph-ha-v1": "追記専用 · ハッシュチェーン",
+      "ph-ha-l2": "プロジェクト", "ph-ha-l3": "イベント",
+      "ev-project.imported": "プロジェクト取り込み", "ev-project.proposed": "プロジェクト提案",
+      "ev-claim.asserted": "主張の記録", "ev-claim.superseded": "主張の置換",
+      "ev-category.assigned": "カテゴリ割当", "ev-category.deprecated": "カテゴリ非推奨化",
+      "ph-asserted": "記録", "ph-supersedes": "以前の主張を置換", "ph-source": "出典", "ph-evidence": "エビデンス", "ph-sha": "sha256", "ph-seq": "seq",
+      "ph-noproj": "プロジェクトが選択されていません。上で検索するか、プロジェクトのリンクを開いてください。",
+      "ph-notfound": "現在のスナップショットにプロジェクトが見つかりません。",
+      "ph-pick-hint": "847件のプロジェクトを検索…",
+      "ft-catexp": "カテゴリ エクスプローラー", "ft-heat": "メモリ ヒートマップ", "ft-memory": "メモリ",
+      "ph-foot-html": "各イベントは直前のイベントにハッシュチェーンで連結されるため、順序と履歴は改ざん検知可能です。同じデータは <a href=\"https://api.asy.life/docs\">api.asy.life</a>（<code>/history/:project</code>）で読み取り専用提供されています。<a href=\"category-explorer.html\">カテゴリ エクスプローラー</a>と<a href=\"memory-heatmap.html\">メモリ ヒートマップ</a>もご覧ください。",
+      "ph-chain-html": "追記専用・ハッシュチェーン — この軌跡を密かに書き換えることはできません。訂正は新しいイベントとして追加されます。",
+    },
+  };
+  if (typeof i18n !== "undefined") { Object.assign(i18n.en, P.en); Object.assign(i18n.ja, P.ja); if (typeof setLang === "function") setLang(lang()); }
+
+  let INDEX = null, CURRENT = null;
+
+  function paintStatic() {
+    const f = document.getElementById("ph-foot"); if (f) f.innerHTML = tt("ph-foot-html");
+    const s = document.getElementById("ph-search"); if (s) s.placeholder = tt("ph-pick-hint");
+    if (CURRENT) renderProject(CURRENT); else { const o = document.getElementById("ph-out"); if (o && !o.dataset.loading) o.innerHTML = '<p class="ph-empty">' + esc(tt("ph-noproj")) + "</p>"; }
+  }
+
+  function authChip(a) { return a ? '<span class="auth-chip auth-' + esc(a) + '">' + esc(a) + "</span>" : ""; }
+
+  function renderEvidence(evs) {
+    if (!evs || !evs.length) return "";
+    return evs.map(function (e) {
+      const ref = e.ref ? (isUrl(e.ref) ? '<a href="' + esc(e.ref) + '" target="_blank" rel="noopener">' + esc(e.ref) + "</a>" : esc(e.ref)) : "";
+      const sha = e.sha256 ? '<div class="ph-ev-meta">' + esc(tt("ph-sha")) + " " + esc(e.sha256.slice(0, 16)) + "…</div>" : "";
+      return '<div class="ph-ev">' + (e.kind ? "<b>" + esc(e.kind) + "</b> " : "") + ref + sha + "</div>";
+    }).join("");
+  }
+
+  function renderEvent(ev) {
+    const p = ev.payload || {};
+    const label = tt("ev-" + ev.type) || ev.type;
+    const when = (ev.ts || "").slice(0, 10);
+    let body = "";
+    if (ev.type === "claim.asserted") {
+      let val = p.value == null ? "" : String(p.value);
+      val = isUrl(val) ? '<a href="' + esc(val) + '" target="_blank" rel="noopener">' + esc(val) + "</a>" : esc(val);
+      body = '<div class="ph-tl-body"><b>' + esc(p.field) + "</b> = <span class=\"ph-val\">" + val + "</span> "
+        + authChip(p.authority_class) + (p.source_id ? ' <span class="ph-tl-meta">' + esc(tt("ph-source")) + ": " + esc(p.source_id) + "</span>" : "")
+        + (p.superseded_by_seq ? "" : "") + "</div>"
+        + renderEvidence(p.evidence);
+    } else if (ev.type === "claim.superseded") {
+      body = '<div class="ph-tl-body ph-sup">' + esc(p.field || "") + " — " + esc(tt("ph-supersedes")) + "</div>";
+    } else if (ev.type === "category.assigned") {
+      body = '<div class="ph-tl-body">→ <b>' + esc(p.category_slug) + "</b> " + authChip(p.authority_class) + "</div>";
+    } else if (ev.type === "category.deprecated") {
+      body = '<div class="ph-tl-body">' + esc(p.slug || "") + "</div>";
+    } else if (ev.type === "project.imported" || ev.type === "project.proposed") {
+      body = '<div class="ph-tl-body">' + esc(p.kind || "project") + "</div>";
+    }
+    return '<li class="pm-tl-item"><div class="pm-tl-head"><span class="pm-tl-type">' + esc(label) + '</span>'
+      + '<span class="pm-tl-ts">' + esc(when) + ' · <span class="ph-hash">' + esc(tt("ph-seq")) + " " + esc(ev.seq) + " · " + esc((ev.hash || "").slice(0, 10)) + "…</span></span></div>" + body + "</li>";
+  }
+
+  function renderProject(data) {
+    CURRENT = data;
+    const out = document.getElementById("ph-out");
+    const proj = data.project || {};
+    const evs = data.history || [];
+    const fieldCount = Object.keys(proj.fields || {}).length;
+    const head = '<div class="ph-proj"><div class="ph-proj-head">'
+      + '<span class="ph-proj-name">' + esc(proj.name || proj.id) + '</span>'
+      + '<span class="ph-proj-id">' + esc(proj.id) + (proj.kind ? " · " + esc(proj.kind) : "") + "</span></div>"
+      + '<div class="ph-stats"><span><b>' + evs.length + "</b> " + esc(tt("ph-ha-l3")).toLowerCase() + "</span>"
+      + "<span><b>" + fieldCount + "</b> fields</span>"
+      + "<span><b>" + (proj.categories ? proj.categories.length : 0) + "</b> categories</span>"
+      + (proj.superseded_claim_count ? "<span><b>" + proj.superseded_claim_count + "</b> superseded</span>" : "")
+      + ' <a href="project.html?id=' + encodeURIComponent(proj.id) + '">project page →</a></div>'
+      + '<div class="ph-chainbar">' + tt("ph-chain-html") + "</div></div>";
+    out.innerHTML = head + '<ul class="pm-timeline">' + evs.map(renderEvent).join("") + "</ul>";
+  }
+
+  function loadProject(id) {
+    const row = INDEX && INDEX.projects.find((r) => r.id === id);
+    const out = document.getElementById("ph-out");
+    if (!row) { out.innerHTML = '<p class="ph-empty">' + esc(tt("ph-notfound")) + "</p>"; return; }
+    out.dataset.loading = "1";
+    fetch(SNAP + "/projects/" + row.file).then((r) => r.json()).then((d) => { delete out.dataset.loading; renderProject(d); })
+      .catch(() => { delete out.dataset.loading; out.innerHTML = '<p class="ph-empty">' + esc(tt("ph-notfound")) + "</p>"; });
+    history.replaceState(null, "", "?id=" + encodeURIComponent(id));
+  }
+
+  function renderResults(q) {
+    const ul = document.getElementById("ph-results");
+    if (!INDEX || !q || q.length < 2) { ul.className = "ph-results"; ul.innerHTML = ""; return; }
+    const ql = q.toLowerCase();
+    const hits = INDEX.projects.filter((r) => (r.name || "").toLowerCase().includes(ql) || r.id.toLowerCase().includes(ql)).slice(0, 30);
+    ul.innerHTML = hits.map((r) => '<li data-id="' + esc(r.id) + '"><span>' + esc(r.name || r.id) + "</span>"
+      + '<span class="ph-r-meta">' + esc(r.id) + " · " + (r.history_count || 0) + " ev</span></li>").join("") || '<li class="ph-empty">—</li>';
+    ul.className = "ph-results show";
+  }
+
+  function boot() {
+    document.addEventListener("cdo-lang", paintStatic);
+    const search = document.getElementById("ph-search");
+    search.addEventListener("input", (e) => renderResults(e.target.value.trim()));
+    document.getElementById("ph-results").addEventListener("click", (e) => {
+      const li = e.target.closest("li[data-id]"); if (!li) return;
+      document.getElementById("ph-results").className = "ph-results";
+      search.value = ""; loadProject(li.dataset.id);
+    });
+    document.addEventListener("click", (e) => { if (!e.target.closest(".ph-pick") && !e.target.closest(".ph-results")) document.getElementById("ph-results").className = "ph-results"; });
+    paintStatic();
+    fetch(SNAP + "/index.json").then((r) => r.json()).then((idx) => {
+      INDEX = idx;
+      const v2 = document.getElementById("ph-ha-v2"); if (v2) v2.textContent = (idx.meta?.counts?.projects ?? idx.projects.length).toLocaleString();
+      const v3 = document.getElementById("ph-ha-v3"); if (v3) v3.textContent = (idx.meta?.events ?? "—").toLocaleString();
+      const qid = new URLSearchParams(location.search).get("id");
+      if (qid) loadProject(qid);
+    }).catch(() => {});
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
+})();
+</script>
+</body>
+</html>

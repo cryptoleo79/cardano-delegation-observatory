@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Category Explorer — Project Memory — asy.life</title>
+<meta name="description" content="Explore the Cardano ecosystem by category: all 74 categories with project counts, enrichment coverage, and drill-down to the projects in each — all from event-sourced Project Memory.">
+<meta name="theme-color" content="#fafaf7">
+<meta property="og:title" content="Category Explorer — Cardano Project Memory">
+<meta property="og:description" content="74 categories, project counts, enrichment coverage, drill-down to members. Read-only, provenance-first.">
+<link rel="stylesheet" href="style.css">
+<style>
+  .ce-controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:14px 0}
+  .ce-search{flex:1 1 280px;min-width:220px;padding:9px 12px;border:1px solid var(--border-strong);border-radius:8px;font-size:15px;background:var(--card);color:var(--text)}
+  .ce-sel{padding:8px 10px;border:1px solid var(--border-strong);border-radius:8px;background:var(--card);color:var(--text);font-size:14px}
+  .ce-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin:14px 0}
+  .ce-cat{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:13px 15px}
+  .ce-cat.open{border-color:var(--accent);box-shadow:0 4px 14px rgba(0,0,0,.06)}
+  .ce-cat-head{display:flex;justify-content:space-between;gap:8px;align-items:baseline;cursor:pointer}
+  .ce-cat-name{font-weight:700;color:var(--accent-strong)}
+  .ce-cat-count{font-variant-numeric:tabular-nums;font-weight:650;color:var(--text)}
+  .ce-cov{margin-top:8px}
+  .ce-cov-bar{height:7px;border-radius:4px;background:rgba(0,0,0,.06);overflow:hidden}
+  .ce-cov-fill{height:100%;background:linear-gradient(90deg,#2c5670,#1d6b46)}
+  .ce-cov-lbl{font-size:.76rem;color:var(--muted);margin-top:3px;display:flex;justify-content:space-between}
+  .ce-members{margin-top:10px;border-top:1px solid var(--border);padding-top:8px;display:none;max-height:340px;overflow:auto}
+  .ce-cat.open .ce-members{display:block}
+  .ce-m{display:flex;justify-content:space-between;gap:8px;padding:4px 0;font-size:.85rem;border-bottom:1px solid var(--border)}
+  .ce-m a{color:var(--accent-strong)}
+  .ce-m-meta{color:var(--faint);font-size:.76rem;display:flex;gap:6px;align-items:center}
+  .ce-dot{width:7px;height:7px;border-radius:50%;display:inline-block}
+  .ce-dot.on{background:#1d6b46}.ce-dot.off{background:rgba(0,0,0,.18)}
+  .ce-pill{font-size:.7rem;padding:1px 7px;border-radius:10px;border:1px solid var(--border);color:var(--muted)}
+  .ce-pend{opacity:.6}
+  .ce-empty{color:var(--faint);font-style:italic;padding:10px 0}
+</style>
+</head>
+<body>
+<div class="ecosystem-strip"><div class="ecosystem-strip-inner">
+  <span class="eco-label" id="eco-label">Ecosystem</span>
+  <a href="https://ctf.asy.life" class="eco-link">CTF</a><span class="eco-sep">·</span>
+  <a href="https://observatory.asy.life" class="eco-link" id="eco-link-observatory">Observatory</a><span class="eco-sep">·</span>
+  <a href="https://voting.asy.life" class="eco-link" id="eco-link-voting">Voting</a><span class="eco-sep">·</span>
+  <a href="https://governance.asy.life" class="eco-link" id="eco-link-governance">Governance</a><span class="eco-sep">·</span>
+  <a href="https://api.asy.life" class="eco-link" id="eco-link-api">API</a><span class="eco-sep">·</span>
+  <a href="https://github.com/cryptoleo79" class="eco-link" target="_blank" rel="noopener">GitHub</a>
+</div></div>
+<header class="site-header"><div class="container header-inner">
+  <a href="/" class="brand"><span class="brand-mark">CDO</span><span class="brand-text" id="h-brand">Cardano Delegation Observatory</span></a>
+  <nav class="site-nav">
+    <a href="/" id="h-nav-observatory">Observatory</a>
+    <a href="tokens.html" id="h-nav-tokens">Tokens</a>
+    <a href="rankings.html" id="h-nav-rankings">Rankings</a>
+    <a href="projects.html" id="h-nav-projects">Projects</a>
+    <a href="ecosystem.html" id="h-nav-ecosystem">Ecosystem</a>
+    <a href="categories.html" id="h-nav-categories">Categories</a>
+    <a href="treasury.html" id="h-nav-treasury">Treasury</a>
+    <a href="catalyst.html" id="h-nav-catalyst">Catalyst</a>
+    <a href="market.html" id="h-nav-market">Market</a>
+    <a href="governance-health.html" id="h-nav-health">Health</a>
+    <a href="changes.html" id="h-nav-changes">Changes</a>
+    <a href="memory.html" id="h-nav-memory">Memory</a>
+    <div class="lang-toggle"><button id="btn-en" class="active" onclick="setLang('en')">EN</button><button id="btn-ja" onclick="setLang('ja')">日本語</button></div>
+  </nav>
+</div></header>
+
+<main><article class="container">
+  <div class="page-hero">
+    <div class="hero-main">
+      <h1 id="ce-title">Category Explorer</h1>
+      <p class="lede" id="ce-lede">Every project in Project Memory is organized into the ecosystem's categories. Browse all of them here — with how many projects each holds and how much of each is enriched with sourced links — then open any category to see its projects and their provenance. Counts and coverage are derived from the event log, not curated by hand.</p>
+    </div>
+    <div class="hero-aside" id="ce-metrics"></div>
+  </div>
+
+  <div class="ce-controls">
+    <input class="ce-search" id="ce-search" type="text" placeholder="Filter categories…" autocomplete="off">
+    <select class="ce-sel" id="ce-sort">
+      <option value="count">Sort: most projects</option>
+      <option value="coverage">Sort: best coverage</option>
+      <option value="name">Sort: name</option>
+    </select>
+    <select class="ce-sel" id="ce-status">
+      <option value="all">All</option>
+      <option value="populated">Populated</option>
+      <option value="pending">Pending (empty)</option>
+      <option value="deprecated">Deprecated</option>
+    </select>
+  </div>
+
+  <div class="ce-grid" id="ce-grid"></div>
+  <p class="footnote" id="ce-foot"></p>
+</article></main>
+
+<footer class="site-footer"><div class="container footer-inner">
+  <div><span id="ft-license">Apache 2.0 code · CC0 data</span></div>
+  <div><a href="project-history.html" id="ft-hist">Project History</a> <a href="memory-heatmap.html" id="ft-heat">Memory Heat Map</a> <a href="memory.html" id="ft-memory">Memory</a></div>
+  <div class="footer-note" id="ft-note">Observe · preserve · serve. No scores, no judgment.</div>
+</div></footer>
+<script src="i18n.js"></script>
+<script>
+"use strict";
+(function () {
+  function lang() { return document.documentElement.lang === "ja" ? "ja" : "en"; }
+  function tt(k) { return (i18n[lang()] && i18n[lang()][k]) || (i18n.en[k] || k); }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+  const SNAP = "data/snapshots/projectmemory";
+
+  const P = {
+    en: {
+      "ce-title": "Category Explorer",
+      "ce-lede": "Every project in Project Memory is organized into the ecosystem's categories. Browse all of them here — with how many projects each holds and how much of each is enriched with sourced links — then open any category to see its projects and their provenance. Counts and coverage are derived from the event log, not curated by hand.",
+      "ce-sort-count": "Sort: most projects", "ce-sort-coverage": "Sort: best coverage", "ce-sort-name": "Sort: name",
+      "ce-st-all": "All", "ce-st-populated": "Populated", "ce-st-pending": "Pending (empty)", "ce-st-deprecated": "Deprecated",
+      "ce-search-ph": "Filter categories…",
+      "ce-m-cats": "Categories", "ce-m-pop": "Populated", "ce-m-proj": "Projects", "ce-m-cov": "Avg coverage",
+      "ce-enriched": "enriched", "ce-projects": "projects", "ce-none": "No categories match.", "ce-empty-cat": "No projects in this category yet.",
+      "ft-hist": "Project History", "ft-heat": "Memory Heat Map", "ft-memory": "Memory",
+      "ce-foot-html": "Coverage = share of a category's projects that carry at least one sourced link (website / GitHub / docs / whitepaper). Drill into a project's full trail in the <a href=\"project-history.html\">Project History Explorer</a>, or see the whole ecosystem at a glance in the <a href=\"memory-heatmap.html\">Memory Heat Map</a>.",
+    },
+    ja: {
+      "ce-title": "カテゴリ エクスプローラー",
+      "ce-lede": "Project Memory の全プロジェクトは、エコシステムのカテゴリに整理されています。ここですべてを閲覧でき — 各カテゴリが何件のプロジェクトを持ち、どれだけが出典付きリンクで充実しているか — 任意のカテゴリを開けば、その中のプロジェクトと来歴を確認できます。件数とカバレッジはイベントログから導出され、手作業のキュレーションではありません。",
+      "ce-sort-count": "並び替え: プロジェクト数", "ce-sort-coverage": "並び替え: カバレッジ", "ce-sort-name": "並び替え: 名前",
+      "ce-st-all": "すべて", "ce-st-populated": "充実", "ce-st-pending": "保留（空）", "ce-st-deprecated": "非推奨",
+      "ce-search-ph": "カテゴリを絞り込み…",
+      "ce-m-cats": "カテゴリ", "ce-m-pop": "充実", "ce-m-proj": "プロジェクト", "ce-m-cov": "平均カバレッジ",
+      "ce-enriched": "充実", "ce-projects": "プロジェクト", "ce-none": "該当するカテゴリがありません。", "ce-empty-cat": "このカテゴリにはまだプロジェクトがありません。",
+      "ft-hist": "プロジェクト履歴", "ft-heat": "メモリ ヒートマップ", "ft-memory": "メモリ",
+      "ce-foot-html": "カバレッジ = カテゴリ内で、出典付きリンク（ウェブサイト / GitHub / ドキュメント / ホワイトペーパー）を1つ以上持つプロジェクトの割合。<a href=\"project-history.html\">プロジェクト履歴エクスプローラー</a>で各プロジェクトの完全な軌跡を辿るか、<a href=\"memory-heatmap.html\">メモリ ヒートマップ</a>でエコシステム全体を一目で確認できます。",
+    },
+  };
+  if (typeof i18n !== "undefined") { Object.assign(i18n.en, P.en); Object.assign(i18n.ja, P.ja); if (typeof setLang === "function") setLang(lang()); }
+
+  let DATA = null;
+  const open = new Set();
+
+  function applyOptionLabels() {
+    const sort = document.getElementById("ce-sort"); ["count", "coverage", "name"].forEach((v, i) => sort.options[i].textContent = tt("ce-sort-" + v));
+    const st = document.getElementById("ce-status"); ["all", "populated", "pending", "deprecated"].forEach((v, i) => st.options[i].textContent = tt("ce-st-" + v));
+    document.getElementById("ce-search").placeholder = tt("ce-search-ph");
+    const f = document.getElementById("ce-foot"); if (f) f.innerHTML = tt("ce-foot-html");
+  }
+
+  function renderMetrics() {
+    const m = DATA.meta.counts; const host = document.getElementById("ce-metrics");
+    const totalProj = DATA.categories.reduce((n, c) => n + c.project_count, 0);
+    const pop = DATA.categories.filter((c) => c.status === "populated");
+    const avgCov = pop.length ? Math.round(pop.reduce((n, c) => n + c.enriched_pct, 0) / pop.length) : 0;
+    host.innerHTML =
+      '<div><span class="ha-label">' + esc(tt("ce-m-cats")) + '</span><div class="ha-value">' + m.categories + "</div></div>"
+      + '<div style="margin-top:10px"><span class="ha-label">' + esc(tt("ce-m-pop")) + '</span><div class="ha-value">' + m.populated + "</div></div>"
+      + '<div style="margin-top:10px"><span class="ha-label">' + esc(tt("ce-m-cov")) + '</span><div class="ha-value">' + avgCov + "%</div></div>";
+  }
+
+  function memberRow(mb) {
+    const dot = '<span class="ce-dot ' + (mb.enriched ? "on" : "off") + '"></span>';
+    const auth = mb.authority_class ? '<span class="auth-chip auth-' + esc(mb.authority_class) + '">' + esc(mb.authority_class) + "</span>" : "";
+    return '<div class="ce-m"><a href="project.html?id=' + encodeURIComponent(mb.id) + '">' + esc(mb.name || mb.id) + "</a>"
+      + '<span class="ce-m-meta">' + dot + auth + '<a href="project-history.html?id=' + encodeURIComponent(mb.id) + '" title="history">↗</a></span></div>';
+  }
+
+  function renderGrid() {
+    const grid = document.getElementById("ce-grid");
+    const q = document.getElementById("ce-search").value.trim().toLowerCase();
+    const sort = document.getElementById("ce-sort").value;
+    const stat = document.getElementById("ce-status").value;
+    let cats = DATA.categories.slice();
+    if (stat !== "all") cats = cats.filter((c) => c.status === stat);
+    if (q) cats = cats.filter((c) => c.name.toLowerCase().includes(q) || c.slug.includes(q));
+    cats.sort((a, b) => sort === "name" ? a.name.localeCompare(b.name) : sort === "coverage" ? b.enriched_pct - a.enriched_pct || b.project_count - a.project_count : b.project_count - a.project_count);
+    if (!cats.length) { grid.innerHTML = '<p class="ce-empty">' + esc(tt("ce-none")) + "</p>"; return; }
+    grid.innerHTML = cats.map(function (c) {
+      const isOpen = open.has(c.slug);
+      const pend = c.status !== "populated";
+      const members = isOpen ? (c.members.length ? c.members.map(memberRow).join("") : '<div class="ce-empty">' + esc(tt("ce-empty-cat")) + "</div>") : "";
+      return '<div class="ce-cat' + (isOpen ? " open" : "") + (pend ? " ce-pend" : "") + '" data-slug="' + esc(c.slug) + '">'
+        + '<div class="ce-cat-head"><span class="ce-cat-name">' + esc(c.name) + (c.status === "deprecated" ? ' <span class="ce-pill">dep</span>' : "") + "</span>"
+        + '<span class="ce-cat-count">' + c.project_count + "</span></div>"
+        + '<div class="ce-cov"><div class="ce-cov-bar"><div class="ce-cov-fill" style="width:' + c.enriched_pct + '%"></div></div>'
+        + '<div class="ce-cov-lbl"><span>' + c.enriched_count + " / " + c.project_count + " " + esc(tt("ce-enriched")) + "</span><span>" + c.enriched_pct + "%</span></div></div>"
+        + '<div class="ce-members">' + members + "</div></div>";
+    }).join("");
+  }
+
+  function repaint() { if (!DATA) return; applyOptionLabels(); renderMetrics(); renderGrid(); }
+
+  function boot() {
+    document.addEventListener("cdo-lang", repaint);
+    ["ce-search", "ce-sort", "ce-status"].forEach((id) => document.getElementById(id).addEventListener("input", renderGrid));
+    document.getElementById("ce-grid").addEventListener("click", (e) => {
+      const head = e.target.closest(".ce-cat-head"); if (!head) return;
+      const slug = head.closest(".ce-cat").dataset.slug;
+      if (open.has(slug)) open.delete(slug); else open.add(slug);
+      renderGrid();
+    });
+    fetch(SNAP + "/categories.json").then((r) => r.json()).then((d) => { DATA = d; repaint(); })
+      .catch(() => { document.getElementById("ce-grid").innerHTML = '<p class="ce-empty">Category data unavailable.</p>'; });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
+})();
+</script>
+</body>
+</html>
