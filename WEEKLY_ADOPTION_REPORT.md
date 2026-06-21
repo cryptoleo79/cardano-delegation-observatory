@@ -70,6 +70,8 @@ _Obj 4 gate satisfied for Categories: the **why** is evidenced (orphaned from na
 ### Decisions this week
 - **Build authorized? APPLIED 2026-06-20** under **STEP 4A (real usage proves demand)**: `/categories` is the #1 API route → demand proven; the page had no nav path. Fix = one discoverability change: `Categories` added to the canonical nav across all 29 pages (immediately after Ecosystem; `categories.html` self-highlights). No redesign, no restructure, no features.
   - **A/B baseline for the 7-day measurement:** Categories page **before = 0 traffic** (this week). **Re-measure on/after 2026-06-27** via `analyze-access-logs.mjs`. **Success = Categories page no longer zero.** This is the first closed-loop evidence-driven change: shipped because the data demanded it, and verified by the data after.
+- **Project Memory enrichment SHIPPED 2026-06-20/21** (sourced, provenance-backed): enriched 715 → **786 / 847**; the Projects-page static snapshot refreshed 725 → 847. Justified under STEP 4A — Projects is the winner page and `/projects`+`/categories` are top API routes. Baseline + the 61 honestly-unenrichable remainder recorded in `cardano-data-layer/PROJECT_MEMORY_ENRICHMENT_BASELINE.md`. **Enrichment now paused.**
+  - **Change to measure (next usage.md):** does richer project data move (a) Projects-page traffic, (b) project-page depth / time, (c) `/project/:id` + `/projects` API calls? Compare against this week's pre-enrichment baseline. A future enrichment sprint resumes **only on a measured signal**, not a round number.
 - **Fixes (bugs / data correctness):** none pending.
 - **Outreach next:** First-15 still not started — DReps → Builders → Developers (`OUTREACH_TRACKER.md`).
 
