@@ -104,6 +104,72 @@
           "asserted_seq": 2459,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_4732",
+          "field": "website",
+          "value": "https://www.kirkstone.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 4732,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_4733",
+          "field": "whitepaper",
+          "value": "https://www.kirkstone.io/whitepaper",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 4733,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [
@@ -142,7 +208,7 @@
     ],
     "superseded_claim_count": 0,
     "created_seq": 2456,
-    "last_seq": 2461
+    "last_seq": 4733
   },
   "history": [
     {
@@ -274,7 +340,61 @@
       },
       "hash": "93191d23eec79acd197a94cb83b17ee8513693012b54a4353ec63540538889d9",
       "prev_hash": "fb416aa975bbaefede31f70342962f49acccf8bdec2cebf58a4aa1c90112a952"
+    },
+    {
+      "seq": 4732,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:kirkstone",
+        "field": "website",
+        "value": "https://www.kirkstone.io/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "f31695f2e227be87c4d81a5ddf6841f7e12564b311b1e55d54f36d408c2bc990",
+      "prev_hash": "69f5d1f76f1458e0b104ca752273de3db4897f1102b76d38d02aff043da3806a"
+    },
+    {
+      "seq": 4733,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:kirkstone",
+        "field": "whitepaper",
+        "value": "https://www.kirkstone.io/whitepaper",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "6caf69fcef59a618507f854778fd75499ccfd7a8a5762bbd9496142533d86000",
+      "prev_hash": "f31695f2e227be87c4d81a5ddf6841f7e12564b311b1e55d54f36d408c2bc990"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

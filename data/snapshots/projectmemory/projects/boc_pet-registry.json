@@ -39,6 +39,39 @@
           "superseded_by_seq": null
         }
       ],
+      "github": [
+        {
+          "claim_id": "clm_5193",
+          "field": "github",
+          "value": "https://github.com/fangio10",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem",
+                "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 5193,
+          "superseded_by_seq": null
+        }
+      ],
       "name": [
         {
           "claim_id": "clm_3118",
@@ -107,7 +140,7 @@
       ],
       "website": [
         {
-          "claim_id": "clm_3119",
+          "claim_id": "clm_5192",
           "field": "website",
           "value": "https://petregistry.io/",
           "state": "active",
@@ -124,17 +157,17 @@
               "label": "Built on Cardano directory (Cardano Foundation)"
             },
             "authority_class": "B",
-            "as_of": "2026-06-07",
+            "as_of": "2026-06-17",
             "evidence": [
               {
                 "kind": "url",
-                "ref": "https://builtoncardano.com/ecosystem/all",
-                "sha256": null,
-                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+                "ref": "https://builtoncardano.com/ecosystem",
+                "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
               }
             ]
           },
-          "asserted_seq": 3119,
+          "asserted_seq": 5192,
           "superseded_by_seq": null
         }
       ]
@@ -173,9 +206,9 @@
         }
       }
     ],
-    "superseded_claim_count": 0,
+    "superseded_claim_count": 1,
     "created_seq": 3117,
-    "last_seq": 3123
+    "last_seq": 5193
   },
   "history": [
     {
@@ -331,7 +364,61 @@
       },
       "hash": "16973736314caa8885040337f613e93ba0a09c945cad6a8a8655df3989cf7a8a",
       "prev_hash": "96426b8bb476044b703e62deadc19ce1e36c764b340b83971bda9b6d32df83e3"
+    },
+    {
+      "seq": 5192,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:pet-registry",
+        "field": "website",
+        "value": "https://petregistry.io/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem",
+            "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "9e1e99abc21f935f2b1201f721882c5ce1eed9908200f0d8b75084268d1e66f9",
+      "prev_hash": "f64de5cd37b50858532af5170594c3c710941c97cac905eab7812057e38fce16"
+    },
+    {
+      "seq": 5193,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:pet-registry",
+        "field": "github",
+        "value": "https://github.com/fangio10",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem",
+            "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "2130062d32f9d3c9ccf5204665b1aea45049334cab16a639a8ae939c3af7246c",
+      "prev_hash": "9e1e99abc21f935f2b1201f721882c5ce1eed9908200f0d8b75084268d1e66f9"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

@@ -39,6 +39,39 @@
           "superseded_by_seq": null
         }
       ],
+      "github": [
+        {
+          "claim_id": "clm_4902",
+          "field": "github",
+          "value": "https://github.com/alucao/decon",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 4902,
+          "superseded_by_seq": null
+        }
+      ],
       "name": [
         {
           "claim_id": "clm_1812",
@@ -104,6 +137,39 @@
           "asserted_seq": 1814,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_4901",
+          "field": "website",
+          "value": "https://decon.app",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 4901,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [
@@ -142,7 +208,7 @@
     ],
     "superseded_claim_count": 0,
     "created_seq": 1811,
-    "last_seq": 1816
+    "last_seq": 4902
   },
   "history": [
     {
@@ -274,7 +340,61 @@
       },
       "hash": "4f1346595760ca36db89474d4918d909f11ca292d6f7ee6eae1dc6a0b4e0bec6",
       "prev_hash": "f9244489c97385160d9e4ca9b375552ba0c75afbdcb225c5783573ff07128c8e"
+    },
+    {
+      "seq": 4901,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:decon",
+        "field": "website",
+        "value": "https://decon.app",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "0a4e76813ffbd4843956f0bb28278e0d9ecd9087afb15e574862fdeef5f07100",
+      "prev_hash": "b445de94a613e7d5bbafeef71e7948e1deb20b113308f6798f00bcef66d65fad"
+    },
+    {
+      "seq": 4902,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:decon",
+        "field": "github",
+        "value": "https://github.com/alucao/decon",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "91efa790a1a2e52acc7de7178807e06ad71644df227dff9822112cbd0f0830f6",
+      "prev_hash": "0a4e76813ffbd4843956f0bb28278e0d9ecd9087afb15e574862fdeef5f07100"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

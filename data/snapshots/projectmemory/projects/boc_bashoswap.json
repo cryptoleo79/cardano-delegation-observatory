@@ -39,6 +39,72 @@
           "superseded_by_seq": null
         }
       ],
+      "documentation": [
+        {
+          "claim_id": "clm_4700",
+          "field": "documentation",
+          "value": "https://docs.bashoswap.finance/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 4700,
+          "superseded_by_seq": null
+        }
+      ],
+      "github": [
+        {
+          "claim_id": "clm_4699",
+          "field": "github",
+          "value": "https://github.com/bashoswap/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 4699,
+          "superseded_by_seq": null
+        }
+      ],
       "name": [
         {
           "claim_id": "clm_682",
@@ -104,6 +170,39 @@
           "asserted_seq": 684,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_4698",
+          "field": "website",
+          "value": "https://bashoswap.finance/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 4698,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [
@@ -142,7 +241,7 @@
     ],
     "superseded_claim_count": 0,
     "created_seq": 681,
-    "last_seq": 686
+    "last_seq": 4700
   },
   "history": [
     {
@@ -274,7 +373,88 @@
       },
       "hash": "b26e8e3e8716b54ed0395741490b3ee25e80fbcc19345851828b70964294ec52",
       "prev_hash": "f205ef6e8d2b7391a03b280ac7965a77d4bb47c60f8eb5f48f27a81a3548575a"
+    },
+    {
+      "seq": 4698,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:bashoswap",
+        "field": "website",
+        "value": "https://bashoswap.finance/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "5c9953cd7b8e1bf62632ac5ef2ebd92514be472ca46df6e2e780389e9f3ee1ad",
+      "prev_hash": "b77f68c545fcf0b2074d3a1caa00266636673dbb643f9d51023de51649276747"
+    },
+    {
+      "seq": 4699,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:bashoswap",
+        "field": "github",
+        "value": "https://github.com/bashoswap/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "9f11e36e80c8f0e695352664c485bd8f870ae9a0ce4dd45c19a6bf3bc4018ce9",
+      "prev_hash": "5c9953cd7b8e1bf62632ac5ef2ebd92514be472ca46df6e2e780389e9f3ee1ad"
+    },
+    {
+      "seq": 4700,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:bashoswap",
+        "field": "documentation",
+        "value": "https://docs.bashoswap.finance/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "f7c3e004265e1d2c2a7c933492bf34c530620af23fa2157bc087f3935d969222",
+      "prev_hash": "9f11e36e80c8f0e695352664c485bd8f870ae9a0ce4dd45c19a6bf3bc4018ce9"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

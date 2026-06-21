@@ -39,6 +39,39 @@
           "superseded_by_seq": null
         }
       ],
+      "documentation": [
+        {
+          "claim_id": "clm_5076",
+          "field": "documentation",
+          "value": "https://kulfi.gitbook.io/kulfi-finance-3/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem",
+                "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 5076,
+          "superseded_by_seq": null
+        }
+      ],
       "name": [
         {
           "claim_id": "clm_2475",
@@ -104,6 +137,39 @@
           "asserted_seq": 2477,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5075",
+          "field": "website",
+          "value": "https://kulfifinance.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem",
+                "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 5075,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [
@@ -142,7 +208,7 @@
     ],
     "superseded_claim_count": 0,
     "created_seq": 2474,
-    "last_seq": 2479
+    "last_seq": 5076
   },
   "history": [
     {
@@ -274,7 +340,61 @@
       },
       "hash": "e8251940980e90eb84620955fd076e172584be3e03075f543910e07bf81dc9c8",
       "prev_hash": "80cd434f8aed2937d1b6dfc580601bcdfabef178e66019fc9e98c5d0c66a19c7"
+    },
+    {
+      "seq": 5075,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:kulfi-finance",
+        "field": "website",
+        "value": "https://kulfifinance.io/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem",
+            "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "3597c869ba7c940e00cdeea0718199f023615ed332bb067837a629de62347ba3",
+      "prev_hash": "1e9d037eb27c0bd7fbeb18ca05901d36c6506be0278c6aa964c63794524a4e71"
+    },
+    {
+      "seq": 5076,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:kulfi-finance",
+        "field": "documentation",
+        "value": "https://kulfi.gitbook.io/kulfi-finance-3/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem",
+            "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "da61edd3ae3e71d95070b1ccaa74455cba4fc878bb450437674211e37c7ab9c6",
+      "prev_hash": "3597c869ba7c940e00cdeea0718199f023615ed332bb067837a629de62347ba3"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

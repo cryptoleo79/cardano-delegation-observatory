@@ -39,6 +39,39 @@
           "superseded_by_seq": null
         }
       ],
+      "github": [
+        {
+          "claim_id": "clm_4607",
+          "field": "github",
+          "value": "https://github.com/mariusgeorgescu/raffleize",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 4607,
+          "superseded_by_seq": null
+        }
+      ],
       "name": [
         {
           "claim_id": "clm_3341",
@@ -104,6 +137,39 @@
           "asserted_seq": 3343,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_4606",
+          "field": "website",
+          "value": "https://raffleize.art",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 4606,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [
@@ -142,7 +208,7 @@
     ],
     "superseded_claim_count": 0,
     "created_seq": 3340,
-    "last_seq": 3345
+    "last_seq": 4607
   },
   "history": [
     {
@@ -274,7 +340,61 @@
       },
       "hash": "604e56b17fdd7a4a3df896ea9aab6d7aae4a30464e30004e9f296b6ec2c40084",
       "prev_hash": "a49e8e18dab3a66941fb97e4d26f9de309805dda7c2b48fe15b7371fb9d8d1a0"
+    },
+    {
+      "seq": 4606,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:raffleize",
+        "field": "website",
+        "value": "https://raffleize.art",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "27ab90f507ab8323cb3d58ec7a33b698243997b582d0fdc6a443074c90466616",
+      "prev_hash": "e3f087b629b507a89c005d237b4df1d6ea02049750aaa76a07633eebf086db01"
+    },
+    {
+      "seq": 4607,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:raffleize",
+        "field": "github",
+        "value": "https://github.com/mariusgeorgescu/raffleize",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "1412a69ceb8236689bc9f75563fd6cfdc1cf056f6272e8dd837ba922c37ad81f",
+      "prev_hash": "27ab90f507ab8323cb3d58ec7a33b698243997b582d0fdc6a443074c90466616"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

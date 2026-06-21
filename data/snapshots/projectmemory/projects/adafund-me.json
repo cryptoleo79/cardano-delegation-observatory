@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "adafund-me",
+    "kind": "project",
+    "name": "Adafund Me",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4399",
+          "field": "name",
+          "value": "Adafund Me",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+                "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+                "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4399,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5534",
+          "field": "website",
+          "value": "http://adafund.me",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250617114143id_/https://www.cardanocube.com/projects/adafund-me",
+                "sha256": "a5072e1cafaeb46160d2c7a7056fc6957604d51bef05f0ee761e5d3e6e286863",
+                "description": "cardanocube project page for \"adafund-me\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5534,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "marketplaces",
+        "name": "Marketplaces",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4398,
+    "last_seq": 5534
+  },
+  "history": [
+    {
+      "seq": 4398,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "adafund-me",
+        "kind": "project"
+      },
+      "hash": "26a49e07ce15b057ca39c9c308cf1293a344565491c0011e3997e51347a63253",
+      "prev_hash": "36fb93e43d8cd263d175bd0d12a1641593b13229433e8fcf968d6c3261615c73"
+    },
+    {
+      "seq": 4399,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adafund-me",
+        "field": "name",
+        "value": "Adafund Me",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "451db3d6dac826520fd5e24841bf1d4c20f61d087c961f9541d8b6437bf72e04",
+      "prev_hash": "26a49e07ce15b057ca39c9c308cf1293a344565491c0011e3997e51347a63253"
+    },
+    {
+      "seq": 4400,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adafund-me",
+        "category_slug": "marketplaces",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "7c7767e5f7f15e3acdaff826e64191f7b6033144e8baa8be5acd06f82670cf32",
+      "prev_hash": "451db3d6dac826520fd5e24841bf1d4c20f61d087c961f9541d8b6437bf72e04"
+    },
+    {
+      "seq": 5534,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adafund-me",
+        "field": "website",
+        "value": "http://adafund.me",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250617114143id_/https://www.cardanocube.com/projects/adafund-me",
+            "sha256": "a5072e1cafaeb46160d2c7a7056fc6957604d51bef05f0ee761e5d3e6e286863",
+            "description": "cardanocube project page for \"adafund-me\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "33cd5600a18c9160cf0b5c494b2bd0cdc2d2d882bfe97c0ff7cf6b71448e394b",
+      "prev_hash": "bbdef4516109460d89e3fcdd408956bf9e83b005b92a1a747922ed3b836529b0"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "unbox-the-universe",
+    "kind": "project",
+    "name": "Unbox The Universe",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4313",
+          "field": "name",
+          "value": "Unbox The Universe",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+                "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+                "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4313,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5467",
+          "field": "website",
+          "value": "https://www.unboxuniverse.com/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250318012200id_/https://www.cardanocube.com/projects/unbox-the-universe",
+                "sha256": "0bc2357fd098fb0b99b12d9f2ad11c94ac36cc9db5a3941069b96bcf75632643",
+                "description": "cardanocube project page for \"unbox-the-universe\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5467,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "infrastructure",
+        "name": "Infrastructure",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4312,
+    "last_seq": 5467
+  },
+  "history": [
+    {
+      "seq": 4312,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "unbox-the-universe",
+        "kind": "project"
+      },
+      "hash": "c7765adf347d972da529e409af9fc60058c6d8dc7ac933e62d5d462a4fdc17aa",
+      "prev_hash": "254d6096424d8c2fc0a9bf72e7714bac798150ab25b3b03efc3e475cee58761e"
+    },
+    {
+      "seq": 4313,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "unbox-the-universe",
+        "field": "name",
+        "value": "Unbox The Universe",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "244a01bde9973cd3548167c0fa441f259c99832346597d3182b10b669532a705",
+      "prev_hash": "c7765adf347d972da529e409af9fc60058c6d8dc7ac933e62d5d462a4fdc17aa"
+    },
+    {
+      "seq": 4314,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "unbox-the-universe",
+        "category_slug": "infrastructure",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "9a29dc8e4bbb38bf2a3a289bd0c53734265f758336ba5bcf8e35d75cd18e636b",
+      "prev_hash": "244a01bde9973cd3548167c0fa441f259c99832346597d3182b10b669532a705"
+    },
+    {
+      "seq": 5467,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "unbox-the-universe",
+        "field": "website",
+        "value": "https://www.unboxuniverse.com/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250318012200id_/https://www.cardanocube.com/projects/unbox-the-universe",
+            "sha256": "0bc2357fd098fb0b99b12d9f2ad11c94ac36cc9db5a3941069b96bcf75632643",
+            "description": "cardanocube project page for \"unbox-the-universe\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "844e8fa13b29cbae484bcc73d738ad21e4035009b895911269f8f562970eda8b",
+      "prev_hash": "d4c5898968c873cf26abdde76b9f5e5ec2afccdce5c8f92bfb8ee96a93e716c7"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

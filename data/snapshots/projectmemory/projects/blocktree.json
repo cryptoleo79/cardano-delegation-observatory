@@ -6,6 +6,39 @@
     "status": "defunct",
     "unclassified": true,
     "fields": {
+      "documentation": [
+        {
+          "claim_id": "clm_5381",
+          "field": "documentation",
+          "value": "https://docs.blocktree.asia/faq/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250317233214id_/https://cardanocube.com/projects/blocktree",
+                "sha256": "609f70e857206be2d53fb2f2c0f81601e18f763550d1119d1bd51a94468fc29a",
+                "description": "cardanocube project page for \"blocktree\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5381,
+          "superseded_by_seq": null
+        }
+      ],
       "name": [
         {
           "claim_id": "clm_81",
@@ -71,12 +104,45 @@
           "asserted_seq": 82,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5380",
+          "field": "website",
+          "value": "https://blocktree.asia/en/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250317233214id_/https://cardanocube.com/projects/blocktree",
+                "sha256": "609f70e857206be2d53fb2f2c0f81601e18f763550d1119d1bd51a94468fc29a",
+                "description": "cardanocube project page for \"blocktree\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5380,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [],
     "superseded_claim_count": 0,
     "created_seq": 80,
-    "last_seq": 82
+    "last_seq": 5381
   },
   "history": [
     {
@@ -140,7 +206,61 @@
       },
       "hash": "7aacf9916eab14649ea8c3268154a5d86664ea3b04f7b3de0cd2d814b2341f0e",
       "prev_hash": "5e549bc462c64f492685d95e43fb986c281cf12b634a8a42c00b9106aa41f062"
+    },
+    {
+      "seq": 5380,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "blocktree",
+        "field": "website",
+        "value": "https://blocktree.asia/en/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250317233214id_/https://cardanocube.com/projects/blocktree",
+            "sha256": "609f70e857206be2d53fb2f2c0f81601e18f763550d1119d1bd51a94468fc29a",
+            "description": "cardanocube project page for \"blocktree\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "9bd23bd50349c2bcbd5b04f708dedfa38455601e01d8159130bfc1b5323e2976",
+      "prev_hash": "84d9ca24ac501f95582bf552eb839ae099b01e5f52014e80d110c40e17fa7283"
+    },
+    {
+      "seq": 5381,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "blocktree",
+        "field": "documentation",
+        "value": "https://docs.blocktree.asia/faq/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250317233214id_/https://cardanocube.com/projects/blocktree",
+            "sha256": "609f70e857206be2d53fb2f2c0f81601e18f763550d1119d1bd51a94468fc29a",
+            "description": "cardanocube project page for \"blocktree\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "e8f7ec986cc512cc664711b92249bbe104a0823809a1dc0a88795f00ca8900a3",
+      "prev_hash": "9bd23bd50349c2bcbd5b04f708dedfa38455601e01d8159130bfc1b5323e2976"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

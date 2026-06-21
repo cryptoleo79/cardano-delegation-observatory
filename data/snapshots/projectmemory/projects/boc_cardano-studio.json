@@ -39,6 +39,39 @@
           "superseded_by_seq": null
         }
       ],
+      "documentation": [
+        {
+          "claim_id": "clm_4622",
+          "field": "documentation",
+          "value": "https://www.cardano-studio.app/documentation",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 4622,
+          "superseded_by_seq": null
+        }
+      ],
       "name": [
         {
           "claim_id": "clm_1338",
@@ -104,6 +137,39 @@
           "asserted_seq": 1340,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_4621",
+          "field": "website",
+          "value": "https://www.cardano-studio.app",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 4621,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [
@@ -142,7 +208,7 @@
     ],
     "superseded_claim_count": 0,
     "created_seq": 1337,
-    "last_seq": 1342
+    "last_seq": 4622
   },
   "history": [
     {
@@ -274,7 +340,61 @@
       },
       "hash": "017be622076a8ffb310e650edeef74298fe986e5dad4af78fb7dc11650c3e43d",
       "prev_hash": "f995455e23a576691e86aa948197935e94287c9477e5f4f07e664ed439b06604"
+    },
+    {
+      "seq": 4621,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:cardano-studio",
+        "field": "website",
+        "value": "https://www.cardano-studio.app",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "cf4df0a109e3b46d6cfee9add93e4253d8fd4b00b1427767e628d4914d1fc10d",
+      "prev_hash": "dc4afc229a112f0b9032200edc654c4d5d062c9b64cc721c4920d9ae628a4f95"
+    },
+    {
+      "seq": 4622,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:cardano-studio",
+        "field": "documentation",
+        "value": "https://www.cardano-studio.app/documentation",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "460de04ee29a0ab01be8dbddcb6dbd9944873969eef8be6835ce3ba9309bc162",
+      "prev_hash": "cf4df0a109e3b46d6cfee9add93e4253d8fd4b00b1427767e628d4914d1fc10d"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

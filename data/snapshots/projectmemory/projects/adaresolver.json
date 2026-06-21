@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "adaresolver",
+    "kind": "project",
+    "name": "Adaresolver",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4325",
+          "field": "name",
+          "value": "Adaresolver",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+                "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+                "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4325,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5471",
+          "field": "website",
+          "value": "https://adaresolver.com/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250119233258id_/https://www.cardanocube.com/projects/adaresolver",
+                "sha256": "63f2d98312db50b9a1c4670227164771217f8e9a36c07426e1f39454228caa90",
+                "description": "cardanocube project page for \"adaresolver\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5471,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5472",
+          "field": "whitepaper",
+          "value": "https://whitepaper.adaresolver.com/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250119233258id_/https://www.cardanocube.com/projects/adaresolver",
+                "sha256": "63f2d98312db50b9a1c4670227164771217f8e9a36c07426e1f39454228caa90",
+                "description": "cardanocube project page for \"adaresolver\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5472,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "infrastructure",
+        "name": "Infrastructure",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4324,
+    "last_seq": 5472
+  },
+  "history": [
+    {
+      "seq": 4324,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "adaresolver",
+        "kind": "project"
+      },
+      "hash": "06d9fb83762646a29ca02d536692786eec83c0d67d6ff9ec43c3de3fc102030c",
+      "prev_hash": "2c782539206c8564c13bbb8f288c05c0e4d65596efbe054e6cbfb552087b8eac"
+    },
+    {
+      "seq": 4325,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adaresolver",
+        "field": "name",
+        "value": "Adaresolver",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "90609761e6fbf863f13c0307868e984600a4f41c133650afcbfd1a8264deb2a4",
+      "prev_hash": "06d9fb83762646a29ca02d536692786eec83c0d67d6ff9ec43c3de3fc102030c"
+    },
+    {
+      "seq": 4326,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adaresolver",
+        "category_slug": "infrastructure",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "420939fed1a84d689f475156407df9439c065f9bbe452117a8cf9a501bf53946",
+      "prev_hash": "90609761e6fbf863f13c0307868e984600a4f41c133650afcbfd1a8264deb2a4"
+    },
+    {
+      "seq": 5471,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adaresolver",
+        "field": "website",
+        "value": "https://adaresolver.com/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250119233258id_/https://www.cardanocube.com/projects/adaresolver",
+            "sha256": "63f2d98312db50b9a1c4670227164771217f8e9a36c07426e1f39454228caa90",
+            "description": "cardanocube project page for \"adaresolver\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "cfed8671492a5e7f3285475b916a0bca80cf6053eae32a6ffbeea86a33bbd1c8",
+      "prev_hash": "20460298145a32c5431df203dd4430c4f3965e036bf3a26b1e8d9b474666a5ae"
+    },
+    {
+      "seq": 5472,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adaresolver",
+        "field": "whitepaper",
+        "value": "https://whitepaper.adaresolver.com/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250119233258id_/https://www.cardanocube.com/projects/adaresolver",
+            "sha256": "63f2d98312db50b9a1c4670227164771217f8e9a36c07426e1f39454228caa90",
+            "description": "cardanocube project page for \"adaresolver\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "970c63144255227a52773015dd783c371374623ebf2b065f7355fa3fbfed79ad",
+      "prev_hash": "cfed8671492a5e7f3285475b916a0bca80cf6053eae32a6ffbeea86a33bbd1c8"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

@@ -39,6 +39,39 @@
           "superseded_by_seq": null
         }
       ],
+      "github": [
+        {
+          "claim_id": "clm_5061",
+          "field": "github",
+          "value": "https://github.com/B58-Finance",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem",
+                "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 5061,
+          "superseded_by_seq": null
+        }
+      ],
       "name": [
         {
           "claim_id": "clm_675",
@@ -107,9 +140,9 @@
       ],
       "website": [
         {
-          "claim_id": "clm_676",
+          "claim_id": "clm_5060",
           "field": "website",
-          "value": "https://b58.finance",
+          "value": "https://b58.finance/",
           "state": "active",
           "provenance": {
             "asserted_by": "machine:seed",
@@ -124,17 +157,17 @@
               "label": "Built on Cardano directory (Cardano Foundation)"
             },
             "authority_class": "B",
-            "as_of": "2026-06-07",
+            "as_of": "2026-06-17",
             "evidence": [
               {
                 "kind": "url",
-                "ref": "https://builtoncardano.com/ecosystem/all",
-                "sha256": null,
-                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+                "ref": "https://builtoncardano.com/ecosystem",
+                "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
               }
             ]
           },
-          "asserted_seq": 676,
+          "asserted_seq": 5060,
           "superseded_by_seq": null
         }
       ]
@@ -173,9 +206,9 @@
         }
       }
     ],
-    "superseded_claim_count": 0,
+    "superseded_claim_count": 1,
     "created_seq": 674,
-    "last_seq": 680
+    "last_seq": 5061
   },
   "history": [
     {
@@ -331,7 +364,61 @@
       },
       "hash": "cb002d82290f6c7a13d1d74342ad0e17800665965815ee0c0f94670ff72eafc4",
       "prev_hash": "b7553221b9b82b1c9bd9ec6896ebca56854a6c53e1b70e8f524d13c20e98daa4"
+    },
+    {
+      "seq": 5060,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:b-58-finance",
+        "field": "website",
+        "value": "https://b58.finance/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem",
+            "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "3289ba2a64c57a7a367105eea90c04e83d4813637aa1086dfc0ce4ab344c0794",
+      "prev_hash": "f39d303858dc9bcb0fc6f06282624784573b3513210669615a5333f0e7b82acc"
+    },
+    {
+      "seq": 5061,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:b-58-finance",
+        "field": "github",
+        "value": "https://github.com/B58-Finance",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem",
+            "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "e6cc9507be60c05e7b980fa267a8afa70cccdb607e1943375cb92e0d03a7ff99",
+      "prev_hash": "3289ba2a64c57a7a367105eea90c04e83d4813637aa1086dfc0ce4ab344c0794"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

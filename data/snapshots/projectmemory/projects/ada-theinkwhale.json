@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "ada-theinkwhale",
+    "kind": "project",
+    "name": "Ada Theinkwhale",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4408",
+          "field": "name",
+          "value": "Ada Theinkwhale",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+                "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+                "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4408,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5680",
+          "field": "website",
+          "value": "https://ada.theinkwhale.com",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260621013820id_/https://www.cardanocube.com/projects/ada-theinkwhale",
+                "sha256": "d0bb613da6af29ee7573427a31f3035d949c304f925a54063c1d199cb7b2e56f",
+                "description": "cardanocube project page for \"ada-theinkwhale\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5680,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5681",
+          "field": "whitepaper",
+          "value": "https://ada.theinkwhale.com/faq",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260621013820id_/https://www.cardanocube.com/projects/ada-theinkwhale",
+                "sha256": "d0bb613da6af29ee7573427a31f3035d949c304f925a54063c1d199cb7b2e56f",
+                "description": "cardanocube project page for \"ada-theinkwhale\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5681,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "marketplaces",
+        "name": "Marketplaces",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4407,
+    "last_seq": 5681
+  },
+  "history": [
+    {
+      "seq": 4407,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "ada-theinkwhale",
+        "kind": "project"
+      },
+      "hash": "0bb429e88451ab0750ee36ea9a33a01310caceb61a9a36af57f9bae700c3ad90",
+      "prev_hash": "5df7669e14788f207b1a607efab0c1251509ceb68cd2480e35a3a7976ace9d47"
+    },
+    {
+      "seq": 4408,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "ada-theinkwhale",
+        "field": "name",
+        "value": "Ada Theinkwhale",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "554251102d7323eb98df3359174b539d457cff90d544a837f54b90d03252b240",
+      "prev_hash": "0bb429e88451ab0750ee36ea9a33a01310caceb61a9a36af57f9bae700c3ad90"
+    },
+    {
+      "seq": 4409,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "ada-theinkwhale",
+        "category_slug": "marketplaces",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "2eed23e7c6929ebb12946b4a870e034e79f68bb514b33fe7605ab65e4925cde4",
+      "prev_hash": "554251102d7323eb98df3359174b539d457cff90d544a837f54b90d03252b240"
+    },
+    {
+      "seq": 5680,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "ada-theinkwhale",
+        "field": "website",
+        "value": "https://ada.theinkwhale.com",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260621013820id_/https://www.cardanocube.com/projects/ada-theinkwhale",
+            "sha256": "d0bb613da6af29ee7573427a31f3035d949c304f925a54063c1d199cb7b2e56f",
+            "description": "cardanocube project page for \"ada-theinkwhale\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "c6ac5408be3a1c65e52830207c10c225894b76af1e744281bb578d15ef894af7",
+      "prev_hash": "55b89ef3da3fcef35f24cfa538fee9e145e053e5f09f06e7ec08a92fc6b90e46"
+    },
+    {
+      "seq": 5681,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "ada-theinkwhale",
+        "field": "whitepaper",
+        "value": "https://ada.theinkwhale.com/faq",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260621013820id_/https://www.cardanocube.com/projects/ada-theinkwhale",
+            "sha256": "d0bb613da6af29ee7573427a31f3035d949c304f925a54063c1d199cb7b2e56f",
+            "description": "cardanocube project page for \"ada-theinkwhale\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "40220012814d0a0f370062cf1cc374356500a32096c39febd91c0765c02568fb",
+      "prev_hash": "c6ac5408be3a1c65e52830207c10c225894b76af1e744281bb578d15ef894af7"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

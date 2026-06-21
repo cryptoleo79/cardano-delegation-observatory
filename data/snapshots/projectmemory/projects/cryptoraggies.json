@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "cryptoraggies",
+    "kind": "project",
+    "name": "Cryptoraggies",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4519",
+          "field": "name",
+          "value": "Cryptoraggies",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+                "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+                "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4519,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5699",
+          "field": "website",
+          "value": "https://cryptoraggies.io",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://www.cardanocube.com/projects/cryptoraggies",
+                "sha256": "bfc1cf00829239a1ac01a7ef9aebf33e66e80994bd41237d498fe4f72223b60b",
+                "description": "cardanocube project page for \"cryptoraggies\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5699,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5700",
+          "field": "whitepaper",
+          "value": "https://cryptoraggies.io/index.html#faq",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://www.cardanocube.com/projects/cryptoraggies",
+                "sha256": "bfc1cf00829239a1ac01a7ef9aebf33e66e80994bd41237d498fe4f72223b60b",
+                "description": "cardanocube project page for \"cryptoraggies\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5700,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "utility-nfts",
+        "name": "Utility Nfts",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4518,
+    "last_seq": 5700
+  },
+  "history": [
+    {
+      "seq": 4518,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "cryptoraggies",
+        "kind": "project"
+      },
+      "hash": "e40e942a8672132836c9661942456bd4d9d0ddb3fa1b211a640db7bb8c00b361",
+      "prev_hash": "226f76ca4eb9d741c083067c80d36544a3b95391cc3353d76f2a5b43f0ea8775"
+    },
+    {
+      "seq": 4519,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cryptoraggies",
+        "field": "name",
+        "value": "Cryptoraggies",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "a042240084df49e062126260b1fcad7e9932c7c9f7599590bfb4ab1d5ba487ee",
+      "prev_hash": "e40e942a8672132836c9661942456bd4d9d0ddb3fa1b211a640db7bb8c00b361"
+    },
+    {
+      "seq": 4520,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cryptoraggies",
+        "category_slug": "utility-nfts",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "053ad76bf1aea787c0b47b099d28f9057dadef7bc093e9063c2f5e7d45f44465",
+      "prev_hash": "a042240084df49e062126260b1fcad7e9932c7c9f7599590bfb4ab1d5ba487ee"
+    },
+    {
+      "seq": 5699,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cryptoraggies",
+        "field": "website",
+        "value": "https://cryptoraggies.io",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://www.cardanocube.com/projects/cryptoraggies",
+            "sha256": "bfc1cf00829239a1ac01a7ef9aebf33e66e80994bd41237d498fe4f72223b60b",
+            "description": "cardanocube project page for \"cryptoraggies\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "1ec2ba348809389b51882ffdaa1facdd7e8d7525e3a873541a48ed54c5d7d1c2",
+      "prev_hash": "32381db7d542b6b3e615b97be32ce3fb8d0732d9d987e54497448de05532fe15"
+    },
+    {
+      "seq": 5700,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cryptoraggies",
+        "field": "whitepaper",
+        "value": "https://cryptoraggies.io/index.html#faq",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://www.cardanocube.com/projects/cryptoraggies",
+            "sha256": "bfc1cf00829239a1ac01a7ef9aebf33e66e80994bd41237d498fe4f72223b60b",
+            "description": "cardanocube project page for \"cryptoraggies\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "0ab5600cf271f2b14b63efaa8dbb8245181131b2b4482d3eeedfb08cdf4ab11d",
+      "prev_hash": "1ec2ba348809389b51882ffdaa1facdd7e8d7525e3a873541a48ed54c5d7d1c2"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

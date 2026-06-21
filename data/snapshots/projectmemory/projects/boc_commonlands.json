@@ -39,6 +39,39 @@
           "superseded_by_seq": null
         }
       ],
+      "documentation": [
+        {
+          "claim_id": "clm_4727",
+          "field": "documentation",
+          "value": "https://docs.google.com/document/d/1r5dJ2RcxozzvmN7rYCiSw7JnfgnG0AVIK5U7IiQCGlo/edit#heading=h.8ahcg9gebjcc",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 4727,
+          "superseded_by_seq": null
+        }
+      ],
       "name": [
         {
           "claim_id": "clm_1652",
@@ -104,6 +137,72 @@
           "asserted_seq": 1654,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_4726",
+          "field": "website",
+          "value": "https://www.commonlands.org/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 4726,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_4728",
+          "field": "whitepaper",
+          "value": "https://docs.google.com/document/d/1r5dJ2RcxozzvmN7rYCiSw7JnfgnG0AVIK5U7IiQCGlo/edit#heading=h.8ahcg9gebjcc",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 4728,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [
@@ -142,7 +241,7 @@
     ],
     "superseded_claim_count": 0,
     "created_seq": 1651,
-    "last_seq": 1656
+    "last_seq": 4728
   },
   "history": [
     {
@@ -274,7 +373,88 @@
       },
       "hash": "f496d5054c65d00711aff9aab67dfc0b676be5ed92981ea3ec73b82eb7ae44e9",
       "prev_hash": "e64f44bd0e2f61d9fb351feec05b19029ffbe6c43dd393997d11ad8facbb2018"
+    },
+    {
+      "seq": 4726,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:commonlands",
+        "field": "website",
+        "value": "https://www.commonlands.org/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "37b989e1aaac8ac8fcf29e7e5ddaa5b322ad494f662494fb1e88ffcad7865b56",
+      "prev_hash": "df0ffbf9e95fa975822917638fb337893d2e026a23c40d1d01cb5ce3cbd2596f"
+    },
+    {
+      "seq": 4727,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:commonlands",
+        "field": "documentation",
+        "value": "https://docs.google.com/document/d/1r5dJ2RcxozzvmN7rYCiSw7JnfgnG0AVIK5U7IiQCGlo/edit#heading=h.8ahcg9gebjcc",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "aa173c57332b1cb9ef9f13956fd19c3516ec532cd3c1390d236f96d6b6f49692",
+      "prev_hash": "37b989e1aaac8ac8fcf29e7e5ddaa5b322ad494f662494fb1e88ffcad7865b56"
+    },
+    {
+      "seq": 4728,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:commonlands",
+        "field": "whitepaper",
+        "value": "https://docs.google.com/document/d/1r5dJ2RcxozzvmN7rYCiSw7JnfgnG0AVIK5U7IiQCGlo/edit#heading=h.8ahcg9gebjcc",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "3590270c3109e20f0c01ec6dfe0800e64576c51e09af1ceef1a7fe027efeb4b5",
+      "prev_hash": "aa173c57332b1cb9ef9f13956fd19c3516ec532cd3c1390d236f96d6b6f49692"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

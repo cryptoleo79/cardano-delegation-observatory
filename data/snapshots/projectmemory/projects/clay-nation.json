@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "clay-nation",
+    "kind": "project",
+    "name": "Clay Nation",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4480",
+          "field": "name",
+          "value": "Clay Nation",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+                "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+                "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4480,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5508",
+          "field": "website",
+          "value": "https://www.claynation.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250617122053id_/https://www.cardanocube.com/projects/clay-nation",
+                "sha256": "53f1b8b5b3f2aa31e181fd04c08072b54f4e0a6f1a84615d3683584002dbd8f9",
+                "description": "cardanocube project page for \"clay-nation\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5508,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "popular",
+        "name": "Popular",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4479,
+    "last_seq": 5508
+  },
+  "history": [
+    {
+      "seq": 4479,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "clay-nation",
+        "kind": "project"
+      },
+      "hash": "aeeb4e7d7b3786083207a3d1d792b93b8cd4709d6c50ff194b251ca8dacf5b1b",
+      "prev_hash": "cbf66cbc187783667f44730c07470f2700bdb54fd4febcc5a03dabdec7a8d377"
+    },
+    {
+      "seq": 4480,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "clay-nation",
+        "field": "name",
+        "value": "Clay Nation",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "ee7c198193c9ab2759afdb0dcd0bf6b82c462b1d39aaef83a4d35feee8aafceb",
+      "prev_hash": "aeeb4e7d7b3786083207a3d1d792b93b8cd4709d6c50ff194b251ca8dacf5b1b"
+    },
+    {
+      "seq": 4481,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "clay-nation",
+        "category_slug": "popular",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "acb60fb93a12a6b6e1df9dc3e24fecdac195b40c2b0774b04b9ae97edbd291ee",
+      "prev_hash": "ee7c198193c9ab2759afdb0dcd0bf6b82c462b1d39aaef83a4d35feee8aafceb"
+    },
+    {
+      "seq": 5508,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "clay-nation",
+        "field": "website",
+        "value": "https://www.claynation.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250617122053id_/https://www.cardanocube.com/projects/clay-nation",
+            "sha256": "53f1b8b5b3f2aa31e181fd04c08072b54f4e0a6f1a84615d3683584002dbd8f9",
+            "description": "cardanocube project page for \"clay-nation\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "bc6955da4c3eab3c8c7b180106ca9c776d41c70faad3f58ebb67717507562a84",
+      "prev_hash": "8936fc4da16226eddca1e3179eae6c36925032a11d9ada35508c51087a6bd2db"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

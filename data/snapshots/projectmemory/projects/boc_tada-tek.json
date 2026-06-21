@@ -39,6 +39,39 @@
           "superseded_by_seq": null
         }
       ],
+      "github": [
+        {
+          "claim_id": "clm_4967",
+          "field": "github",
+          "value": "https://github.com/tadatek",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem",
+                "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 4967,
+          "superseded_by_seq": null
+        }
+      ],
       "name": [
         {
           "claim_id": "clm_3677",
@@ -107,9 +140,9 @@
       ],
       "website": [
         {
-          "claim_id": "clm_3678",
+          "claim_id": "clm_4966",
           "field": "website",
-          "value": "https://www.tadatek.com",
+          "value": "https://www.tadatek.com/",
           "state": "active",
           "provenance": {
             "asserted_by": "machine:seed",
@@ -124,17 +157,17 @@
               "label": "Built on Cardano directory (Cardano Foundation)"
             },
             "authority_class": "B",
-            "as_of": "2026-06-07",
+            "as_of": "2026-06-17",
             "evidence": [
               {
                 "kind": "url",
-                "ref": "https://builtoncardano.com/ecosystem/all",
-                "sha256": null,
-                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+                "ref": "https://builtoncardano.com/ecosystem",
+                "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
               }
             ]
           },
-          "asserted_seq": 3678,
+          "asserted_seq": 4966,
           "superseded_by_seq": null
         }
       ]
@@ -173,9 +206,9 @@
         }
       }
     ],
-    "superseded_claim_count": 0,
+    "superseded_claim_count": 1,
     "created_seq": 3676,
-    "last_seq": 3682
+    "last_seq": 4967
   },
   "history": [
     {
@@ -331,7 +364,61 @@
       },
       "hash": "9215f003161c4a11ed150c35d8e55a37f205b21d92661c876413f75739b10949",
       "prev_hash": "df755ee614baa2d75e6fd6195a8035c3843a7f154513fa24333395ae572bb0d3"
+    },
+    {
+      "seq": 4966,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:tada-tek",
+        "field": "website",
+        "value": "https://www.tadatek.com/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem",
+            "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "24081522c89f03107c9cbbf64f7f0765385a8feba8bcd8cbf7fe8f54df6280a6",
+      "prev_hash": "cf4d629cb01cb79e43b85746601c5564e07fffcdd82d534d39e921b8ef9f3999"
+    },
+    {
+      "seq": 4967,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:tada-tek",
+        "field": "github",
+        "value": "https://github.com/tadatek",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem",
+            "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "d692e467c6131b77190b6b2f8145fb7af23ea40423d7a38fb73182b9c1270c29",
+      "prev_hash": "24081522c89f03107c9cbbf64f7f0765385a8feba8bcd8cbf7fe8f54df6280a6"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

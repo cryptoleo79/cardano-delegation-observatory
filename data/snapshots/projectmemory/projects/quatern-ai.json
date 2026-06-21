@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "quatern-ai",
+    "kind": "project",
+    "name": "Quatern Ai",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4194",
+          "field": "name",
+          "value": "Quatern Ai",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+                "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+                "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4194,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5420",
+          "field": "website",
+          "value": "https://www.quatern.ai/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250119232455id_/https://www.cardanocube.com/projects/quatern-ai",
+                "sha256": "b7ac59caa1fe93cbbf907dd90a70f8294b3791e7fb44c8a38c7ac3d847094c2f",
+                "description": "cardanocube project page for \"quatern-ai\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5420,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5421",
+          "field": "whitepaper",
+          "value": "https://www.quatern.ai/#whitepaper",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250119232455id_/https://www.cardanocube.com/projects/quatern-ai",
+                "sha256": "b7ac59caa1fe93cbbf907dd90a70f8294b3791e7fb44c8a38c7ac3d847094c2f",
+                "description": "cardanocube project page for \"quatern-ai\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5421,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "ai",
+        "name": "AI",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4193,
+    "last_seq": 5421
+  },
+  "history": [
+    {
+      "seq": 4193,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "quatern-ai",
+        "kind": "project"
+      },
+      "hash": "605eb3739f064b87c10bafe4e4f1bac37f09aef41b51924e543ebae32b862483",
+      "prev_hash": "1fe8ba5688a0499a0453e257abf74785f5e01e236f500968546a69f3ce8afb67"
+    },
+    {
+      "seq": 4194,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "quatern-ai",
+        "field": "name",
+        "value": "Quatern Ai",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+            "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+            "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "9229c7b41affe5f1a65909b597fc862ad3fd271bcd22ccb1d6afb14e9ab20ec3",
+      "prev_hash": "605eb3739f064b87c10bafe4e4f1bac37f09aef41b51924e543ebae32b862483"
+    },
+    {
+      "seq": 4195,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "quatern-ai",
+        "category_slug": "ai",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+            "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+            "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "52e7a6bb76f9a0bbb1ebacb7190a81e544c269f6ac6df0470c1a91337f096d03",
+      "prev_hash": "9229c7b41affe5f1a65909b597fc862ad3fd271bcd22ccb1d6afb14e9ab20ec3"
+    },
+    {
+      "seq": 5420,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "quatern-ai",
+        "field": "website",
+        "value": "https://www.quatern.ai/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250119232455id_/https://www.cardanocube.com/projects/quatern-ai",
+            "sha256": "b7ac59caa1fe93cbbf907dd90a70f8294b3791e7fb44c8a38c7ac3d847094c2f",
+            "description": "cardanocube project page for \"quatern-ai\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "b1577bb9ab66c8e044cf46739c8ea7e1586636078130f6869e5d595fd3aacc61",
+      "prev_hash": "c673c8f89f34cd5682bf07c624a8251589d401daf4339132b664459d01ddd5cc"
+    },
+    {
+      "seq": 5421,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "quatern-ai",
+        "field": "whitepaper",
+        "value": "https://www.quatern.ai/#whitepaper",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250119232455id_/https://www.cardanocube.com/projects/quatern-ai",
+            "sha256": "b7ac59caa1fe93cbbf907dd90a70f8294b3791e7fb44c8a38c7ac3d847094c2f",
+            "description": "cardanocube project page for \"quatern-ai\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "17ec418f421d1428521ffc1dae29111e090e6cbedab772c5d2288b41aa7b5f3d",
+      "prev_hash": "b1577bb9ab66c8e044cf46739c8ea7e1586636078130f6869e5d595fd3aacc61"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

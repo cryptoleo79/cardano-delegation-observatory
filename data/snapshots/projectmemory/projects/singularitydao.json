@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "singularitydao",
+    "kind": "project",
+    "name": "Singularitydao",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4171",
+          "field": "name",
+          "value": "Singularitydao",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+                "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+                "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4171,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5410",
+          "field": "website",
+          "value": "https://www.singularitydao.ai/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603134325id_/https://www.cardanocube.com/projects/singularitydao",
+                "sha256": "51fe4415226a792780fc32ccb08c9c295f98735a64cc5ea4dad22d981dd37f92",
+                "description": "cardanocube project page for \"singularitydao\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5410,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5411",
+          "field": "whitepaper",
+          "value": "https://www.singularitydao.ai/file/2021/04/Platform-Whitepaper-3.pdf",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603134325id_/https://www.cardanocube.com/projects/singularitydao",
+                "sha256": "51fe4415226a792780fc32ccb08c9c295f98735a64cc5ea4dad22d981dd37f92",
+                "description": "cardanocube project page for \"singularitydao\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5411,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "ai",
+        "name": "AI",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4170,
+    "last_seq": 5411
+  },
+  "history": [
+    {
+      "seq": 4170,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "singularitydao",
+        "kind": "project"
+      },
+      "hash": "48fa10b2c6adf5e849c38cac060e5de03a552072388a14cd655b9bfee2f7e0d0",
+      "prev_hash": "0e8d4c6c2960a506f9de0e3e97f4d68afd1ecbc4a2ccdfed798ca353d5d86e68"
+    },
+    {
+      "seq": 4171,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "singularitydao",
+        "field": "name",
+        "value": "Singularitydao",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+            "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+            "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "b83f0b77360e61f97e572e6d9e8276ee1fa1e3beea149a534f96fec908fb4693",
+      "prev_hash": "48fa10b2c6adf5e849c38cac060e5de03a552072388a14cd655b9bfee2f7e0d0"
+    },
+    {
+      "seq": 4172,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "singularitydao",
+        "category_slug": "ai",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+            "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+            "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "51c464f7769412ae404d8c0285ee2b59858663cd2bafd2d032c28f060c16d5c7",
+      "prev_hash": "b83f0b77360e61f97e572e6d9e8276ee1fa1e3beea149a534f96fec908fb4693"
+    },
+    {
+      "seq": 5410,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "singularitydao",
+        "field": "website",
+        "value": "https://www.singularitydao.ai/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603134325id_/https://www.cardanocube.com/projects/singularitydao",
+            "sha256": "51fe4415226a792780fc32ccb08c9c295f98735a64cc5ea4dad22d981dd37f92",
+            "description": "cardanocube project page for \"singularitydao\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "36549a02f8bee883a432110d3597a0e918ef0944530f47657333a1b048f9f009",
+      "prev_hash": "9595a68846b8b81f676196a3d0e942c3fe146c5e87521f5df514a3fd39305dfe"
+    },
+    {
+      "seq": 5411,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "singularitydao",
+        "field": "whitepaper",
+        "value": "https://www.singularitydao.ai/file/2021/04/Platform-Whitepaper-3.pdf",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603134325id_/https://www.cardanocube.com/projects/singularitydao",
+            "sha256": "51fe4415226a792780fc32ccb08c9c295f98735a64cc5ea4dad22d981dd37f92",
+            "description": "cardanocube project page for \"singularitydao\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "0ee3a8a198d907ff5c9689969bf324c4851dc4e763d0568b90cb1c9a7e69d20a",
+      "prev_hash": "36549a02f8bee883a432110d3597a0e918ef0944530f47657333a1b048f9f009"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

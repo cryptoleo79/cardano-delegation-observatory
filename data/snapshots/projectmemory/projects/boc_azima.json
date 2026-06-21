@@ -39,6 +39,39 @@
           "superseded_by_seq": null
         }
       ],
+      "documentation": [
+        {
+          "claim_id": "clm_4740",
+          "field": "documentation",
+          "value": "https://www.azima.co.uk/how-to-buy-azima-tokens-in-the-public-token-sale/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 4740,
+          "superseded_by_seq": null
+        }
+      ],
       "name": [
         {
           "claim_id": "clm_669",
@@ -104,6 +137,39 @@
           "asserted_seq": 671,
           "superseded_by_seq": null
         }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_4741",
+          "field": "whitepaper",
+          "value": "https://bit.ly/azm-whitepaper",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 4741,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [
@@ -142,7 +208,7 @@
     ],
     "superseded_claim_count": 0,
     "created_seq": 668,
-    "last_seq": 673
+    "last_seq": 4741
   },
   "history": [
     {
@@ -274,7 +340,61 @@
       },
       "hash": "069c3c81b49159dc128dce33e646510b2349ca29696972045e3e7458e9c88774",
       "prev_hash": "dce9183aa9b680c284147d50b926247989ce57ee5700ba696e46b4f1ae9c7300"
+    },
+    {
+      "seq": 4740,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:azima",
+        "field": "documentation",
+        "value": "https://www.azima.co.uk/how-to-buy-azima-tokens-in-the-public-token-sale/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "73a057c0ac5541f9a9141c0f9052067d22193253a06f83cabc4e56ff5a21ba16",
+      "prev_hash": "41aaa665353d19d9a5879670f9929abc02666c3b9713db3bed5a3080a6f563cb"
+    },
+    {
+      "seq": 4741,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:azima",
+        "field": "whitepaper",
+        "value": "https://bit.ly/azm-whitepaper",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "6454f165c9d39bc9cacf55d176f75752d73743d91904825af67ed56f4ebaaa85",
+      "prev_hash": "73a057c0ac5541f9a9141c0f9052067d22193253a06f83cabc4e56ff5a21ba16"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

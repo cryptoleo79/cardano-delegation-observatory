@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "bookio",
+    "kind": "project",
+    "name": "Bookio",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4369",
+          "field": "name",
+          "value": "Bookio",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+                "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+                "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4369,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5487",
+          "field": "website",
+          "value": "https://www.book.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20241213122246id_/https://www.cardanocube.com/projects/bookio",
+                "sha256": "9986c3cd23898d7c1f64af8921c84e39a82f6e0588a4630b0b8766aff5e92b8a",
+                "description": "cardanocube project page for \"bookio\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5487,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "marketplaces",
+        "name": "Marketplaces",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4368,
+    "last_seq": 5487
+  },
+  "history": [
+    {
+      "seq": 4368,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "bookio",
+        "kind": "project"
+      },
+      "hash": "6421237e642fc28e1e31ef0202d62cc28834ba0d23c37010b918a81c35631610",
+      "prev_hash": "3bf7964a36ff03de37660f2e8c97c36fac5a1094e9f3ef1a5d4570dd1996618f"
+    },
+    {
+      "seq": 4369,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "bookio",
+        "field": "name",
+        "value": "Bookio",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "2021249641a01b95342c7e642763aeb68ba953e1b50d72c809fa94ffe545cb89",
+      "prev_hash": "6421237e642fc28e1e31ef0202d62cc28834ba0d23c37010b918a81c35631610"
+    },
+    {
+      "seq": 4370,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "bookio",
+        "category_slug": "marketplaces",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "90ab23527f6dd38b496272f210ca189315c2b97c27773ec373638f83d0826f4e",
+      "prev_hash": "2021249641a01b95342c7e642763aeb68ba953e1b50d72c809fa94ffe545cb89"
+    },
+    {
+      "seq": 5487,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "bookio",
+        "field": "website",
+        "value": "https://www.book.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20241213122246id_/https://www.cardanocube.com/projects/bookio",
+            "sha256": "9986c3cd23898d7c1f64af8921c84e39a82f6e0588a4630b0b8766aff5e92b8a",
+            "description": "cardanocube project page for \"bookio\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "4b10fb54409300d159eac29d8d644104efbf24bdeada0ec413ba007b9fb564ee",
+      "prev_hash": "838e329ce04faca0d888af975deca2cac99ff2ff0632d8774c447aab0c814350"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

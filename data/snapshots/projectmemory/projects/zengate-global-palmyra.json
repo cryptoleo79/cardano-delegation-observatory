@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "zengate-global-palmyra",
+    "kind": "project",
+    "name": "Zengate Global Palmyra",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4366",
+          "field": "name",
+          "value": "Zengate Global Palmyra",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+                "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+                "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4366,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5486",
+          "field": "website",
+          "value": "https://www.zengate.global/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250116085312id_/https://www.cardanocube.com/projects/zengate-global-palmyra",
+                "sha256": "9458674d3f51cc957ace9f1fc558201de803401d8f59250f2112c0e1244332a0",
+                "description": "cardanocube project page for \"zengate-global-palmyra\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5486,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "ispo",
+        "name": "Ispo",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4365,
+    "last_seq": 5486
+  },
+  "history": [
+    {
+      "seq": 4365,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "zengate-global-palmyra",
+        "kind": "project"
+      },
+      "hash": "a7bff3a62c6fffb87d47eba0ef9fd8b94c76a4cfc4c10ed7b433da7260b93e4c",
+      "prev_hash": "0544214dbad62b15aa54f385f27856c01be6e7151e1e6b628fb23fcc18286272"
+    },
+    {
+      "seq": 4366,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "zengate-global-palmyra",
+        "field": "name",
+        "value": "Zengate Global Palmyra",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+            "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+            "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "75e8f82ca40036d8483b9353c57cb379d550ef1134a1ecaebbfe695d7b0cef5d",
+      "prev_hash": "a7bff3a62c6fffb87d47eba0ef9fd8b94c76a4cfc4c10ed7b433da7260b93e4c"
+    },
+    {
+      "seq": 4367,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "zengate-global-palmyra",
+        "category_slug": "ispo",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+            "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+            "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "3bf7964a36ff03de37660f2e8c97c36fac5a1094e9f3ef1a5d4570dd1996618f",
+      "prev_hash": "75e8f82ca40036d8483b9353c57cb379d550ef1134a1ecaebbfe695d7b0cef5d"
+    },
+    {
+      "seq": 5486,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "zengate-global-palmyra",
+        "field": "website",
+        "value": "https://www.zengate.global/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250116085312id_/https://www.cardanocube.com/projects/zengate-global-palmyra",
+            "sha256": "9458674d3f51cc957ace9f1fc558201de803401d8f59250f2112c0e1244332a0",
+            "description": "cardanocube project page for \"zengate-global-palmyra\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "838e329ce04faca0d888af975deca2cac99ff2ff0632d8774c447aab0c814350",
+      "prev_hash": "00bcc1e6af640558bebadb8e43f286c8dc1f28965bc507ee2114ec35236ca23b"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

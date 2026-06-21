@@ -1,0 +1,330 @@
+{
+  "project": {
+    "id": "world-mobile",
+    "kind": "project",
+    "name": "World Mobile",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4441",
+          "field": "name",
+          "value": "World Mobile",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+                "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+                "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4441,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5455",
+          "field": "website",
+          "value": "https://worldmobile.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260226154115id_/https://www.cardanocube.com/projects/world-mobile",
+                "sha256": "2713ac50823aa3b3f3527f4cb9fd034a0b38ffeac01e8b2d56b7e0eb700c562a",
+                "description": "cardanocube project page for \"world-mobile\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5455,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5456",
+          "field": "whitepaper",
+          "value": "https://worldmobiletoken.com/WhitePaper.pdf",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260226154115id_/https://www.cardanocube.com/projects/world-mobile",
+                "sha256": "2713ac50823aa3b3f3527f4cb9fd034a0b38ffeac01e8b2d56b7e0eb700c562a",
+                "description": "cardanocube project page for \"world-mobile\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5456,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "infrastructure",
+        "name": "Infrastructure",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      },
+      {
+        "slug": "popular",
+        "name": "Popular",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 1,
+    "created_seq": 4274,
+    "last_seq": 5456
+  },
+  "history": [
+    {
+      "seq": 4274,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "world-mobile",
+        "kind": "project"
+      },
+      "hash": "af7bdb0c4334344de978dd1ddc54d0bb950e0696b4006bda9875769c311cac58",
+      "prev_hash": "c3522877df5b02658a99126e523c3e3b9860687461204dface0c38597f1a1010"
+    },
+    {
+      "seq": 4275,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "world-mobile",
+        "field": "name",
+        "value": "World Mobile",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "56f577a40586a94a8cf6321cb7de066893a17267b0fbfef70777e639e8ce05ec",
+      "prev_hash": "af7bdb0c4334344de978dd1ddc54d0bb950e0696b4006bda9875769c311cac58"
+    },
+    {
+      "seq": 4276,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "world-mobile",
+        "category_slug": "infrastructure",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "351acadde8165a291ad71007ae9268c745016bc8b8a4eea77db80598012eadb3",
+      "prev_hash": "56f577a40586a94a8cf6321cb7de066893a17267b0fbfef70777e639e8ce05ec"
+    },
+    {
+      "seq": 4440,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "world-mobile",
+        "kind": "project"
+      },
+      "hash": "fb09c0bdb9a2efa0de4a0c7eb62e0c6ca0e756015382a740bb6fed469d1d9485",
+      "prev_hash": "00d376deaaa026d66cf128e34139290ea4a070bd28f80611da088fc30213d350"
+    },
+    {
+      "seq": 4441,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "world-mobile",
+        "field": "name",
+        "value": "World Mobile",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "80e53eb459bc1bb60b0b39468774dd535a4acb31a9c6939f57bd907e84cfbbb7",
+      "prev_hash": "fb09c0bdb9a2efa0de4a0c7eb62e0c6ca0e756015382a740bb6fed469d1d9485"
+    },
+    {
+      "seq": 4442,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "world-mobile",
+        "category_slug": "popular",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "852fb519255cf28b02c023beb78838110d4e733d3b7d55b6a4e363f51dff7c1b",
+      "prev_hash": "80e53eb459bc1bb60b0b39468774dd535a4acb31a9c6939f57bd907e84cfbbb7"
+    },
+    {
+      "seq": 5455,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "world-mobile",
+        "field": "website",
+        "value": "https://worldmobile.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260226154115id_/https://www.cardanocube.com/projects/world-mobile",
+            "sha256": "2713ac50823aa3b3f3527f4cb9fd034a0b38ffeac01e8b2d56b7e0eb700c562a",
+            "description": "cardanocube project page for \"world-mobile\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "e12325db720ebd606faef606c0c7258b2bfd74305d839acddeb79cad22e6472d",
+      "prev_hash": "3fa4c52400e161561d7d62f2b456b9de9018d8f1ddc7c9772d593ccd73689adf"
+    },
+    {
+      "seq": 5456,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "world-mobile",
+        "field": "whitepaper",
+        "value": "https://worldmobiletoken.com/WhitePaper.pdf",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260226154115id_/https://www.cardanocube.com/projects/world-mobile",
+            "sha256": "2713ac50823aa3b3f3527f4cb9fd034a0b38ffeac01e8b2d56b7e0eb700c562a",
+            "description": "cardanocube project page for \"world-mobile\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "5b838fe2f5f0fd2540c661fc28dd4a71934eb832f20fd68ef57d2fb84bb03501",
+      "prev_hash": "e12325db720ebd606faef606c0c7258b2bfd74305d839acddeb79cad22e6472d"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

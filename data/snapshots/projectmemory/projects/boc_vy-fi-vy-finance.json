@@ -107,9 +107,9 @@
       ],
       "website": [
         {
-          "claim_id": "clm_4021",
+          "claim_id": "clm_5082",
           "field": "website",
-          "value": "https://www.vyfi.io/",
+          "value": "https://vyfi.io/",
           "state": "active",
           "provenance": {
             "asserted_by": "machine:seed",
@@ -124,17 +124,50 @@
               "label": "Built on Cardano directory (Cardano Foundation)"
             },
             "authority_class": "B",
-            "as_of": "2026-06-07",
+            "as_of": "2026-06-17",
             "evidence": [
               {
                 "kind": "url",
-                "ref": "https://builtoncardano.com/ecosystem/all",
-                "sha256": null,
-                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+                "ref": "https://builtoncardano.com/ecosystem",
+                "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
               }
             ]
           },
-          "asserted_seq": 4021,
+          "asserted_seq": 5082,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5083",
+          "field": "whitepaper",
+          "value": "https://18bd370b-5252-4817-9410-5e6b8dbefa30.filesusr.com/ugd/ccffad_ed72d32c18884d75b42b3586f88e6059.pdf",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem",
+                "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 5083,
           "superseded_by_seq": null
         }
       ]
@@ -173,9 +206,9 @@
         }
       }
     ],
-    "superseded_claim_count": 0,
+    "superseded_claim_count": 1,
     "created_seq": 4019,
-    "last_seq": 4025
+    "last_seq": 5083
   },
   "history": [
     {
@@ -331,7 +364,61 @@
       },
       "hash": "a706770db0d1597ca74d2222b1da15bfa8d8439517f004cb572e31c6b46e7dde",
       "prev_hash": "eca7a205c4d35bbdd05f866bbafa2e352118dd99aa3ff87f8fb6740c518ffb3b"
+    },
+    {
+      "seq": 5082,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:vy-fi-vy-finance",
+        "field": "website",
+        "value": "https://vyfi.io/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem",
+            "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "e7f1a9f0b07b55b71f3f01df494c9f9b8325c810f865f9b1e8c8d0ae307bd456",
+      "prev_hash": "95484605e25b3f01f3a670349b81c6c50d11d9d677ef21aa3f8f544ff807811e"
+    },
+    {
+      "seq": 5083,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:vy-fi-vy-finance",
+        "field": "whitepaper",
+        "value": "https://18bd370b-5252-4817-9410-5e6b8dbefa30.filesusr.com/ugd/ccffad_ed72d32c18884d75b42b3586f88e6059.pdf",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem",
+            "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "e3503bfc07063931a299541e4830464eaa594c0b4114cdfe974af5e06ced49fb",
+      "prev_hash": "e7f1a9f0b07b55b71f3f01df494c9f9b8325c810f865f9b1e8c8d0ae307bd456"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

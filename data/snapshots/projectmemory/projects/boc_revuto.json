@@ -107,9 +107,9 @@
       ],
       "website": [
         {
-          "claim_id": "clm_3410",
+          "claim_id": "clm_5058",
           "field": "website",
-          "value": "https://crypto.revuto.com/",
+          "value": "https://revuto.com/",
           "state": "active",
           "provenance": {
             "asserted_by": "machine:seed",
@@ -124,17 +124,50 @@
               "label": "Built on Cardano directory (Cardano Foundation)"
             },
             "authority_class": "B",
-            "as_of": "2026-06-07",
+            "as_of": "2026-06-17",
             "evidence": [
               {
                 "kind": "url",
-                "ref": "https://builtoncardano.com/ecosystem/all",
-                "sha256": null,
-                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+                "ref": "https://builtoncardano.com/ecosystem",
+                "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
               }
             ]
           },
-          "asserted_seq": 3410,
+          "asserted_seq": 5058,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5059",
+          "field": "whitepaper",
+          "value": "https://crypto.revuto.com/Revuto_Whitepaper_v1.6.pdf",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem",
+                "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 5059,
           "superseded_by_seq": null
         }
       ]
@@ -173,9 +206,9 @@
         }
       }
     ],
-    "superseded_claim_count": 0,
+    "superseded_claim_count": 1,
     "created_seq": 3408,
-    "last_seq": 3414
+    "last_seq": 5059
   },
   "history": [
     {
@@ -331,7 +364,61 @@
       },
       "hash": "367367605f2f4740d4c217031372b0f998477720cb5eed52f0e38c58fc9478ed",
       "prev_hash": "c8fb82f44a1a6813c1b7da65f5709bfc96e48054dfe8ac808fed245691758d08"
+    },
+    {
+      "seq": 5058,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:revuto",
+        "field": "website",
+        "value": "https://revuto.com/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem",
+            "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "a84d644492237db7b8719420fd2b9239bd21072f2589ec0e7309a3b8bca62584",
+      "prev_hash": "7c70cfaf01a0e7ae3d4f134da3a4e61af6a5febdc492b45b9cd9a879054d600c"
+    },
+    {
+      "seq": 5059,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:revuto",
+        "field": "whitepaper",
+        "value": "https://crypto.revuto.com/Revuto_Whitepaper_v1.6.pdf",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem",
+            "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "f39d303858dc9bcb0fc6f06282624784573b3513210669615a5333f0e7b82acc",
+      "prev_hash": "a84d644492237db7b8719420fd2b9239bd21072f2589ec0e7309a3b8bca62584"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

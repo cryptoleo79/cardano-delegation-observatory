@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "bodega-market",
+    "kind": "project",
+    "name": "Bodega Market",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4501",
+          "field": "name",
+          "value": "Bodega Market",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20251205032350id_/https://cardanocube.com/categories/prediction-market",
+                "sha256": "eb68c58a067f4a68bb55ffbe5565332176de87e4036759f41e30d87cde992b0b",
+                "description": "cardanocube /categories/prediction-market listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4501,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5516",
+          "field": "website",
+          "value": "https://www.bodegacardano.org/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250206131749id_/https://www.cardanocube.com/projects/bodega-market",
+                "sha256": "48d3394f3244ce4c9f5cdc6ab678ea94c799c348f16eb8b837ee3c5fc9aa295d",
+                "description": "cardanocube project page for \"bodega-market\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5516,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "prediction-market",
+        "name": "Prediction Market",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4500,
+    "last_seq": 5516
+  },
+  "history": [
+    {
+      "seq": 4500,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "bodega-market",
+        "kind": "project"
+      },
+      "hash": "96c5ea5c78d54e6118f30d4326b1566d1a7ed958591a1d4c92993d938d883ad1",
+      "prev_hash": "ba004ced702ecee4851e6547072548c42f02fd16684a8b9fef23f559ffdab86f"
+    },
+    {
+      "seq": 4501,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "bodega-market",
+        "field": "name",
+        "value": "Bodega Market",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20251205032350id_/https://cardanocube.com/categories/prediction-market",
+            "sha256": "eb68c58a067f4a68bb55ffbe5565332176de87e4036759f41e30d87cde992b0b",
+            "description": "cardanocube /categories/prediction-market listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "2b32b34ed2f0698441e698f88f708e536c7f2693d6148977dc12c73e19794e76",
+      "prev_hash": "96c5ea5c78d54e6118f30d4326b1566d1a7ed958591a1d4c92993d938d883ad1"
+    },
+    {
+      "seq": 4502,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "bodega-market",
+        "category_slug": "prediction-market",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20251205032350id_/https://cardanocube.com/categories/prediction-market",
+            "sha256": "eb68c58a067f4a68bb55ffbe5565332176de87e4036759f41e30d87cde992b0b",
+            "description": "cardanocube /categories/prediction-market listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "233e9ed41f7cebc35381469f0d1e9fa57242c45e9a5082f1eb88e4b9c0617264",
+      "prev_hash": "2b32b34ed2f0698441e698f88f708e536c7f2693d6148977dc12c73e19794e76"
+    },
+    {
+      "seq": 5516,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "bodega-market",
+        "field": "website",
+        "value": "https://www.bodegacardano.org/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250206131749id_/https://www.cardanocube.com/projects/bodega-market",
+            "sha256": "48d3394f3244ce4c9f5cdc6ab678ea94c799c348f16eb8b837ee3c5fc9aa295d",
+            "description": "cardanocube project page for \"bodega-market\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "e36f5c2b30bcda19a1fb5891570aeb1466f8d17599f32a92680df0881d910264",
+      "prev_hash": "c1069b520340f589592e0422a9d1257be4e0fe605d5884d49cc943408dc2446d"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

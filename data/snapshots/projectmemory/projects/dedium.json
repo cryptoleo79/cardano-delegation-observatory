@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "dedium",
+    "kind": "project",
+    "name": "Dedium",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4186",
+          "field": "name",
+          "value": "Dedium",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+                "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+                "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4186,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5417",
+          "field": "website",
+          "value": "https://dedium.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250307203419id_/https://www.cardanocube.com/projects/dedium",
+                "sha256": "c1f3f4e24ce0c31bba998c586fbdec43355467a2a25802309f5cf57452a6dbfe",
+                "description": "cardanocube project page for \"dedium\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5417,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5418",
+          "field": "whitepaper",
+          "value": "https://dedium.io/whitepaper.pdf",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250307203419id_/https://www.cardanocube.com/projects/dedium",
+                "sha256": "c1f3f4e24ce0c31bba998c586fbdec43355467a2a25802309f5cf57452a6dbfe",
+                "description": "cardanocube project page for \"dedium\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5418,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "ai",
+        "name": "AI",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4185,
+    "last_seq": 5418
+  },
+  "history": [
+    {
+      "seq": 4185,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "dedium",
+        "kind": "project"
+      },
+      "hash": "5c2e56ca78d6220f83f17764a5b95b7be44382a434c4d2bd22b6cdfdf370037d",
+      "prev_hash": "b2858196391cb4e1b5cb7e44f471d455277ab64b24ef32472b0cb6bdafd0ebdc"
+    },
+    {
+      "seq": 4186,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "dedium",
+        "field": "name",
+        "value": "Dedium",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+            "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+            "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "6f9d21e6161b5c1e01314de89ed422cbbf8bf599bda68ab834907b2809278a94",
+      "prev_hash": "5c2e56ca78d6220f83f17764a5b95b7be44382a434c4d2bd22b6cdfdf370037d"
+    },
+    {
+      "seq": 4187,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "dedium",
+        "category_slug": "ai",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+            "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+            "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "f2fd4035d9c8ea0cf1bba9e3f027f477d66951e05ffac3e74fd3ebb75faa089a",
+      "prev_hash": "6f9d21e6161b5c1e01314de89ed422cbbf8bf599bda68ab834907b2809278a94"
+    },
+    {
+      "seq": 5417,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "dedium",
+        "field": "website",
+        "value": "https://dedium.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250307203419id_/https://www.cardanocube.com/projects/dedium",
+            "sha256": "c1f3f4e24ce0c31bba998c586fbdec43355467a2a25802309f5cf57452a6dbfe",
+            "description": "cardanocube project page for \"dedium\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "23fdfdf56344a962e55a595f5e950c19fe82115c7a105570eb8c72dfa272ad78",
+      "prev_hash": "728d3c93b480441a537de85b17e3d3d5ef904e43311e9c0325627f2544e9e751"
+    },
+    {
+      "seq": 5418,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "dedium",
+        "field": "whitepaper",
+        "value": "https://dedium.io/whitepaper.pdf",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250307203419id_/https://www.cardanocube.com/projects/dedium",
+            "sha256": "c1f3f4e24ce0c31bba998c586fbdec43355467a2a25802309f5cf57452a6dbfe",
+            "description": "cardanocube project page for \"dedium\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "dade5bf4287a42c5b9f924c5315ff1130342f35d6e84c5f9f4490c450a06dbbc",
+      "prev_hash": "23fdfdf56344a962e55a595f5e950c19fe82115c7a105570eb8c72dfa272ad78"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

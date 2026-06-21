@@ -1,0 +1,270 @@
+{
+  "project": {
+    "id": "lace",
+    "kind": "project",
+    "name": "Lace",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4444",
+          "field": "name",
+          "value": "Lace",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+                "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+                "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4444,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5434",
+          "field": "website",
+          "value": "https://www.lace.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603051653id_/https://www.cardanocube.com/projects/lace",
+                "sha256": "51a28c39c8033547f6d5260f0cec5f7aefbfa2fc4a5fcf9d1c044019a17dde77",
+                "description": "cardanocube project page for \"lace\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5434,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "governance",
+        "name": "Governance",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      },
+      {
+        "slug": "popular",
+        "name": "Popular",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 1,
+    "created_seq": 4226,
+    "last_seq": 5434
+  },
+  "history": [
+    {
+      "seq": 4226,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "lace",
+        "kind": "project"
+      },
+      "hash": "be189efd4c45ed868245b757e04ce68db61f5315f2f8d0b8fad15e2ec57005ad",
+      "prev_hash": "219ea4b5e241b1bebcf037fdc14b858eb012998fb53e49d8b43e6b36400dd004"
+    },
+    {
+      "seq": 4227,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "lace",
+        "field": "name",
+        "value": "Lace",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+            "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+            "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "c6368a390ab3c9ba5ea97623fb207b7c30acd0e6dac2f86adcda77a9b59808c6",
+      "prev_hash": "be189efd4c45ed868245b757e04ce68db61f5315f2f8d0b8fad15e2ec57005ad"
+    },
+    {
+      "seq": 4228,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "lace",
+        "category_slug": "governance",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+            "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+            "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "1d3cac626441efcd0915658133091afd95cee92dd30079dd356b7f9a7cbe59ea",
+      "prev_hash": "c6368a390ab3c9ba5ea97623fb207b7c30acd0e6dac2f86adcda77a9b59808c6"
+    },
+    {
+      "seq": 4443,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "lace",
+        "kind": "project"
+      },
+      "hash": "63579a7e46c7b32aaea58eb094276cbd6b0a37c2546ac5de6934942748768d1d",
+      "prev_hash": "852fb519255cf28b02c023beb78838110d4e733d3b7d55b6a4e363f51dff7c1b"
+    },
+    {
+      "seq": 4444,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "lace",
+        "field": "name",
+        "value": "Lace",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "3694abb1b8bd9b8153f9e43f4b35d2a0411d92129636c854be77491eaa572988",
+      "prev_hash": "63579a7e46c7b32aaea58eb094276cbd6b0a37c2546ac5de6934942748768d1d"
+    },
+    {
+      "seq": 4445,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "lace",
+        "category_slug": "popular",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "53162f2b2eac587f63ea95c6f2d9e276055d9736553549c0c082fae3713a4a5b",
+      "prev_hash": "3694abb1b8bd9b8153f9e43f4b35d2a0411d92129636c854be77491eaa572988"
+    },
+    {
+      "seq": 5434,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "lace",
+        "field": "website",
+        "value": "https://www.lace.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051653id_/https://www.cardanocube.com/projects/lace",
+            "sha256": "51a28c39c8033547f6d5260f0cec5f7aefbfa2fc4a5fcf9d1c044019a17dde77",
+            "description": "cardanocube project page for \"lace\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "c1a5116e39236fb21c6ad9c2987b07c9dac0b283ec6838a0e42f9216129399bc",
+      "prev_hash": "d90808283386a36b47a198f27ead76a08e5da883dd445ab5230564d6e42b287b"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

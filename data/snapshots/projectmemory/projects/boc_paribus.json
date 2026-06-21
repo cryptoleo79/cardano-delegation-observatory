@@ -107,7 +107,7 @@
       ],
       "website": [
         {
-          "claim_id": "clm_3072",
+          "claim_id": "clm_5056",
           "field": "website",
           "value": "https://paribus.io/",
           "state": "active",
@@ -124,17 +124,50 @@
               "label": "Built on Cardano directory (Cardano Foundation)"
             },
             "authority_class": "B",
-            "as_of": "2026-06-07",
+            "as_of": "2026-06-17",
             "evidence": [
               {
                 "kind": "url",
-                "ref": "https://builtoncardano.com/ecosystem/all",
-                "sha256": null,
-                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+                "ref": "https://builtoncardano.com/ecosystem",
+                "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
               }
             ]
           },
-          "asserted_seq": 3072,
+          "asserted_seq": 5056,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5057",
+          "field": "whitepaper",
+          "value": "https://paribus.io/documents/PARIBUS-Litepaper-V1.0.pdf",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem",
+                "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 5057,
           "superseded_by_seq": null
         }
       ]
@@ -173,9 +206,9 @@
         }
       }
     ],
-    "superseded_claim_count": 0,
+    "superseded_claim_count": 1,
     "created_seq": 3070,
-    "last_seq": 3076
+    "last_seq": 5057
   },
   "history": [
     {
@@ -331,7 +364,61 @@
       },
       "hash": "b8a918da75cf7dfa06c091e5542b0cd6fbd8dc6f38dbec39386478d5a7ef6ff6",
       "prev_hash": "1b9e1831eef09c4a4b185a1bb3b515ef3c27953f9076e768fc820f5c7f86c2d0"
+    },
+    {
+      "seq": 5056,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:paribus",
+        "field": "website",
+        "value": "https://paribus.io/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem",
+            "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "5217bd6692933b87c8c476819ff4114b63941936ae5d2a73229d03de40c87dc9",
+      "prev_hash": "cacf3af70a6fcde3ffcdb4b186fff6f3f3f010bc9579cd695cbcf4596f4a53c6"
+    },
+    {
+      "seq": 5057,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:paribus",
+        "field": "whitepaper",
+        "value": "https://paribus.io/documents/PARIBUS-Litepaper-V1.0.pdf",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem",
+            "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "7c70cfaf01a0e7ae3d4f134da3a4e61af6a5febdc492b45b9cd9a879054d600c",
+      "prev_hash": "5217bd6692933b87c8c476819ff4114b63941936ae5d2a73229d03de40c87dc9"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

@@ -71,12 +71,45 @@
           "asserted_seq": 106,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5394",
+          "field": "website",
+          "value": "https://comunidadcardano.com/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250317235142id_/https://cardanocube.com/projects/comunidadcardano",
+                "sha256": "065a79327346599bcebe0eee7268165840eea02f107b5ec4966ad0b8897820a1",
+                "description": "cardanocube project page for \"comunidadcardano\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5394,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [],
     "superseded_claim_count": 0,
     "created_seq": 104,
-    "last_seq": 106
+    "last_seq": 5394
   },
   "history": [
     {
@@ -140,7 +173,34 @@
       },
       "hash": "407e5dc06798539c1e0e5e30faf4a6fd22f6e953ddb2cd7ce80111315cc0ec1a",
       "prev_hash": "9be1fe60436850432c9d2bd6c055d0d0ca37d521c6f7b5289490521811988bc8"
+    },
+    {
+      "seq": 5394,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "comunidadcardano",
+        "field": "website",
+        "value": "https://comunidadcardano.com/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250317235142id_/https://cardanocube.com/projects/comunidadcardano",
+            "sha256": "065a79327346599bcebe0eee7268165840eea02f107b5ec4966ad0b8897820a1",
+            "description": "cardanocube project page for \"comunidadcardano\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "cd48169d6427aeba252afceb9558291415d71d1b989e10fd07a584de7ae568ae",
+      "prev_hash": "72fd5499d70da407b39f1f3f96c088a6cdc441d066e0c3e75aad0dcc037e64f1"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

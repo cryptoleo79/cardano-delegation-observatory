@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "clarity-protocol",
+    "kind": "project",
+    "name": "Clarity Protocol",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "documentation": [
+        {
+          "claim_id": "clm_5444",
+          "field": "documentation",
+          "value": "https://docs.clarity.vote/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250305224356id_/https://www.cardanocube.com/projects/clarity-protocol",
+                "sha256": "c4b7b4b855e7378cec49d2cd25b118ce6b9d42cf70dd6affe4cf4677d5ff95dd",
+                "description": "cardanocube project page for \"clarity-protocol\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5444,
+          "superseded_by_seq": null
+        }
+      ],
+      "name": [
+        {
+          "claim_id": "clm_4248",
+          "field": "name",
+          "value": "Clarity Protocol",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+                "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+                "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4248,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5443",
+          "field": "website",
+          "value": "https://www.clarity.vote/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250305224356id_/https://www.cardanocube.com/projects/clarity-protocol",
+                "sha256": "c4b7b4b855e7378cec49d2cd25b118ce6b9d42cf70dd6affe4cf4677d5ff95dd",
+                "description": "cardanocube project page for \"clarity-protocol\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5443,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "governance",
+        "name": "Governance",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4247,
+    "last_seq": 5444
+  },
+  "history": [
+    {
+      "seq": 4247,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "clarity-protocol",
+        "kind": "project"
+      },
+      "hash": "f1c4e2134c089968bba1023a7f9d408f98ea58f4b4aedefe090185bc7423aba5",
+      "prev_hash": "7cb47cfece34eb3277733e3f5ecbff865a77f72a6b86ab1cf39469464a64207f"
+    },
+    {
+      "seq": 4248,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "clarity-protocol",
+        "field": "name",
+        "value": "Clarity Protocol",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+            "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+            "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "a20afecfddca4418e9bb46eb1a4a8e5fe552115257e7c558157e96a4fbab8415",
+      "prev_hash": "f1c4e2134c089968bba1023a7f9d408f98ea58f4b4aedefe090185bc7423aba5"
+    },
+    {
+      "seq": 4249,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "clarity-protocol",
+        "category_slug": "governance",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+            "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+            "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "d1cd0057abdcc1c950ad6c1fcd74dcd81e9b6fe8d0a770815a1896494547adeb",
+      "prev_hash": "a20afecfddca4418e9bb46eb1a4a8e5fe552115257e7c558157e96a4fbab8415"
+    },
+    {
+      "seq": 5443,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "clarity-protocol",
+        "field": "website",
+        "value": "https://www.clarity.vote/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250305224356id_/https://www.cardanocube.com/projects/clarity-protocol",
+            "sha256": "c4b7b4b855e7378cec49d2cd25b118ce6b9d42cf70dd6affe4cf4677d5ff95dd",
+            "description": "cardanocube project page for \"clarity-protocol\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "3e63f31f0b4daf14174ad7927ac33fa35faf0f266407c9457841269113d8bea8",
+      "prev_hash": "219b1b061e61bc202f6fdd2c25561a64aaf1d52e5ad81ba4c90503390144caf1"
+    },
+    {
+      "seq": 5444,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "clarity-protocol",
+        "field": "documentation",
+        "value": "https://docs.clarity.vote/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250305224356id_/https://www.cardanocube.com/projects/clarity-protocol",
+            "sha256": "c4b7b4b855e7378cec49d2cd25b118ce6b9d42cf70dd6affe4cf4677d5ff95dd",
+            "description": "cardanocube project page for \"clarity-protocol\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "1e7b907cc05c86343da713b83cc821df6b5f7f9aca744d874c9e9ee8f16b8d7d",
+      "prev_hash": "3e63f31f0b4daf14174ad7927ac33fa35faf0f266407c9457841269113d8bea8"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

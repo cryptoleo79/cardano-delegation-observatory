@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "vote-chain",
+    "kind": "project",
+    "name": "Vote Chain",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4272",
+          "field": "name",
+          "value": "Vote Chain",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+                "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+                "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4272,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5453",
+          "field": "website",
+          "value": "https://www.votechain.pro/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250206135255id_/https://www.cardanocube.com/projects/vote-chain",
+                "sha256": "29ba6bdeae18dd5e8b37e2ed2302bcd13d5f6ab5d937754a4c494588861ba033",
+                "description": "cardanocube project page for \"vote-chain\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5453,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5454",
+          "field": "whitepaper",
+          "value": "https://votechain.pro/whitepaper/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250206135255id_/https://www.cardanocube.com/projects/vote-chain",
+                "sha256": "29ba6bdeae18dd5e8b37e2ed2302bcd13d5f6ab5d937754a4c494588861ba033",
+                "description": "cardanocube project page for \"vote-chain\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5454,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "governance",
+        "name": "Governance",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4271,
+    "last_seq": 5454
+  },
+  "history": [
+    {
+      "seq": 4271,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "vote-chain",
+        "kind": "project"
+      },
+      "hash": "bfb4034dc09ba541324f3a2503301db05596e51e1b8d8c7436eac71113548260",
+      "prev_hash": "6839db107366859b3c1e4291ca84819b363ec6b5a9108e608ff400ce20166d6a"
+    },
+    {
+      "seq": 4272,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "vote-chain",
+        "field": "name",
+        "value": "Vote Chain",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+            "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+            "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "26e9417d5c603b759ce9d3f036039eccb767ae1c96d6611c4108045fb56dc05f",
+      "prev_hash": "bfb4034dc09ba541324f3a2503301db05596e51e1b8d8c7436eac71113548260"
+    },
+    {
+      "seq": 4273,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "vote-chain",
+        "category_slug": "governance",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+            "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+            "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "c3522877df5b02658a99126e523c3e3b9860687461204dface0c38597f1a1010",
+      "prev_hash": "26e9417d5c603b759ce9d3f036039eccb767ae1c96d6611c4108045fb56dc05f"
+    },
+    {
+      "seq": 5453,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "vote-chain",
+        "field": "website",
+        "value": "https://www.votechain.pro/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250206135255id_/https://www.cardanocube.com/projects/vote-chain",
+            "sha256": "29ba6bdeae18dd5e8b37e2ed2302bcd13d5f6ab5d937754a4c494588861ba033",
+            "description": "cardanocube project page for \"vote-chain\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "94e9a69ddd362f9437bc0ad7713bd9712e21d20107efa640f8a127a2497a428a",
+      "prev_hash": "bd1a51c1a62d9a366b376d0d0ecd5bcbb6ae3f49de4c9f7b23aa1f784d59529e"
+    },
+    {
+      "seq": 5454,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "vote-chain",
+        "field": "whitepaper",
+        "value": "https://votechain.pro/whitepaper/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250206135255id_/https://www.cardanocube.com/projects/vote-chain",
+            "sha256": "29ba6bdeae18dd5e8b37e2ed2302bcd13d5f6ab5d937754a4c494588861ba033",
+            "description": "cardanocube project page for \"vote-chain\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "3fa4c52400e161561d7d62f2b456b9de9018d8f1ddc7c9772d593ccd73689adf",
+      "prev_hash": "94e9a69ddd362f9437bc0ad7713bd9712e21d20107efa640f8a127a2497a428a"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

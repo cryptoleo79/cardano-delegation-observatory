@@ -39,6 +39,39 @@
           "superseded_by_seq": null
         }
       ],
+      "github": [
+        {
+          "claim_id": "clm_4900",
+          "field": "github",
+          "value": "https://github.com/eLearningDAO/POCRE",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 4900,
+          "superseded_by_seq": null
+        }
+      ],
       "name": [
         {
           "claim_id": "clm_3198",
@@ -142,7 +175,7 @@
     ],
     "superseded_claim_count": 0,
     "created_seq": 3197,
-    "last_seq": 3202
+    "last_seq": 4900
   },
   "history": [
     {
@@ -274,7 +307,34 @@
       },
       "hash": "0a37645168580e3a5573d511a31d28af3b91af125e1aba566e369f3a95c78421",
       "prev_hash": "84759670363c4d8d93ce34f8508c2ad414be98270e195ec12b0563968a704444"
+    },
+    {
+      "seq": 4900,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:pocre",
+        "field": "github",
+        "value": "https://github.com/eLearningDAO/POCRE",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "b445de94a613e7d5bbafeef71e7948e1deb20b113308f6798f00bcef66d65fad",
+      "prev_hash": "45f5eac39488f58465ce897a8dbb07a9b22f58d57df298f92b3384bdb1ea551b"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

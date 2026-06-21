@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "handles-exchange",
+    "kind": "project",
+    "name": "Handles Exchange",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4396",
+          "field": "name",
+          "value": "Handles Exchange",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+                "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+                "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4396,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5492",
+          "field": "website",
+          "value": "https://handles.exchange/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20241204050952id_/https://www.cardanocube.com/projects/handles-exchange",
+                "sha256": "d51bde9c5f959d23307dfaea3014c05a2d96a096b010135b3d1b41c81f06d40e",
+                "description": "cardanocube project page for \"handles-exchange\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5492,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "marketplaces",
+        "name": "Marketplaces",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4395,
+    "last_seq": 5492
+  },
+  "history": [
+    {
+      "seq": 4395,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "handles-exchange",
+        "kind": "project"
+      },
+      "hash": "ddc35c010ce79f8329082dfc1b33a0f6640e4a844daa4d14c5f3b2bfcb903322",
+      "prev_hash": "05458af16da1a23e94a2a309b1cafb685a9b541f1d32f7eeb3c3e59930c8b9e6"
+    },
+    {
+      "seq": 4396,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "handles-exchange",
+        "field": "name",
+        "value": "Handles Exchange",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "89bf7df8f9a26bf8daf3730e70ac93102c896f145e559e95c8d6a556ccd94159",
+      "prev_hash": "ddc35c010ce79f8329082dfc1b33a0f6640e4a844daa4d14c5f3b2bfcb903322"
+    },
+    {
+      "seq": 4397,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "handles-exchange",
+        "category_slug": "marketplaces",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "36fb93e43d8cd263d175bd0d12a1641593b13229433e8fcf968d6c3261615c73",
+      "prev_hash": "89bf7df8f9a26bf8daf3730e70ac93102c896f145e559e95c8d6a556ccd94159"
+    },
+    {
+      "seq": 5492,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "handles-exchange",
+        "field": "website",
+        "value": "https://handles.exchange/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20241204050952id_/https://www.cardanocube.com/projects/handles-exchange",
+            "sha256": "d51bde9c5f959d23307dfaea3014c05a2d96a096b010135b3d1b41c81f06d40e",
+            "description": "cardanocube project page for \"handles-exchange\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "c2d3371e09c73b33293a9196f5b08ca55c8e77d9aaf893cc17e45f3f12d4908b",
+      "prev_hash": "1abff49dc65936c2a8432a4d92df8cd74b421a0620eed4cf15aa3bbbb896f170"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

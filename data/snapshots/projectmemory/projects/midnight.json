@@ -1,0 +1,270 @@
+{
+  "project": {
+    "id": "midnight",
+    "kind": "project",
+    "name": "Midnight",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4438",
+          "field": "name",
+          "value": "Midnight",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": null,
+                "sha256": "505f1904f06e0656989ce68eeae64a2fed9a2c91ee81f33301e5c4046eee62b4",
+                "description": "cardanocube /categories/partner-chain listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4438,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5461",
+          "field": "website",
+          "value": "https://midnight.network/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260303082136id_/https://www.cardanocube.com/projects/midnight",
+                "sha256": "b45404e1403d78f8b477fc64e9e2f5d865800c13af9536655a2d9598a134bd1a",
+                "description": "cardanocube project page for \"midnight\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5461,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "infrastructure",
+        "name": "Infrastructure",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      },
+      {
+        "slug": "partner-chain",
+        "name": "Partner Chain",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 1,
+    "created_seq": 4297,
+    "last_seq": 5461
+  },
+  "history": [
+    {
+      "seq": 4297,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "midnight",
+        "kind": "project"
+      },
+      "hash": "e728693c16ed3ef546c4fe28160d9e9fe9129a7d8563d2a8a81d1810657ffdc1",
+      "prev_hash": "15406ae26891c39024e65379927a54e907a3a2eca5c2e8129f1f6f9ad68450d6"
+    },
+    {
+      "seq": 4298,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "midnight",
+        "field": "name",
+        "value": "Midnight",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "b35da0f93da22a73c71d9875dd0c5116aa290df58990c2e9bfd803da807c9885",
+      "prev_hash": "e728693c16ed3ef546c4fe28160d9e9fe9129a7d8563d2a8a81d1810657ffdc1"
+    },
+    {
+      "seq": 4299,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "midnight",
+        "category_slug": "infrastructure",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "4e262521c7aa7a9d157d2da81a9a99170647f4d0addc0bcfecc30894fff47f1b",
+      "prev_hash": "b35da0f93da22a73c71d9875dd0c5116aa290df58990c2e9bfd803da807c9885"
+    },
+    {
+      "seq": 4437,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "midnight",
+        "kind": "project"
+      },
+      "hash": "5bdbc37cdce50a531f1fe9a393f70b57c836f55de8f2bdb4c648a1f360967605",
+      "prev_hash": "f0183d70032b75d65b3b5eb401bb95bf66a6aa0b335e119387d43d3b6c30bd74"
+    },
+    {
+      "seq": 4438,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "midnight",
+        "field": "name",
+        "value": "Midnight",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": null,
+            "sha256": "505f1904f06e0656989ce68eeae64a2fed9a2c91ee81f33301e5c4046eee62b4",
+            "description": "cardanocube /categories/partner-chain listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "7610d62c372d50e37ee977884fc4f2da009ce4051da708f9221b8b5181c42fc5",
+      "prev_hash": "5bdbc37cdce50a531f1fe9a393f70b57c836f55de8f2bdb4c648a1f360967605"
+    },
+    {
+      "seq": 4439,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "midnight",
+        "category_slug": "partner-chain",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": null,
+            "sha256": "505f1904f06e0656989ce68eeae64a2fed9a2c91ee81f33301e5c4046eee62b4",
+            "description": "cardanocube /categories/partner-chain listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "00d376deaaa026d66cf128e34139290ea4a070bd28f80611da088fc30213d350",
+      "prev_hash": "7610d62c372d50e37ee977884fc4f2da009ce4051da708f9221b8b5181c42fc5"
+    },
+    {
+      "seq": 5461,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "midnight",
+        "field": "website",
+        "value": "https://midnight.network/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260303082136id_/https://www.cardanocube.com/projects/midnight",
+            "sha256": "b45404e1403d78f8b477fc64e9e2f5d865800c13af9536655a2d9598a134bd1a",
+            "description": "cardanocube project page for \"midnight\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "2c9ac11555f03b9f2b55dae3a6a49fae0ba05bbd92190d31fc3b425d5c8e5285",
+      "prev_hash": "39562c86cd6c61b749c353284e13286f630d5493a4f1fb99b319572c0d56be61"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

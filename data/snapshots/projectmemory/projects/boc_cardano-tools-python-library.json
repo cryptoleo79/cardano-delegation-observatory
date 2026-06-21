@@ -104,6 +104,39 @@
           "asserted_seq": 1376,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5155",
+          "field": "website",
+          "value": "https://gitlab.com/viper-staking/cardano-tools",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem",
+                "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 5155,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [
@@ -126,7 +159,7 @@
     ],
     "superseded_claim_count": 0,
     "created_seq": 1373,
-    "last_seq": 1377
+    "last_seq": 5155
   },
   "history": [
     {
@@ -235,7 +268,34 @@
       },
       "hash": "5f62a86d2c56f4fd2fa39be550f5672cf5f370ef5b0c85daed71958fc3eba71d",
       "prev_hash": "779c3c5164ba40f82db5675a025b53cca815f4448ceb3282e62697162700b570"
+    },
+    {
+      "seq": 5155,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:cardano-tools-python-library",
+        "field": "website",
+        "value": "https://gitlab.com/viper-staking/cardano-tools",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem",
+            "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "93a8448340184505ac3f8895a2e2f358e3e7fa760b73575cd2ac8950166b0887",
+      "prev_hash": "60ed87be2376d78baba4be5f0f10ae6facf360e52e2ef612971d7bbf0dfa2c35"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

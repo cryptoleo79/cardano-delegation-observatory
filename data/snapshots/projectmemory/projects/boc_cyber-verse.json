@@ -104,6 +104,72 @@
           "asserted_seq": 1750,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_4773",
+          "field": "website",
+          "value": "https://www.cyberversegame.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 4773,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_4774",
+          "field": "whitepaper",
+          "value": "https://docs.cyberversegame.io/cyberverse-litepaper",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 4774,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [
@@ -126,7 +192,7 @@
     ],
     "superseded_claim_count": 0,
     "created_seq": 1747,
-    "last_seq": 1751
+    "last_seq": 4774
   },
   "history": [
     {
@@ -235,7 +301,61 @@
       },
       "hash": "8f728aa81c9d7c13abba60de09a04c30c834dba05ceb7a913e97208d94ecf059",
       "prev_hash": "1498c7e3584970af625dac833bbb23edd2a1069ec2b507d5639cae66572f1124"
+    },
+    {
+      "seq": 4773,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:cyber-verse",
+        "field": "website",
+        "value": "https://www.cyberversegame.io/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "f4bde46f7178a1fe654bc3c59126b6b6c519b124ac8fc1b61ae934c0587f87ba",
+      "prev_hash": "a7acbd8a64f5f3df4e2d54756fd89d2c7ad1704bce4e5f8e90ff64ef785d8623"
+    },
+    {
+      "seq": 4774,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:cyber-verse",
+        "field": "whitepaper",
+        "value": "https://docs.cyberversegame.io/cyberverse-litepaper",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "ae969ebc6482f9eb914075491dfe7ed4ffa4415fe1cd1cbf8560358be87b1425",
+      "prev_hash": "f4bde46f7178a1fe654bc3c59126b6b6c519b124ac8fc1b61ae934c0587f87ba"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

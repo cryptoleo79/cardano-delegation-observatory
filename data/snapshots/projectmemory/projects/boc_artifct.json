@@ -104,12 +104,45 @@
           "asserted_seq": 620,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5653",
+          "field": "website",
+          "value": "https://artifct.app/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-20",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "648f9154a44a5830d86dc51cb86f67547a1c9d432ecd9d5f6ca70357471c0585",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 5653,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [],
-    "superseded_claim_count": 0,
+    "superseded_claim_count": 1,
     "created_seq": 617,
-    "last_seq": 620
+    "last_seq": 5653
   },
   "history": [
     {
@@ -195,7 +228,61 @@
       },
       "hash": "7344a738bc7e8287d5011f6f7d8bb250ec19176c3c0bf633d5b8a153e5cfb709",
       "prev_hash": "372341ae470a5552193422b4f631af7a1e62e651af860d30b4eddffee1fd7fa5"
+    },
+    {
+      "seq": 5540,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:artifct",
+        "field": "website",
+        "value": "https://artifct.app",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20240714105344id_/https://www.cardanocube.com/projects/artifct",
+            "sha256": "d90238ef75f66aeede69db0ef620f597e5e5f1fb5eb1fe743e954429d3efff0c",
+            "description": "cardanocube project page for \"boc:artifct\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "0df9e768f8b41a5bfe6c5768cfa202d5a49db358f366e4a38edbf809453b1249",
+      "prev_hash": "8a90905af30fc19835077d64d79ada372bf62fb25a98795c5b6d10820794400c"
+    },
+    {
+      "seq": 5653,
+      "ts": "2026-06-20",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:artifct",
+        "field": "website",
+        "value": "https://artifct.app/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-20",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "648f9154a44a5830d86dc51cb86f67547a1c9d432ecd9d5f6ca70357471c0585",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "29f4c633c7d44341f9a7fa73a00f46915634ffc4f72ec76f3124e2702e5cbb9b",
+      "prev_hash": "e497fd9525befa93f78f7bed3d57a2b7435e65b7d7d0113049daba11ed834def"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

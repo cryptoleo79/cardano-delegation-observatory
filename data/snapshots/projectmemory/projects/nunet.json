@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "nunet",
+    "kind": "project",
+    "name": "Nunet",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4165",
+          "field": "name",
+          "value": "Nunet",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+                "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+                "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4165,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5524",
+          "field": "website",
+          "value": "https://nunet.io",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603134325id_/https://www.cardanocube.com/projects/nunet",
+                "sha256": "284c40573d35f986c7a576d0931bbf528d993847b82082d12c5be3d77b0e14e1",
+                "description": "cardanocube project page for \"nunet\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5524,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5525",
+          "field": "whitepaper",
+          "value": "https://nunet-io.github.io/public/NuNet_Whitepaper_2.0.pdf",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603134325id_/https://www.cardanocube.com/projects/nunet",
+                "sha256": "284c40573d35f986c7a576d0931bbf528d993847b82082d12c5be3d77b0e14e1",
+                "description": "cardanocube project page for \"nunet\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5525,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "ai",
+        "name": "AI",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4164,
+    "last_seq": 5525
+  },
+  "history": [
+    {
+      "seq": 4164,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "nunet",
+        "kind": "project"
+      },
+      "hash": "9088b04abf7a280500b3a66337b3da0365ba07649235e6529ce3d340eaf2c87c",
+      "prev_hash": "302b24cf334c39de22fd456d07682ede2f8c894d3cf4fc4cfb17e30d74d33118"
+    },
+    {
+      "seq": 4165,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "nunet",
+        "field": "name",
+        "value": "Nunet",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+            "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+            "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "26112b10cecedb5a767b375d8f2bb8ff6b5a80eac5908e36f41022f333fd0625",
+      "prev_hash": "9088b04abf7a280500b3a66337b3da0365ba07649235e6529ce3d340eaf2c87c"
+    },
+    {
+      "seq": 4166,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "nunet",
+        "category_slug": "ai",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+            "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+            "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "d4a5e9a2d58afca1f150461eb8405f04509d348078c473696d86eafb390b8fba",
+      "prev_hash": "26112b10cecedb5a767b375d8f2bb8ff6b5a80eac5908e36f41022f333fd0625"
+    },
+    {
+      "seq": 5524,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "nunet",
+        "field": "website",
+        "value": "https://nunet.io",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603134325id_/https://www.cardanocube.com/projects/nunet",
+            "sha256": "284c40573d35f986c7a576d0931bbf528d993847b82082d12c5be3d77b0e14e1",
+            "description": "cardanocube project page for \"nunet\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "143bee81100a2ebc9bc342912c485a2b2f0eefb99c665ba01679d97037f368f4",
+      "prev_hash": "33f334fb52c0c73ff72d374ec7bd6f753ae2e7b70c0ae26e61cd0f7ff49cab67"
+    },
+    {
+      "seq": 5525,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "nunet",
+        "field": "whitepaper",
+        "value": "https://nunet-io.github.io/public/NuNet_Whitepaper_2.0.pdf",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603134325id_/https://www.cardanocube.com/projects/nunet",
+            "sha256": "284c40573d35f986c7a576d0931bbf528d993847b82082d12c5be3d77b0e14e1",
+            "description": "cardanocube project page for \"nunet\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "7461d21a045d34982e8af0e85d1c759bb69601bcc9b4f046798d76ebd1f6aefc",
+      "prev_hash": "143bee81100a2ebc9bc342912c485a2b2f0eefb99c665ba01679d97037f368f4"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

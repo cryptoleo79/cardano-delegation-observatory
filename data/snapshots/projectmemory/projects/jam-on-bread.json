@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "jam-on-bread",
+    "kind": "project",
+    "name": "Jam On Bread",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "documentation": [
+        {
+          "claim_id": "clm_5533",
+          "field": "documentation",
+          "value": "https://jamonbread-io.gitbook.io",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250120022947id_/https://www.cardanocube.com/projects/jam-on-bread",
+                "sha256": "2565331f16115a363739c6fd78bda541fc9056baccc617729ed376138307dd50",
+                "description": "cardanocube project page for \"jam-on-bread\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5533,
+          "superseded_by_seq": null
+        }
+      ],
+      "name": [
+        {
+          "claim_id": "clm_4381",
+          "field": "name",
+          "value": "Jam On Bread",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+                "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+                "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4381,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5532",
+          "field": "website",
+          "value": "https://jamonbread.io",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250120022947id_/https://www.cardanocube.com/projects/jam-on-bread",
+                "sha256": "2565331f16115a363739c6fd78bda541fc9056baccc617729ed376138307dd50",
+                "description": "cardanocube project page for \"jam-on-bread\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5532,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "marketplaces",
+        "name": "Marketplaces",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4380,
+    "last_seq": 5533
+  },
+  "history": [
+    {
+      "seq": 4380,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "jam-on-bread",
+        "kind": "project"
+      },
+      "hash": "dd0218f58db48456e27f4e461efdd16f3082ac7926f8b2d954008614ff0af05e",
+      "prev_hash": "eacbcdc73acbf72adbd9530f8a2a53a7f4b2f27c7843167ff76eca1d813fdc53"
+    },
+    {
+      "seq": 4381,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "jam-on-bread",
+        "field": "name",
+        "value": "Jam On Bread",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "beb296c09a93d9980f111d43a72e814f995559912744caedaad2ddf3c2cd376d",
+      "prev_hash": "dd0218f58db48456e27f4e461efdd16f3082ac7926f8b2d954008614ff0af05e"
+    },
+    {
+      "seq": 4382,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "jam-on-bread",
+        "category_slug": "marketplaces",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "c0915bf04940e37b3729c863651b68192b07af13a3683ea7526f11761e8a0a37",
+      "prev_hash": "beb296c09a93d9980f111d43a72e814f995559912744caedaad2ddf3c2cd376d"
+    },
+    {
+      "seq": 5532,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "jam-on-bread",
+        "field": "website",
+        "value": "https://jamonbread.io",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250120022947id_/https://www.cardanocube.com/projects/jam-on-bread",
+            "sha256": "2565331f16115a363739c6fd78bda541fc9056baccc617729ed376138307dd50",
+            "description": "cardanocube project page for \"jam-on-bread\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "dd11444790a409fbc0e435e72eaf6308db73796a40eed8be105b162343e5fa5a",
+      "prev_hash": "6df53e6506b018c4623fdee01e60bea4670a917bb51491328b885ba5d0e367c3"
+    },
+    {
+      "seq": 5533,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "jam-on-bread",
+        "field": "documentation",
+        "value": "https://jamonbread-io.gitbook.io",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250120022947id_/https://www.cardanocube.com/projects/jam-on-bread",
+            "sha256": "2565331f16115a363739c6fd78bda541fc9056baccc617729ed376138307dd50",
+            "description": "cardanocube project page for \"jam-on-bread\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "bbdef4516109460d89e3fcdd408956bf9e83b005b92a1a747922ed3b836529b0",
+      "prev_hash": "dd11444790a409fbc0e435e72eaf6308db73796a40eed8be105b162343e5fa5a"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "havoc-worlds",
+    "kind": "project",
+    "name": "Havoc Worlds",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4534",
+          "field": "name",
+          "value": "Havoc Worlds",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+                "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+                "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4534,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5709",
+          "field": "website",
+          "value": "https://havocworlds.io",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://www.cardanocube.com/projects/havoc-worlds",
+                "sha256": "d9a276f3a3ec8858d0bc2126d45bd1b20c605b17b5253b56e63f8758600bbd52",
+                "description": "cardanocube project page for \"havoc-worlds\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5709,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5710",
+          "field": "whitepaper",
+          "value": "https://havocworlds.io/#faq",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://www.cardanocube.com/projects/havoc-worlds",
+                "sha256": "d9a276f3a3ec8858d0bc2126d45bd1b20c605b17b5253b56e63f8758600bbd52",
+                "description": "cardanocube project page for \"havoc-worlds\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5710,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "utility-nfts",
+        "name": "Utility Nfts",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4533,
+    "last_seq": 5710
+  },
+  "history": [
+    {
+      "seq": 4533,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "havoc-worlds",
+        "kind": "project"
+      },
+      "hash": "775335e49c8beb2031c4eddbc1e4d25c56ce5939e7090f66fb6edc644fdc2c30",
+      "prev_hash": "18135138a4a851a330cc233568c37c5c0d507db6270bf8a7486cdbfdfba0dd38"
+    },
+    {
+      "seq": 4534,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "havoc-worlds",
+        "field": "name",
+        "value": "Havoc Worlds",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "ec99a368184b5989d88c81476207b1a96980cf5c1ac66788158ca8e9e1d3b594",
+      "prev_hash": "775335e49c8beb2031c4eddbc1e4d25c56ce5939e7090f66fb6edc644fdc2c30"
+    },
+    {
+      "seq": 4535,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "havoc-worlds",
+        "category_slug": "utility-nfts",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "5a796dfc9b34c8ebe63ee3b96995ec886cb5812a3a8dbe9e05f4da05bd412f2d",
+      "prev_hash": "ec99a368184b5989d88c81476207b1a96980cf5c1ac66788158ca8e9e1d3b594"
+    },
+    {
+      "seq": 5709,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "havoc-worlds",
+        "field": "website",
+        "value": "https://havocworlds.io",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://www.cardanocube.com/projects/havoc-worlds",
+            "sha256": "d9a276f3a3ec8858d0bc2126d45bd1b20c605b17b5253b56e63f8758600bbd52",
+            "description": "cardanocube project page for \"havoc-worlds\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "fc62bdf8bf3c2155a133d195069a1649b59766e469548f6a86a7bb5d1f40d88d",
+      "prev_hash": "1251f8f59d0c4a14b751e471a13a60afb1540c8043a0cce74122b6333dd21323"
+    },
+    {
+      "seq": 5710,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "havoc-worlds",
+        "field": "whitepaper",
+        "value": "https://havocworlds.io/#faq",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://www.cardanocube.com/projects/havoc-worlds",
+            "sha256": "d9a276f3a3ec8858d0bc2126d45bd1b20c605b17b5253b56e63f8758600bbd52",
+            "description": "cardanocube project page for \"havoc-worlds\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "dafcd04de368bb981c418e97b1216998eb8d500b7c88e99582838986c80eb3c4",
+      "prev_hash": "fc62bdf8bf3c2155a133d195069a1649b59766e469548f6a86a7bb5d1f40d88d"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

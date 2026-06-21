@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "ada-makers",
+    "kind": "project",
+    "name": "Ada Makers",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4402",
+          "field": "name",
+          "value": "Ada Makers",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+                "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+                "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4402,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5493",
+          "field": "website",
+          "value": "https://ada-makers.com/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250512214849id_/https://www.cardanocube.com/projects/ada-makers",
+                "sha256": "2124b37ea23435b05c3f29a618d3dc0224b8106cb535c25a45c0659df2f02e25",
+                "description": "cardanocube project page for \"ada-makers\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5493,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "marketplaces",
+        "name": "Marketplaces",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4401,
+    "last_seq": 5493
+  },
+  "history": [
+    {
+      "seq": 4401,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "ada-makers",
+        "kind": "project"
+      },
+      "hash": "1fd5254858e976387b1a493f80e2653ce838b69bffb53d4a55dea01163077e68",
+      "prev_hash": "7c7767e5f7f15e3acdaff826e64191f7b6033144e8baa8be5acd06f82670cf32"
+    },
+    {
+      "seq": 4402,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "ada-makers",
+        "field": "name",
+        "value": "Ada Makers",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "02b6e21c0e3afc3b8cbc20e24e60839bf4631701acc4fa6aa4bed5897ae2da8a",
+      "prev_hash": "1fd5254858e976387b1a493f80e2653ce838b69bffb53d4a55dea01163077e68"
+    },
+    {
+      "seq": 4403,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "ada-makers",
+        "category_slug": "marketplaces",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "92d8b5f4acddb4021fcb619e5f874704e1cd88ce2c10414402de64adbd9020c4",
+      "prev_hash": "02b6e21c0e3afc3b8cbc20e24e60839bf4631701acc4fa6aa4bed5897ae2da8a"
+    },
+    {
+      "seq": 5493,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "ada-makers",
+        "field": "website",
+        "value": "https://ada-makers.com/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250512214849id_/https://www.cardanocube.com/projects/ada-makers",
+            "sha256": "2124b37ea23435b05c3f29a618d3dc0224b8106cb535c25a45c0659df2f02e25",
+            "description": "cardanocube project page for \"ada-makers\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "a752116fb5a40a14db4f8c5fdd29fde62583b2515959cf05c90300bd599df80a",
+      "prev_hash": "c2d3371e09c73b33293a9196f5b08ca55c8e77d9aaf893cc17e45f3f12d4908b"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

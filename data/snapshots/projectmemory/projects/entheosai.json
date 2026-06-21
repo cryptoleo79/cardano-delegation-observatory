@@ -71,12 +71,45 @@
           "asserted_seq": 115,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5396",
+          "field": "website",
+          "value": "http://www.entheosart.com/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250313005217id_/https://cardanocube.com/projects/entheosai",
+                "sha256": "55db8eb0a78a531502ecbcbfb3d50ebc5c2cdfe402ef2379335c73ff48505140",
+                "description": "cardanocube project page for \"entheosai\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5396,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [],
     "superseded_claim_count": 0,
     "created_seq": 113,
-    "last_seq": 115
+    "last_seq": 5396
   },
   "history": [
     {
@@ -140,7 +173,34 @@
       },
       "hash": "2cf7ed4147e90ff5753f06d74d5d55f90f6ec4182b3f480ffcce9ca5b3cda83c",
       "prev_hash": "7df5512c18e20897b94275deb49dd153620004a74bc0551f0c59797815c6dc63"
+    },
+    {
+      "seq": 5396,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "entheosai",
+        "field": "website",
+        "value": "http://www.entheosart.com/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250313005217id_/https://cardanocube.com/projects/entheosai",
+            "sha256": "55db8eb0a78a531502ecbcbfb3d50ebc5c2cdfe402ef2379335c73ff48505140",
+            "description": "cardanocube project page for \"entheosai\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "253494845c4f3831e1c829e69020bba675b07c78cc7a112c74d623d29dc28d6d",
+      "prev_hash": "2b095a6e8b1d1183f0d37fd92d67afe428a6abd83928e5a8ad4a66745a92eafb"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

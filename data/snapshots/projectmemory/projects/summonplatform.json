@@ -1,0 +1,330 @@
+{
+  "project": {
+    "id": "summonplatform",
+    "kind": "project",
+    "name": "Summonplatform",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "documentation": [
+        {
+          "claim_id": "clm_5450",
+          "field": "documentation",
+          "value": "https://docs.google.com/document/d/1jALavHb5xVJwSQtKYBmX8ENDFFZHVbh2ykLRCUB0CAg/edit",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250903162734id_/https://www.cardanocube.com/projects/summonplatform",
+                "sha256": "9a5615fcf18cb208ff62e136095618140259f3f2df4ceb886e6233755c04ce26",
+                "description": "cardanocube project page for \"summonplatform\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5450,
+          "superseded_by_seq": null
+        }
+      ],
+      "name": [
+        {
+          "claim_id": "clm_4363",
+          "field": "name",
+          "value": "Summonplatform",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+                "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+                "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4363,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5449",
+          "field": "website",
+          "value": "http://summonplatform.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250903162734id_/https://www.cardanocube.com/projects/summonplatform",
+                "sha256": "9a5615fcf18cb208ff62e136095618140259f3f2df4ceb886e6233755c04ce26",
+                "description": "cardanocube project page for \"summonplatform\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5449,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "governance",
+        "name": "Governance",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      },
+      {
+        "slug": "ispo",
+        "name": "Ispo",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 1,
+    "created_seq": 4262,
+    "last_seq": 5450
+  },
+  "history": [
+    {
+      "seq": 4262,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "summonplatform",
+        "kind": "project"
+      },
+      "hash": "afe596951543acf43cf86b534ff624a32b36808e0b0001d3fa226856ca78c833",
+      "prev_hash": "4ed816be027cf77bfb513a0e458dea98e27f3985578a3717299005a6d14d9f55"
+    },
+    {
+      "seq": 4263,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "summonplatform",
+        "field": "name",
+        "value": "Summonplatform",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+            "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+            "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "0ac7eddd714f05f94f2cad96ef11402bd46e98e62d8da3f0663a50f72582c377",
+      "prev_hash": "afe596951543acf43cf86b534ff624a32b36808e0b0001d3fa226856ca78c833"
+    },
+    {
+      "seq": 4264,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "summonplatform",
+        "category_slug": "governance",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+            "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+            "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "c2ceab4630c57336fa29917bf0b11f0888a59a9c04b52d31aa2e8b42dd3dcf3d",
+      "prev_hash": "0ac7eddd714f05f94f2cad96ef11402bd46e98e62d8da3f0663a50f72582c377"
+    },
+    {
+      "seq": 4362,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "summonplatform",
+        "kind": "project"
+      },
+      "hash": "16c553622159bcb2b9e30105425095e35ac17192ffc8d7e35e4ba48b52f59333",
+      "prev_hash": "78af00ac40c2e44ce677aae2db5d5a0d96a262c60f7bcb9a5e0a92fb99de7ae0"
+    },
+    {
+      "seq": 4363,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "summonplatform",
+        "field": "name",
+        "value": "Summonplatform",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+            "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+            "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "41e17813d3fb9dd7170ffde83380cb2a3898f02a0faabaa61ab3654e8cc5ff81",
+      "prev_hash": "16c553622159bcb2b9e30105425095e35ac17192ffc8d7e35e4ba48b52f59333"
+    },
+    {
+      "seq": 4364,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "summonplatform",
+        "category_slug": "ispo",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+            "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+            "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "0544214dbad62b15aa54f385f27856c01be6e7151e1e6b628fb23fcc18286272",
+      "prev_hash": "41e17813d3fb9dd7170ffde83380cb2a3898f02a0faabaa61ab3654e8cc5ff81"
+    },
+    {
+      "seq": 5449,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "summonplatform",
+        "field": "website",
+        "value": "http://summonplatform.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250903162734id_/https://www.cardanocube.com/projects/summonplatform",
+            "sha256": "9a5615fcf18cb208ff62e136095618140259f3f2df4ceb886e6233755c04ce26",
+            "description": "cardanocube project page for \"summonplatform\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "c16586f99656441fc4b9a73192cff3c2ea94a3523492930f869bb0a8c77c2eb0",
+      "prev_hash": "375aeac6bf8fea69e0f2d3d58fc979e29e7a856cb8cc9b6830adb33feec934b6"
+    },
+    {
+      "seq": 5450,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "summonplatform",
+        "field": "documentation",
+        "value": "https://docs.google.com/document/d/1jALavHb5xVJwSQtKYBmX8ENDFFZHVbh2ykLRCUB0CAg/edit",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250903162734id_/https://www.cardanocube.com/projects/summonplatform",
+            "sha256": "9a5615fcf18cb208ff62e136095618140259f3f2df4ceb886e6233755c04ce26",
+            "description": "cardanocube project page for \"summonplatform\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "ecea254ea02ceef9ab348eab0a9c8dbeb13f20d48648f7fab452d6e191943359",
+      "prev_hash": "c16586f99656441fc4b9a73192cff3c2ea94a3523492930f869bb0a8c77c2eb0"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

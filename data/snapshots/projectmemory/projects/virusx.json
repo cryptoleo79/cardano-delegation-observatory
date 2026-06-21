@@ -71,12 +71,78 @@
           "asserted_seq": 136,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5723",
+          "field": "website",
+          "value": "http://Virusx.io",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260621014626id_/https://www.cardanocube.com/projects/virusx",
+                "sha256": "2390d7559e7eaf256bb581b4e6956a449f08db86663b78e03eea4c50322b0d20",
+                "description": "cardanocube project page for \"virusx\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5723,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5724",
+          "field": "whitepaper",
+          "value": "https://virusx.io/wsite/index.php?route=faq",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260621014626id_/https://www.cardanocube.com/projects/virusx",
+                "sha256": "2390d7559e7eaf256bb581b4e6956a449f08db86663b78e03eea4c50322b0d20",
+                "description": "cardanocube project page for \"virusx\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5724,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [],
     "superseded_claim_count": 0,
     "created_seq": 134,
-    "last_seq": 136
+    "last_seq": 5724
   },
   "history": [
     {
@@ -140,7 +206,61 @@
       },
       "hash": "5196bdb2a4165919874d5e664ba95fbb6382b52cca2c1f02e24d47e609c23a28",
       "prev_hash": "f0887a400e73994953ada2b420c0e484921c158ba8524cd8f4f3ac9aacc074e7"
+    },
+    {
+      "seq": 5723,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "virusx",
+        "field": "website",
+        "value": "http://Virusx.io",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260621014626id_/https://www.cardanocube.com/projects/virusx",
+            "sha256": "2390d7559e7eaf256bb581b4e6956a449f08db86663b78e03eea4c50322b0d20",
+            "description": "cardanocube project page for \"virusx\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "3be4b16160ca7bada349a92d8eab3fd8a279657f0a4aca80bc1baf5b8dce28de",
+      "prev_hash": "5dfba860a1cec96cd414303af831cfe84080e823bac9f81c6cf2771aeabd4467"
+    },
+    {
+      "seq": 5724,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "virusx",
+        "field": "whitepaper",
+        "value": "https://virusx.io/wsite/index.php?route=faq",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260621014626id_/https://www.cardanocube.com/projects/virusx",
+            "sha256": "2390d7559e7eaf256bb581b4e6956a449f08db86663b78e03eea4c50322b0d20",
+            "description": "cardanocube project page for \"virusx\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "67b37d067cd6edb70040da451afd7b92b7f5253471df206212134131f1b8bc93",
+      "prev_hash": "3be4b16160ca7bada349a92d8eab3fd8a279657f0a4aca80bc1baf5b8dce28de"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

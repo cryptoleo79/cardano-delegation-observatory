@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "mvpz",
+    "kind": "project",
+    "name": "Mvpz",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4537",
+          "field": "name",
+          "value": "Mvpz",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+                "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+                "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4537,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5714",
+          "field": "website",
+          "value": "http://www.mvpz.io",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://www.cardanocube.com/projects/mvpz",
+                "sha256": "84380274fca8332c60592b7ef3b7003097ea22ddc57fd2dbdc8de530b7485004",
+                "description": "cardanocube project page for \"mvpz\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5714,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5715",
+          "field": "whitepaper",
+          "value": "http://www.mvpz.io",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://www.cardanocube.com/projects/mvpz",
+                "sha256": "84380274fca8332c60592b7ef3b7003097ea22ddc57fd2dbdc8de530b7485004",
+                "description": "cardanocube project page for \"mvpz\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5715,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "utility-nfts",
+        "name": "Utility Nfts",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4536,
+    "last_seq": 5715
+  },
+  "history": [
+    {
+      "seq": 4536,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "mvpz",
+        "kind": "project"
+      },
+      "hash": "df3098dcd1a074a2d894c9b639eacd3b5493d16f82cf544bb85277644bf7c1ea",
+      "prev_hash": "5a796dfc9b34c8ebe63ee3b96995ec886cb5812a3a8dbe9e05f4da05bd412f2d"
+    },
+    {
+      "seq": 4537,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "mvpz",
+        "field": "name",
+        "value": "Mvpz",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "6225cd0ccefb448d23cbd818fc6ea54aab860c282a6387c1685735728b42e3f9",
+      "prev_hash": "df3098dcd1a074a2d894c9b639eacd3b5493d16f82cf544bb85277644bf7c1ea"
+    },
+    {
+      "seq": 4538,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "mvpz",
+        "category_slug": "utility-nfts",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "3236da202896af0ee7ff01afda468fdf9f00114deb7e410e7f077913bcc284cb",
+      "prev_hash": "6225cd0ccefb448d23cbd818fc6ea54aab860c282a6387c1685735728b42e3f9"
+    },
+    {
+      "seq": 5714,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "mvpz",
+        "field": "website",
+        "value": "http://www.mvpz.io",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://www.cardanocube.com/projects/mvpz",
+            "sha256": "84380274fca8332c60592b7ef3b7003097ea22ddc57fd2dbdc8de530b7485004",
+            "description": "cardanocube project page for \"mvpz\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "d06c37ca0b5b75f90dba19d57d98e62a4522e95d87423c8ad9c780f1766b06a3",
+      "prev_hash": "dce6c9f2f31ce93c4244f2999cdbbbaca0d5ccc9653ce9505e9bca1cdf9c378f"
+    },
+    {
+      "seq": 5715,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "mvpz",
+        "field": "whitepaper",
+        "value": "http://www.mvpz.io",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://www.cardanocube.com/projects/mvpz",
+            "sha256": "84380274fca8332c60592b7ef3b7003097ea22ddc57fd2dbdc8de530b7485004",
+            "description": "cardanocube project page for \"mvpz\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "5ac5b873247961e2b9fd4e2edaa4c41bafa3209ffdaef00262defb58d8d0adec",
+      "prev_hash": "d06c37ca0b5b75f90dba19d57d98e62a4522e95d87423c8ad9c780f1766b06a3"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

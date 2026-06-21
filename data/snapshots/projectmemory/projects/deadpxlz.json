@@ -1,0 +1,330 @@
+{
+  "project": {
+    "id": "deadpxlz",
+    "kind": "project",
+    "name": "Deadpxlz",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4522",
+          "field": "name",
+          "value": "Deadpxlz",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+                "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+                "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4522,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5514",
+          "field": "website",
+          "value": "https://pxlz.org/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133952id_/https://www.cardanocube.com/projects/deadpxlz",
+                "sha256": "0ee73252e4dad24343ee52285c56df625cfc8899e79176cf3040a46ce0329b73",
+                "description": "cardanocube project page for \"deadpxlz\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5514,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5515",
+          "field": "whitepaper",
+          "value": "https://www.pxlz.org/whitepaper.pdf",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133952id_/https://www.cardanocube.com/projects/deadpxlz",
+                "sha256": "0ee73252e4dad24343ee52285c56df625cfc8899e79176cf3040a46ce0329b73",
+                "description": "cardanocube project page for \"deadpxlz\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5515,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "popular",
+        "name": "Popular",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      },
+      {
+        "slug": "utility-nfts",
+        "name": "Utility Nfts",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 1,
+    "created_seq": 4497,
+    "last_seq": 5515
+  },
+  "history": [
+    {
+      "seq": 4497,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "deadpxlz",
+        "kind": "project"
+      },
+      "hash": "2ba6f1ad26af0279d379515099c326acfc6edf55a88f1af1a5c4acfee6771f29",
+      "prev_hash": "7c99f28a1045d59dae031d47677867a2e2a8850486f9ce72ab8c897b2fb3871c"
+    },
+    {
+      "seq": 4498,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "deadpxlz",
+        "field": "name",
+        "value": "Deadpxlz",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "131bf3ab30c939c6bb8638c7dfd24226fb0112902ff33065acabf2f6dc1da1c5",
+      "prev_hash": "2ba6f1ad26af0279d379515099c326acfc6edf55a88f1af1a5c4acfee6771f29"
+    },
+    {
+      "seq": 4499,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "deadpxlz",
+        "category_slug": "popular",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "ba004ced702ecee4851e6547072548c42f02fd16684a8b9fef23f559ffdab86f",
+      "prev_hash": "131bf3ab30c939c6bb8638c7dfd24226fb0112902ff33065acabf2f6dc1da1c5"
+    },
+    {
+      "seq": 4521,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "deadpxlz",
+        "kind": "project"
+      },
+      "hash": "06606f21813618d0e00a3189a3ee757c87eea3b1d5bfb3e6b4666fbb7344c0ac",
+      "prev_hash": "053ad76bf1aea787c0b47b099d28f9057dadef7bc093e9063c2f5e7d45f44465"
+    },
+    {
+      "seq": 4522,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "deadpxlz",
+        "field": "name",
+        "value": "Deadpxlz",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "1409e3e54277626ffebf3bc1e73501294b30e6f6624415daefcc24fbfcf3f4ba",
+      "prev_hash": "06606f21813618d0e00a3189a3ee757c87eea3b1d5bfb3e6b4666fbb7344c0ac"
+    },
+    {
+      "seq": 4523,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "deadpxlz",
+        "category_slug": "utility-nfts",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "d058d90052a9c82dc5dcc7f1198f906e17917bd16df5a428aa14c01b86e2660e",
+      "prev_hash": "1409e3e54277626ffebf3bc1e73501294b30e6f6624415daefcc24fbfcf3f4ba"
+    },
+    {
+      "seq": 5514,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "deadpxlz",
+        "field": "website",
+        "value": "https://pxlz.org/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://www.cardanocube.com/projects/deadpxlz",
+            "sha256": "0ee73252e4dad24343ee52285c56df625cfc8899e79176cf3040a46ce0329b73",
+            "description": "cardanocube project page for \"deadpxlz\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "8033462140d948ba297260908408dcdba4d4ada510fc6aaa9141fd54c570455a",
+      "prev_hash": "aa6e9577ed07332d89448fc257aebaa03305d9bd1406f23edca2b61c935bdcde"
+    },
+    {
+      "seq": 5515,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "deadpxlz",
+        "field": "whitepaper",
+        "value": "https://www.pxlz.org/whitepaper.pdf",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://www.cardanocube.com/projects/deadpxlz",
+            "sha256": "0ee73252e4dad24343ee52285c56df625cfc8899e79176cf3040a46ce0329b73",
+            "description": "cardanocube project page for \"deadpxlz\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "c1069b520340f589592e0422a9d1257be4e0fe605d5884d49cc943408dc2446d",
+      "prev_hash": "8033462140d948ba297260908408dcdba4d4ada510fc6aaa9141fd54c570455a"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "adanordic-sanchonet-explorer",
+    "kind": "project",
+    "name": "Adanordic Sanchonet Explorer",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4260",
+          "field": "name",
+          "value": "Adanordic Sanchonet Explorer",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+                "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+                "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4260,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5448",
+          "field": "website",
+          "value": "https://adanordic.com/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250206121523id_/https://www.cardanocube.com/projects/adanordic-sanchonet-explorer",
+                "sha256": "2197e79bcb437e0dc289ec7e737dbc6738d79d504f470caef90e69f50301d393",
+                "description": "cardanocube project page for \"adanordic-sanchonet-explorer\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5448,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "governance",
+        "name": "Governance",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4259,
+    "last_seq": 5448
+  },
+  "history": [
+    {
+      "seq": 4259,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "adanordic-sanchonet-explorer",
+        "kind": "project"
+      },
+      "hash": "01a9fcd7b080eb2c4c0265f3ec4f2660ff799695465045028dea3ba23513249a",
+      "prev_hash": "0310297b1aac5239895e6b8a3b33d3f73a50ef2313fcbfca80d192249edd893d"
+    },
+    {
+      "seq": 4260,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adanordic-sanchonet-explorer",
+        "field": "name",
+        "value": "Adanordic Sanchonet Explorer",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+            "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+            "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "82ddc82da52734794c6d51cd89148aa024f963b0d4f486131cb9b50dad142822",
+      "prev_hash": "01a9fcd7b080eb2c4c0265f3ec4f2660ff799695465045028dea3ba23513249a"
+    },
+    {
+      "seq": 4261,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adanordic-sanchonet-explorer",
+        "category_slug": "governance",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+            "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+            "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "4ed816be027cf77bfb513a0e458dea98e27f3985578a3717299005a6d14d9f55",
+      "prev_hash": "82ddc82da52734794c6d51cd89148aa024f963b0d4f486131cb9b50dad142822"
+    },
+    {
+      "seq": 5448,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adanordic-sanchonet-explorer",
+        "field": "website",
+        "value": "https://adanordic.com/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250206121523id_/https://www.cardanocube.com/projects/adanordic-sanchonet-explorer",
+            "sha256": "2197e79bcb437e0dc289ec7e737dbc6738d79d504f470caef90e69f50301d393",
+            "description": "cardanocube project page for \"adanordic-sanchonet-explorer\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "375aeac6bf8fea69e0f2d3d58fc979e29e7a856cb8cc9b6830adb33feec934b6",
+      "prev_hash": "693c98d7c1d99b85a7cac1a8bb4cfa635418b816e0f580769fa8ee61ba8a6bc2"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

@@ -39,6 +39,39 @@
           "superseded_by_seq": null
         }
       ],
+      "github": [
+        {
+          "claim_id": "clm_5144",
+          "field": "github",
+          "value": "https://github.com/Berry-Pool/spacebudz/tree/main/src/cardano/market",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem",
+                "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 5144,
+          "superseded_by_seq": null
+        }
+      ],
       "name": [
         {
           "claim_id": "clm_3530",
@@ -126,7 +159,7 @@
     ],
     "superseded_claim_count": 0,
     "created_seq": 3529,
-    "last_seq": 3533
+    "last_seq": 5144
   },
   "history": [
     {
@@ -235,7 +268,34 @@
       },
       "hash": "04ee1d36753a4290c78ab1a130648144ec57a0cd220576bf9b53cbf707d1e9c8",
       "prev_hash": "1bbf75d04e6f3aaddc880f175ab3e001c9f92becebb91db81402d5d373737850"
+    },
+    {
+      "seq": 5144,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:space-budz-marketplace",
+        "field": "github",
+        "value": "https://github.com/Berry-Pool/spacebudz/tree/main/src/cardano/market",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem",
+            "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "6f006f21b07d1db69ef9d362a999118a742b84dbc1193487274ba0ba777161dc",
+      "prev_hash": "dd990770ba7cd7ec03db245682a547d0c7b2bf7ad944dfd3781fc35da73155ce"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

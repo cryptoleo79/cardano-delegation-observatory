@@ -1,0 +1,330 @@
+{
+  "project": {
+    "id": "singularitynet",
+    "kind": "project",
+    "name": "Singularitynet",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4387",
+          "field": "name",
+          "value": "Singularitynet",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+                "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+                "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4387,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5412",
+          "field": "website",
+          "value": "https://singularitynet.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603134326id_/https://www.cardanocube.com/projects/singularitynet",
+                "sha256": "41f19a900bb3231937ebb51e74b857dc4e4b5fc1e107ca24ca65ecfd1a5b1b95",
+                "description": "cardanocube project page for \"singularitynet\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5412,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5413",
+          "field": "whitepaper",
+          "value": "https://public.singularitynet.io/whitepaper.pdf",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603134326id_/https://www.cardanocube.com/projects/singularitynet",
+                "sha256": "41f19a900bb3231937ebb51e74b857dc4e4b5fc1e107ca24ca65ecfd1a5b1b95",
+                "description": "cardanocube project page for \"singularitynet\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5413,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "ai",
+        "name": "AI",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      },
+      {
+        "slug": "marketplaces",
+        "name": "Marketplaces",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 1,
+    "created_seq": 4173,
+    "last_seq": 5413
+  },
+  "history": [
+    {
+      "seq": 4173,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "singularitynet",
+        "kind": "project"
+      },
+      "hash": "6775b430dbef31ad884abe2e9aa1ae2d582160142621154c9674c3e4e27cbb21",
+      "prev_hash": "51c464f7769412ae404d8c0285ee2b59858663cd2bafd2d032c28f060c16d5c7"
+    },
+    {
+      "seq": 4174,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "singularitynet",
+        "field": "name",
+        "value": "Singularitynet",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+            "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+            "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "2bee6a39720297fbe66b5846f55cc78a7284328bccbb49492ca89d583576b910",
+      "prev_hash": "6775b430dbef31ad884abe2e9aa1ae2d582160142621154c9674c3e4e27cbb21"
+    },
+    {
+      "seq": 4175,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "singularitynet",
+        "category_slug": "ai",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+            "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+            "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "0035a1a97ca0671cdbdee1a66a081b3f889e7b76fbfc3720835269b85d62059d",
+      "prev_hash": "2bee6a39720297fbe66b5846f55cc78a7284328bccbb49492ca89d583576b910"
+    },
+    {
+      "seq": 4386,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "singularitynet",
+        "kind": "project"
+      },
+      "hash": "7dc945abb8c4afe31704c93aee15d86a3875a2468a106cfea20a4bccd502d6d1",
+      "prev_hash": "a33895a4d59587f5f40fb5f63e200f803bd2065c4f57ceeace6ba28e9b4acc47"
+    },
+    {
+      "seq": 4387,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "singularitynet",
+        "field": "name",
+        "value": "Singularitynet",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "07cf4ea788534f04409bad37ccad534d651bc3204437287cc77c84bdba7722d8",
+      "prev_hash": "7dc945abb8c4afe31704c93aee15d86a3875a2468a106cfea20a4bccd502d6d1"
+    },
+    {
+      "seq": 4388,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "singularitynet",
+        "category_slug": "marketplaces",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "a2c56d730721f64d2632d5b92d143dbdac7793e6f44dc92ef776ab4f71c7d1e6",
+      "prev_hash": "07cf4ea788534f04409bad37ccad534d651bc3204437287cc77c84bdba7722d8"
+    },
+    {
+      "seq": 5412,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "singularitynet",
+        "field": "website",
+        "value": "https://singularitynet.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603134326id_/https://www.cardanocube.com/projects/singularitynet",
+            "sha256": "41f19a900bb3231937ebb51e74b857dc4e4b5fc1e107ca24ca65ecfd1a5b1b95",
+            "description": "cardanocube project page for \"singularitynet\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "b10363d7d002be0765abf175751d02ed5c06c3bddcc93c89ddb5cb9531658f7f",
+      "prev_hash": "0ee3a8a198d907ff5c9689969bf324c4851dc4e763d0568b90cb1c9a7e69d20a"
+    },
+    {
+      "seq": 5413,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "singularitynet",
+        "field": "whitepaper",
+        "value": "https://public.singularitynet.io/whitepaper.pdf",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603134326id_/https://www.cardanocube.com/projects/singularitynet",
+            "sha256": "41f19a900bb3231937ebb51e74b857dc4e4b5fc1e107ca24ca65ecfd1a5b1b95",
+            "description": "cardanocube project page for \"singularitynet\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "a3e58d6d99e5a7398dfb2c09ba1764b289cb10532ac6b1767b37ac651fbe0b5d",
+      "prev_hash": "b10363d7d002be0765abf175751d02ed5c06c3bddcc93c89ddb5cb9531658f7f"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

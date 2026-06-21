@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "cardano-trees",
+    "kind": "project",
+    "name": "Cardano Trees",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4555",
+          "field": "name",
+          "value": "Cardano Trees",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+                "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+                "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4555,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5687",
+          "field": "website",
+          "value": "http://cardanotrees.com",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260621014039id_/https://www.cardanocube.com/projects/cardano-trees",
+                "sha256": "49406d78b77de92947cde94649039d473be238dc9eef3ac0c44c31819012f8f5",
+                "description": "cardanocube project page for \"cardano-trees\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5687,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5688",
+          "field": "whitepaper",
+          "value": "http://cardanotrees.com/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260621014039id_/https://www.cardanocube.com/projects/cardano-trees",
+                "sha256": "49406d78b77de92947cde94649039d473be238dc9eef3ac0c44c31819012f8f5",
+                "description": "cardanocube project page for \"cardano-trees\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5688,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "utility-nfts",
+        "name": "Utility Nfts",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4554,
+    "last_seq": 5688
+  },
+  "history": [
+    {
+      "seq": 4554,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "cardano-trees",
+        "kind": "project"
+      },
+      "hash": "8a9130a65607e6fb5a718a959d77bb2dbb3c16952819bae8d075f1059f03bef4",
+      "prev_hash": "f67750cfea10b6b2388d24856ffb1204652e07481f05c4d2b02abdbe190bb0cc"
+    },
+    {
+      "seq": 4555,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardano-trees",
+        "field": "name",
+        "value": "Cardano Trees",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "e7cafa974f9a1c2f791d157489fc412f30458f00cbef1480917b746d197698d5",
+      "prev_hash": "8a9130a65607e6fb5a718a959d77bb2dbb3c16952819bae8d075f1059f03bef4"
+    },
+    {
+      "seq": 4556,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardano-trees",
+        "category_slug": "utility-nfts",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "58a5d9fd779d48d6a711e2e38af766f4f8874fc8dc0482e93072481db9d065d2",
+      "prev_hash": "e7cafa974f9a1c2f791d157489fc412f30458f00cbef1480917b746d197698d5"
+    },
+    {
+      "seq": 5687,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardano-trees",
+        "field": "website",
+        "value": "http://cardanotrees.com",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260621014039id_/https://www.cardanocube.com/projects/cardano-trees",
+            "sha256": "49406d78b77de92947cde94649039d473be238dc9eef3ac0c44c31819012f8f5",
+            "description": "cardanocube project page for \"cardano-trees\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "01e4617188107037d5f70e3b0c3a2381461e83bc3bcfad75ea3544bc49ea601a",
+      "prev_hash": "bb5399ec6dd1c532189b1af663c1da58e41919d0ef5390eabee9c78ce6adc15d"
+    },
+    {
+      "seq": 5688,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardano-trees",
+        "field": "whitepaper",
+        "value": "http://cardanotrees.com/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260621014039id_/https://www.cardanocube.com/projects/cardano-trees",
+            "sha256": "49406d78b77de92947cde94649039d473be238dc9eef3ac0c44c31819012f8f5",
+            "description": "cardanocube project page for \"cardano-trees\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "b02ef2419ac65a6ae0a4ab0f3b270144213afca6fca83cd780d87e0f0db14c49",
+      "prev_hash": "01e4617188107037d5f70e3b0c3a2381461e83bc3bcfad75ea3544bc49ea601a"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

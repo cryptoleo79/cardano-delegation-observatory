@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "maestro",
+    "kind": "project",
+    "name": "Maestro",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "documentation": [
+        {
+          "claim_id": "clm_5460",
+          "field": "documentation",
+          "value": "https://docs.gomaestro.org/docs/intro",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20241213113338id_/https://www.cardanocube.com/projects/maestro",
+                "sha256": "ae9721361f14129a6b17125fa5d603b2fe030e05e2a2d6a4d4fd752d4805fbb6",
+                "description": "cardanocube project page for \"maestro\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5460,
+          "superseded_by_seq": null
+        }
+      ],
+      "name": [
+        {
+          "claim_id": "clm_4295",
+          "field": "name",
+          "value": "Maestro",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+                "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+                "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4295,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5459",
+          "field": "website",
+          "value": "https://www.gomaestro.org/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20241213113338id_/https://www.cardanocube.com/projects/maestro",
+                "sha256": "ae9721361f14129a6b17125fa5d603b2fe030e05e2a2d6a4d4fd752d4805fbb6",
+                "description": "cardanocube project page for \"maestro\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5459,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "infrastructure",
+        "name": "Infrastructure",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4294,
+    "last_seq": 5460
+  },
+  "history": [
+    {
+      "seq": 4294,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "maestro",
+        "kind": "project"
+      },
+      "hash": "534fd65b9aa78abeefe7bba6bdfe22d5ba96124640f1a616992dcd7fc8b37e2f",
+      "prev_hash": "e88fda866ec758c419033b0192b50547a6775e7b90bbf2fd03d198cd9b9b9247"
+    },
+    {
+      "seq": 4295,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "maestro",
+        "field": "name",
+        "value": "Maestro",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "8743c1f8d8b688809dce340c8da8da681a4df1bb57502aa90919261dddae1730",
+      "prev_hash": "534fd65b9aa78abeefe7bba6bdfe22d5ba96124640f1a616992dcd7fc8b37e2f"
+    },
+    {
+      "seq": 4296,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "maestro",
+        "category_slug": "infrastructure",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "15406ae26891c39024e65379927a54e907a3a2eca5c2e8129f1f6f9ad68450d6",
+      "prev_hash": "8743c1f8d8b688809dce340c8da8da681a4df1bb57502aa90919261dddae1730"
+    },
+    {
+      "seq": 5459,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "maestro",
+        "field": "website",
+        "value": "https://www.gomaestro.org/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20241213113338id_/https://www.cardanocube.com/projects/maestro",
+            "sha256": "ae9721361f14129a6b17125fa5d603b2fe030e05e2a2d6a4d4fd752d4805fbb6",
+            "description": "cardanocube project page for \"maestro\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "589c1a5ee02c94636bb0cf3acfdc7d020d97eb7e9ad74a027f6c7dafd3f21219",
+      "prev_hash": "27f4cb2cbd303d97ccce4b4e194675cb4bc35846dac0d0ed0deb9d00772a9e95"
+    },
+    {
+      "seq": 5460,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "maestro",
+        "field": "documentation",
+        "value": "https://docs.gomaestro.org/docs/intro",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20241213113338id_/https://www.cardanocube.com/projects/maestro",
+            "sha256": "ae9721361f14129a6b17125fa5d603b2fe030e05e2a2d6a4d4fd752d4805fbb6",
+            "description": "cardanocube project page for \"maestro\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "39562c86cd6c61b749c353284e13286f630d5493a4f1fb99b319572c0d56be61",
+      "prev_hash": "589c1a5ee02c94636bb0cf3acfdc7d020d97eb7e9ad74a027f6c7dafd3f21219"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

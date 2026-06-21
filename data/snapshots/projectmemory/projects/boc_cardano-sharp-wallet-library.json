@@ -39,6 +39,39 @@
           "superseded_by_seq": null
         }
       ],
+      "github": [
+        {
+          "claim_id": "clm_5165",
+          "field": "github",
+          "value": "https://github.com/CardanoSharp/cardanosharp-wallet",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem",
+                "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 5165,
+          "superseded_by_seq": null
+        }
+      ],
       "name": [
         {
           "claim_id": "clm_1289",
@@ -107,7 +140,7 @@
       ],
       "website": [
         {
-          "claim_id": "clm_1290",
+          "claim_id": "clm_5619",
           "field": "website",
           "value": "https://github.com/cardanosharp/cardanosharp-wallet",
           "state": "active",
@@ -124,17 +157,17 @@
               "label": "Built on Cardano directory (Cardano Foundation)"
             },
             "authority_class": "B",
-            "as_of": "2026-06-07",
+            "as_of": "2026-06-20",
             "evidence": [
               {
                 "kind": "url",
                 "ref": "https://builtoncardano.com/ecosystem/all",
-                "sha256": null,
-                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+                "sha256": "648f9154a44a5830d86dc51cb86f67547a1c9d432ecd9d5f6ca70357471c0585",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
               }
             ]
           },
-          "asserted_seq": 1290,
+          "asserted_seq": 5619,
           "superseded_by_seq": null
         }
       ]
@@ -157,9 +190,9 @@
         }
       }
     ],
-    "superseded_claim_count": 0,
+    "superseded_claim_count": 1,
     "created_seq": 1288,
-    "last_seq": 1293
+    "last_seq": 5619
   },
   "history": [
     {
@@ -292,7 +325,61 @@
       },
       "hash": "569188f3e027e5f3f90ce84ea5b0f45ff3258eec0b9073355d9eb3fd7a393dee",
       "prev_hash": "eaf064b462431681d3814fe2e36f2a07dc10cac1a1ebbbe0e6586adb7bbb716e"
+    },
+    {
+      "seq": 5165,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:cardano-sharp-wallet-library",
+        "field": "github",
+        "value": "https://github.com/CardanoSharp/cardanosharp-wallet",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem",
+            "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "27156d8ee36820754ee4e7a90d3a851c5e64968893b3210e2a0a39e3546468c8",
+      "prev_hash": "fa69a2016ff710a0711a579307186d689b7964f7752fe04b5c24bb9f8fd456da"
+    },
+    {
+      "seq": 5619,
+      "ts": "2026-06-20",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:cardano-sharp-wallet-library",
+        "field": "website",
+        "value": "https://github.com/cardanosharp/cardanosharp-wallet",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-20",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "648f9154a44a5830d86dc51cb86f67547a1c9d432ecd9d5f6ca70357471c0585",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "c15be2ebea21b78683dda77ae207c2c9fd3ed93e2e165c0c99588e117874999c",
+      "prev_hash": "ff34351b086934b73cb20a349629e165bc33d082795494a93557ae624b4d173d"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

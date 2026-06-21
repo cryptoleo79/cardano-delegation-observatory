@@ -4,8 +4,41 @@
     "kind": "project",
     "name": "CNS",
     "status": "defunct",
-    "unclassified": true,
+    "unclassified": false,
     "fields": {
+      "documentation": [
+        {
+          "claim_id": "clm_5389",
+          "field": "documentation",
+          "value": "https://cns-space.gitbook.io/docs/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260204042051id_/https://cardanocube.com/projects/cns",
+                "sha256": "850c7bea9569b9a76ed85f549ed39949af89e1fb9d4c4ca1fbbcfcb4366fc6d1",
+                "description": "cardanocube project page for \"cns\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5389,
+          "superseded_by_seq": null
+        }
+      ],
       "name": [
         {
           "claim_id": "clm_96",
@@ -71,12 +104,62 @@
           "asserted_seq": 97,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5388",
+          "field": "website",
+          "value": "https://cns.space/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260204042051id_/https://cardanocube.com/projects/cns",
+                "sha256": "850c7bea9569b9a76ed85f549ed39949af89e1fb9d4c4ca1fbbcfcb4366fc6d1",
+                "description": "cardanocube project page for \"cns\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5388,
+          "superseded_by_seq": null
+        }
       ]
     },
-    "categories": [],
+    "categories": [
+      {
+        "slug": "infrastructure",
+        "name": "Infrastructure",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
     "superseded_claim_count": 0,
     "created_seq": 95,
-    "last_seq": 97
+    "last_seq": 5389
   },
   "history": [
     {
@@ -140,7 +223,98 @@
       },
       "hash": "8638674f961d39fcc1c13fe1c4fc3b33e8419399f016ba220b08c6aca515a6b5",
       "prev_hash": "3741801e336f13d15672b62f7eb40f6ba78fa54833af051bb8969eb42542925a"
+    },
+    {
+      "seq": 4283,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "cns",
+        "kind": "project"
+      },
+      "hash": "5fa2c1c531c2c986ff1eec07ba6acfae204a4dd89005a1d47fa7b8ad27f400b9",
+      "prev_hash": "3350a37227cd6b406bb0097fdbb8fb9439462587fdf960468d0ab5cd59001c50"
+    },
+    {
+      "seq": 4284,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cns",
+        "category_slug": "infrastructure",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "aabf1ecf186c364f4d23f8caa3c20d95cae84db304c0830c982cbfa48d0d32a0",
+      "prev_hash": "5fa2c1c531c2c986ff1eec07ba6acfae204a4dd89005a1d47fa7b8ad27f400b9"
+    },
+    {
+      "seq": 5388,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cns",
+        "field": "website",
+        "value": "https://cns.space/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204042051id_/https://cardanocube.com/projects/cns",
+            "sha256": "850c7bea9569b9a76ed85f549ed39949af89e1fb9d4c4ca1fbbcfcb4366fc6d1",
+            "description": "cardanocube project page for \"cns\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "cc76f066e2c9e613c1a70dda44bef862a5a62d6f58491ef8b494e1e2473fccfe",
+      "prev_hash": "ef9a0f5d6238c866c668d1950489fb779459eafda06b9ed5bf5f538afd1f1121"
+    },
+    {
+      "seq": 5389,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cns",
+        "field": "documentation",
+        "value": "https://cns-space.gitbook.io/docs/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204042051id_/https://cardanocube.com/projects/cns",
+            "sha256": "850c7bea9569b9a76ed85f549ed39949af89e1fb9d4c4ca1fbbcfcb4366fc6d1",
+            "description": "cardanocube project page for \"cns\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "019d2e4e7a0d04a5c71858b666ad0ab7a5e5958d0fe42d7c025eb6b5c9bc9983",
+      "prev_hash": "cc76f066e2c9e613c1a70dda44bef862a5a62d6f58491ef8b494e1e2473fccfe"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "the-mallard-order",
+    "kind": "project",
+    "name": "The Mallard Order",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4543",
+          "field": "name",
+          "value": "The Mallard Order",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+                "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+                "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4543,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5719",
+          "field": "website",
+          "value": "https://www.mallardorder.io",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260621014540id_/https://www.cardanocube.com/projects/the-mallard-order",
+                "sha256": "681f5410fc624fb65838f073a029a30075243084f41581ef8a9565acc2612059",
+                "description": "cardanocube project page for \"the-mallard-order\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5719,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5720",
+          "field": "whitepaper",
+          "value": "https://www.mallardorder.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260621014540id_/https://www.cardanocube.com/projects/the-mallard-order",
+                "sha256": "681f5410fc624fb65838f073a029a30075243084f41581ef8a9565acc2612059",
+                "description": "cardanocube project page for \"the-mallard-order\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5720,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "utility-nfts",
+        "name": "Utility Nfts",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4542,
+    "last_seq": 5720
+  },
+  "history": [
+    {
+      "seq": 4542,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "the-mallard-order",
+        "kind": "project"
+      },
+      "hash": "9d87d6bdc14d8bae0e633cb2d7d6221a3ba3da503ef98818455711c9ad14df00",
+      "prev_hash": "444b4ce6bc80d5171fd15011a002aab25f0f405b8b419b2a68e4bf4ad870a224"
+    },
+    {
+      "seq": 4543,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "the-mallard-order",
+        "field": "name",
+        "value": "The Mallard Order",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "5971152698c9b2159a91f929d79e4184bc2ab1c1b12859ee0597b48037c4a48c",
+      "prev_hash": "9d87d6bdc14d8bae0e633cb2d7d6221a3ba3da503ef98818455711c9ad14df00"
+    },
+    {
+      "seq": 4544,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "the-mallard-order",
+        "category_slug": "utility-nfts",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "473bced178d903365bb9377fe138b2a6465d5a9c5b38d90f09dc6b91ab20b279",
+      "prev_hash": "5971152698c9b2159a91f929d79e4184bc2ab1c1b12859ee0597b48037c4a48c"
+    },
+    {
+      "seq": 5719,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "the-mallard-order",
+        "field": "website",
+        "value": "https://www.mallardorder.io",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260621014540id_/https://www.cardanocube.com/projects/the-mallard-order",
+            "sha256": "681f5410fc624fb65838f073a029a30075243084f41581ef8a9565acc2612059",
+            "description": "cardanocube project page for \"the-mallard-order\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "326f86d0f6be2ae627945dfb66186edd23eaa45b12ad188ffaa740016c72cd03",
+      "prev_hash": "6da0131aef0cf923a4ac1e5b88e6546af42c6ac09885b4054dedc035a133f71d"
+    },
+    {
+      "seq": 5720,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "the-mallard-order",
+        "field": "whitepaper",
+        "value": "https://www.mallardorder.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260621014540id_/https://www.cardanocube.com/projects/the-mallard-order",
+            "sha256": "681f5410fc624fb65838f073a029a30075243084f41581ef8a9565acc2612059",
+            "description": "cardanocube project page for \"the-mallard-order\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "8569f365fe5eefe97cb286bc706ceebafbcf670093eb33487b63e442e4db6028",
+      "prev_hash": "326f86d0f6be2ae627945dfb66186edd23eaa45b12ad188ffaa740016c72cd03"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

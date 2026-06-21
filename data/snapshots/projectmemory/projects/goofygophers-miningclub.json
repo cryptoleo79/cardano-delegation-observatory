@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "goofygophers-miningclub",
+    "kind": "project",
+    "name": "Goofygophers Miningclub",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4531",
+          "field": "name",
+          "value": "Goofygophers Miningclub",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+                "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+                "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4531,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5707",
+          "field": "website",
+          "value": "https://ggmc.io",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://www.cardanocube.com/projects/goofygophers-miningclub",
+                "sha256": "215a6ddfca8764d395b5bc368e5565ba26b5ee1735df1b9aa223fa64360f780c",
+                "description": "cardanocube project page for \"goofygophers-miningclub\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5707,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5708",
+          "field": "whitepaper",
+          "value": "https://www.dropbox.com/s/tkbxrogvqgcg91q/Minepaper%20v2.5.pdf?dl=0",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://www.cardanocube.com/projects/goofygophers-miningclub",
+                "sha256": "215a6ddfca8764d395b5bc368e5565ba26b5ee1735df1b9aa223fa64360f780c",
+                "description": "cardanocube project page for \"goofygophers-miningclub\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5708,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "utility-nfts",
+        "name": "Utility Nfts",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4530,
+    "last_seq": 5708
+  },
+  "history": [
+    {
+      "seq": 4530,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "goofygophers-miningclub",
+        "kind": "project"
+      },
+      "hash": "d7cbb5644d168c614f16b2b042679d6c80c7149dd5b8e8f5b7628fa20aae12a7",
+      "prev_hash": "007d860ca9244568431d774243ae7c6ca35235d95d0f7e2934d6ec8222b268da"
+    },
+    {
+      "seq": 4531,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "goofygophers-miningclub",
+        "field": "name",
+        "value": "Goofygophers Miningclub",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "dd9aa521f9a42562a918464b11f84692c2252dbd9673ed53cb01dc1351abcb54",
+      "prev_hash": "d7cbb5644d168c614f16b2b042679d6c80c7149dd5b8e8f5b7628fa20aae12a7"
+    },
+    {
+      "seq": 4532,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "goofygophers-miningclub",
+        "category_slug": "utility-nfts",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "18135138a4a851a330cc233568c37c5c0d507db6270bf8a7486cdbfdfba0dd38",
+      "prev_hash": "dd9aa521f9a42562a918464b11f84692c2252dbd9673ed53cb01dc1351abcb54"
+    },
+    {
+      "seq": 5707,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "goofygophers-miningclub",
+        "field": "website",
+        "value": "https://ggmc.io",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://www.cardanocube.com/projects/goofygophers-miningclub",
+            "sha256": "215a6ddfca8764d395b5bc368e5565ba26b5ee1735df1b9aa223fa64360f780c",
+            "description": "cardanocube project page for \"goofygophers-miningclub\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "55abb1518f146a856bb16c7f631639ac78ac8dcb8bda8e130e5fb35735cdc4a8",
+      "prev_hash": "d652efee7f7554fd212f6242c711115814af0fcca1b73973fd4350becd8fea80"
+    },
+    {
+      "seq": 5708,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "goofygophers-miningclub",
+        "field": "whitepaper",
+        "value": "https://www.dropbox.com/s/tkbxrogvqgcg91q/Minepaper%20v2.5.pdf?dl=0",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://www.cardanocube.com/projects/goofygophers-miningclub",
+            "sha256": "215a6ddfca8764d395b5bc368e5565ba26b5ee1735df1b9aa223fa64360f780c",
+            "description": "cardanocube project page for \"goofygophers-miningclub\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "1251f8f59d0c4a14b751e471a13a60afb1540c8043a0cce74122b6333dd21323",
+      "prev_hash": "55abb1518f146a856bb16c7f631639ac78ac8dcb8bda8e130e5fb35735cdc4a8"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

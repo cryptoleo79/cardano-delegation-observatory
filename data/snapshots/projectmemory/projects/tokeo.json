@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "tokeo",
+    "kind": "project",
+    "name": "Tokeo",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "documentation": [
+        {
+          "claim_id": "clm_5478",
+          "field": "documentation",
+          "value": "https://tokeo.gitbook.io/tokeo",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250212192922id_/https://www.cardanocube.com/projects/tokeo",
+                "sha256": "22bb8c909120804662465acb7c2c07f4c59c42ff123a0e27516c263e325b5633",
+                "description": "cardanocube project page for \"tokeo\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5478,
+          "superseded_by_seq": null
+        }
+      ],
+      "name": [
+        {
+          "claim_id": "clm_4343",
+          "field": "name",
+          "value": "Tokeo",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+                "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+                "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4343,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5477",
+          "field": "website",
+          "value": "https://tokeopay.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250212192922id_/https://www.cardanocube.com/projects/tokeo",
+                "sha256": "22bb8c909120804662465acb7c2c07f4c59c42ff123a0e27516c263e325b5633",
+                "description": "cardanocube project page for \"tokeo\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5477,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "ispo",
+        "name": "Ispo",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4342,
+    "last_seq": 5478
+  },
+  "history": [
+    {
+      "seq": 4342,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "tokeo",
+        "kind": "project"
+      },
+      "hash": "18ef7750b0325265a4bbecbbbbabf17f9f65819194b85f27ee635154763857bf",
+      "prev_hash": "3911f0d56d50119cb8cb67e0166b06d439587e15173067c0b52723b49f52f556"
+    },
+    {
+      "seq": 4343,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "tokeo",
+        "field": "name",
+        "value": "Tokeo",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+            "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+            "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "3f39ca9141dc7238676c2cf3464214933853879f07ae0d6099101fa3f78dca15",
+      "prev_hash": "18ef7750b0325265a4bbecbbbbabf17f9f65819194b85f27ee635154763857bf"
+    },
+    {
+      "seq": 4344,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "tokeo",
+        "category_slug": "ispo",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+            "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+            "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "e03eb1678ab5db24f240d9990c96cdf9b41ee37cb941a7775f2b1a66c751b2f9",
+      "prev_hash": "3f39ca9141dc7238676c2cf3464214933853879f07ae0d6099101fa3f78dca15"
+    },
+    {
+      "seq": 5477,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "tokeo",
+        "field": "website",
+        "value": "https://tokeopay.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250212192922id_/https://www.cardanocube.com/projects/tokeo",
+            "sha256": "22bb8c909120804662465acb7c2c07f4c59c42ff123a0e27516c263e325b5633",
+            "description": "cardanocube project page for \"tokeo\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "816afad5af48709fa71c82263f2da14233c7db1218e4620677a1196c034122cb",
+      "prev_hash": "24d4990a8d8d1a65bfc7fe31cea26104a086fca8c018b02ab3e51a0fa22ed56e"
+    },
+    {
+      "seq": 5478,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "tokeo",
+        "field": "documentation",
+        "value": "https://tokeo.gitbook.io/tokeo",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250212192922id_/https://www.cardanocube.com/projects/tokeo",
+            "sha256": "22bb8c909120804662465acb7c2c07f4c59c42ff123a0e27516c263e325b5633",
+            "description": "cardanocube project page for \"tokeo\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "825e454f9fd23a89c2b90f54ebe88995456750a45e369a8ef22f60d61463b9c8",
+      "prev_hash": "816afad5af48709fa71c82263f2da14233c7db1218e4620677a1196c034122cb"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

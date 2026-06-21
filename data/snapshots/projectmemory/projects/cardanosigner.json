@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "cardanosigner",
+    "kind": "project",
+    "name": "Cardanosigner",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "github": [
+        {
+          "claim_id": "clm_5442",
+          "field": "github",
+          "value": "https://github.com/gitmachtl/cardano-signer",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20241204051451id_/https://www.cardanocube.com/projects/cardanosigner",
+                "sha256": "2ea3dd567bfce8c8c5afc78d9e7fe4b19c4bb4d5623c2dafc728fbf5df3a4497",
+                "description": "cardanocube project page for \"cardanosigner\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5442,
+          "superseded_by_seq": null
+        }
+      ],
+      "name": [
+        {
+          "claim_id": "clm_4245",
+          "field": "name",
+          "value": "Cardanosigner",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+                "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+                "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4245,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "governance",
+        "name": "Governance",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4244,
+    "last_seq": 5442
+  },
+  "history": [
+    {
+      "seq": 4244,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "cardanosigner",
+        "kind": "project"
+      },
+      "hash": "cfd786260fc88b91b9f3c5935b3962386d5eef60e08f042d4e788170a60dea5f",
+      "prev_hash": "e9db0b9f7dcee94f45f12d6e6e58256527a8722a352d3700f2c87b047ef341e5"
+    },
+    {
+      "seq": 4245,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardanosigner",
+        "field": "name",
+        "value": "Cardanosigner",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+            "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+            "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "f8e10325b44dc9574a1a9b29a1148f420bcbc3fa6579d8ab2862e9ef5f35ca87",
+      "prev_hash": "cfd786260fc88b91b9f3c5935b3962386d5eef60e08f042d4e788170a60dea5f"
+    },
+    {
+      "seq": 4246,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardanosigner",
+        "category_slug": "governance",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+            "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+            "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "7cb47cfece34eb3277733e3f5ecbff865a77f72a6b86ab1cf39469464a64207f",
+      "prev_hash": "f8e10325b44dc9574a1a9b29a1148f420bcbc3fa6579d8ab2862e9ef5f35ca87"
+    },
+    {
+      "seq": 5442,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardanosigner",
+        "field": "github",
+        "value": "https://github.com/gitmachtl/cardano-signer",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20241204051451id_/https://www.cardanocube.com/projects/cardanosigner",
+            "sha256": "2ea3dd567bfce8c8c5afc78d9e7fe4b19c4bb4d5623c2dafc728fbf5df3a4497",
+            "description": "cardanocube project page for \"cardanosigner\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "219b1b061e61bc202f6fdd2c25561a64aaf1d52e5ad81ba4c90503390144caf1",
+      "prev_hash": "9eaf605a8041f67a7438b3aa8d9756a14bdd323c40edce013be0cd071471fe0f"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

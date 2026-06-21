@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "crashr",
+    "kind": "project",
+    "name": "Crashr",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4372",
+          "field": "name",
+          "value": "Crashr",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+                "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+                "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4372,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5488",
+          "field": "website",
+          "value": "https://crashr.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250206131511id_/https://www.cardanocube.com/projects/crashr",
+                "sha256": "3adc5d4e2982039c427fb3ebfda1b633bfd4148c66dc203a2606651c9432470f",
+                "description": "cardanocube project page for \"crashr\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5488,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "marketplaces",
+        "name": "Marketplaces",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4371,
+    "last_seq": 5488
+  },
+  "history": [
+    {
+      "seq": 4371,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "crashr",
+        "kind": "project"
+      },
+      "hash": "af49dda07364656c6a7ca61c9d995d36011ed0ef1c82ee5fe4be2a391a955f6e",
+      "prev_hash": "90ab23527f6dd38b496272f210ca189315c2b97c27773ec373638f83d0826f4e"
+    },
+    {
+      "seq": 4372,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "crashr",
+        "field": "name",
+        "value": "Crashr",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "13cb70c6f35bcdf11a4535b6fbbbcb4a6b6ccaf14ab9c5ab9b78c877d6f95f4b",
+      "prev_hash": "af49dda07364656c6a7ca61c9d995d36011ed0ef1c82ee5fe4be2a391a955f6e"
+    },
+    {
+      "seq": 4373,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "crashr",
+        "category_slug": "marketplaces",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "e3a65b4df6c3fa70f0ad3b7339372916cbc47eb684e27bf616b661f1dd2953c8",
+      "prev_hash": "13cb70c6f35bcdf11a4535b6fbbbcb4a6b6ccaf14ab9c5ab9b78c877d6f95f4b"
+    },
+    {
+      "seq": 5488,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "crashr",
+        "field": "website",
+        "value": "https://crashr.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250206131511id_/https://www.cardanocube.com/projects/crashr",
+            "sha256": "3adc5d4e2982039c427fb3ebfda1b633bfd4148c66dc203a2606651c9432470f",
+            "description": "cardanocube project page for \"crashr\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "4b74a96f21cf822033fb3865937fba24b957157787b9a858e58d6134195010f7",
+      "prev_hash": "4b10fb54409300d159eac29d8d644104efbf24bdeada0ec413ba007b9fb564ee"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

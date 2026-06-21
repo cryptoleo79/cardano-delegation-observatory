@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "dataplanet",
+    "kind": "project",
+    "name": "Dataplanet",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4423",
+          "field": "name",
+          "value": "Dataplanet",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+                "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+                "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4423,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5701",
+          "field": "website",
+          "value": "https://www.dataplanet.market",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://www.cardanocube.com/projects/dataplanet",
+                "sha256": "6a3412bb8971e8ce8b4d143e4272048925cbfc33ad13e8120ddfdcdb0409df1c",
+                "description": "cardanocube project page for \"dataplanet\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5701,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5702",
+          "field": "whitepaper",
+          "value": "https://www.dataplanet.exchange/blog",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://www.cardanocube.com/projects/dataplanet",
+                "sha256": "6a3412bb8971e8ce8b4d143e4272048925cbfc33ad13e8120ddfdcdb0409df1c",
+                "description": "cardanocube project page for \"dataplanet\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5702,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "marketplaces",
+        "name": "Marketplaces",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4422,
+    "last_seq": 5702
+  },
+  "history": [
+    {
+      "seq": 4422,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "dataplanet",
+        "kind": "project"
+      },
+      "hash": "f886a4158d6c04dcd0c5ee977397cb5f72cca7446cb2908bddd178d018adad75",
+      "prev_hash": "31cc37fb3890c577c68db0aaa5d8bf0f2760370753a97a737b7cba2460e818a8"
+    },
+    {
+      "seq": 4423,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "dataplanet",
+        "field": "name",
+        "value": "Dataplanet",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "a828c97c82787eeb01af98b45e123f617145f117fdb8195095eebaaf4a36edac",
+      "prev_hash": "f886a4158d6c04dcd0c5ee977397cb5f72cca7446cb2908bddd178d018adad75"
+    },
+    {
+      "seq": 4424,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "dataplanet",
+        "category_slug": "marketplaces",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "30fe12100a5cd902b64c80decf3b073bd2c53e99e89325ca48c7400ce65dcf68",
+      "prev_hash": "a828c97c82787eeb01af98b45e123f617145f117fdb8195095eebaaf4a36edac"
+    },
+    {
+      "seq": 5701,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "dataplanet",
+        "field": "website",
+        "value": "https://www.dataplanet.market",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://www.cardanocube.com/projects/dataplanet",
+            "sha256": "6a3412bb8971e8ce8b4d143e4272048925cbfc33ad13e8120ddfdcdb0409df1c",
+            "description": "cardanocube project page for \"dataplanet\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "fde6cf28dfd1f1b75177ec4ce9826ec2962bec44e189afd84396bba30c9caa9e",
+      "prev_hash": "0ab5600cf271f2b14b63efaa8dbb8245181131b2b4482d3eeedfb08cdf4ab11d"
+    },
+    {
+      "seq": 5702,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "dataplanet",
+        "field": "whitepaper",
+        "value": "https://www.dataplanet.exchange/blog",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://www.cardanocube.com/projects/dataplanet",
+            "sha256": "6a3412bb8971e8ce8b4d143e4272048925cbfc33ad13e8120ddfdcdb0409df1c",
+            "description": "cardanocube project page for \"dataplanet\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "e82123c3926951fcd15beec54a3675460f84001813dbdb61b33a6f3debfbcd5a",
+      "prev_hash": "fde6cf28dfd1f1b75177ec4ce9826ec2962bec44e189afd84396bba30c9caa9e"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

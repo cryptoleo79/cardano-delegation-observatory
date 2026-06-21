@@ -104,6 +104,72 @@
           "asserted_seq": 3955,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_4799",
+          "field": "website",
+          "value": "https://www.vaca.ninja",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 4799,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_4800",
+          "field": "whitepaper",
+          "value": "https://www.vaca.ninja/assets/documents/VacaNinja_Litepaper_v0.1.pdf",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 4800,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [
@@ -126,7 +192,7 @@
     ],
     "superseded_claim_count": 0,
     "created_seq": 3952,
-    "last_seq": 3956
+    "last_seq": 4800
   },
   "history": [
     {
@@ -235,7 +301,61 @@
       },
       "hash": "b01880ab99b2d7830ae843237068c3dc38a53ae7caf5574c0d74d26f46d28ee5",
       "prev_hash": "873759a8b1ebf6991981c90678f00da078e488044f5c0663ef0564287474d987"
+    },
+    {
+      "seq": 4799,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:vaca-ninja",
+        "field": "website",
+        "value": "https://www.vaca.ninja",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "0b48ba77298862b4ea8dd16d0ff1f12734465ce20959e1a67b7f90bbdac40672",
+      "prev_hash": "897b3f57c6c3ac9c07aa65c84f2c9bc77097232625bb86efee45824f5ce7f9ad"
+    },
+    {
+      "seq": 4800,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:vaca-ninja",
+        "field": "whitepaper",
+        "value": "https://www.vaca.ninja/assets/documents/VacaNinja_Litepaper_v0.1.pdf",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "61c73bc178d67822fd77340bd655aca734a786f044e0ffd67a2ca75b90214335",
+      "prev_hash": "0b48ba77298862b4ea8dd16d0ff1f12734465ce20959e1a67b7f90bbdac40672"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "dhealth",
+    "kind": "project",
+    "name": "Dhealth",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4215",
+          "field": "name",
+          "value": "Dhealth",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20251205030602id_/https://cardanocube.com/categories/data",
+                "sha256": "6ec37910263b837238a06fd7ed21fc8546e2e99263f95864e8cca815f9b388c2",
+                "description": "cardanocube /categories/data listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4215,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5428",
+          "field": "website",
+          "value": "https://dhealth.network/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250305213058id_/https://www.cardanocube.com/projects/dhealth",
+                "sha256": "1526927ae64adf3da4c663e1cbf28fc9d3b4a5def7af910f0258f40a6e2a6aec",
+                "description": "cardanocube project page for \"dhealth\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5428,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5429",
+          "field": "whitepaper",
+          "value": "https://dhealth.network/docs/Whitepaper-dHealth-Network.pdf",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250305213058id_/https://www.cardanocube.com/projects/dhealth",
+                "sha256": "1526927ae64adf3da4c663e1cbf28fc9d3b4a5def7af910f0258f40a6e2a6aec",
+                "description": "cardanocube project page for \"dhealth\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5429,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "data",
+        "name": "Data",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4214,
+    "last_seq": 5429
+  },
+  "history": [
+    {
+      "seq": 4214,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "dhealth",
+        "kind": "project"
+      },
+      "hash": "935b75b4738fc7f6831d558da4b0f89289d980c1396ffb2f37377351d8356858",
+      "prev_hash": "3da7796e4016851d4614d3c8c627a4ebef2d0b0d863b5ab0ad7abf82766c9a8b"
+    },
+    {
+      "seq": 4215,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "dhealth",
+        "field": "name",
+        "value": "Dhealth",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20251205030602id_/https://cardanocube.com/categories/data",
+            "sha256": "6ec37910263b837238a06fd7ed21fc8546e2e99263f95864e8cca815f9b388c2",
+            "description": "cardanocube /categories/data listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "0220e7a935e5f9664374e05ed084876cdeb693f4c08784df3450d744daf1eaa8",
+      "prev_hash": "935b75b4738fc7f6831d558da4b0f89289d980c1396ffb2f37377351d8356858"
+    },
+    {
+      "seq": 4216,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "dhealth",
+        "category_slug": "data",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20251205030602id_/https://cardanocube.com/categories/data",
+            "sha256": "6ec37910263b837238a06fd7ed21fc8546e2e99263f95864e8cca815f9b388c2",
+            "description": "cardanocube /categories/data listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "ffe709f90200e164750b0d0f0b971d61055222774b7ad147a8170241c5a8957c",
+      "prev_hash": "0220e7a935e5f9664374e05ed084876cdeb693f4c08784df3450d744daf1eaa8"
+    },
+    {
+      "seq": 5428,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "dhealth",
+        "field": "website",
+        "value": "https://dhealth.network/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250305213058id_/https://www.cardanocube.com/projects/dhealth",
+            "sha256": "1526927ae64adf3da4c663e1cbf28fc9d3b4a5def7af910f0258f40a6e2a6aec",
+            "description": "cardanocube project page for \"dhealth\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "39c314cbb4c79e1916960aba429c7135f76ccb559f4db4c85b8de8a21f8aebf3",
+      "prev_hash": "97ba10660ffeea9e1389d4c1cd989a4e68f7d07ba5d67146117f2e4d3d10f06f"
+    },
+    {
+      "seq": 5429,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "dhealth",
+        "field": "whitepaper",
+        "value": "https://dhealth.network/docs/Whitepaper-dHealth-Network.pdf",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250305213058id_/https://www.cardanocube.com/projects/dhealth",
+            "sha256": "1526927ae64adf3da4c663e1cbf28fc9d3b4a5def7af910f0258f40a6e2a6aec",
+            "description": "cardanocube project page for \"dhealth\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "c95a85427fafe4d790350ac8c4297fd7bb20dad431cb43dbaef561c27b3b636a",
+      "prev_hash": "39c314cbb4c79e1916960aba429c7135f76ccb559f4db4c85b8de8a21f8aebf3"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "catskyai",
+    "kind": "project",
+    "name": "Catskyai",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4159",
+          "field": "name",
+          "value": "Catskyai",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+                "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+                "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4159,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5406",
+          "field": "website",
+          "value": "https://catsky.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250209074718id_/https://www.cardanocube.com/projects/catskyai",
+                "sha256": "d2ed745e494bd8b2e4e5b732ec2dd05e6d61ce2c2f91bc5b6ab0f302a73efeaf",
+                "description": "cardanocube project page for \"catskyai\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5406,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5407",
+          "field": "whitepaper",
+          "value": "https://catsky.io/white-paper/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250209074718id_/https://www.cardanocube.com/projects/catskyai",
+                "sha256": "d2ed745e494bd8b2e4e5b732ec2dd05e6d61ce2c2f91bc5b6ab0f302a73efeaf",
+                "description": "cardanocube project page for \"catskyai\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5407,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "ai",
+        "name": "AI",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4158,
+    "last_seq": 5407
+  },
+  "history": [
+    {
+      "seq": 4158,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "catskyai",
+        "kind": "project"
+      },
+      "hash": "5b34ca83cc055471b476d6bcb1a31a2bb54a46a33602aad3020fa1a73611f197",
+      "prev_hash": "d069d993364cddbd7e3a586a303149b8b8b0f72c3eb2ddd47f23adc447d37807"
+    },
+    {
+      "seq": 4159,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "catskyai",
+        "field": "name",
+        "value": "Catskyai",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+            "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+            "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "e552bd530adb96c114e3791abb3e5b1294edd94c121e41566c77cf305399e60b",
+      "prev_hash": "5b34ca83cc055471b476d6bcb1a31a2bb54a46a33602aad3020fa1a73611f197"
+    },
+    {
+      "seq": 4160,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "catskyai",
+        "category_slug": "ai",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+            "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+            "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "513648172822e1c136b5e67ebb540a4d9dbb30587f589bb0fb1d435f6f98a833",
+      "prev_hash": "e552bd530adb96c114e3791abb3e5b1294edd94c121e41566c77cf305399e60b"
+    },
+    {
+      "seq": 5406,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "catskyai",
+        "field": "website",
+        "value": "https://catsky.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250209074718id_/https://www.cardanocube.com/projects/catskyai",
+            "sha256": "d2ed745e494bd8b2e4e5b732ec2dd05e6d61ce2c2f91bc5b6ab0f302a73efeaf",
+            "description": "cardanocube project page for \"catskyai\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "c74e2735fe4ab77a54966f3e11f8157dd7a5de21ff4b2398e0985122456476e8",
+      "prev_hash": "8ce12dfde84e7c424abb80b34ac951c0de1f7de7c9051331a849e80a40ead0ed"
+    },
+    {
+      "seq": 5407,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "catskyai",
+        "field": "whitepaper",
+        "value": "https://catsky.io/white-paper/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250209074718id_/https://www.cardanocube.com/projects/catskyai",
+            "sha256": "d2ed745e494bd8b2e4e5b732ec2dd05e6d61ce2c2f91bc5b6ab0f302a73efeaf",
+            "description": "cardanocube project page for \"catskyai\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "afb7aef4080fbbfd39d40cc4426249efcadbcce82eda7a3043d6e33df9c6b2c2",
+      "prev_hash": "c74e2735fe4ab77a54966f3e11f8157dd7a5de21ff4b2398e0985122456476e8"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "beerhouse-io",
+    "kind": "project",
+    "name": "Beerhouse Io",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "documentation": [
+        {
+          "claim_id": "clm_5481",
+          "field": "documentation",
+          "value": "https://docs.beerhouse.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250120015636id_/https://www.cardanocube.com/projects/beerhouse-io",
+                "sha256": "0d27e59b7ec7a099e6cca8a74b0a3cfe1e4b793333fc08c5a5dc5b85d003e7af",
+                "description": "cardanocube project page for \"beerhouse-io\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5481,
+          "superseded_by_seq": null
+        }
+      ],
+      "name": [
+        {
+          "claim_id": "clm_4349",
+          "field": "name",
+          "value": "Beerhouse Io",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+                "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+                "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4349,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5480",
+          "field": "website",
+          "value": "https://beerhouse.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250120015636id_/https://www.cardanocube.com/projects/beerhouse-io",
+                "sha256": "0d27e59b7ec7a099e6cca8a74b0a3cfe1e4b793333fc08c5a5dc5b85d003e7af",
+                "description": "cardanocube project page for \"beerhouse-io\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5480,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "ispo",
+        "name": "Ispo",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4348,
+    "last_seq": 5481
+  },
+  "history": [
+    {
+      "seq": 4348,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "beerhouse-io",
+        "kind": "project"
+      },
+      "hash": "3e623fc22c49620c31e8108d787e4454376a69e6701700af981a22a2214bb730",
+      "prev_hash": "7d8bf0ee7e2b3624207e998e8082a640329d10b23b2e07eec5b27b02f74fa6e8"
+    },
+    {
+      "seq": 4349,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "beerhouse-io",
+        "field": "name",
+        "value": "Beerhouse Io",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+            "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+            "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "97ee423ee2797b1c52c29d734cfd162b47318bc7ab6670a211a796069a53fe2f",
+      "prev_hash": "3e623fc22c49620c31e8108d787e4454376a69e6701700af981a22a2214bb730"
+    },
+    {
+      "seq": 4350,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "beerhouse-io",
+        "category_slug": "ispo",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+            "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+            "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "69293162a441299c0e5fe1465dc2d87d21dc49761c701ec8630fcd65ee008bc3",
+      "prev_hash": "97ee423ee2797b1c52c29d734cfd162b47318bc7ab6670a211a796069a53fe2f"
+    },
+    {
+      "seq": 5480,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "beerhouse-io",
+        "field": "website",
+        "value": "https://beerhouse.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250120015636id_/https://www.cardanocube.com/projects/beerhouse-io",
+            "sha256": "0d27e59b7ec7a099e6cca8a74b0a3cfe1e4b793333fc08c5a5dc5b85d003e7af",
+            "description": "cardanocube project page for \"beerhouse-io\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "2f5605d948dc9196258ac210254c8bc44464153a8d0b23e69212547f6e80e3cb",
+      "prev_hash": "d505e54cd030501d4ff98f47b71e546a210efb5a1f66f8da39f7afb9cc7fdcff"
+    },
+    {
+      "seq": 5481,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "beerhouse-io",
+        "field": "documentation",
+        "value": "https://docs.beerhouse.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250120015636id_/https://www.cardanocube.com/projects/beerhouse-io",
+            "sha256": "0d27e59b7ec7a099e6cca8a74b0a3cfe1e4b793333fc08c5a5dc5b85d003e7af",
+            "description": "cardanocube project page for \"beerhouse-io\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "f704b7799557fa5f283efb4e1eb9dbafc1f146730d9efc28a38c7f2ca561744b",
+      "prev_hash": "2f5605d948dc9196258ac210254c8bc44464153a8d0b23e69212547f6e80e3cb"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

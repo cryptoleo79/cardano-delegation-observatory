@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "sundial",
+    "kind": "project",
+    "name": "Sundial",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4209",
+          "field": "name",
+          "value": "Sundial",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250426045830id_/https://cardanocube.com/categories/cross-chain-bridge",
+                "sha256": "4fe996b36aec029c733ec17c563816dd9adadd27899364330cc24f81a8785aa1",
+                "description": "cardanocube /categories/cross-chain-bridge listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4209,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5427",
+          "field": "website",
+          "value": "https://www.sundialprotocol.com/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250317143309id_/https://www.cardanocube.com/projects/sundial",
+                "sha256": "301d1dff2b554644c88cf72e2d187b4ce8a43560d42cdb58f3681fdbd20a116a",
+                "description": "cardanocube project page for \"sundial\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5427,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "cross-chain-bridge",
+        "name": "Cross Chain Bridge",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4208,
+    "last_seq": 5427
+  },
+  "history": [
+    {
+      "seq": 4208,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "sundial",
+        "kind": "project"
+      },
+      "hash": "d3194d1e219d78f2e66a05549464ec9196af2c3e30836b09832ed582d78284d8",
+      "prev_hash": "82038f76a55dd7b75ff3029c459621b75ddacd830255160ea47d438bc341e0f0"
+    },
+    {
+      "seq": 4209,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "sundial",
+        "field": "name",
+        "value": "Sundial",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250426045830id_/https://cardanocube.com/categories/cross-chain-bridge",
+            "sha256": "4fe996b36aec029c733ec17c563816dd9adadd27899364330cc24f81a8785aa1",
+            "description": "cardanocube /categories/cross-chain-bridge listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "30e0d7da9f4c9fbcb65ee1bad7d80c1e39342677e68cb5dd6272de634e15262e",
+      "prev_hash": "d3194d1e219d78f2e66a05549464ec9196af2c3e30836b09832ed582d78284d8"
+    },
+    {
+      "seq": 4210,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "sundial",
+        "category_slug": "cross-chain-bridge",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250426045830id_/https://cardanocube.com/categories/cross-chain-bridge",
+            "sha256": "4fe996b36aec029c733ec17c563816dd9adadd27899364330cc24f81a8785aa1",
+            "description": "cardanocube /categories/cross-chain-bridge listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "c61b90bfff21b932dc7ffa1f84742bc5c8b4dc38614e7a20aa8fac5b4524ea67",
+      "prev_hash": "30e0d7da9f4c9fbcb65ee1bad7d80c1e39342677e68cb5dd6272de634e15262e"
+    },
+    {
+      "seq": 5427,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "sundial",
+        "field": "website",
+        "value": "https://www.sundialprotocol.com/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250317143309id_/https://www.cardanocube.com/projects/sundial",
+            "sha256": "301d1dff2b554644c88cf72e2d187b4ce8a43560d42cdb58f3681fdbd20a116a",
+            "description": "cardanocube project page for \"sundial\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "97ba10660ffeea9e1389d4c1cd989a4e68f7d07ba5d67146117f2e4d3d10f06f",
+      "prev_hash": "84ab812814c13d99ef8b1ccb875d4c4d99a329bd2f6a87c9cb147d5b10d70e39"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

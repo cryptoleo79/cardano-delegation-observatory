@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "cardanogpt",
+    "kind": "project",
+    "name": "Cardanogpt",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "documentation": [
+        {
+          "claim_id": "clm_5527",
+          "field": "documentation",
+          "value": "https://docs.cardanogpt.ai/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250120024939id_/https://www.cardanocube.com/projects/cardanogpt",
+                "sha256": "842e98f865b14cd0f483f008481208a30591222fe9d44b6ad37fc833a1cfaf15",
+                "description": "cardanocube project page for \"cardanogpt\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5527,
+          "superseded_by_seq": null
+        }
+      ],
+      "name": [
+        {
+          "claim_id": "clm_4180",
+          "field": "name",
+          "value": "Cardanogpt",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+                "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+                "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4180,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5526",
+          "field": "website",
+          "value": "https://cardanogpt.ai/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250120024939id_/https://www.cardanocube.com/projects/cardanogpt",
+                "sha256": "842e98f865b14cd0f483f008481208a30591222fe9d44b6ad37fc833a1cfaf15",
+                "description": "cardanocube project page for \"cardanogpt\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5526,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "ai",
+        "name": "AI",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4179,
+    "last_seq": 5527
+  },
+  "history": [
+    {
+      "seq": 4179,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "cardanogpt",
+        "kind": "project"
+      },
+      "hash": "53f8f86893b50a4830ca0ca2bcf33561684e8593e123e3308eacfe25343b73fc",
+      "prev_hash": "c1642afbd4bf9ce458657db6206ad5a03ff610c5667c5c4e17d4429614a25f64"
+    },
+    {
+      "seq": 4180,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardanogpt",
+        "field": "name",
+        "value": "Cardanogpt",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+            "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+            "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "9518f7139a563890b554697852f619af1ddd3cfd1531bceeffc070a3f19d1c8a",
+      "prev_hash": "53f8f86893b50a4830ca0ca2bcf33561684e8593e123e3308eacfe25343b73fc"
+    },
+    {
+      "seq": 4181,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardanogpt",
+        "category_slug": "ai",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+            "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+            "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "feb81aa7f82d5ece4a581c751df5976ee0beba61a5818df3deed7cd1fb47f076",
+      "prev_hash": "9518f7139a563890b554697852f619af1ddd3cfd1531bceeffc070a3f19d1c8a"
+    },
+    {
+      "seq": 5526,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardanogpt",
+        "field": "website",
+        "value": "https://cardanogpt.ai/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250120024939id_/https://www.cardanocube.com/projects/cardanogpt",
+            "sha256": "842e98f865b14cd0f483f008481208a30591222fe9d44b6ad37fc833a1cfaf15",
+            "description": "cardanocube project page for \"cardanogpt\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "b8ebed7bcc0656d7da3fcad27f160c0acd1a063297a5784735520a44452c0b6c",
+      "prev_hash": "7461d21a045d34982e8af0e85d1c759bb69601bcc9b4f046798d76ebd1f6aefc"
+    },
+    {
+      "seq": 5527,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardanogpt",
+        "field": "documentation",
+        "value": "https://docs.cardanogpt.ai/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250120024939id_/https://www.cardanocube.com/projects/cardanogpt",
+            "sha256": "842e98f865b14cd0f483f008481208a30591222fe9d44b6ad37fc833a1cfaf15",
+            "description": "cardanocube project page for \"cardanogpt\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "973b022a4e066e0caf3f4f34d954e32cd224419a4c717e022f0cd71d4d2090e8",
+      "prev_hash": "b8ebed7bcc0656d7da3fcad27f160c0acd1a063297a5784735520a44452c0b6c"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

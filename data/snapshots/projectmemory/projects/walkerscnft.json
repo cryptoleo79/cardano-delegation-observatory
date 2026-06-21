@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "walkerscnft",
+    "kind": "project",
+    "name": "Walkerscnft",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4549",
+          "field": "name",
+          "value": "Walkerscnft",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+                "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+                "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4549,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5725",
+          "field": "website",
+          "value": "https://walkerscardano.xyz",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260621014652id_/https://www.cardanocube.com/projects/walkerscnft",
+                "sha256": "6b7066ed5d0ef955ca4aaee9fb08e9b637f5db8e15879b2d9c76349a9b939745",
+                "description": "cardanocube project page for \"walkerscnft\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5725,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5726",
+          "field": "whitepaper",
+          "value": "https://walkerscnft.gitbook.io/walkers-walkpaper-1.0/general/overview",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260621014652id_/https://www.cardanocube.com/projects/walkerscnft",
+                "sha256": "6b7066ed5d0ef955ca4aaee9fb08e9b637f5db8e15879b2d9c76349a9b939745",
+                "description": "cardanocube project page for \"walkerscnft\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5726,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "utility-nfts",
+        "name": "Utility Nfts",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4548,
+    "last_seq": 5726
+  },
+  "history": [
+    {
+      "seq": 4548,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "walkerscnft",
+        "kind": "project"
+      },
+      "hash": "40ef8adac224a4011d7ae11d2dca6b994fa9c244c21cc1fa5d168c7c4b44a4fe",
+      "prev_hash": "80924e824cb48262f969232cc1d3adb72b52817403d77acf8f54329b16335864"
+    },
+    {
+      "seq": 4549,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "walkerscnft",
+        "field": "name",
+        "value": "Walkerscnft",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "b9a50041ec1afb15b3ddbf5ba6d3a2c0fa8892f865fd275f40cbe29b4aa7da5c",
+      "prev_hash": "40ef8adac224a4011d7ae11d2dca6b994fa9c244c21cc1fa5d168c7c4b44a4fe"
+    },
+    {
+      "seq": 4550,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "walkerscnft",
+        "category_slug": "utility-nfts",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "21d3971496204102d98d642e8589a0c795176874f59015952780cd4b16ca159c",
+      "prev_hash": "b9a50041ec1afb15b3ddbf5ba6d3a2c0fa8892f865fd275f40cbe29b4aa7da5c"
+    },
+    {
+      "seq": 5725,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "walkerscnft",
+        "field": "website",
+        "value": "https://walkerscardano.xyz",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260621014652id_/https://www.cardanocube.com/projects/walkerscnft",
+            "sha256": "6b7066ed5d0ef955ca4aaee9fb08e9b637f5db8e15879b2d9c76349a9b939745",
+            "description": "cardanocube project page for \"walkerscnft\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "02cf3ef5097f356325762f70246b32afc66c79498fc3a580f0f2bb8ce70800b9",
+      "prev_hash": "67b37d067cd6edb70040da451afd7b92b7f5253471df206212134131f1b8bc93"
+    },
+    {
+      "seq": 5726,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "walkerscnft",
+        "field": "whitepaper",
+        "value": "https://walkerscnft.gitbook.io/walkers-walkpaper-1.0/general/overview",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260621014652id_/https://www.cardanocube.com/projects/walkerscnft",
+            "sha256": "6b7066ed5d0ef955ca4aaee9fb08e9b637f5db8e15879b2d9c76349a9b939745",
+            "description": "cardanocube project page for \"walkerscnft\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "ec2bd547e434bb3876df6d97753894daca8d2c1187d674f3a3a26eb313a0082c",
+      "prev_hash": "02cf3ef5097f356325762f70246b32afc66c79498fc3a580f0f2bb8ce70800b9"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

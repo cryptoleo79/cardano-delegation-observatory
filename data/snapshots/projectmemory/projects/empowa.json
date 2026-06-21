@@ -1,0 +1,270 @@
+{
+  "project": {
+    "id": "empowa",
+    "kind": "project",
+    "name": "Empowa",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4375",
+          "field": "name",
+          "value": "Empowa",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+                "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+                "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4375,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5458",
+          "field": "website",
+          "value": "https://empowa.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260308215558id_/https://www.cardanocube.com/projects/empowa",
+                "sha256": "7f9e35457656fa38005c27ad60112a2964f9b0b77375277b7660272eb7d65ebe",
+                "description": "cardanocube project page for \"empowa\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5458,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "infrastructure",
+        "name": "Infrastructure",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      },
+      {
+        "slug": "marketplaces",
+        "name": "Marketplaces",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 1,
+    "created_seq": 4288,
+    "last_seq": 5458
+  },
+  "history": [
+    {
+      "seq": 4288,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "empowa",
+        "kind": "project"
+      },
+      "hash": "520f6e3b41b08cbd5b43bf4fb8d87807fc2bf3062a7e86ec535f0a368d2297e1",
+      "prev_hash": "dc37429492f6a001174c018eebbad76809f1b8814521b4777961f4b144ac442d"
+    },
+    {
+      "seq": 4289,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "empowa",
+        "field": "name",
+        "value": "Empowa",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "0e899bc18406a14c7e1e2a707e5f7c67dc811f3450a6a0e9056ce2530cd0d499",
+      "prev_hash": "520f6e3b41b08cbd5b43bf4fb8d87807fc2bf3062a7e86ec535f0a368d2297e1"
+    },
+    {
+      "seq": 4290,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "empowa",
+        "category_slug": "infrastructure",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "2116cf6539bcb443c87f2a432bc006dd1d08a3ca0736579673376c84eab356d7",
+      "prev_hash": "0e899bc18406a14c7e1e2a707e5f7c67dc811f3450a6a0e9056ce2530cd0d499"
+    },
+    {
+      "seq": 4374,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "empowa",
+        "kind": "project"
+      },
+      "hash": "7f5b05266115acd11e4d022eb124499491107042fe7b6ed422c5d215868d5969",
+      "prev_hash": "e3a65b4df6c3fa70f0ad3b7339372916cbc47eb684e27bf616b661f1dd2953c8"
+    },
+    {
+      "seq": 4375,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "empowa",
+        "field": "name",
+        "value": "Empowa",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "f1ffe99bfc75494500847f435ce3eb6de81bfa1a2b431aa62aa60f2c99bfed99",
+      "prev_hash": "7f5b05266115acd11e4d022eb124499491107042fe7b6ed422c5d215868d5969"
+    },
+    {
+      "seq": 4376,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "empowa",
+        "category_slug": "marketplaces",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "09b805d9952b42ca80b73f753e19629799bcf10dddc1130db969555e2accef32",
+      "prev_hash": "f1ffe99bfc75494500847f435ce3eb6de81bfa1a2b431aa62aa60f2c99bfed99"
+    },
+    {
+      "seq": 5458,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "empowa",
+        "field": "website",
+        "value": "https://empowa.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260308215558id_/https://www.cardanocube.com/projects/empowa",
+            "sha256": "7f9e35457656fa38005c27ad60112a2964f9b0b77375277b7660272eb7d65ebe",
+            "description": "cardanocube project page for \"empowa\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "27f4cb2cbd303d97ccce4b4e194675cb4bc35846dac0d0ed0deb9d00772a9e95",
+      "prev_hash": "313bf8f7bd041f8183693bbc5fe71bc652cc9dec313c835aceeabbc3b9b049d9"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

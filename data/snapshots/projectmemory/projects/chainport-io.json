@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "chainport-io",
+    "kind": "project",
+    "name": "Chainport Io",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "documentation": [
+        {
+          "claim_id": "clm_5423",
+          "field": "documentation",
+          "value": "https://docs.chainport.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250206124527id_/https://www.cardanocube.com/projects/chainport-io",
+                "sha256": "5d27563dca377934e79689d2618884b04e5dd8dfd58556858642e7061430df36",
+                "description": "cardanocube project page for \"chainport-io\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5423,
+          "superseded_by_seq": null
+        }
+      ],
+      "name": [
+        {
+          "claim_id": "clm_4197",
+          "field": "name",
+          "value": "Chainport Io",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250426045830id_/https://cardanocube.com/categories/cross-chain-bridge",
+                "sha256": "4fe996b36aec029c733ec17c563816dd9adadd27899364330cc24f81a8785aa1",
+                "description": "cardanocube /categories/cross-chain-bridge listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4197,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5422",
+          "field": "website",
+          "value": "https://chainport.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250206124527id_/https://www.cardanocube.com/projects/chainport-io",
+                "sha256": "5d27563dca377934e79689d2618884b04e5dd8dfd58556858642e7061430df36",
+                "description": "cardanocube project page for \"chainport-io\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5422,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "cross-chain-bridge",
+        "name": "Cross Chain Bridge",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4196,
+    "last_seq": 5423
+  },
+  "history": [
+    {
+      "seq": 4196,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "chainport-io",
+        "kind": "project"
+      },
+      "hash": "e9f219e4cb77a178cd32b369e9a2f2ef9d5761e21259c557c714ff9c26eb5d62",
+      "prev_hash": "52e7a6bb76f9a0bbb1ebacb7190a81e544c269f6ac6df0470c1a91337f096d03"
+    },
+    {
+      "seq": 4197,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "chainport-io",
+        "field": "name",
+        "value": "Chainport Io",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250426045830id_/https://cardanocube.com/categories/cross-chain-bridge",
+            "sha256": "4fe996b36aec029c733ec17c563816dd9adadd27899364330cc24f81a8785aa1",
+            "description": "cardanocube /categories/cross-chain-bridge listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "b19bb74b2214bc3f79c33a81c122e62bddc60483a8cb8c931f78aecc156b0f8a",
+      "prev_hash": "e9f219e4cb77a178cd32b369e9a2f2ef9d5761e21259c557c714ff9c26eb5d62"
+    },
+    {
+      "seq": 4198,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "chainport-io",
+        "category_slug": "cross-chain-bridge",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250426045830id_/https://cardanocube.com/categories/cross-chain-bridge",
+            "sha256": "4fe996b36aec029c733ec17c563816dd9adadd27899364330cc24f81a8785aa1",
+            "description": "cardanocube /categories/cross-chain-bridge listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "f5708c9617ad85ad8540586320664a6fd842b67eed50d926bdf00aa9bc9592dd",
+      "prev_hash": "b19bb74b2214bc3f79c33a81c122e62bddc60483a8cb8c931f78aecc156b0f8a"
+    },
+    {
+      "seq": 5422,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "chainport-io",
+        "field": "website",
+        "value": "https://chainport.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250206124527id_/https://www.cardanocube.com/projects/chainport-io",
+            "sha256": "5d27563dca377934e79689d2618884b04e5dd8dfd58556858642e7061430df36",
+            "description": "cardanocube project page for \"chainport-io\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "8f42fb62470d319e66e3069eb74b7e6ea01529c926a300b92c68a2e8882a1511",
+      "prev_hash": "17ec418f421d1428521ffc1dae29111e090e6cbedab772c5d2288b41aa7b5f3d"
+    },
+    {
+      "seq": 5423,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "chainport-io",
+        "field": "documentation",
+        "value": "https://docs.chainport.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250206124527id_/https://www.cardanocube.com/projects/chainport-io",
+            "sha256": "5d27563dca377934e79689d2618884b04e5dd8dfd58556858642e7061430df36",
+            "description": "cardanocube project page for \"chainport-io\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "b70ccd66a9f273a2359f734b078db99b228fa894d43187477b1bb6f50a2fd0dd",
+      "prev_hash": "8f42fb62470d319e66e3069eb74b7e6ea01529c926a300b92c68a2e8882a1511"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

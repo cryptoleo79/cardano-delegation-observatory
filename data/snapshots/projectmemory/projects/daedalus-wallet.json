@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "daedalus-wallet",
+    "kind": "project",
+    "name": "Daedalus Wallet",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4495",
+          "field": "name",
+          "value": "Daedalus Wallet",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+                "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+                "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4495,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5513",
+          "field": "website",
+          "value": "https://daedaluswallet.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250421021545id_/https://www.cardanocube.com/projects/daedalus-wallet",
+                "sha256": "69df0b4017caf928a3bf9e14ab11f71030104f37037eec9a5d4e62cb8a1ec76e",
+                "description": "cardanocube project page for \"daedalus-wallet\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5513,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "popular",
+        "name": "Popular",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4494,
+    "last_seq": 5513
+  },
+  "history": [
+    {
+      "seq": 4494,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "daedalus-wallet",
+        "kind": "project"
+      },
+      "hash": "6022691507a9b2c926b323982078441c449df1bdb0a416dddff540aec17d6bc1",
+      "prev_hash": "7c7def2f16b5f915fa4e27656c1a9febc19c1c0cdabcba13da53720147f1050c"
+    },
+    {
+      "seq": 4495,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "daedalus-wallet",
+        "field": "name",
+        "value": "Daedalus Wallet",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "03802ed6a5b19539dfad531767b25867ff2ac3caaf4304ed850656ea1623077e",
+      "prev_hash": "6022691507a9b2c926b323982078441c449df1bdb0a416dddff540aec17d6bc1"
+    },
+    {
+      "seq": 4496,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "daedalus-wallet",
+        "category_slug": "popular",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "7c99f28a1045d59dae031d47677867a2e2a8850486f9ce72ab8c897b2fb3871c",
+      "prev_hash": "03802ed6a5b19539dfad531767b25867ff2ac3caaf4304ed850656ea1623077e"
+    },
+    {
+      "seq": 5513,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "daedalus-wallet",
+        "field": "website",
+        "value": "https://daedaluswallet.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250421021545id_/https://www.cardanocube.com/projects/daedalus-wallet",
+            "sha256": "69df0b4017caf928a3bf9e14ab11f71030104f37037eec9a5d4e62cb8a1ec76e",
+            "description": "cardanocube project page for \"daedalus-wallet\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "aa6e9577ed07332d89448fc257aebaa03305d9bd1406f23edca2b61c935bdcde",
+      "prev_hash": "7d9618ada6184dafbb3e7525a8eae52a17483a30b60425bb6501bd2fa35849c2"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

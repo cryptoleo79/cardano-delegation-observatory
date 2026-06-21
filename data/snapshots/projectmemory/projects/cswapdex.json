@@ -1,0 +1,330 @@
+{
+  "project": {
+    "id": "cswapdex",
+    "kind": "project",
+    "name": "Cswapdex",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "documentation": [
+        {
+          "claim_id": "clm_5475",
+          "field": "documentation",
+          "value": "https://docs.cswap.info/information/cswap-lightpaper",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20240917170025id_/https://www.cardanocube.com/projects/cswapdex",
+                "sha256": "631eb410ec1266d2750d401e79446053108a249158616c69e1ec9da1a21db81e",
+                "description": "cardanocube project page for \"cswapdex\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5475,
+          "superseded_by_seq": null
+        }
+      ],
+      "name": [
+        {
+          "claim_id": "clm_4492",
+          "field": "name",
+          "value": "Cswapdex",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+                "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+                "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4492,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5474",
+          "field": "website",
+          "value": "https://www.cswap.info/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20240917170025id_/https://www.cardanocube.com/projects/cswapdex",
+                "sha256": "631eb410ec1266d2750d401e79446053108a249158616c69e1ec9da1a21db81e",
+                "description": "cardanocube project page for \"cswapdex\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5474,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "ispo",
+        "name": "Ispo",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      },
+      {
+        "slug": "popular",
+        "name": "Popular",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 1,
+    "created_seq": 4333,
+    "last_seq": 5475
+  },
+  "history": [
+    {
+      "seq": 4333,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "cswapdex",
+        "kind": "project"
+      },
+      "hash": "f1c1b5241cd6b596c56657fadf9af8010fe00a9bbd07dcb727a951776763ef7a",
+      "prev_hash": "dd9fed01540942ac59c02ff4fcec45e58bb03fa69ef14d4f83b4abd09836c225"
+    },
+    {
+      "seq": 4334,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cswapdex",
+        "field": "name",
+        "value": "Cswapdex",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+            "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+            "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "2592b416e06ae22b4d20e55e41252da5cdb60b68567b57c9356676cd1dbb0ea5",
+      "prev_hash": "f1c1b5241cd6b596c56657fadf9af8010fe00a9bbd07dcb727a951776763ef7a"
+    },
+    {
+      "seq": 4335,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cswapdex",
+        "category_slug": "ispo",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+            "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+            "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "5a03efa32c09e02d18569276246c0c7872087ffdc54a831020a25ffe3d5b77d1",
+      "prev_hash": "2592b416e06ae22b4d20e55e41252da5cdb60b68567b57c9356676cd1dbb0ea5"
+    },
+    {
+      "seq": 4491,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "cswapdex",
+        "kind": "project"
+      },
+      "hash": "7c3d8e365a74d8aafab3f40676aca4a20e2a714f5a49b28a27f84707c5a6fcd0",
+      "prev_hash": "4fca30793644a2fa1b84eb43644d225c029b447269f52320df76daf86c00ea0b"
+    },
+    {
+      "seq": 4492,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cswapdex",
+        "field": "name",
+        "value": "Cswapdex",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "f0a04a17b4844dfc4e98342e2a2e5d46345863a902c6aa71122c7db10bf98928",
+      "prev_hash": "7c3d8e365a74d8aafab3f40676aca4a20e2a714f5a49b28a27f84707c5a6fcd0"
+    },
+    {
+      "seq": 4493,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cswapdex",
+        "category_slug": "popular",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "7c7def2f16b5f915fa4e27656c1a9febc19c1c0cdabcba13da53720147f1050c",
+      "prev_hash": "f0a04a17b4844dfc4e98342e2a2e5d46345863a902c6aa71122c7db10bf98928"
+    },
+    {
+      "seq": 5474,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cswapdex",
+        "field": "website",
+        "value": "https://www.cswap.info/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20240917170025id_/https://www.cardanocube.com/projects/cswapdex",
+            "sha256": "631eb410ec1266d2750d401e79446053108a249158616c69e1ec9da1a21db81e",
+            "description": "cardanocube project page for \"cswapdex\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "60d4e437199662a8fed4aaca1fb814da35f919a44d5b956bcad65dc436c8a396",
+      "prev_hash": "77a3fca1cdd3c151bc94c81876d9c2876c4d44881a2cde0d18bfa0bc596bea9f"
+    },
+    {
+      "seq": 5475,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cswapdex",
+        "field": "documentation",
+        "value": "https://docs.cswap.info/information/cswap-lightpaper",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20240917170025id_/https://www.cardanocube.com/projects/cswapdex",
+            "sha256": "631eb410ec1266d2750d401e79446053108a249158616c69e1ec9da1a21db81e",
+            "description": "cardanocube project page for \"cswapdex\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "762d1e7d3f1511dca51b88dba1a8ed1d9b6dd84fa0b4b9ef96d034f2f5921508",
+      "prev_hash": "60d4e437199662a8fed4aaca1fb814da35f919a44d5b956bcad65dc436c8a396"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

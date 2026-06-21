@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "the-worldeater",
+    "kind": "project",
+    "name": "The Worldeater",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4266",
+          "field": "name",
+          "value": "The Worldeater",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+                "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+                "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4266,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5451",
+          "field": "website",
+          "value": "https://www.worldeater.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250206122643id_/https://www.cardanocube.com/projects/the-worldeater",
+                "sha256": "181b9d9c1d2ff9bc6a7f2fd2be58bfa91c785c0e4becb340dc4229695616298c",
+                "description": "cardanocube project page for \"the-worldeater\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5451,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "governance",
+        "name": "Governance",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4265,
+    "last_seq": 5451
+  },
+  "history": [
+    {
+      "seq": 4265,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "the-worldeater",
+        "kind": "project"
+      },
+      "hash": "a59cdc9d307e27ad92f89db8f300d4660ca505b26022a0ea3eeff7fc10f979bd",
+      "prev_hash": "c2ceab4630c57336fa29917bf0b11f0888a59a9c04b52d31aa2e8b42dd3dcf3d"
+    },
+    {
+      "seq": 4266,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "the-worldeater",
+        "field": "name",
+        "value": "The Worldeater",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+            "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+            "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "b9e874789b927ab3cd6fb6b3d7a65cc7c31fb94992e945b701dd0819e1ada63b",
+      "prev_hash": "a59cdc9d307e27ad92f89db8f300d4660ca505b26022a0ea3eeff7fc10f979bd"
+    },
+    {
+      "seq": 4267,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "the-worldeater",
+        "category_slug": "governance",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+            "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+            "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "2098a902b991cca0aa17dba000ae4ecb23dbfe4a8876870a71fc525f84882a40",
+      "prev_hash": "b9e874789b927ab3cd6fb6b3d7a65cc7c31fb94992e945b701dd0819e1ada63b"
+    },
+    {
+      "seq": 5451,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "the-worldeater",
+        "field": "website",
+        "value": "https://www.worldeater.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250206122643id_/https://www.cardanocube.com/projects/the-worldeater",
+            "sha256": "181b9d9c1d2ff9bc6a7f2fd2be58bfa91c785c0e4becb340dc4229695616298c",
+            "description": "cardanocube project page for \"the-worldeater\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "c501a1787dfa6a35575c1af0523477ef99af7e6a2af4d75abf64524f5e1a0f1e",
+      "prev_hash": "ecea254ea02ceef9ab348eab0a9c8dbeb13f20d48648f7fab452d6e191943359"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

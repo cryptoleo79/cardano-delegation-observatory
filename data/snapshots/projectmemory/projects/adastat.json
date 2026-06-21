@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "adastat",
+    "kind": "project",
+    "name": "Adastat",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4453",
+          "field": "name",
+          "value": "Adastat",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+                "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+                "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4453,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5537",
+          "field": "website",
+          "value": "https://adastat.net/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250209071652id_/https://www.cardanocube.com/projects/adastat",
+                "sha256": "71cc1b9b7e40f88dfe573162a3a238ae471a15217eb4899e80894658482f8af0",
+                "description": "cardanocube project page for \"adastat\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5537,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "popular",
+        "name": "Popular",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4452,
+    "last_seq": 5537
+  },
+  "history": [
+    {
+      "seq": 4452,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "adastat",
+        "kind": "project"
+      },
+      "hash": "8a68f1af233ce366c6c9ff042a7d5e8bd68790df64e6e6992332dc94827a8c62",
+      "prev_hash": "93118a72b15c461a7f22cf827514e10042595d937c81393736c4d4adcdc65938"
+    },
+    {
+      "seq": 4453,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adastat",
+        "field": "name",
+        "value": "Adastat",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "1fcdf38b85bf420b29af073b68716cc2602018859a4150d1e6b6d8e5afd17d5a",
+      "prev_hash": "8a68f1af233ce366c6c9ff042a7d5e8bd68790df64e6e6992332dc94827a8c62"
+    },
+    {
+      "seq": 4454,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adastat",
+        "category_slug": "popular",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "7c8d3a6992fd3470ac29b369cc846bc44d96ea30f9f4c3457b1fc283f440f528",
+      "prev_hash": "1fcdf38b85bf420b29af073b68716cc2602018859a4150d1e6b6d8e5afd17d5a"
+    },
+    {
+      "seq": 5537,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adastat",
+        "field": "website",
+        "value": "https://adastat.net/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250209071652id_/https://www.cardanocube.com/projects/adastat",
+            "sha256": "71cc1b9b7e40f88dfe573162a3a238ae471a15217eb4899e80894658482f8af0",
+            "description": "cardanocube project page for \"adastat\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "4fbd43ef444d20d2833ec3b834ec11f866ff3839facfbf0739da967ec57d72ce",
+      "prev_hash": "1a6ac1c5348310efc83d4cf5f9aa0ef05ebbf4de053aaf2141140bd27a2a6487"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

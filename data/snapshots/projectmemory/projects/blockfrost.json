@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "blockfrost",
+    "kind": "project",
+    "name": "Blockfrost",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "documentation": [
+        {
+          "claim_id": "clm_5502",
+          "field": "documentation",
+          "value": "https://docs.blockfrost.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20241204063144id_/https://www.cardanocube.com/projects/blockfrost",
+                "sha256": "d254c4cdd9ff8a6e73bfcd1f95ff1b5476114645f2d7f82798e93b3b18accc49",
+                "description": "cardanocube project page for \"blockfrost\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5502,
+          "superseded_by_seq": null
+        }
+      ],
+      "name": [
+        {
+          "claim_id": "clm_4459",
+          "field": "name",
+          "value": "Blockfrost",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+                "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+                "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4459,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5501",
+          "field": "website",
+          "value": "https://blockfrost.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20241204063144id_/https://www.cardanocube.com/projects/blockfrost",
+                "sha256": "d254c4cdd9ff8a6e73bfcd1f95ff1b5476114645f2d7f82798e93b3b18accc49",
+                "description": "cardanocube project page for \"blockfrost\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5501,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "popular",
+        "name": "Popular",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4458,
+    "last_seq": 5502
+  },
+  "history": [
+    {
+      "seq": 4458,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "blockfrost",
+        "kind": "project"
+      },
+      "hash": "06da2f3701504558ee0ff0ba8d3abdbb8173a7ac6a1de7bf25294abaffb21e06",
+      "prev_hash": "a57818500c4665388f3aa6afbd4da1a334ce5bcf9dce598345a26b45ce111f65"
+    },
+    {
+      "seq": 4459,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "blockfrost",
+        "field": "name",
+        "value": "Blockfrost",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "053df720efbc6cc63acdc3560e380c6482eecdd99f75f7b96201e425f28e83ba",
+      "prev_hash": "06da2f3701504558ee0ff0ba8d3abdbb8173a7ac6a1de7bf25294abaffb21e06"
+    },
+    {
+      "seq": 4460,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "blockfrost",
+        "category_slug": "popular",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "d7dcf1c4d314e5afc81cd5fa437468e75b57aafc17aaff0c07f045fb06ab6438",
+      "prev_hash": "053df720efbc6cc63acdc3560e380c6482eecdd99f75f7b96201e425f28e83ba"
+    },
+    {
+      "seq": 5501,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "blockfrost",
+        "field": "website",
+        "value": "https://blockfrost.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20241204063144id_/https://www.cardanocube.com/projects/blockfrost",
+            "sha256": "d254c4cdd9ff8a6e73bfcd1f95ff1b5476114645f2d7f82798e93b3b18accc49",
+            "description": "cardanocube project page for \"blockfrost\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "65105fbada0815fe78dbd5257e71e6b761c9954a657abe8a4deb2d6bfe056248",
+      "prev_hash": "f066da00bcd1574f86d44f0d45dbbd8edbca7837418fb15cd4094f779af27583"
+    },
+    {
+      "seq": 5502,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "blockfrost",
+        "field": "documentation",
+        "value": "https://docs.blockfrost.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20241204063144id_/https://www.cardanocube.com/projects/blockfrost",
+            "sha256": "d254c4cdd9ff8a6e73bfcd1f95ff1b5476114645f2d7f82798e93b3b18accc49",
+            "description": "cardanocube project page for \"blockfrost\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "05e709036dbae4b89ac1d2e295b1e02f9fc6010d10ea4833522c3f3304fb3c5e",
+      "prev_hash": "65105fbada0815fe78dbd5257e71e6b761c9954a657abe8a4deb2d6bfe056248"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

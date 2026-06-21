@@ -71,12 +71,45 @@
           "asserted_seq": 85,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5382",
+          "field": "website",
+          "value": "http://www.cardanonuts.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20241204052929id_/https://cardanocube.com/projects/cardano-nuts",
+                "sha256": "e38840a137b1fa633067566f261ae9b126edee58caa2312972acbf4d90ffe156",
+                "description": "cardanocube project page for \"cardano-nuts\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5382,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [],
     "superseded_claim_count": 0,
     "created_seq": 83,
-    "last_seq": 85
+    "last_seq": 5382
   },
   "history": [
     {
@@ -140,7 +173,34 @@
       },
       "hash": "a3ed9d1292bf8b538d11451dbbf092d1fec5023c3873097674db154a3d9952d1",
       "prev_hash": "81cd4f9f06477554140fb59e747eeab245fa85fa7141f81b7e0a5b1a3704f4dc"
+    },
+    {
+      "seq": 5382,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardano-nuts",
+        "field": "website",
+        "value": "http://www.cardanonuts.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20241204052929id_/https://cardanocube.com/projects/cardano-nuts",
+            "sha256": "e38840a137b1fa633067566f261ae9b126edee58caa2312972acbf4d90ffe156",
+            "description": "cardanocube project page for \"cardano-nuts\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "4e8ff43e91277fdca005f957c5ce074786ba4808e3726763405e6e7307b93741",
+      "prev_hash": "e8f7ec986cc512cc664711b92249bbe104a0823809a1dc0a88795f00ca8900a3"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

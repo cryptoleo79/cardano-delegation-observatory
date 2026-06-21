@@ -39,6 +39,39 @@
           "superseded_by_seq": null
         }
       ],
+      "github": [
+        {
+          "claim_id": "clm_5139",
+          "field": "github",
+          "value": "https://github.com/input-output-hk/plutus-pioneer-program",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem",
+                "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 5139,
+          "superseded_by_seq": null
+        }
+      ],
       "name": [
         {
           "claim_id": "clm_3187",
@@ -107,7 +140,7 @@
       ],
       "website": [
         {
-          "claim_id": "clm_3188",
+          "claim_id": "clm_5618",
           "field": "website",
           "value": "https://testnets.cardano.org/en/plutus-pioneer-program/",
           "state": "active",
@@ -124,17 +157,17 @@
               "label": "Built on Cardano directory (Cardano Foundation)"
             },
             "authority_class": "B",
-            "as_of": "2026-06-07",
+            "as_of": "2026-06-20",
             "evidence": [
               {
                 "kind": "url",
                 "ref": "https://builtoncardano.com/ecosystem/all",
-                "sha256": null,
-                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+                "sha256": "648f9154a44a5830d86dc51cb86f67547a1c9d432ecd9d5f6ca70357471c0585",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
               }
             ]
           },
-          "asserted_seq": 3188,
+          "asserted_seq": 5618,
           "superseded_by_seq": null
         }
       ]
@@ -157,9 +190,9 @@
         }
       }
     ],
-    "superseded_claim_count": 0,
+    "superseded_claim_count": 1,
     "created_seq": 3186,
-    "last_seq": 3191
+    "last_seq": 5618
   },
   "history": [
     {
@@ -292,7 +325,61 @@
       },
       "hash": "44bf6a9c840574a5be09f73f027664f3072bb2e4edc1cfc265eccfe3ee3f9a2d",
       "prev_hash": "37e0d3c721cedd71f6345c58b68aa40c09ad7fc5944454a0f7719079df987349"
+    },
+    {
+      "seq": 5139,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:plutus-pioneers-program",
+        "field": "github",
+        "value": "https://github.com/input-output-hk/plutus-pioneer-program",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem",
+            "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "fa9712cc60b2a5a71a3ac411cd1141b3fda6346894be0a01c491cfa2de380d52",
+      "prev_hash": "bcb9ed1159a67a00a45b4db5c46bf747694066ee6f582022dde57052c4d4d6fc"
+    },
+    {
+      "seq": 5618,
+      "ts": "2026-06-20",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:plutus-pioneers-program",
+        "field": "website",
+        "value": "https://testnets.cardano.org/en/plutus-pioneer-program/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-20",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "648f9154a44a5830d86dc51cb86f67547a1c9d432ecd9d5f6ca70357471c0585",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "ff34351b086934b73cb20a349629e165bc33d082795494a93557ae624b4d173d",
+      "prev_hash": "8d13ab1297dc3ba48ab2807f2a2960963b7d19e0e88db10124eda19a8d382529"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

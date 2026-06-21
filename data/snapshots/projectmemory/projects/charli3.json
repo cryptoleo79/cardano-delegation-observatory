@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "charli3",
+    "kind": "project",
+    "name": "Charli3",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4477",
+          "field": "name",
+          "value": "Charli3",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+                "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+                "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4477,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5506",
+          "field": "website",
+          "value": "https://charli3.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250318125006id_/https://www.cardanocube.com/projects/charli3",
+                "sha256": "2910919102685529ef8ee8f54227ba15f79dc21942b2bbdd613915eccbb76bfd",
+                "description": "cardanocube project page for \"charli3\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5506,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5507",
+          "field": "whitepaper",
+          "value": "https://charli3.io/assets/downloads/charli3-whitepaper.pdf?v=0.0.1",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250318125006id_/https://www.cardanocube.com/projects/charli3",
+                "sha256": "2910919102685529ef8ee8f54227ba15f79dc21942b2bbdd613915eccbb76bfd",
+                "description": "cardanocube project page for \"charli3\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5507,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "popular",
+        "name": "Popular",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4476,
+    "last_seq": 5507
+  },
+  "history": [
+    {
+      "seq": 4476,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "charli3",
+        "kind": "project"
+      },
+      "hash": "8b29c4d9a40ce496fae2198e8299c79a7672ced2ce2c3f54776c0bafa4312031",
+      "prev_hash": "0219b231b0839f3217a665f4269d4ec0846ad5edce64a3574f0ab47ca39c8631"
+    },
+    {
+      "seq": 4477,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "charli3",
+        "field": "name",
+        "value": "Charli3",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "7c8d0ded01ad694ebda7a75124dc8939ccac2799c70d71210156cfa42c37901f",
+      "prev_hash": "8b29c4d9a40ce496fae2198e8299c79a7672ced2ce2c3f54776c0bafa4312031"
+    },
+    {
+      "seq": 4478,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "charli3",
+        "category_slug": "popular",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "cbf66cbc187783667f44730c07470f2700bdb54fd4febcc5a03dabdec7a8d377",
+      "prev_hash": "7c8d0ded01ad694ebda7a75124dc8939ccac2799c70d71210156cfa42c37901f"
+    },
+    {
+      "seq": 5506,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "charli3",
+        "field": "website",
+        "value": "https://charli3.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250318125006id_/https://www.cardanocube.com/projects/charli3",
+            "sha256": "2910919102685529ef8ee8f54227ba15f79dc21942b2bbdd613915eccbb76bfd",
+            "description": "cardanocube project page for \"charli3\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "797a6c606e61b866020fbcc9af82cc56a1e6ddec590cc5ff1329aadd1b331ec2",
+      "prev_hash": "f88e95f680c7de3ad92ad4a29d46c92912c29977b0514f6ab4fbb64f13ccdf61"
+    },
+    {
+      "seq": 5507,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "charli3",
+        "field": "whitepaper",
+        "value": "https://charli3.io/assets/downloads/charli3-whitepaper.pdf?v=0.0.1",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250318125006id_/https://www.cardanocube.com/projects/charli3",
+            "sha256": "2910919102685529ef8ee8f54227ba15f79dc21942b2bbdd613915eccbb76bfd",
+            "description": "cardanocube project page for \"charli3\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "8936fc4da16226eddca1e3179eae6c36925032a11d9ada35508c51087a6bd2db",
+      "prev_hash": "797a6c606e61b866020fbcc9af82cc56a1e6ddec590cc5ff1329aadd1b331ec2"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

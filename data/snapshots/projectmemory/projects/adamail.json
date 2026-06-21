@@ -1,0 +1,330 @@
+{
+  "project": {
+    "id": "adamail",
+    "kind": "project",
+    "name": "Adamail",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4281",
+          "field": "name",
+          "value": "Adamail",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+                "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+                "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4281,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5435",
+          "field": "website",
+          "value": "https://www.adamail.me/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250116081745id_/https://www.cardanocube.com/projects/adamail",
+                "sha256": "641bf5828d465f065ed88d2afcffd5106198d4f51e0e8e837a3b62ed96439520",
+                "description": "cardanocube project page for \"adamail\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5435,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5436",
+          "field": "whitepaper",
+          "value": "https://uploads-ssl.webflow.com/64cec6c8d20fcc84690f4a51/64e381a1e07eacad81995d0c_ADAmail%20Product%20Features%2008-2023.pdf",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250116081745id_/https://www.cardanocube.com/projects/adamail",
+                "sha256": "641bf5828d465f065ed88d2afcffd5106198d4f51e0e8e837a3b62ed96439520",
+                "description": "cardanocube project page for \"adamail\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5436,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "governance",
+        "name": "Governance",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      },
+      {
+        "slug": "infrastructure",
+        "name": "Infrastructure",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 1,
+    "created_seq": 4229,
+    "last_seq": 5436
+  },
+  "history": [
+    {
+      "seq": 4229,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "adamail",
+        "kind": "project"
+      },
+      "hash": "28202dd1dc009b1d7305d34a66f49274c202ae5c1ae6e2ec9b028239ae2c9096",
+      "prev_hash": "1d3cac626441efcd0915658133091afd95cee92dd30079dd356b7f9a7cbe59ea"
+    },
+    {
+      "seq": 4230,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adamail",
+        "field": "name",
+        "value": "Adamail",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+            "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+            "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "c9af220dff5fd16fb43e230f2402da988505d3d32613f3bbd4a59e528a021d2f",
+      "prev_hash": "28202dd1dc009b1d7305d34a66f49274c202ae5c1ae6e2ec9b028239ae2c9096"
+    },
+    {
+      "seq": 4231,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adamail",
+        "category_slug": "governance",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+            "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+            "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "d9f2ec67aae6711f744ee71bf7d1fcc09887e37c4d25521d8c33ae8e564042bd",
+      "prev_hash": "c9af220dff5fd16fb43e230f2402da988505d3d32613f3bbd4a59e528a021d2f"
+    },
+    {
+      "seq": 4280,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "adamail",
+        "kind": "project"
+      },
+      "hash": "c6ff334ed2291a02eaa10662bfb573c03bbc7efd1ad671b5b663cf0573cf65fe",
+      "prev_hash": "56afbb2e2519d1ec971e9cd14cd46eba0cff5795f38b47d4ca8fb0b6bef69317"
+    },
+    {
+      "seq": 4281,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adamail",
+        "field": "name",
+        "value": "Adamail",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "be35120f34abdf58dd7e76098b86b3c6503421edff5774cce1c74a31001ae636",
+      "prev_hash": "c6ff334ed2291a02eaa10662bfb573c03bbc7efd1ad671b5b663cf0573cf65fe"
+    },
+    {
+      "seq": 4282,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adamail",
+        "category_slug": "infrastructure",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "3350a37227cd6b406bb0097fdbb8fb9439462587fdf960468d0ab5cd59001c50",
+      "prev_hash": "be35120f34abdf58dd7e76098b86b3c6503421edff5774cce1c74a31001ae636"
+    },
+    {
+      "seq": 5435,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adamail",
+        "field": "website",
+        "value": "https://www.adamail.me/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250116081745id_/https://www.cardanocube.com/projects/adamail",
+            "sha256": "641bf5828d465f065ed88d2afcffd5106198d4f51e0e8e837a3b62ed96439520",
+            "description": "cardanocube project page for \"adamail\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "6a478103b64948873d5979ae12d325fe554c001033a0669836b0e642b8302416",
+      "prev_hash": "c1a5116e39236fb21c6ad9c2987b07c9dac0b283ec6838a0e42f9216129399bc"
+    },
+    {
+      "seq": 5436,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adamail",
+        "field": "whitepaper",
+        "value": "https://uploads-ssl.webflow.com/64cec6c8d20fcc84690f4a51/64e381a1e07eacad81995d0c_ADAmail%20Product%20Features%2008-2023.pdf",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250116081745id_/https://www.cardanocube.com/projects/adamail",
+            "sha256": "641bf5828d465f065ed88d2afcffd5106198d4f51e0e8e837a3b62ed96439520",
+            "description": "cardanocube project page for \"adamail\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "a4b78154d17816b586e12c0e7adbef5381622a5b7f4fff888088a7514dd83a7a",
+      "prev_hash": "6a478103b64948873d5979ae12d325fe554c001033a0669836b0e642b8302416"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

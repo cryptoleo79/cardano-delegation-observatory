@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "cnftswap",
+    "kind": "project",
+    "name": "Cnftswap",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4420",
+          "field": "name",
+          "value": "Cnftswap",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+                "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+                "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4420,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5693",
+          "field": "website",
+          "value": "https://CNFTSwap.me",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://www.cardanocube.com/projects/cnftswap",
+                "sha256": "50883cd92150208ed4f407756184ab6029adcd01917e16a6a634579e02ce6044",
+                "description": "cardanocube project page for \"cnftswap\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5693,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5694",
+          "field": "whitepaper",
+          "value": "https://CNFTSwap.me",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://www.cardanocube.com/projects/cnftswap",
+                "sha256": "50883cd92150208ed4f407756184ab6029adcd01917e16a6a634579e02ce6044",
+                "description": "cardanocube project page for \"cnftswap\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5694,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "marketplaces",
+        "name": "Marketplaces",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4419,
+    "last_seq": 5694
+  },
+  "history": [
+    {
+      "seq": 4419,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "cnftswap",
+        "kind": "project"
+      },
+      "hash": "073a0967bb1f1ac16f4e1783083545bc5850a99fcefdbff7180a12eaa32573e3",
+      "prev_hash": "9e5c57bb629e0599eb45b3f0c70654c0bea996479a6603ff9ece93964eb6ab3f"
+    },
+    {
+      "seq": 4420,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cnftswap",
+        "field": "name",
+        "value": "Cnftswap",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "4883017d5c1757f98454030556e5c8a2036fe723cc1785c7674ffb0769008655",
+      "prev_hash": "073a0967bb1f1ac16f4e1783083545bc5850a99fcefdbff7180a12eaa32573e3"
+    },
+    {
+      "seq": 4421,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cnftswap",
+        "category_slug": "marketplaces",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "31cc37fb3890c577c68db0aaa5d8bf0f2760370753a97a737b7cba2460e818a8",
+      "prev_hash": "4883017d5c1757f98454030556e5c8a2036fe723cc1785c7674ffb0769008655"
+    },
+    {
+      "seq": 5693,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cnftswap",
+        "field": "website",
+        "value": "https://CNFTSwap.me",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://www.cardanocube.com/projects/cnftswap",
+            "sha256": "50883cd92150208ed4f407756184ab6029adcd01917e16a6a634579e02ce6044",
+            "description": "cardanocube project page for \"cnftswap\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "aa65d173fa04db760ab79ec356546a2676cadaf7aaf02ac545a6b2d410b129d1",
+      "prev_hash": "ba0295073d881d12a2dfdf7188007324185c80f2d421bc23c18b6e6b7b453167"
+    },
+    {
+      "seq": 5694,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cnftswap",
+        "field": "whitepaper",
+        "value": "https://CNFTSwap.me",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://www.cardanocube.com/projects/cnftswap",
+            "sha256": "50883cd92150208ed4f407756184ab6029adcd01917e16a6a634579e02ce6044",
+            "description": "cardanocube project page for \"cnftswap\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "bb51af6a7d60c38e75e085aa9c5011f00c85476176dd3fe52e4b0e3996ae4719",
+      "prev_hash": "aa65d173fa04db760ab79ec356546a2676cadaf7aaf02ac545a6b2d410b129d1"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

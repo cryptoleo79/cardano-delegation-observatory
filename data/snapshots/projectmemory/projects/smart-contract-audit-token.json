@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "smart-contract-audit-token",
+    "kind": "project",
+    "name": "Smart Contract Audit Token",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4310",
+          "field": "name",
+          "value": "Smart Contract Audit Token",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+                "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+                "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4310,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5717",
+          "field": "website",
+          "value": "https://www.scatdao.com",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://www.cardanocube.com/projects/smart-contract-audit-token",
+                "sha256": "4ce34b0df27908a49989dfdba182de6f39a3671d30c30a429037293f9dcc85db",
+                "description": "cardanocube project page for \"smart-contract-audit-token\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5717,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5718",
+          "field": "whitepaper",
+          "value": "https://scatdao.b-cdn.net/wp-content/uploads/2021/09/SCAT-DAO-Whitepaper-v4b.pdf",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://www.cardanocube.com/projects/smart-contract-audit-token",
+                "sha256": "4ce34b0df27908a49989dfdba182de6f39a3671d30c30a429037293f9dcc85db",
+                "description": "cardanocube project page for \"smart-contract-audit-token\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5718,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "infrastructure",
+        "name": "Infrastructure",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4309,
+    "last_seq": 5718
+  },
+  "history": [
+    {
+      "seq": 4309,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "smart-contract-audit-token",
+        "kind": "project"
+      },
+      "hash": "b02d5a266fee0df135a2cf39eaadca0dc25f87aa68d4c0dc0376d698a44f0ade",
+      "prev_hash": "c0401960c4b11712281f6a51c804cd46cf2a3a75b4f4a2e8a8a8f7720edcb313"
+    },
+    {
+      "seq": 4310,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "smart-contract-audit-token",
+        "field": "name",
+        "value": "Smart Contract Audit Token",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "78d58a634a39477e34b46932be42ccdde00ed753f3e9406f10c26ebc66de4218",
+      "prev_hash": "b02d5a266fee0df135a2cf39eaadca0dc25f87aa68d4c0dc0376d698a44f0ade"
+    },
+    {
+      "seq": 4311,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "smart-contract-audit-token",
+        "category_slug": "infrastructure",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "254d6096424d8c2fc0a9bf72e7714bac798150ab25b3b03efc3e475cee58761e",
+      "prev_hash": "78d58a634a39477e34b46932be42ccdde00ed753f3e9406f10c26ebc66de4218"
+    },
+    {
+      "seq": 5717,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "smart-contract-audit-token",
+        "field": "website",
+        "value": "https://www.scatdao.com",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://www.cardanocube.com/projects/smart-contract-audit-token",
+            "sha256": "4ce34b0df27908a49989dfdba182de6f39a3671d30c30a429037293f9dcc85db",
+            "description": "cardanocube project page for \"smart-contract-audit-token\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "fb9378855ac06c426da4ab9e3b3ad4fb9ac414b3344ac4b6af47e3e69f5d2c04",
+      "prev_hash": "ebf5264abf24a34aadfec60ab1c60c3ac03972756b4df921e1dc319b3be743fa"
+    },
+    {
+      "seq": 5718,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "smart-contract-audit-token",
+        "field": "whitepaper",
+        "value": "https://scatdao.b-cdn.net/wp-content/uploads/2021/09/SCAT-DAO-Whitepaper-v4b.pdf",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://www.cardanocube.com/projects/smart-contract-audit-token",
+            "sha256": "4ce34b0df27908a49989dfdba182de6f39a3671d30c30a429037293f9dcc85db",
+            "description": "cardanocube project page for \"smart-contract-audit-token\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "6da0131aef0cf923a4ac1e5b88e6546af42c6ac09885b4054dedc035a133f71d",
+      "prev_hash": "fb9378855ac06c426da4ab9e3b3ad4fb9ac414b3344ac4b6af47e3e69f5d2c04"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

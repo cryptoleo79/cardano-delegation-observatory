@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "3air",
+    "kind": "project",
+    "name": "3air",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4319",
+          "field": "name",
+          "value": "3air",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+                "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+                "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4319,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5676",
+          "field": "website",
+          "value": "https://3air.io",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260621013738id_/https://www.cardanocube.com/projects/3air",
+                "sha256": "927e3cc7a25da2a5f430799f1d770a12c1fc8af771cb881ae2ebb0fd0cc57c96",
+                "description": "cardanocube project page for \"3air\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5676,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5677",
+          "field": "whitepaper",
+          "value": "https://3air.io/3air_whitepaper.pdf",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260621013738id_/https://www.cardanocube.com/projects/3air",
+                "sha256": "927e3cc7a25da2a5f430799f1d770a12c1fc8af771cb881ae2ebb0fd0cc57c96",
+                "description": "cardanocube project page for \"3air\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5677,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "infrastructure",
+        "name": "Infrastructure",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4318,
+    "last_seq": 5677
+  },
+  "history": [
+    {
+      "seq": 4318,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "3air",
+        "kind": "project"
+      },
+      "hash": "b95d42e4960663f9039bd5b6a43f851ec3f6373817232c784f053b258289837e",
+      "prev_hash": "4fae80cf28a9f3a1e91537b8c4a88e34987f894f574dacb098482114cecf3209"
+    },
+    {
+      "seq": 4319,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "3air",
+        "field": "name",
+        "value": "3air",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "45bb34cb1caf68b50ddffdf005198e5be8ea83c33c53ebfca492b5d870066aba",
+      "prev_hash": "b95d42e4960663f9039bd5b6a43f851ec3f6373817232c784f053b258289837e"
+    },
+    {
+      "seq": 4320,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "3air",
+        "category_slug": "infrastructure",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "712d4508a11fc43168a52cc310f23d7e5d7a8805ccbde6405788be021a2488fd",
+      "prev_hash": "45bb34cb1caf68b50ddffdf005198e5be8ea83c33c53ebfca492b5d870066aba"
+    },
+    {
+      "seq": 5676,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "3air",
+        "field": "website",
+        "value": "https://3air.io",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260621013738id_/https://www.cardanocube.com/projects/3air",
+            "sha256": "927e3cc7a25da2a5f430799f1d770a12c1fc8af771cb881ae2ebb0fd0cc57c96",
+            "description": "cardanocube project page for \"3air\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "387f0df216f4954e4ce36339bb3d1a488aa3349f6d6bc52e60ec98e28cf5b990",
+      "prev_hash": "7fb663bfb1bd9604ac9d132375c3e41589cc594292b310336f2d5c7ccb876b5d"
+    },
+    {
+      "seq": 5677,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "3air",
+        "field": "whitepaper",
+        "value": "https://3air.io/3air_whitepaper.pdf",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260621013738id_/https://www.cardanocube.com/projects/3air",
+            "sha256": "927e3cc7a25da2a5f430799f1d770a12c1fc8af771cb881ae2ebb0fd0cc57c96",
+            "description": "cardanocube project page for \"3air\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "68200acb7e9dc5d3f01d3c9c387a7abe5d8ed75a37c8029f6a3bcadb46715d9f",
+      "prev_hash": "387f0df216f4954e4ce36339bb3d1a488aa3349f6d6bc52e60ec98e28cf5b990"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "clumsy-ghosts",
+    "kind": "project",
+    "name": "Clumsy Ghosts",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4560",
+          "field": "name",
+          "value": "Clumsy Ghosts",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+                "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+                "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4560,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5691",
+          "field": "website",
+          "value": "https://www.clumsyghosts.com",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://www.cardanocube.com/projects/clumsy-ghosts",
+                "sha256": "94e548053ff91cdc11840395672f8f908f13433d68b3e3199ffa8c546e168c62",
+                "description": "cardanocube project page for \"clumsy-ghosts\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5691,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5692",
+          "field": "whitepaper",
+          "value": "https://www.clumsyghosts.com/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://www.cardanocube.com/projects/clumsy-ghosts",
+                "sha256": "94e548053ff91cdc11840395672f8f908f13433d68b3e3199ffa8c546e168c62",
+                "description": "cardanocube project page for \"clumsy-ghosts\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5692,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "utility-nfts",
+        "name": "Utility Nfts",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4559,
+    "last_seq": 5692
+  },
+  "history": [
+    {
+      "seq": 4559,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "clumsy-ghosts",
+        "kind": "project"
+      },
+      "hash": "20346ec1602cfd7422d64e5313dc568501024fcee8fed2486181a7f57dc27039",
+      "prev_hash": "6dde709edba82e6a91fa2798b855bf134117a9067334475a0a4fccbed872e432"
+    },
+    {
+      "seq": 4560,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "clumsy-ghosts",
+        "field": "name",
+        "value": "Clumsy Ghosts",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "4a1d1fd796542df59d0f68249eb0929b7b27cc3b46b5c8dad92f93ba0883cda0",
+      "prev_hash": "20346ec1602cfd7422d64e5313dc568501024fcee8fed2486181a7f57dc27039"
+    },
+    {
+      "seq": 4561,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "clumsy-ghosts",
+        "category_slug": "utility-nfts",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "c9a6e630ae14a9d3c758fae29e033a7e1b3adff5b46dca9e3cee86262bc4c2a9",
+      "prev_hash": "4a1d1fd796542df59d0f68249eb0929b7b27cc3b46b5c8dad92f93ba0883cda0"
+    },
+    {
+      "seq": 5691,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "clumsy-ghosts",
+        "field": "website",
+        "value": "https://www.clumsyghosts.com",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://www.cardanocube.com/projects/clumsy-ghosts",
+            "sha256": "94e548053ff91cdc11840395672f8f908f13433d68b3e3199ffa8c546e168c62",
+            "description": "cardanocube project page for \"clumsy-ghosts\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "16afd6606d135927858601c668c48c0f4071d271ecc7a5c0b77a27fd66274e6e",
+      "prev_hash": "2549187554d715d1658641c9e8038947f092b716fe0f438658bb992e9831c73f"
+    },
+    {
+      "seq": 5692,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "clumsy-ghosts",
+        "field": "whitepaper",
+        "value": "https://www.clumsyghosts.com/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://www.cardanocube.com/projects/clumsy-ghosts",
+            "sha256": "94e548053ff91cdc11840395672f8f908f13433d68b3e3199ffa8c546e168c62",
+            "description": "cardanocube project page for \"clumsy-ghosts\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "ba0295073d881d12a2dfdf7188007324185c80f2d421bc23c18b6e6b7b453167",
+      "prev_hash": "16afd6606d135927858601c668c48c0f4071d271ecc7a5c0b77a27fd66274e6e"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

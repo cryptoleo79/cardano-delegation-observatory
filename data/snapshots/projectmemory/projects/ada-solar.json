@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "ada-solar",
+    "kind": "project",
+    "name": "Ada Solar",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4328",
+          "field": "name",
+          "value": "Ada Solar",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+                "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+                "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4328,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5678",
+          "field": "website",
+          "value": "https://www.ada.solar",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260621013759id_/https://www.cardanocube.com/projects/ada-solar",
+                "sha256": "5881f0c91e14fca29341ab44612d8c7709a89ff53dcc5c711055d14db029d522",
+                "description": "cardanocube project page for \"ada-solar\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5678,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5679",
+          "field": "whitepaper",
+          "value": "https://www.ada.solar",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260621013759id_/https://www.cardanocube.com/projects/ada-solar",
+                "sha256": "5881f0c91e14fca29341ab44612d8c7709a89ff53dcc5c711055d14db029d522",
+                "description": "cardanocube project page for \"ada-solar\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5679,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "infrastructure",
+        "name": "Infrastructure",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4327,
+    "last_seq": 5679
+  },
+  "history": [
+    {
+      "seq": 4327,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "ada-solar",
+        "kind": "project"
+      },
+      "hash": "0f0ab7c64fd6cd96975e448e70e08c8f0dbe7f3f7e1259bf3cb68bf8934f31b3",
+      "prev_hash": "420939fed1a84d689f475156407df9439c065f9bbe452117a8cf9a501bf53946"
+    },
+    {
+      "seq": 4328,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "ada-solar",
+        "field": "name",
+        "value": "Ada Solar",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "f5f16070b5e57aeb52ba59dd33061b6d3b17fa9b8b0f5f2dbb4e946e6535869b",
+      "prev_hash": "0f0ab7c64fd6cd96975e448e70e08c8f0dbe7f3f7e1259bf3cb68bf8934f31b3"
+    },
+    {
+      "seq": 4329,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "ada-solar",
+        "category_slug": "infrastructure",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "f1393fe895a0ddf27cb8a1ff3fa36b132f25e6b642ab94cc3e1117c124c57eb2",
+      "prev_hash": "f5f16070b5e57aeb52ba59dd33061b6d3b17fa9b8b0f5f2dbb4e946e6535869b"
+    },
+    {
+      "seq": 5678,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "ada-solar",
+        "field": "website",
+        "value": "https://www.ada.solar",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260621013759id_/https://www.cardanocube.com/projects/ada-solar",
+            "sha256": "5881f0c91e14fca29341ab44612d8c7709a89ff53dcc5c711055d14db029d522",
+            "description": "cardanocube project page for \"ada-solar\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "651d12cfc7af5f68102041b03812e6de050eb76e098584178b5efd02965fd613",
+      "prev_hash": "68200acb7e9dc5d3f01d3c9c387a7abe5d8ed75a37c8029f6a3bcadb46715d9f"
+    },
+    {
+      "seq": 5679,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "ada-solar",
+        "field": "whitepaper",
+        "value": "https://www.ada.solar",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260621013759id_/https://www.cardanocube.com/projects/ada-solar",
+            "sha256": "5881f0c91e14fca29341ab44612d8c7709a89ff53dcc5c711055d14db029d522",
+            "description": "cardanocube project page for \"ada-solar\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "55b89ef3da3fcef35f24cfa538fee9e145e053e5f09f06e7ec08a92fc6b90e46",
+      "prev_hash": "651d12cfc7af5f68102041b03812e6de050eb76e098584178b5efd02965fd613"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

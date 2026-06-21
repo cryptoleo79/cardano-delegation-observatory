@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "wayup",
+    "kind": "project",
+    "name": "Wayup",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4393",
+          "field": "name",
+          "value": "Wayup",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+                "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+                "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4393,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5491",
+          "field": "website",
+          "value": "https://www.wayup.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250120021940id_/https://www.cardanocube.com/projects/wayup",
+                "sha256": "a3414ec628f88bbd29049e3df9f88c203cf5d8417d67a1d01d31d9dbf0ba1772",
+                "description": "cardanocube project page for \"wayup\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5491,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "marketplaces",
+        "name": "Marketplaces",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4392,
+    "last_seq": 5491
+  },
+  "history": [
+    {
+      "seq": 4392,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "wayup",
+        "kind": "project"
+      },
+      "hash": "b75e7d73dd7f41e9ac2a4a8dff950102d55d010010770abed7b0f98d687ef14a",
+      "prev_hash": "11d28a6ae412bfaa259c766fe53a5041abd7e10b0bd1497c18e945fba62470d5"
+    },
+    {
+      "seq": 4393,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "wayup",
+        "field": "name",
+        "value": "Wayup",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "b3cf55a779aa516e4e04b959a3d6e37de61b384062bb34129cbb9146ebc03b0a",
+      "prev_hash": "b75e7d73dd7f41e9ac2a4a8dff950102d55d010010770abed7b0f98d687ef14a"
+    },
+    {
+      "seq": 4394,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "wayup",
+        "category_slug": "marketplaces",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "05458af16da1a23e94a2a309b1cafb685a9b541f1d32f7eeb3c3e59930c8b9e6",
+      "prev_hash": "b3cf55a779aa516e4e04b959a3d6e37de61b384062bb34129cbb9146ebc03b0a"
+    },
+    {
+      "seq": 5491,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "wayup",
+        "field": "website",
+        "value": "https://www.wayup.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250120021940id_/https://www.cardanocube.com/projects/wayup",
+            "sha256": "a3414ec628f88bbd29049e3df9f88c203cf5d8417d67a1d01d31d9dbf0ba1772",
+            "description": "cardanocube project page for \"wayup\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "1abff49dc65936c2a8432a4d92df8cd74b421a0620eed4cf15aa3bbbb896f170",
+      "prev_hash": "bc9324e82ca156b473d245a5815292f881220daa27d047e710468731705da73f"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

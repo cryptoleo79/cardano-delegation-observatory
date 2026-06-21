@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "iamx",
+    "kind": "project",
+    "name": "Iamx",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4337",
+          "field": "name",
+          "value": "Iamx",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+                "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+                "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4337,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5476",
+          "field": "website",
+          "value": "https://iamx.id/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250920100258id_/https://www.cardanocube.com/projects/iamx",
+                "sha256": "b93eb5f1a53ab2b05dbe124133d9d3222d09a1b9205f8d717647b4c5ae735522",
+                "description": "cardanocube project page for \"iamx\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5476,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "ispo",
+        "name": "Ispo",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4336,
+    "last_seq": 5476
+  },
+  "history": [
+    {
+      "seq": 4336,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "iamx",
+        "kind": "project"
+      },
+      "hash": "ac854339187dafa6f274560abe71847b9771f614fb57fdc86db6718921b0afb1",
+      "prev_hash": "5a03efa32c09e02d18569276246c0c7872087ffdc54a831020a25ffe3d5b77d1"
+    },
+    {
+      "seq": 4337,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "iamx",
+        "field": "name",
+        "value": "Iamx",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+            "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+            "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "38b3fddd091299366a221a4038455b791801772ad1f1ceee74570003b67519c3",
+      "prev_hash": "ac854339187dafa6f274560abe71847b9771f614fb57fdc86db6718921b0afb1"
+    },
+    {
+      "seq": 4338,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "iamx",
+        "category_slug": "ispo",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+            "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+            "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "52631cccf6953a669b40bd48d2db12d670c68f3b930faf0e79938467314133fc",
+      "prev_hash": "38b3fddd091299366a221a4038455b791801772ad1f1ceee74570003b67519c3"
+    },
+    {
+      "seq": 5476,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "iamx",
+        "field": "website",
+        "value": "https://iamx.id/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250920100258id_/https://www.cardanocube.com/projects/iamx",
+            "sha256": "b93eb5f1a53ab2b05dbe124133d9d3222d09a1b9205f8d717647b4c5ae735522",
+            "description": "cardanocube project page for \"iamx\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "24d4990a8d8d1a65bfc7fe31cea26104a086fca8c018b02ab3e51a0fa22ed56e",
+      "prev_hash": "762d1e7d3f1511dca51b88dba1a8ed1d9b6dd84fa0b4b9ef96d034f2f5921508"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

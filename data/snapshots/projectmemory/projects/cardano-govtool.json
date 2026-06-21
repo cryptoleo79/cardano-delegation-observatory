@@ -1,0 +1,270 @@
+{
+  "project": {
+    "id": "cardano-govtool",
+    "kind": "project",
+    "name": "Cardano Govtool",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4465",
+          "field": "name",
+          "value": "Cardano Govtool",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+                "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+                "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4465,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5441",
+          "field": "website",
+          "value": "https://gov.tools/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250321023932id_/https://www.cardanocube.com/projects/cardano-govtool",
+                "sha256": "4920c0f55ee6c863b308fccb660ccb3f30ead9bb456a99318b3386d3d35f5af7",
+                "description": "cardanocube project page for \"cardano-govtool\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5441,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "governance",
+        "name": "Governance",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      },
+      {
+        "slug": "popular",
+        "name": "Popular",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 1,
+    "created_seq": 4241,
+    "last_seq": 5441
+  },
+  "history": [
+    {
+      "seq": 4241,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "cardano-govtool",
+        "kind": "project"
+      },
+      "hash": "bdd5fee8b81f8994be2ddd1852d1cdf8ee0c6dabafcbc00867bfae2d4638a36d",
+      "prev_hash": "a5db2be2987cf3b46bcf1fad2767b644194c8f1ea385ab01e4a836dea698979f"
+    },
+    {
+      "seq": 4242,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardano-govtool",
+        "field": "name",
+        "value": "Cardano Govtool",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+            "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+            "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "c29383256e03086685e236450c9d43c005bd2ecb7f32811423c32d9fba319ac1",
+      "prev_hash": "bdd5fee8b81f8994be2ddd1852d1cdf8ee0c6dabafcbc00867bfae2d4638a36d"
+    },
+    {
+      "seq": 4243,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardano-govtool",
+        "category_slug": "governance",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+            "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+            "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "e9db0b9f7dcee94f45f12d6e6e58256527a8722a352d3700f2c87b047ef341e5",
+      "prev_hash": "c29383256e03086685e236450c9d43c005bd2ecb7f32811423c32d9fba319ac1"
+    },
+    {
+      "seq": 4464,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "cardano-govtool",
+        "kind": "project"
+      },
+      "hash": "c8e5d801b24b98cc260e13b99956d0b59f3af0ba9ef349fdbb0347857e087050",
+      "prev_hash": "526d74df6041faa234cf65601ab162bfcab6eda28249440e311446f2ddbdd5d4"
+    },
+    {
+      "seq": 4465,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardano-govtool",
+        "field": "name",
+        "value": "Cardano Govtool",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "afaa2b5e854657ec5b12659ca6d7e6d5de176b51cb1e347c3cf20037e1991fe6",
+      "prev_hash": "c8e5d801b24b98cc260e13b99956d0b59f3af0ba9ef349fdbb0347857e087050"
+    },
+    {
+      "seq": 4466,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardano-govtool",
+        "category_slug": "popular",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "061f6e7914901fabbcd1884cdfd603b4beb55eaa01cb8047964e72d315891e25",
+      "prev_hash": "afaa2b5e854657ec5b12659ca6d7e6d5de176b51cb1e347c3cf20037e1991fe6"
+    },
+    {
+      "seq": 5441,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardano-govtool",
+        "field": "website",
+        "value": "https://gov.tools/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250321023932id_/https://www.cardanocube.com/projects/cardano-govtool",
+            "sha256": "4920c0f55ee6c863b308fccb660ccb3f30ead9bb456a99318b3386d3d35f5af7",
+            "description": "cardanocube project page for \"cardano-govtool\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "9eaf605a8041f67a7438b3aa8d9756a14bdd323c40edce013be0cd071471fe0f",
+      "prev_hash": "e9ad8837ef498aa456830cf49c1c4870de8d9ce5ded7c2aa6e626c3c98096735"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

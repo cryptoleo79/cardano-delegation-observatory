@@ -39,6 +39,39 @@
           "superseded_by_seq": null
         }
       ],
+      "github": [
+        {
+          "claim_id": "clm_5595",
+          "field": "github",
+          "value": "https://github.com/Duelist-King",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-20",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "648f9154a44a5830d86dc51cb86f67547a1c9d432ecd9d5f6ca70357471c0585",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 5595,
+          "superseded_by_seq": null
+        }
+      ],
       "name": [
         {
           "claim_id": "clm_1928",
@@ -104,6 +137,103 @@
           "asserted_seq": 1930,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5594",
+          "field": "website",
+          "value": "https://duelistking.com/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-20",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "648f9154a44a5830d86dc51cb86f67547a1c9d432ecd9d5f6ca70357471c0585",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 5594,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5545",
+          "field": "whitepaper",
+          "value": "https://duelistking.com/Duelist_King_WPP.pdf",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250206134334id_/https://www.cardanocube.com/projects/duelist-king",
+                "sha256": "d06ccd64e77cd1caebda6d19d654a37dea5cdfbb001af4658df422b102fa60f5",
+                "description": "cardanocube project page for \"boc:duelist-king\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5545,
+          "superseded_by_seq": null
+        },
+        {
+          "claim_id": "clm_5596",
+          "field": "whitepaper",
+          "value": "https://duelistking.com/Duelist_King_WPP.pdf",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-20",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "648f9154a44a5830d86dc51cb86f67547a1c9d432ecd9d5f6ca70357471c0585",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 5596,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [
@@ -124,9 +254,9 @@
         }
       }
     ],
-    "superseded_claim_count": 0,
+    "superseded_claim_count": 1,
     "created_seq": 1927,
-    "last_seq": 1931
+    "last_seq": 5596
   },
   "history": [
     {
@@ -235,7 +365,142 @@
       },
       "hash": "2796ccefcdb27e4df9423a97e20cfa4accecfd1210e43a4a4fb450bd5dae6bca",
       "prev_hash": "fb4324215d6339d961aac43b786557518d801cb1cbfb8c4b8369f6c5312dfe5f"
+    },
+    {
+      "seq": 5544,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:duelist-king",
+        "field": "website",
+        "value": "https://duelistking.com/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250206134334id_/https://www.cardanocube.com/projects/duelist-king",
+            "sha256": "d06ccd64e77cd1caebda6d19d654a37dea5cdfbb001af4658df422b102fa60f5",
+            "description": "cardanocube project page for \"boc:duelist-king\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "e1410343f0ceaf9d5ca6737c41d28b526541cf1faaeed91d32d6be78eff9e319",
+      "prev_hash": "56aabcb2926a4a3a671bcfa9c762b62226d518a044c1aa26237def4af41add2e"
+    },
+    {
+      "seq": 5545,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:duelist-king",
+        "field": "whitepaper",
+        "value": "https://duelistking.com/Duelist_King_WPP.pdf",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250206134334id_/https://www.cardanocube.com/projects/duelist-king",
+            "sha256": "d06ccd64e77cd1caebda6d19d654a37dea5cdfbb001af4658df422b102fa60f5",
+            "description": "cardanocube project page for \"boc:duelist-king\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "d3389103fc66e75e2771b2b2469704e403fb437094ca1f42db074ad26b1fd914",
+      "prev_hash": "e1410343f0ceaf9d5ca6737c41d28b526541cf1faaeed91d32d6be78eff9e319"
+    },
+    {
+      "seq": 5594,
+      "ts": "2026-06-20",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:duelist-king",
+        "field": "website",
+        "value": "https://duelistking.com/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-20",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "648f9154a44a5830d86dc51cb86f67547a1c9d432ecd9d5f6ca70357471c0585",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "3f5b64494de643f6f88daa7e8cbc9c2f485aeaf432131085d05aeb8f3f2f6788",
+      "prev_hash": "381a6de22c3e5a76d30176f4593fc019b02bc15ad3dcbf3b7ed758b246306f1b"
+    },
+    {
+      "seq": 5595,
+      "ts": "2026-06-20",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:duelist-king",
+        "field": "github",
+        "value": "https://github.com/Duelist-King",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-20",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "648f9154a44a5830d86dc51cb86f67547a1c9d432ecd9d5f6ca70357471c0585",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "ac50e3d5d06030ae77cff13beacd06128e496b55da127d34e9f4a7220b7a5ead",
+      "prev_hash": "3f5b64494de643f6f88daa7e8cbc9c2f485aeaf432131085d05aeb8f3f2f6788"
+    },
+    {
+      "seq": 5596,
+      "ts": "2026-06-20",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:duelist-king",
+        "field": "whitepaper",
+        "value": "https://duelistking.com/Duelist_King_WPP.pdf",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-20",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "648f9154a44a5830d86dc51cb86f67547a1c9d432ecd9d5f6ca70357471c0585",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "4583fe677277677d0089073ad9ff6610250a44b04b9de3d44d1aea032f445d7b",
+      "prev_hash": "ac50e3d5d06030ae77cff13beacd06128e496b55da127d34e9f4a7220b7a5ead"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

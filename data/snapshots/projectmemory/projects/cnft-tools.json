@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "cnft-tools",
+    "kind": "project",
+    "name": "Cnft Tools",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4483",
+          "field": "name",
+          "value": "Cnft Tools",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+                "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+                "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4483,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5509",
+          "field": "website",
+          "value": "https://cnft.tools/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260202194433id_/https://www.cardanocube.com/projects/cnft-tools",
+                "sha256": "b403db746e0c8f13350926589b93d1a8ad12727fa516f52d25fa521ece9b38f7",
+                "description": "cardanocube project page for \"cnft-tools\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5509,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "popular",
+        "name": "Popular",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4482,
+    "last_seq": 5509
+  },
+  "history": [
+    {
+      "seq": 4482,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "cnft-tools",
+        "kind": "project"
+      },
+      "hash": "27ab87dbcb7b6dc93788cf4f433e69cbb55ab759c2fe0d31bb3792802eb3606a",
+      "prev_hash": "acb60fb93a12a6b6e1df9dc3e24fecdac195b40c2b0774b04b9ae97edbd291ee"
+    },
+    {
+      "seq": 4483,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cnft-tools",
+        "field": "name",
+        "value": "Cnft Tools",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "02e7a2760fba6d0ad29567a1111d1696fd795c7e7ada349d0cf2190ebd70e582",
+      "prev_hash": "27ab87dbcb7b6dc93788cf4f433e69cbb55ab759c2fe0d31bb3792802eb3606a"
+    },
+    {
+      "seq": 4484,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cnft-tools",
+        "category_slug": "popular",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "613cc7b63df3c26e0710d53cbbfca80ded2afa6e4e5813db339c63b1d3df1604",
+      "prev_hash": "02e7a2760fba6d0ad29567a1111d1696fd795c7e7ada349d0cf2190ebd70e582"
+    },
+    {
+      "seq": 5509,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cnft-tools",
+        "field": "website",
+        "value": "https://cnft.tools/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260202194433id_/https://www.cardanocube.com/projects/cnft-tools",
+            "sha256": "b403db746e0c8f13350926589b93d1a8ad12727fa516f52d25fa521ece9b38f7",
+            "description": "cardanocube project page for \"cnft-tools\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "462682139dcf0946ede941f2c7e1e2426e9e35c55328dd8fff27a1ed3f53d828",
+      "prev_hash": "bc6955da4c3eab3c8c7b180106ca9c776d41c70faad3f58ebb67717507562a84"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "nufi",
+    "kind": "project",
+    "name": "Nufi",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4254",
+          "field": "name",
+          "value": "Nufi",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+                "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+                "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4254,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5446",
+          "field": "website",
+          "value": "https://nu.fi/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250212192845id_/https://www.cardanocube.com/projects/nufi",
+                "sha256": "289aef41a755ffd1be821e9c2b78d3e3aabac98204cb3c7018720b8c7acefed8",
+                "description": "cardanocube project page for \"nufi\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5446,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "governance",
+        "name": "Governance",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4253,
+    "last_seq": 5446
+  },
+  "history": [
+    {
+      "seq": 4253,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "nufi",
+        "kind": "project"
+      },
+      "hash": "a318d46367d7cd9e6556d807b02b345552e2142a3b8dcabd6e04078076702639",
+      "prev_hash": "3956bc7b50cd5777758124a2d82a509d0dcc2e5163005c0dc07c8e275e329f76"
+    },
+    {
+      "seq": 4254,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "nufi",
+        "field": "name",
+        "value": "Nufi",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+            "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+            "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "103700df7adb8862938669dece12022797f92fcf9ffffe9e44518b54d274ec14",
+      "prev_hash": "a318d46367d7cd9e6556d807b02b345552e2142a3b8dcabd6e04078076702639"
+    },
+    {
+      "seq": 4255,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "nufi",
+        "category_slug": "governance",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+            "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+            "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "8018df452931404f0ab92f203d1a17a93cb134c9e79656a04138c853f642ff11",
+      "prev_hash": "103700df7adb8862938669dece12022797f92fcf9ffffe9e44518b54d274ec14"
+    },
+    {
+      "seq": 5446,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "nufi",
+        "field": "website",
+        "value": "https://nu.fi/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250212192845id_/https://www.cardanocube.com/projects/nufi",
+            "sha256": "289aef41a755ffd1be821e9c2b78d3e3aabac98204cb3c7018720b8c7acefed8",
+            "description": "cardanocube project page for \"nufi\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "ad4bac60e31127efc20c579266555e2a062cf57d6c528618e3956778c4b3303f",
+      "prev_hash": "5a3253a5d81a5dbb1ac3b3b372e5e1e13f70ff5f84683e32ad40d46b678dbb7b"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

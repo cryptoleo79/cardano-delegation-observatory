@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "fuzzyfellas",
+    "kind": "project",
+    "name": "Fuzzyfellas",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4528",
+          "field": "name",
+          "value": "Fuzzyfellas",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+                "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+                "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4528,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5705",
+          "field": "website",
+          "value": "https://fuzzyfellas.io",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://www.cardanocube.com/projects/fuzzyfellas",
+                "sha256": "e6fd00a14f21fda92f89c0b600768b6c576efeee93ea17f3d66ce50068544e96",
+                "description": "cardanocube project page for \"fuzzyfellas\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5705,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5706",
+          "field": "whitepaper",
+          "value": "https://fuzzyfellas.io/docs/fuzzpaper",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://www.cardanocube.com/projects/fuzzyfellas",
+                "sha256": "e6fd00a14f21fda92f89c0b600768b6c576efeee93ea17f3d66ce50068544e96",
+                "description": "cardanocube project page for \"fuzzyfellas\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5706,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "utility-nfts",
+        "name": "Utility Nfts",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4527,
+    "last_seq": 5706
+  },
+  "history": [
+    {
+      "seq": 4527,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "fuzzyfellas",
+        "kind": "project"
+      },
+      "hash": "ca33e081d820a66d40f949d99053773720b935f7bb797db012da29f54e89a098",
+      "prev_hash": "52314520d4702fe73f44532dc77323f3ebe4bbbc02af07425f23c11118386864"
+    },
+    {
+      "seq": 4528,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "fuzzyfellas",
+        "field": "name",
+        "value": "Fuzzyfellas",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "0258535189418ec537d59e0a0f589acc6d1927dd9f9ce8f311b2148451deef67",
+      "prev_hash": "ca33e081d820a66d40f949d99053773720b935f7bb797db012da29f54e89a098"
+    },
+    {
+      "seq": 4529,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "fuzzyfellas",
+        "category_slug": "utility-nfts",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "007d860ca9244568431d774243ae7c6ca35235d95d0f7e2934d6ec8222b268da",
+      "prev_hash": "0258535189418ec537d59e0a0f589acc6d1927dd9f9ce8f311b2148451deef67"
+    },
+    {
+      "seq": 5705,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "fuzzyfellas",
+        "field": "website",
+        "value": "https://fuzzyfellas.io",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://www.cardanocube.com/projects/fuzzyfellas",
+            "sha256": "e6fd00a14f21fda92f89c0b600768b6c576efeee93ea17f3d66ce50068544e96",
+            "description": "cardanocube project page for \"fuzzyfellas\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "6ba3b2c9db6fb3ef450561507267597c6312fa63ab9c793b2295431896fc4211",
+      "prev_hash": "e9a11625a58698e3b74c10f18701b50cccea53aec503e10865d4d6bf7cb450d2"
+    },
+    {
+      "seq": 5706,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "fuzzyfellas",
+        "field": "whitepaper",
+        "value": "https://fuzzyfellas.io/docs/fuzzpaper",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://www.cardanocube.com/projects/fuzzyfellas",
+            "sha256": "e6fd00a14f21fda92f89c0b600768b6c576efeee93ea17f3d66ce50068544e96",
+            "description": "cardanocube project page for \"fuzzyfellas\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "d652efee7f7554fd212f6242c711115814af0fcca1b73973fd4350becd8fea80",
+      "prev_hash": "6ba3b2c9db6fb3ef450561507267597c6312fa63ab9c793b2295431896fc4211"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

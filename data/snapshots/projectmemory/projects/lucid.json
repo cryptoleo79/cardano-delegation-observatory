@@ -6,6 +6,39 @@
     "status": "defunct",
     "unclassified": true,
     "fields": {
+      "github": [
+        {
+          "claim_id": "clm_5398",
+          "field": "github",
+          "value": "https://github.com/spacebudz/lucid",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603134246id_/https://cardanocube.com/projects/lucid",
+                "sha256": "7020169202d281ffb125da32424dc17e3ae04595b47d3ae394161b60f61d01fe",
+                "description": "cardanocube project page for \"lucid\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5398,
+          "superseded_by_seq": null
+        }
+      ],
       "name": [
         {
           "claim_id": "clm_117",
@@ -71,12 +104,45 @@
           "asserted_seq": 118,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5397",
+          "field": "website",
+          "value": "https://lucid.spacebudz.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603134246id_/https://cardanocube.com/projects/lucid",
+                "sha256": "7020169202d281ffb125da32424dc17e3ae04595b47d3ae394161b60f61d01fe",
+                "description": "cardanocube project page for \"lucid\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5397,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [],
     "superseded_claim_count": 0,
     "created_seq": 116,
-    "last_seq": 118
+    "last_seq": 5398
   },
   "history": [
     {
@@ -140,7 +206,61 @@
       },
       "hash": "5156ed98e30a440e6c2ba55869b55c76de84364d975feb9d410351e410146c22",
       "prev_hash": "7c39a67eb65d10bcefc537a9bb8d43af3ea7809657b5c0302d0f7c73ee409e22"
+    },
+    {
+      "seq": 5397,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "lucid",
+        "field": "website",
+        "value": "https://lucid.spacebudz.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603134246id_/https://cardanocube.com/projects/lucid",
+            "sha256": "7020169202d281ffb125da32424dc17e3ae04595b47d3ae394161b60f61d01fe",
+            "description": "cardanocube project page for \"lucid\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "4e785c5f9b23de9b3370e849b88f190225892835dd851fcbdc4aa39c1317aa08",
+      "prev_hash": "253494845c4f3831e1c829e69020bba675b07c78cc7a112c74d623d29dc28d6d"
+    },
+    {
+      "seq": 5398,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "lucid",
+        "field": "github",
+        "value": "https://github.com/spacebudz/lucid",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603134246id_/https://cardanocube.com/projects/lucid",
+            "sha256": "7020169202d281ffb125da32424dc17e3ae04595b47d3ae394161b60f61d01fe",
+            "description": "cardanocube project page for \"lucid\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "091fd7571b537afa0fec962be6ed06ccdc26e39c63877a154c3c1bb9a9a9e001",
+      "prev_hash": "4e785c5f9b23de9b3370e849b88f190225892835dd851fcbdc4aa39c1317aa08"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

@@ -71,12 +71,78 @@
           "asserted_seq": 100,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5390",
+          "field": "website",
+          "value": "https://cobraking.meme/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250119224421id_/https://cardanocube.com/projects/cobraking",
+                "sha256": "7bc2122078eb6641edd66575eb9099d5a93d8fc6079aceedbd1ee09252bcbb88",
+                "description": "cardanocube project page for \"cobraking\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5390,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5391",
+          "field": "whitepaper",
+          "value": "https://cobraking.meme/wp-content/uploads/2024/01/COBRA-KING-whitepaper-1.pdf",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250119224421id_/https://cardanocube.com/projects/cobraking",
+                "sha256": "7bc2122078eb6641edd66575eb9099d5a93d8fc6079aceedbd1ee09252bcbb88",
+                "description": "cardanocube project page for \"cobraking\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5391,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [],
     "superseded_claim_count": 0,
     "created_seq": 98,
-    "last_seq": 100
+    "last_seq": 5391
   },
   "history": [
     {
@@ -140,7 +206,61 @@
       },
       "hash": "483b9714878740591b06eac5a599e213bd70d76bfebfe12f9f0d8c0fd2ebb692",
       "prev_hash": "784bed0796f4cee8618108ac662cc5d2a59dc386f563eeb1bfd330d0f5cbe3f8"
+    },
+    {
+      "seq": 5390,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cobraking",
+        "field": "website",
+        "value": "https://cobraking.meme/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250119224421id_/https://cardanocube.com/projects/cobraking",
+            "sha256": "7bc2122078eb6641edd66575eb9099d5a93d8fc6079aceedbd1ee09252bcbb88",
+            "description": "cardanocube project page for \"cobraking\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "f3ba0231e7b280516782cd0cbb2367e94fba1c0dbe24ab9b41808acf7217ed3e",
+      "prev_hash": "019d2e4e7a0d04a5c71858b666ad0ab7a5e5958d0fe42d7c025eb6b5c9bc9983"
+    },
+    {
+      "seq": 5391,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cobraking",
+        "field": "whitepaper",
+        "value": "https://cobraking.meme/wp-content/uploads/2024/01/COBRA-KING-whitepaper-1.pdf",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250119224421id_/https://cardanocube.com/projects/cobraking",
+            "sha256": "7bc2122078eb6641edd66575eb9099d5a93d8fc6079aceedbd1ee09252bcbb88",
+            "description": "cardanocube project page for \"cobraking\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "69e28ff33c9835d6393d48ab35917571118620aa5d8e39ce11d5f96a8a2f8257",
+      "prev_hash": "f3ba0231e7b280516782cd0cbb2367e94fba1c0dbe24ab9b41808acf7217ed3e"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

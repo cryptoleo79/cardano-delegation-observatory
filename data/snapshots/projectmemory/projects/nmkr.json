@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "nmkr",
+    "kind": "project",
+    "name": "Nmkr",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4340",
+          "field": "name",
+          "value": "Nmkr",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+                "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+                "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4340,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5530",
+          "field": "website",
+          "value": "https://www.nmkr.io",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260303061004id_/https://www.cardanocube.com/projects/nmkr",
+                "sha256": "93431b37a43eb75e1802927787e0a9acea393a23ae346b883b31c90c78a38580",
+                "description": "cardanocube project page for \"nmkr\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5530,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5531",
+          "field": "whitepaper",
+          "value": "https://www.nmkr.io/whitepaper",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260303061004id_/https://www.cardanocube.com/projects/nmkr",
+                "sha256": "93431b37a43eb75e1802927787e0a9acea393a23ae346b883b31c90c78a38580",
+                "description": "cardanocube project page for \"nmkr\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5531,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "ispo",
+        "name": "Ispo",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4339,
+    "last_seq": 5531
+  },
+  "history": [
+    {
+      "seq": 4339,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "nmkr",
+        "kind": "project"
+      },
+      "hash": "7b9083669cf4f5cca7958e4b48f2bc4443e1055dfadda06ef0480713dcba1630",
+      "prev_hash": "52631cccf6953a669b40bd48d2db12d670c68f3b930faf0e79938467314133fc"
+    },
+    {
+      "seq": 4340,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "nmkr",
+        "field": "name",
+        "value": "Nmkr",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+            "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+            "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "59cedbd2f0597d555123c92579d0575853845d735132fc0647e23b1ba6566832",
+      "prev_hash": "7b9083669cf4f5cca7958e4b48f2bc4443e1055dfadda06ef0480713dcba1630"
+    },
+    {
+      "seq": 4341,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "nmkr",
+        "category_slug": "ispo",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+            "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+            "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "3911f0d56d50119cb8cb67e0166b06d439587e15173067c0b52723b49f52f556",
+      "prev_hash": "59cedbd2f0597d555123c92579d0575853845d735132fc0647e23b1ba6566832"
+    },
+    {
+      "seq": 5530,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "nmkr",
+        "field": "website",
+        "value": "https://www.nmkr.io",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260303061004id_/https://www.cardanocube.com/projects/nmkr",
+            "sha256": "93431b37a43eb75e1802927787e0a9acea393a23ae346b883b31c90c78a38580",
+            "description": "cardanocube project page for \"nmkr\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "00b785e71110736c32607732753d6848601a9a5c40cce69abe484cf36dba6adb",
+      "prev_hash": "3b69a99b11cbc25a4ee232aa9867a09e33576dc22cac836d60f6263366c92b99"
+    },
+    {
+      "seq": 5531,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "nmkr",
+        "field": "whitepaper",
+        "value": "https://www.nmkr.io/whitepaper",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260303061004id_/https://www.cardanocube.com/projects/nmkr",
+            "sha256": "93431b37a43eb75e1802927787e0a9acea393a23ae346b883b31c90c78a38580",
+            "description": "cardanocube project page for \"nmkr\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "6df53e6506b018c4623fdee01e60bea4670a917bb51491328b885ba5d0e367c3",
+      "prev_hash": "00b785e71110736c32607732753d6848601a9a5c40cce69abe484cf36dba6adb"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

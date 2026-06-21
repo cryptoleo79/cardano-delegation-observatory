@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "demu",
+    "kind": "project",
+    "name": "Demu",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4429",
+          "field": "name",
+          "value": "Demu",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260505020927id_/https://cardanocube.com/categories/music",
+                "sha256": "916045e40bee0d08dfd26d8f6fd3506fe1b040197e4015b9e637a72b3283c025",
+                "description": "cardanocube /categories/music listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4429,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5498",
+          "field": "website",
+          "value": "https://demu.pro/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260505020914id_/https://www.cardanocube.com/projects/demu",
+                "sha256": "7a29bb3379438ca00964e7affe36c102e87c90790b70875ba58cb6b04919d556",
+                "description": "cardanocube project page for \"demu\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5498,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "music",
+        "name": "Music",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4428,
+    "last_seq": 5498
+  },
+  "history": [
+    {
+      "seq": 4428,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "demu",
+        "kind": "project"
+      },
+      "hash": "d0c6ec618b88bd2995d1d51b6a62941b95f0cb1676946b564715c2c1b5ae2a4c",
+      "prev_hash": "8ec7794de6ecf4ada7a157a10d0bc9737a501cea4bf12e5da97e200e959c3f0e"
+    },
+    {
+      "seq": 4429,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "demu",
+        "field": "name",
+        "value": "Demu",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260505020927id_/https://cardanocube.com/categories/music",
+            "sha256": "916045e40bee0d08dfd26d8f6fd3506fe1b040197e4015b9e637a72b3283c025",
+            "description": "cardanocube /categories/music listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "c4f2231445e4f0d10859deffcc0b5386e78ae1413f95c98ebafcbcf1919ba970",
+      "prev_hash": "d0c6ec618b88bd2995d1d51b6a62941b95f0cb1676946b564715c2c1b5ae2a4c"
+    },
+    {
+      "seq": 4430,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "demu",
+        "category_slug": "music",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260505020927id_/https://cardanocube.com/categories/music",
+            "sha256": "916045e40bee0d08dfd26d8f6fd3506fe1b040197e4015b9e637a72b3283c025",
+            "description": "cardanocube /categories/music listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "e83adb27ed4964a20d17b5bffd47842b9767b05f3dfae76c0eac71b6017b53df",
+      "prev_hash": "c4f2231445e4f0d10859deffcc0b5386e78ae1413f95c98ebafcbcf1919ba970"
+    },
+    {
+      "seq": 5498,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "demu",
+        "field": "website",
+        "value": "https://demu.pro/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260505020914id_/https://www.cardanocube.com/projects/demu",
+            "sha256": "7a29bb3379438ca00964e7affe36c102e87c90790b70875ba58cb6b04919d556",
+            "description": "cardanocube project page for \"demu\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "b05a6eb3f45a0baa9e8c3dc8e42a43aa90e6561024996dfbb3a1ca0860c087bb",
+      "prev_hash": "9096b6b708d3f4137c49a8f469c5258fce0b6d183a8defd08a073702aa64c263"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "coinecta",
+    "kind": "project",
+    "name": "Coinecta",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "documentation": [
+        {
+          "claim_id": "clm_5484",
+          "field": "documentation",
+          "value": "https://docs.coinecta.fi/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250318005017id_/https://www.cardanocube.com/projects/coinecta",
+                "sha256": "9f7807a5feaeb9564ad29e6d24b267935a1213bc0ed034d4a59287212bbca840",
+                "description": "cardanocube project page for \"coinecta\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5484,
+          "superseded_by_seq": null
+        }
+      ],
+      "name": [
+        {
+          "claim_id": "clm_4357",
+          "field": "name",
+          "value": "Coinecta",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+                "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+                "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4357,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5483",
+          "field": "website",
+          "value": "https://coinecta.fi/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250318005017id_/https://www.cardanocube.com/projects/coinecta",
+                "sha256": "9f7807a5feaeb9564ad29e6d24b267935a1213bc0ed034d4a59287212bbca840",
+                "description": "cardanocube project page for \"coinecta\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5483,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "ispo",
+        "name": "Ispo",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4356,
+    "last_seq": 5484
+  },
+  "history": [
+    {
+      "seq": 4356,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "coinecta",
+        "kind": "project"
+      },
+      "hash": "194051be250e27d5ba7806469a8b75a47c0024a0c3ba7870b73b1278351cdc73",
+      "prev_hash": "93ba2a833671099b5e49135caa6bd7ddec16181f8ae3440399145a9a2c2f69aa"
+    },
+    {
+      "seq": 4357,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "coinecta",
+        "field": "name",
+        "value": "Coinecta",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+            "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+            "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "517ec4bdddd83e22f5abda1d93314eb3ea54652d0fb7e3de010b9ef30ae1c668",
+      "prev_hash": "194051be250e27d5ba7806469a8b75a47c0024a0c3ba7870b73b1278351cdc73"
+    },
+    {
+      "seq": 4358,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "coinecta",
+        "category_slug": "ispo",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+            "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+            "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "c6b18200f5e1fb04b79b25e86968f8417ec23bfcae20eb104cb84a8887e59cdd",
+      "prev_hash": "517ec4bdddd83e22f5abda1d93314eb3ea54652d0fb7e3de010b9ef30ae1c668"
+    },
+    {
+      "seq": 5483,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "coinecta",
+        "field": "website",
+        "value": "https://coinecta.fi/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250318005017id_/https://www.cardanocube.com/projects/coinecta",
+            "sha256": "9f7807a5feaeb9564ad29e6d24b267935a1213bc0ed034d4a59287212bbca840",
+            "description": "cardanocube project page for \"coinecta\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "9061634b5c4683742be8190ceb4000eb7292738215e5a050674f47e51b1036f9",
+      "prev_hash": "b971e7928d88c63b222c2b4668378747c9fbef51e0f5c977d498d3da9fe7d58b"
+    },
+    {
+      "seq": 5484,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "coinecta",
+        "field": "documentation",
+        "value": "https://docs.coinecta.fi/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250318005017id_/https://www.cardanocube.com/projects/coinecta",
+            "sha256": "9f7807a5feaeb9564ad29e6d24b267935a1213bc0ed034d4a59287212bbca840",
+            "description": "cardanocube project page for \"coinecta\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "932b30a0115cb711060b5d8d9ae0950ad0030af5d8beb2d1b66589cfad43914b",
+      "prev_hash": "9061634b5c4683742be8190ceb4000eb7292738215e5a050674f47e51b1036f9"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

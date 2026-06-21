@@ -4,8 +4,41 @@
     "kind": "project",
     "name": "Cerra IO",
     "status": "defunct",
-    "unclassified": true,
+    "unclassified": false,
     "fields": {
+      "documentation": [
+        {
+          "claim_id": "clm_5384",
+          "field": "documentation",
+          "value": "https://documentation.cerra.io/cerra_io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133802id_/https://cardanocube.com/projects/cerra-io",
+                "sha256": "b9ac50e69a5192ea5293189c209e2d10852621a517fc3e5a091e8f483554e195",
+                "description": "cardanocube project page for \"cerra-io\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5384,
+          "superseded_by_seq": null
+        }
+      ],
       "name": [
         {
           "claim_id": "clm_87",
@@ -71,12 +104,62 @@
           "asserted_seq": 88,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5383",
+          "field": "website",
+          "value": "https://cerra.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133802id_/https://cardanocube.com/projects/cerra-io",
+                "sha256": "b9ac50e69a5192ea5293189c209e2d10852621a517fc3e5a091e8f483554e195",
+                "description": "cardanocube project page for \"cerra-io\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5383,
+          "superseded_by_seq": null
+        }
       ]
     },
-    "categories": [],
+    "categories": [
+      {
+        "slug": "ispo",
+        "name": "Ispo",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
     "superseded_claim_count": 0,
     "created_seq": 86,
-    "last_seq": 88
+    "last_seq": 5384
   },
   "history": [
     {
@@ -140,7 +223,98 @@
       },
       "hash": "d0c7ecc2f6c1ffe2a76c4a4798999ccd03514172935697cc538c772605d88473",
       "prev_hash": "0f42ca72a1744acf7427f6a49209a9b6fa6821fbf862b4bcf42cfb4d24e1316c"
+    },
+    {
+      "seq": 4354,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "cerra-io",
+        "kind": "project"
+      },
+      "hash": "0ab586043e090334fe14bbf22c9752582522aa35c127566b21afea76cb1cef09",
+      "prev_hash": "8c09a4c8629a735f9f77538e2c422001ee2f6eb129d12227441a7f1def835500"
+    },
+    {
+      "seq": 4355,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cerra-io",
+        "category_slug": "ispo",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+            "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+            "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "93ba2a833671099b5e49135caa6bd7ddec16181f8ae3440399145a9a2c2f69aa",
+      "prev_hash": "0ab586043e090334fe14bbf22c9752582522aa35c127566b21afea76cb1cef09"
+    },
+    {
+      "seq": 5383,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cerra-io",
+        "field": "website",
+        "value": "https://cerra.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133802id_/https://cardanocube.com/projects/cerra-io",
+            "sha256": "b9ac50e69a5192ea5293189c209e2d10852621a517fc3e5a091e8f483554e195",
+            "description": "cardanocube project page for \"cerra-io\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "940648310ecd0dc677a0a40c311291fa3250e998cecf515fed3fe8b2b7bc1107",
+      "prev_hash": "4e8ff43e91277fdca005f957c5ce074786ba4808e3726763405e6e7307b93741"
+    },
+    {
+      "seq": 5384,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cerra-io",
+        "field": "documentation",
+        "value": "https://documentation.cerra.io/cerra_io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133802id_/https://cardanocube.com/projects/cerra-io",
+            "sha256": "b9ac50e69a5192ea5293189c209e2d10852621a517fc3e5a091e8f483554e195",
+            "description": "cardanocube project page for \"cerra-io\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "7b174d90433946e02395d72904f81e8190d66c68dcc8e8a25e12169bd00e5d8e",
+      "prev_hash": "940648310ecd0dc677a0a40c311291fa3250e998cecf515fed3fe8b2b7bc1107"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

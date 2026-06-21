@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "cardanolands",
+    "kind": "project",
+    "name": "Cardanolands",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4510",
+          "field": "name",
+          "value": "Cardanolands",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+                "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+                "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4510,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5520",
+          "field": "website",
+          "value": "https://onchainkingdoms.com/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133952id_/https://www.cardanocube.com/projects/cardanolands",
+                "sha256": "08e9964ef9408c225c1a650610e4647501cdc0f537ba1b85141e6c91f5bdf542",
+                "description": "cardanocube project page for \"cardanolands\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5520,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5521",
+          "field": "whitepaper",
+          "value": "https://whitepaper.cardanolands.com/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133952id_/https://www.cardanocube.com/projects/cardanolands",
+                "sha256": "08e9964ef9408c225c1a650610e4647501cdc0f537ba1b85141e6c91f5bdf542",
+                "description": "cardanocube project page for \"cardanolands\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5521,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "utility-nfts",
+        "name": "Utility Nfts",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4509,
+    "last_seq": 5521
+  },
+  "history": [
+    {
+      "seq": 4509,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "cardanolands",
+        "kind": "project"
+      },
+      "hash": "1edfd7270ef5fe83f9bfd3f376d727a1ab1f2299dbc954a80fdcebd39428cb51",
+      "prev_hash": "8c84fbdb9b10bda7a277cf744c965aa0bc90887b1037d1d528d0894bfac9b7fa"
+    },
+    {
+      "seq": 4510,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardanolands",
+        "field": "name",
+        "value": "Cardanolands",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "61baf01a229fbb6b18e271a64952bccfe1884434aee76972785d58d02933443b",
+      "prev_hash": "1edfd7270ef5fe83f9bfd3f376d727a1ab1f2299dbc954a80fdcebd39428cb51"
+    },
+    {
+      "seq": 4511,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardanolands",
+        "category_slug": "utility-nfts",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "dcdcccaa204ee63916085bcf2fb2b233df05ce9700e282a408664fa707c632c1",
+      "prev_hash": "61baf01a229fbb6b18e271a64952bccfe1884434aee76972785d58d02933443b"
+    },
+    {
+      "seq": 5520,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardanolands",
+        "field": "website",
+        "value": "https://onchainkingdoms.com/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://www.cardanocube.com/projects/cardanolands",
+            "sha256": "08e9964ef9408c225c1a650610e4647501cdc0f537ba1b85141e6c91f5bdf542",
+            "description": "cardanocube project page for \"cardanolands\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "6ad63c4481db4804303a9d29d3d7bfaadc853e3612b0c2e086ecef658c688cc8",
+      "prev_hash": "c290838b156a3d882bdf109c45929e84204276c63d66afa157e7814e311c3af3"
+    },
+    {
+      "seq": 5521,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardanolands",
+        "field": "whitepaper",
+        "value": "https://whitepaper.cardanolands.com/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://www.cardanocube.com/projects/cardanolands",
+            "sha256": "08e9964ef9408c225c1a650610e4647501cdc0f537ba1b85141e6c91f5bdf542",
+            "description": "cardanocube project page for \"cardanolands\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "ca91064c904d62889f1d79a1d4168a59180e12e2fda2a3c8b09cf1b5522eef2e",
+      "prev_hash": "6ad63c4481db4804303a9d29d3d7bfaadc853e3612b0c2e086ecef658c688cc8"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

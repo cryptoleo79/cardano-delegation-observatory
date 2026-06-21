@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "materios",
+    "kind": "project",
+    "name": "Materios",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4435",
+          "field": "name",
+          "value": "Materios",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": null,
+                "sha256": "505f1904f06e0656989ce68eeae64a2fed9a2c91ee81f33301e5c4046eee62b4",
+                "description": "cardanocube /categories/partner-chain listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4435,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5713",
+          "field": "website",
+          "value": "https://fluxpointstudios.com/materios",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://www.cardanocube.com/projects/materios",
+                "sha256": "f6628f237fa4b56324f7ca27337e445f67ceefa576031a06b9464b4535c4ef38",
+                "description": "cardanocube project page for \"materios\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5713,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "partner-chain",
+        "name": "Partner Chain",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4434,
+    "last_seq": 5713
+  },
+  "history": [
+    {
+      "seq": 4434,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "materios",
+        "kind": "project"
+      },
+      "hash": "e3931c698302accf6ab2703438086daafffc88d43c02f52cfc24d3e8cb62a5a8",
+      "prev_hash": "08ee448bb620624668b5960afe8bbd1d45c9d5f7d6a75963299c20f59cd6886f"
+    },
+    {
+      "seq": 4435,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "materios",
+        "field": "name",
+        "value": "Materios",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": null,
+            "sha256": "505f1904f06e0656989ce68eeae64a2fed9a2c91ee81f33301e5c4046eee62b4",
+            "description": "cardanocube /categories/partner-chain listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "6a8672b59f5948d53896cfd57d3011f0d11774896e00a595c5b218bdad7795cd",
+      "prev_hash": "e3931c698302accf6ab2703438086daafffc88d43c02f52cfc24d3e8cb62a5a8"
+    },
+    {
+      "seq": 4436,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "materios",
+        "category_slug": "partner-chain",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": null,
+            "sha256": "505f1904f06e0656989ce68eeae64a2fed9a2c91ee81f33301e5c4046eee62b4",
+            "description": "cardanocube /categories/partner-chain listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "f0183d70032b75d65b3b5eb401bb95bf66a6aa0b335e119387d43d3b6c30bd74",
+      "prev_hash": "6a8672b59f5948d53896cfd57d3011f0d11774896e00a595c5b218bdad7795cd"
+    },
+    {
+      "seq": 5713,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "materios",
+        "field": "website",
+        "value": "https://fluxpointstudios.com/materios",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://www.cardanocube.com/projects/materios",
+            "sha256": "f6628f237fa4b56324f7ca27337e445f67ceefa576031a06b9464b4535c4ef38",
+            "description": "cardanocube project page for \"materios\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "dce6c9f2f31ce93c4244f2999cdbbbaca0d5ccc9653ce9505e9bca1cdf9c378f",
+      "prev_hash": "bc7b733b4caa5dcd7e7386bd2419b2164fb3325eb17e828335556b89a6efa7e4"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

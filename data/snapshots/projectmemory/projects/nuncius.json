@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "nuncius",
+    "kind": "project",
+    "name": "Nuncius",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4221",
+          "field": "name",
+          "value": "Nuncius",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20251205030602id_/https://cardanocube.com/categories/data",
+                "sha256": "6ec37910263b837238a06fd7ed21fc8546e2e99263f95864e8cca815f9b388c2",
+                "description": "cardanocube /categories/data listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4221,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5432",
+          "field": "website",
+          "value": "https://www.nuncius.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250713211629id_/https://www.cardanocube.com/projects/nuncius",
+                "sha256": "15c72885307e796b5cee124b02b974d0ef29e6ec47711884a29df00027d36c8b",
+                "description": "cardanocube project page for \"nuncius\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5432,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "data",
+        "name": "Data",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4220,
+    "last_seq": 5432
+  },
+  "history": [
+    {
+      "seq": 4220,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "nuncius",
+        "kind": "project"
+      },
+      "hash": "55f459b58816ea6d33ca0b79a7d5db0824fae3ae0b2fa0e5d63c93ea1d04c7fa",
+      "prev_hash": "35a2f739390f2f3696f70ce92b35b1ecdd262b83def4bff759c91328d9751118"
+    },
+    {
+      "seq": 4221,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "nuncius",
+        "field": "name",
+        "value": "Nuncius",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20251205030602id_/https://cardanocube.com/categories/data",
+            "sha256": "6ec37910263b837238a06fd7ed21fc8546e2e99263f95864e8cca815f9b388c2",
+            "description": "cardanocube /categories/data listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "860c24f605f90ca5f84576cabc758a5304f29aa28ad34fc159c128a5d4d5b49b",
+      "prev_hash": "55f459b58816ea6d33ca0b79a7d5db0824fae3ae0b2fa0e5d63c93ea1d04c7fa"
+    },
+    {
+      "seq": 4222,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "nuncius",
+        "category_slug": "data",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20251205030602id_/https://cardanocube.com/categories/data",
+            "sha256": "6ec37910263b837238a06fd7ed21fc8546e2e99263f95864e8cca815f9b388c2",
+            "description": "cardanocube /categories/data listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "3740775d3886b31bbf230da7bbcdb4eed11081bfe8f531b1d9f3362dbfdb77f1",
+      "prev_hash": "860c24f605f90ca5f84576cabc758a5304f29aa28ad34fc159c128a5d4d5b49b"
+    },
+    {
+      "seq": 5432,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "nuncius",
+        "field": "website",
+        "value": "https://www.nuncius.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250713211629id_/https://www.cardanocube.com/projects/nuncius",
+            "sha256": "15c72885307e796b5cee124b02b974d0ef29e6ec47711884a29df00027d36c8b",
+            "description": "cardanocube project page for \"nuncius\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "6d5863b1fea30ab63d03750b2aa6b1a529fd62b8475f50e38686c20474c82c43",
+      "prev_hash": "e98d9edcb1a7db4c80db39c31e63ea26c99c9784fc01aee9212e21bdcf976ff0"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

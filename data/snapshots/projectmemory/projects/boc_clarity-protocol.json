@@ -39,6 +39,70 @@
           "superseded_by_seq": null
         }
       ],
+      "documentation": [
+        {
+          "claim_id": "clm_5542",
+          "field": "documentation",
+          "value": "https://docs.clarity.vote/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250305224356id_/https://www.cardanocube.com/projects/clarity-protocol",
+                "sha256": "c4b7b4b855e7378cec49d2cd25b118ce6b9d42cf70dd6affe4cf4677d5ff95dd",
+                "description": "cardanocube project page for \"boc:clarity-protocol\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5542,
+          "superseded_by_seq": null
+        },
+        {
+          "claim_id": "clm_5601",
+          "field": "documentation",
+          "value": "https://https://docsend.com/view/hcn3fs62kggay3jw",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-20",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "648f9154a44a5830d86dc51cb86f67547a1c9d432ecd9d5f6ca70357471c0585",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 5601,
+          "superseded_by_seq": null
+        }
+      ],
       "name": [
         {
           "claim_id": "clm_1544",
@@ -104,6 +168,72 @@
           "asserted_seq": 1546,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5600",
+          "field": "website",
+          "value": "https://clarity.community/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-20",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "648f9154a44a5830d86dc51cb86f67547a1c9d432ecd9d5f6ca70357471c0585",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 5600,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5602",
+          "field": "whitepaper",
+          "value": "https://docsend.com/view/hcn3fs62kggay3jw",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-20",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "648f9154a44a5830d86dc51cb86f67547a1c9d432ecd9d5f6ca70357471c0585",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 5602,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [
@@ -140,9 +270,9 @@
         }
       }
     ],
-    "superseded_claim_count": 0,
+    "superseded_claim_count": 1,
     "created_seq": 1543,
-    "last_seq": 1548
+    "last_seq": 5602
   },
   "history": [
     {
@@ -274,7 +404,142 @@
       },
       "hash": "df622e3cce4a22f234acba5e12af567e81cdf37e39d7865cae7cffecd06fe080",
       "prev_hash": "58a97be8a98aef56867e04aeb75329e0dde77079ef09f57e72844b76e0f77307"
+    },
+    {
+      "seq": 5541,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:clarity-protocol",
+        "field": "website",
+        "value": "https://www.clarity.vote/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250305224356id_/https://www.cardanocube.com/projects/clarity-protocol",
+            "sha256": "c4b7b4b855e7378cec49d2cd25b118ce6b9d42cf70dd6affe4cf4677d5ff95dd",
+            "description": "cardanocube project page for \"boc:clarity-protocol\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "99c3b06026b8d44a577745bd839e26452ba42a7717d4c138e62b3611132f48b6",
+      "prev_hash": "0df9e768f8b41a5bfe6c5768cfa202d5a49db358f366e4a38edbf809453b1249"
+    },
+    {
+      "seq": 5542,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:clarity-protocol",
+        "field": "documentation",
+        "value": "https://docs.clarity.vote/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250305224356id_/https://www.cardanocube.com/projects/clarity-protocol",
+            "sha256": "c4b7b4b855e7378cec49d2cd25b118ce6b9d42cf70dd6affe4cf4677d5ff95dd",
+            "description": "cardanocube project page for \"boc:clarity-protocol\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "564f1b890cf887a6a3ac5c98230cd7620494eafd0334f72a64a512f5fb98d77c",
+      "prev_hash": "99c3b06026b8d44a577745bd839e26452ba42a7717d4c138e62b3611132f48b6"
+    },
+    {
+      "seq": 5600,
+      "ts": "2026-06-20",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:clarity-protocol",
+        "field": "website",
+        "value": "https://clarity.community/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-20",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "648f9154a44a5830d86dc51cb86f67547a1c9d432ecd9d5f6ca70357471c0585",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "ac511a447bc2d77d10d26ab6faa85959537277a174f7373437a15e48c882cae4",
+      "prev_hash": "d85b83b2ac4c85346d55477047a7f323c9c85a10550b0c4791f53ebcf2a52d10"
+    },
+    {
+      "seq": 5601,
+      "ts": "2026-06-20",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:clarity-protocol",
+        "field": "documentation",
+        "value": "https://https://docsend.com/view/hcn3fs62kggay3jw",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-20",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "648f9154a44a5830d86dc51cb86f67547a1c9d432ecd9d5f6ca70357471c0585",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "d3fbe40b47a734893ee94bb62acaa9d7c5c101f64ae059da7a85ab579f822537",
+      "prev_hash": "ac511a447bc2d77d10d26ab6faa85959537277a174f7373437a15e48c882cae4"
+    },
+    {
+      "seq": 5602,
+      "ts": "2026-06-20",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:clarity-protocol",
+        "field": "whitepaper",
+        "value": "https://docsend.com/view/hcn3fs62kggay3jw",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-20",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "648f9154a44a5830d86dc51cb86f67547a1c9d432ecd9d5f6ca70357471c0585",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "6874fa6a463a79a189611195ac9c9d74ad95f87ec9b3db0995360002553c28f7",
+      "prev_hash": "d3fbe40b47a734893ee94bb62acaa9d7c5c101f64ae059da7a85ab579f822537"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

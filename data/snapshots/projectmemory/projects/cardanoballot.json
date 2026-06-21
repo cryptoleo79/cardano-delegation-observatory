@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "cardanoballot",
+    "kind": "project",
+    "name": "Cardanoballot",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "github": [
+        {
+          "claim_id": "clm_5440",
+          "field": "github",
+          "value": "https://github.com/cardano-foundation/cf-cardano-ballot",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250206133534id_/https://www.cardanocube.com/projects/cardanoballot",
+                "sha256": "e41879a38d4ff658c72d713ec18ea784fe72d1a97cc8232a7015393ccb7543da",
+                "description": "cardanocube project page for \"cardanoballot\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5440,
+          "superseded_by_seq": null
+        }
+      ],
+      "name": [
+        {
+          "claim_id": "clm_4239",
+          "field": "name",
+          "value": "Cardanoballot",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+                "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+                "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4239,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "governance",
+        "name": "Governance",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4238,
+    "last_seq": 5440
+  },
+  "history": [
+    {
+      "seq": 4238,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "cardanoballot",
+        "kind": "project"
+      },
+      "hash": "2d16a696b585cdc709152e83c4c049ae9c20516ec402fc18a7e9f121bb7acaaf",
+      "prev_hash": "8bd8415fb9683f1eb948c3f9ae9cd986b571b8ca22c70b9382dfc988f10ee375"
+    },
+    {
+      "seq": 4239,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardanoballot",
+        "field": "name",
+        "value": "Cardanoballot",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+            "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+            "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "3955722b0705911b7bc00536c2fd8e3c713206735e22a08fb6383f2dfee46ec4",
+      "prev_hash": "2d16a696b585cdc709152e83c4c049ae9c20516ec402fc18a7e9f121bb7acaaf"
+    },
+    {
+      "seq": 4240,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardanoballot",
+        "category_slug": "governance",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+            "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+            "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "a5db2be2987cf3b46bcf1fad2767b644194c8f1ea385ab01e4a836dea698979f",
+      "prev_hash": "3955722b0705911b7bc00536c2fd8e3c713206735e22a08fb6383f2dfee46ec4"
+    },
+    {
+      "seq": 5440,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardanoballot",
+        "field": "github",
+        "value": "https://github.com/cardano-foundation/cf-cardano-ballot",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250206133534id_/https://www.cardanocube.com/projects/cardanoballot",
+            "sha256": "e41879a38d4ff658c72d713ec18ea784fe72d1a97cc8232a7015393ccb7543da",
+            "description": "cardanocube project page for \"cardanoballot\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "e9ad8837ef498aa456830cf49c1c4870de8d9ce5ded7c2aa6e626c3c98096735",
+      "prev_hash": "3ab5b4b9546e6b465c2e7ece80471c88697f81b6cdd98a28abc40b2b3030bbd1"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

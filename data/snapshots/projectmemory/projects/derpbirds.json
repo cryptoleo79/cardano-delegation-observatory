@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "derpbirds",
+    "kind": "project",
+    "name": "Derpbirds",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4525",
+          "field": "name",
+          "value": "Derpbirds",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+                "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+                "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4525,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5703",
+          "field": "website",
+          "value": "https://derpbirds.io",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://www.cardanocube.com/projects/derpbirds",
+                "sha256": "e80299018da88b1f3a50f010fb476daedf476612fa70708456e5d8f7a7853de8",
+                "description": "cardanocube project page for \"derpbirds\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5703,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5704",
+          "field": "whitepaper",
+          "value": "https://derpbirds.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://www.cardanocube.com/projects/derpbirds",
+                "sha256": "e80299018da88b1f3a50f010fb476daedf476612fa70708456e5d8f7a7853de8",
+                "description": "cardanocube project page for \"derpbirds\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5704,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "utility-nfts",
+        "name": "Utility Nfts",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4524,
+    "last_seq": 5704
+  },
+  "history": [
+    {
+      "seq": 4524,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "derpbirds",
+        "kind": "project"
+      },
+      "hash": "9920d384ec8263b11e0fc61477c4f11fb2b07c7ab1601f25bbbe70ff6994039c",
+      "prev_hash": "d058d90052a9c82dc5dcc7f1198f906e17917bd16df5a428aa14c01b86e2660e"
+    },
+    {
+      "seq": 4525,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "derpbirds",
+        "field": "name",
+        "value": "Derpbirds",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "5f209fab8662be5d0bb65fce50f8b021e2fc39d3cfdcefa9c34f19185d4cc8e2",
+      "prev_hash": "9920d384ec8263b11e0fc61477c4f11fb2b07c7ab1601f25bbbe70ff6994039c"
+    },
+    {
+      "seq": 4526,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "derpbirds",
+        "category_slug": "utility-nfts",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "52314520d4702fe73f44532dc77323f3ebe4bbbc02af07425f23c11118386864",
+      "prev_hash": "5f209fab8662be5d0bb65fce50f8b021e2fc39d3cfdcefa9c34f19185d4cc8e2"
+    },
+    {
+      "seq": 5703,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "derpbirds",
+        "field": "website",
+        "value": "https://derpbirds.io",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://www.cardanocube.com/projects/derpbirds",
+            "sha256": "e80299018da88b1f3a50f010fb476daedf476612fa70708456e5d8f7a7853de8",
+            "description": "cardanocube project page for \"derpbirds\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "b5bd0d292a563f2b8e3bc63364b3eb927f689e6700f6a17c6d9ce0e3cb62fce5",
+      "prev_hash": "e82123c3926951fcd15beec54a3675460f84001813dbdb61b33a6f3debfbcd5a"
+    },
+    {
+      "seq": 5704,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "derpbirds",
+        "field": "whitepaper",
+        "value": "https://derpbirds.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://www.cardanocube.com/projects/derpbirds",
+            "sha256": "e80299018da88b1f3a50f010fb476daedf476612fa70708456e5d8f7a7853de8",
+            "description": "cardanocube project page for \"derpbirds\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "e9a11625a58698e3b74c10f18701b50cccea53aec503e10865d4d6bf7cb450d2",
+      "prev_hash": "b5bd0d292a563f2b8e3bc63364b3eb927f689e6700f6a17c6d9ce0e3cb62fce5"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

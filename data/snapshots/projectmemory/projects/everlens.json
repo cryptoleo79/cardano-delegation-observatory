@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "everlens",
+    "kind": "project",
+    "name": "Everlens",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4378",
+          "field": "name",
+          "value": "Everlens",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+                "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+                "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4378,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5489",
+          "field": "website",
+          "value": "https://everlens.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250523215231id_/https://www.cardanocube.com/projects/everlens",
+                "sha256": "c2ffb7e945c86e5d2b91664366ba5e356b85a80f8099177447f712b6f58caf10",
+                "description": "cardanocube project page for \"everlens\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5489,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "marketplaces",
+        "name": "Marketplaces",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4377,
+    "last_seq": 5489
+  },
+  "history": [
+    {
+      "seq": 4377,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "everlens",
+        "kind": "project"
+      },
+      "hash": "30d1013a1ba824b386d7f56eefd5fc7ee48249f285913bbc793ae5027a87f786",
+      "prev_hash": "09b805d9952b42ca80b73f753e19629799bcf10dddc1130db969555e2accef32"
+    },
+    {
+      "seq": 4378,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "everlens",
+        "field": "name",
+        "value": "Everlens",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "616ab851cbb8d3180dfbf29a9f467c8cb4f8a49a3ac7d45fcf8e7345fb61cd64",
+      "prev_hash": "30d1013a1ba824b386d7f56eefd5fc7ee48249f285913bbc793ae5027a87f786"
+    },
+    {
+      "seq": 4379,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "everlens",
+        "category_slug": "marketplaces",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "eacbcdc73acbf72adbd9530f8a2a53a7f4b2f27c7843167ff76eca1d813fdc53",
+      "prev_hash": "616ab851cbb8d3180dfbf29a9f467c8cb4f8a49a3ac7d45fcf8e7345fb61cd64"
+    },
+    {
+      "seq": 5489,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "everlens",
+        "field": "website",
+        "value": "https://everlens.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250523215231id_/https://www.cardanocube.com/projects/everlens",
+            "sha256": "c2ffb7e945c86e5d2b91664366ba5e356b85a80f8099177447f712b6f58caf10",
+            "description": "cardanocube project page for \"everlens\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "9d4bff1edbc94e5545a85ac0156490ef0b323678f0867ba2a2814a2aa70b7ee7",
+      "prev_hash": "4b74a96f21cf822033fb3865937fba24b957157787b9a858e58d6134195010f7"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

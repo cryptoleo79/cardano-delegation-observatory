@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "blueshrmp-co",
+    "kind": "project",
+    "name": "Blueshrmp Co",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4411",
+          "field": "name",
+          "value": "Blueshrmp Co",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+                "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+                "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4411,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5685",
+          "field": "website",
+          "value": "https://www.blueshrmp.co",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260621014004id_/https://www.cardanocube.com/projects/blueshrmp-co",
+                "sha256": "82499969101b3b9f118ba8f62a0bb59f9967431d52c8ebc6f18d3ad0bd1aa64b",
+                "description": "cardanocube project page for \"blueshrmp-co\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5685,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5686",
+          "field": "whitepaper",
+          "value": "https://discord.gg/Ve29uYTZuZ",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260621014004id_/https://www.cardanocube.com/projects/blueshrmp-co",
+                "sha256": "82499969101b3b9f118ba8f62a0bb59f9967431d52c8ebc6f18d3ad0bd1aa64b",
+                "description": "cardanocube project page for \"blueshrmp-co\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5686,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "marketplaces",
+        "name": "Marketplaces",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4410,
+    "last_seq": 5686
+  },
+  "history": [
+    {
+      "seq": 4410,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "blueshrmp-co",
+        "kind": "project"
+      },
+      "hash": "0e9e141016f75b35c076de7b1ba942b663b92aab3799283c934e820279b2fef7",
+      "prev_hash": "2eed23e7c6929ebb12946b4a870e034e79f68bb514b33fe7605ab65e4925cde4"
+    },
+    {
+      "seq": 4411,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "blueshrmp-co",
+        "field": "name",
+        "value": "Blueshrmp Co",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "143f2d3fd94b216d912a0ae369b8b2724415e2abeea73ad13190966ff8e29396",
+      "prev_hash": "0e9e141016f75b35c076de7b1ba942b663b92aab3799283c934e820279b2fef7"
+    },
+    {
+      "seq": 4412,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "blueshrmp-co",
+        "category_slug": "marketplaces",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "6f91c5f1cc632139d79c284da7512f75e3bf397a72d69a3fee59f9870aa381d0",
+      "prev_hash": "143f2d3fd94b216d912a0ae369b8b2724415e2abeea73ad13190966ff8e29396"
+    },
+    {
+      "seq": 5685,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "blueshrmp-co",
+        "field": "website",
+        "value": "https://www.blueshrmp.co",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260621014004id_/https://www.cardanocube.com/projects/blueshrmp-co",
+            "sha256": "82499969101b3b9f118ba8f62a0bb59f9967431d52c8ebc6f18d3ad0bd1aa64b",
+            "description": "cardanocube project page for \"blueshrmp-co\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "4a4694bb8f6feb5276d412e828b3eae84b69a139dbcc9387fdb9b1864cd24811",
+      "prev_hash": "b837f7aef6ad5e9301302de4112e5f69bbebd3effb3052ee962fb9ec86401bd9"
+    },
+    {
+      "seq": 5686,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "blueshrmp-co",
+        "field": "whitepaper",
+        "value": "https://discord.gg/Ve29uYTZuZ",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260621014004id_/https://www.cardanocube.com/projects/blueshrmp-co",
+            "sha256": "82499969101b3b9f118ba8f62a0bb59f9967431d52c8ebc6f18d3ad0bd1aa64b",
+            "description": "cardanocube project page for \"blueshrmp-co\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "bb5399ec6dd1c532189b1af663c1da58e41919d0ef5390eabee9c78ce6adc15d",
+      "prev_hash": "4a4694bb8f6feb5276d412e828b3eae84b69a139dbcc9387fdb9b1864cd24811"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

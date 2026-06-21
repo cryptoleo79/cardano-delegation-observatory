@@ -71,12 +71,45 @@
           "asserted_seq": 133,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5405",
+          "field": "website",
+          "value": "https://ratsdao.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250116072946id_/https://cardanocube.com/projects/rats-dao",
+                "sha256": "8e561718e4327be0b6de462f7c3120cafda5597e5e7e3c5c5f76e2804dddf3a0",
+                "description": "cardanocube project page for \"rats-dao\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5405,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [],
     "superseded_claim_count": 0,
     "created_seq": 131,
-    "last_seq": 133
+    "last_seq": 5405
   },
   "history": [
     {
@@ -140,7 +173,34 @@
       },
       "hash": "f6f7fc4bd0b5d74a6a27edc280a49782b6ac313b769f176e0b1231827ada6b79",
       "prev_hash": "58105cc5c3939e62b543e2c5907144585d72c0ace05bc98ac69643f899b5d65f"
+    },
+    {
+      "seq": 5405,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "rats-dao",
+        "field": "website",
+        "value": "https://ratsdao.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250116072946id_/https://cardanocube.com/projects/rats-dao",
+            "sha256": "8e561718e4327be0b6de462f7c3120cafda5597e5e7e3c5c5f76e2804dddf3a0",
+            "description": "cardanocube project page for \"rats-dao\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "8ce12dfde84e7c424abb80b34ac951c0de1f7de7c9051331a849e80a40ead0ed",
+      "prev_hash": "21bb2d47b7769348eadcf7e4f7a4da872944c7e3c82043f74c24d520bb26f18b"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "cornucopias",
+    "kind": "project",
+    "name": "Cornucopias",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4486",
+          "field": "name",
+          "value": "Cornucopias",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+                "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+                "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4486,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5510",
+          "field": "website",
+          "value": "https://www.cornucopias.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250119222821id_/https://www.cardanocube.com/projects/cornucopias",
+                "sha256": "f4d6f677bd5e926f43cbd48b7ecf03c12dab4f758bdd8d6ef93890aef8c6c796",
+                "description": "cardanocube project page for \"cornucopias\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5510,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "popular",
+        "name": "Popular",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4485,
+    "last_seq": 5510
+  },
+  "history": [
+    {
+      "seq": 4485,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "cornucopias",
+        "kind": "project"
+      },
+      "hash": "bde4e010e9c30a0beee5bce88a14810e29a87eb96934269ab5a0025824154757",
+      "prev_hash": "613cc7b63df3c26e0710d53cbbfca80ded2afa6e4e5813db339c63b1d3df1604"
+    },
+    {
+      "seq": 4486,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cornucopias",
+        "field": "name",
+        "value": "Cornucopias",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "9d1c6dd0bf6a3ecf307e080e71c42da5a75d008767838b104c5a1ab9cebc2bda",
+      "prev_hash": "bde4e010e9c30a0beee5bce88a14810e29a87eb96934269ab5a0025824154757"
+    },
+    {
+      "seq": 4487,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cornucopias",
+        "category_slug": "popular",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "4c67fed1dead6b77532516a4b844528696fcf17626bc8685aec0bcc72d1813f6",
+      "prev_hash": "9d1c6dd0bf6a3ecf307e080e71c42da5a75d008767838b104c5a1ab9cebc2bda"
+    },
+    {
+      "seq": 5510,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cornucopias",
+        "field": "website",
+        "value": "https://www.cornucopias.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250119222821id_/https://www.cardanocube.com/projects/cornucopias",
+            "sha256": "f4d6f677bd5e926f43cbd48b7ecf03c12dab4f758bdd8d6ef93890aef8c6c796",
+            "description": "cardanocube project page for \"cornucopias\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "994698f5e568e022d55a9395fa8a07fc7ca4e9ca0d20fddbc3667fa79f0b168c",
+      "prev_hash": "462682139dcf0946ede941f2c7e1e2426e9e35c55328dd8fff27a1ed3f53d828"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

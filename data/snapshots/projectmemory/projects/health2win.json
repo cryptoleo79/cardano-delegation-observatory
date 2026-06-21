@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "health2win",
+    "kind": "project",
+    "name": "Health2win",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4189",
+          "field": "name",
+          "value": "Health2win",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+                "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+                "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4189,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5419",
+          "field": "website",
+          "value": "https://health2win.com/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250116092621id_/https://www.cardanocube.com/projects/health2win",
+                "sha256": "0fc58a678027ccd9938fda8161af2504214d794035659a5aee8dccf259d51ab9",
+                "description": "cardanocube project page for \"health2win\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5419,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "ai",
+        "name": "AI",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4188,
+    "last_seq": 5419
+  },
+  "history": [
+    {
+      "seq": 4188,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "health2win",
+        "kind": "project"
+      },
+      "hash": "d681c8b374e639b7474852a4489f0e39141e8456fb52e94a7172626b8af5b30e",
+      "prev_hash": "f2fd4035d9c8ea0cf1bba9e3f027f477d66951e05ffac3e74fd3ebb75faa089a"
+    },
+    {
+      "seq": 4189,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "health2win",
+        "field": "name",
+        "value": "Health2win",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+            "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+            "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "d641bb6e986ede3182ad4a5ac787f2057c26049d0f5d7c3565f192b3abd46b15",
+      "prev_hash": "d681c8b374e639b7474852a4489f0e39141e8456fb52e94a7172626b8af5b30e"
+    },
+    {
+      "seq": 4190,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "health2win",
+        "category_slug": "ai",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+            "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+            "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "d5176a45df873ae2a9fc86539f72a6d3b069d896133b1b0c2fdb1619cc356a08",
+      "prev_hash": "d641bb6e986ede3182ad4a5ac787f2057c26049d0f5d7c3565f192b3abd46b15"
+    },
+    {
+      "seq": 5419,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "health2win",
+        "field": "website",
+        "value": "https://health2win.com/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250116092621id_/https://www.cardanocube.com/projects/health2win",
+            "sha256": "0fc58a678027ccd9938fda8161af2504214d794035659a5aee8dccf259d51ab9",
+            "description": "cardanocube project page for \"health2win\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "c673c8f89f34cd5682bf07c624a8251589d401daf4339132b664459d01ddd5cc",
+      "prev_hash": "dade5bf4287a42c5b9f924c5315ff1130342f35d6e84c5f9f4490c450a06dbbc"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

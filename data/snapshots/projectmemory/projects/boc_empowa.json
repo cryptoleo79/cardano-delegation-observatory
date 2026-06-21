@@ -107,7 +107,7 @@
       ],
       "website": [
         {
-          "claim_id": "clm_1973",
+          "claim_id": "clm_5086",
           "field": "website",
           "value": "https://empowa.io/",
           "state": "active",
@@ -124,17 +124,50 @@
               "label": "Built on Cardano directory (Cardano Foundation)"
             },
             "authority_class": "B",
-            "as_of": "2026-06-07",
+            "as_of": "2026-06-17",
             "evidence": [
               {
                 "kind": "url",
-                "ref": "https://builtoncardano.com/ecosystem/all",
-                "sha256": null,
-                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+                "ref": "https://builtoncardano.com/ecosystem",
+                "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
               }
             ]
           },
-          "asserted_seq": 1973,
+          "asserted_seq": 5086,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5087",
+          "field": "whitepaper",
+          "value": "https://drive.google.com/file/d/1ei_0eQFCK5wKGMQgVcyNlTQYUQ4ky-xT/edit",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem",
+                "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 5087,
           "superseded_by_seq": null
         }
       ]
@@ -173,9 +206,9 @@
         }
       }
     ],
-    "superseded_claim_count": 0,
+    "superseded_claim_count": 1,
     "created_seq": 1971,
-    "last_seq": 1977
+    "last_seq": 5087
   },
   "history": [
     {
@@ -331,7 +364,61 @@
       },
       "hash": "ee95dcd901af33b19ecb1a2a177d3048e88b3a0eae0c359c146eb1b09e3dae00",
       "prev_hash": "6b41b22fbb1230c46d95525694a5a8a2b5e6140c38647fa718bf3e8c36259456"
+    },
+    {
+      "seq": 5086,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:empowa",
+        "field": "website",
+        "value": "https://empowa.io/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem",
+            "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "3c6846954b64697c940a7e20a71c4425ebd5ae4298473b594e0600cae18c78e5",
+      "prev_hash": "6bbab5fb0ae891dbfd5107b65878f5bad404c0835b146c127ae44154cc310504"
+    },
+    {
+      "seq": 5087,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:empowa",
+        "field": "whitepaper",
+        "value": "https://drive.google.com/file/d/1ei_0eQFCK5wKGMQgVcyNlTQYUQ4ky-xT/edit",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem",
+            "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "86912d1441ab39968cca876bcd6931b5395b9a946cd07355c70d7794dafb6746",
+      "prev_hash": "3c6846954b64697c940a7e20a71c4425ebd5ae4298473b594e0600cae18c78e5"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

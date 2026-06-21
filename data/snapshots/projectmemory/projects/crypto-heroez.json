@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "crypto-heroez",
+    "kind": "project",
+    "name": "Crypto Heroez",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4516",
+          "field": "name",
+          "value": "Crypto Heroez",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+                "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+                "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4516,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5695",
+          "field": "website",
+          "value": "https://cryptoheroez.io",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://www.cardanocube.com/projects/crypto-heroez",
+                "sha256": "01ff0b096b7c476e991e17a67924dd64236a16a700b749f236db82ab22a6006f",
+                "description": "cardanocube project page for \"crypto-heroez\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5695,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5696",
+          "field": "whitepaper",
+          "value": "https://cryptoheroez.io/about",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://www.cardanocube.com/projects/crypto-heroez",
+                "sha256": "01ff0b096b7c476e991e17a67924dd64236a16a700b749f236db82ab22a6006f",
+                "description": "cardanocube project page for \"crypto-heroez\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5696,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "utility-nfts",
+        "name": "Utility Nfts",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4515,
+    "last_seq": 5696
+  },
+  "history": [
+    {
+      "seq": 4515,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "crypto-heroez",
+        "kind": "project"
+      },
+      "hash": "9b6f5db3986067e93c929ea15b4ab2746e41dac8000a586d304bef7fcec8e5f3",
+      "prev_hash": "55befcb5cf80111026f5ac88b17ba7f31d682294b0e4c2dec5a04bfc61d77e44"
+    },
+    {
+      "seq": 4516,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "crypto-heroez",
+        "field": "name",
+        "value": "Crypto Heroez",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "4be8236a369614d460be987b543344bf46b2cb5f59e1bf56049080c807aa887e",
+      "prev_hash": "9b6f5db3986067e93c929ea15b4ab2746e41dac8000a586d304bef7fcec8e5f3"
+    },
+    {
+      "seq": 4517,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "crypto-heroez",
+        "category_slug": "utility-nfts",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "226f76ca4eb9d741c083067c80d36544a3b95391cc3353d76f2a5b43f0ea8775",
+      "prev_hash": "4be8236a369614d460be987b543344bf46b2cb5f59e1bf56049080c807aa887e"
+    },
+    {
+      "seq": 5695,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "crypto-heroez",
+        "field": "website",
+        "value": "https://cryptoheroez.io",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://www.cardanocube.com/projects/crypto-heroez",
+            "sha256": "01ff0b096b7c476e991e17a67924dd64236a16a700b749f236db82ab22a6006f",
+            "description": "cardanocube project page for \"crypto-heroez\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "b20cf5d6c2cda610c98155feffac62e1236a4fe3fcdf89999c09ce17cec17d81",
+      "prev_hash": "bb51af6a7d60c38e75e085aa9c5011f00c85476176dd3fe52e4b0e3996ae4719"
+    },
+    {
+      "seq": 5696,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "crypto-heroez",
+        "field": "whitepaper",
+        "value": "https://cryptoheroez.io/about",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://www.cardanocube.com/projects/crypto-heroez",
+            "sha256": "01ff0b096b7c476e991e17a67924dd64236a16a700b749f236db82ab22a6006f",
+            "description": "cardanocube project page for \"crypto-heroez\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "3153e9b6f432b84636221191e2fd47e67a90e104c91dfef985533730420fbdd7",
+      "prev_hash": "b20cf5d6c2cda610c98155feffac62e1236a4fe3fcdf89999c09ce17cec17d81"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

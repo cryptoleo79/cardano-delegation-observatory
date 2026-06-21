@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "intersect",
+    "kind": "project",
+    "name": "Intersect",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4251",
+          "field": "name",
+          "value": "Intersect",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+                "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+                "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4251,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5445",
+          "field": "website",
+          "value": "https://www.intersectmbo.org/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250116074435id_/https://www.cardanocube.com/projects/intersect",
+                "sha256": "f4ac10890315da3da82707723e790f18859f608944898dd08e856f11b0295858",
+                "description": "cardanocube project page for \"intersect\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5445,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "governance",
+        "name": "Governance",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4250,
+    "last_seq": 5445
+  },
+  "history": [
+    {
+      "seq": 4250,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "intersect",
+        "kind": "project"
+      },
+      "hash": "1aab88660e5944e37e36599f6eddd583f2caf76c7c0c92586bbf478dc357e819",
+      "prev_hash": "d1cd0057abdcc1c950ad6c1fcd74dcd81e9b6fe8d0a770815a1896494547adeb"
+    },
+    {
+      "seq": 4251,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "intersect",
+        "field": "name",
+        "value": "Intersect",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+            "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+            "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "852fb3630a2ebbf1be674ceb4c9c6c0c1112d3860dc727a3c8ab907183c6a8ec",
+      "prev_hash": "1aab88660e5944e37e36599f6eddd583f2caf76c7c0c92586bbf478dc357e819"
+    },
+    {
+      "seq": 4252,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "intersect",
+        "category_slug": "governance",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+            "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+            "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "3956bc7b50cd5777758124a2d82a509d0dcc2e5163005c0dc07c8e275e329f76",
+      "prev_hash": "852fb3630a2ebbf1be674ceb4c9c6c0c1112d3860dc727a3c8ab907183c6a8ec"
+    },
+    {
+      "seq": 5445,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "intersect",
+        "field": "website",
+        "value": "https://www.intersectmbo.org/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250116074435id_/https://www.cardanocube.com/projects/intersect",
+            "sha256": "f4ac10890315da3da82707723e790f18859f608944898dd08e856f11b0295858",
+            "description": "cardanocube project page for \"intersect\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "5a3253a5d81a5dbb1ac3b3b372e5e1e13f70ff5f84683e32ad40d46b678dbb7b",
+      "prev_hash": "1e7b907cc05c86343da713b83cc821df6b5f7f9aca744d874c9e9ee8f16b8d7d"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

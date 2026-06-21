@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "sync-ai",
+    "kind": "project",
+    "name": "Sync Ai",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4177",
+          "field": "name",
+          "value": "Sync Ai",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+                "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+                "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4177,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5414",
+          "field": "website",
+          "value": "https://www.syncai.network/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250206132705id_/https://www.cardanocube.com/projects/sync-ai",
+                "sha256": "a153087714bd951bf625fcfe95afa9d73aaab22cf5b8c23ed45c4284c92524e8",
+                "description": "cardanocube project page for \"sync-ai\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5414,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "ai",
+        "name": "AI",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4176,
+    "last_seq": 5414
+  },
+  "history": [
+    {
+      "seq": 4176,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "sync-ai",
+        "kind": "project"
+      },
+      "hash": "c593d758a3c4a2f806ef05534ccfa6aae31484d0d73bffa367ba0f7d61a84919",
+      "prev_hash": "0035a1a97ca0671cdbdee1a66a081b3f889e7b76fbfc3720835269b85d62059d"
+    },
+    {
+      "seq": 4177,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "sync-ai",
+        "field": "name",
+        "value": "Sync Ai",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+            "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+            "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "c3753f0a40ac11d370b396227fee5c16e2c39072e15f2f1fbf9a40da1e72c370",
+      "prev_hash": "c593d758a3c4a2f806ef05534ccfa6aae31484d0d73bffa367ba0f7d61a84919"
+    },
+    {
+      "seq": 4178,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "sync-ai",
+        "category_slug": "ai",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+            "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+            "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "c1642afbd4bf9ce458657db6206ad5a03ff610c5667c5c4e17d4429614a25f64",
+      "prev_hash": "c3753f0a40ac11d370b396227fee5c16e2c39072e15f2f1fbf9a40da1e72c370"
+    },
+    {
+      "seq": 5414,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "sync-ai",
+        "field": "website",
+        "value": "https://www.syncai.network/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250206132705id_/https://www.cardanocube.com/projects/sync-ai",
+            "sha256": "a153087714bd951bf625fcfe95afa9d73aaab22cf5b8c23ed45c4284c92524e8",
+            "description": "cardanocube project page for \"sync-ai\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "0cc1f9de197913b23e834619a565407dbc2ffd3703041724b2aaa85ccb354aa5",
+      "prev_hash": "a3e58d6d99e5a7398dfb2c09ba1764b289cb10532ac6b1767b37ac651fbe0b5d"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

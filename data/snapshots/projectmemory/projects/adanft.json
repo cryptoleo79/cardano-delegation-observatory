@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "adanft",
+    "kind": "project",
+    "name": "Adanft",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4405",
+          "field": "name",
+          "value": "Adanft",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+                "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+                "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4405,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5682",
+          "field": "website",
+          "value": "https://adanft.app",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260621013847id_/https://www.cardanocube.com/projects/adanft",
+                "sha256": "e340af753c25c0b32f07c9869f0319fd016798063a6c5887c22e457e8663cdbc",
+                "description": "cardanocube project page for \"adanft\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5682,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5683",
+          "field": "whitepaper",
+          "value": "https://adaswap.app/AdaSwap-Whitepaper.pdf",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260621013847id_/https://www.cardanocube.com/projects/adanft",
+                "sha256": "e340af753c25c0b32f07c9869f0319fd016798063a6c5887c22e457e8663cdbc",
+                "description": "cardanocube project page for \"adanft\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5683,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "marketplaces",
+        "name": "Marketplaces",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4404,
+    "last_seq": 5683
+  },
+  "history": [
+    {
+      "seq": 4404,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "adanft",
+        "kind": "project"
+      },
+      "hash": "965a4bca8c17f07cd05f12e83ec04f40c5884e8c83a86f41242f0e74cc9576a3",
+      "prev_hash": "92d8b5f4acddb4021fcb619e5f874704e1cd88ce2c10414402de64adbd9020c4"
+    },
+    {
+      "seq": 4405,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adanft",
+        "field": "name",
+        "value": "Adanft",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "b4b890714b22ca9d32e33fcd429a82755ab8d52f1222c5143241b6a17819ff83",
+      "prev_hash": "965a4bca8c17f07cd05f12e83ec04f40c5884e8c83a86f41242f0e74cc9576a3"
+    },
+    {
+      "seq": 4406,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adanft",
+        "category_slug": "marketplaces",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "5df7669e14788f207b1a607efab0c1251509ceb68cd2480e35a3a7976ace9d47",
+      "prev_hash": "b4b890714b22ca9d32e33fcd429a82755ab8d52f1222c5143241b6a17819ff83"
+    },
+    {
+      "seq": 5682,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adanft",
+        "field": "website",
+        "value": "https://adanft.app",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260621013847id_/https://www.cardanocube.com/projects/adanft",
+            "sha256": "e340af753c25c0b32f07c9869f0319fd016798063a6c5887c22e457e8663cdbc",
+            "description": "cardanocube project page for \"adanft\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "5605935e9043fa6df96b27fbce822e315947c5a9c2639d3b9186e7efc06b1f1e",
+      "prev_hash": "40220012814d0a0f370062cf1cc374356500a32096c39febd91c0765c02568fb"
+    },
+    {
+      "seq": 5683,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adanft",
+        "field": "whitepaper",
+        "value": "https://adaswap.app/AdaSwap-Whitepaper.pdf",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260621013847id_/https://www.cardanocube.com/projects/adanft",
+            "sha256": "e340af753c25c0b32f07c9869f0319fd016798063a6c5887c22e457e8663cdbc",
+            "description": "cardanocube project page for \"adanft\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "f2c0209f3245e61ba1eefa319b428efe09a5b07be72ec004d8829c28e5e6f42a",
+      "prev_hash": "5605935e9043fa6df96b27fbce822e315947c5a9c2639d3b9186e7efc06b1f1e"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

@@ -107,7 +107,7 @@
       ],
       "website": [
         {
-          "claim_id": "clm_2432",
+          "claim_id": "clm_5627",
           "field": "website",
           "value": "https://www.kaizencrypto.com/",
           "state": "active",
@@ -124,17 +124,17 @@
               "label": "Built on Cardano directory (Cardano Foundation)"
             },
             "authority_class": "B",
-            "as_of": "2026-06-07",
+            "as_of": "2026-06-20",
             "evidence": [
               {
                 "kind": "url",
                 "ref": "https://builtoncardano.com/ecosystem/all",
-                "sha256": null,
-                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+                "sha256": "648f9154a44a5830d86dc51cb86f67547a1c9d432ecd9d5f6ca70357471c0585",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
               }
             ]
           },
-          "asserted_seq": 2432,
+          "asserted_seq": 5627,
           "superseded_by_seq": null
         }
       ]
@@ -173,9 +173,9 @@
         }
       }
     ],
-    "superseded_claim_count": 0,
+    "superseded_claim_count": 1,
     "created_seq": 2430,
-    "last_seq": 2436
+    "last_seq": 5627
   },
   "history": [
     {
@@ -331,7 +331,34 @@
       },
       "hash": "8784dbb9a3a50ada31f97732e4e70deb2a4f5879f69b8eefc965a5eae2580919",
       "prev_hash": "a6f57f32c3ff0805b9fe61c86e0cb49ae8fd9109c38f8eef777bc05017800316"
+    },
+    {
+      "seq": 5627,
+      "ts": "2026-06-20",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:kaizen-crypto",
+        "field": "website",
+        "value": "https://www.kaizencrypto.com/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-20",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "648f9154a44a5830d86dc51cb86f67547a1c9d432ecd9d5f6ca70357471c0585",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "3a06f547ec9cf021d41c3746e8aeb6a95567823408b30b8ee22e25d295b05d8d",
+      "prev_hash": "7860052193cf99930fff787dc9ce492ee65f96e7e2dfd36e1f1e9c73fbefb6d8"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

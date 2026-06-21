@@ -4,8 +4,41 @@
     "kind": "project",
     "name": "Marketraker",
     "status": "defunct",
-    "unclassified": true,
+    "unclassified": false,
     "fields": {
+      "documentation": [
+        {
+          "claim_id": "clm_5400",
+          "field": "documentation",
+          "value": "https://docs.google.com/document/d/1QaoH42virzcq4JFuct_woPT2VHdzXtGP8jiwB7RXDEs/edit#heading=h.exaepzxh2e7v",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603134312id_/https://cardanocube.com/projects/marketraker",
+                "sha256": "7bfcda478e5788f4dd89e598670ca868115fba6498e287dd2dd9f1c12b1715cc",
+                "description": "cardanocube project page for \"marketraker\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5400,
+          "superseded_by_seq": null
+        }
+      ],
       "name": [
         {
           "claim_id": "clm_120",
@@ -71,12 +104,62 @@
           "asserted_seq": 121,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5399",
+          "field": "website",
+          "value": "https://raker.market/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603134312id_/https://cardanocube.com/projects/marketraker",
+                "sha256": "7bfcda478e5788f4dd89e598670ca868115fba6498e287dd2dd9f1c12b1715cc",
+                "description": "cardanocube project page for \"marketraker\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5399,
+          "superseded_by_seq": null
+        }
       ]
     },
-    "categories": [],
+    "categories": [
+      {
+        "slug": "ai",
+        "name": "AI",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
     "superseded_claim_count": 0,
     "created_seq": 119,
-    "last_seq": 121
+    "last_seq": 5400
   },
   "history": [
     {
@@ -140,7 +223,98 @@
       },
       "hash": "17c669bbaa5413715d9e11966af3bdae9cef63ced64c34a213787691cdfb47a4",
       "prev_hash": "f1681348f6631996811c603c60a0311823800b4db97dcb56c28671653660ebe9"
+    },
+    {
+      "seq": 4191,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "marketraker",
+        "kind": "project"
+      },
+      "hash": "d9ac258e71383ad3191b99d935623b37c58243ffeebe9abb2d8e8a456bd6df95",
+      "prev_hash": "d5176a45df873ae2a9fc86539f72a6d3b069d896133b1b0c2fdb1619cc356a08"
+    },
+    {
+      "seq": 4192,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "marketraker",
+        "category_slug": "ai",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+            "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+            "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "1fe8ba5688a0499a0453e257abf74785f5e01e236f500968546a69f3ce8afb67",
+      "prev_hash": "d9ac258e71383ad3191b99d935623b37c58243ffeebe9abb2d8e8a456bd6df95"
+    },
+    {
+      "seq": 5399,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "marketraker",
+        "field": "website",
+        "value": "https://raker.market/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603134312id_/https://cardanocube.com/projects/marketraker",
+            "sha256": "7bfcda478e5788f4dd89e598670ca868115fba6498e287dd2dd9f1c12b1715cc",
+            "description": "cardanocube project page for \"marketraker\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "9ebc9bd4f018f1f5ea7f5dec455a69e040c6cafce6f2a2e2f267975ed700492f",
+      "prev_hash": "091fd7571b537afa0fec962be6ed06ccdc26e39c63877a154c3c1bb9a9a9e001"
+    },
+    {
+      "seq": 5400,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "marketraker",
+        "field": "documentation",
+        "value": "https://docs.google.com/document/d/1QaoH42virzcq4JFuct_woPT2VHdzXtGP8jiwB7RXDEs/edit#heading=h.exaepzxh2e7v",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603134312id_/https://cardanocube.com/projects/marketraker",
+            "sha256": "7bfcda478e5788f4dd89e598670ca868115fba6498e287dd2dd9f1c12b1715cc",
+            "description": "cardanocube project page for \"marketraker\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "4f954f622be7ceffd48648baa61811ab8f3a41e8a3c3a1c58cc0d87d885e3583",
+      "prev_hash": "9ebc9bd4f018f1f5ea7f5dec455a69e040c6cafce6f2a2e2f267975ed700492f"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

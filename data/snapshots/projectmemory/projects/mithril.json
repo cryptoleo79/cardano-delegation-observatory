@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "mithril",
+    "kind": "project",
+    "name": "Mithril",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4301",
+          "field": "name",
+          "value": "Mithril",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+                "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+                "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4301,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5462",
+          "field": "website",
+          "value": "https://mithril.network/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250119221234id_/https://www.cardanocube.com/projects/mithril",
+                "sha256": "4a335cc214e981f5dd5c1a42055d614591d1a21d663076bfd5de68cec2968d4f",
+                "description": "cardanocube project page for \"mithril\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5462,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "infrastructure",
+        "name": "Infrastructure",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4300,
+    "last_seq": 5462
+  },
+  "history": [
+    {
+      "seq": 4300,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "mithril",
+        "kind": "project"
+      },
+      "hash": "5b42a19deefdbd74667583e422a9f8f2c7c9283c2bcafe7da573e3422dc53016",
+      "prev_hash": "4e262521c7aa7a9d157d2da81a9a99170647f4d0addc0bcfecc30894fff47f1b"
+    },
+    {
+      "seq": 4301,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "mithril",
+        "field": "name",
+        "value": "Mithril",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "a90461aefc8a5dacd6af4d52be42eb1d6699918287d304df2064e757a4ca4e40",
+      "prev_hash": "5b42a19deefdbd74667583e422a9f8f2c7c9283c2bcafe7da573e3422dc53016"
+    },
+    {
+      "seq": 4302,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "mithril",
+        "category_slug": "infrastructure",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "d28a895607b7a2b315032618de57edf1daba7290e528d28f582f0d1e8651939e",
+      "prev_hash": "a90461aefc8a5dacd6af4d52be42eb1d6699918287d304df2064e757a4ca4e40"
+    },
+    {
+      "seq": 5462,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "mithril",
+        "field": "website",
+        "value": "https://mithril.network/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250119221234id_/https://www.cardanocube.com/projects/mithril",
+            "sha256": "4a335cc214e981f5dd5c1a42055d614591d1a21d663076bfd5de68cec2968d4f",
+            "description": "cardanocube project page for \"mithril\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "2fb7f04b3e67a6505e29f0743a5ff60ce5853814a65c4549f276bd71b7b67e84",
+      "prev_hash": "2c9ac11555f03b9f2b55dae3a6a49fae0ba05bbd92190d31fc3b425d5c8e5285"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

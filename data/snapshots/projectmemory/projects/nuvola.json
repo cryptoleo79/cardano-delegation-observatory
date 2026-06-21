@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "nuvola",
+    "kind": "project",
+    "name": "Nuvola",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4304",
+          "field": "name",
+          "value": "Nuvola",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+                "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+                "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4304,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5463",
+          "field": "website",
+          "value": "https://www.nuvoladigital.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250320124605id_/https://www.cardanocube.com/projects/nuvola",
+                "sha256": "6073f0a101c4b1f7e56c4a6190d473643eb87780f868827bd488d6152899ea8c",
+                "description": "cardanocube project page for \"nuvola\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5463,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5464",
+          "field": "whitepaper",
+          "value": "https://nuvola.gitbook.io/nuvola-digital-whitepaper-v1",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250320124605id_/https://www.cardanocube.com/projects/nuvola",
+                "sha256": "6073f0a101c4b1f7e56c4a6190d473643eb87780f868827bd488d6152899ea8c",
+                "description": "cardanocube project page for \"nuvola\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5464,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "infrastructure",
+        "name": "Infrastructure",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4303,
+    "last_seq": 5464
+  },
+  "history": [
+    {
+      "seq": 4303,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "nuvola",
+        "kind": "project"
+      },
+      "hash": "0cff88352547972671d2df5b4b73867f90f757785b873bdb33665eb329873f18",
+      "prev_hash": "d28a895607b7a2b315032618de57edf1daba7290e528d28f582f0d1e8651939e"
+    },
+    {
+      "seq": 4304,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "nuvola",
+        "field": "name",
+        "value": "Nuvola",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "77b71258bb04049dac6926b22a8eeb37519d35259d6200746d608f6d117015c1",
+      "prev_hash": "0cff88352547972671d2df5b4b73867f90f757785b873bdb33665eb329873f18"
+    },
+    {
+      "seq": 4305,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "nuvola",
+        "category_slug": "infrastructure",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "5f8b661d599d54007c001101e9cc368b5788449f95d5ea5bb8b3eb0ee95a310e",
+      "prev_hash": "77b71258bb04049dac6926b22a8eeb37519d35259d6200746d608f6d117015c1"
+    },
+    {
+      "seq": 5463,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "nuvola",
+        "field": "website",
+        "value": "https://www.nuvoladigital.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250320124605id_/https://www.cardanocube.com/projects/nuvola",
+            "sha256": "6073f0a101c4b1f7e56c4a6190d473643eb87780f868827bd488d6152899ea8c",
+            "description": "cardanocube project page for \"nuvola\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "4eef6fcf147c2ea6e919f3d3e22eb6d4d1593aafe2728af195d3c3f707cf1deb",
+      "prev_hash": "2fb7f04b3e67a6505e29f0743a5ff60ce5853814a65c4549f276bd71b7b67e84"
+    },
+    {
+      "seq": 5464,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "nuvola",
+        "field": "whitepaper",
+        "value": "https://nuvola.gitbook.io/nuvola-digital-whitepaper-v1",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250320124605id_/https://www.cardanocube.com/projects/nuvola",
+            "sha256": "6073f0a101c4b1f7e56c4a6190d473643eb87780f868827bd488d6152899ea8c",
+            "description": "cardanocube project page for \"nuvola\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "9b4e6bb7ab7597c85170a6eabfbc7204fcb24cddb078ab3ecb3435b57dece597",
+      "prev_hash": "4eef6fcf147c2ea6e919f3d3e22eb6d4d1593aafe2728af195d3c3f707cf1deb"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

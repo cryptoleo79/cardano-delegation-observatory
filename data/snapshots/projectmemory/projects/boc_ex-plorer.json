@@ -104,6 +104,39 @@
           "asserted_seq": 2038,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_4631",
+          "field": "website",
+          "value": "https://ex.plorer.xyz/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 4631,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [
@@ -142,7 +175,7 @@
     ],
     "superseded_claim_count": 0,
     "created_seq": 2035,
-    "last_seq": 2040
+    "last_seq": 4631
   },
   "history": [
     {
@@ -274,7 +307,34 @@
       },
       "hash": "7e12d5ab75abc98ed5a6549fb96a6c63c6f04a3ca76dede4ea3e6bdda63a9129",
       "prev_hash": "34a13aa85070ffc175a40c5c27ef0aee6aaf9cb1796aa425c030511bd8451036"
+    },
+    {
+      "seq": 4631,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:ex-plorer",
+        "field": "website",
+        "value": "https://ex.plorer.xyz/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "2023f7e20f1b38e9ac1f87e30751de3a1b17a391f39d6fc0e9637d2be5df526f",
+      "prev_hash": "3d20445a3d4c9523952b8be1a46b6209720fb4cce07a77b159d40161fa4d7fca"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

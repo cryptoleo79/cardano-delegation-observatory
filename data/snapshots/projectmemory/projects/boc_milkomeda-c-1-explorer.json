@@ -104,6 +104,39 @@
           "asserted_seq": 2786,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5562",
+          "field": "website",
+          "value": "https://explorer-mainnet-cardano-evm.c1.milkomeda.com/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-20",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "648f9154a44a5830d86dc51cb86f67547a1c9d432ecd9d5f6ca70357471c0585",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 5562,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [
@@ -142,7 +175,7 @@
     ],
     "superseded_claim_count": 0,
     "created_seq": 2783,
-    "last_seq": 2788
+    "last_seq": 5562
   },
   "history": [
     {
@@ -274,7 +307,34 @@
       },
       "hash": "f90e3e160835e7acb95d7e42ca8ecb4d1b0fa2b6e9826a9b15b7595664cd13b2",
       "prev_hash": "ca97cdab52dac1fc03cd93a8f129060be22f7989758a9e00e5f931790fe3d1bd"
+    },
+    {
+      "seq": 5562,
+      "ts": "2026-06-20",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:milkomeda-c-1-explorer",
+        "field": "website",
+        "value": "https://explorer-mainnet-cardano-evm.c1.milkomeda.com/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-20",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "648f9154a44a5830d86dc51cb86f67547a1c9d432ecd9d5f6ca70357471c0585",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "7aa60979d40ecc3e80c2c2d8eb92aabda17df417dbf3b7ad8b326d8fc4d5ee68",
+      "prev_hash": "a9257fc1aee8868fcded0140b33a73da5cc7f9f28549c6080ada944dd0ea60a5"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

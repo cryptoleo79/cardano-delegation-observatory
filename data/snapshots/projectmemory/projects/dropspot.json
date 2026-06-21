@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "dropspot",
+    "kind": "project",
+    "name": "Dropspot",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4426",
+          "field": "name",
+          "value": "Dropspot",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+                "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+                "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4426,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5497",
+          "field": "website",
+          "value": "https://dropspot.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250116074534id_/https://www.cardanocube.com/projects/dropspot",
+                "sha256": "84facdbae4dc6006073c759505407c09a010c97f909e15b2f48431babc4c8e73",
+                "description": "cardanocube project page for \"dropspot\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5497,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "marketplaces",
+        "name": "Marketplaces",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4425,
+    "last_seq": 5497
+  },
+  "history": [
+    {
+      "seq": 4425,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "dropspot",
+        "kind": "project"
+      },
+      "hash": "7c1c72cf2d87e632b8138c4480726d5ac913b9fed1f11e8f990eb68620ef85df",
+      "prev_hash": "30fe12100a5cd902b64c80decf3b073bd2c53e99e89325ca48c7400ce65dcf68"
+    },
+    {
+      "seq": 4426,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "dropspot",
+        "field": "name",
+        "value": "Dropspot",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "05a3a444d043666d5751c62cd8fef55bd92784971dea7ebe528bc4b138e7e93d",
+      "prev_hash": "7c1c72cf2d87e632b8138c4480726d5ac913b9fed1f11e8f990eb68620ef85df"
+    },
+    {
+      "seq": 4427,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "dropspot",
+        "category_slug": "marketplaces",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "8ec7794de6ecf4ada7a157a10d0bc9737a501cea4bf12e5da97e200e959c3f0e",
+      "prev_hash": "05a3a444d043666d5751c62cd8fef55bd92784971dea7ebe528bc4b138e7e93d"
+    },
+    {
+      "seq": 5497,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "dropspot",
+        "field": "website",
+        "value": "https://dropspot.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250116074534id_/https://www.cardanocube.com/projects/dropspot",
+            "sha256": "84facdbae4dc6006073c759505407c09a010c97f909e15b2f48431babc4c8e73",
+            "description": "cardanocube project page for \"dropspot\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "9096b6b708d3f4137c49a8f469c5258fce0b6d183a8defd08a073702aa64c263",
+      "prev_hash": "6df7e1313b07c3e8ad75804844629de7cc300727905544d012cb9176dc4a838e"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

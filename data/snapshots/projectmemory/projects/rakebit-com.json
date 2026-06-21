@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "rakebit-com",
+    "kind": "project",
+    "name": "Rakebit Com",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4540",
+          "field": "name",
+          "value": "Rakebit Com",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+                "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+                "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4540,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5716",
+          "field": "website",
+          "value": "https://rakebit.com/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://www.cardanocube.com/projects/rakebit-com",
+                "sha256": "078f769c0d5a8cc13980be3db5be32e07afc964ef351e03f8c87d7448988e8b8",
+                "description": "cardanocube project page for \"rakebit-com\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5716,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "utility-nfts",
+        "name": "Utility Nfts",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4539,
+    "last_seq": 5716
+  },
+  "history": [
+    {
+      "seq": 4539,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "rakebit-com",
+        "kind": "project"
+      },
+      "hash": "cdcfd13e6238c9a21bb14f903082c54fc699129ae86f7cc84cddcc70ba30edf2",
+      "prev_hash": "3236da202896af0ee7ff01afda468fdf9f00114deb7e410e7f077913bcc284cb"
+    },
+    {
+      "seq": 4540,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "rakebit-com",
+        "field": "name",
+        "value": "Rakebit Com",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "a31bf8d778c1e3ce7455927b2e83772e722b508667ac9731ccef3237ca1bf71e",
+      "prev_hash": "cdcfd13e6238c9a21bb14f903082c54fc699129ae86f7cc84cddcc70ba30edf2"
+    },
+    {
+      "seq": 4541,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "rakebit-com",
+        "category_slug": "utility-nfts",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "444b4ce6bc80d5171fd15011a002aab25f0f405b8b419b2a68e4bf4ad870a224",
+      "prev_hash": "a31bf8d778c1e3ce7455927b2e83772e722b508667ac9731ccef3237ca1bf71e"
+    },
+    {
+      "seq": 5716,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "rakebit-com",
+        "field": "website",
+        "value": "https://rakebit.com/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://www.cardanocube.com/projects/rakebit-com",
+            "sha256": "078f769c0d5a8cc13980be3db5be32e07afc964ef351e03f8c87d7448988e8b8",
+            "description": "cardanocube project page for \"rakebit-com\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "ebf5264abf24a34aadfec60ab1c60c3ac03972756b4df921e1dc319b3be743fa",
+      "prev_hash": "5ac5b873247961e2b9fd4e2edaa4c41bafa3209ffdaef00262defb58d8d0adec"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

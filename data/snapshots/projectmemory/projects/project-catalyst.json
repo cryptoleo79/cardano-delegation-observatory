@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "project-catalyst",
+    "kind": "project",
+    "name": "Project Catalyst",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4257",
+          "field": "name",
+          "value": "Project Catalyst",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+                "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+                "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4257,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5447",
+          "field": "website",
+          "value": "https://projectcatalyst.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603051709id_/https://www.cardanocube.com/projects/project-catalyst",
+                "sha256": "f2a41facc90675c88db8c2bff52b8ec63fd20e0aa5b4df0d8614383d69c71a3b",
+                "description": "cardanocube project page for \"project-catalyst\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5447,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "governance",
+        "name": "Governance",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4256,
+    "last_seq": 5447
+  },
+  "history": [
+    {
+      "seq": 4256,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "project-catalyst",
+        "kind": "project"
+      },
+      "hash": "7a1f1fce6a9eda6bfa01e2b081ef5d2ba43a440d0ae3e8359888b38e31c1a904",
+      "prev_hash": "8018df452931404f0ab92f203d1a17a93cb134c9e79656a04138c853f642ff11"
+    },
+    {
+      "seq": 4257,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "project-catalyst",
+        "field": "name",
+        "value": "Project Catalyst",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+            "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+            "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "8a0a3dbd552b0eaac2e1ee65374893f3dc5c0517307a42239734cc568ff0b8e9",
+      "prev_hash": "7a1f1fce6a9eda6bfa01e2b081ef5d2ba43a440d0ae3e8359888b38e31c1a904"
+    },
+    {
+      "seq": 4258,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "project-catalyst",
+        "category_slug": "governance",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051709id_/https://cardanocube.com/categories/governance",
+            "sha256": "d293737bf7d8e22fb1babb282382d6c3b556f8210b731eff746c536c260aa095",
+            "description": "cardanocube /categories/governance listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "0310297b1aac5239895e6b8a3b33d3f73a50ef2313fcbfca80d192249edd893d",
+      "prev_hash": "8a0a3dbd552b0eaac2e1ee65374893f3dc5c0517307a42239734cc568ff0b8e9"
+    },
+    {
+      "seq": 5447,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "project-catalyst",
+        "field": "website",
+        "value": "https://projectcatalyst.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603051709id_/https://www.cardanocube.com/projects/project-catalyst",
+            "sha256": "f2a41facc90675c88db8c2bff52b8ec63fd20e0aa5b4df0d8614383d69c71a3b",
+            "description": "cardanocube project page for \"project-catalyst\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "693c98d7c1d99b85a7cac1a8bb4cfa635418b816e0f580769fa8ee61ba8a6bc2",
+      "prev_hash": "ad4bac60e31127efc20c579266555e2a062cf57d6c528618e3956778c4b3303f"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

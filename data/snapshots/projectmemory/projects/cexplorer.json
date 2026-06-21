@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "cexplorer",
+    "kind": "project",
+    "name": "Cexplorer",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4474",
+          "field": "name",
+          "value": "Cexplorer",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+                "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+                "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4474,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5505",
+          "field": "website",
+          "value": "https://cexplorer.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250917105128id_/https://www.cardanocube.com/projects/cexplorer",
+                "sha256": "af09d0e5469e138c3d39505fab907dd3ce4f3608cf341fafbe7240d4e2264894",
+                "description": "cardanocube project page for \"cexplorer\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5505,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "popular",
+        "name": "Popular",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4473,
+    "last_seq": 5505
+  },
+  "history": [
+    {
+      "seq": 4473,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "cexplorer",
+        "kind": "project"
+      },
+      "hash": "51512a6f6982e85e8ef4576f54296a6e25d95e70adac5c9cdf52cca51d536128",
+      "prev_hash": "09b713e25232bf3c72ef9ff1ebf995153190b26dcfcf84542d94e3dba9a516f3"
+    },
+    {
+      "seq": 4474,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cexplorer",
+        "field": "name",
+        "value": "Cexplorer",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "bc990ed0ec46c48e5f3c1a8cbeacb6b11c4861e4fd1974fa8700fc0b9a626100",
+      "prev_hash": "51512a6f6982e85e8ef4576f54296a6e25d95e70adac5c9cdf52cca51d536128"
+    },
+    {
+      "seq": 4475,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cexplorer",
+        "category_slug": "popular",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "0219b231b0839f3217a665f4269d4ec0846ad5edce64a3574f0ab47ca39c8631",
+      "prev_hash": "bc990ed0ec46c48e5f3c1a8cbeacb6b11c4861e4fd1974fa8700fc0b9a626100"
+    },
+    {
+      "seq": 5505,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cexplorer",
+        "field": "website",
+        "value": "https://cexplorer.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250917105128id_/https://www.cardanocube.com/projects/cexplorer",
+            "sha256": "af09d0e5469e138c3d39505fab907dd3ce4f3608cf341fafbe7240d4e2264894",
+            "description": "cardanocube project page for \"cexplorer\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "f88e95f680c7de3ad92ad4a29d46c92912c29977b0514f6ab4fbb64f13ccdf61",
+      "prev_hash": "9178d4909e0edf8ede696b8a8dc9f61142a1dbff5a6a06a81cd5eaad6123faf7"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

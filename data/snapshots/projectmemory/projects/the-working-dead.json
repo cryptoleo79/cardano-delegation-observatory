@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "the-working-dead",
+    "kind": "project",
+    "name": "The Working Dead",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4546",
+          "field": "name",
+          "value": "The Working Dead",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+                "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+                "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4546,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5721",
+          "field": "website",
+          "value": "https://workingdead.io",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260621014600id_/https://www.cardanocube.com/projects/the-working-dead",
+                "sha256": "e3920a8107721e9e011b96a7aa7a0482f95bdc199a89f9e3f4429a71202c679b",
+                "description": "cardanocube project page for \"the-working-dead\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5721,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5722",
+          "field": "whitepaper",
+          "value": "https://workingdead.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260621014600id_/https://www.cardanocube.com/projects/the-working-dead",
+                "sha256": "e3920a8107721e9e011b96a7aa7a0482f95bdc199a89f9e3f4429a71202c679b",
+                "description": "cardanocube project page for \"the-working-dead\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5722,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "utility-nfts",
+        "name": "Utility Nfts",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4545,
+    "last_seq": 5722
+  },
+  "history": [
+    {
+      "seq": 4545,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "the-working-dead",
+        "kind": "project"
+      },
+      "hash": "5542c46c6c281bf2d18cab5c4472d8f38b4bd9340e201d551ba6006bfa9ad6e8",
+      "prev_hash": "473bced178d903365bb9377fe138b2a6465d5a9c5b38d90f09dc6b91ab20b279"
+    },
+    {
+      "seq": 4546,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "the-working-dead",
+        "field": "name",
+        "value": "The Working Dead",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "e3c810232ea8e3c2a2a408cdc9db240199e29e17ae063854a7554f738d1734e3",
+      "prev_hash": "5542c46c6c281bf2d18cab5c4472d8f38b4bd9340e201d551ba6006bfa9ad6e8"
+    },
+    {
+      "seq": 4547,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "the-working-dead",
+        "category_slug": "utility-nfts",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "80924e824cb48262f969232cc1d3adb72b52817403d77acf8f54329b16335864",
+      "prev_hash": "e3c810232ea8e3c2a2a408cdc9db240199e29e17ae063854a7554f738d1734e3"
+    },
+    {
+      "seq": 5721,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "the-working-dead",
+        "field": "website",
+        "value": "https://workingdead.io",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260621014600id_/https://www.cardanocube.com/projects/the-working-dead",
+            "sha256": "e3920a8107721e9e011b96a7aa7a0482f95bdc199a89f9e3f4429a71202c679b",
+            "description": "cardanocube project page for \"the-working-dead\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "8719fdba7c216174910075a5a047f5c48dede201229808b7fec98784794aa1f6",
+      "prev_hash": "8569f365fe5eefe97cb286bc706ceebafbcf670093eb33487b63e442e4db6028"
+    },
+    {
+      "seq": 5722,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "the-working-dead",
+        "field": "whitepaper",
+        "value": "https://workingdead.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260621014600id_/https://www.cardanocube.com/projects/the-working-dead",
+            "sha256": "e3920a8107721e9e011b96a7aa7a0482f95bdc199a89f9e3f4429a71202c679b",
+            "description": "cardanocube project page for \"the-working-dead\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "5dfba860a1cec96cd414303af831cfe84080e823bac9f81c6cf2771aeabd4467",
+      "prev_hash": "8719fdba7c216174910075a5a047f5c48dede201229808b7fec98784794aa1f6"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

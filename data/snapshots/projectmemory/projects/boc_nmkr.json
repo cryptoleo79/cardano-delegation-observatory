@@ -39,6 +39,39 @@
           "superseded_by_seq": null
         }
       ],
+      "github": [
+        {
+          "claim_id": "clm_5613",
+          "field": "github",
+          "value": "https://github.com/nftmakerio",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-20",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "648f9154a44a5830d86dc51cb86f67547a1c9d432ecd9d5f6ca70357471c0585",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 5613,
+          "superseded_by_seq": null
+        }
+      ],
       "name": [
         {
           "claim_id": "clm_2986",
@@ -104,6 +137,72 @@
           "asserted_seq": 2988,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5612",
+          "field": "website",
+          "value": "https://www.nmkr.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-20",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "648f9154a44a5830d86dc51cb86f67547a1c9d432ecd9d5f6ca70357471c0585",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 5612,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5547",
+          "field": "whitepaper",
+          "value": "https://www.nmkr.io/whitepaper",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260303061004id_/https://www.cardanocube.com/projects/nmkr",
+                "sha256": "93431b37a43eb75e1802927787e0a9acea393a23ae346b883b31c90c78a38580",
+                "description": "cardanocube project page for \"boc:nmkr\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5547,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [
@@ -140,9 +239,9 @@
         }
       }
     ],
-    "superseded_claim_count": 0,
+    "superseded_claim_count": 1,
     "created_seq": 2985,
-    "last_seq": 2990
+    "last_seq": 5613
   },
   "history": [
     {
@@ -274,7 +373,115 @@
       },
       "hash": "f0ed844412bf7789d987b512d623f5f54c0eb810ccc60a14cc436296d58b3786",
       "prev_hash": "5371733a3e45baad452a0af5857b8115bcc69240dd76041d2a9c5a4aff44b25e"
+    },
+    {
+      "seq": 5546,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:nmkr",
+        "field": "website",
+        "value": "https://www.nmkr.io",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260303061004id_/https://www.cardanocube.com/projects/nmkr",
+            "sha256": "93431b37a43eb75e1802927787e0a9acea393a23ae346b883b31c90c78a38580",
+            "description": "cardanocube project page for \"boc:nmkr\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "9b16ccc7c7186fdc3de8ccec46484b2558353e04b0909ed4b1ab1ff8925a1370",
+      "prev_hash": "d3389103fc66e75e2771b2b2469704e403fb437094ca1f42db074ad26b1fd914"
+    },
+    {
+      "seq": 5547,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:nmkr",
+        "field": "whitepaper",
+        "value": "https://www.nmkr.io/whitepaper",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260303061004id_/https://www.cardanocube.com/projects/nmkr",
+            "sha256": "93431b37a43eb75e1802927787e0a9acea393a23ae346b883b31c90c78a38580",
+            "description": "cardanocube project page for \"boc:nmkr\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "6e05cbd40b0a515a303693726d805c70dc6c9703d55827c92fcb473a948418d4",
+      "prev_hash": "9b16ccc7c7186fdc3de8ccec46484b2558353e04b0909ed4b1ab1ff8925a1370"
+    },
+    {
+      "seq": 5612,
+      "ts": "2026-06-20",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:nmkr",
+        "field": "website",
+        "value": "https://www.nmkr.io/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-20",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "648f9154a44a5830d86dc51cb86f67547a1c9d432ecd9d5f6ca70357471c0585",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "c208ce8719ab1f8f5d9d662015efc6ad73b3f8a500c3e85469fc7d953f64432a",
+      "prev_hash": "cc1a1506b9752f07a7a1a4c85d7233284b53bd3b71c3c6deff1833dc47217485"
+    },
+    {
+      "seq": 5613,
+      "ts": "2026-06-20",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:nmkr",
+        "field": "github",
+        "value": "https://github.com/nftmakerio",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-20",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "648f9154a44a5830d86dc51cb86f67547a1c9d432ecd9d5f6ca70357471c0585",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "1cbb7ad882d10e192c0d18ebe1844890b7256c65f8a377f40d26564e05da71f7",
+      "prev_hash": "c208ce8719ab1f8f5d9d662015efc6ad73b3f8a500c3e85469fc7d953f64432a"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

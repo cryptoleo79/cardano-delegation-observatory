@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "rejuve-ai",
+    "kind": "project",
+    "name": "Rejuve Ai",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4168",
+          "field": "name",
+          "value": "Rejuve Ai",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+                "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+                "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4168,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5409",
+          "field": "website",
+          "value": "https://www.rejuve.ai/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250116090216id_/https://www.cardanocube.com/projects/rejuve-ai",
+                "sha256": "472e44dd99ea369ea20e44be97e03bc3198ceee6bfdf2e9dcda0aeee51ffd564",
+                "description": "cardanocube project page for \"rejuve-ai\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5409,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "ai",
+        "name": "AI",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4167,
+    "last_seq": 5409
+  },
+  "history": [
+    {
+      "seq": 4167,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "rejuve-ai",
+        "kind": "project"
+      },
+      "hash": "87a6244423492e7cd6e3a1b3a780e17e2ee80f4fb5d88b43a9dba6fabb91b998",
+      "prev_hash": "d4a5e9a2d58afca1f150461eb8405f04509d348078c473696d86eafb390b8fba"
+    },
+    {
+      "seq": 4168,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "rejuve-ai",
+        "field": "name",
+        "value": "Rejuve Ai",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+            "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+            "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "463eac08ac072d056c6bf630cf28be81110c4be9df91741c70cf83945064ac9b",
+      "prev_hash": "87a6244423492e7cd6e3a1b3a780e17e2ee80f4fb5d88b43a9dba6fabb91b998"
+    },
+    {
+      "seq": 4169,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "rejuve-ai",
+        "category_slug": "ai",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+            "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+            "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "0e8d4c6c2960a506f9de0e3e97f4d68afd1ecbc4a2ccdfed798ca353d5d86e68",
+      "prev_hash": "463eac08ac072d056c6bf630cf28be81110c4be9df91741c70cf83945064ac9b"
+    },
+    {
+      "seq": 5409,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "rejuve-ai",
+        "field": "website",
+        "value": "https://www.rejuve.ai/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250116090216id_/https://www.cardanocube.com/projects/rejuve-ai",
+            "sha256": "472e44dd99ea369ea20e44be97e03bc3198ceee6bfdf2e9dcda0aeee51ffd564",
+            "description": "cardanocube project page for \"rejuve-ai\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "9595a68846b8b81f676196a3d0e942c3fe146c5e87521f5df514a3fd39305dfe",
+      "prev_hash": "77470514e4738ad8d78d9f879d8fc507613b786dd0abeba77d0162ff022f6a8b"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

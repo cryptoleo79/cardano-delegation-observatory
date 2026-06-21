@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "masumi",
+    "kind": "project",
+    "name": "Masumi",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4162",
+          "field": "name",
+          "value": "Masumi",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+                "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+                "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4162,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5408",
+          "field": "website",
+          "value": "https://www.masumi.network/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250119225604id_/https://www.cardanocube.com/projects/masumi",
+                "sha256": "32aaea2dd02f685d6ca11fb7487a6a8597ccdb8c5fe7c1bcd801c9a18d70ea65",
+                "description": "cardanocube project page for \"masumi\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5408,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "ai",
+        "name": "AI",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4161,
+    "last_seq": 5408
+  },
+  "history": [
+    {
+      "seq": 4161,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "masumi",
+        "kind": "project"
+      },
+      "hash": "73cb1d87c4f616283301429f7cd1e074289a1beed023b6d6742bab78483c32d4",
+      "prev_hash": "513648172822e1c136b5e67ebb540a4d9dbb30587f589bb0fb1d435f6f98a833"
+    },
+    {
+      "seq": 4162,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "masumi",
+        "field": "name",
+        "value": "Masumi",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+            "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+            "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "4680316e27b1b7f9ae38d0c0e9638a72d1fa43bdd6f062548ef60c773d205e5c",
+      "prev_hash": "73cb1d87c4f616283301429f7cd1e074289a1beed023b6d6742bab78483c32d4"
+    },
+    {
+      "seq": 4163,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "masumi",
+        "category_slug": "ai",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ai",
+            "sha256": "12d76d572cead5e51ac2a2ec2956e8b2f6fe0e9f2963779e88b403921658b232",
+            "description": "cardanocube /categories/ai listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "302b24cf334c39de22fd456d07682ede2f8c894d3cf4fc4cfb17e30d74d33118",
+      "prev_hash": "4680316e27b1b7f9ae38d0c0e9638a72d1fa43bdd6f062548ef60c773d205e5c"
+    },
+    {
+      "seq": 5408,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "masumi",
+        "field": "website",
+        "value": "https://www.masumi.network/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250119225604id_/https://www.cardanocube.com/projects/masumi",
+            "sha256": "32aaea2dd02f685d6ca11fb7487a6a8597ccdb8c5fe7c1bcd801c9a18d70ea65",
+            "description": "cardanocube project page for \"masumi\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "77470514e4738ad8d78d9f879d8fc507613b786dd0abeba77d0162ff022f6a8b",
+      "prev_hash": "afb7aef4080fbbfd39d40cc4426249efcadbcce82eda7a3043d6e33df9c6b2c2"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

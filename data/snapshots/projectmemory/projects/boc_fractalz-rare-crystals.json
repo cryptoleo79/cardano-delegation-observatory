@@ -104,6 +104,39 @@
           "asserted_seq": 2131,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_4663",
+          "field": "website",
+          "value": "https://santoelectronics.com/crystals",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem/all",
+                "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 4663,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [
@@ -142,7 +175,7 @@
     ],
     "superseded_claim_count": 0,
     "created_seq": 2128,
-    "last_seq": 2133
+    "last_seq": 4663
   },
   "history": [
     {
@@ -274,7 +307,34 @@
       },
       "hash": "ffb4ec23be7ca1f0fb54401b819864648485d0908240992c12b28030418d9a0f",
       "prev_hash": "591e539436c2b5b80a6c5ad14beb56d3bf1b66b40c8218ea838d047b75d1eee9"
+    },
+    {
+      "seq": 4663,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:fractalz-rare-crystals",
+        "field": "website",
+        "value": "https://santoelectronics.com/crystals",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem/all",
+            "sha256": "dd16fb48d83fe5082f17f008132301112014d3af08b53713b633a34580ae53f2",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "8bd91d13ef282dca3e2c9d38dfca8e518f550813a12680cb0c3e86a97dcccf27",
+      "prev_hash": "e79917f7fc407ff17cf6489a51c61273b7669066f3a844e5453c2be4178325ae"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

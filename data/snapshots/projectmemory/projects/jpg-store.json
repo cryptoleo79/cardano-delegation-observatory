@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "jpg-store",
+    "kind": "project",
+    "name": "Jpg Store",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4384",
+          "field": "name",
+          "value": "Jpg Store",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+                "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+                "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4384,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5711",
+          "field": "website",
+          "value": "https://www.jpg.store",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://www.cardanocube.com/projects/jpg-store",
+                "sha256": "b3a7e83d340ae118e34f7ab25c695ea4a8e7ff340385d0940e8fc27d59daff5c",
+                "description": "cardanocube project page for \"jpg-store\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5711,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5712",
+          "field": "whitepaper",
+          "value": "https://www.jpg.store/faq",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-21",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://www.cardanocube.com/projects/jpg-store",
+                "sha256": "b3a7e83d340ae118e34f7ab25c695ea4a8e7ff340385d0940e8fc27d59daff5c",
+                "description": "cardanocube project page for \"jpg-store\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5712,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "marketplaces",
+        "name": "Marketplaces",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4383,
+    "last_seq": 5712
+  },
+  "history": [
+    {
+      "seq": 4383,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "jpg-store",
+        "kind": "project"
+      },
+      "hash": "941053fb5d4abf805b23590d527c530866e47327db5917e9c5c28c3580446b5a",
+      "prev_hash": "c0915bf04940e37b3729c863651b68192b07af13a3683ea7526f11761e8a0a37"
+    },
+    {
+      "seq": 4384,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "jpg-store",
+        "field": "name",
+        "value": "Jpg Store",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "a2be50b6949af838c21a050effa328eb47bf5a834200b0d85bc061afd0641bfd",
+      "prev_hash": "941053fb5d4abf805b23590d527c530866e47327db5917e9c5c28c3580446b5a"
+    },
+    {
+      "seq": 4385,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "jpg-store",
+        "category_slug": "marketplaces",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/marketplaces",
+            "sha256": "1bfb3cd8148c98d0b32f0f50c13fbc22f982ee1e4ca6285cf362b252a2d903fc",
+            "description": "cardanocube /categories/marketplaces listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "a33895a4d59587f5f40fb5f63e200f803bd2065c4f57ceeace6ba28e9b4acc47",
+      "prev_hash": "a2be50b6949af838c21a050effa328eb47bf5a834200b0d85bc061afd0641bfd"
+    },
+    {
+      "seq": 5711,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "jpg-store",
+        "field": "website",
+        "value": "https://www.jpg.store",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://www.cardanocube.com/projects/jpg-store",
+            "sha256": "b3a7e83d340ae118e34f7ab25c695ea4a8e7ff340385d0940e8fc27d59daff5c",
+            "description": "cardanocube project page for \"jpg-store\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "1db2637b65b61b41665bc210abfed6784ad677f08b49d43709e3015732869635",
+      "prev_hash": "dafcd04de368bb981c418e97b1216998eb8d500b7c88e99582838986c80eb3c4"
+    },
+    {
+      "seq": 5712,
+      "ts": "2026-06-21",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "jpg-store",
+        "field": "whitepaper",
+        "value": "https://www.jpg.store/faq",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-21",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://www.cardanocube.com/projects/jpg-store",
+            "sha256": "b3a7e83d340ae118e34f7ab25c695ea4a8e7ff340385d0940e8fc27d59daff5c",
+            "description": "cardanocube project page for \"jpg-store\" (live capture 2026-06-20T12:30:00Z; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "bc7b733b4caa5dcd7e7386bd2419b2164fb3325eb17e828335556b89a6efa7e4",
+      "prev_hash": "1db2637b65b61b41665bc210abfed6784ad677f08b49d43709e3015732869635"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

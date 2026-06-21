@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "newm",
+    "kind": "project",
+    "name": "Newm",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4432",
+          "field": "name",
+          "value": "Newm",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260505020927id_/https://cardanocube.com/categories/music",
+                "sha256": "916045e40bee0d08dfd26d8f6fd3506fe1b040197e4015b9e637a72b3283c025",
+                "description": "cardanocube /categories/music listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4432,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5535",
+          "field": "website",
+          "value": "https://newm.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250320124111id_/https://www.cardanocube.com/projects/newm",
+                "sha256": "5a9bc3072b91ec8bac43676589c377cba9bdc70c87577073717940169bbfa153",
+                "description": "cardanocube project page for \"newm\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5535,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5536",
+          "field": "whitepaper",
+          "value": "https://newm.io/wp-content/uploads/2022/06/projectNEWM_Whitepaper_V1.pdf",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250320124111id_/https://www.cardanocube.com/projects/newm",
+                "sha256": "5a9bc3072b91ec8bac43676589c377cba9bdc70c87577073717940169bbfa153",
+                "description": "cardanocube project page for \"newm\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5536,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "music",
+        "name": "Music",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4431,
+    "last_seq": 5536
+  },
+  "history": [
+    {
+      "seq": 4431,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "newm",
+        "kind": "project"
+      },
+      "hash": "2145b3a1eb984f469a26df38ea6c7fc153cceb031d1b6a463a00fa3be460dde6",
+      "prev_hash": "e83adb27ed4964a20d17b5bffd47842b9767b05f3dfae76c0eac71b6017b53df"
+    },
+    {
+      "seq": 4432,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "newm",
+        "field": "name",
+        "value": "Newm",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260505020927id_/https://cardanocube.com/categories/music",
+            "sha256": "916045e40bee0d08dfd26d8f6fd3506fe1b040197e4015b9e637a72b3283c025",
+            "description": "cardanocube /categories/music listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "6b27d15802ba04e3ae2dcf3d6c230934e560f3ac314ce70302a156c2bd2017dd",
+      "prev_hash": "2145b3a1eb984f469a26df38ea6c7fc153cceb031d1b6a463a00fa3be460dde6"
+    },
+    {
+      "seq": 4433,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "newm",
+        "category_slug": "music",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260505020927id_/https://cardanocube.com/categories/music",
+            "sha256": "916045e40bee0d08dfd26d8f6fd3506fe1b040197e4015b9e637a72b3283c025",
+            "description": "cardanocube /categories/music listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "08ee448bb620624668b5960afe8bbd1d45c9d5f7d6a75963299c20f59cd6886f",
+      "prev_hash": "6b27d15802ba04e3ae2dcf3d6c230934e560f3ac314ce70302a156c2bd2017dd"
+    },
+    {
+      "seq": 5535,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "newm",
+        "field": "website",
+        "value": "https://newm.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250320124111id_/https://www.cardanocube.com/projects/newm",
+            "sha256": "5a9bc3072b91ec8bac43676589c377cba9bdc70c87577073717940169bbfa153",
+            "description": "cardanocube project page for \"newm\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "b3ebf0a8060625be0f58763421423ad5b27db1ce169e693331ce8cd2c910430b",
+      "prev_hash": "33cd5600a18c9160cf0b5c494b2bd0cdc2d2d882bfe97c0ff7cf6b71448e394b"
+    },
+    {
+      "seq": 5536,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "newm",
+        "field": "whitepaper",
+        "value": "https://newm.io/wp-content/uploads/2022/06/projectNEWM_Whitepaper_V1.pdf",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250320124111id_/https://www.cardanocube.com/projects/newm",
+            "sha256": "5a9bc3072b91ec8bac43676589c377cba9bdc70c87577073717940169bbfa153",
+            "description": "cardanocube project page for \"newm\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "1a6ac1c5348310efc83d4cf5f9aa0ef05ebbf4de053aaf2141140bd27a2a6487",
+      "prev_hash": "b3ebf0a8060625be0f58763421423ad5b27db1ce169e693331ce8cd2c910430b"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "ogmios",
+    "kind": "project",
+    "name": "Ogmios",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "github": [
+        {
+          "claim_id": "clm_5466",
+          "field": "github",
+          "value": "https://github.com/CardanoSolutions/ogmios",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250206122511id_/https://www.cardanocube.com/projects/ogmios",
+                "sha256": "1340090e74e9644be70da3794e431a91b7a9ecb3529a9ea74b86092ec20be32d",
+                "description": "cardanocube project page for \"ogmios\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5466,
+          "superseded_by_seq": null
+        }
+      ],
+      "name": [
+        {
+          "claim_id": "clm_4307",
+          "field": "name",
+          "value": "Ogmios",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+                "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+                "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4307,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5465",
+          "field": "website",
+          "value": "https://ogmios.dev/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250206122511id_/https://www.cardanocube.com/projects/ogmios",
+                "sha256": "1340090e74e9644be70da3794e431a91b7a9ecb3529a9ea74b86092ec20be32d",
+                "description": "cardanocube project page for \"ogmios\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5465,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "infrastructure",
+        "name": "Infrastructure",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4306,
+    "last_seq": 5466
+  },
+  "history": [
+    {
+      "seq": 4306,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "ogmios",
+        "kind": "project"
+      },
+      "hash": "1e1d16450107657609f86656daa7711998fbd9520df3bda4cebd519672032ec5",
+      "prev_hash": "5f8b661d599d54007c001101e9cc368b5788449f95d5ea5bb8b3eb0ee95a310e"
+    },
+    {
+      "seq": 4307,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "ogmios",
+        "field": "name",
+        "value": "Ogmios",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "4cff2358b4087562dc6e0e2f7c2f67a04b74a084dabc7b8c005f7608f4cf8759",
+      "prev_hash": "1e1d16450107657609f86656daa7711998fbd9520df3bda4cebd519672032ec5"
+    },
+    {
+      "seq": 4308,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "ogmios",
+        "category_slug": "infrastructure",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "c0401960c4b11712281f6a51c804cd46cf2a3a75b4f4a2e8a8a8f7720edcb313",
+      "prev_hash": "4cff2358b4087562dc6e0e2f7c2f67a04b74a084dabc7b8c005f7608f4cf8759"
+    },
+    {
+      "seq": 5465,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "ogmios",
+        "field": "website",
+        "value": "https://ogmios.dev/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250206122511id_/https://www.cardanocube.com/projects/ogmios",
+            "sha256": "1340090e74e9644be70da3794e431a91b7a9ecb3529a9ea74b86092ec20be32d",
+            "description": "cardanocube project page for \"ogmios\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "9f21c6f8a57f293832ba9b55b30fec9ac3a17791052a3cda22a6a438f0978d6f",
+      "prev_hash": "9b4e6bb7ab7597c85170a6eabfbc7204fcb24cddb078ab3ecb3435b57dece597"
+    },
+    {
+      "seq": 5466,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "ogmios",
+        "field": "github",
+        "value": "https://github.com/CardanoSolutions/ogmios",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250206122511id_/https://www.cardanocube.com/projects/ogmios",
+            "sha256": "1340090e74e9644be70da3794e431a91b7a9ecb3529a9ea74b86092ec20be32d",
+            "description": "cardanocube project page for \"ogmios\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "d4c5898968c873cf26abdde76b9f5e5ec2afccdce5c8f92bfb8ee96a93e716c7",
+      "prev_hash": "9f21c6f8a57f293832ba9b55b30fec9ac3a17791052a3cda22a6a438f0978d6f"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

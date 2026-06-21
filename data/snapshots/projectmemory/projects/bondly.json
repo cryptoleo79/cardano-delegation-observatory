@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "bondly",
+    "kind": "project",
+    "name": "Bondly",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4331",
+          "field": "name",
+          "value": "Bondly",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+                "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+                "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4331,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5473",
+          "field": "website",
+          "value": "https://bondly.finance/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250119230416id_/https://www.cardanocube.com/projects/bondly",
+                "sha256": "c7a860dc305bbeec73010c1593dd76d67e6ccc06b7c82f85da114585dd7292d0",
+                "description": "cardanocube project page for \"bondly\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5473,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "infrastructure",
+        "name": "Infrastructure",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4330,
+    "last_seq": 5473
+  },
+  "history": [
+    {
+      "seq": 4330,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "bondly",
+        "kind": "project"
+      },
+      "hash": "5aaa3b9259a75b47de7228440aaabf781ae3a7d90b2f372b8571ce5dfa299bc7",
+      "prev_hash": "f1393fe895a0ddf27cb8a1ff3fa36b132f25e6b642ab94cc3e1117c124c57eb2"
+    },
+    {
+      "seq": 4331,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "bondly",
+        "field": "name",
+        "value": "Bondly",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "0d6b8e6484ee9b30605722e76242cfa4b3d1512066b80c1e097e0b2db7bad52f",
+      "prev_hash": "5aaa3b9259a75b47de7228440aaabf781ae3a7d90b2f372b8571ce5dfa299bc7"
+    },
+    {
+      "seq": 4332,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "bondly",
+        "category_slug": "infrastructure",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260204152107id_/https://cardanocube.com/categories/infrastructure",
+            "sha256": "182d90bbd0746e3edacb1b3a040744561bef50dbcd7259c4856daa83db0025af",
+            "description": "cardanocube /categories/infrastructure listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "dd9fed01540942ac59c02ff4fcec45e58bb03fa69ef14d4f83b4abd09836c225",
+      "prev_hash": "0d6b8e6484ee9b30605722e76242cfa4b3d1512066b80c1e097e0b2db7bad52f"
+    },
+    {
+      "seq": 5473,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "bondly",
+        "field": "website",
+        "value": "https://bondly.finance/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250119230416id_/https://www.cardanocube.com/projects/bondly",
+            "sha256": "c7a860dc305bbeec73010c1593dd76d67e6ccc06b7c82f85da114585dd7292d0",
+            "description": "cardanocube project page for \"bondly\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "77a3fca1cdd3c151bc94c81876d9c2876c4d44881a2cde0d18bfa0bc596bea9f",
+      "prev_hash": "970c63144255227a52773015dd783c371374623ebf2b065f7355fa3fbfed79ad"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

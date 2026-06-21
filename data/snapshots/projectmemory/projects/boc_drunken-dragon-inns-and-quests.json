@@ -107,7 +107,7 @@
       ],
       "website": [
         {
-          "claim_id": "clm_1923",
+          "claim_id": "clm_5302",
           "field": "website",
           "value": "https://www.drunkendragon.games/",
           "state": "active",
@@ -124,17 +124,17 @@
               "label": "Built on Cardano directory (Cardano Foundation)"
             },
             "authority_class": "B",
-            "as_of": "2026-06-07",
+            "as_of": "2026-06-17",
             "evidence": [
               {
                 "kind": "url",
-                "ref": "https://builtoncardano.com/ecosystem/all",
-                "sha256": null,
-                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+                "ref": "https://builtoncardano.com/ecosystem",
+                "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
               }
             ]
           },
-          "asserted_seq": 1923,
+          "asserted_seq": 5302,
           "superseded_by_seq": null
         }
       ]
@@ -157,9 +157,9 @@
         }
       }
     ],
-    "superseded_claim_count": 0,
+    "superseded_claim_count": 1,
     "created_seq": 1921,
-    "last_seq": 1926
+    "last_seq": 5302
   },
   "history": [
     {
@@ -292,7 +292,34 @@
       },
       "hash": "22e23bd81bff6f99054f47a8ed3c7a975aea361f34a6024d7a10992550e958f9",
       "prev_hash": "fcdb0097700a54e0bf21689e75e20f3e8a19e71fed2ff6b0f1b8752fc4dfae82"
+    },
+    {
+      "seq": 5302,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:drunken-dragon-inns-and-quests",
+        "field": "website",
+        "value": "https://www.drunkendragon.games/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem",
+            "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "1dc9253012ca56a85d434fd6d9f865d32605df75b4bb62e94e00337e04f15397",
+      "prev_hash": "6ba13485c3037371100853b9d0382e10865f690c75605ed71f67f3abbacff79f"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

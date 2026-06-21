@@ -4,7 +4,7 @@
     "kind": "project",
     "name": "Chibidango Heroes",
     "status": "defunct",
-    "unclassified": true,
+    "unclassified": false,
     "fields": {
       "name": [
         {
@@ -71,12 +71,62 @@
           "asserted_seq": 94,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5387",
+          "field": "website",
+          "value": "https://chibidangoheroes.com/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133938id_/https://cardanocube.com/projects/chibidango-heroes",
+                "sha256": "9fd38c6c9dfae9401882ab0facdc66c7815e1f9788da0d8ff264008db7eda060",
+                "description": "cardanocube project page for \"chibidango-heroes\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5387,
+          "superseded_by_seq": null
+        }
       ]
     },
-    "categories": [],
+    "categories": [
+      {
+        "slug": "utility-nfts",
+        "name": "Utility Nfts",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
     "superseded_claim_count": 0,
     "created_seq": 92,
-    "last_seq": 94
+    "last_seq": 5387
   },
   "history": [
     {
@@ -140,7 +190,71 @@
       },
       "hash": "0c18f29990c30679819c6f165985a95a0ef3b71c748a7a5951acdf44149d779e",
       "prev_hash": "dddbde08d72538eb85e50dfbd39780e856b8ecd5619428ea3020ebe65f780fff"
+    },
+    {
+      "seq": 4557,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "chibidango-heroes",
+        "kind": "project"
+      },
+      "hash": "2d105e801cf7479e745fea14dfe2bf6b0dc87683bd5e728abdb86bc7b7e56be1",
+      "prev_hash": "58a5d9fd779d48d6a711e2e38af766f4f8874fc8dc0482e93072481db9d065d2"
+    },
+    {
+      "seq": 4558,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "chibidango-heroes",
+        "category_slug": "utility-nfts",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133952id_/https://cardanocube.com/categories/utility-nfts",
+            "sha256": "9e942dd886f24264f95b0b15a1e7ea38be4610104b5c336d9b27d1afd35e20f3",
+            "description": "cardanocube /categories/utility-nfts listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "6dde709edba82e6a91fa2798b855bf134117a9067334475a0a4fccbed872e432",
+      "prev_hash": "2d105e801cf7479e745fea14dfe2bf6b0dc87683bd5e728abdb86bc7b7e56be1"
+    },
+    {
+      "seq": 5387,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "chibidango-heroes",
+        "field": "website",
+        "value": "https://chibidangoheroes.com/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133938id_/https://cardanocube.com/projects/chibidango-heroes",
+            "sha256": "9fd38c6c9dfae9401882ab0facdc66c7815e1f9788da0d8ff264008db7eda060",
+            "description": "cardanocube project page for \"chibidango-heroes\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "ef9a0f5d6238c866c668d1950489fb779459eafda06b9ed5bf5f538afd1f1121",
+      "prev_hash": "a89afa3407c242206e996ff2d35a5c8e5df6ec267d4e30e41bd85953e004f87a"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

@@ -1,0 +1,251 @@
+{
+  "project": {
+    "id": "crossmint",
+    "kind": "project",
+    "name": "Crossmint",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "documentation": [
+        {
+          "claim_id": "clm_5512",
+          "field": "documentation",
+          "value": "https://docs.crossmint.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250206123808id_/https://www.cardanocube.com/projects/crossmint",
+                "sha256": "4eb6eef875904b4edb2e7baedadfe93036ef7f60cdb741be66d4da57044011cd",
+                "description": "cardanocube project page for \"crossmint\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5512,
+          "superseded_by_seq": null
+        }
+      ],
+      "name": [
+        {
+          "claim_id": "clm_4489",
+          "field": "name",
+          "value": "Crossmint",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+                "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+                "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4489,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5511",
+          "field": "website",
+          "value": "https://crossmint.com/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250206123808id_/https://www.cardanocube.com/projects/crossmint",
+                "sha256": "4eb6eef875904b4edb2e7baedadfe93036ef7f60cdb741be66d4da57044011cd",
+                "description": "cardanocube project page for \"crossmint\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5511,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "popular",
+        "name": "Popular",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4488,
+    "last_seq": 5512
+  },
+  "history": [
+    {
+      "seq": 4488,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "crossmint",
+        "kind": "project"
+      },
+      "hash": "28b18384bdadc57f4fbb2f685729d4978e1d0fbe41b7594d76f7a4ac586b3bfe",
+      "prev_hash": "4c67fed1dead6b77532516a4b844528696fcf17626bc8685aec0bcc72d1813f6"
+    },
+    {
+      "seq": 4489,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "crossmint",
+        "field": "name",
+        "value": "Crossmint",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "4104531027578829327b75d0a74d868ff9f50d44d4ecbad7194d79c5fb2f03d3",
+      "prev_hash": "28b18384bdadc57f4fbb2f685729d4978e1d0fbe41b7594d76f7a4ac586b3bfe"
+    },
+    {
+      "seq": 4490,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "crossmint",
+        "category_slug": "popular",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260509193424id_/https://cardanocube.com/categories/popular",
+            "sha256": "70b66cd44cd159c475dcdeed4956e9df9de43b6f8d30cff8396bcf278acd212e",
+            "description": "cardanocube /categories/popular listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "4fca30793644a2fa1b84eb43644d225c029b447269f52320df76daf86c00ea0b",
+      "prev_hash": "4104531027578829327b75d0a74d868ff9f50d44d4ecbad7194d79c5fb2f03d3"
+    },
+    {
+      "seq": 5511,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "crossmint",
+        "field": "website",
+        "value": "https://crossmint.com/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250206123808id_/https://www.cardanocube.com/projects/crossmint",
+            "sha256": "4eb6eef875904b4edb2e7baedadfe93036ef7f60cdb741be66d4da57044011cd",
+            "description": "cardanocube project page for \"crossmint\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "7495caec8feae54ad8326d0ece515341827f39d2a4000be1ac0a82207d275e9e",
+      "prev_hash": "994698f5e568e022d55a9395fa8a07fc7ca4e9ca0d20fddbc3667fa79f0b168c"
+    },
+    {
+      "seq": 5512,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "crossmint",
+        "field": "documentation",
+        "value": "https://docs.crossmint.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250206123808id_/https://www.cardanocube.com/projects/crossmint",
+            "sha256": "4eb6eef875904b4edb2e7baedadfe93036ef7f60cdb741be66d4da57044011cd",
+            "description": "cardanocube project page for \"crossmint\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "7d9618ada6184dafbb3e7525a8eae52a17483a30b60425bb6501bd2fa35849c2",
+      "prev_hash": "7495caec8feae54ad8326d0ece515341827f39d2a4000be1ac0a82207d275e9e"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

@@ -107,7 +107,7 @@
       ],
       "website": [
         {
-          "claim_id": "clm_2351",
+          "claim_id": "clm_5224",
           "field": "website",
           "value": "https://www.immunify.life/",
           "state": "active",
@@ -124,17 +124,50 @@
               "label": "Built on Cardano directory (Cardano Foundation)"
             },
             "authority_class": "B",
-            "as_of": "2026-06-07",
+            "as_of": "2026-06-17",
             "evidence": [
               {
                 "kind": "url",
-                "ref": "https://builtoncardano.com/ecosystem/all",
-                "sha256": null,
-                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+                "ref": "https://builtoncardano.com/ecosystem",
+                "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
               }
             ]
           },
-          "asserted_seq": 2351,
+          "asserted_seq": 5224,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5225",
+          "field": "whitepaper",
+          "value": "https://uploads-ssl.webflow.com/6100994e1b2182824f64ed5c/613015e51de026328a531a7b_Immunify-life%20Whitepaper.pdf",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "builtoncardano",
+              "kind": "builtoncardano",
+              "authority_class": "B",
+              "url": "https://builtoncardano.com/ecosystem/all",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "Built on Cardano directory (Cardano Foundation)"
+            },
+            "authority_class": "B",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "url",
+                "ref": "https://builtoncardano.com/ecosystem",
+                "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+                "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+              }
+            ]
+          },
+          "asserted_seq": 5225,
           "superseded_by_seq": null
         }
       ]
@@ -173,9 +206,9 @@
         }
       }
     ],
-    "superseded_claim_count": 0,
+    "superseded_claim_count": 1,
     "created_seq": 2349,
-    "last_seq": 2355
+    "last_seq": 5225
   },
   "history": [
     {
@@ -331,7 +364,61 @@
       },
       "hash": "f2f20e03a7ccc891fd3f7b99bfe169e65e8119a3be6873ea737a4ad0eb4729e3",
       "prev_hash": "bc7455c31dc3401a192de77d734621cc46de5f864f93b99b8e69e9fb91034379"
+    },
+    {
+      "seq": 5224,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:immunify-life",
+        "field": "website",
+        "value": "https://www.immunify.life/",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem",
+            "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "4b8d6a05f1649b8f65d5d8c0f5ada5b298a9f1baa7ee16020d4ae1226f442ce2",
+      "prev_hash": "648f5de30f0378b11bbcec1f210f03e2f26f1518ca38487749ab64f046569711"
+    },
+    {
+      "seq": 5225,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "boc:immunify-life",
+        "field": "whitepaper",
+        "value": "https://uploads-ssl.webflow.com/6100994e1b2182824f64ed5c/613015e51de026328a531a7b_Immunify-life%20Whitepaper.pdf",
+        "source_id": "builtoncardano",
+        "authority_class": "B",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "high",
+        "via": "boc-enrichment",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://builtoncardano.com/ecosystem",
+            "sha256": "6ebd616882ed067b64d201f16fa69f15f7bd4b7bbf5e3c89d5086877e23a903e",
+            "description": "Built on Cardano ecosystem directory (Cardano Foundation curation), captured listing"
+          }
+        ]
+      },
+      "hash": "8214ecc8f47a4b037f2d29859a88feb4e1cf515181bbabeab3186a25d2fb164b",
+      "prev_hash": "4b8d6a05f1649b8f65d5d8c0f5ada5b298a9f1baa7ee16020d4ae1226f442ce2"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

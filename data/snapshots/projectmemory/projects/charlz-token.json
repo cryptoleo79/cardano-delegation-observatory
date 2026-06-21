@@ -71,12 +71,78 @@
           "asserted_seq": 91,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5385",
+          "field": "website",
+          "value": "https://www.charlz.io/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250206121131id_/https://cardanocube.com/projects/charlz-token",
+                "sha256": "233e745b5841d3e8f5201195d3a91118e37ba04876de166542c58e8e831c11a2",
+                "description": "cardanocube project page for \"charlz-token\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5385,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5386",
+          "field": "whitepaper",
+          "value": "https://d2saw6je89goi1.cloudfront.net/uploads/digital_asset/file/979605/Bison_Paper_Final.pdf",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250206121131id_/https://cardanocube.com/projects/charlz-token",
+                "sha256": "233e745b5841d3e8f5201195d3a91118e37ba04876de166542c58e8e831c11a2",
+                "description": "cardanocube project page for \"charlz-token\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5386,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [],
     "superseded_claim_count": 0,
     "created_seq": 89,
-    "last_seq": 91
+    "last_seq": 5386
   },
   "history": [
     {
@@ -140,7 +206,61 @@
       },
       "hash": "aab6c74a7e95730b80b1682c16ff73cbf242499989583f2f2014d19b21a4e090",
       "prev_hash": "46ffe75911e948d9c1f23617485589f33fd268c46455bab94209ab1fc173d6aa"
+    },
+    {
+      "seq": 5385,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "charlz-token",
+        "field": "website",
+        "value": "https://www.charlz.io/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250206121131id_/https://cardanocube.com/projects/charlz-token",
+            "sha256": "233e745b5841d3e8f5201195d3a91118e37ba04876de166542c58e8e831c11a2",
+            "description": "cardanocube project page for \"charlz-token\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "300ddba2a4ccaad0135d0d7ddea9ca1266a98b40907cb979084c207288d40891",
+      "prev_hash": "7b174d90433946e02395d72904f81e8190d66c68dcc8e8a25e12169bd00e5d8e"
+    },
+    {
+      "seq": 5386,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "charlz-token",
+        "field": "whitepaper",
+        "value": "https://d2saw6je89goi1.cloudfront.net/uploads/digital_asset/file/979605/Bison_Paper_Final.pdf",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250206121131id_/https://cardanocube.com/projects/charlz-token",
+            "sha256": "233e745b5841d3e8f5201195d3a91118e37ba04876de166542c58e8e831c11a2",
+            "description": "cardanocube project page for \"charlz-token\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "a89afa3407c242206e996ff2d35a5c8e5df6ec267d4e30e41bd85953e004f87a",
+      "prev_hash": "300ddba2a4ccaad0135d0d7ddea9ca1266a98b40907cb979084c207288d40891"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

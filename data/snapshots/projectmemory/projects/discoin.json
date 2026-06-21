@@ -6,6 +6,39 @@
     "status": "defunct",
     "unclassified": true,
     "fields": {
+      "documentation": [
+        {
+          "claim_id": "clm_5523",
+          "field": "documentation",
+          "value": "https://docs.discoin.family",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603134209id_/https://cardanocube.com/projects/discoin",
+                "sha256": "cb72d31f176e890e289efb94a55fd59077c4d07d1ce2a0f1198f517abcad8714",
+                "description": "cardanocube project page for \"discoin\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5523,
+          "superseded_by_seq": null
+        }
+      ],
       "name": [
         {
           "claim_id": "clm_108",
@@ -71,12 +104,45 @@
           "asserted_seq": 109,
           "superseded_by_seq": null
         }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5522",
+          "field": "website",
+          "value": "https://discosolaris.io/discoin",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603134209id_/https://cardanocube.com/projects/discoin",
+                "sha256": "cb72d31f176e890e289efb94a55fd59077c4d07d1ce2a0f1198f517abcad8714",
+                "description": "cardanocube project page for \"discoin\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5522,
+          "superseded_by_seq": null
+        }
       ]
     },
     "categories": [],
     "superseded_claim_count": 0,
     "created_seq": 107,
-    "last_seq": 109
+    "last_seq": 5523
   },
   "history": [
     {
@@ -140,7 +206,61 @@
       },
       "hash": "5f1233a4d93d05d2ebe9d913c28f7475a928c90fd9669580decc3b8348caa408",
       "prev_hash": "112de5f9c55c64e0214c1c7b6317fd56eb47c4933109f7e482ddc6db43a3cfa0"
+    },
+    {
+      "seq": 5522,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "discoin",
+        "field": "website",
+        "value": "https://discosolaris.io/discoin",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603134209id_/https://cardanocube.com/projects/discoin",
+            "sha256": "cb72d31f176e890e289efb94a55fd59077c4d07d1ce2a0f1198f517abcad8714",
+            "description": "cardanocube project page for \"discoin\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "3d448e23a375850adebbf92c0ae4ac97db3b7417c240f3f555853c212f2a0dbf",
+      "prev_hash": "ca91064c904d62889f1d79a1d4168a59180e12e2fda2a3c8b09cf1b5522eef2e"
+    },
+    {
+      "seq": 5523,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "discoin",
+        "field": "documentation",
+        "value": "https://docs.discoin.family",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603134209id_/https://cardanocube.com/projects/discoin",
+            "sha256": "cb72d31f176e890e289efb94a55fd59077c4d07d1ce2a0f1198f517abcad8714",
+            "description": "cardanocube project page for \"discoin\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "33f334fb52c0c73ff72d374ec7bd6f753ae2e7b70c0ae26e61cd0f7ff49cab67",
+      "prev_hash": "3d448e23a375850adebbf92c0ae4ac97db3b7417c240f3f555853c212f2a0dbf"
     }
   ],
-  "generated_at": "2026-06-07T18:30:24.044Z"
+  "generated_at": "2026-06-21T06:39:15.300Z"
 }

@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "linkberry",
+    "kind": "project",
+    "name": "Linkberry",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4360",
+          "field": "name",
+          "value": "Linkberry",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+                "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+                "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4360,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5485",
+          "field": "website",
+          "value": "https://linkberry.info/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20241204052329id_/https://www.cardanocube.com/projects/linkberry",
+                "sha256": "90aeb4ae35ce3f298b144b003412b9de91b3421fec23154976038a0afff96a48",
+                "description": "cardanocube project page for \"linkberry\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5485,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "ispo",
+        "name": "Ispo",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4359,
+    "last_seq": 5485
+  },
+  "history": [
+    {
+      "seq": 4359,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "linkberry",
+        "kind": "project"
+      },
+      "hash": "203cc148c9e3e5a580c23f9cdcd814df06b0b0939e307d9ba9ff6b3f45a44adf",
+      "prev_hash": "c6b18200f5e1fb04b79b25e86968f8417ec23bfcae20eb104cb84a8887e59cdd"
+    },
+    {
+      "seq": 4360,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "linkberry",
+        "field": "name",
+        "value": "Linkberry",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+            "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+            "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "650bd1e2001377bcbc4361e955f4b0003f0a8d0d9dc516f39d5f1eaec07dad67",
+      "prev_hash": "203cc148c9e3e5a580c23f9cdcd814df06b0b0939e307d9ba9ff6b3f45a44adf"
+    },
+    {
+      "seq": 4361,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "linkberry",
+        "category_slug": "ispo",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+            "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+            "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "78af00ac40c2e44ce677aae2db5d5a0d96a262c60f7bcb9a5e0a92fb99de7ae0",
+      "prev_hash": "650bd1e2001377bcbc4361e955f4b0003f0a8d0d9dc516f39d5f1eaec07dad67"
+    },
+    {
+      "seq": 5485,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "linkberry",
+        "field": "website",
+        "value": "https://linkberry.info/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20241204052329id_/https://www.cardanocube.com/projects/linkberry",
+            "sha256": "90aeb4ae35ce3f298b144b003412b9de91b3421fec23154976038a0afff96a48",
+            "description": "cardanocube project page for \"linkberry\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "00bcc1e6af640558bebadb8e43f286c8dc1f28965bc507ee2114ec35236ca23b",
+      "prev_hash": "932b30a0115cb711060b5d8d9ae0950ad0030af5d8beb2d1b66589cfad43914b"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

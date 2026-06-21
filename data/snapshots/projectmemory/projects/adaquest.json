@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "adaquest",
+    "kind": "project",
+    "name": "Adaquest",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4346",
+          "field": "name",
+          "value": "Adaquest",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+                "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+                "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4346,
+          "superseded_by_seq": null
+        }
+      ],
+      "website": [
+        {
+          "claim_id": "clm_5479",
+          "field": "website",
+          "value": "http://www.ada-quest.com/",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20250120013429id_/https://www.cardanocube.com/projects/adaquest",
+                "sha256": "a9395108553687d8af98054c6ede3de173361fcc5e42391b376a101a93a641c8",
+                "description": "cardanocube project page for \"adaquest\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5479,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "ispo",
+        "name": "Ispo",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4345,
+    "last_seq": 5479
+  },
+  "history": [
+    {
+      "seq": 4345,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "adaquest",
+        "kind": "project"
+      },
+      "hash": "acc6fb2c0831fd84afb1eceb3e6b1f8f977fed99d2db7bca25d3f71222bc4435",
+      "prev_hash": "e03eb1678ab5db24f240d9990c96cdf9b41ee37cb941a7775f2b1a66c751b2f9"
+    },
+    {
+      "seq": 4346,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adaquest",
+        "field": "name",
+        "value": "Adaquest",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+            "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+            "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "b29ec41ed86dc994c113499454af34a5bf6e42f042b85a7d824446c6ebe6812f",
+      "prev_hash": "acc6fb2c0831fd84afb1eceb3e6b1f8f977fed99d2db7bca25d3f71222bc4435"
+    },
+    {
+      "seq": 4347,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adaquest",
+        "category_slug": "ispo",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+            "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+            "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "7d8bf0ee7e2b3624207e998e8082a640329d10b23b2e07eec5b27b02f74fa6e8",
+      "prev_hash": "b29ec41ed86dc994c113499454af34a5bf6e42f042b85a7d824446c6ebe6812f"
+    },
+    {
+      "seq": 5479,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "adaquest",
+        "field": "website",
+        "value": "http://www.ada-quest.com/",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20250120013429id_/https://www.cardanocube.com/projects/adaquest",
+            "sha256": "a9395108553687d8af98054c6ede3de173361fcc5e42391b376a101a93a641c8",
+            "description": "cardanocube project page for \"adaquest\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "d505e54cd030501d4ff98f47b71e546a210efb5a1f66f8da39f7afb9cc7fdcff",
+      "prev_hash": "825e454f9fd23a89c2b90f54ebe88995456750a45e369a8ef22f60d61463b9c8"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}

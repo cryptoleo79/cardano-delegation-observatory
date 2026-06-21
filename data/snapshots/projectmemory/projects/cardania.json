@@ -1,0 +1,191 @@
+{
+  "project": {
+    "id": "cardania",
+    "kind": "project",
+    "name": "Cardania",
+    "status": null,
+    "unclassified": false,
+    "fields": {
+      "name": [
+        {
+          "claim_id": "clm_4352",
+          "field": "name",
+          "value": "Cardania",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-15",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+                "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+                "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+              }
+            ]
+          },
+          "asserted_seq": 4352,
+          "superseded_by_seq": null
+        }
+      ],
+      "whitepaper": [
+        {
+          "claim_id": "clm_5482",
+          "field": "whitepaper",
+          "value": "https://cardania.com/wp-content/uploads/2022/06/Cardania-RAD-Paper-v2-June-2022-1.pdf",
+          "state": "active",
+          "provenance": {
+            "asserted_by": "machine:seed",
+            "source": {
+              "source_id": "cardanocube",
+              "kind": "cardanocube",
+              "authority_class": "D",
+              "url": "https://cardanocube.com",
+              "captured_at": null,
+              "archive_wayback_url": null,
+              "archive_sha256": null,
+              "label": "CardanoCube community directory"
+            },
+            "authority_class": "D",
+            "as_of": "2026-06-17",
+            "evidence": [
+              {
+                "kind": "wayback",
+                "ref": "https://web.archive.org/web/20240620024127id_/https://www.cardanocube.com/projects/cardania",
+                "sha256": "c80e61430db97b06478911a927deb22f805046cdaad0a273d35c4e7ca8274086",
+                "description": "cardanocube project page for \"cardania\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+              }
+            ]
+          },
+          "asserted_seq": 5482,
+          "superseded_by_seq": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "slug": "ispo",
+        "name": "Ispo",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "source": {
+          "source_id": "cardanocube",
+          "kind": "cardanocube",
+          "authority_class": "D",
+          "url": "https://cardanocube.com",
+          "captured_at": null,
+          "archive_wayback_url": null,
+          "archive_sha256": null,
+          "label": "CardanoCube community directory"
+        }
+      }
+    ],
+    "superseded_claim_count": 0,
+    "created_seq": 4351,
+    "last_seq": 5482
+  },
+  "history": [
+    {
+      "seq": 4351,
+      "ts": "2026-06-15",
+      "type": "project.imported",
+      "actor": "machine:seed",
+      "payload": {
+        "id": "cardania",
+        "kind": "project"
+      },
+      "hash": "a0ef25fd5326cd2c5112e5699f10d4ac9b73b2bdaf4a3431125d0c8d69acc37d",
+      "prev_hash": "69293162a441299c0e5fe1465dc2d87d21dc49761c701ec8630fcd65ee008bc3"
+    },
+    {
+      "seq": 4352,
+      "ts": "2026-06-15",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardania",
+        "field": "name",
+        "value": "Cardania",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "asserted_by": "machine:seed",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+            "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+            "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+          }
+        ],
+        "note": "display name derived from the cardanocube project slug"
+      },
+      "hash": "91a4dc4325bf8fa5113bfcdc54d03a6b18c92d1efc22e4a7a0eb805d190b86be",
+      "prev_hash": "a0ef25fd5326cd2c5112e5699f10d4ac9b73b2bdaf4a3431125d0c8d69acc37d"
+    },
+    {
+      "seq": 4353,
+      "ts": "2026-06-15",
+      "type": "category.assigned",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardania",
+        "category_slug": "ispo",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-15",
+        "confidence": "medium",
+        "via": "cardanocube-categories",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20260603133517id_/https://cardanocube.com/categories/ispo",
+            "sha256": "c85155cbaa2f51899d025364737ab9fd86355e21b944c7db3bda2f900a31cc85",
+            "description": "cardanocube /categories/ispo listing (chain-of-custody from the Wayback Machine)"
+          }
+        ]
+      },
+      "hash": "8c09a4c8629a735f9f77538e2c422001ee2f6eb129d12227441a7f1def835500",
+      "prev_hash": "91a4dc4325bf8fa5113bfcdc54d03a6b18c92d1efc22e4a7a0eb805d190b86be"
+    },
+    {
+      "seq": 5482,
+      "ts": "2026-06-17",
+      "type": "claim.asserted",
+      "actor": "machine:seed",
+      "payload": {
+        "project_id": "cardania",
+        "field": "whitepaper",
+        "value": "https://cardania.com/wp-content/uploads/2022/06/Cardania-RAD-Paper-v2-June-2022-1.pdf",
+        "source_id": "cardanocube",
+        "authority_class": "D",
+        "as_of": "2026-06-17",
+        "asserted_by": "machine:seed",
+        "confidence": "medium",
+        "via": "cardanocube-enrichment",
+        "evidence": [
+          {
+            "kind": "wayback",
+            "ref": "https://web.archive.org/web/20240620024127id_/https://www.cardanocube.com/projects/cardania",
+            "sha256": "c80e61430db97b06478911a927deb22f805046cdaad0a273d35c4e7ca8274086",
+            "description": "cardanocube project page for \"cardania\" (chain-of-custody from the Wayback Machine; SHA-256 of the captured bytes)"
+          }
+        ]
+      },
+      "hash": "b971e7928d88c63b222c2b4668378747c9fbef51e0f5c977d498d3da9fe7d58b",
+      "prev_hash": "f704b7799557fa5f283efb4e1eb9dbafc1f146730d9efc28a38c7f2ca561744b"
+    }
+  ],
+  "generated_at": "2026-06-21T06:39:15.300Z"
+}
