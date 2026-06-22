@@ -17,16 +17,23 @@ external API consumer — each is worth more than a hundred unanswered sends.
 
 ---
 
-## Priority order (from the master handoff)
+## Priority order — lead with PROJECT MEMORY (the measured flagship, 4 wks)
 
-1. **DReps** — the legitimizers. Send their own `/drep.html?id=` permalink.
-2. **Builders** — project owners. Send their own `/project.html?id=` page.
-3. **Developers** — the multiplier. Send the API (`api.asy.life/docs`).
-4. **SPOs** — the adjacent network. Send treasury / governance-health + CC0 data.
-5. **Governance participants** — word-of-mouth layer. Send the Top-30 + actions.
+Evidence (Weeks 1–4) says Project Memory is the winner and governance is *not* the draw.
+So outreach leads with Project Memory / projects, not with DReps/governance.
 
-Work top-down. Don't widen to the next tier until the current one has been worked and
-measured.
+1. **Builders / project owners** — the flagship audience. Send their own
+   `/project.html?id=` page (the strongest hook + the correction loop).
+2. **Developers** — the multiplier. Send the API, **leading with the Project Memory
+   routes** (`/project/:id`, `/history/:id`), then the rest.
+3. **DReps** — still valuable for legitimacy, now secondary. Send their own
+   `/drep.html?id=` permalink.
+4. **SPOs** — adjacent network. Treasury / governance-health + CC0 data.
+5. **Governance participants** — word-of-mouth layer.
+
+Every message can open with the **Command Center**
+(observatory.asy.life/command-center.html) — the 60-second picture — then the
+audience-specific page. Work top-down; don't widen until the current tier is worked.
 
 ---
 
@@ -37,9 +44,9 @@ number; each one is a real interaction logged below.
 
 | Tier | Target | Contacted | Replied | Used (page/route) |
 |------|--------|-----------|---------|-------------------|
-| DReps | **5** | 0 | 0 | 0 |
 | Builders | **5** | 0 | 0 | 0 |
 | Developers | **5** | 0 | 0 | 0 |
+| DReps | **5** | 0 | 0 | 0 |
 | **Total** | **15** | **0** | **0** | **0** |
 
 "Used" = there is evidence they actually opened/called the thing (a reply referencing
@@ -61,8 +68,10 @@ Fill the `<…>` placeholders. Keep it this short. Do not add adjectives.
 > If anything's wrong or out of date, let us know and we'll note the correction. Feedback welcome.
 
 ### Developer
-> Free, CC0, no-key Cardano data API — governance, treasury, projects, market, Catalyst,
-> each response carrying its provenance. Docs: api.asy.life/docs · OpenAPI: api.asy.life/openapi.json
+> Free, CC0, no-key Cardano data API. The unique part is Project Memory — a
+> provenance-stamped record of 847 projects: try `GET /project/<id>` and
+> `GET /history/<id>` (per-field source + append-only history). Governance, treasury,
+> tokens & Catalyst are there too. Docs: api.asy.life/docs · OpenAPI: api.asy.life/openapi.json
 > If you build on it, I'd like to hear what's missing. Feedback welcome.
 
 ### SPO
