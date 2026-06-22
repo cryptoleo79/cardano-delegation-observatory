@@ -31,6 +31,8 @@ const PAGE_I18N = {
     "p-value": "Value", "p-source": "Source", "p-asserted-by": "Asserted by", "p-as-of": "As of", "p-evidence": "Evidence",
     "p-no-evidence": "no evidence recorded", "p-no-claims": "No claims recorded.", "p-unclassified": "Unclassified — no verified category assignments yet.",
     "p-no-history": "No history.", "p-actor": "actor", "p-not-found": "Project not found", "pm-unclassified": "unclassified",
+    "p-related-label": "Related projects", "p-related-help": "Other projects that share a category with this one — a sourced relationship, not inferred.",
+    "p-events": "events", "p-no-related": "No projects share a category yet.",
   },
   ja: {
     "back-link-projects": "← プロジェクトメモリ",
@@ -44,6 +46,8 @@ const PAGE_I18N = {
     "p-value": "値", "p-source": "出典", "p-asserted-by": "主張者", "p-as-of": "時点", "p-evidence": "証拠",
     "p-no-evidence": "証拠の記録なし", "p-no-claims": "主張の記録はありません。", "p-unclassified": "未分類 — 検証済みのカテゴリ割当てはまだありません。",
     "p-no-history": "履歴なし。", "p-actor": "実行者", "p-not-found": "プロジェクトが見つかりません", "pm-unclassified": "未分類",
+    "p-related-label": "関連プロジェクト", "p-related-help": "このプロジェクトとカテゴリを共有する他のプロジェクト — 出典に基づく関連で、推論ではありません。",
+    "p-events": "イベント", "p-no-related": "カテゴリを共有するプロジェクトはまだありません。",
   },
 };
 if (typeof i18n !== "undefined") {
@@ -143,6 +147,33 @@ function renderHistory() {
 
 function setText(id, v) { const el = document.getElementById(id); if (el) el.textContent = v; }
 
+// P8: coverage scorecard — which sourced link types exist + record depth.
+function renderScorecard(evidenceCount) {
+  const el = document.getElementById("p-scorecard"); if (!el) return;
+  const f = state.detail.fields || {};
+  const LINKS = [["website", "WEB"], ["github", "GIT"], ["documentation", "DOCS"], ["whitepaper", "WP"]];
+  const chips = LINKS.map(([k, lbl]) => `<span class="p-cov ${(f[k] && f[k].length) ? "on" : "off"}">${lbl}</span>`).join("");
+  const hist = (state.history || []).length;
+  el.innerHTML = chips + `<span class="p-cov-meta">${hist} ${esc(t("p-events"))} · ${evidenceCount} ${esc(t("p-evidence")).toLowerCase()}</span>`;
+}
+
+// P8: related projects — those sharing a category (a sourced relationship, never inferred).
+function renderRelated() {
+  const el = document.getElementById("p-related"); if (!el) return;
+  const slugs = (state.detail.categories || []).map((c) => c.slug);
+  const byId = {};
+  if (state.catData && slugs.length) {
+    (state.catData.categories || []).forEach((c) => {
+      if (slugs.indexOf(c.slug) < 0) return;
+      (c.members || []).forEach((m) => { if (m.id !== state.detail.id) byId[m.id] = m; });
+    });
+  }
+  const list = Object.keys(byId).map((k) => byId[k]).sort((a, b) => (a.name || "").localeCompare(b.name || "")).slice(0, 12);
+  if (!list.length) { el.innerHTML = `<p class="pm-muted">${t("p-no-related")}</p>`; return; }
+  el.innerHTML = list.map((m) =>
+    `<a class="pm-cat-tag" href="project.html?id=${encodeURIComponent(m.id)}">${esc(m.name || m.id)} ${authChip(m.authority_class)}</a>`).join(" ");
+}
+
 function render() {
   if (!state.detail) return;
   const d = state.detail;
@@ -154,7 +185,7 @@ function render() {
   const evidenceCount = Object.values(d.fields || {}).flat().reduce((n, c) => n + ((c.provenance && c.provenance.evidence) ? c.provenance.evidence.length : 0), 0);
   setText("p-stat-claims", String(claimCount));
   setText("p-stat-evidence", String(evidenceCount));
-  renderClaims(); renderCats(); renderHistory();
+  renderScorecard(evidenceCount); renderClaims(); renderCats(); renderRelated(); renderHistory();
   document.title = `${d.name || d.id} — Cardano Project Memory`;
 }
 
@@ -170,6 +201,7 @@ async function boot() {
     const data = await fetchJson(`${PM_ROOT()}/projects/${row.file}`);
     state.detail = data.project;
     state.history = data.history;
+    try { state.catData = await fetchJson(`${PM_ROOT()}/categories.json`); } catch (e) { state.catData = null; }
     render();
     if (location.hash === "#history") document.getElementById("history")?.scrollIntoView();
   } catch (err) {

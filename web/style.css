@@ -457,6 +457,12 @@ tr.expand-row:hover { background: var(--card); }
 }
 /* One-line "what is this page" framing under a detail-page title (clarity). */
 .detail-sub { color: var(--muted); font-size: 14px; line-height: 1.5; max-width: 680px; margin: 2px 0 10px; }
+/* Project coverage scorecard (P8) */
+.p-scorecard { display: flex; gap: 7px; flex-wrap: wrap; align-items: center; margin: 0 0 24px; }
+.p-cov { font-size: 11px; font-weight: 700; letter-spacing: .03em; padding: 3px 9px; border-radius: 6px; border: 0.5px solid var(--border); }
+.p-cov.on { background: rgba(38,110,70,.12); color: #1d6b46; border-color: rgba(38,110,70,.25); }
+.p-cov.off { background: rgba(0,0,0,.03); color: var(--faint); }
+.p-cov-meta { font-size: .8rem; color: var(--muted); margin-left: 6px; }
 .drep-stats {
   display: grid; grid-template-columns: repeat(4, 1fr);
   gap: 12px;
