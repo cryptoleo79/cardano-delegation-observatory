@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>State of Cardano — asy.life</title>
+<meta name="description" content="What is happening in Cardano right now — one operating picture across governance, treasury, projects, memory and Catalyst. Live headline metrics, facts only, each linking deeper.">
+<meta name="theme-color" content="#fafaf7">
+<meta property="og:title" content="State of Cardano — one operating picture">
+<meta property="og:description" content="Governance, treasury, projects, memory and Catalyst at a glance. Facts only, read-only, each linking deeper.">
+<link rel="stylesheet" href="style.css">
+<style>
+  .st-asof{font-size:.84rem;color:var(--faint);margin:0 0 18px}
+  .st-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+  .st-panel{background:var(--card);border:0.5px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:18px 20px;display:flex;flex-direction:column}
+  .st-panel h2{font-size:1.05rem;margin:0 0 14px;color:var(--accent-strong);display:flex;align-items:center;gap:8px}
+  .st-panel h2 .st-dot{width:9px;height:9px;border-radius:50%;flex:none}
+  .st-metrics{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px;margin-bottom:14px}
+  .st-m .st-v{font-size:1.5rem;font-weight:750;font-variant-numeric:tabular-nums;letter-spacing:-.01em;line-height:1.1}
+  .st-m .st-l{font-size:.74rem;color:var(--muted);margin-top:2px}
+  .st-links{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap;padding-top:6px;border-top:0.5px solid var(--border)}
+  .st-links a{font-size:12.5px;color:var(--accent-strong);text-decoration:none;background:var(--accent-soft);border:0.5px solid rgba(44,86,112,.14);border-radius:7px;padding:5px 11px}
+  .st-links a:hover{background:var(--accent);color:#fff}
+  .st-note{font-size:.82rem;color:var(--muted);background:var(--accent-soft);border:0.5px solid rgba(44,86,112,.14);border-radius:8px;padding:11px 14px;margin:20px 0 0}
+</style>
+</head>
+<body>
+<div class="ecosystem-strip"><div class="ecosystem-strip-inner">
+  <span class="eco-label" id="eco-label">Ecosystem</span>
+  <a href="https://ctf.asy.life" class="eco-link">CTF</a><span class="eco-sep">·</span>
+  <a href="https://observatory.asy.life" class="eco-link" id="eco-link-observatory">Observatory</a><span class="eco-sep">·</span>
+  <a href="https://voting.asy.life" class="eco-link" id="eco-link-voting">Voting</a><span class="eco-sep">·</span>
+  <a href="https://governance.asy.life" class="eco-link" id="eco-link-governance">Governance</a><span class="eco-sep">·</span>
+  <a href="https://api.asy.life" class="eco-link" id="eco-link-api">API</a><span class="eco-sep">·</span>
+  <a href="https://github.com/cryptoleo79" class="eco-link" target="_blank" rel="noopener">GitHub</a>
+</div></div>
+<header class="site-header"><div class="container header-inner">
+  <a href="/" class="brand"><span class="brand-mark">CDO</span><span class="brand-text" id="h-brand">Cardano Delegation Observatory</span></a>
+  <nav class="site-nav" id="site-nav">
+    <div class="nav-group" data-grp="discover">
+      <button class="nav-group-btn" id="nav-grp-discover" type="button" aria-haspopup="true" aria-expanded="false">Discover</button>
+      <div class="nav-menu" role="menu">
+        <a href="search.html" id="h-nav-search" role="menuitem">Search</a>
+        <a href="projects.html" id="h-nav-projects" role="menuitem">Projects</a>
+        <a href="categories.html" id="h-nav-categories" role="menuitem">Categories</a>
+        <a href="ecosystem.html" id="h-nav-ecosystem" role="menuitem">Ecosystem</a>
+        <a href="memory.html" id="h-nav-memory" role="menuitem">Memory</a>
+      </div>
+    </div>
+    <div class="nav-group" data-grp="governance">
+      <button class="nav-group-btn" id="nav-grp-governance" type="button" aria-haspopup="true" aria-expanded="false">Governance</button>
+      <div class="nav-menu" role="menu">
+        <a href="/" id="h-nav-observatory" role="menuitem">Observatory</a>
+        <a href="treasury.html" id="h-nav-treasury" role="menuitem">Treasury</a>
+        <a href="catalyst.html" id="h-nav-catalyst" role="menuitem">Catalyst</a>
+        <a href="changes.html" id="h-nav-changes" role="menuitem">Changes</a>
+        <a href="governance-daily.html" id="h-nav-daily" role="menuitem">Daily</a>
+        <a href="governance-health.html" id="h-nav-health" role="menuitem">Health</a>
+      </div>
+    </div>
+    <div class="nav-group" data-grp="data">
+      <button class="nav-group-btn" id="nav-grp-data" type="button" aria-haspopup="true" aria-expanded="false">Data</button>
+      <div class="nav-menu" role="menu">
+        <a href="tokens.html" id="h-nav-tokens" role="menuitem">Tokens</a>
+        <a href="rankings.html" id="h-nav-rankings" role="menuitem">Rankings</a>
+        <a href="market.html" id="h-nav-market" role="menuitem">Market</a>
+        <a href="https://api.asy.life" id="h-nav-api" role="menuitem" target="_blank" rel="noopener">API</a>
+      </div>
+    </div>
+    <div class="lang-toggle"><button id="btn-en" class="active" onclick="setLang('en')">EN</button><button id="btn-ja" onclick="setLang('ja')">日本語</button></div>
+  </nav>
+</div></header>
+
+<main><article class="container">
+  <h1 id="st-title">State of Cardano</h1>
+  <p class="lede" id="st-lede">What is happening in Cardano right now — one operating picture across governance, treasury, projects, memory and Catalyst. Headline facts only, each linking deeper. No opinion, no narrative.</p>
+  <p class="st-asof" id="st-asof"></p>
+
+  <div class="st-grid" id="st-grid"><div class="loading">…</div></div>
+  <p class="st-note" id="st-note"></p>
+  <p class="footnote" id="st-foot"></p>
+</article></main>
+
+<footer class="site-footer"><div class="container footer-inner">
+  <div><span id="ft-license">Apache 2.0 code · CC0 data</span></div>
+  <div><a href="timeline.html" id="ft-tl">Timeline</a> <a href="ecosystem-pulse.html" id="ft-pulse">Pulse</a> <a href="docs.html" id="ft-docs">Docs</a></div>
+  <div class="footer-note" id="ft-note">Observe · preserve · serve. No scores, no judgment.</div>
+</div></footer>
+<script src="i18n.js"></script>
+<script>
+"use strict";
+(function () {
+  function lang() { return document.documentElement.lang === "ja" ? "ja" : "en"; }
+  function tt(k) { return (i18n[lang()] && i18n[lang()][k]) || (i18n.en[k] || k); }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+  var SNAP = "data/snapshots", PM = "data/snapshots/projectmemory";
+
+  var P = {
+    en: {
+      "st-title": "State of Cardano",
+      "st-lede": "What is happening in Cardano right now — one operating picture across governance, treasury, projects, memory and Catalyst. Headline facts only, each linking deeper. No opinion, no narrative.",
+      "st-asof-tpl": "As of {date} · epoch {epoch} · sourced from public on-chain data via Koios and Project Memory",
+      "pn-gov": "Governance", "pn-tre": "Treasury", "pn-proj": "Projects", "pn-mem": "Project Memory", "pn-cat": "Categories", "pn-catl": "Catalyst",
+      "m-epoch": "epoch", "m-dreps": "DReps seen", "m-tracked": "top tracked", "m-actions": "gov. actions", "m-enacted": "enacted",
+      "m-balance": "treasury balance", "m-withd": "enacted withdrawals", "m-paid": "total paid out",
+      "m-total": "projects", "m-enriched": "enriched", "m-cats": "categories", "m-populated": "populated",
+      "m-events": "memory events", "m-active": "last activity", "m-funds": "funds preserved",
+      "lk-observatory": "Observatory", "lk-daily": "Daily", "lk-timeline": "Timeline", "lk-treasury": "Treasury", "lk-tretl": "Treasury Timeline",
+      "lk-projects": "Projects", "lk-search": "Search", "lk-pulse": "Pulse", "lk-explorer": "Explorer", "lk-map": "Map", "lk-insights": "Insights", "lk-memory": "Memory", "lk-catalyst": "Catalyst",
+      "st-foot-html": "Every figure is read from the same public snapshots behind the deeper pages — no new computation, no estimates. Watch it change in the <a href=\"timeline.html\">Timeline</a> and the <a href=\"ecosystem-pulse.html\">Ecosystem Pulse</a>; full data at <a href=\"https://api.asy.life/docs\">api.asy.life</a>.",
+      "st-note-html": "A single operating picture — the headline numbers from governance, treasury and Project Memory in one place. Catalyst shows preservation coverage; per-fund history lives on the <a href=\"catalyst.html\">Catalyst</a> page.",
+    },
+    ja: {
+      "st-title": "Cardano の現況",
+      "st-lede": "Cardano で今起きていること — ガバナンス、トレジャリー、プロジェクト、メモリ、Catalyst を横断する単一のオペレーティングピクチャ。見出しの事実のみ、それぞれ深掘りへリンク。意見も物語もありません。",
+      "st-asof-tpl": "{date} 時点 · エポック {epoch} · Koios と Project Memory 経由の公開オンチェーンデータ由来",
+      "pn-gov": "ガバナンス", "pn-tre": "トレジャリー", "pn-proj": "プロジェクト", "pn-mem": "プロジェクトメモリ", "pn-cat": "カテゴリ", "pn-catl": "Catalyst",
+      "m-epoch": "エポック", "m-dreps": "観測 DRep", "m-tracked": "上位追跡", "m-actions": "ガバナンスアクション", "m-enacted": "制定",
+      "m-balance": "トレジャリー残高", "m-withd": "制定済み出金", "m-paid": "総支払額",
+      "m-total": "プロジェクト", "m-enriched": "充実", "m-cats": "カテゴリ", "m-populated": "充足",
+      "m-events": "メモリイベント", "m-active": "最終活動", "m-funds": "保全ファンド",
+      "lk-observatory": "オブザバトリー", "lk-daily": "日次", "lk-timeline": "タイムライン", "lk-treasury": "トレジャリー", "lk-tretl": "トレジャリー タイムライン",
+      "lk-projects": "プロジェクト", "lk-search": "検索", "lk-pulse": "パルス", "lk-explorer": "エクスプローラー", "lk-map": "マップ", "lk-insights": "インサイト", "lk-memory": "メモリ", "lk-catalyst": "Catalyst",
+      "st-foot-html": "すべての数値は深掘りページと同じ公開スナップショットから読み取られます — 新規計算も推計もありません。<a href=\"timeline.html\">タイムライン</a>と<a href=\"ecosystem-pulse.html\">エコシステム パルス</a>で変化を追え、完全なデータは <a href=\"https://api.asy.life/docs\">api.asy.life</a> にあります。",
+      "st-note-html": "単一のオペレーティングピクチャ — ガバナンス・トレジャリー・Project Memory の見出し数値を一箇所に。Catalyst は保全カバレッジを表示し、ファンド別の履歴は<a href=\"catalyst.html\">Catalyst</a>ページにあります。",
+    },
+  };
+  if (typeof i18n !== "undefined") { Object.assign(i18n.en, P.en); Object.assign(i18n.ja, P.ja); if (typeof setLang === "function") setLang(lang()); }
+
+  var D = null;
+  function fmtAda(lov) { if (lov == null) return "—"; var a = lov / 1e6; if (a >= 1e9) return "₳" + (a / 1e9).toFixed(2) + "B"; if (a >= 1e6) return "₳" + (a / 1e6).toFixed(1) + "M"; return "₳" + Math.round(a).toLocaleString(); }
+  function n(v) { return v == null ? "—" : Number(v).toLocaleString(); }
+
+  function metric(v, l) { return '<div class="st-m"><div class="st-v">' + v + '</div><div class="st-l">' + esc(tt(l)) + "</div></div>"; }
+  function link(href, l) { return '<a href="' + href + '">' + esc(tt(l)) + "</a>"; }
+  function panel(titleKey, dot, metrics, links) {
+    return '<div class="st-panel"><h2><span class="st-dot" style="background:' + dot + '"></span>' + esc(tt(titleKey)) + "</h2>"
+      + '<div class="st-metrics">' + metrics + '</div><div class="st-links">' + links + "</div></div>";
+  }
+
+  function render() {
+    if (!D) return;
+    document.getElementById("st-asof").textContent = tt("st-asof-tpl").replace("{date}", D.asOf || "—").replace("{epoch}", D.epoch || "—");
+    document.getElementById("st-note").innerHTML = tt("st-note-html");
+    document.getElementById("st-foot").innerHTML = tt("st-foot-html");
+    var html = "";
+    html += panel("pn-gov", "#2c5670",
+      metric(n(D.epoch), "m-epoch") + metric(n(D.drepsSeen), "m-dreps") + metric(n(D.actions), "m-actions") + metric(n(D.enactedActions), "m-enacted"),
+      link("/", "lk-observatory") + link("governance-daily.html", "lk-daily") + link("timeline.html", "lk-timeline"));
+    html += panel("pn-tre", "#1d6b46",
+      metric(fmtAda(D.balance), "m-balance") + metric(n(D.withdrawals), "m-withd") + metric(fmtAda(D.paidOut), "m-paid"),
+      link("treasury.html", "lk-treasury") + link("treasury-timeline.html", "lk-tretl"));
+    html += panel("pn-proj", "#6a4a80",
+      metric(n(D.projects), "m-total") + metric(D.enrichedPct + "%", "m-enriched") + metric(n(D.enriched), "m-enriched") + metric(n(D.categories), "m-cats"),
+      link("projects.html", "lk-projects") + link("search.html", "lk-search") + link("ecosystem-pulse.html", "lk-pulse"));
+    html += panel("pn-cat", "#8a5a10",
+      metric(n(D.categories), "m-cats") + metric(n(D.populated), "m-populated"),
+      link("category-explorer.html", "lk-explorer") + link("memory-map.html", "lk-map"));
+    html += panel("pn-mem", "#963267",
+      metric(n(D.events), "m-events") + metric(D.lastActivity || "—", "m-active"),
+      link("memory-insights.html", "lk-insights") + link("memory.html", "lk-memory"));
+    html += panel("pn-catl", "#a86e14",
+      metric(D.funds != null ? n(D.funds) : "—", "m-funds"),
+      link("catalyst.html", "lk-catalyst"));
+    document.getElementById("st-grid").innerHTML = html;
+  }
+
+  function boot() {
+    document.addEventListener("cdo-lang", render);
+    Promise.all([
+      fetch(SNAP + "/meta.json").then(function (r) { return r.json(); }).catch(function () { return {}; }),
+      fetch(SNAP + "/actions.json").then(function (r) { return r.json(); }).catch(function () { return { actions: [] }; }),
+      fetch(SNAP + "/treasury_snapshot.json").then(function (r) { return r.json(); }).catch(function () { return { epochs: [] }; }),
+      fetch(SNAP + "/treasury_withdrawals.json").then(function (r) { return r.json(); }).catch(function () { return { withdrawals: [] }; }),
+      fetch(SNAP + "/top30.json").then(function (r) { return r.json(); }).catch(function () { return { entries: [] }; }),
+      fetch(PM + "/index.json").then(function (r) { return r.json(); }).catch(function () { return { projects: [], categories: [] }; }),
+      fetch(PM + "/categories.json").then(function (r) { return r.json(); }).catch(function () { return { meta: { counts: {} }, categories: [] }; }),
+      fetch(PM + "/memory-timeline.json").then(function (r) { return r.json(); }).catch(function () { return { meta: {}, milestones: [] }; }),
+      fetch("https://api.asy.life/funds").then(function (r) { return r.json(); }).catch(function () { return null; }),
+    ]).then(function (res) {
+      var meta = res[0], A = res[1].actions || [], TS = res[2].epochs || [], W = res[3].withdrawals || [],
+        top = res[4].entries || [], idx = res[5], cats = res[6], mt = res[7], funds = res[8];
+      var enactedW = W.filter(function (w) { return w.outcome === "enacted"; });
+      var projects = (idx.projects || []).length, enriched = (idx.projects || []).filter(function (p) { return p.enriched; }).length;
+      var mile = mt.milestones || [];
+      D = {
+        asOf: meta.data_through, epoch: meta.tip_epoch, drepsSeen: meta.n_dreps_seen, tracked: top.length,
+        actions: A.length, enactedActions: A.filter(function (a) { return a.outcome === "enacted"; }).length,
+        balance: TS.length ? TS[TS.length - 1].treasury_lovelace : null,
+        withdrawals: enactedW.length, paidOut: enactedW.reduce(function (s, w) { return s + (w.amount_lovelace || 0); }, 0),
+        projects: projects, enriched: enriched, enrichedPct: projects ? Math.round(enriched / projects * 100) : 0,
+        categories: (cats.categories || []).length, populated: (cats.meta && cats.meta.counts && cats.meta.counts.populated) || 0,
+        events: mt.meta ? mt.meta.events : null, lastActivity: mile.length ? mile[mile.length - 1].date : null,
+        funds: funds ? funds.total_funds : null,
+      };
+      render();
+    }).catch(function () { document.getElementById("st-grid").innerHTML = '<div class="loading">Couldn’t load the operating picture.</div>'; });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
+})();
+</script>
+</body>
+</html>
