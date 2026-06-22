@@ -43,6 +43,12 @@
   .tl-votes{font-variant-numeric:tabular-nums}
   .tl-empty{color:var(--faint);padding:30px;text-align:center}
   .tl-note{font-size:.82rem;color:var(--muted);background:var(--accent-soft);border:0.5px solid rgba(44,86,112,.14);border-radius:8px;padding:10px 13px;margin:18px 0}
+  .tl-intel{margin:0 0 26px}
+  .tl-intel-h{font-size:1.05rem;color:var(--accent-strong);margin:0 0 12px}
+  .tl-charts{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+  .tl-chart-card{background:var(--card);border:0.5px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:16px 18px}
+  .tl-chart-card h3{font-size:.9rem;margin:0 0 10px;color:var(--accent-strong);font-weight:650}
+  .tl-chart{min-height:200px}
 </style>
 </head>
 <body>
@@ -98,6 +104,13 @@
   <p class="lede" id="tl-lede">Follow the history of treasury actions, withdrawals, ratifications and enactments — newest first. Each entry shows what happened, when, and what changed. Movement only; no interpretation.</p>
 
   <div class="tl-hero-metrics" id="tl-metrics"></div>
+  <section class="tl-intel" id="tl-intel" style="display:none">
+    <h2 class="tl-intel-h" id="tl-intel-title">Treasury intelligence</h2>
+    <div class="tl-charts">
+      <div class="tl-chart-card"><h3 id="tl-ch-balance"></h3><div class="tl-chart" id="tl-c-balance"></div></div>
+      <div class="tl-chart-card"><h3 id="tl-ch-cumulative"></h3><div class="tl-chart" id="tl-c-cumulative"></div></div>
+    </div>
+  </section>
   <div id="tl-out"><div class="tl-empty">…</div></div>
   <p class="tl-note" id="tl-note"></p>
   <p class="footnote" id="tl-foot"></p>
@@ -109,6 +122,7 @@
   <div class="footer-note" id="ft-note">Observe · preserve · serve. No scores, no judgment.</div>
 </div></footer>
 <script src="i18n.js"></script>
+<script src="charts.js"></script>
 <script>
 "use strict";
 (function () {
@@ -125,6 +139,7 @@
       "tl-m-balance": "Treasury balance", "tl-m-balance-sub": "latest epoch {epoch}",
       "tl-m-enacted": "Enacted withdrawals", "tl-m-enacted-sub": "{ada} paid out",
       "tl-m-actions": "Governance actions", "tl-m-actions-sub": "in the record",
+      "tl-intel-title": "Treasury intelligence", "tl-ch-balance": "Treasury balance over time", "tl-ch-cumulative": "Cumulative enacted withdrawals",
       "type-TreasuryWithdrawals": "Treasury withdrawal", "type-InfoAction": "Info action", "type-ParameterChange": "Parameter change",
       "type-NewConstitution": "New constitution", "type-NewCommittee": "New committee", "type-HardForkInitiation": "Hard fork",
       "st-enacted": "Enacted", "st-ratified": "Ratified", "st-expired": "Expired", "st-rejected": "Rejected", "st-active": "Active",
@@ -141,6 +156,7 @@
       "tl-m-balance": "トレジャリー残高", "tl-m-balance-sub": "最新エポック {epoch}",
       "tl-m-enacted": "制定された出金", "tl-m-enacted-sub": "{ada} 支払い済み",
       "tl-m-actions": "ガバナンスアクション", "tl-m-actions-sub": "記録内",
+      "tl-intel-title": "トレジャリー インテリジェンス", "tl-ch-balance": "トレジャリー残高の推移", "tl-ch-cumulative": "累積制定出金額",
       "type-TreasuryWithdrawals": "トレジャリー出金", "type-InfoAction": "情報アクション", "type-ParameterChange": "パラメータ変更",
       "type-NewConstitution": "新憲法", "type-NewCommittee": "新委員会", "type-HardForkInitiation": "ハードフォーク",
       "st-enacted": "制定済み", "st-ratified": "批准済み", "st-expired": "期限切れ", "st-rejected": "否決", "st-active": "進行中",
@@ -166,8 +182,8 @@
   }
 
   function build(actions, withdrawals, snapshot, epochInfo) {
-    var epochDate = {};
-    (epochInfo.epochs || []).forEach(function (e) { epochDate[e.epoch_no] = e.start_date; });
+    var epochDate = {}, epochUnix = {};
+    (epochInfo.epochs || []).forEach(function (e) { epochDate[e.epoch_no] = e.start_date; epochUnix[e.epoch_no] = e.start_time_unix; });
     var wByAction = {};
     (withdrawals.withdrawals || []).forEach(function (w) { (wByAction[w.action_id] = wByAction[w.action_id] || []).push(w); });
 
@@ -193,7 +209,14 @@
     var latest = eps.length ? eps[eps.length - 1] : null;
     var enactedW = (withdrawals.withdrawals || []).filter(function (w) { return w.outcome === "enacted"; });
     var enactedTotal = enactedW.reduce(function (s, w) { return s + (w.amount_lovelace || 0); }, 0);
-    return { events: events, latest: latest, enactedCount: enactedW.length, enactedTotal: enactedTotal, actionCount: (actions.actions || []).length };
+    // P10 intelligence series — observed history only, from existing snapshots
+    var balanceSeries = eps.filter(function (e) { return epochUnix[e.epoch_no] != null && e.treasury_lovelace != null; })
+      .map(function (e) { return { t: epochUnix[e.epoch_no], v: e.treasury_lovelace / 1e6 }; });
+    var run = 0, cumulativeSeries = [];
+    enactedW.filter(function (w) { return w.enacted_epoch != null; })
+      .sort(function (a, b) { return a.enacted_epoch - b.enacted_epoch; })
+      .forEach(function (w) { run += w.amount_lovelace || 0; if (epochUnix[w.enacted_epoch] != null) cumulativeSeries.push({ t: epochUnix[w.enacted_epoch], v: run / 1e6 }); });
+    return { events: events, latest: latest, enactedCount: enactedW.length, enactedTotal: enactedTotal, actionCount: (actions.actions || []).length, balanceSeries: balanceSeries, cumulativeSeries: cumulativeSeries };
   }
 
   function metrics(d) {
@@ -224,9 +247,26 @@
       + votes + "</div></div></li>";
   }
 
+  function renderCharts() {
+    var sec = document.getElementById("tl-intel");
+    if (!sec) return;
+    var hasData = window.CDLChart && ((DATA.balanceSeries || []).length > 1 || (DATA.cumulativeSeries || []).length > 1);
+    if (!hasData) { sec.style.display = "none"; return; }
+    sec.style.display = "";
+    document.getElementById("tl-intel-title").textContent = tt("tl-intel-title");
+    document.getElementById("tl-ch-balance").textContent = tt("tl-ch-balance");
+    document.getElementById("tl-ch-cumulative").textContent = tt("tl-ch-cumulative");
+    var fmtY = function (v) { return fmtAda(v * 1e6); };
+    if ((DATA.balanceSeries || []).length > 1) CDLChart.line("tl-c-balance", DATA.balanceSeries, { height: 200, valueFormat: fmtY });
+    else document.getElementById("tl-c-balance").innerHTML = "";
+    if ((DATA.cumulativeSeries || []).length > 1) CDLChart.line("tl-c-cumulative", DATA.cumulativeSeries, { height: 200, valueFormat: fmtY });
+    else document.getElementById("tl-c-cumulative").innerHTML = "";
+  }
+
   function render() {
     if (!DATA) return;
     document.getElementById("tl-metrics").innerHTML = metrics(DATA);
+    renderCharts();
     document.getElementById("tl-note").innerHTML = tt("tl-note-html");
     document.getElementById("tl-foot").innerHTML = tt("tl-foot-html");
     var out = document.getElementById("tl-out");
