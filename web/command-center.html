@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Command Center — State of Cardano — asy.life</title>
+<meta name="description" content="One operating picture of Cardano in 60 seconds — governance, treasury, projects, memory, pulse and timeline: the headline facts and what just changed, each linking deeper. Facts only, sourced.">
+<meta name="theme-color" content="#fafaf7">
+<meta property="og:title" content="Cardano Command Center — the operating picture">
+<meta property="og:description" content="Governance, treasury, projects, memory, pulse & timeline in one 60-second control room. Facts only, read-only.">
+<link rel="stylesheet" href="style.css">
+<style>
+  .cc-asof{font-size:.84rem;color:var(--faint);margin:0 0 18px}
+  .cc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:16px}
+  .cc-panel{background:var(--card);border:0.5px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:18px 20px;display:flex;flex-direction:column}
+  .cc-panel h2{font-size:1.02rem;margin:0 0 12px;color:var(--accent-strong);display:flex;align-items:center;gap:8px}
+  .cc-panel h2 .cc-dot{width:9px;height:9px;border-radius:50%;flex:none}
+  .cc-stats{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:12px}
+  .cc-stat .cc-v{font-size:1.4rem;font-weight:750;font-variant-numeric:tabular-nums;letter-spacing:-.01em;line-height:1.1}
+  .cc-stat .cc-l{font-size:.72rem;color:var(--muted);margin-top:2px}
+  .cc-sub{font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);font-weight:600;margin:4px 0 6px}
+  .cc-list{margin:0 0 8px}
+  .cc-li{display:flex;justify-content:space-between;gap:10px;align-items:baseline;padding:5px 0;border-top:1px solid var(--border);font-size:.86rem}
+  .cc-li:first-child{border-top:none}
+  .cc-li .cc-n{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .cc-li .cc-n a{color:var(--text);text-decoration:none}.cc-li .cc-n a:hover{color:var(--accent-strong);text-decoration:underline}
+  .cc-li .cc-x{flex:none;font-variant-numeric:tabular-nums;color:var(--muted);font-size:.8rem}
+  .cc-up{color:#1d6b46}.cc-down{color:#a33}.cc-amt{color:#1d6b46;font-weight:700}
+  .cc-badge{font-size:.64rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 6px;border-radius:5px;margin-right:6px}
+  .b-enacted{background:rgba(38,110,70,.12);color:#1d6b46}.b-ratified{background:var(--accent-soft);color:var(--accent-strong)}
+  .cc-links{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap;padding-top:8px;border-top:0.5px solid var(--border)}
+  .cc-links a{font-size:12.5px;color:var(--accent-strong);text-decoration:none;background:var(--accent-soft);border:0.5px solid rgba(44,86,112,.14);border-radius:7px;padding:5px 11px}
+  .cc-links a:hover{background:var(--accent);color:#fff}
+  .cc-empty{color:var(--faint);font-size:.82rem;font-style:italic;padding:4px 0}
+</style>
+</head>
+<body>
+<div class="ecosystem-strip"><div class="ecosystem-strip-inner">
+  <span class="eco-label" id="eco-label">Ecosystem</span>
+  <a href="https://ctf.asy.life" class="eco-link">CTF</a><span class="eco-sep">·</span>
+  <a href="https://observatory.asy.life" class="eco-link" id="eco-link-observatory">Observatory</a><span class="eco-sep">·</span>
+  <a href="https://voting.asy.life" class="eco-link" id="eco-link-voting">Voting</a><span class="eco-sep">·</span>
+  <a href="https://governance.asy.life" class="eco-link" id="eco-link-governance">Governance</a><span class="eco-sep">·</span>
+  <a href="https://api.asy.life" class="eco-link" id="eco-link-api">API</a><span class="eco-sep">·</span>
+  <a href="https://github.com/cryptoleo79" class="eco-link" target="_blank" rel="noopener">GitHub</a>
+</div></div>
+<header class="site-header"><div class="container header-inner">
+  <a href="/" class="brand"><span class="brand-mark">CDO</span><span class="brand-text" id="h-brand">Cardano Delegation Observatory</span></a>
+  <nav class="site-nav" id="site-nav">
+    <div class="nav-group" data-grp="discover">
+      <button class="nav-group-btn" id="nav-grp-discover" type="button" aria-haspopup="true" aria-expanded="false">Discover</button>
+      <div class="nav-menu" role="menu">
+        <a href="search.html" id="h-nav-search" role="menuitem">Search</a>
+        <a href="projects.html" id="h-nav-projects" role="menuitem">Projects</a>
+        <a href="categories.html" id="h-nav-categories" role="menuitem">Categories</a>
+        <a href="ecosystem.html" id="h-nav-ecosystem" role="menuitem">Ecosystem</a>
+        <a href="memory.html" id="h-nav-memory" role="menuitem">Memory</a>
+      </div>
+    </div>
+    <div class="nav-group" data-grp="governance">
+      <button class="nav-group-btn" id="nav-grp-governance" type="button" aria-haspopup="true" aria-expanded="false">Governance</button>
+      <div class="nav-menu" role="menu">
+        <a href="/" id="h-nav-observatory" role="menuitem">Observatory</a>
+        <a href="treasury.html" id="h-nav-treasury" role="menuitem">Treasury</a>
+        <a href="catalyst.html" id="h-nav-catalyst" role="menuitem">Catalyst</a>
+        <a href="changes.html" id="h-nav-changes" role="menuitem">Changes</a>
+        <a href="governance-daily.html" id="h-nav-daily" role="menuitem">Daily</a>
+        <a href="governance-health.html" id="h-nav-health" role="menuitem">Health</a>
+      </div>
+    </div>
+    <div class="nav-group" data-grp="data">
+      <button class="nav-group-btn" id="nav-grp-data" type="button" aria-haspopup="true" aria-expanded="false">Data</button>
+      <div class="nav-menu" role="menu">
+        <a href="tokens.html" id="h-nav-tokens" role="menuitem">Tokens</a>
+        <a href="rankings.html" id="h-nav-rankings" role="menuitem">Rankings</a>
+        <a href="market.html" id="h-nav-market" role="menuitem">Market</a>
+        <a href="https://api.asy.life" id="h-nav-api" role="menuitem" target="_blank" rel="noopener">API</a>
+      </div>
+    </div>
+    <div class="lang-toggle"><button id="btn-en" class="active" onclick="setLang('en')">EN</button><button id="btn-ja" onclick="setLang('ja')">日本語</button></div>
+  </nav>
+</div></header>
+
+<main><article class="container">
+  <h1 id="cc-title">Cardano Command Center</h1>
+  <p class="lede" id="cc-lede">The whole picture in 60 seconds — what exists, what just changed, and where to go next, across governance, treasury, projects, memory, pulse and the timeline. Headline facts and recent activity only; each panel links deeper. No opinion, no narrative.</p>
+  <p class="cc-asof" id="cc-asof"></p>
+
+  <div class="cc-grid" id="cc-grid"><div class="loading">…</div></div>
+  <p class="footnote" id="cc-foot"></p>
+</article></main>
+
+<footer class="site-footer"><div class="container footer-inner">
+  <div><span id="ft-license">Apache 2.0 code · CC0 data</span></div>
+  <div><a href="timeline.html" id="ft-tl">Timeline</a> <a href="ecosystem-pulse.html" id="ft-pulse">Pulse</a> <a href="docs.html" id="ft-docs">Docs</a></div>
+  <div class="footer-note" id="ft-note">Observe · preserve · serve. No scores, no judgment.</div>
+</div></footer>
+<script src="i18n.js"></script>
+<script>
+"use strict";
+(function () {
+  function lang() { return document.documentElement.lang === "ja" ? "ja" : "en"; }
+  function tt(k) { return (i18n[lang()] && i18n[lang()][k]) || (i18n.en[k] || k); }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+  var SNAP = "data/snapshots", PM = "data/snapshots/projectmemory", NOW = Date.now();
+
+  var P = {
+    en: {
+      "cc-title": "Cardano Command Center",
+      "cc-lede": "The whole picture in 60 seconds — what exists, what just changed, and where to go next, across governance, treasury, projects, memory, pulse and the timeline. Headline facts and recent activity only; each panel links deeper. No opinion, no narrative.",
+      "cc-asof-tpl": "As of {date} · epoch {epoch} · public on-chain data via Koios + Project Memory",
+      "pn-gov": "Governance", "pn-tre": "Treasury", "pn-proj": "Projects", "pn-mem": "Memory", "pn-pulse": "Pulse", "pn-tl": "Timeline",
+      "l-active": "active actions", "l-enacted": "enacted", "l-recent-enact": "Recent enactments", "l-drep-move": "Top voting-weight moves (7d)",
+      "l-balance": "treasury balance", "l-withd": "enacted withdrawals", "l-recent-withd": "Recent withdrawals",
+      "l-projects": "projects", "l-enriched": "enriched", "l-recent-enrich": "Recently enriched", "l-recent-update": "Recently updated",
+      "l-documented": "fully documented", "l-most-doc": "Most documented", "l-deepest": "Deepest histories", "l-growth": "Fastest growth (7d)",
+      "l-today": "active today", "l-week": "active this week", "l-links-week": "links added this week",
+      "l-latest": "Latest ecosystem events", "cc-events": "events", "cc-none": "—",
+      "lk-daily": "Governance Daily", "lk-drep": "DRep History", "lk-tl": "Timeline", "lk-tretl": "Treasury Timeline", "lk-treasury": "Treasury",
+      "lk-search": "Search", "lk-pm": "Project Memory", "lk-pulse": "Ecosystem Pulse", "lk-insights": "Memory Insights", "lk-map": "Memory Map",
+      "ty-enacted": "Enactment", "ty-ratified": "Ratification", "ty-expired": "Expiry", "ty-rejected": "Rejected", "ty-active": "Action", "ty-withdrawal": "Withdrawal", "ty-recorded": "Memory recorded", "ty-enriched": "Memory enriched",
+      "cc-foot-html": "One operating picture over the same public snapshots behind every deeper page — no new computation, no estimates, no inference. Replaces the old State page. Full record at <a href=\"https://api.asy.life/docs\">api.asy.life</a>.",
+    },
+    ja: {
+      "cc-title": "Cardano コマンドセンター",
+      "cc-lede": "全体像を60秒で — 何が存在し、何が今変わり、次にどこへ行くか。ガバナンス、トレジャリー、プロジェクト、メモリ、パルス、タイムラインを横断。見出しの事実と最近の活動のみ。各パネルは深掘りへリンク。意見も物語もありません。",
+      "cc-asof-tpl": "{date} 時点 · エポック {epoch} · Koios と Project Memory 経由の公開オンチェーンデータ",
+      "pn-gov": "ガバナンス", "pn-tre": "トレジャリー", "pn-proj": "プロジェクト", "pn-mem": "メモリ", "pn-pulse": "パルス", "pn-tl": "タイムライン",
+      "l-active": "進行中アクション", "l-enacted": "制定", "l-recent-enact": "最近の制定", "l-drep-move": "投票権の変動上位 (7日)",
+      "l-balance": "トレジャリー残高", "l-withd": "制定済み出金", "l-recent-withd": "最近の出金",
+      "l-projects": "プロジェクト", "l-enriched": "充実", "l-recent-enrich": "最近拡充", "l-recent-update": "最近更新",
+      "l-documented": "完全文書化", "l-most-doc": "最も文書化", "l-deepest": "最も深い履歴", "l-growth": "成長最速 (7日)",
+      "l-today": "本日アクティブ", "l-week": "今週アクティブ", "l-links-week": "今週追加リンク",
+      "l-latest": "最新のエコシステムイベント", "cc-events": "イベント", "cc-none": "—",
+      "lk-daily": "ガバナンス日次", "lk-drep": "DRep 履歴", "lk-tl": "タイムライン", "lk-tretl": "トレジャリー タイムライン", "lk-treasury": "トレジャリー",
+      "lk-search": "検索", "lk-pm": "プロジェクトメモリ", "lk-pulse": "エコシステム パルス", "lk-insights": "メモリ インサイト", "lk-map": "メモリ マップ",
+      "ty-enacted": "制定", "ty-ratified": "批准", "ty-expired": "期限切れ", "ty-rejected": "否決", "ty-active": "アクション", "ty-withdrawal": "出金", "ty-recorded": "メモリ記録", "ty-enriched": "メモリ拡充",
+      "cc-foot-html": "深掘り各ページと同じ公開スナップショットによる単一のオペレーティングピクチャ — 新規計算も推計も推論もありません。旧 State ページを置き換えます。完全な記録は <a href=\"https://api.asy.life/docs\">api.asy.life</a>。",
+    },
+  };
+  if (typeof i18n !== "undefined") { Object.assign(i18n.en, P.en); Object.assign(i18n.ja, P.ja); if (typeof setLang === "function") setLang(lang()); }
+
+  var D = null;
+  function fmtAda(lov) { if (lov == null) return "—"; var a = lov / 1e6; if (a >= 1e9) return "₳" + (a / 1e9).toFixed(2) + "B"; if (a >= 1e6) return "₳" + (a / 1e6).toFixed(1) + "M"; if (a >= 1e3) return "₳" + (a / 1e3).toFixed(1) + "k"; return "₳" + Math.round(a); }
+  function num(v) { return v == null ? "—" : Number(v).toLocaleString(); }
+  function inWin(ts, d) { return ts ? (NOW - Date.parse(ts + "T00:00:00Z")) <= d * 864e5 + 864e5 : false; }
+
+  function stat(v, l) { return '<div class="cc-stat"><div class="cc-v">' + v + '</div><div class="cc-l">' + esc(tt(l)) + "</div></div>"; }
+  function li(name, x, href) { return '<div class="cc-li"><span class="cc-n">' + (href ? '<a href="' + href + '">' + esc(name) + "</a>" : esc(name)) + '</span><span class="cc-x">' + x + "</span></div>"; }
+  function listBlock(labelKey, rows) { return '<div class="cc-sub">' + esc(tt(labelKey)) + '</div><div class="cc-list">' + (rows.length ? rows.join("") : '<div class="cc-empty">' + esc(tt("cc-none")) + "</div>") + "</div>"; }
+  function panel(titleKey, dot, statsHtml, blocks, links) {
+    return '<div class="cc-panel"><h2><span class="cc-dot" style="background:' + dot + '"></span>' + esc(tt(titleKey)) + "</h2>"
+      + '<div class="cc-stats">' + statsHtml + "</div>" + blocks + '<div class="cc-links">' + links + "</div></div>";
+  }
+  function link(href, l) { return '<a href="' + href + '">' + esc(tt(l)) + "</a>"; }
+
+  function render() {
+    if (!D) return;
+    document.getElementById("cc-asof").textContent = tt("cc-asof-tpl").replace("{date}", D.asOf || "—").replace("{epoch}", D.epoch || "—");
+    document.getElementById("cc-foot").innerHTML = tt("cc-foot-html");
+    var html = "";
+
+    // Governance
+    var enactRows = D.recentEnactments.map(function (e) { return li(e.title, '<span class="cc-badge b-enacted">' + esc(tt("ty-enacted")) + "</span>", "action.html?id=" + encodeURIComponent(e.id)); });
+    var moveRows = D.drepMoves.map(function (m) { return li(m.name, '<span class="' + (m.up ? "cc-up" : "cc-down") + '">' + (m.up ? "+" : "−") + fmtAda(Math.abs(m.delta || 0) * 1e6) + "</span>", "drep-history.html?id=" + encodeURIComponent(m.id)); });
+    html += panel("pn-gov", "#2c5670",
+      stat(num(D.activeActions), "l-active") + stat(num(D.enactedActions), "l-enacted"),
+      listBlock("l-recent-enact", enactRows) + listBlock("l-drep-move", moveRows),
+      link("governance-daily.html", "lk-daily") + link("drep-history.html", "lk-drep") + link("timeline.html", "lk-tl"));
+
+    // Treasury
+    var withdRows = D.recentWithdrawals.map(function (w) { return li(w.title, '<span class="cc-amt">' + fmtAda(w.amount) + "</span>", "action.html?id=" + encodeURIComponent(w.id)); });
+    html += panel("pn-tre", "#1d6b46",
+      stat(fmtAda(D.balance), "l-balance") + stat(num(D.withdrawals), "l-withd"),
+      listBlock("l-recent-withd", withdRows),
+      link("treasury-timeline.html", "lk-tretl") + link("treasury.html", "lk-treasury"));
+
+    // Projects
+    var enrichRows = D.recentEnriched.map(function (p) { return li(p.name, esc(p.last_ts || ""), "project.html?id=" + encodeURIComponent(p.id)); });
+    var updateRows = D.recentUpdated.map(function (p) { return li(p.name, esc(p.last_ts || ""), "project.html?id=" + encodeURIComponent(p.id)); });
+    html += panel("pn-proj", "#6a4a80",
+      stat(num(D.projects), "l-projects") + stat(D.enrichedPct + "%", "l-enriched"),
+      listBlock("l-recent-enrich", enrichRows) + listBlock("l-recent-update", updateRows),
+      link("search.html", "lk-search") + link("projects.html", "lk-pm") + link("ecosystem-pulse.html", "lk-pulse"));
+
+    // Memory
+    var docRows = D.mostDocumented.map(function (p) { return li(p.name, ((p.link_fields || []).length) + "/4 · " + num(p.evidence_count) + " ev", "project.html?id=" + encodeURIComponent(p.id)); });
+    var deepRows = D.deepest.map(function (p) { return li(p.name, num(p.history_count) + " " + esc(tt("cc-events")), "project-history.html?id=" + encodeURIComponent(p.id)); });
+    html += panel("pn-mem", "#963267",
+      stat(num(D.fullyDocumented), "l-documented") + stat(num(D.events), "cc-events"),
+      listBlock("l-most-doc", docRows) + listBlock("l-deepest", deepRows),
+      link("memory-insights.html", "lk-insights") + link("memory-map.html", "lk-map"));
+
+    // Pulse
+    html += panel("pn-pulse", "#a86e14",
+      stat(num(D.activeToday), "l-today") + stat(num(D.activeWeek), "l-week") + stat(num(D.linksWeek), "l-links-week"),
+      "",
+      link("ecosystem-pulse.html", "lk-pulse"));
+
+    // Timeline
+    var evRows = D.latestEvents.map(function (e) { return li(e.title, esc(tt("ty-" + e.type)) + " · " + esc(e.date || ""), e.href); });
+    html += panel("pn-tl", "#444",
+      "", listBlock("l-latest", evRows),
+      link("timeline.html", "lk-tl"));
+
+    document.getElementById("cc-grid").innerHTML = html;
+  }
+
+  function boot() {
+    document.addEventListener("cdo-lang", render);
+    Promise.all([
+      fetch(SNAP + "/meta.json").then(function (r) { return r.json(); }).catch(function () { return {}; }),
+      fetch(SNAP + "/actions.json").then(function (r) { return r.json(); }).catch(function () { return { actions: [] }; }),
+      fetch(SNAP + "/treasury_snapshot.json").then(function (r) { return r.json(); }).catch(function () { return { epochs: [] }; }),
+      fetch(SNAP + "/treasury_withdrawals.json").then(function (r) { return r.json(); }).catch(function () { return { withdrawals: [] }; }),
+      fetch(SNAP + "/changes.json").then(function (r) { return r.json(); }).catch(function () { return { windows: {} }; }),
+      fetch(SNAP + "/epoch_info.json").then(function (r) { return r.json(); }).catch(function () { return { epochs: [] }; }),
+      fetch(PM + "/index.json").then(function (r) { return r.json(); }).catch(function () { return { projects: [] }; }),
+      fetch(PM + "/memory-timeline.json").then(function (r) { return r.json(); }).catch(function () { return { meta: {}, milestones: [] }; }),
+    ]).then(function (res) {
+      var meta = res[0], A = res[1].actions || [], TS = res[2].epochs || [], W = res[3].withdrawals || [], CH = res[4].windows || {}, EI = res[5].epochs || [], idx = res[6], mt = res[7];
+      var ed = {}; EI.forEach(function (e) { ed[e.epoch_no] = e.start_date; });
+      var aById = {}; A.forEach(function (a) { aById[a.action_id] = a; });
+      var projects = (idx.projects || []);
+      var enacted = A.filter(function (a) { return a.outcome === "enacted"; });
+      var enW = W.filter(function (w) { return w.outcome === "enacted" && w.enacted_epoch != null; });
+      // group withdrawals by action
+      var wByA = {}; enW.forEach(function (w) { (wByA[w.action_id] = wByA[w.action_id] || []).push(w); });
+      var withdItems = Object.keys(wByA).map(function (aid) { var ws = wByA[aid]; return { id: aid, title: (aById[aid] && aById[aid].title) || "Treasury withdrawal", amount: ws.reduce(function (s, w) { return s + (w.amount_lovelace || 0); }, 0), ep: ws[0].enacted_epoch }; }).sort(function (a, b) { return b.ep - a.ep; });
+      // drep moves (7d weight)
+      var w7 = (CH["7d"] || {}); var moves = (w7.gainers || []).slice(0, 2).map(function (g) { return { name: g.name || g.drep_id.slice(0, 12), id: g.drep_id, delta: g.weight_delta_ada, up: true }; })
+        .concat((w7.losers || []).slice(0, 2).map(function (l) { return { name: l.name || l.drep_id.slice(0, 12), id: l.drep_id, delta: l.weight_delta_ada, up: false }; }));
+      // timeline latest (governance non-treasury terminal + treasury enacted + memory milestones)
+      var STATUS = { enacted: "enacted", ratified: "ratified", expired: "expired", dropped: "rejected", active: "active" };
+      var ev = [];
+      A.forEach(function (a) { if (a.action_type === "TreasuryWithdrawals") return; var ep = a.expires_epoch || a.submitted_epoch; ev.push({ type: STATUS[a.outcome] || "active", title: a.title || a.action_id, date: ed[ep] || null, ts: ed[ep] ? Date.parse(ed[ep]) : NOW, href: "action.html?id=" + encodeURIComponent(a.action_id) }); });
+      withdItems.forEach(function (w) { ev.push({ type: "withdrawal", title: w.title, date: ed[w.ep] || null, ts: ed[w.ep] ? Date.parse(ed[w.ep]) : NOW, href: "action.html?id=" + encodeURIComponent(w.id) }); });
+      (mt.milestones || []).forEach(function (m) { ev.push({ type: "enriched", title: "Project Memory", date: m.date, ts: Date.parse(m.date), href: "timeline.html" }); });
+      ev.sort(function (a, b) { return b.ts - a.ts; });
+      var nlink = function (p) { return projects.indexOf(p); };
+      D = {
+        asOf: meta.data_through, epoch: meta.tip_epoch,
+        activeActions: A.filter(function (a) { return a.outcome === "active"; }).length, enactedActions: enacted.length,
+        recentEnactments: enacted.slice().sort(function (a, b) { return (b.expires_epoch || 0) - (a.expires_epoch || 0); }).slice(0, 3).map(function (a) { return { id: a.action_id, title: a.title || a.action_id }; }),
+        drepMoves: moves,
+        balance: TS.length ? TS[TS.length - 1].treasury_lovelace : null, withdrawals: enW.length,
+        recentWithdrawals: withdItems.slice(0, 3),
+        projects: projects.length, enrichedPct: projects.length ? Math.round(projects.filter(function (p) { return p.enriched; }).length / projects.length * 100) : 0,
+        recentEnriched: projects.filter(function (p) { return p.link_ts && ["website", "github", "documentation", "whitepaper"].some(function (f) { return inWin(p.link_ts[f], 7); }); }).sort(function (a, b) { return (b.last_ts || "").localeCompare(a.last_ts || ""); }).slice(0, 3),
+        recentUpdated: projects.filter(function (p) { return inWin(p.last_ts, 7); }).sort(function (a, b) { return (b.last_ts || "").localeCompare(a.last_ts || ""); }).slice(0, 3),
+        fullyDocumented: projects.filter(function (p) { return (p.link_fields || []).length === 4; }).length,
+        events: mt.meta ? mt.meta.events : null,
+        mostDocumented: projects.slice().sort(function (a, b) { return (b.link_fields || []).length - (a.link_fields || []).length || (b.evidence_count || 0) - (a.evidence_count || 0); }).slice(0, 3),
+        deepest: projects.slice().sort(function (a, b) { return (b.history_count || 0) - (a.history_count || 0); }).slice(0, 3),
+        activeToday: projects.filter(function (p) { return inWin(p.last_ts, 1); }).length,
+        activeWeek: projects.filter(function (p) { return inWin(p.last_ts, 7); }).length,
+        linksWeek: projects.reduce(function (s, p) { return s + (p.link_ts ? ["website", "github", "documentation", "whitepaper"].filter(function (f) { return inWin(p.link_ts[f], 7); }).length : 0); }, 0),
+        latestEvents: ev.slice(0, 5),
+      };
+      void nlink;
+      render();
+    }).catch(function () { document.getElementById("cc-grid").innerHTML = '<div class="loading">Couldn’t load the operating picture.</div>'; });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
+})();
+</script>
+</body>
+</html>
