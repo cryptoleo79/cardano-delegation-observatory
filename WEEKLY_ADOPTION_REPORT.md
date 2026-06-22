@@ -14,6 +14,28 @@ the evidence supports. Keep prior weeks for trend.
 
 ---
 
+## Week 4 — verdict: freeze features, fix distribution (relayed)
+
+- **Project Memory is the flagship — 4 consecutive measurements. Official.** Builds, when
+  they resume, orient around Project Memory / Discovery / Intelligence.
+- **Categories-as-a-destination: FAILED** — 0 traffic Weeks 1–4. **Stop investing in a
+  category destination.** (Already actioned: `categories.html` redirects to
+  `category-explorer.html`; category *data* lives inside Search 2.0. Candidate further
+  step: drop "Categories" from nav entirely, since the destination is dead.)
+- **Search · Timeline · Pulse · State/Command Center · Memory Map = UNPROVEN** — not bad,
+  **under-discovered.** (Consolidation #1 just put them in the nav for the first time;
+  Week 5 will show whether nav-surfacing moves their traffic.)
+- **THE BOTTLENECK IS DISTRIBUTION, NOT PRODUCT.** The platform has the capability; it
+  lacks reach.
+
+### Decision
+**Freeze major feature development for one cycle.** Run **outreach · announcements · usage
+collection** instead. Restart a major build loop only if (a) usage reveals a new signal, or
+(b) real users ask for the same thing repeatedly. Internal discoverability lever = pulled
+(nav consolidation). External distribution lever = not yet pulled (owner action).
+
+---
+
 ## Week 3 — confirmed signals (relayed)
 
 - **Projects = winner for the 3rd consecutive measurement → CONFIRMED signal.** Project
