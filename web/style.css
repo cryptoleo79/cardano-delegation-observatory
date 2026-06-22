@@ -759,6 +759,20 @@ table.rank-table tbody tr:hover { background: var(--row-hover); }
 
 /* Homepage ecosystem framing: pillars tagline + routing hub */
 .home-pillars { margin: 12px 0 0; font-size: 13.5px; color: var(--muted); letter-spacing: .01em; }
+
+/* Today's movement — the leaderboard headline strip on the homepage. */
+.today-move { margin: 30px 0 8px; }
+.tmv-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+.tmv-card { background: var(--card); border: 0.5px solid var(--border); border-radius: 12px; box-shadow: var(--shadow); padding: 13px 15px; }
+.tmv-l { font-size: 11px; letter-spacing: .05em; text-transform: uppercase; color: var(--faint); font-weight: 600; margin-bottom: 6px; }
+.tmv-v { font-size: 15px; font-weight: 650; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; }
+.tmv-v a { color: var(--text); text-decoration: none; } .tmv-v a:hover { color: var(--accent-strong); text-decoration: underline; }
+.tmv-d { font-weight: 700; font-variant-numeric: tabular-nums; }
+.tmv-up { color: #1d6b46; } .tmv-down { color: #a33; }
+.tmv-v.tmv-up, .tmv-v.tmv-down { color: var(--text); }
+.tmv-none { color: var(--faint); font-weight: 400; font-style: italic; font-size: 13px; }
+.tmv-s { font-size: 11px; color: var(--faint); margin-top: 4px; font-variant-numeric: tabular-nums; }
+.tmv-loading { color: var(--faint); padding: 12px 0; }
 .home-pillars strong { color: var(--accent-strong); font-weight: 700; }
 .home-hub {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));

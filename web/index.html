@@ -38,9 +38,13 @@
     <div class="nav-group" data-grp="discover">
       <button class="nav-group-btn" id="nav-grp-discover" type="button" aria-haspopup="true" aria-expanded="false">Discover</button>
       <div class="nav-menu" role="menu">
+        <a href="command-center.html" id="h-nav-command" role="menuitem">Command Center</a>
         <a href="search.html" id="h-nav-search" role="menuitem">Search</a>
         <a href="projects.html" id="h-nav-projects" role="menuitem">Projects</a>
-        <a href="categories.html" id="h-nav-categories" role="menuitem">Categories</a>
+        <a href="ecosystem-pulse.html" id="h-nav-pulse" role="menuitem">Ecosystem Pulse</a>
+        <a href="memory-insights.html" id="h-nav-insights" role="menuitem">Memory Insights</a>
+        <a href="memory-map.html" id="h-nav-mmap" role="menuitem">Memory Map</a>
+        <a href="category-explorer.html" id="h-nav-categories" role="menuitem">Categories</a>
         <a href="ecosystem.html" id="h-nav-ecosystem" role="menuitem">Ecosystem</a>
         <a href="memory.html" id="h-nav-memory" role="menuitem">Memory</a>
       </div>
@@ -49,10 +53,12 @@
       <button class="nav-group-btn" id="nav-grp-governance" type="button" aria-haspopup="true" aria-expanded="false">Governance</button>
       <div class="nav-menu" role="menu">
         <a href="/" id="h-nav-observatory" role="menuitem">Observatory</a>
+        <a href="governance-daily.html" id="h-nav-daily" role="menuitem">Daily</a>
+        <a href="timeline.html" id="h-nav-timeline" role="menuitem">Timeline</a>
         <a href="treasury.html" id="h-nav-treasury" role="menuitem">Treasury</a>
+        <a href="treasury-timeline.html" id="h-nav-tretl" role="menuitem">Treasury Timeline</a>
         <a href="catalyst.html" id="h-nav-catalyst" role="menuitem">Catalyst</a>
         <a href="changes.html" id="h-nav-changes" role="menuitem">Changes</a>
-        <a href="governance-daily.html" id="h-nav-daily" role="menuitem">Daily</a>
         <a href="governance-health.html" id="h-nav-health" role="menuitem">Health</a>
       </div>
     </div>
@@ -142,7 +148,12 @@
       <div class="metric-grid" id="home-scale"></div>
     </div>
 
-    <h2 class="section-head" id="home-dreps-head">Today's governance snapshot</h2>
+    <section class="today-move" id="today-move" aria-label="Today's movement">
+      <h2 class="section-head"><span class="en">Today's movement</span><span class="ja">本日の動き</span></h2>
+      <div class="tmv-cards" id="today-cards"><div class="tmv-loading">…</div></div>
+    </section>
+
+    <h2 class="section-head" id="home-dreps-head">Top 30 leaderboard</h2>
     <div class="metric-grid" id="home-metrics"></div>
 
     <div class="table-scroll">
@@ -222,5 +233,52 @@
 <script src="i18n.js"></script>
 <script src="historical.js"></script>
 <script src="app.js"></script>
+<script>
+/* Today's movement — the 1d window of the change feed, as the leaderboard headline.
+   Facts only (top-30 scoped); honest empty states when nothing moved today. */
+"use strict";
+(function () {
+  function lang() { return document.documentElement.lang === "ja" ? "ja" : "en"; }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+  var T = {
+    en: { gain: "Top gain", loss: "Top loss", dgain: "Delegator gains", dloss: "Delegator losses", entr: "Entered Top 30", exit: "Exited Top 30", none: "no change today", deleg: "delegators", more: "+{n} more" },
+    ja: { gain: "上昇トップ", loss: "下落トップ", dgain: "委任者の増加", dloss: "委任者の減少", entr: "Top 30 入り", exit: "Top 30 退出", none: "本日の変動なし", deleg: "委任者", more: "他 +{n}" },
+  };
+  function t(k) { return (T[lang()] || T.en)[k]; }
+  var DATA = null;
+  function ada(lov) { if (lov == null) return ""; var a = Math.abs(lov) / 1e6, s = lov > 0 ? "+" : lov < 0 ? "−" : ""; if (a >= 1e9) return s + "₳" + (a / 1e9).toFixed(2) + "B"; if (a >= 1e6) return s + "₳" + (a / 1e6).toFixed(1) + "M"; if (a >= 1e3) return s + "₳" + (a / 1e3).toFixed(0) + "k"; return s + "₳" + Math.round(a); }
+  function nm(e) { return e && (e.name || (e.drep_id ? e.drep_id.slice(0, 12) + "…" : "—")); }
+  function href(e) { return e && e.drep_id ? "drep.html?id=" + encodeURIComponent(e.drep_id) : null; }
+  function card(label, cls, headline, sub) {
+    return '<div class="tmv-card"><div class="tmv-l">' + esc(label) + "</div>"
+      + '<div class="tmv-v ' + (cls || "") + '">' + (headline || ("<span class=\"tmv-none\">" + esc(t("none")) + "</span>")) + "</div>"
+      + (sub ? '<div class="tmv-s">' + sub + "</div>" : "") + "</div>";
+  }
+  function nameVal(e, val, cls) {
+    var h = href(e), n = esc(nm(e));
+    return (h ? '<a href="' + h + '">' + n + "</a>" : n) + ' <span class="tmv-d ' + (cls || "") + '">' + esc(val) + "</span>";
+  }
+  function render() {
+    var host = document.getElementById("today-cards"); if (!host) return;
+    if (!DATA) { host.innerHTML = '<div class="tmv-loading">—</div>'; return; }
+    var w = (DATA.windows && DATA.windows["1d"]) || {};
+    var g = (w.gainers || [])[0], l = (w.losers || [])[0];
+    var dg = (w.delegator_growth || []).slice().sort(function (a, b) { return (b.delegator_delta || 0) - (a.delegator_delta || 0); })[0];
+    var dl = (w.delegator_decline || []).slice().sort(function (a, b) { return (a.delegator_delta || 0) - (b.delegator_delta || 0); })[0];
+    var ent = w.entrants || [], ex = w.exits || [];
+    function names(arr) { return arr.slice(0, 2).map(function (e) { var h = href(e); var n = esc(nm(e)); return h ? '<a href="' + h + '">' + n + "</a>" : n; }).join(", ") + (arr.length > 2 ? " " + t("more").replace("{n}", arr.length - 2) : ""); }
+    host.innerHTML =
+      card(t("gain"), "tmv-up", g ? nameVal(g, ada(g.weight_delta_lovelace), "tmv-up") : null)
+      + card(t("loss"), "tmv-down", l ? nameVal(l, ada(l.weight_delta_lovelace), "tmv-down") : null)
+      + card(t("dgain"), "tmv-up", dg ? nameVal(dg, "+" + (dg.delegator_delta || 0) + " " + t("deleg"), "tmv-up") : null, dg ? ((w.delegator_growth || []).length + " " + t("deleg")) : null)
+      + card(t("dloss"), "tmv-down", dl ? nameVal(dl, (dl.delegator_delta || 0) + " " + t("deleg"), "tmv-down") : null)
+      + card(t("entr"), "tmv-up", ent.length ? names(ent) : null)
+      + card(t("exit"), "tmv-down", ex.length ? names(ex) : null);
+  }
+  document.addEventListener("cdo-lang", render);
+  fetch("data/snapshots/changes.json").then(function (r) { return r.json(); }).then(function (j) { DATA = j; render(); })
+    .catch(function () { var h = document.getElementById("today-cards"); if (h) h.innerHTML = ""; });
+})();
+</script>
 </body>
 </html>
