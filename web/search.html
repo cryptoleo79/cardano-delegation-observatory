@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search — Project Memory — asy.life</title>
+<meta name="description" content="Search all 847 Cardano projects in Project Memory by name, category, ticker, or keyword — with a coverage scorecard for each. Read-only, provenance-first.">
+<meta name="theme-color" content="#fafaf7">
+<meta property="og:title" content="Search Cardano Project Memory">
+<meta property="og:description" content="Find any of 847 projects by name, category, or ticker — each with a coverage scorecard. Read-only.">
+<link rel="stylesheet" href="style.css">
+<style>
+  .se-box{position:relative;margin:6px 0 10px}
+  .se-input{width:100%;box-sizing:border-box;padding:15px 18px 15px 46px;font-size:17px;border:1px solid var(--border-strong);border-radius:13px;background:var(--card);color:var(--text);box-shadow:var(--shadow)}
+  .se-input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+  .se-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--faint);pointer-events:none}
+  .se-meta{font-size:.82rem;color:var(--faint);margin:0 2px 16px}
+  .se-chips{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 18px}
+  .se-chip{font-size:12px;padding:5px 11px;border-radius:999px;border:0.5px solid var(--border);background:var(--card);color:var(--muted);cursor:pointer}
+  .se-chip:hover{border-color:var(--accent);color:var(--accent-strong)}
+  .se-results{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+  .se-card{display:block;background:var(--card);border:0.5px solid var(--border);border-radius:13px;box-shadow:var(--shadow);padding:14px 16px;text-decoration:none;transition:transform .1s ease,box-shadow .1s ease,border-color .1s ease}
+  .se-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.08);border-color:var(--accent);text-decoration:none}
+  .se-card-head{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+  .se-name{font-weight:700;color:var(--text);line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .se-kind{font-size:.7rem;font-family:var(--mono);color:var(--faint);flex:none;text-transform:uppercase;letter-spacing:.03em}
+  .se-cats{font-size:.76rem;color:var(--muted);margin:6px 0 10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-height:1em}
+  .se-score{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+  .se-cov{font-size:10px;font-weight:700;letter-spacing:.03em;padding:2px 7px;border-radius:5px;border:0.5px solid var(--border)}
+  .se-cov.on{background:rgba(38,110,70,.12);color:#1d6b46;border-color:rgba(38,110,70,.25)}
+  .se-cov.off{background:rgba(0,0,0,.03);color:var(--faint)}
+  .se-depth{font-size:.74rem;color:var(--faint);margin-left:auto;font-variant-numeric:tabular-nums}
+  .se-empty{color:var(--faint);padding:30px 4px;text-align:center;line-height:1.6}
+  .se-hint{font-size:.84rem;color:var(--muted);background:var(--accent-soft);border:0.5px solid rgba(44,86,112,.14);border-radius:10px;padding:12px 15px;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="ecosystem-strip"><div class="ecosystem-strip-inner">
+  <span class="eco-label" id="eco-label">Ecosystem</span>
+  <a href="https://ctf.asy.life" class="eco-link">CTF</a><span class="eco-sep">·</span>
+  <a href="https://observatory.asy.life" class="eco-link" id="eco-link-observatory">Observatory</a><span class="eco-sep">·</span>
+  <a href="https://voting.asy.life" class="eco-link" id="eco-link-voting">Voting</a><span class="eco-sep">·</span>
+  <a href="https://governance.asy.life" class="eco-link" id="eco-link-governance">Governance</a><span class="eco-sep">·</span>
+  <a href="https://api.asy.life" class="eco-link" id="eco-link-api">API</a><span class="eco-sep">·</span>
+  <a href="https://github.com/cryptoleo79" class="eco-link" target="_blank" rel="noopener">GitHub</a>
+</div></div>
+<header class="site-header"><div class="container header-inner">
+  <a href="/" class="brand"><span class="brand-mark">CDO</span><span class="brand-text" id="h-brand">Cardano Delegation Observatory</span></a>
+  <nav class="site-nav" id="site-nav">
+    <div class="nav-group" data-grp="discover">
+      <button class="nav-group-btn" id="nav-grp-discover" type="button" aria-haspopup="true" aria-expanded="false">Discover</button>
+      <div class="nav-menu" role="menu">
+        <a href="search.html" id="h-nav-search" role="menuitem">Search</a>
+        <a href="projects.html" id="h-nav-projects" role="menuitem">Projects</a>
+        <a href="categories.html" id="h-nav-categories" role="menuitem">Categories</a>
+        <a href="ecosystem.html" id="h-nav-ecosystem" role="menuitem">Ecosystem</a>
+        <a href="memory.html" id="h-nav-memory" role="menuitem">Memory</a>
+      </div>
+    </div>
+    <div class="nav-group" data-grp="governance">
+      <button class="nav-group-btn" id="nav-grp-governance" type="button" aria-haspopup="true" aria-expanded="false">Governance</button>
+      <div class="nav-menu" role="menu">
+        <a href="/" id="h-nav-observatory" role="menuitem">Observatory</a>
+        <a href="treasury.html" id="h-nav-treasury" role="menuitem">Treasury</a>
+        <a href="catalyst.html" id="h-nav-catalyst" role="menuitem">Catalyst</a>
+        <a href="changes.html" id="h-nav-changes" role="menuitem">Changes</a>
+        <a href="governance-daily.html" id="h-nav-daily" role="menuitem">Daily</a>
+        <a href="governance-health.html" id="h-nav-health" role="menuitem">Health</a>
+      </div>
+    </div>
+    <div class="nav-group" data-grp="data">
+      <button class="nav-group-btn" id="nav-grp-data" type="button" aria-haspopup="true" aria-expanded="false">Data</button>
+      <div class="nav-menu" role="menu">
+        <a href="tokens.html" id="h-nav-tokens" role="menuitem">Tokens</a>
+        <a href="rankings.html" id="h-nav-rankings" role="menuitem">Rankings</a>
+        <a href="market.html" id="h-nav-market" role="menuitem">Market</a>
+        <a href="https://api.asy.life" id="h-nav-api" role="menuitem" target="_blank" rel="noopener">API</a>
+      </div>
+    </div>
+    <div class="lang-toggle"><button id="btn-en" class="active" onclick="setLang('en')">EN</button><button id="btn-ja" onclick="setLang('ja')">日本語</button></div>
+  </nav>
+</div></header>
+
+<main><article class="container">
+  <h1 id="se-title">Search Project Memory</h1>
+  <p class="lede" id="se-lede">Find any project in the Cardano ecosystem by name, category, ticker, or keyword. Each result shows a coverage scorecard — what's recorded and sourced — at a glance. Read-only; everything traces to its source.</p>
+
+  <div class="se-box">
+    <span class="se-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
+    <input class="se-input" id="se-input" type="text" autocomplete="off" spellcheck="false" placeholder="Search 847 projects…" aria-label="Search projects">
+  </div>
+  <div class="se-meta" id="se-meta"></div>
+  <div class="se-chips" id="se-chips"></div>
+
+  <div class="se-results" id="se-results"></div>
+  <div id="se-state"></div>
+  <p class="footnote" id="se-foot"></p>
+</article></main>
+
+<footer class="site-footer"><div class="container footer-inner">
+  <div><span id="ft-license">Apache 2.0 code · CC0 data</span></div>
+  <div><a href="projects.html" id="ft-projects">Projects</a> <a href="category-explorer.html" id="ft-catexp">Category Explorer</a> <a href="memory.html" id="ft-memory">Memory</a></div>
+  <div class="footer-note" id="ft-note">Observe · preserve · serve. No scores, no judgment.</div>
+</div></footer>
+<script src="i18n.js"></script>
+<script>
+"use strict";
+(function () {
+  function lang() { return document.documentElement.lang === "ja" ? "ja" : "en"; }
+  function tt(k) { return (i18n[lang()] && i18n[lang()][k]) || (i18n.en[k] || k); }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+  const SNAP = "data/snapshots/projectmemory";
+
+  const P = {
+    en: {
+      "se-title": "Search Project Memory",
+      "se-lede": "Find any project in the Cardano ecosystem by name, category, ticker, or keyword. Each result shows a coverage scorecard — what's recorded and sourced — at a glance. Read-only; everything traces to its source.",
+      "se-ph": "Search 847 projects…",
+      "se-meta-tpl": "{n} projects · {c} categories · search by name, category or ticker",
+      "se-suggest": "Try:", "se-results-tpl": "{n} results", "se-more-tpl": "+{n} more — refine your search",
+      "se-prompt": "Start typing to search every project in Project Memory.",
+      "se-none": "No projects match. Try a different term or a category name.",
+      "se-cov-web": "WEB", "se-cov-git": "GIT", "se-cov-doc": "DOCS", "se-cov-wp": "WP",
+      "se-ev": "ev", "se-events": "events",
+      "ft-projects": "Projects", "ft-catexp": "Category Explorer", "ft-memory": "Memory",
+      "se-foot-html": "Coverage chips show which sourced links each project has (website / GitHub / docs / whitepaper); \"events\" is its append-only history depth. No scores, no rankings — just what is recorded. Full record at <a href=\"https://api.asy.life/docs\">api.asy.life</a>.",
+    },
+    ja: {
+      "se-title": "Project Memory を検索",
+      "se-lede": "Cardano エコシステムのあらゆるプロジェクトを、名前・カテゴリ・ティッカー・キーワードで検索できます。各結果にはカバレッジ・スコアカード — 何が記録され出典付きか — が一目で表示されます。読み取り専用。すべてが出典まで辿れます。",
+      "se-ph": "847件のプロジェクトを検索…",
+      "se-meta-tpl": "{n}件のプロジェクト · {c}カテゴリ · 名前・カテゴリ・ティッカーで検索",
+      "se-suggest": "例:", "se-results-tpl": "{n}件", "se-more-tpl": "他 +{n}件 — 検索を絞り込んでください",
+      "se-prompt": "入力すると Project Memory の全プロジェクトを検索します。",
+      "se-none": "該当するプロジェクトがありません。別の語やカテゴリ名をお試しください。",
+      "se-cov-web": "WEB", "se-cov-git": "GIT", "se-cov-doc": "DOCS", "se-cov-wp": "WP",
+      "se-ev": "件", "se-events": "イベント",
+      "ft-projects": "プロジェクト", "ft-catexp": "カテゴリ エクスプローラー", "ft-memory": "メモリ",
+      "se-foot-html": "カバレッジチップは各プロジェクトが持つ出典付きリンク（ウェブサイト / GitHub / ドキュメント / ホワイトペーパー）を示します。「イベント」は追記専用の履歴の深さです。スコアも順位もなく — 記録されている事実のみ。完全な記録は <a href=\"https://api.asy.life/docs\">api.asy.life</a>。",
+    },
+  };
+  if (typeof i18n !== "undefined") { Object.assign(i18n.en, P.en); Object.assign(i18n.ja, P.ja); if (typeof setLang === "function") setLang(lang()); }
+
+  var INDEX = null, CATMAP = {}, CATNAMES = [], SUGGEST = [];
+  var MAX = 60;
+
+  function paintStatic() {
+    document.getElementById("se-input").placeholder = tt("se-ph");
+    var f = document.getElementById("se-foot"); if (f) f.innerHTML = tt("se-foot-html");
+    if (INDEX) {
+      document.getElementById("se-meta").textContent = tt("se-meta-tpl")
+        .replace("{n}", INDEX.projects.length.toLocaleString()).replace("{c}", (INDEX.categories || []).length);
+      renderChips();
+      run(document.getElementById("se-input").value.trim());
+    }
+  }
+
+  function renderChips() {
+    var host = document.getElementById("se-chips");
+    host.innerHTML = '<span class="se-meta" style="margin:0 4px 0 0">' + esc(tt("se-suggest")) + "</span>"
+      + SUGGEST.map(function (s) { return '<button class="se-chip" data-q="' + esc(s) + '">' + esc(s) + "</button>"; }).join("");
+  }
+
+  function covChip(on, key) { return '<span class="se-cov ' + (on ? "on" : "off") + '">' + esc(tt(key)) + "</span>"; }
+
+  function card(p) {
+    var lf = p.link_fields || [];
+    var cats = (CATMAP[p.id] || []).join(" · ");
+    var score = covChip(lf.indexOf("website") >= 0, "se-cov-web")
+      + covChip(lf.indexOf("github") >= 0, "se-cov-git")
+      + covChip(lf.indexOf("documentation") >= 0, "se-cov-doc")
+      + covChip(lf.indexOf("whitepaper") >= 0, "se-cov-wp")
+      + '<span class="se-depth">' + (p.history_count || 0) + " " + esc(tt("se-events")) + "</span>";
+    return '<a class="se-card" href="project.html?id=' + encodeURIComponent(p.id) + '">'
+      + '<div class="se-card-head"><span class="se-name">' + esc(p.name || p.id) + '</span>'
+      + '<span class="se-kind">' + esc(p.kind || "") + "</span></div>"
+      + '<div class="se-cats">' + (cats ? esc(cats) : "&nbsp;") + "</div>"
+      + '<div class="se-score">' + score + "</div></a>";
+  }
+
+  function scoreMatch(p, q) {
+    var name = (p.name || "").toLowerCase(), id = p.id.toLowerCase();
+    if (name === q) return 100;
+    if (name.indexOf(q) === 0) return 70;
+    if (id.indexOf(q) === 0) return 60;
+    if (name.indexOf(q) >= 0) return 45;
+    if (id.indexOf(q) >= 0) return 30;
+    var cats = CATMAP[p.id] || [];
+    for (var i = 0; i < cats.length; i++) if (cats[i].toLowerCase().indexOf(q) >= 0) return 20;
+    return 0;
+  }
+
+  function run(q) {
+    var results = document.getElementById("se-results"), state = document.getElementById("se-state");
+    if (!INDEX) return;
+    if (!q) { results.innerHTML = ""; state.innerHTML = '<div class="se-hint">' + esc(tt("se-prompt")) + "</div>"; return; }
+    var ql = q.toLowerCase();
+    var scored = [];
+    for (var i = 0; i < INDEX.projects.length; i++) {
+      var s = scoreMatch(INDEX.projects[i], ql);
+      if (s > 0) scored.push([s, INDEX.projects[i]]);
+    }
+    scored.sort(function (a, b) { return b[0] - a[0] || (b[1].history_count || 0) - (a[1].history_count || 0) || (a[1].name || "").localeCompare(b[1].name || ""); });
+    var total = scored.length;
+    var shown = scored.slice(0, MAX);
+    if (!total) { results.innerHTML = ""; state.innerHTML = '<div class="se-empty">' + esc(tt("se-none")) + "</div>"; return; }
+    results.innerHTML = shown.map(function (x) { return card(x[1]); }).join("");
+    state.innerHTML = '<p class="se-meta" style="margin-top:16px">' + tt("se-results-tpl").replace("{n}", total)
+      + (total > MAX ? " · " + tt("se-more-tpl").replace("{n}", total - MAX) : "") + "</p>";
+  }
+
+  var t = null;
+  function onInput(v) { clearTimeout(t); t = setTimeout(function () { run(v.trim()); history.replaceState(null, "", v.trim() ? "?q=" + encodeURIComponent(v.trim()) : "search.html"); }, 110); }
+
+  function boot() {
+    document.addEventListener("cdo-lang", paintStatic);
+    var input = document.getElementById("se-input");
+    input.addEventListener("input", function (e) { onInput(e.target.value); });
+    document.getElementById("se-chips").addEventListener("click", function (e) {
+      var b = e.target.closest("[data-q]"); if (!b) return;
+      input.value = b.dataset.q; run(b.dataset.q); input.focus();
+    });
+    Promise.all([
+      fetch(SNAP + "/index.json").then(function (r) { return r.json(); }),
+      fetch(SNAP + "/categories.json").then(function (r) { return r.json(); }).catch(function () { return { categories: [] }; }),
+    ]).then(function (res) {
+      INDEX = res[0];
+      var cj = res[1];
+      (cj.categories || []).forEach(function (c) {
+        CATNAMES.push(c.name);
+        (c.members || []).forEach(function (m) { (CATMAP[m.id] = CATMAP[m.id] || []).push(c.name); });
+      });
+      // a few high-signal suggestion chips: biggest populated categories
+      SUGGEST = (cj.categories || []).filter(function (c) { return c.status === "populated"; })
+        .sort(function (a, b) { return b.project_count - a.project_count; }).slice(0, 6).map(function (c) { return c.name; });
+      paintStatic();
+      var q0 = new URLSearchParams(location.search).get("q");
+      if (q0) { input.value = q0; run(q0); }
+      input.focus();
+    }).catch(function () { document.getElementById("se-state").innerHTML = '<div class="se-empty">Search index unavailable.</div>'; });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
+})();
+</script>
+</body>
+</html>
