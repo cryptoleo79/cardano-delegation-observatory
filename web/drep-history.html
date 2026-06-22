@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DRep History Explorer — Cardano Delegation Observatory</title>
+<meta name="description" content="How a Cardano DRep has evolved: voting-weight, rank and delegator history, major movements, vote timeline and governance-event overlays — from existing snapshot history. Read-only, no inference.">
+<meta name="theme-color" content="#fafaf7">
+<meta property="og:title" content="DRep History Explorer — Cardano governance history">
+<meta property="og:description" content="Voting weight, rank, delegators over time + vote timeline + governance overlays. Movement only, read-only.">
+<link rel="stylesheet" href="style.css">
+<style>
+  .dh-pick{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:14px 0}
+  .dh-search{flex:1 1 300px;min-width:230px;padding:10px 13px;border:1px solid var(--border-strong);border-radius:9px;font-size:15px;background:var(--card);color:var(--text)}
+  .dh-results{list-style:none;margin:6px 0 0;padding:0;max-height:300px;overflow:auto;border:1px solid var(--border);border-radius:9px;display:none}
+  .dh-results.show{display:block}
+  .dh-results li{padding:9px 13px;cursor:pointer;border-bottom:1px solid var(--border);font-size:14px;display:flex;justify-content:space-between;gap:10px}
+  .dh-results li:hover{background:var(--row-hover-solid)}
+  .dh-results .dh-r-rank{font-family:var(--mono);font-size:.78rem;color:var(--faint)}
+  .dh-charts{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin:8px 0 26px}
+  .dh-chart-card{background:var(--card);border:0.5px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:16px 18px}
+  .dh-chart-card h2{font-size:.95rem;margin:0 0 10px;color:var(--accent-strong)}
+  .dh-chart{min-height:200px}
+  .dh-section{margin:28px 0}
+  .dh-section h2{font-size:1.05rem;color:var(--accent-strong);margin:0 0 4px}
+  .dh-section .dh-help{font-size:.82rem;color:var(--faint);margin:0 0 12px}
+  .dh-move{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:14px}
+  .dh-move-card{background:var(--card);border:0.5px solid var(--border);border-radius:12px;padding:13px 15px}
+  .dh-move-lbl{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);font-weight:600}
+  .dh-move-val{font-size:1.2rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:5px}
+  .dh-move-sub{font-size:.74rem;color:var(--muted);margin-top:3px}
+  .dh-up{color:#1d6b46}.dh-down{color:#a33}.dh-flat{color:var(--faint)}
+  .dh-timeline{list-style:none;margin:0;padding:0;border-left:2px solid var(--border-strong)}
+  .dh-tl{position:relative;padding:7px 0 12px 16px}
+  .dh-tl::before{content:"";position:absolute;left:-7px;top:11px;width:10px;height:10px;border-radius:50%;background:var(--accent);border:2px solid var(--bg)}
+  .dh-tl-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  .dh-tl-title{font-weight:600;font-size:.92rem}
+  .dh-tl-meta{font-family:var(--mono);font-size:.74rem;color:var(--faint)}
+  .dh-vote{font-size:.7rem;font-weight:700;padding:1px 7px;border-radius:5px;text-transform:uppercase;letter-spacing:.03em}
+  .dh-vote-yes{background:rgba(38,110,70,.12);color:#1d6b46}.dh-vote-no{background:rgba(150,40,40,.12);color:#963232}.dh-vote-abstain{background:rgba(0,0,0,.05);color:var(--muted)}
+  .dh-more{margin-top:10px;font-size:13px;color:var(--accent);cursor:pointer}.dh-more:hover{text-decoration:underline}
+  .dh-empty{color:var(--faint);font-style:italic;padding:14px 0}
+  .dh-gap-note{font-size:.78rem;color:var(--faint);margin-top:6px}
+</style>
+</head>
+<body>
+<div class="ecosystem-strip"><div class="ecosystem-strip-inner">
+  <span class="eco-label" id="eco-label">Ecosystem</span>
+  <a href="https://ctf.asy.life" class="eco-link">CTF</a><span class="eco-sep">·</span>
+  <a href="https://observatory.asy.life" class="eco-link" id="eco-link-observatory">Observatory</a><span class="eco-sep">·</span>
+  <a href="https://voting.asy.life" class="eco-link" id="eco-link-voting">Voting</a><span class="eco-sep">·</span>
+  <a href="https://governance.asy.life" class="eco-link" id="eco-link-governance">Governance</a><span class="eco-sep">·</span>
+  <a href="https://api.asy.life" class="eco-link" id="eco-link-api">API</a><span class="eco-sep">·</span>
+  <a href="https://github.com/cryptoleo79" class="eco-link" target="_blank" rel="noopener">GitHub</a>
+</div></div>
+<header class="site-header"><div class="container header-inner">
+  <a href="/" class="brand"><span class="brand-mark">CDO</span><span class="brand-text" id="h-brand">Cardano Delegation Observatory</span></a>
+  <nav class="site-nav" id="site-nav">
+    <div class="nav-group" data-grp="discover">
+      <button class="nav-group-btn" id="nav-grp-discover" type="button" aria-haspopup="true" aria-expanded="false">Discover</button>
+      <div class="nav-menu" role="menu">
+        <a href="search.html" id="h-nav-search" role="menuitem">Search</a>
+        <a href="projects.html" id="h-nav-projects" role="menuitem">Projects</a>
+        <a href="categories.html" id="h-nav-categories" role="menuitem">Categories</a>
+        <a href="ecosystem.html" id="h-nav-ecosystem" role="menuitem">Ecosystem</a>
+        <a href="memory.html" id="h-nav-memory" role="menuitem">Memory</a>
+      </div>
+    </div>
+    <div class="nav-group" data-grp="governance">
+      <button class="nav-group-btn" id="nav-grp-governance" type="button" aria-haspopup="true" aria-expanded="false">Governance</button>
+      <div class="nav-menu" role="menu">
+        <a href="/" id="h-nav-observatory" role="menuitem">Observatory</a>
+        <a href="treasury.html" id="h-nav-treasury" role="menuitem">Treasury</a>
+        <a href="catalyst.html" id="h-nav-catalyst" role="menuitem">Catalyst</a>
+        <a href="changes.html" id="h-nav-changes" role="menuitem">Changes</a>
+        <a href="governance-daily.html" id="h-nav-daily" role="menuitem">Daily</a>
+        <a href="governance-health.html" id="h-nav-health" role="menuitem">Health</a>
+      </div>
+    </div>
+    <div class="nav-group" data-grp="data">
+      <button class="nav-group-btn" id="nav-grp-data" type="button" aria-haspopup="true" aria-expanded="false">Data</button>
+      <div class="nav-menu" role="menu">
+        <a href="tokens.html" id="h-nav-tokens" role="menuitem">Tokens</a>
+        <a href="rankings.html" id="h-nav-rankings" role="menuitem">Rankings</a>
+        <a href="market.html" id="h-nav-market" role="menuitem">Market</a>
+        <a href="https://api.asy.life" id="h-nav-api" role="menuitem" target="_blank" rel="noopener">API</a>
+      </div>
+    </div>
+    <div class="lang-toggle"><button id="btn-en" class="active" onclick="setLang('en')">EN</button><button id="btn-ja" onclick="setLang('ja')">日本語</button></div>
+  </nav>
+</div></header>
+
+<main><article class="container">
+  <p class="back-link" style="font-size:13px;margin-bottom:10px"><a href="/" id="dh-back">← Observatory</a></p>
+  <h1 id="dh-title">DRep History Explorer</h1>
+  <p class="lede" id="dh-lede">How has a DRep evolved? Pick a top-30 DRep to see its voting-weight, rank and delegator history, its largest movements, its vote record, and the governance events along the way — all from existing snapshot history. Movement only; nothing about motive is inferred.</p>
+
+  <div class="dh-pick" id="dh-pick">
+    <input class="dh-search" id="dh-search" type="text" placeholder="Search a top-30 DRep…" autocomplete="off">
+  </div>
+  <ul class="dh-results" id="dh-results"></ul>
+
+  <div id="dh-out"></div>
+  <p class="footnote" id="dh-foot"></p>
+</article></main>
+
+<footer class="site-footer"><div class="container footer-inner">
+  <div><span id="ft-license">Apache 2.0 code · CC0 data</span></div>
+  <div><a href="governance-daily.html" id="ft-daily">Governance Daily</a> <a href="changes.html" id="ft-changes">Change feed</a> <a href="/" id="ft-top30">Top 30</a></div>
+  <div class="footer-note" id="ft-note">Observe · preserve · serve. No scores, no judgment.</div>
+</div></footer>
+<script src="i18n.js"></script>
+<script src="charts.js"></script>
+<script>
+"use strict";
+(function () {
+  function lang() { return document.documentElement.lang === "ja" ? "ja" : "en"; }
+  function tt(k) { return (i18n[lang()] && i18n[lang()][k]) || (i18n.en[k] || k); }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+  var SNAP = "data/snapshots";
+
+  var P = {
+    en: {
+      "dh-title": "DRep History Explorer",
+      "dh-lede": "How has a DRep evolved? Pick a top-30 DRep to see its voting-weight, rank and delegator history, its largest movements, its vote record, and the governance events along the way — all from existing snapshot history. Movement only; nothing about motive is inferred.",
+      "dh-search-ph": "Search a top-30 DRep…",
+      "dh-back": "← Observatory",
+      "dh-cur-weight": "Voting weight", "dh-cur-rank": "Rank", "dh-cur-deleg": "Delegators", "dh-cur-7d": "7-day weight", "dh-cur-30d": "30-day weight", "dh-cur-votes": "Votes cast",
+      "dh-ch-weight": "Voting weight history", "dh-ch-rank": "Rank history", "dh-ch-deleg": "Delegator history",
+      "dh-sec-move": "Major movements", "dh-sec-move-help": "Net snapshot-to-snapshot change. Movement only — not migration, not attributable to motive.",
+      "dh-sec-votes": "Vote timeline", "dh-sec-votes-help": "Recorded on-chain votes, most recent first.",
+      "dh-sec-events": "Governance event overlays", "dh-sec-events-help": "Governance-action milestones (enactment, ratification, …) over the same period.",
+      "dh-d1d": "Last day", "dh-d7d": "Last 7 days", "dh-d30d": "Last 30 days",
+      "dh-deleg": "delegators", "dh-rank-fmt": "rank", "dh-na": "not available",
+      "dh-more": "Show more", "dh-less": "Show less",
+      "dh-prompt": "Pick a DRep above to explore its governance history.",
+      "dh-notfound": "Per-DRep history is published for the top-30 tracked DReps. This id isn't in the current tracked set.",
+      "dh-rank-note": "Rank & delegator points are derived from archived daily snapshots; gaps mean the DRep was outside the Top 30 on those days.",
+      "dh-nochart": "Not enough snapshot history yet to plot.",
+      "ft-daily": "Governance Daily", "ft-changes": "Change feed", "ft-top30": "Top 30",
+      "dh-foot-html": "Scope: top-30 DReps by voting weight (methodology-bounded). All series come from existing daily snapshots — no new source, no inference. See <a href=\"methodology.html\">methodology</a>; full record at <a href=\"https://api.asy.life/docs\">api.asy.life</a>.",
+    },
+    ja: {
+      "dh-title": "DRep 履歴エクスプローラー",
+      "dh-lede": "この DRep はどう変化してきたか？ 上位30 DRep を選ぶと、投票権・順位・委任者の推移、最大の変動、投票記録、そしてその間のガバナンスイベントを確認できます — すべて既存のスナップショット履歴から。動きのみ。動機は推論しません。",
+      "dh-search-ph": "上位30 DRep を検索…",
+      "dh-back": "← オブザバトリー",
+      "dh-cur-weight": "投票権", "dh-cur-rank": "順位", "dh-cur-deleg": "委任者", "dh-cur-7d": "7日の投票権", "dh-cur-30d": "30日の投票権", "dh-cur-votes": "投票数",
+      "dh-ch-weight": "投票権の推移", "dh-ch-rank": "順位の推移", "dh-ch-deleg": "委任者の推移",
+      "dh-sec-move": "主要な変動", "dh-sec-move-help": "スナップショット間の純変化。動きのみ — 移動でも動機の帰属でもありません。",
+      "dh-sec-votes": "投票タイムライン", "dh-sec-votes-help": "オンチェーンで記録された投票、新しい順。",
+      "dh-sec-events": "ガバナンスイベント・オーバーレイ", "dh-sec-events-help": "同期間のガバナンスアクションの節目（制定・批准 など）。",
+      "dh-d1d": "直近1日", "dh-d7d": "直近7日", "dh-d30d": "直近30日",
+      "dh-deleg": "委任者", "dh-rank-fmt": "順位", "dh-na": "利用不可",
+      "dh-more": "もっと見る", "dh-less": "閉じる",
+      "dh-prompt": "上で DRep を選ぶと、そのガバナンス履歴を確認できます。",
+      "dh-notfound": "DRep 別の履歴は追跡対象の上位30 DRep について公開されています。この id は現在の対象に含まれていません。",
+      "dh-rank-note": "順位と委任者の点はアーカイブされた日次スナップショットから導出されます。空白はその日に Top 30 圏外だったことを意味します。",
+      "dh-nochart": "プロットするにはスナップショット履歴がまだ不足しています。",
+      "ft-daily": "ガバナンス日次", "ft-changes": "変化フィード", "ft-top30": "トップ30",
+      "dh-foot-html": "対象: 投票権による上位30 DRep（方法論で限定）。全系列は既存の日次スナップショット由来 — 新規ソースも推論もありません。<a href=\"methodology.html\">方法論</a>参照。完全な記録は <a href=\"https://api.asy.life/docs\">api.asy.life</a>。",
+    },
+  };
+  if (typeof i18n !== "undefined") { Object.assign(i18n.en, P.en); Object.assign(i18n.ja, P.ja); if (typeof setLang === "function") setLang(lang()); }
+
+  var TOP = null;          // latest top30 entries (for picker + current rank/weight)
+  var DATES = [];          // available_dates
+  var BYDATE = {};         // date -> entries[] cache
+  var CURRENT = null;      // loaded drep payload
+  var voteLimit = 12, eventLimit = 12;
+
+  var ada = function (lov) { return lov == null ? null : lov / 1e6; };
+  function fmtAda(a) {
+    if (a == null) return "—";
+    var s = Math.abs(a), sign = a > 0 ? "+" : a < 0 ? "−" : "";
+    if (s >= 1e9) return sign + "₳" + (s / 1e9).toFixed(2) + "B";
+    if (s >= 1e6) return sign + "₳" + (s / 1e6).toFixed(2) + "M";
+    if (s >= 1e3) return sign + "₳" + (s / 1e3).toFixed(1) + "k";
+    return sign + "₳" + Math.round(s);
+  }
+  function fmtAdaPlain(a) { if (a == null) return "—"; return "₳" + (a >= 1e6 ? (a / 1e6).toFixed(1) + "M" : a.toLocaleString()); }
+  function dir(n) { return n > 0 ? "dh-up" : n < 0 ? "dh-down" : "dh-flat"; }
+
+  function paintStatic() {
+    document.getElementById("dh-search").placeholder = tt("dh-search-ph");
+    var f = document.getElementById("dh-foot"); if (f) f.innerHTML = tt("dh-foot-html");
+    if (CURRENT) renderDrep(CURRENT);
+    else if (document.getElementById("dh-out")) document.getElementById("dh-out").innerHTML = '<div class="dh-empty">' + esc(tt("dh-prompt")) + "</div>";
+  }
+
+  function entriesOf(t) { return (t && (t.entries || t)) || []; }
+
+  function deriveSeries(id) {
+    // from cached BYDATE: [{date, rank, ada, delegators}] where present
+    var pts = [];
+    for (var i = 0; i < DATES.length; i++) {
+      var d = DATES[i], es = BYDATE[d]; if (!es) continue;
+      for (var j = 0; j < es.length; j++) if (es[j].drep_id === id) {
+        pts.push({ date: d, rank: es[j].rank, ada: es[j].voting_weight_ada, delegators: es[j].delegator_count }); break;
+      }
+    }
+    return pts;
+  }
+
+  function ts(dateStr) { return Math.floor(new Date(dateStr + "T00:00:00Z").getTime() / 1000); }
+
+  function renderDrep(d) {
+    CURRENT = d;
+    var out = document.getElementById("dh-out");
+    var topEntry = entriesOf(TOP).filter(function (e) { return e.drep_id === d.drep_id; })[0] || {};
+    var rnc = d.recent_net_change || {};
+    var d7 = rnc.d7d || {}, d30 = rnc.d30d || {};
+    var derived = deriveSeries(d.drep_id);
+
+    // ---- hero stats ----
+    var hero = '<div class="page-hero"><div class="hero-main">'
+      + '<h1 style="margin:0 0 6px">' + esc(d.name || d.drep_id.slice(0, 16) + "…") + "</h1>"
+      + '<p class="drep-id-full" style="margin:0 0 4px">' + esc(d.drep_id) + "</p>"
+      + '<p style="font-size:13px;margin:0"><a href="drep.html?id=' + encodeURIComponent(d.drep_id) + '">drep page →</a></p>'
+      + "</div></div>";
+    var metrics = '<div class="dh-move">'
+      + moveCard(tt("dh-cur-weight"), fmtAdaPlain(topEntry.voting_weight_ada), "", "dh-flat")
+      + moveCard(tt("dh-cur-rank"), topEntry.rank ? "#" + topEntry.rank : "—", "", "dh-flat")
+      + moveCard(tt("dh-cur-deleg"), topEntry.delegator_count != null ? topEntry.delegator_count.toLocaleString() : "—", "", "dh-flat")
+      + moveCard(tt("dh-cur-7d"), fmtAda(ada(d7.voting_weight_delta_lovelace)), d7.delegator_count_delta != null ? (d7.delegator_count_delta > 0 ? "+" : d7.delegator_count_delta < 0 ? "−" : "") + Math.abs(d7.delegator_count_delta) + " " + tt("dh-deleg") : "", dir(d7.voting_weight_delta_lovelace || 0))
+      + moveCard(tt("dh-cur-votes"), (d.vote_history || []).length.toLocaleString(), "", "dh-flat")
+      + "</div>";
+
+    // ---- charts ----
+    var charts = '<div class="dh-charts">'
+      + '<div class="dh-chart-card"><h2>' + esc(tt("dh-ch-weight")) + '</h2><div class="dh-chart" id="dh-c-weight"></div></div>'
+      + '<div class="dh-chart-card"><h2>' + esc(tt("dh-ch-rank")) + '</h2><div class="dh-chart" id="dh-c-rank"></div>' + (derived.length ? '<p class="dh-gap-note">' + esc(tt("dh-rank-note")) + "</p>" : "") + "</div>"
+      + '<div class="dh-chart-card"><h2>' + esc(tt("dh-ch-deleg")) + '</h2><div class="dh-chart" id="dh-c-deleg"></div></div>'
+      + "</div>";
+
+    // ---- movements ----
+    var moveSec = '<div class="dh-section"><h2>' + esc(tt("dh-sec-move")) + '</h2><p class="dh-help">' + esc(tt("dh-sec-move-help")) + "</p><div class=\"dh-move\">"
+      + windowCard("dh-d1d", rnc.d1d) + windowCard("dh-d7d", rnc.d7d) + windowCard("dh-d30d", rnc.d30d) + "</div></div>";
+
+    // ---- vote timeline ----
+    var votes = (d.vote_history || []);
+    var voteSec = '<div class="dh-section"><h2>' + esc(tt("dh-sec-votes")) + '</h2><p class="dh-help">' + esc(tt("dh-sec-votes-help")) + "</p>"
+      + (votes.length ? '<ul class="dh-timeline" id="dh-votes"></ul>' + (votes.length > voteLimit ? '<div class="dh-more" id="dh-votes-more"></div>' : "") : '<div class="dh-empty">—</div>') + "</div>";
+
+    // ---- event overlays ----
+    var events = (d.overlay_events || []);
+    var evSec = '<div class="dh-section"><h2>' + esc(tt("dh-sec-events")) + '</h2><p class="dh-help">' + esc(tt("dh-sec-events-help")) + "</p>"
+      + (events.length ? '<ul class="dh-timeline" id="dh-events"></ul>' + (events.length > eventLimit ? '<div class="dh-more" id="dh-events-more"></div>' : "") : '<div class="dh-empty">—</div>') + "</div>";
+
+    out.innerHTML = hero + metrics + charts + moveSec + voteSec + evSec;
+
+    // draw charts (CDLChart)
+    drawWeight(d);
+    drawRank(derived);
+    drawDeleg(derived);
+    renderVotes(votes);
+    renderEvents(events);
+  }
+
+  function moveCard(lbl, val, sub, cls) {
+    return '<div class="dh-move-card"><div class="dh-move-lbl">' + esc(lbl) + '</div><div class="dh-move-val ' + cls + '">' + esc(val) + "</div>"
+      + (sub ? '<div class="dh-move-sub">' + esc(sub) + "</div>" : "") + "</div>";
+  }
+  function windowCard(key, w) {
+    if (!w || w.voting_weight_delta_lovelace == null) return moveCard(tt(key), tt("dh-na"), "", "dh-flat");
+    var a = ada(w.voting_weight_delta_lovelace);
+    var sub = (w.delegator_count_delta != null ? ((w.delegator_count_delta > 0 ? "+" : w.delegator_count_delta < 0 ? "−" : "") + Math.abs(w.delegator_count_delta) + " " + tt("dh-deleg")) : "") + (w.reference_date ? " · " + w.reference_date : "");
+    return moveCard(tt(key), fmtAda(a), sub, dir(a || 0));
+  }
+
+  function drawWeight(d) {
+    var s = (d.voting_weight_series || []).filter(function (p) { return p && p.lovelace != null; });
+    if (!window.CDLChart || s.length < 2) { document.getElementById("dh-c-weight").innerHTML = '<div class="dh-empty">' + esc(tt("dh-nochart")) + "</div>"; return; }
+    CDLChart.line("dh-c-weight", s.map(function (p) { return { t: ts(p.date), v: ada(p.lovelace) }; }), { height: 200, valueFormat: function (v) { return fmtAdaPlain(v); } });
+  }
+  function drawRank(derived) {
+    var el = document.getElementById("dh-c-rank");
+    if (!window.CDLChart || derived.length < 2) { el.innerHTML = '<div class="dh-empty">' + esc(tt("dh-nochart")) + "</div>"; return; }
+    // invert so rank #1 sits at the top; format back to "#n"
+    CDLChart.line("dh-c-rank", derived.map(function (p) { return { t: ts(p.date), v: -p.rank }; }), { height: 200, valueFormat: function (v) { return "#" + Math.round(-v); } });
+  }
+  function drawDeleg(derived) {
+    var el = document.getElementById("dh-c-deleg");
+    var pts = derived.filter(function (p) { return p.delegators != null; });
+    if (!window.CDLChart || pts.length < 2) { el.innerHTML = '<div class="dh-empty">' + esc(tt("dh-nochart")) + "</div>"; return; }
+    CDLChart.line("dh-c-deleg", pts.map(function (p) { return { t: ts(p.date), v: p.delegators }; }), { height: 200, valueFormat: function (v) { return Math.round(v).toLocaleString(); } });
+  }
+
+  function voteClass(v) { v = (v || "").toLowerCase(); return v === "yes" ? "dh-vote-yes" : v === "no" ? "dh-vote-no" : "dh-vote-abstain"; }
+  function renderVotes(votes) {
+    var ul = document.getElementById("dh-votes"); if (!ul) return;
+    var list = votes.slice(0, voteLimit);
+    ul.innerHTML = list.map(function (v) {
+      return '<li class="dh-tl"><div class="dh-tl-head"><span class="dh-tl-title">' + esc(v.title || v.action_id || "—")
+        + ' <span class="dh-vote ' + voteClass(v.vote) + '">' + esc(v.vote || "") + "</span></span>"
+        + '<span class="dh-tl-meta">' + esc(v.action_type || "") + " · ep " + esc(v.vote_epoch) + (v.outcome ? " · " + esc(v.outcome) : "") + "</span></div></li>";
+    }).join("");
+    var more = document.getElementById("dh-votes-more");
+    if (more) more.textContent = voteLimit < votes.length ? tt("dh-more") + " (" + (votes.length - voteLimit) + ")" : tt("dh-less");
+  }
+  function renderEvents(events) {
+    var ul = document.getElementById("dh-events"); if (!ul) return;
+    var list = events.slice(0, eventLimit);
+    ul.innerHTML = list.map(function (e) {
+      return '<li class="dh-tl"><div class="dh-tl-head"><span class="dh-tl-title">' + esc(e.event || "—") + "</span>"
+        + '<span class="dh-tl-meta">' + esc(e.action_type || "") + " · " + esc(e.date || "") + "</span></div></li>";
+    }).join("");
+    var more = document.getElementById("dh-events-more");
+    if (more) more.textContent = eventLimit < events.length ? tt("dh-more") + " (" + (events.length - eventLimit) + ")" : tt("dh-less");
+  }
+
+  function loadDrep(id) {
+    var out = document.getElementById("dh-out");
+    out.innerHTML = '<div class="dh-empty">…</div>';
+    fetch(SNAP + "/dreps/" + encodeURIComponent(id) + ".json").then(function (r) { if (!r.ok) throw 0; return r.json(); })
+      .then(function (d) { renderDrep(d); history.replaceState(null, "", "?id=" + encodeURIComponent(id)); })
+      .catch(function () { out.innerHTML = '<div class="dh-empty">' + esc(tt("dh-notfound")) + ' <a href="/">→ ' + esc(tt("ft-top30")) + "</a></div>"; });
+  }
+
+  function renderResults(q) {
+    var ul = document.getElementById("dh-results");
+    var es = entriesOf(TOP);
+    if (!es.length || !q) { ul.className = "dh-results"; ul.innerHTML = ""; return; }
+    var ql = q.toLowerCase();
+    var hits = es.filter(function (e) { return (e.name || "").toLowerCase().indexOf(ql) >= 0 || e.drep_id.toLowerCase().indexOf(ql) >= 0; }).slice(0, 30);
+    ul.innerHTML = hits.map(function (e) { return '<li data-id="' + esc(e.drep_id) + '"><span>' + esc(e.name || e.drep_id.slice(0, 16) + "…") + '</span><span class="dh-r-rank">#' + e.rank + "</span></li>"; }).join("") || '<li class="dh-empty">—</li>';
+    ul.className = "dh-results show";
+  }
+
+  function boot() {
+    document.addEventListener("cdo-lang", paintStatic);
+    var search = document.getElementById("dh-search");
+    search.addEventListener("input", function (e) { renderResults(e.target.value.trim()); });
+    document.getElementById("dh-results").addEventListener("click", function (e) {
+      var li = e.target.closest("li[data-id]"); if (!li) return;
+      document.getElementById("dh-results").className = "dh-results"; search.value = ""; loadDrep(li.dataset.id);
+    });
+    document.addEventListener("click", function (e) { if (!e.target.closest(".dh-pick") && !e.target.closest(".dh-results")) document.getElementById("dh-results").className = "dh-results"; });
+    document.getElementById("dh-out").addEventListener("click", function (e) {
+      if (e.target.id === "dh-votes-more") { voteLimit = voteLimit > 12 ? 12 : (CURRENT.vote_history || []).length; renderVotes(CURRENT.vote_history || []); }
+      if (e.target.id === "dh-events-more") { eventLimit = eventLimit > 12 ? 12 : (CURRENT.overlay_events || []).length; renderEvents(CURRENT.overlay_events || []); }
+    });
+    paintStatic();
+    // load latest top30 (picker + current stats) and all dated snapshots (rank/delegator history)
+    fetch(SNAP + "/top30.json").then(function (r) { return r.json(); }).then(function (t) {
+      TOP = t;
+      var qid = new URLSearchParams(location.search).get("id");
+      if (qid) loadDrep(qid);
+    }).catch(function () {});
+    fetch(SNAP + "/by-date/index.json").then(function (r) { return r.json(); }).then(function (idx) {
+      DATES = idx.available_dates || [];
+      return Promise.all(DATES.map(function (d) {
+        return fetch(SNAP + "/by-date/" + d + "/top30.json").then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (t) { if (t) BYDATE[d] = entriesOf(t); }).catch(function () {});
+      }));
+    }).then(function () { if (CURRENT) renderDrep(CURRENT); }).catch(function () {});
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
+})();
+</script>
+</body>
+</html>

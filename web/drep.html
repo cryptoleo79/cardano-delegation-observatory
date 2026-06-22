@@ -82,6 +82,7 @@
       <div class="stat-card"><div class="stat-label" id="stat-votescast-label">Votes cast</div><div class="stat-value" id="stat-votes">—</div></div>
     </section>
 
+    <p style="font-size:13px;margin:-8px 0 18px"><a id="drep-fullhist" href="drep-history.html"><span class="en">↗ Full history explorer — weight, rank, delegators &amp; vote timeline</span><span class="ja">↗ 履歴エクスプローラー — 投票権・順位・委任者・投票タイムライン</span></a></p>
     <section class="drep-section">
       <div class="expand-section-label" id="drep-chart-label">90-day voting weight</div>
       <div class="chart-wrap" id="drep-chart-wrap">
@@ -137,5 +138,6 @@
 <script src="i18n.js"></script>
 <script src="historical.js"></script>
 <script src="drep.js"></script>
+<script>/* point the full-history link at this DRep */(function(){var a=document.getElementById("drep-fullhist");var id=new URLSearchParams(location.search).get("id");if(a&&id)a.href="drep-history.html?id="+encodeURIComponent(id);})();</script>
 </body>
 </html>
