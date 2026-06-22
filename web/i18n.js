@@ -610,7 +610,7 @@ function navInit() {
       "project.html": "discover", "project-history.html": "discover", "category.html": "discover",
       "category-explorer.html": "discover", "memory-heatmap.html": "discover",
       "drep.html": "governance", "drep-history.html": "governance", "action.html": "governance", "actions.html": "governance",
-      "concentration.html": "governance", "flows.html": "governance",
+      "treasury-timeline.html": "governance", "concentration.html": "governance", "flows.html": "governance",
       "token.html": "data",
     };
     var grpName = SEC[cur];

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Treasury Timeline — Cardano Delegation Observatory</title>
+<meta name="description" content="Follow the history of Cardano treasury actions, withdrawals, ratifications and enactments — a chronological timeline of what happened, when, and what changed. Read-only, no interpretation.">
+<meta name="theme-color" content="#fafaf7">
+<meta property="og:title" content="Treasury Timeline — Cardano governance">
+<meta property="og:description" content="A chronological timeline of treasury actions, withdrawals, ratifications and enactments. Read-only, movement only.">
+<link rel="stylesheet" href="style.css">
+<style>
+  .tl-hero-metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin:6px 0 30px}
+  .tl-m{background:var(--card);border:0.5px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:16px 18px}
+  .tl-m-lbl{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);font-weight:600}
+  .tl-m-val{font-size:1.5rem;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.01em;margin-top:6px}
+  .tl-m-sub{font-size:.76rem;color:var(--muted);margin-top:3px}
+  .tl-year{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);font-weight:700;margin:26px 0 10px;padding-bottom:6px;border-bottom:0.5px solid var(--border)}
+  .tl{list-style:none;margin:0;padding:0;border-left:2px solid var(--border-strong)}
+  .tl-item{position:relative;padding:4px 0 20px 22px}
+  .tl-item::before{content:"";position:absolute;left:-8px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--faint);border:2px solid var(--bg)}
+  .tl-item.s-enacted::before{background:#1d6b46}
+  .tl-item.s-ratified::before{background:var(--accent)}
+  .tl-item.s-expired::before{background:#a86e14}
+  .tl-item.s-rejected::before{background:#a33}
+  .tl-item.s-active::before{background:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+  .tl-card{background:var(--card);border:0.5px solid var(--border);border-radius:13px;box-shadow:var(--shadow);padding:14px 16px}
+  .tl-top{display:flex;justify-content:space-between;gap:10px;align-items:baseline;flex-wrap:wrap;margin-bottom:4px}
+  .tl-when{font-family:var(--mono);font-size:.78rem;color:var(--faint)}
+  .tl-tags{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+  .tl-type{font-size:.7rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;padding:2px 8px;border-radius:6px;background:var(--accent-soft);color:var(--accent-strong)}
+  .tl-status{font-size:.7rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;padding:2px 8px;border-radius:6px;border:0.5px solid var(--border)}
+  .st-enacted{background:rgba(38,110,70,.12);color:#1d6b46}
+  .st-ratified{background:var(--accent-soft);color:var(--accent-strong)}
+  .st-expired{background:rgba(168,110,20,.14);color:#8a5a10}
+  .st-rejected{background:rgba(150,40,40,.10);color:#963232}
+  .st-active{background:rgba(0,0,0,.04);color:var(--muted)}
+  .tl-title{font-weight:650;color:var(--text);line-height:1.35;margin:2px 0}
+  .tl-title a{color:var(--text);text-decoration:none}.tl-title a:hover{color:var(--accent-strong);text-decoration:underline}
+  .tl-amount{font-size:1.05rem;font-weight:700;color:#1d6b46;font-variant-numeric:tabular-nums;margin:4px 0}
+  .tl-meta{display:flex;gap:14px;flex-wrap:wrap;font-size:.78rem;color:var(--muted);margin-top:6px}
+  .tl-meta .mono{font-family:var(--mono)}
+  .tl-votes{font-variant-numeric:tabular-nums}
+  .tl-empty{color:var(--faint);padding:30px;text-align:center}
+  .tl-note{font-size:.82rem;color:var(--muted);background:var(--accent-soft);border:0.5px solid rgba(44,86,112,.14);border-radius:8px;padding:10px 13px;margin:18px 0}
+</style>
+</head>
+<body>
+<div class="ecosystem-strip"><div class="ecosystem-strip-inner">
+  <span class="eco-label" id="eco-label">Ecosystem</span>
+  <a href="https://ctf.asy.life" class="eco-link">CTF</a><span class="eco-sep">·</span>
+  <a href="https://observatory.asy.life" class="eco-link" id="eco-link-observatory">Observatory</a><span class="eco-sep">·</span>
+  <a href="https://voting.asy.life" class="eco-link" id="eco-link-voting">Voting</a><span class="eco-sep">·</span>
+  <a href="https://governance.asy.life" class="eco-link" id="eco-link-governance">Governance</a><span class="eco-sep">·</span>
+  <a href="https://api.asy.life" class="eco-link" id="eco-link-api">API</a><span class="eco-sep">·</span>
+  <a href="https://github.com/cryptoleo79" class="eco-link" target="_blank" rel="noopener">GitHub</a>
+</div></div>
+<header class="site-header"><div class="container header-inner">
+  <a href="/" class="brand"><span class="brand-mark">CDO</span><span class="brand-text" id="h-brand">Cardano Delegation Observatory</span></a>
+  <nav class="site-nav" id="site-nav">
+    <div class="nav-group" data-grp="discover">
+      <button class="nav-group-btn" id="nav-grp-discover" type="button" aria-haspopup="true" aria-expanded="false">Discover</button>
+      <div class="nav-menu" role="menu">
+        <a href="search.html" id="h-nav-search" role="menuitem">Search</a>
+        <a href="projects.html" id="h-nav-projects" role="menuitem">Projects</a>
+        <a href="categories.html" id="h-nav-categories" role="menuitem">Categories</a>
+        <a href="ecosystem.html" id="h-nav-ecosystem" role="menuitem">Ecosystem</a>
+        <a href="memory.html" id="h-nav-memory" role="menuitem">Memory</a>
+      </div>
+    </div>
+    <div class="nav-group" data-grp="governance">
+      <button class="nav-group-btn" id="nav-grp-governance" type="button" aria-haspopup="true" aria-expanded="false">Governance</button>
+      <div class="nav-menu" role="menu">
+        <a href="/" id="h-nav-observatory" role="menuitem">Observatory</a>
+        <a href="treasury.html" id="h-nav-treasury" role="menuitem">Treasury</a>
+        <a href="catalyst.html" id="h-nav-catalyst" role="menuitem">Catalyst</a>
+        <a href="changes.html" id="h-nav-changes" role="menuitem">Changes</a>
+        <a href="governance-daily.html" id="h-nav-daily" role="menuitem">Daily</a>
+        <a href="governance-health.html" id="h-nav-health" role="menuitem">Health</a>
+      </div>
+    </div>
+    <div class="nav-group" data-grp="data">
+      <button class="nav-group-btn" id="nav-grp-data" type="button" aria-haspopup="true" aria-expanded="false">Data</button>
+      <div class="nav-menu" role="menu">
+        <a href="tokens.html" id="h-nav-tokens" role="menuitem">Tokens</a>
+        <a href="rankings.html" id="h-nav-rankings" role="menuitem">Rankings</a>
+        <a href="market.html" id="h-nav-market" role="menuitem">Market</a>
+        <a href="https://api.asy.life" id="h-nav-api" role="menuitem" target="_blank" rel="noopener">API</a>
+      </div>
+    </div>
+    <div class="lang-toggle"><button id="btn-en" class="active" onclick="setLang('en')">EN</button><button id="btn-ja" onclick="setLang('ja')">日本語</button></div>
+  </nav>
+</div></header>
+
+<main><article class="container">
+  <p class="back-link" style="font-size:13px;margin-bottom:10px"><a href="treasury.html" id="tl-back">← Treasury</a></p>
+  <h1 id="tl-title">Treasury Timeline</h1>
+  <p class="lede" id="tl-lede">Follow the history of treasury actions, withdrawals, ratifications and enactments — newest first. Each entry shows what happened, when, and what changed. Movement only; no interpretation.</p>
+
+  <div class="tl-hero-metrics" id="tl-metrics"></div>
+  <div id="tl-out"><div class="tl-empty">…</div></div>
+  <p class="tl-note" id="tl-note"></p>
+  <p class="footnote" id="tl-foot"></p>
+</article></main>
+
+<footer class="site-footer"><div class="container footer-inner">
+  <div><span id="ft-license">Apache 2.0 code · CC0 data</span></div>
+  <div><a href="treasury.html" id="ft-treasury">Treasury</a> <a href="actions.html" id="ft-actions">Governance actions</a> <a href="governance-daily.html" id="ft-daily">Daily</a></div>
+  <div class="footer-note" id="ft-note">Observe · preserve · serve. No scores, no judgment.</div>
+</div></footer>
+<script src="i18n.js"></script>
+<script>
+"use strict";
+(function () {
+  function lang() { return document.documentElement.lang === "ja" ? "ja" : "en"; }
+  function tt(k) { return (i18n[lang()] && i18n[lang()][k]) || (i18n.en[k] || k); }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+  var SNAP = "data/snapshots";
+
+  var P = {
+    en: {
+      "tl-title": "Treasury Timeline",
+      "tl-lede": "Follow the history of treasury actions, withdrawals, ratifications and enactments — newest first. Each entry shows what happened, when, and what changed. Movement only; no interpretation.",
+      "tl-back": "← Treasury",
+      "tl-m-balance": "Treasury balance", "tl-m-balance-sub": "latest epoch {epoch}",
+      "tl-m-enacted": "Enacted withdrawals", "tl-m-enacted-sub": "{ada} paid out",
+      "tl-m-actions": "Governance actions", "tl-m-actions-sub": "in the record",
+      "type-TreasuryWithdrawals": "Treasury withdrawal", "type-InfoAction": "Info action", "type-ParameterChange": "Parameter change",
+      "type-NewConstitution": "New constitution", "type-NewCommittee": "New committee", "type-HardForkInitiation": "Hard fork",
+      "st-enacted": "Enacted", "st-ratified": "Ratified", "st-expired": "Expired", "st-rejected": "Rejected", "st-active": "Active",
+      "tl-epoch": "epoch", "tl-submitted": "submitted ep", "tl-recipients": "recipients", "tl-votes": "votes",
+      "tl-empty": "No treasury events in the record.",
+      "ft-treasury": "Treasury", "ft-actions": "Governance actions", "ft-daily": "Daily",
+      "tl-note-html": "Dates are the start of the relevant epoch. \"Enacted\" entries are dated by their on-chain enactment epoch; others by their terminal (expiry) or submission epoch — whichever is the most meaningful epoch on record. Amounts are the sum of a withdrawal action's recipients.",
+      "tl-foot-html": "Chronological view of the same data behind the <a href=\"treasury.html\">Treasury</a> and <a href=\"actions.html\">governance actions</a> pages — withdrawals, actions and their outcomes from public on-chain governance via Koios. Read-only; see <a href=\"methodology.html\">methodology</a>. Full record at <a href=\"https://api.asy.life/docs\">api.asy.life</a>.",
+    },
+    ja: {
+      "tl-title": "トレジャリー タイムライン",
+      "tl-lede": "トレジャリーのアクション・出金・批准・制定の歴史を新しい順にたどります。各項目は、何が・いつ・どう変わったかを示します。動きのみ。解釈はありません。",
+      "tl-back": "← トレジャリー",
+      "tl-m-balance": "トレジャリー残高", "tl-m-balance-sub": "最新エポック {epoch}",
+      "tl-m-enacted": "制定された出金", "tl-m-enacted-sub": "{ada} 支払い済み",
+      "tl-m-actions": "ガバナンスアクション", "tl-m-actions-sub": "記録内",
+      "type-TreasuryWithdrawals": "トレジャリー出金", "type-InfoAction": "情報アクション", "type-ParameterChange": "パラメータ変更",
+      "type-NewConstitution": "新憲法", "type-NewCommittee": "新委員会", "type-HardForkInitiation": "ハードフォーク",
+      "st-enacted": "制定済み", "st-ratified": "批准済み", "st-expired": "期限切れ", "st-rejected": "否決", "st-active": "進行中",
+      "tl-epoch": "エポック", "tl-submitted": "提出エポック", "tl-recipients": "受領者", "tl-votes": "投票",
+      "tl-empty": "記録にトレジャリーイベントがありません。",
+      "ft-treasury": "トレジャリー", "ft-actions": "ガバナンスアクション", "ft-daily": "日次",
+      "tl-note-html": "日付は該当エポックの開始日です。「制定済み」はオンチェーンの制定エポック、その他は終了（期限切れ）または提出エポック — 記録上もっとも意味のあるエポックで日付付けされます。金額は出金アクションの受領者合計です。",
+      "tl-foot-html": "<a href=\"treasury.html\">トレジャリー</a>と<a href=\"actions.html\">ガバナンスアクション</a>ページの基となる同一データの時系列ビュー — Koios 経由の公開オンチェーンガバナンスによる出金・アクションと結果。読み取り専用。<a href=\"methodology.html\">方法論</a>参照。完全な記録は <a href=\"https://api.asy.life/docs\">api.asy.life</a>。",
+    },
+  };
+  if (typeof i18n !== "undefined") { Object.assign(i18n.en, P.en); Object.assign(i18n.ja, P.ja); if (typeof setLang === "function") setLang(lang()); }
+
+  var DATA = null;
+  var STATUS = { enacted: "enacted", ratified: "ratified", expired: "expired", dropped: "rejected", active: "active" };
+
+  function fmtAda(lov) {
+    if (lov == null) return "—";
+    var a = lov / 1e6;
+    if (a >= 1e9) return "₳" + (a / 1e9).toFixed(2) + "B";
+    if (a >= 1e6) return "₳" + (a / 1e6).toFixed(2) + "M";
+    if (a >= 1e3) return "₳" + (a / 1e3).toFixed(1) + "k";
+    return "₳" + Math.round(a).toLocaleString();
+  }
+
+  function build(actions, withdrawals, snapshot, epochInfo) {
+    var epochDate = {};
+    (epochInfo.epochs || []).forEach(function (e) { epochDate[e.epoch_no] = e.start_date; });
+    var wByAction = {};
+    (withdrawals.withdrawals || []).forEach(function (w) { (wByAction[w.action_id] = wByAction[w.action_id] || []).push(w); });
+
+    var events = (actions.actions || []).map(function (a) {
+      var ws = wByAction[a.action_id] || [];
+      var enactedEp = ws.reduce(function (m, w) { return w.enacted_epoch != null ? Math.max(m, w.enacted_epoch) : m; }, 0) || null;
+      var sortEpoch = enactedEp || a.expires_epoch || a.submitted_epoch || 0;
+      var total = ws.reduce(function (s, w) { return s + (w.amount_lovelace || 0); }, 0);
+      return {
+        id: a.action_id, type: a.action_type, title: a.title, outcome: a.outcome,
+        status: STATUS[a.outcome] || "active",
+        submitted: a.submitted_epoch, sortEpoch: sortEpoch,
+        date: epochDate[sortEpoch] || null,
+        amount: a.action_type === "TreasuryWithdrawals" && total > 0 ? total : null,
+        recipients: ws.length,
+        yes: a.drep_yes_count, no: a.drep_no_count, abstain: a.drep_abstain_count,
+      };
+    });
+    events.sort(function (a, b) { return b.sortEpoch - a.sortEpoch; });
+
+    // hero context
+    var eps = (snapshot.epochs || []);
+    var latest = eps.length ? eps[eps.length - 1] : null;
+    var enactedW = (withdrawals.withdrawals || []).filter(function (w) { return w.outcome === "enacted"; });
+    var enactedTotal = enactedW.reduce(function (s, w) { return s + (w.amount_lovelace || 0); }, 0);
+    return { events: events, latest: latest, enactedCount: enactedW.length, enactedTotal: enactedTotal, actionCount: (actions.actions || []).length };
+  }
+
+  function metrics(d) {
+    var balLov = d.latest ? d.latest.treasury_lovelace : null;
+    return '<div class="tl-m"><div class="tl-m-lbl">' + esc(tt("tl-m-balance")) + '</div><div class="tl-m-val">' + fmtAda(balLov)
+      + '</div><div class="tl-m-sub">' + esc(tt("tl-m-balance-sub").replace("{epoch}", d.latest ? d.latest.epoch_no : "—")) + "</div></div>"
+      + '<div class="tl-m"><div class="tl-m-lbl">' + esc(tt("tl-m-enacted")) + '</div><div class="tl-m-val">' + d.enactedCount
+      + '</div><div class="tl-m-sub">' + esc(tt("tl-m-enacted-sub").replace("{ada}", fmtAda(d.enactedTotal))) + "</div></div>"
+      + '<div class="tl-m"><div class="tl-m-lbl">' + esc(tt("tl-m-actions")) + '</div><div class="tl-m-val">' + d.actionCount
+      + '</div><div class="tl-m-sub">' + esc(tt("tl-m-actions-sub")) + "</div></div>";
+  }
+
+  function card(e) {
+    var typeLbl = tt("type-" + e.type) || e.type;
+    var stLbl = tt("st-" + e.status);
+    var when = e.date ? e.date : tt("tl-epoch") + " " + (e.sortEpoch || "—");
+    var votes = (e.yes != null || e.no != null)
+      ? '<span class="tl-votes">' + esc(tt("tl-votes")) + ": " + (e.yes || 0) + "/" + (e.no || 0) + "/" + (e.abstain || 0) + "</span>" : "";
+    return '<li class="tl-item s-' + e.status + '"><div class="tl-card">'
+      + '<div class="tl-top"><span class="tl-tags"><span class="tl-type">' + esc(typeLbl) + '</span>'
+      + '<span class="tl-status st-' + e.status + '">' + esc(stLbl) + "</span></span>"
+      + '<span class="tl-when">' + esc(when) + "</span></div>"
+      + '<div class="tl-title"><a href="action.html?id=' + encodeURIComponent(e.id) + '">' + esc(e.title || e.id) + "</a></div>"
+      + (e.amount != null ? '<div class="tl-amount">' + fmtAda(e.amount) + "</div>" : "")
+      + '<div class="tl-meta">'
+      + (e.recipients ? "<span>" + e.recipients + " " + esc(tt("tl-recipients")) + "</span>" : "")
+      + (e.submitted ? '<span class="mono">' + esc(tt("tl-submitted")) + " " + e.submitted + "</span>" : "")
+      + votes + "</div></div></li>";
+  }
+
+  function render() {
+    if (!DATA) return;
+    document.getElementById("tl-metrics").innerHTML = metrics(DATA);
+    document.getElementById("tl-note").innerHTML = tt("tl-note-html");
+    document.getElementById("tl-foot").innerHTML = tt("tl-foot-html");
+    var out = document.getElementById("tl-out");
+    if (!DATA.events.length) { out.innerHTML = '<div class="tl-empty">' + esc(tt("tl-empty")) + "</div>"; return; }
+    // group by year (from date) for scan-able structure; undated grouped last
+    var html = "", curYear = null;
+    DATA.events.forEach(function (e) {
+      var yr = e.date ? e.date.slice(0, 4) : tt("tl-epoch");
+      if (yr !== curYear) { if (curYear !== null) html += "</ul>"; html += '<div class="tl-year">' + esc(yr) + '</div><ul class="tl">'; curYear = yr; }
+      html += card(e);
+    });
+    if (curYear !== null) html += "</ul>";
+    out.innerHTML = html;
+  }
+
+  function boot() {
+    document.addEventListener("cdo-lang", render);
+    Promise.all([
+      fetch(SNAP + "/actions.json").then(function (r) { return r.json(); }),
+      fetch(SNAP + "/treasury_withdrawals.json").then(function (r) { return r.json(); }),
+      fetch(SNAP + "/treasury_snapshot.json").then(function (r) { return r.json(); }),
+      fetch(SNAP + "/epoch_info.json").then(function (r) { return r.json(); }),
+    ]).then(function (r) { DATA = build(r[0], r[1], r[2], r[3]); render(); })
+      .catch(function () { document.getElementById("tl-out").innerHTML = '<div class="tl-empty">Couldn’t load treasury data.</div>'; });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
+})();
+</script>
+</body>
+</html>
