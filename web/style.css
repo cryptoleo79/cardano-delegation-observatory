@@ -455,6 +455,8 @@ tr.expand-row:hover { background: var(--card); }
   word-break: break-all;
   margin-bottom: 24px;
 }
+/* One-line "what is this page" framing under a detail-page title (clarity). */
+.detail-sub { color: var(--muted); font-size: 14px; line-height: 1.5; max-width: 680px; margin: 2px 0 10px; }
 .drep-stats {
   display: grid; grid-template-columns: repeat(4, 1fr);
   gap: 12px;

@@ -110,6 +110,10 @@ const i18n = {
     "h-nav-memory": "Memory",
     "h-nav-daily": "Daily", "h-nav-api": "API",
     "nav-grp-discover": "Discover", "nav-grp-governance": "Governance", "nav-grp-data": "Data",
+    "p-sub": "Provenance-stamped project record — every field carries its source.",
+    "c-sub": "Category — the projects grouped under this part of the ecosystem.",
+    "drep-sub": "DRep — on-chain voting weight, recorded votes, and 90-day history.",
+    "tok-sub": "Token — on-chain metadata, price, supply and holders, each sourced.",
 
     /* Actions page */
     "actions-title": "Governance actions",
@@ -332,6 +336,10 @@ const i18n = {
     "h-nav-memory": "メモリ",
     "h-nav-daily": "日次", "h-nav-api": "API",
     "nav-grp-discover": "探索", "nav-grp-governance": "ガバナンス", "nav-grp-data": "データ",
+    "p-sub": "来歴付きプロジェクト記録 — 各項目が出典を伴います。",
+    "c-sub": "カテゴリ — エコシステムのこの領域にまとめられたプロジェクト。",
+    "drep-sub": "DRep — オンチェーンの投票権・記録された投票・90日履歴。",
+    "tok-sub": "トークン — オンチェーンのメタデータ・価格・供給・保有者（すべて出典付き）。",
 
     /* Actions page */
     "actions-title": "ガバナンスアクション一覧",
