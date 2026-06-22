@@ -790,3 +790,18 @@ table.rank-table tbody tr:hover { background: var(--row-hover); }
   .home-hub .hub-desc { display: none; }
   .home-hub .hub-feature .hub-desc { display: block; }
 }
+
+/* "What next?" cross-link strip — injected before the footer on flagship pages. */
+.whatnext { border-top: 0.5px solid var(--border); background: var(--accent-soft); margin-top: 44px; }
+.whatnext .container { padding-top: 22px; padding-bottom: 22px; }
+.whatnext .wn-h { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--faint); font-weight: 600; margin: 0 0 12px; }
+.whatnext .wn-links { display: flex; gap: 10px; flex-wrap: wrap; }
+.whatnext .wn-links a {
+  display: inline-flex; align-items: baseline; gap: 6px; background: var(--card); border: 0.5px solid var(--border);
+  border-radius: 11px; padding: 11px 15px; font-size: 14px; color: var(--accent-strong); text-decoration: none;
+  box-shadow: var(--shadow); transition: transform .1s ease, border-color .1s ease;
+}
+.whatnext .wn-links a:hover { transform: translateY(-2px); border-color: var(--accent); text-decoration: none; }
+.whatnext .wn-links a strong { font-weight: 700; }
+.whatnext .wn-links a .wn-d { font-weight: 400; color: var(--muted); font-size: 12.5px; }
+@media (max-width: 640px) { .whatnext .wn-links { flex-direction: column; } .whatnext .wn-links a { width: 100%; box-sizing: border-box; } }

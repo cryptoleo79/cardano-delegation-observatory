@@ -620,5 +620,45 @@ function navInit() {
     }
   }
 }
-if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", navInit);
-else navInit();
+/* ── "What next?" — cross-link every flagship page so a visitor never dead-ends.
+   One curated map, injected before the footer. {id} threads the current ?id. ── */
+var WHATNEXT = {
+  "state.html": [["ecosystem-pulse.html", "Ecosystem Pulse", "what's active now", "エコシステム パルス", "今アクティブなもの"], ["timeline.html", "Timeline", "how it got here", "タイムライン", "ここに至るまで"], ["search.html", "Search", "find a project", "検索", "プロジェクトを探す"]],
+  "timeline.html": [["ecosystem-pulse.html", "Ecosystem Pulse", "what's active now", "エコシステム パルス", "今アクティブなもの"], ["treasury-timeline.html", "Treasury Timeline", "treasury history", "トレジャリー タイムライン", "トレジャリーの歴史"], ["governance-daily.html", "Governance Daily", "today's movement", "ガバナンス日次", "本日の動き"]],
+  "ecosystem-pulse.html": [["search.html", "Search", "find any project", "検索", "プロジェクトを探す"], ["memory-insights.html", "Memory Insights", "standing facts", "メモリ インサイト", "恒常的な事実"], ["timeline.html", "Timeline", "the full history", "タイムライン", "完全な歴史"]],
+  "search.html": [["memory-map.html", "Memory Map", "the ecosystem visually", "メモリ マップ", "視覚的なエコシステム"], ["ecosystem-pulse.html", "Ecosystem Pulse", "what's active now", "エコシステム パルス", "今アクティブなもの"], ["memory-insights.html", "Memory Insights", "most documented & more", "メモリ インサイト", "最も文書化 ほか"]],
+  "memory.html": [["state.html", "State of Cardano", "the operating picture", "Cardano の現況", "オペレーティングピクチャ"], ["ecosystem-pulse.html", "Ecosystem Pulse", "what's active now", "エコシステム パルス", "今アクティブなもの"], ["timeline.html", "Timeline", "watch it evolve", "タイムライン", "歩みを見る"]],
+  "memory-insights.html": [["ecosystem-pulse.html", "Ecosystem Pulse", "recent activity", "エコシステム パルス", "最近の活動"], ["search.html", "Search", "find a project", "検索", "プロジェクトを探す"], ["memory-map.html", "Memory Map", "by category", "メモリ マップ", "カテゴリ別"]],
+  "memory-map.html": [["search.html", "Search", "find a project", "検索", "プロジェクトを探す"], ["category-explorer.html", "Category Explorer", "drill into categories", "カテゴリ エクスプローラー", "カテゴリを掘り下げ"], ["memory-insights.html", "Memory Insights", "standing facts", "メモリ インサイト", "恒常的な事実"]],
+  "governance-daily.html": [["drep-history.html", "DRep History", "a DRep over time", "DRep 履歴", "DRep の推移"], ["timeline.html", "Timeline", "the full history", "タイムライン", "完全な歴史"], ["changes.html", "Change feed", "per-DRep detail", "変化フィード", "DRep別の詳細"]],
+  "changes.html": [["governance-daily.html", "Governance Daily", "at a glance", "ガバナンス日次", "一目で"], ["timeline.html", "Timeline", "the full history", "タイムライン", "完全な歴史"], ["concentration.html", "Concentration", "weight distribution", "集中度", "投票権の分布"]],
+  "treasury.html": [["treasury-timeline.html", "Treasury Timeline", "actions & withdrawals in order", "トレジャリー タイムライン", "アクションと出金を時系列で"], ["state.html", "State of Cardano", "the operating picture", "Cardano の現況", "オペレーティングピクチャ"], ["timeline.html", "Timeline", "the full history", "タイムライン", "完全な歴史"]],
+  "treasury-timeline.html": [["treasury.html", "Treasury", "balance & reserves", "トレジャリー", "残高と準備金"], ["state.html", "State of Cardano", "the operating picture", "Cardano の現況", "オペレーティングピクチャ"], ["timeline.html", "Timeline", "all domains", "タイムライン", "全領域"]],
+  "project.html": [["project-history.html?id={id}", "Project History", "this project's trail", "プロジェクト履歴", "このプロジェクトの軌跡"], ["memory-insights.html", "Memory Insights", "standing facts", "メモリ インサイト", "恒常的な事実"], ["search.html", "Search", "find related projects", "検索", "関連プロジェクトを探す"]],
+  "drep.html": [["drep-history.html?id={id}", "DRep History", "weight, rank & votes over time", "DRep 履歴", "投票権・順位・投票の推移"], ["governance-daily.html", "Governance Daily", "today's movement", "ガバナンス日次", "本日の動き"], ["timeline.html", "Timeline", "the full history", "タイムライン", "完全な歴史"]],
+  "drep-history.html": [["governance-daily.html", "Governance Daily", "today's movement", "ガバナンス日次", "本日の動き"], ["timeline.html", "Timeline", "the full history", "タイムライン", "完全な歴史"], ["/", "Observatory", "top-30 DReps", "オブザバトリー", "上位30 DRep"]],
+  "category.html": [["category-explorer.html", "Category Explorer", "all categories", "カテゴリ エクスプローラー", "全カテゴリ"], ["memory-map.html", "Memory Map", "the ecosystem visually", "メモリ マップ", "視覚的なエコシステム"], ["search.html", "Search", "find a project", "検索", "プロジェクトを探す"]],
+  "projects.html": [["search.html", "Search", "search 847 projects", "検索", "847件を検索"], ["ecosystem-pulse.html", "Ecosystem Pulse", "what's active now", "エコシステム パルス", "今アクティブなもの"], ["memory-map.html", "Memory Map", "by category", "メモリ マップ", "カテゴリ別"]],
+};
+function whatNextInit() {
+  if (document.querySelector(".whatnext")) return;
+  var file = location.pathname.replace(/.*\//, "") || "index.html";
+  var sug = WHATNEXT[file];
+  if (!sug || !sug.length) return;
+  var footer = document.querySelector(".site-footer");
+  if (!footer) return;
+  var id = new URLSearchParams(location.search).get("id");
+  var links = sug.map(function (s) {
+    var href = s[0].replace("{id}", id ? encodeURIComponent(id) : "");
+    return '<a href="' + href + '"><span class="en"><strong>' + s[1] + '</strong> <span class="wn-d">· ' + s[2] + '</span></span>'
+      + '<span class="ja"><strong>' + s[3] + '</strong> <span class="wn-d">· ' + s[4] + '</span></span></a>';
+  }).join("");
+  var sec = document.createElement("section");
+  sec.className = "whatnext";
+  sec.innerHTML = '<div class="container"><div class="wn-h"><span class="en">What next?</span><span class="ja">次は？</span></div>'
+    + '<div class="wn-links">' + links + '</div></div>';
+  footer.parentNode.insertBefore(sec, footer);
+}
+function omegaInit() { navInit(); whatNextInit(); }
+if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", omegaInit);
+else omegaInit();
