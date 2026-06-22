@@ -608,7 +608,7 @@ function navInit() {
   if (!matched && !isHome) {
     var SEC = {
       "project.html": "discover", "project-history.html": "discover", "category.html": "discover",
-      "category-explorer.html": "discover", "memory-heatmap.html": "discover", "memory-map.html": "discover",
+      "category-explorer.html": "discover", "memory-heatmap.html": "discover", "memory-map.html": "discover", "memory-insights.html": "discover",
       "drep.html": "governance", "drep-history.html": "governance", "action.html": "governance", "actions.html": "governance",
       "treasury-timeline.html": "governance", "concentration.html": "governance", "flows.html": "governance",
       "token.html": "data",

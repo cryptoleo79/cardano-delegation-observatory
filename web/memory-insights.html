@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memory Insights — Project Memory — asy.life</title>
+<meta name="description" content="What's happening inside the Cardano ecosystem, without reading hundreds of project pages: most documented, most changed, newest, oldest, deepest history — facts derived from Project Memory's event history. No scores, no inference.">
+<meta name="theme-color" content="#fafaf7">
+<meta property="og:title" content="Memory Insights — inside Cardano Project Memory">
+<meta property="og:description" content="Most documented, most changed, newest, oldest, deepest history — facts from the event log. No scores, no inference.">
+<link rel="stylesheet" href="style.css">
+<style>
+  .mi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;margin:18px 0}
+  .mi-card{background:var(--card);border:0.5px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:16px 18px}
+  .mi-card h2{font-size:1rem;color:var(--accent-strong);margin:0 0 2px}
+  .mi-card .mi-help{font-size:.78rem;color:var(--faint);margin:0 0 12px}
+  .mi-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-top:1px solid var(--border)}
+  .mi-row:first-of-type{border-top:none}
+  .mi-rank{font-family:var(--mono);font-size:.72rem;color:var(--faint);width:1.3em;flex:none}
+  .mi-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+  .mi-name a{color:var(--text);text-decoration:none}.mi-name a:hover{color:var(--accent-strong);text-decoration:underline}
+  .mi-prov{flex:none}
+  .mi-metric{flex:none;font-variant-numeric:tabular-nums;font-weight:700;color:var(--accent-strong);font-size:.9rem}
+  .mi-metric .u{font-weight:500;color:var(--muted);font-size:.76rem}
+  .mi-hist{flex:none;color:var(--faint);font-size:.8rem;text-decoration:none}.mi-hist:hover{color:var(--accent-strong)}
+  .mi-empty{color:var(--faint);font-style:italic;font-size:.84rem;padding:6px 0}
+  .mi-legend{font-size:.8rem;color:var(--muted);margin:2px 0 0}
+</style>
+</head>
+<body>
+<div class="ecosystem-strip"><div class="ecosystem-strip-inner">
+  <span class="eco-label" id="eco-label">Ecosystem</span>
+  <a href="https://ctf.asy.life" class="eco-link">CTF</a><span class="eco-sep">·</span>
+  <a href="https://observatory.asy.life" class="eco-link" id="eco-link-observatory">Observatory</a><span class="eco-sep">·</span>
+  <a href="https://voting.asy.life" class="eco-link" id="eco-link-voting">Voting</a><span class="eco-sep">·</span>
+  <a href="https://governance.asy.life" class="eco-link" id="eco-link-governance">Governance</a><span class="eco-sep">·</span>
+  <a href="https://api.asy.life" class="eco-link" id="eco-link-api">API</a><span class="eco-sep">·</span>
+  <a href="https://github.com/cryptoleo79" class="eco-link" target="_blank" rel="noopener">GitHub</a>
+</div></div>
+<header class="site-header"><div class="container header-inner">
+  <a href="/" class="brand"><span class="brand-mark">CDO</span><span class="brand-text" id="h-brand">Cardano Delegation Observatory</span></a>
+  <nav class="site-nav" id="site-nav">
+    <div class="nav-group" data-grp="discover">
+      <button class="nav-group-btn" id="nav-grp-discover" type="button" aria-haspopup="true" aria-expanded="false">Discover</button>
+      <div class="nav-menu" role="menu">
+        <a href="search.html" id="h-nav-search" role="menuitem">Search</a>
+        <a href="projects.html" id="h-nav-projects" role="menuitem">Projects</a>
+        <a href="categories.html" id="h-nav-categories" role="menuitem">Categories</a>
+        <a href="ecosystem.html" id="h-nav-ecosystem" role="menuitem">Ecosystem</a>
+        <a href="memory.html" id="h-nav-memory" role="menuitem">Memory</a>
+      </div>
+    </div>
+    <div class="nav-group" data-grp="governance">
+      <button class="nav-group-btn" id="nav-grp-governance" type="button" aria-haspopup="true" aria-expanded="false">Governance</button>
+      <div class="nav-menu" role="menu">
+        <a href="/" id="h-nav-observatory" role="menuitem">Observatory</a>
+        <a href="treasury.html" id="h-nav-treasury" role="menuitem">Treasury</a>
+        <a href="catalyst.html" id="h-nav-catalyst" role="menuitem">Catalyst</a>
+        <a href="changes.html" id="h-nav-changes" role="menuitem">Changes</a>
+        <a href="governance-daily.html" id="h-nav-daily" role="menuitem">Daily</a>
+        <a href="governance-health.html" id="h-nav-health" role="menuitem">Health</a>
+      </div>
+    </div>
+    <div class="nav-group" data-grp="data">
+      <button class="nav-group-btn" id="nav-grp-data" type="button" aria-haspopup="true" aria-expanded="false">Data</button>
+      <div class="nav-menu" role="menu">
+        <a href="tokens.html" id="h-nav-tokens" role="menuitem">Tokens</a>
+        <a href="rankings.html" id="h-nav-rankings" role="menuitem">Rankings</a>
+        <a href="market.html" id="h-nav-market" role="menuitem">Market</a>
+        <a href="https://api.asy.life" id="h-nav-api" role="menuitem" target="_blank" rel="noopener">API</a>
+      </div>
+    </div>
+    <div class="lang-toggle"><button id="btn-en" class="active" onclick="setLang('en')">EN</button><button id="btn-ja" onclick="setLang('ja')">日本語</button></div>
+  </nav>
+</div></header>
+
+<main><article class="container">
+  <h1 id="mi-title">Memory Insights</h1>
+  <p class="lede" id="mi-lede">What's happening inside the ecosystem — without reading hundreds of project pages. Every list below is a plain sort of an objective fact from Project Memory's event history: how documented a project is, how much it has changed, how deep its record runs. No scores, no rankings of quality, no inference — just the numbers, each with its provenance.</p>
+  <p class="mi-legend" id="mi-legend"></p>
+
+  <div class="mi-grid" id="mi-grid"></div>
+  <p class="footnote" id="mi-foot"></p>
+</article></main>
+
+<footer class="site-footer"><div class="container footer-inner">
+  <div><span id="ft-license">Apache 2.0 code · CC0 data</span></div>
+  <div><a href="memory-map.html" id="ft-map">Memory Map</a> <a href="search.html" id="ft-search">Search</a> <a href="memory.html" id="ft-memory">Memory</a></div>
+  <div class="footer-note" id="ft-note">Observe · preserve · serve. No scores, no judgment.</div>
+</div></footer>
+<script src="i18n.js"></script>
+<script>
+"use strict";
+(function () {
+  function lang() { return document.documentElement.lang === "ja" ? "ja" : "en"; }
+  function tt(k) { return (i18n[lang()] && i18n[lang()][k]) || (i18n.en[k] || k); }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+  var SNAP = "data/snapshots/projectmemory";
+
+  var P = {
+    en: {
+      "mi-title": "Memory Insights",
+      "mi-lede": "What's happening inside the ecosystem — without reading hundreds of project pages. Every list below is a plain sort of an objective fact from Project Memory's event history: how documented a project is, how much it has changed, how deep its record runs. No scores, no rankings of quality, no inference — just the numbers, each with its provenance.",
+      "mi-legend-tpl": "Across {n} projects in Project Memory. Each row links to the project; ↗ opens its full history.",
+      "i-documented": "Most documented", "i-documented-h": "By number of sourced link types (website / GitHub / docs / whitepaper).",
+      "i-enriched": "Most evidence", "i-enriched-h": "By count of archived evidence items attached to claims.",
+      "i-changed": "Most changed", "i-changed-h": "By number of claims superseded by a later, sourced value — nothing overwritten.",
+      "i-deep": "Deepest history", "i-deep-h": "By number of events in the append-only log.",
+      "i-shallow": "Shallowest history", "i-shallow-h": "Fewest events recorded so far.",
+      "i-newest": "Newest in memory", "i-newest-h": "Most recently added to the event log.",
+      "i-oldest": "Oldest in memory", "i-oldest-h": "First entered the event log.",
+      "i-undocumented": "Awaiting documentation", "i-undocumented-h": "No sourced link recorded yet — our record is incomplete, not a judgement of the project.",
+      "u-links": "links", "u-evidence": "evidence", "u-revised": "revised", "u-events": "events", "u-seq": "seq", "u-none": "no links yet",
+      "ft-map": "Memory Map", "ft-search": "Search", "ft-memory": "Memory",
+      "mi-foot-html": "Every metric is read directly from the event-sourced record — no fabricated numbers, no inferred relationships. Browse the full set in <a href=\"search.html\">Search</a> or the <a href=\"category-explorer.html\">Category Explorer</a>; see the shape of it all in the <a href=\"memory-map.html\">Memory Map</a>.",
+    },
+    ja: {
+      "mi-title": "メモリ インサイト",
+      "mi-lede": "数百のプロジェクトページを読まずに、エコシステムの中で何が起きているかを掴めます。以下の各リストは、Project Memory のイベント履歴から得た客観的事実を素直に並べたものです: どれだけ文書化されているか、どれだけ変化したか、記録がどれだけ深いか。スコアも、品質の順位付けも、推論もありません — 数値と、その来歴だけです。",
+      "mi-legend-tpl": "Project Memory の {n} プロジェクトから。各行はプロジェクトへ、↗ は完全な履歴を開きます。",
+      "i-documented": "最も文書化", "i-documented-h": "出典付きリンクの種類数（ウェブ / GitHub / ドキュメント / ホワイトペーパー）。",
+      "i-enriched": "エビデンス最多", "i-enriched-h": "主張に添付されたアーカイブ済みエビデンス数。",
+      "i-changed": "最も変化", "i-changed-h": "後の出典付き値に置換された主張の数 — 上書きなし。",
+      "i-deep": "最も深い履歴", "i-deep-h": "追記専用ログのイベント数。",
+      "i-shallow": "最も浅い履歴", "i-shallow-h": "これまでに記録されたイベントが最少。",
+      "i-newest": "メモリ最新", "i-newest-h": "イベントログに最近追加。",
+      "i-oldest": "メモリ最古", "i-oldest-h": "イベントログに最初に登録。",
+      "i-undocumented": "文書化待ち", "i-undocumented-h": "出典付きリンクが未記録 — 記録が不完全なだけで、プロジェクトへの評価ではありません。",
+      "u-links": "リンク", "u-evidence": "エビデンス", "u-revised": "改訂", "u-events": "イベント", "u-seq": "seq", "u-none": "リンク未登録",
+      "ft-map": "メモリ マップ", "ft-search": "検索", "ft-memory": "メモリ",
+      "mi-foot-html": "すべての指標はイベントソース記録から直接読み取られます — 捏造数値も、推論された関係もありません。全体は<a href=\"search.html\">検索</a>や<a href=\"category-explorer.html\">カテゴリ エクスプローラー</a>で閲覧、全体像は<a href=\"memory-map.html\">メモリ マップ</a>でご覧ください。",
+    },
+  };
+  if (typeof i18n !== "undefined") { Object.assign(i18n.en, P.en); Object.assign(i18n.ja, P.ja); if (typeof setLang === "function") setLang(lang()); }
+
+  var ROWS = null;
+  var num = function (v) { return (v == null ? 0 : v); };
+
+  // each insight: key, sort comparator, value(row)->{n,unit}, filter
+  var INSIGHTS = [
+    { k: "documented", f: function (r) { return (r.link_fields || []).length > 0; }, cmp: function (a, b) { return (b.link_fields || []).length - (a.link_fields || []).length || num(b.evidence_count) - num(a.evidence_count); }, val: function (r) { return { n: (r.link_fields || []).length, u: "u-links" }; } },
+    { k: "enriched", f: function (r) { return num(r.evidence_count) > 0; }, cmp: function (a, b) { return num(b.evidence_count) - num(a.evidence_count); }, val: function (r) { return { n: num(r.evidence_count), u: "u-evidence" }; } },
+    { k: "changed", f: function (r) { return num(r.superseded_claim_count) > 0; }, cmp: function (a, b) { return num(b.superseded_claim_count) - num(a.superseded_claim_count); }, val: function (r) { return { n: num(r.superseded_claim_count), u: "u-revised" }; }, hist: true },
+    { k: "deep", f: function (r) { return num(r.history_count) > 0; }, cmp: function (a, b) { return num(b.history_count) - num(a.history_count); }, val: function (r) { return { n: num(r.history_count), u: "u-events" }; }, hist: true },
+    { k: "shallow", f: function (r) { return num(r.history_count) > 0; }, cmp: function (a, b) { return num(a.history_count) - num(b.history_count) || a.name.localeCompare(b.name); }, val: function (r) { return { n: num(r.history_count), u: "u-events" }; }, hist: true },
+    { k: "newest", f: function (r) { return r.created_seq != null; }, cmp: function (a, b) { return num(b.created_seq) - num(a.created_seq); }, val: function (r) { return { n: r.created_seq, u: "u-seq" }; } },
+    { k: "oldest", f: function (r) { return r.created_seq != null; }, cmp: function (a, b) { return num(a.created_seq) - num(b.created_seq); }, val: function (r) { return { n: r.created_seq, u: "u-seq" }; } },
+    { k: "undocumented", f: function (r) { return (r.link_fields || []).length === 0; }, cmp: function (a, b) { return a.name.localeCompare(b.name); }, val: function () { return { n: null, u: "u-none" }; } },
+  ];
+
+  function provChip(r) { return r.authority_class ? '<span class="auth-chip auth-' + esc(r.authority_class) + '" title="' + esc(r.source_id || "") + '">' + esc(r.authority_class) + "</span>" : ""; }
+
+  function rowHtml(r, i, ins) {
+    var v = ins.val(r);
+    var metric = v.n == null
+      ? '<span class="mi-metric"><span class="u">' + esc(tt(v.u)) + "</span></span>"
+      : '<span class="mi-metric">' + esc(String(v.n)) + ' <span class="u">' + esc(tt(v.u)) + "</span></span>";
+    return '<div class="mi-row"><span class="mi-rank">' + (i + 1) + '</span>'
+      + '<span class="mi-prov">' + provChip(r) + "</span>"
+      + '<span class="mi-name"><a href="project.html?id=' + encodeURIComponent(r.id) + '">' + esc(r.name || r.id) + "</a></span>"
+      + metric
+      + (ins.hist ? ' <a class="mi-hist" href="project-history.html?id=' + encodeURIComponent(r.id) + '" title="history">↗</a>' : "") + "</div>";
+  }
+
+  function render() {
+    if (!ROWS) return;
+    document.getElementById("mi-legend").textContent = tt("mi-legend-tpl").replace("{n}", ROWS.length.toLocaleString());
+    document.getElementById("mi-foot").innerHTML = tt("mi-foot-html");
+    var grid = document.getElementById("mi-grid");
+    grid.innerHTML = INSIGHTS.map(function (ins) {
+      var list = ROWS.filter(ins.f).sort(ins.cmp).slice(0, 8);
+      var body = list.length ? list.map(function (r, i) { return rowHtml(r, i, ins); }).join("") : '<div class="mi-empty">—</div>';
+      return '<div class="mi-card"><h2>' + esc(tt("i-" + ins.k)) + '</h2><div class="mi-help">' + esc(tt("i-" + ins.k + "-h")) + "</div>" + body + "</div>";
+    }).join("");
+  }
+
+  function boot() {
+    document.addEventListener("cdo-lang", render);
+    fetch(SNAP + "/index.json").then(function (r) { return r.json(); }).then(function (idx) { ROWS = idx.projects || []; render(); })
+      .catch(function () { document.getElementById("mi-grid").innerHTML = '<div class="mi-empty">Project Memory index unavailable.</div>'; });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
+})();
+</script>
+</body>
+</html>
