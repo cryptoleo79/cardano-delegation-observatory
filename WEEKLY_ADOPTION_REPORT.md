@@ -14,6 +14,26 @@ the evidence supports. Keep prior weeks for trend.
 
 ---
 
+## Week 3 — confirmed signals (relayed)
+
+- **Projects = winner for the 3rd consecutive measurement → CONFIRMED signal.** Project
+  Memory is the flagship as a *measured result*, not a hypothesis. Future build priority:
+  Project Memory · Project Discovery · Project Intelligence > additional governance surfaces.
+- **Categories nav experiment: FAILED.** The Categories *page* traffic stayed **zero**
+  even after the nav fix — while `/categories` remained the **#1 API route**. The
+  contradiction resolves cleanly: **users want category *data*, not a standalone category
+  *destination*.**
+  - **Decision: do NOT keep improving the Categories page.** Category data belongs
+    *embedded* where users already are — Projects, Search, Memory Map.
+  - **Already satisfied by shipped work:** Search results carry per-project category tags +
+    match category names; Memory Map is category-centric; project pages show categories +
+    related-by-category. The standalone flat `categories.html` is the dead surface — stop
+    promoting it; no further investment.
+- Net: stop building standalone category destinations; keep category data as context
+  inside the winner (Project Memory) surfaces.
+
+---
+
 ## Current status: WEEK 1 RECORDED — first usage evidence in
 
 First `usage.md` exists. Page-traffic tiers and strongest API routes are from that
