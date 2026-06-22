@@ -324,8 +324,8 @@ const i18n = {
     "h-nav-ecosystem": "エコシステム",
     "h-nav-treasury": "トレジャリー",
     "h-nav-catalyst": "Catalyst",
-    "h-nav-market": "Market",
-    "h-nav-health": "Health",
+    "h-nav-market": "マーケット",
+    "h-nav-health": "健全性",
     "h-nav-changes": "変化",
     "h-nav-memory": "メモリ",
 
