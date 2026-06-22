@@ -93,9 +93,43 @@ a:hover { text-decoration: underline; }
   display: flex; align-items: center; justify-content: center;
   color: white; font-size: 10px; font-weight: 700; letter-spacing: 0.05em;
 }
-.site-nav { display: flex; align-items: center; gap: 22px; font-size: 13px; }
+.site-nav { display: flex; align-items: center; gap: 4px; font-size: 13px; }
 .site-nav a { color: var(--muted); }
 .site-nav a:hover { color: var(--text); text-decoration: none; }
+
+/* Grouped navigation (Discover / Governance / Data) — dropdowns reduce 14 flat
+   items to 3 calm groups; opens on hover (desktop) or click (touch). */
+.nav-group { position: relative; }
+.nav-group-btn {
+  font: inherit; font-size: 13px; font-weight: 500; line-height: 1;
+  color: var(--muted); background: transparent; border: 0; cursor: pointer;
+  padding: 9px 12px; border-radius: 8px; display: inline-flex; align-items: center; gap: 6px;
+  transition: color .12s ease, background .12s ease;
+}
+.nav-group-btn::after {
+  content: ""; width: 6px; height: 6px; border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(45deg);
+  opacity: .6; transition: transform .18s ease;
+}
+.nav-group-btn:hover { color: var(--text); background: var(--accent-soft); }
+.nav-group.open .nav-group-btn { color: var(--text); background: var(--accent-soft); }
+.nav-group.open .nav-group-btn::after { transform: translateY(1px) rotate(-135deg); }
+.nav-group.nav-current .nav-group-btn { color: var(--accent-strong); font-weight: 650; }
+.nav-menu {
+  position: absolute; top: calc(100% + 6px); left: 0; min-width: 190px;
+  background: var(--card); border: 0.5px solid var(--border); border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12); padding: 7px; z-index: 60;
+  display: none; flex-direction: column; gap: 1px;
+}
+.nav-group:hover .nav-menu, .nav-group.open .nav-menu { display: flex; }
+.nav-menu a {
+  padding: 9px 12px; border-radius: 7px; font-size: 13px; color: var(--muted);
+  white-space: nowrap; transition: background .1s ease, color .1s ease;
+}
+.nav-menu a:hover { background: var(--accent-soft); color: var(--text); }
+.nav-menu a.active { background: var(--accent-soft); color: var(--accent-strong); font-weight: 600; }
+/* keyboard focus visibility (accessibility) */
+.nav-group-btn:focus-visible, .nav-menu a:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 
 /* Language switcher — a balanced segmented control, not a utility widget.
    Same look as the .segmented ranking control: one pill, equal-width tabs. */
@@ -121,16 +155,19 @@ a:hover { text-decoration: underline; }
 @media (max-width: 720px) {
   .header-inner { padding: 10px 14px; flex-wrap: wrap; gap: 8px 14px; }
   .brand-text { display: none; }
-  /* 11-item nav can't fit a phone width — make it a horizontally swipeable
-     strip on its own row instead of overflowing or squishing. */
+  /* Grouped nav: 3 group buttons + the switcher fit a phone row comfortably.
+     Menus open full-width below (anchored to the viewport edges) so nothing clips. */
   .site-nav {
-    gap: 18px; width: 100%; order: 3;
-    overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch;
-    scrollbar-width: none; padding-bottom: 2px;
+    gap: 4px; width: 100%; order: 3; flex-wrap: wrap; align-items: center;
   }
-  .site-nav::-webkit-scrollbar { display: none; }
-  .site-nav a { white-space: nowrap; }
-  .lang-toggle { flex: 0 0 auto; }
+  .nav-group { position: static; }
+  .nav-group-btn { padding: 8px 10px; }
+  .nav-menu {
+    left: 14px; right: 14px; min-width: 0;
+    grid-template-columns: 1fr 1fr; gap: 2px;
+  }
+  .nav-group.open .nav-menu { display: grid; }
+  .lang-toggle { flex: 0 0 auto; margin-left: auto; }
 }
 
 /* Meta strip */

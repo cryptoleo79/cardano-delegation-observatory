@@ -108,6 +108,8 @@ const i18n = {
     "h-nav-health": "Health",
     "h-nav-changes": "Changes",
     "h-nav-memory": "Memory",
+    "h-nav-daily": "Daily", "h-nav-api": "API",
+    "nav-grp-discover": "Discover", "nav-grp-governance": "Governance", "nav-grp-data": "Data",
 
     /* Actions page */
     "actions-title": "Governance actions",
@@ -328,6 +330,8 @@ const i18n = {
     "h-nav-health": "健全性",
     "h-nav-changes": "変化",
     "h-nav-memory": "メモリ",
+    "h-nav-daily": "日次", "h-nav-api": "API",
+    "nav-grp-discover": "探索", "nav-grp-governance": "ガバナンス", "nav-grp-data": "データ",
 
     /* Actions page */
     "actions-title": "ガバナンスアクション一覧",
@@ -548,3 +552,65 @@ function initialLang() {
 
 /* Boot language as soon as the i18n script loads. */
 setLang(initialLang());
+
+/* ── Grouped navigation: dropdown behaviour + URL-driven active state ─────────
+   The nav markup is identical on every page; the current section is derived from
+   the URL here (not hard-coded per page), so a single canonical nav stays in sync.
+   Click to open on touch; CSS handles hover on desktop. Esc / outside-click close. */
+function navInit() {
+  // Re-apply translations now that the nav (and any late DOM) exists.
+  setLang(document.documentElement.lang === "ja" ? "ja" : "en");
+
+  var groups = Array.prototype.slice.call(document.querySelectorAll(".nav-group"));
+  function closeAll() {
+    groups.forEach(function (g) {
+      g.classList.remove("open");
+      var b = g.querySelector(".nav-group-btn");
+      if (b) b.setAttribute("aria-expanded", "false");
+    });
+  }
+  groups.forEach(function (g) {
+    var btn = g.querySelector(".nav-group-btn");
+    if (!btn) return;
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var wasOpen = g.classList.contains("open");
+      closeAll();
+      if (!wasOpen) { g.classList.add("open"); btn.setAttribute("aria-expanded", "true"); }
+    });
+  });
+  document.addEventListener("click", closeAll);
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeAll(); });
+
+  // Active state from the current URL.
+  var cur = location.pathname.replace(/.*\//, "");
+  var isHome = location.pathname === "/" || cur === "" || cur === "index.html";
+  var matched = false;
+  document.querySelectorAll(".nav-menu a").forEach(function (a) {
+    var href = a.getAttribute("href") || "";
+    var hrefFile = href.replace(/.*\//, "");
+    var hit = isHome ? href === "/" : (href !== "/" && hrefFile === cur);
+    if (hit) {
+      a.classList.add("active");
+      var grp = a.closest(".nav-group");
+      if (grp) grp.classList.add("nav-current");
+      matched = true;
+    }
+  });
+  if (!matched && !isHome) {
+    var SEC = {
+      "project.html": "discover", "project-history.html": "discover", "category.html": "discover",
+      "category-explorer.html": "discover", "memory-heatmap.html": "discover",
+      "drep.html": "governance", "action.html": "governance", "actions.html": "governance",
+      "concentration.html": "governance", "flows.html": "governance",
+      "token.html": "data",
+    };
+    var grpName = SEC[cur];
+    if (grpName) {
+      var el = document.querySelector('.nav-group[data-grp="' + grpName + '"]');
+      if (el) el.classList.add("nav-current");
+    }
+  }
+}
+if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", navInit);
+else navInit();

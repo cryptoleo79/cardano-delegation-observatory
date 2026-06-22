@@ -20,19 +20,36 @@
 </div></div>
 <header class="site-header"><div class="container header-inner">
   <a href="/" class="brand"><span class="brand-mark">CDO</span><span class="brand-text" id="h-brand">Cardano Delegation Observatory</span></a>
-  <nav class="site-nav">
-    <a href="/" id="h-nav-observatory">Observatory</a>
-    <a href="tokens.html" id="h-nav-tokens">Tokens</a>
-    <a href="rankings.html" id="h-nav-rankings">Rankings</a>
-    <a href="projects.html" id="h-nav-projects">Projects</a>
-    <a href="ecosystem.html" id="h-nav-ecosystem">Ecosystem</a>
-    <a href="categories.html" id="h-nav-categories">Categories</a>
-    <a href="treasury.html" id="h-nav-treasury">Treasury</a>
-    <a href="catalyst.html" id="h-nav-catalyst">Catalyst</a>
-    <a href="market.html" id="h-nav-market">Market</a>
-    <a href="governance-health.html" class="active" id="h-nav-health">Health</a>
-    <a href="changes.html" id="h-nav-changes">Changes</a>
-    <a href="memory.html" id="h-nav-memory">Memory</a>
+  <nav class="site-nav" id="site-nav">
+    <div class="nav-group" data-grp="discover">
+      <button class="nav-group-btn" id="nav-grp-discover" type="button" aria-haspopup="true" aria-expanded="false">Discover</button>
+      <div class="nav-menu" role="menu">
+        <a href="projects.html" id="h-nav-projects" role="menuitem">Projects</a>
+        <a href="categories.html" id="h-nav-categories" role="menuitem">Categories</a>
+        <a href="ecosystem.html" id="h-nav-ecosystem" role="menuitem">Ecosystem</a>
+        <a href="memory.html" id="h-nav-memory" role="menuitem">Memory</a>
+      </div>
+    </div>
+    <div class="nav-group" data-grp="governance">
+      <button class="nav-group-btn" id="nav-grp-governance" type="button" aria-haspopup="true" aria-expanded="false">Governance</button>
+      <div class="nav-menu" role="menu">
+        <a href="/" id="h-nav-observatory" role="menuitem">Observatory</a>
+        <a href="treasury.html" id="h-nav-treasury" role="menuitem">Treasury</a>
+        <a href="catalyst.html" id="h-nav-catalyst" role="menuitem">Catalyst</a>
+        <a href="changes.html" id="h-nav-changes" role="menuitem">Changes</a>
+        <a href="governance-daily.html" id="h-nav-daily" role="menuitem">Daily</a>
+        <a href="governance-health.html" id="h-nav-health" role="menuitem">Health</a>
+      </div>
+    </div>
+    <div class="nav-group" data-grp="data">
+      <button class="nav-group-btn" id="nav-grp-data" type="button" aria-haspopup="true" aria-expanded="false">Data</button>
+      <div class="nav-menu" role="menu">
+        <a href="tokens.html" id="h-nav-tokens" role="menuitem">Tokens</a>
+        <a href="rankings.html" id="h-nav-rankings" role="menuitem">Rankings</a>
+        <a href="market.html" id="h-nav-market" role="menuitem">Market</a>
+        <a href="https://api.asy.life" id="h-nav-api" role="menuitem" target="_blank" rel="noopener">API</a>
+      </div>
+    </div>
     <div class="lang-toggle"><button id="btn-en" class="active" onclick="setLang('en')">EN</button><button id="btn-ja" onclick="setLang('ja')">日本語</button></div>
   </nav>
 </div></header>
