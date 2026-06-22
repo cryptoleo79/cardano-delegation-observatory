@@ -53,8 +53,8 @@ const i18n = {
     "m-status-loading": "Loading…",
 
     /* Main */
-    "page-title": "Top 30 DReps by voting weight",
-    "page-lede": "Daily snapshot of voting weight, delegation, and recorded votes. The data reflects the most recent ETL run from the Cardano blockchain via Koios. Numbers only — methodology is public and reproducible.",
+    "page-title": "Cardano Observatory",
+    "page-lede": "One open, read-only window on the whole Cardano ecosystem — governance, projects, treasury, Catalyst, memory and data. Sourced, bilingual, CC0. The live Top-30 DRep snapshot is below.",
     "footnote-deltas": "Δ 7d and Δ 30d display as — when fewer than 7 (respectively 30) daily snapshots have accumulated since launch. They populate forward from the first deployment.",
 
     /* Table headers */
@@ -279,8 +279,8 @@ const i18n = {
     "m-status-loading": "読み込み中…",
 
     /* Main */
-    "page-title": "投票権による上位30 DRep",
-    "page-lede": "投票権、委任、記録された投票の日次スナップショット。Koios経由でCardanoブロックチェーンから取得した最新のETL実行結果を表示する。数値のみ。方法論は公開かつ再現可能。",
+    "page-title": "Cardano オブザバトリー",
+    "page-lede": "Cardano エコシステム全体を映す、オープンで読み取り専用の窓 — ガバナンス、プロジェクト、トレジャリー、Catalyst、メモリ、データ。出典付き・二言語・CC0。ライブの上位30 DRep スナップショットは下にあります。",
     "footnote-deltas": "Δ 7日 と Δ 30日 は、ローンチ以降の日次スナップショットがそれぞれ7日分・30日分蓄積されるまでは「—」と表示する。デプロイ時点から前方累積で値が入る。",
 
     /* Table headers */
