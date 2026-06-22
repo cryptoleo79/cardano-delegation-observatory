@@ -32,6 +32,21 @@
   .se-depth{font-size:.74rem;color:var(--faint);margin-left:auto;font-variant-numeric:tabular-nums}
   .se-empty{color:var(--faint);padding:30px 4px;text-align:center;line-height:1.6}
   .se-hint{font-size:.84rem;color:var(--muted);background:var(--accent-soft);border:0.5px solid rgba(44,86,112,.14);border-radius:10px;padding:12px 15px;line-height:1.6}
+  /* Search 2.0: category filter UI */
+  .se-chip-label{font-size:.74rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--faint);margin:0 4px 0 0}
+  .se-chip-n{font-variant-numeric:tabular-nums;color:var(--faint);font-size:.8em}
+  .se-chip-recent{border-style:dashed}
+  .se-filter-pill{display:inline-flex;align-items:center;gap:9px;padding:6px 8px 6px 13px;border-radius:999px;background:var(--accent-soft);border:0.5px solid var(--accent);color:var(--accent-strong);font-size:13px;font-weight:600}
+  .se-filter-cov{font-weight:500;color:var(--muted);font-size:.82em}
+  .se-clear{border:none;background:var(--card);color:var(--muted);border-radius:999px;padding:3px 9px;font-size:12px;cursor:pointer}
+  .se-clear:hover{color:var(--accent-strong)}
+  .se-card{cursor:default}
+  .se-name-link{color:var(--text);text-decoration:none;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .se-name-link:hover{color:var(--accent-strong);text-decoration:underline}
+  .se-cat-chip{border:0.5px solid var(--border);background:var(--card);color:var(--muted);border-radius:999px;padding:1px 9px;font-size:11px;cursor:pointer;margin:0 4px 0 0}
+  .se-cat-chip:hover{border-color:var(--accent);color:var(--accent-strong)}
+  .se-hist{margin-left:auto;color:var(--faint);text-decoration:none;font-size:.9rem}
+  .se-hist:hover{color:var(--accent-strong)}
 </style>
 </head>
 <body>
@@ -122,6 +137,8 @@
       "se-none": "No projects match. Try a different term or a category name.",
       "se-cov-web": "WEB", "se-cov-git": "GIT", "se-cov-doc": "DOCS", "se-cov-wp": "WP",
       "se-ev": "ev", "se-events": "events",
+      "se-top-cats": "Top categories", "se-recent-cats": "Recently active", "se-filter-tpl": "In {name}",
+      "se-clear": "clear", "se-enriched": "enriched", "se-browse": "Browse a category, or search across all 847 projects.",
       "ft-projects": "Projects", "ft-catexp": "Category Explorer", "ft-memory": "Memory",
       "se-foot-html": "Coverage chips show which sourced links each project has (website / GitHub / docs / whitepaper); \"events\" is its append-only history depth. No scores, no rankings — just what is recorded. Full record at <a href=\"https://api.asy.life/docs\">api.asy.life</a>.",
     },
@@ -135,14 +152,17 @@
       "se-none": "該当するプロジェクトがありません。別の語やカテゴリ名をお試しください。",
       "se-cov-web": "WEB", "se-cov-git": "GIT", "se-cov-doc": "DOCS", "se-cov-wp": "WP",
       "se-ev": "件", "se-events": "イベント",
+      "se-top-cats": "主要カテゴリ", "se-recent-cats": "最近活発", "se-filter-tpl": "{name} 内",
+      "se-clear": "解除", "se-enriched": "充実", "se-browse": "カテゴリで閲覧、または847プロジェクト全体を検索。",
       "ft-projects": "プロジェクト", "ft-catexp": "カテゴリ エクスプローラー", "ft-memory": "メモリ",
       "se-foot-html": "カバレッジチップは各プロジェクトが持つ出典付きリンク（ウェブサイト / GitHub / ドキュメント / ホワイトペーパー）を示します。「イベント」は追記専用の履歴の深さです。スコアも順位もなく — 記録されている事実のみ。完全な記録は <a href=\"https://api.asy.life/docs\">api.asy.life</a>。",
     },
   };
   if (typeof i18n !== "undefined") { Object.assign(i18n.en, P.en); Object.assign(i18n.ja, P.ja); if (typeof setLang === "function") setLang(lang()); }
 
-  var INDEX = null, CATMAP = {}, CATNAMES = [], SUGGEST = [];
+  var INDEX = null, CATMAP = {}, CATBYSLUG = {}, MEMBERS = {}, TOPCATS = [], RECENT = [], activeCat = null;
   var MAX = 60;
+  function qval() { var el = document.getElementById("se-input"); return el ? el.value.trim() : ""; }
 
   function paintStatic() {
     document.getElementById("se-input").placeholder = tt("se-ph");
@@ -150,32 +170,45 @@
     if (INDEX) {
       document.getElementById("se-meta").textContent = tt("se-meta-tpl")
         .replace("{n}", INDEX.projects.length.toLocaleString()).replace("{c}", (INDEX.categories || []).length);
-      renderChips();
-      run(document.getElementById("se-input").value.trim());
+      renderFilters();
+      run(qval());
     }
   }
 
-  function renderChips() {
+  function catChipBtn(c, recent) {
+    return '<button class="se-chip' + (recent ? " se-chip-recent" : "") + '" data-cat="' + esc(c.slug) + '">' + esc(c.name)
+      + (recent ? "" : ' <span class="se-chip-n">' + c.project_count + "</span>") + "</button>";
+  }
+  function renderFilters() {
     var host = document.getElementById("se-chips");
-    host.innerHTML = '<span class="se-meta" style="margin:0 4px 0 0">' + esc(tt("se-suggest")) + "</span>"
-      + SUGGEST.map(function (s) { return '<button class="se-chip" data-q="' + esc(s) + '">' + esc(s) + "</button>"; }).join("");
+    if (activeCat && CATBYSLUG[activeCat]) {
+      var c = CATBYSLUG[activeCat];
+      host.innerHTML = '<span class="se-filter-pill">' + esc(tt("se-filter-tpl").replace("{name}", c.name))
+        + ' <span class="se-filter-cov">' + c.enriched_pct + "% " + esc(tt("se-enriched")) + "</span>"
+        + ' <button class="se-clear" data-clear="1">✕ ' + esc(tt("se-clear")) + "</button></span>";
+      return;
+    }
+    var html = '<span class="se-chip-label">' + esc(tt("se-top-cats")) + "</span>" + TOPCATS.map(function (c) { return catChipBtn(c, false); }).join("");
+    if (RECENT.length) html += '<span class="se-chip-label" style="margin-left:10px">' + esc(tt("se-recent-cats")) + "</span>" + RECENT.map(function (c) { return catChipBtn(c, true); }).join("");
+    host.innerHTML = html;
   }
 
   function covChip(on, key) { return '<span class="se-cov ' + (on ? "on" : "off") + '">' + esc(tt(key)) + "</span>"; }
 
   function card(p) {
     var lf = p.link_fields || [];
-    var cats = (CATMAP[p.id] || []).join(" · ");
+    var chips = (CATMAP[p.id] || []).slice(0, 3).map(function (c) { return '<button class="se-cat-chip" data-cat="' + esc(c.slug) + '">' + esc(c.name) + "</button>"; }).join("");
     var score = covChip(lf.indexOf("website") >= 0, "se-cov-web")
       + covChip(lf.indexOf("github") >= 0, "se-cov-git")
       + covChip(lf.indexOf("documentation") >= 0, "se-cov-doc")
       + covChip(lf.indexOf("whitepaper") >= 0, "se-cov-wp")
       + '<span class="se-depth">' + (p.history_count || 0) + " " + esc(tt("se-events")) + "</span>";
-    return '<a class="se-card" href="project.html?id=' + encodeURIComponent(p.id) + '">'
-      + '<div class="se-card-head"><span class="se-name">' + esc(p.name || p.id) + '</span>'
+    return '<div class="se-card">'
+      + '<div class="se-card-head"><a class="se-name-link" href="project.html?id=' + encodeURIComponent(p.id) + '">' + esc(p.name || p.id) + "</a>"
       + '<span class="se-kind">' + esc(p.kind || "") + "</span></div>"
-      + '<div class="se-cats">' + (cats ? esc(cats) : "&nbsp;") + "</div>"
-      + '<div class="se-score">' + score + "</div></a>";
+      + '<div class="se-cats">' + (chips || "&nbsp;") + "</div>"
+      + '<div class="se-score">' + score + ' <a class="se-hist" href="project-history.html?id=' + encodeURIComponent(p.id) + '" title="history">↗</a></div>'
+      + "</div>";
   }
 
   function scoreMatch(p, q) {
@@ -186,19 +219,21 @@
     if (name.indexOf(q) >= 0) return 45;
     if (id.indexOf(q) >= 0) return 30;
     var cats = CATMAP[p.id] || [];
-    for (var i = 0; i < cats.length; i++) if (cats[i].toLowerCase().indexOf(q) >= 0) return 20;
+    for (var i = 0; i < cats.length; i++) if ((cats[i].name || "").toLowerCase().indexOf(q) >= 0) return 20;
     return 0;
   }
 
   function run(q) {
     var results = document.getElementById("se-results"), state = document.getElementById("se-state");
     if (!INDEX) return;
-    if (!q) { results.innerHTML = ""; state.innerHTML = '<div class="se-hint">' + esc(tt("se-prompt")) + "</div>"; return; }
-    var ql = q.toLowerCase();
+    var ql = (q || "").toLowerCase();
+    if (!ql && !activeCat) { results.innerHTML = ""; state.innerHTML = '<div class="se-hint">' + esc(tt("se-browse")) + "</div>"; return; }
+    var pool = INDEX.projects;
+    if (activeCat) { var ids = MEMBERS[activeCat] || {}; pool = pool.filter(function (p) { return ids[p.id]; }); }
     var scored = [];
-    for (var i = 0; i < INDEX.projects.length; i++) {
-      var s = scoreMatch(INDEX.projects[i], ql);
-      if (s > 0) scored.push([s, INDEX.projects[i]]);
+    for (var i = 0; i < pool.length; i++) {
+      var s = ql ? scoreMatch(pool[i], ql) : 1;
+      if (s > 0) scored.push([s, pool[i]]);
     }
     scored.sort(function (a, b) { return b[0] - a[0] || (b[1].history_count || 0) - (a[1].history_count || 0) || (a[1].name || "").localeCompare(b[1].name || ""); });
     var total = scored.length;
@@ -209,17 +244,26 @@
       + (total > MAX ? " · " + tt("se-more-tpl").replace("{n}", total - MAX) : "") + "</p>";
   }
 
+  function syncUrl() {
+    var parts = []; if (activeCat) parts.push("cat=" + encodeURIComponent(activeCat));
+    var q = qval(); if (q) parts.push("q=" + encodeURIComponent(q));
+    history.replaceState(null, "", parts.length ? "?" + parts.join("&") : "search.html");
+  }
+  function setCat(slug) { activeCat = slug || null; renderFilters(); run(qval()); syncUrl(); }
+
   var t = null;
-  function onInput(v) { clearTimeout(t); t = setTimeout(function () { run(v.trim()); history.replaceState(null, "", v.trim() ? "?q=" + encodeURIComponent(v.trim()) : "search.html"); }, 110); }
+  function onInput() { clearTimeout(t); t = setTimeout(function () { run(qval()); syncUrl(); }, 110); }
 
   function boot() {
     document.addEventListener("cdo-lang", paintStatic);
     var input = document.getElementById("se-input");
-    input.addEventListener("input", function (e) { onInput(e.target.value); });
-    document.getElementById("se-chips").addEventListener("click", function (e) {
-      var b = e.target.closest("[data-q]"); if (!b) return;
-      input.value = b.dataset.q; run(b.dataset.q); input.focus();
-    });
+    input.addEventListener("input", onInput);
+    function onChipClick(e) {
+      var clr = e.target.closest("[data-clear]"); if (clr) { e.preventDefault(); setCat(null); return; }
+      var b = e.target.closest("[data-cat]"); if (b) { e.preventDefault(); setCat(b.dataset.cat); window.scrollTo({ top: 0, behavior: "smooth" }); }
+    }
+    document.getElementById("se-chips").addEventListener("click", onChipClick);
+    document.getElementById("se-results").addEventListener("click", onChipClick);
     Promise.all([
       fetch(SNAP + "/index.json").then(function (r) { return r.json(); }),
       fetch(SNAP + "/categories.json").then(function (r) { return r.json(); }).catch(function () { return { categories: [] }; }),
@@ -227,15 +271,22 @@
       INDEX = res[0];
       var cj = res[1];
       (cj.categories || []).forEach(function (c) {
-        CATNAMES.push(c.name);
-        (c.members || []).forEach(function (m) { (CATMAP[m.id] = CATMAP[m.id] || []).push(c.name); });
+        CATBYSLUG[c.slug] = c; MEMBERS[c.slug] = {};
+        (c.members || []).forEach(function (m) { MEMBERS[c.slug][m.id] = 1; (CATMAP[m.id] = CATMAP[m.id] || []).push({ slug: c.slug, name: c.name }); });
       });
-      // a few high-signal suggestion chips: biggest populated categories
-      SUGGEST = (cj.categories || []).filter(function (c) { return c.status === "populated"; })
-        .sort(function (a, b) { return b.project_count - a.project_count; }).slice(0, 6).map(function (c) { return c.name; });
+      TOPCATS = (cj.categories || []).filter(function (c) { return c.status === "populated"; })
+        .sort(function (a, b) { return b.project_count - a.project_count; }).slice(0, 8);
+      // recently active = categories of the newest projects (by created_seq), by frequency
+      var freq = {};
+      INDEX.projects.slice().filter(function (p) { return p.created_seq != null; })
+        .sort(function (a, b) { return b.created_seq - a.created_seq; }).slice(0, 60)
+        .forEach(function (p) { (CATMAP[p.id] || []).forEach(function (c) { freq[c.slug] = (freq[c.slug] || 0) + 1; }); });
+      RECENT = Object.keys(freq).sort(function (a, b) { return freq[b] - freq[a]; }).slice(0, 6)
+        .map(function (s) { return CATBYSLUG[s]; }).filter(Boolean);
+      var params = new URLSearchParams(location.search);
+      var cat0 = params.get("cat"); if (cat0 && CATBYSLUG[cat0]) activeCat = cat0;
+      var q0 = params.get("q"); if (q0) input.value = q0;
       paintStatic();
-      var q0 = new URLSearchParams(location.search).get("q");
-      if (q0) { input.value = q0; run(q0); }
       input.focus();
     }).catch(function () { document.getElementById("se-state").innerHTML = '<div class="se-empty">Search index unavailable.</div>'; });
   }
