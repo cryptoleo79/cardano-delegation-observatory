@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memory Map — Cardano Project Memory — asy.life</title>
+<meta name="description" content="A category-centric map of the Cardano ecosystem in Project Memory: 74 categories sized by project count and coloured by enrichment coverage, each linking to its projects, memory and history.">
+<meta name="theme-color" content="#fafaf7">
+<meta property="og:title" content="Memory Map — what the Cardano ecosystem looks like">
+<meta property="og:description" content="74 categories sized by project count, coloured by enrichment. Click any to reach its projects, memory and history. Read-only.">
+<link rel="stylesheet" href="style.css">
+<style>
+  .mm-bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:8px 0 6px}
+  .mm-search{flex:1 1 260px;min-width:210px;padding:9px 12px;border:1px solid var(--border-strong);border-radius:9px;font-size:15px;background:var(--card);color:var(--text)}
+  .mm-legend{display:flex;gap:14px;flex-wrap:wrap;align-items:center;font-size:.78rem;color:var(--muted);margin:0 0 14px}
+  .mm-legend .mm-grad{width:90px;height:9px;border-radius:5px;background:linear-gradient(90deg,rgb(220,225,210),rgb(30,105,70))}
+  .mm-legend .mm-dot{display:inline-flex;align-items:flex-end;gap:4px}
+  .mm-legend .mm-c{border-radius:50%;background:var(--accent-soft);border:0.5px solid var(--border)}
+  .mm-field{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;padding:14px;background:linear-gradient(160deg,var(--card),var(--bg));border:0.5px solid var(--border);border-radius:16px;box-shadow:var(--shadow);min-height:200px}
+  .mm-bubble{border:none;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;cursor:pointer;padding:4px;color:#fff;transition:transform .1s ease,box-shadow .1s ease;overflow:hidden;line-height:1.15}
+  .mm-bubble:hover,.mm-bubble:focus-visible{transform:scale(1.06);box-shadow:0 6px 18px rgba(0,0,0,.18);outline:none;z-index:2}
+  .mm-bubble.sel{box-shadow:0 0 0 3px var(--accent),0 6px 18px rgba(0,0,0,.18)}
+  .mm-bubble.dim{opacity:.22}
+  .mm-b-name{font-weight:700;font-size:11px;max-width:96%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-shadow:0 1px 2px rgba(0,0,0,.3)}
+  .mm-b-num{font-weight:700;font-variant-numeric:tabular-nums;text-shadow:0 1px 2px rgba(0,0,0,.3)}
+  .mm-bubble.pending{background:repeating-linear-gradient(45deg,#ececec,#ececec 5px,#e3e3e3 5px,#e3e3e3 10px) !important;color:var(--faint)}
+  .mm-bubble.pending .mm-b-name,.mm-bubble.pending .mm-b-num{text-shadow:none}
+  .mm-detail{margin:18px 0 0;background:var(--card);border:0.5px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:18px 20px;display:none}
+  .mm-detail.show{display:block}
+  .mm-d-head{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+  .mm-d-name{font-size:1.2rem;font-weight:700;color:var(--accent-strong)}
+  .mm-d-stat{font-size:.84rem;color:var(--muted);font-variant-numeric:tabular-nums}
+  .mm-rel{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 14px}
+  .mm-rel a{display:inline-flex;align-items:center;gap:7px;padding:8px 13px;border-radius:9px;background:var(--accent-soft);color:var(--accent-strong);font-size:13px;font-weight:600;text-decoration:none;border:0.5px solid rgba(44,86,112,.16)}
+  .mm-rel a:hover{background:var(--accent);color:#fff}
+  .mm-cov{height:7px;border-radius:4px;background:rgba(0,0,0,.06);overflow:hidden;margin:6px 0 12px}
+  .mm-cov-fill{height:100%;background:linear-gradient(90deg,#2c5670,#1d6b46)}
+  .mm-members{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:4px 14px}
+  .mm-mem{display:flex;justify-content:space-between;gap:8px;font-size:.85rem;padding:3px 0;border-bottom:1px solid var(--border)}
+  .mm-mem a{color:var(--text);text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .mm-mem a:hover{color:var(--accent-strong)}
+  .mm-mem .d{width:7px;height:7px;border-radius:50%;flex:none;align-self:center}
+  .mm-mem .on{background:#1d6b46}.mm-mem .off{background:rgba(0,0,0,.18)}
+  .mm-more{font-size:.8rem;color:var(--faint);margin-top:8px}
+  .mm-empty{color:var(--faint);padding:20px;text-align:center}
+</style>
+</head>
+<body>
+<div class="ecosystem-strip"><div class="ecosystem-strip-inner">
+  <span class="eco-label" id="eco-label">Ecosystem</span>
+  <a href="https://ctf.asy.life" class="eco-link">CTF</a><span class="eco-sep">·</span>
+  <a href="https://observatory.asy.life" class="eco-link" id="eco-link-observatory">Observatory</a><span class="eco-sep">·</span>
+  <a href="https://voting.asy.life" class="eco-link" id="eco-link-voting">Voting</a><span class="eco-sep">·</span>
+  <a href="https://governance.asy.life" class="eco-link" id="eco-link-governance">Governance</a><span class="eco-sep">·</span>
+  <a href="https://api.asy.life" class="eco-link" id="eco-link-api">API</a><span class="eco-sep">·</span>
+  <a href="https://github.com/cryptoleo79" class="eco-link" target="_blank" rel="noopener">GitHub</a>
+</div></div>
+<header class="site-header"><div class="container header-inner">
+  <a href="/" class="brand"><span class="brand-mark">CDO</span><span class="brand-text" id="h-brand">Cardano Delegation Observatory</span></a>
+  <nav class="site-nav" id="site-nav">
+    <div class="nav-group" data-grp="discover">
+      <button class="nav-group-btn" id="nav-grp-discover" type="button" aria-haspopup="true" aria-expanded="false">Discover</button>
+      <div class="nav-menu" role="menu">
+        <a href="search.html" id="h-nav-search" role="menuitem">Search</a>
+        <a href="projects.html" id="h-nav-projects" role="menuitem">Projects</a>
+        <a href="categories.html" id="h-nav-categories" role="menuitem">Categories</a>
+        <a href="ecosystem.html" id="h-nav-ecosystem" role="menuitem">Ecosystem</a>
+        <a href="memory.html" id="h-nav-memory" role="menuitem">Memory</a>
+      </div>
+    </div>
+    <div class="nav-group" data-grp="governance">
+      <button class="nav-group-btn" id="nav-grp-governance" type="button" aria-haspopup="true" aria-expanded="false">Governance</button>
+      <div class="nav-menu" role="menu">
+        <a href="/" id="h-nav-observatory" role="menuitem">Observatory</a>
+        <a href="treasury.html" id="h-nav-treasury" role="menuitem">Treasury</a>
+        <a href="catalyst.html" id="h-nav-catalyst" role="menuitem">Catalyst</a>
+        <a href="changes.html" id="h-nav-changes" role="menuitem">Changes</a>
+        <a href="governance-daily.html" id="h-nav-daily" role="menuitem">Daily</a>
+        <a href="governance-health.html" id="h-nav-health" role="menuitem">Health</a>
+      </div>
+    </div>
+    <div class="nav-group" data-grp="data">
+      <button class="nav-group-btn" id="nav-grp-data" type="button" aria-haspopup="true" aria-expanded="false">Data</button>
+      <div class="nav-menu" role="menu">
+        <a href="tokens.html" id="h-nav-tokens" role="menuitem">Tokens</a>
+        <a href="rankings.html" id="h-nav-rankings" role="menuitem">Rankings</a>
+        <a href="market.html" id="h-nav-market" role="menuitem">Market</a>
+        <a href="https://api.asy.life" id="h-nav-api" role="menuitem" target="_blank" rel="noopener">API</a>
+      </div>
+    </div>
+    <div class="lang-toggle"><button id="btn-en" class="active" onclick="setLang('en')">EN</button><button id="btn-ja" onclick="setLang('ja')">日本語</button></div>
+  </nav>
+</div></header>
+
+<main><article class="container">
+  <h1 id="mm-title">Memory Map</h1>
+  <p class="lede" id="mm-lede">What does the Cardano ecosystem look like? Each bubble is a category — its size is how many projects it holds, its colour is how much of it is enriched with sourced links. Click one to reach its projects, its memory, and its history. Read-only; nothing is invented.</p>
+
+  <div class="mm-bar">
+    <input class="mm-search" id="mm-search" type="text" autocomplete="off" placeholder="Filter categories…" aria-label="Filter categories">
+  </div>
+  <div class="mm-legend" id="mm-legend"></div>
+
+  <div class="mm-field" id="mm-field"><div class="mm-empty">…</div></div>
+  <div class="mm-detail" id="mm-detail" aria-live="polite"></div>
+  <p class="footnote" id="mm-foot"></p>
+</article></main>
+
+<footer class="site-footer"><div class="container footer-inner">
+  <div><span id="ft-license">Apache 2.0 code · CC0 data</span></div>
+  <div><a href="memory-heatmap.html" id="ft-heat">Heat Map</a> <a href="category-explorer.html" id="ft-catexp">Category Explorer</a> <a href="memory.html" id="ft-memory">Memory</a></div>
+  <div class="footer-note" id="ft-note">Observe · preserve · serve. No scores, no judgment.</div>
+</div></footer>
+<script src="i18n.js"></script>
+<script>
+"use strict";
+(function () {
+  function lang() { return document.documentElement.lang === "ja" ? "ja" : "en"; }
+  function tt(k) { return (i18n[lang()] && i18n[lang()][k]) || (i18n.en[k] || k); }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+  var SNAP = "data/snapshots/projectmemory";
+
+  var P = {
+    en: {
+      "mm-title": "Memory Map",
+      "mm-lede": "What does the Cardano ecosystem look like? Each bubble is a category — its size is how many projects it holds, its colour is how much of it is enriched with sourced links. Click one to reach its projects, its memory, and its history. Read-only; nothing is invented.",
+      "mm-search-ph": "Filter categories…",
+      "mm-leg-size": "Size = projects", "mm-leg-color": "Colour = enrichment", "mm-leg-low": "low", "mm-leg-high": "high",
+      "mm-rel-projects": "Projects", "mm-rel-memory": "Memory", "mm-rel-history": "History",
+      "mm-projects": "projects", "mm-enriched": "enriched", "mm-pending": "no projects yet",
+      "mm-more-tpl": "+{n} more in this category →", "mm-pick": "Pick a category to see its projects, memory and history.",
+      "ft-heat": "Heat Map", "ft-catexp": "Category Explorer", "ft-memory": "Memory",
+      "mm-foot-html": "A category-centric view of Project Memory — 74 categories, sized and coloured from the live event-sourced record. For the grid view see the <a href=\"memory-heatmap.html\">Heat Map</a>; to browse members, the <a href=\"category-explorer.html\">Category Explorer</a>; to find a specific project, <a href=\"search.html\">Search</a>.",
+    },
+    ja: {
+      "mm-title": "メモリ マップ",
+      "mm-lede": "Cardano エコシステムはどんな姿か？ 各バブルはカテゴリで、大きさは保持するプロジェクト数、色は出典付きリンクでの充実度を表します。クリックすると、そのプロジェクト・メモリ・履歴に辿れます。読み取り専用。何も捏造しません。",
+      "mm-search-ph": "カテゴリを絞り込み…",
+      "mm-leg-size": "大きさ = プロジェクト数", "mm-leg-color": "色 = 充実度", "mm-leg-low": "低", "mm-leg-high": "高",
+      "mm-rel-projects": "プロジェクト", "mm-rel-memory": "メモリ", "mm-rel-history": "履歴",
+      "mm-projects": "プロジェクト", "mm-enriched": "充実", "mm-pending": "まだプロジェクトなし",
+      "mm-more-tpl": "このカテゴリの他 +{n}件 →", "mm-pick": "カテゴリを選ぶと、プロジェクト・メモリ・履歴を確認できます。",
+      "ft-heat": "ヒートマップ", "ft-catexp": "カテゴリ エクスプローラー", "ft-memory": "メモリ",
+      "mm-foot-html": "Project Memory のカテゴリ中心ビュー — 74カテゴリを、ライブのイベントソース記録から大きさと色で表現。グリッド表示は<a href=\"memory-heatmap.html\">ヒートマップ</a>、メンバー閲覧は<a href=\"category-explorer.html\">カテゴリ エクスプローラー</a>、特定プロジェクト検索は<a href=\"search.html\">検索</a>へ。",
+    },
+  };
+  if (typeof i18n !== "undefined") { Object.assign(i18n.en, P.en); Object.assign(i18n.ja, P.ja); if (typeof setLang === "function") setLang(lang()); }
+
+  var DATA = null, MAXC = 1, SEL = null;
+
+  function covColor(p) { var t = Math.max(0, Math.min(1, p / 100)); return "rgb(" + Math.round(220 - t * 190) + "," + Math.round(225 - t * 120) + "," + Math.round(210 - t * 140) + ")"; }
+  function sizeFor(c) { // area-proportional via sqrt; 60–148px
+    var t = Math.sqrt(c / MAXC); return Math.round(60 + t * 88);
+  }
+
+  function paintStatic() {
+    document.getElementById("mm-search").placeholder = tt("mm-search-ph");
+    document.getElementById("mm-foot").innerHTML = tt("mm-foot-html");
+    document.getElementById("mm-legend").innerHTML =
+      '<span class="mm-dot"><span class="mm-c" style="width:12px;height:12px"></span><span class="mm-c" style="width:20px;height:20px"></span> ' + esc(tt("mm-leg-size")) + "</span>"
+      + '<span class="mm-dot">' + esc(tt("mm-leg-low")) + ' <span class="mm-grad"></span> ' + esc(tt("mm-leg-high")) + " — " + esc(tt("mm-leg-color")) + "</span>";
+    renderField();
+    if (SEL) renderDetail(SEL);
+  }
+
+  function renderField() {
+    var field = document.getElementById("mm-field");
+    if (!DATA) return;
+    var q = document.getElementById("mm-search").value.trim().toLowerCase();
+    var cats = DATA.categories.slice().sort(function (a, b) { return b.project_count - a.project_count; });
+    field.innerHTML = cats.map(function (c) {
+      var pending = c.status !== "populated";
+      var d = pending ? 60 : sizeFor(c.project_count);
+      var bg = pending ? "" : "background:" + covColor(c.enriched_pct) + ";";
+      var dim = q && c.name.toLowerCase().indexOf(q) < 0 && c.slug.indexOf(q) < 0;
+      var dark = !pending && c.enriched_pct >= 55;
+      return '<button class="mm-bubble' + (pending ? " pending" : "") + (dim ? " dim" : "") + (SEL && SEL.slug === c.slug ? " sel" : "")
+        + '" data-slug="' + esc(c.slug) + '" style="width:' + d + "px;height:" + d + "px;" + bg + (dark ? "" : "color:var(--text);") + '"'
+        + ' aria-label="' + esc(c.name) + ": " + c.project_count + " " + esc(tt("mm-projects")) + ", " + c.enriched_pct + "% " + esc(tt("mm-enriched")) + '"'
+        + ' title="' + esc(c.name) + " — " + c.project_count + " " + esc(tt("mm-projects")) + ", " + c.enriched_pct + '%">'
+        + (d >= 78 ? '<span class="mm-b-name">' + esc(c.name) + "</span>" : "")
+        + '<span class="mm-b-num" style="font-size:' + (d >= 100 ? 17 : d >= 78 ? 14 : 12) + 'px">' + (pending ? "0" : c.project_count) + "</span></button>";
+    }).join("");
+  }
+
+  function renderDetail(c) {
+    SEL = c;
+    var el = document.getElementById("mm-detail");
+    var members = (c.members || []).slice().sort(function (a, b) { return (b.enriched - a.enriched) || a.name.localeCompare(b.name); });
+    var top = members.slice(0, 18);
+    var memHtml = top.map(function (m) {
+      return '<div class="mm-mem"><a href="project.html?id=' + encodeURIComponent(m.id) + '">' + esc(m.name || m.id) + "</a>"
+        + '<span class="d ' + (m.enriched ? "on" : "off") + '" title="' + (m.enriched ? "enriched" : "—") + '"></span></div>';
+    }).join("");
+    var more = members.length > 18 ? '<div class="mm-more"><a href="category.html?slug=' + encodeURIComponent(c.slug) + '">' + esc(tt("mm-more-tpl").replace("{n}", members.length - 18)) + "</a></div>" : "";
+    el.className = "mm-detail show";
+    el.innerHTML =
+      '<div class="mm-d-head"><span class="mm-d-name">' + esc(c.name) + '</span>'
+      + '<span class="mm-d-stat">' + c.project_count + " " + esc(tt("mm-projects")) + " · " + c.enriched_pct + "% " + esc(tt("mm-enriched")) + "</span></div>"
+      + '<div class="mm-cov"><div class="mm-cov-fill" style="width:' + c.enriched_pct + '%"></div></div>'
+      + '<div class="mm-rel">'
+      + '<a href="category.html?slug=' + encodeURIComponent(c.slug) + '">→ ' + esc(tt("mm-rel-projects")) + "</a>"
+      + '<a href="category-explorer.html">→ ' + esc(tt("mm-rel-memory")) + "</a>"
+      + '<a href="project-history.html">→ ' + esc(tt("mm-rel-history")) + "</a>"
+      + "</div>"
+      + (members.length ? '<div class="mm-members">' + memHtml + "</div>" + more : "");
+    el.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  function boot() {
+    document.addEventListener("cdo-lang", paintStatic);
+    document.getElementById("mm-search").addEventListener("input", renderField);
+    document.getElementById("mm-field").addEventListener("click", function (e) {
+      var b = e.target.closest(".mm-bubble"); if (!b) return;
+      var c = DATA.categories.find(function (x) { return x.slug === b.dataset.slug; });
+      if (c) { renderField(); renderDetail(c); history.replaceState(null, "", "?c=" + encodeURIComponent(c.slug)); }
+    });
+    fetch(SNAP + "/categories.json").then(function (r) { return r.json(); }).then(function (d) {
+      DATA = d; MAXC = Math.max(1, Math.max.apply(null, d.categories.map(function (c) { return c.project_count; })));
+      paintStatic();
+      var c0 = new URLSearchParams(location.search).get("c");
+      if (c0) { var c = d.categories.find(function (x) { return x.slug === c0; }); if (c) renderDetail(c); }
+    }).catch(function () { document.getElementById("mm-field").innerHTML = '<div class="mm-empty">Category data unavailable.</div>'; });
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
+})();
+</script>
+</body>
+</html>
