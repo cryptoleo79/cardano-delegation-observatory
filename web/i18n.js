@@ -641,6 +641,7 @@ var WHATNEXT = {
   "drep.html": [["drep-history.html?id={id}", "DRep History", "weight, rank & votes over time", "DRep 履歴", "投票権・順位・投票の推移"], ["governance-daily.html", "Governance Daily", "today's movement", "ガバナンス日次", "本日の動き"], ["timeline.html", "Timeline", "the full history", "タイムライン", "完全な歴史"]],
   "drep-history.html": [["governance-daily.html", "Governance Daily", "today's movement", "ガバナンス日次", "本日の動き"], ["timeline.html", "Timeline", "the full history", "タイムライン", "完全な歴史"], ["/", "Observatory", "top-30 DReps", "オブザバトリー", "上位30 DRep"]],
   "category.html": [["category-explorer.html", "Category Explorer", "all categories", "カテゴリ エクスプローラー", "全カテゴリ"], ["memory-map.html", "Memory Map", "the ecosystem visually", "メモリ マップ", "視覚的なエコシステム"], ["search.html", "Search", "find a project", "検索", "プロジェクトを探す"]],
+  "category-explorer.html": [["memory-map.html", "Memory Map", "the ecosystem visually", "メモリ マップ", "視覚的なエコシステム"], ["search.html", "Search", "find a project", "検索", "プロジェクトを探す"], ["memory-insights.html", "Memory Insights", "standing facts", "メモリ インサイト", "恒常的な事実"]],
   "projects.html": [["search.html", "Search", "search 847 projects", "検索", "847件を検索"], ["ecosystem-pulse.html", "Ecosystem Pulse", "what's active now", "エコシステム パルス", "今アクティブなもの"], ["memory-map.html", "Memory Map", "by category", "メモリ マップ", "カテゴリ別"]],
 };
 function whatNextInit() {

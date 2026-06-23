@@ -33,6 +33,7 @@ const PAGE_I18N = {
     "p-no-history": "No history.", "p-actor": "actor", "p-not-found": "Project not found", "pm-unclassified": "unclassified",
     "p-related-label": "Related projects", "p-related-help": "Other projects that share a category with this one — a sourced relationship, not inferred.",
     "p-events": "events", "p-no-related": "No projects share a category yet.",
+    "p-cov-label": "Documentation coverage", "p-cov-sourced": "sourced", "ft-timeline": "Timeline",
   },
   ja: {
     "back-link-projects": "← プロジェクトメモリ",
@@ -48,6 +49,7 @@ const PAGE_I18N = {
     "p-no-history": "履歴なし。", "p-actor": "実行者", "p-not-found": "プロジェクトが見つかりません", "pm-unclassified": "未分類",
     "p-related-label": "関連プロジェクト", "p-related-help": "このプロジェクトとカテゴリを共有する他のプロジェクト — 出典に基づく関連で、推論ではありません。",
     "p-events": "イベント", "p-no-related": "カテゴリを共有するプロジェクトはまだありません。",
+    "p-cov-label": "ドキュメント網羅", "p-cov-sourced": "出典付き", "ft-timeline": "タイムライン",
   },
 };
 if (typeof i18n !== "undefined") {
@@ -153,8 +155,10 @@ function renderScorecard(evidenceCount) {
   const f = state.detail.fields || {};
   const LINKS = [["website", "WEB"], ["github", "GIT"], ["documentation", "DOCS"], ["whitepaper", "WP"]];
   const chips = LINKS.map(([k, lbl]) => `<span class="p-cov ${(f[k] && f[k].length) ? "on" : "off"}">${lbl}</span>`).join("");
+  const onCount = LINKS.filter(([k]) => f[k] && f[k].length).length;
   const hist = (state.history || []).length;
-  el.innerHTML = chips + `<span class="p-cov-meta">${hist} ${esc(t("p-events"))} · ${evidenceCount} ${esc(t("p-evidence")).toLowerCase()}</span>`;
+  el.innerHTML = `<span class="p-cov-label">${esc(t("p-cov-label"))}</span>` + chips
+    + `<span class="p-cov-meta">${onCount}/4 ${esc(t("p-cov-sourced"))} · ${hist} ${esc(t("p-events"))} · ${evidenceCount} ${esc(t("p-evidence")).toLowerCase()}</span>`;
 }
 
 // P8: related projects — those sharing a category (a sourced relationship, never inferred).
@@ -180,7 +184,18 @@ function render() {
   setText("p-name", d.name || d.id);
   setText("p-id", d.id);
   setText("p-stat-kind", d.kind || "—");
-  setText("p-stat-status", d.status || (d.unclassified ? t("pm-unclassified") : "—"));
+  // 30-second identity line: what it is and what space it's in.
+  const catNames = (d.categories || []).map((c) => c.name || c.slug).filter(Boolean);
+  const subParts = [];
+  if (d.kind) subParts.push(d.kind);
+  if (catNames.length) subParts.push(catNames.slice(0, 3).join(", "));
+  else if (d.unclassified) subParts.push(t("pm-unclassified"));
+  setText("p-sub", subParts.join(" · "));
+  // Status: show only when there's a real value — no bare "—" placeholder.
+  const statusVal = d.status || (d.unclassified ? t("pm-unclassified") : "");
+  setText("p-stat-status", statusVal || "—");
+  const statusCard = document.getElementById("p-stat-status-label");
+  if (statusCard && statusCard.closest(".stat-card")) statusCard.closest(".stat-card").style.display = statusVal ? "" : "none";
   const claimCount = Object.values(d.fields || {}).reduce((n, a) => n + a.length, 0);
   const evidenceCount = Object.values(d.fields || {}).flat().reduce((n, c) => n + ((c.provenance && c.provenance.evidence) ? c.provenance.evidence.length : 0), 0);
   setText("p-stat-claims", String(claimCount));

@@ -10,33 +10,87 @@
 <meta property="og:description" content="Today / week / month: voting-power gains & losses, delegator changes, Top-30 entrants & exits. Movement only.">
 <link rel="stylesheet" href="style.css">
 <style>
-  .gd-win{display:inline-flex;border:1px solid var(--border-strong);border-radius:10px;overflow:hidden;margin:4px 0 18px}
+  .gd-up{color:#1d6b46}.gd-down{color:#a33}
+  .gd-win{display:inline-flex;border:1px solid var(--border-strong);border-radius:10px;overflow:hidden;margin:4px 0 22px}
   .gd-win button{background:var(--card);border:none;padding:10px 18px;font-size:14px;font-weight:600;cursor:pointer;color:var(--muted);border-right:1px solid var(--border)}
   .gd-win button:last-child{border-right:none}
   .gd-win button.active{background:var(--accent);color:#fff}
   .gd-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px}
   .gd-asof{font-size:.82rem;color:var(--faint)}
-  .gd-headline{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin:6px 0 30px}
-  .gd-hl{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-  .gd-hl .gd-hl-lbl{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--faint);font-weight:600}
-  .gd-hl .gd-hl-name{font-size:1.15rem;font-weight:700;color:var(--text);margin:6px 0 2px;line-height:1.2}
-  .gd-hl .gd-hl-delta{font-size:1.5rem;font-weight:750;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
-  .gd-hl .gd-hl-sub{font-size:.8rem;color:var(--muted);margin-top:3px}
-  .gd-up{color:#1d6b46}.gd-down{color:#a33}
-  .gd-sections{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;margin-top:8px}
-  .gd-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-  .gd-card h2{font-size:1.02rem;margin:0 0 2px;color:var(--accent-strong);display:flex;align-items:center;gap:8px}
-  .gd-card .gd-card-sub{font-size:.78rem;color:var(--faint);margin:0 0 12px}
+  .gd-name a{color:var(--text);text-decoration:none}.gd-name a:hover{color:var(--accent-strong);text-decoration:underline}
+  .gd-id{font-family:var(--mono);font-size:.78rem;color:var(--faint)}
+
+  /* Verdict bar — the "who won?" answer */
+  .gd-verdict{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:2px 0 14px}
+  .gd-vc{border-radius:18px;padding:22px 26px;border:1px solid var(--border);position:relative;overflow:hidden}
+  .gd-vc.gd-up{background:linear-gradient(135deg,rgba(29,107,70,.11),rgba(29,107,70,.02));border-color:rgba(29,107,70,.30)}
+  .gd-vc.gd-down{background:linear-gradient(135deg,rgba(163,51,51,.10),rgba(163,51,51,.02));border-color:rgba(163,51,51,.28)}
+  .gd-vc-lbl{font-size:11px;letter-spacing:.09em;text-transform:uppercase;font-weight:700;color:var(--faint)}
+  .gd-vc-name{font-size:1.45rem;font-weight:760;margin:9px 0 4px;line-height:1.15;overflow:hidden;text-overflow:ellipsis}
+  .gd-vc-name a{color:var(--text)}
+  .gd-vc-delta{font-size:2.7rem;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1}
+  .gd-vc-sub{font-size:.84rem;color:var(--muted);margin-top:9px}
+  .gd-vwin{font-size:.86rem;color:var(--faint);margin:0 0 22px}
+  .gd-vwin b{color:var(--accent-strong);font-weight:700}
+
+  /* Big ranked podium */
+  .gd-block{margin:0 0 34px}
+  .gd-block-sm{margin:0 0 26px}
+  .gd-block-h{display:flex;align-items:baseline;gap:12px;margin:0 0 14px;flex-wrap:wrap}
+  .gd-block-h h2{font-size:1.22rem;margin:0;color:var(--text);letter-spacing:-.01em}
+  .gd-block-sm .gd-block-h h2{font-size:1.02rem}
+  .gd-block-win{font-size:.78rem;color:var(--faint);font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+  .gd-podium{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .gd-pc{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px 22px;box-shadow:0 1px 3px rgba(0,0,0,.05);position:relative}
+  .gd-pc.r1{box-shadow:0 4px 16px rgba(0,0,0,.08)}
+  .gd-pc.r1.gd-up{border-color:rgba(29,107,70,.40);border-top:4px solid #1d6b46}
+  .gd-pc.r1.gd-down{border-color:rgba(163,51,51,.38);border-top:4px solid #a33}
+  .gd-pc-rank{font-size:.74rem;font-weight:800;letter-spacing:.06em;color:var(--faint)}
+  .gd-pc-name{font-size:1.12rem;font-weight:720;margin:7px 0 9px;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .gd-pc-delta{font-size:1.95rem;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.015em;line-height:1}
+  .gd-pc.r1 .gd-pc-delta{font-size:2.25rem}
+  .gd-pc-sub{font-size:.77rem;color:var(--muted);margin-top:8px}
+
+  /* Two-column movement cards (delegators) */
+  .gd-twocol{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .gd-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px 20px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  .gd-card h2{font-size:1.02rem;margin:0 0 10px}
   .gd-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:9px 0;border-top:1px solid var(--border)}
   .gd-row:first-of-type{border-top:none}
-  .gd-rank{font-family:var(--mono);font-size:.72rem;color:var(--faint);width:1.4em;flex:none}
+  .gd-row-lead{padding-bottom:11px}
+  .gd-rank{font-family:var(--mono);font-size:.72rem;color:var(--faint);width:1.5em;flex:none}
   .gd-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
-  .gd-name a{color:var(--text);text-decoration:none}.gd-name a:hover{color:var(--accent-strong);text-decoration:underline}
-  .gd-id{font-family:var(--mono);font-size:.74rem;color:var(--faint)}
   .gd-delta{font-variant-numeric:tabular-nums;font-weight:700;flex:none;text-align:right}
-  .gd-delta .gd-d2{display:block;font-size:.72rem;font-weight:500;color:var(--muted)}
-  .gd-empty{color:var(--faint);font-style:italic;font-size:.86rem;padding:8px 0}
+  .gd-row-lead .gd-delta{font-size:1.45rem;font-weight:800}
+  .gd-delta .gd-d2{display:block;font-size:.7rem;font-weight:500;color:var(--muted)}
+
+  /* Show-more remainder list */
+  .gd-more{margin-top:12px}
+  .gd-more>summary{cursor:pointer;font-size:.84rem;font-weight:600;color:var(--accent-strong);list-style:none}
+  .gd-more>summary::-webkit-details-marker{display:none}
+  .gd-more>summary::before{content:"▸ ";color:var(--faint)}
+  .gd-more[open]>summary::before{content:"▾ "}
+  .gd-morelist{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:6px 16px;margin-top:10px}
+
+  /* Top-30 entry/exit chips */
+  .gd-chips{display:flex;flex-wrap:wrap;gap:8px}
+  .gd-chip{font-size:.85rem;font-weight:600;padding:7px 12px;border-radius:999px;border:1px solid var(--border);background:var(--card)}
+  .gd-chip.up{border-color:rgba(29,107,70,.30)}.gd-chip.up{color:#1d6b46}
+  .gd-chip.down{border-color:rgba(163,51,51,.28);color:#a33}
+  .gd-chip a{color:inherit;text-decoration:none}
+  .gd-chip .gd-chip-w{color:var(--faint);font-weight:500;margin-left:4px}
+
+  /* Honest small empty state — the boring thing stays small */
+  .gd-flat{font-size:.9rem;color:var(--muted);background:var(--card);border:1px dashed var(--border);border-radius:12px;padding:13px 16px;margin:0 0 26px}
+  .gd-flat b{color:var(--text);font-weight:650}
+  .gd-flat-sm{margin-bottom:26px}
   .gd-note{font-size:.82rem;color:var(--muted);background:var(--accent-soft);border:1px solid rgba(44,86,112,.14);border-radius:8px;padding:10px 13px;margin:22px 0 0}
+  @media(max-width:720px){
+    .gd-verdict{grid-template-columns:1fr}
+    .gd-podium{grid-template-columns:1fr}
+    .gd-twocol{grid-template-columns:1fr}
+    .gd-vc-delta{font-size:2.3rem}
+  }
 </style>
 </head>
 <body>
@@ -100,14 +154,15 @@
   <p class="lede" id="gd-lede">What moved among the top-30 Cardano DReps — voting power, delegators, and who entered or left the Top 30. Pick a window and read it in 30 seconds. This page shows observed movement only: no reasons, no narratives, no inference of why.</p>
 
   <div class="gd-win" id="gd-win">
-    <button data-w="1d" class="active" id="gd-w-1d">Today</button>
-    <button data-w="7d" id="gd-w-7d">This week</button>
+    <button data-w="1d" id="gd-w-1d">Today</button>
+    <button data-w="7d" class="active" id="gd-w-7d">This week</button>
     <button data-w="30d" id="gd-w-30d">This month</button>
     <button data-w="90d" id="gd-w-90d">90 days</button>
   </div>
 
-  <div class="gd-headline" id="gd-headline"></div>
-  <div class="gd-sections" id="gd-sections"></div>
+  <div class="gd-verdict" id="gd-verdict"></div>
+  <p class="gd-vwin" id="gd-vwin"></p>
+  <div id="gd-body"></div>
   <p class="gd-note" id="gd-note"></p>
   <p class="footnote" id="gd-foot"></p>
 </article></main>
@@ -128,42 +183,52 @@
   const P = {
     en: {
       "gd-title": "Governance Movement",
-      "gd-lede": "What moved among the top-30 Cardano DReps — voting power, delegators, and who entered or left the Top 30. Pick a window and read it in 30 seconds. This page shows observed movement only: no reasons, no narratives, no inference of why.",
+      "gd-lede": "Who moved among the top-30 Cardano DReps — voting power, delegators, and who entered or left the Top 30. The biggest move is shown first. This page shows observed movement only: no reasons, no narratives, no inference of why.",
       "gd-w-1d": "Today", "gd-w-7d": "This week", "gd-w-30d": "This month", "gd-w-90d": "90 days",
       "gd-asof-tpl": "as of {date} · epoch {epoch}",
-      "gd-hl-topgain": "Biggest voting-power gain", "gd-hl-toploss": "Biggest voting-power loss",
-      "gd-hl-entrants": "Entered Top 30", "gd-hl-exits": "Exited Top 30",
-      "sec-gainers": "Top voting-power gains", "sec-gainers-sub": "weight increased",
-      "sec-losers": "Top voting-power losses", "sec-losers-sub": "weight decreased",
-      "sec-dgrow": "Top delegator gains", "sec-dgrow-sub": "more delegators",
-      "sec-ddecl": "Top delegator losses", "sec-ddecl-sub": "fewer delegators",
-      "sec-entr": "Entered Top 30", "sec-entr-sub": "newly in the Top 30",
-      "sec-exit": "Exited Top 30", "sec-exit-sub": "no longer in the Top 30",
-      "gd-none": "No movement recorded in this window.",
-      "gd-deleg": "delegators", "gd-na": "not available this window",
+      "gd-vwin-tpl": "Showing movement over <b>{win}</b> — biggest first. Switch the window above.",
+      "gd-v-topgain": "Biggest voting-power gain", "gd-v-toploss": "Biggest voting-power loss",
+      "gd-v-topdgain": "Most delegators gained", "gd-v-topdloss": "Most delegators lost",
+      "blk-gainers": "Biggest voting-power gains", "blk-losers": "Biggest voting-power losses",
+      "blk-deleg": "Delegator movement", "blk-top30": "Top 30 changes",
+      "col-dgain": "Gained delegators", "col-ddecl": "Lost delegators",
+      "gd-more": "Show {n} more",
+      "gd-now-tpl": "{x} now",
+      "gd-deleg": "delegators",
+      "flat-gain": "Voting power held steady — <b>no Top-30 power gains</b> in this window.",
+      "flat-loss": "Voting power held steady — <b>no Top-30 power losses</b> in this window.",
+      "flat-deleg": "No delegator-count movement recorded in this window.",
+      "flat-top30": "No DReps entered or left the Top 30 in this window.",
+      "flat-all": "No movement recorded in this window yet.",
+      "gd-na": "Not available this window — a snapshot this old doesn’t exist yet.",
       "gd-foot-html": "Scope: top-30 DReps by voting weight (methodology-bounded), derived from daily on-chain snapshots — see <a href=\"methodology.html\">methodology</a>. Movement is the measured difference between snapshots; no migration paths or motives are inferred. Per-DRep detail on the <a href=\"changes.html\">change feed</a>; full record at <a href=\"https://api.asy.life/docs\">api.asy.life</a>.",
     },
     ja: {
       "gd-title": "ガバナンスの動き",
-      "gd-lede": "上位30 Cardano DRep の動き — 投票権、委任者、そして Top 30 に出入りしたのは誰か。期間を選べば30秒で読めます。本ページは観測された動きのみを示します: 理由も、物語も、なぜの推論もありません。",
+      "gd-lede": "上位30 Cardano DRep で動いたのは誰か — 投票権、委任者、そして Top 30 に出入りしたのは誰か。最大の動きを最初に表示します。本ページは観測された動きのみを示します: 理由も、物語も、なぜの推論もありません。",
       "gd-w-1d": "本日", "gd-w-7d": "今週", "gd-w-30d": "今月", "gd-w-90d": "90日",
       "gd-asof-tpl": "{date}時点 · エポック {epoch}",
-      "gd-hl-topgain": "投票権の最大増加", "gd-hl-toploss": "投票権の最大減少",
-      "gd-hl-entrants": "Top 30 入り", "gd-hl-exits": "Top 30 退出",
-      "sec-gainers": "投票権の増加上位", "sec-gainers-sub": "投票権が増加",
-      "sec-losers": "投票権の減少上位", "sec-losers-sub": "投票権が減少",
-      "sec-dgrow": "委任者の増加上位", "sec-dgrow-sub": "委任者が増加",
-      "sec-ddecl": "委任者の減少上位", "sec-ddecl-sub": "委任者が減少",
-      "sec-entr": "Top 30 入り", "sec-entr-sub": "新たに Top 30 入り",
-      "sec-exit": "Top 30 退出", "sec-exit-sub": "Top 30 から退出",
-      "gd-none": "この期間に記録された動きはありません。",
-      "gd-deleg": "委任者", "gd-na": "この期間は利用不可",
+      "gd-vwin-tpl": "<b>{win}</b>の動きを表示 — 大きい順。上で期間を切り替えられます。",
+      "gd-v-topgain": "投票権の最大増加", "gd-v-toploss": "投票権の最大減少",
+      "gd-v-topdgain": "委任者の最大増加", "gd-v-topdloss": "委任者の最大減少",
+      "blk-gainers": "投票権の増加 上位", "blk-losers": "投票権の減少 上位",
+      "blk-deleg": "委任者の動き", "blk-top30": "Top 30 の入れ替え",
+      "col-dgain": "委任者が増加", "col-ddecl": "委任者が減少",
+      "gd-more": "他 {n} 件を表示",
+      "gd-now-tpl": "現在 {x}",
+      "gd-deleg": "委任者",
+      "flat-gain": "投票権は横ばい — この期間に <b>Top 30 の投票権増加はありません</b>。",
+      "flat-loss": "投票権は横ばい — この期間に <b>Top 30 の投票権減少はありません</b>。",
+      "flat-deleg": "この期間に委任者数の動きは記録されていません。",
+      "flat-top30": "この期間に Top 30 への出入りはありません。",
+      "flat-all": "この期間の動きはまだ記録されていません。",
+      "gd-na": "この期間は利用不可 — これだけ古いスナップショットがまだ存在しません。",
       "gd-foot-html": "対象: 投票権による上位30 DRep（方法論で限定）、日次オンチェーンスナップショットから導出 — <a href=\"methodology.html\">方法論</a>参照。動きはスナップショット間の測定差分であり、移動経路や動機は推論しません。DRep別の詳細は<a href=\"changes.html\">変化フィード</a>、完全な記録は <a href=\"https://api.asy.life/docs\">api.asy.life</a>。",
     },
   };
   if (typeof i18n !== "undefined") { Object.assign(i18n.en, P.en); Object.assign(i18n.ja, P.ja); if (typeof setLang === "function") setLang(lang()); }
 
-  let DATA = null, WIN = "1d";
+  let DATA = null, WIN = "7d";
 
   function fmtAda(n) {
     if (n == null) return "—";
@@ -176,83 +241,128 @@
     return sign + "₳" + s;
   }
   function fmtInt(n) { return (n > 0 ? "+" : n < 0 ? "−" : "") + Math.abs(n).toLocaleString(); }
-  function drepName(e) { return e.name || (e.drep_id ? e.drep_id.slice(0, 12) + "…" : "—"); }
   function nameCell(e) {
     const nm = e.name ? esc(e.name) : '<span class="gd-id">' + esc((e.drep_id || "").slice(0, 16)) + "…</span>";
     return e.drep_id ? '<a href="drep.html?id=' + encodeURIComponent(e.drep_id) + '">' + nm + "</a>" : nm;
   }
 
-  function rowsWeight(arr, dir) {
-    if (!arr || !arr.length) return '<div class="gd-empty">' + esc(tt("gd-none")) + "</div>";
-    return arr.slice(0, 10).map((e, i) =>
-      '<div class="gd-row"><span class="gd-rank">' + (i + 1) + '</span>'
-      + '<span class="gd-name">' + nameCell(e) + "</span>"
-      + '<span class="gd-delta ' + dir + '">' + fmtAda(e.weight_delta_ada)
-      + (e.delegator_delta != null ? '<span class="gd-d2">' + fmtInt(e.delegator_delta) + " " + esc(tt("gd-deleg")) + "</span>" : "")
-      + "</span></div>").join("");
+  function nowSub(e) {
+    const parts = [];
+    if (e.current_weight_ada != null) parts.push("₳" + (e.current_weight_ada / 1e6).toFixed(1) + "M");
+    if (e.current_delegators != null) parts.push(e.current_delegators.toLocaleString() + " " + tt("gd-deleg"));
+    return parts.length ? tt("gd-now-tpl").replace("{x}", esc(parts.join(" · "))) : "";
   }
-  function rowsDeleg(arr, dir) {
-    if (!arr || !arr.length) return '<div class="gd-empty">' + esc(tt("gd-none")) + "</div>";
-    return arr.slice(0, 10).map((e, i) =>
-      '<div class="gd-row"><span class="gd-rank">' + (i + 1) + '</span>'
+  function flat(key) { return '<div class="gd-flat">' + tt(key) + "</div>"; }
+
+  // Big ranked podium (top 3) + a small "show more" remainder list.
+  function podium(arr, dir) {
+    const top = arr.slice(0, 3), rest = arr.slice(3, 10);
+    let h = '<div class="gd-podium">' + top.map((e, i) =>
+      '<div class="gd-pc r' + (i + 1) + ' ' + dir + '">'
+      + '<div class="gd-pc-rank">#' + (i + 1) + '</div>'
+      + '<div class="gd-pc-name">' + nameCell(e) + "</div>"
+      + '<div class="gd-pc-delta ' + dir + '">' + fmtAda(e.weight_delta_ada) + "</div>"
+      + '<div class="gd-pc-sub">' + nowSub(e) + "</div>"
+      + "</div>").join("") + "</div>";
+    if (rest.length) {
+      h += '<details class="gd-more"><summary>' + esc(tt("gd-more").replace("{n}", rest.length)) + '</summary><div class="gd-morelist">'
+        + rest.map((e, i) =>
+          '<div class="gd-row"><span class="gd-rank">' + (i + 4) + '</span>'
+          + '<span class="gd-name">' + nameCell(e) + "</span>"
+          + '<span class="gd-delta ' + dir + '">' + fmtAda(e.weight_delta_ada) + "</span></div>").join("")
+        + "</div></details>";
+    }
+    return h;
+  }
+
+  function delegCard(titleKey, dir, arr) {
+    if (!arr || !arr.length) return "";
+    const rows = arr.slice(0, 5).map((e, i) =>
+      '<div class="gd-row' + (i === 0 ? " gd-row-lead" : "") + '"><span class="gd-rank">' + (i + 1) + '</span>'
       + '<span class="gd-name">' + nameCell(e) + "</span>"
       + '<span class="gd-delta ' + dir + '">' + fmtInt(e.delegator_delta) + '<span class="gd-d2">' + esc(tt("gd-deleg")) + "</span></span></div>").join("");
-  }
-  function rowsPlain(arr) {
-    if (!arr || !arr.length) return '<div class="gd-empty">' + esc(tt("gd-none")) + "</div>";
-    return arr.map((e, i) =>
-      '<div class="gd-row"><span class="gd-rank">' + (i + 1) + '</span>'
-      + '<span class="gd-name">' + nameCell(e) + "</span>"
-      + (e.current_weight_ada != null ? '<span class="gd-delta">' + "₳" + (e.current_weight_ada >= 1e6 ? (e.current_weight_ada / 1e6).toFixed(1) + "M" : e.current_weight_ada.toLocaleString()) + "</span>" : "") + "</div>").join("");
+    return '<div class="gd-card"><h2 class="' + dir + '">' + esc(tt(titleKey)) + "</h2>" + rows + "</div>";
   }
 
-  function card(titleKey, dir, html) {
-    return '<div class="gd-card"><h2>' + esc(tt(titleKey)) + "</h2>"
-      + '<div class="gd-card-sub">' + esc(tt(titleKey + "-sub")) + "</div>" + html + "</div>";
+  function block(titleKey, winLabel, inner) {
+    return '<section class="gd-block"><div class="gd-block-h"><h2>' + esc(tt(titleKey)) + '</h2><span class="gd-block-win">' + esc(winLabel) + "</span></div>" + inner + "</section>";
   }
 
-  function renderHeadline(w) {
-    const host = document.getElementById("gd-headline");
-    const topGain = (w.gainers || [])[0];
-    const topLoss = (w.losers || [])[0];
-    const hl = [];
-    if (topGain) hl.push('<div class="gd-hl"><div class="gd-hl-lbl">' + esc(tt("gd-hl-topgain")) + '</div><div class="gd-hl-name">' + esc(drepName(topGain)) + '</div><div class="gd-hl-delta gd-up">' + fmtAda(topGain.weight_delta_ada) + '</div><div class="gd-hl-sub">' + (topGain.current_weight_ada != null ? "₳" + (topGain.current_weight_ada / 1e6).toFixed(1) + "M now" : "") + "</div></div>");
-    if (topLoss) hl.push('<div class="gd-hl"><div class="gd-hl-lbl">' + esc(tt("gd-hl-toploss")) + '</div><div class="gd-hl-name">' + esc(drepName(topLoss)) + '</div><div class="gd-hl-delta gd-down">' + fmtAda(topLoss.weight_delta_ada) + '</div><div class="gd-hl-sub">' + (topLoss.current_weight_ada != null ? "₳" + (topLoss.current_weight_ada / 1e6).toFixed(1) + "M now" : "") + "</div></div>");
-    hl.push('<div class="gd-hl"><div class="gd-hl-lbl">' + esc(tt("gd-hl-entrants")) + '</div><div class="gd-hl-delta gd-up">' + (w.entrants || []).length + '</div><div class="gd-hl-sub">' + (w.entrants || []).map(drepName).slice(0, 3).map(esc).join(", ") + "</div></div>");
-    hl.push('<div class="gd-hl"><div class="gd-hl-lbl">' + esc(tt("gd-hl-exits")) + '</div><div class="gd-hl-delta gd-down">' + (w.exits || []).length + '</div><div class="gd-hl-sub">' + (w.exits || []).map(drepName).slice(0, 3).map(esc).join(", ") + "</div></div>");
-    host.innerHTML = hl.join("");
+  function chip(e, dir) {
+    const w = e.current_weight_ada != null ? '<span class="gd-chip-w">₳' + (e.current_weight_ada / 1e6).toFixed(1) + "M</span>" : "";
+    return '<span class="gd-chip ' + dir + '">' + (dir === "up" ? "▲ " : "▼ ") + nameCell(e) + w + "</span>";
+  }
+
+  function renderVerdict(w) {
+    const host = document.getElementById("gd-verdict");
+    const g = (w.gainers || [])[0], l = (w.losers || [])[0];
+    const cards = [];
+    if (g || l) {
+      if (g) cards.push(vcard("gd-up", "gd-v-topgain", g, fmtAda(g.weight_delta_ada)));
+      if (l) cards.push(vcard("gd-down", "gd-v-toploss", l, fmtAda(l.weight_delta_ada)));
+    } else {
+      const dg = (w.delegator_growth || [])[0], dl = (w.delegator_decline || [])[0];
+      if (dg) cards.push(vcard("gd-up", "gd-v-topdgain", dg, fmtInt(dg.delegator_delta) + " " + esc(tt("gd-deleg"))));
+      if (dl) cards.push(vcard("gd-down", "gd-v-topdloss", dl, fmtInt(dl.delegator_delta) + " " + esc(tt("gd-deleg"))));
+    }
+    host.innerHTML = cards.join("") || ('<div class="gd-flat">' + tt("flat-all") + "</div>");
+    host.style.gridTemplateColumns = cards.length === 1 ? "1fr" : "";
+  }
+  function vcard(dir, labelKey, e, deltaStr) {
+    return '<div class="gd-vc ' + dir + '"><div class="gd-vc-lbl">' + esc(tt(labelKey)) + "</div>"
+      + '<div class="gd-vc-name">' + nameCell(e) + "</div>"
+      + '<div class="gd-vc-delta ' + dir + '">' + deltaStr + "</div>"
+      + '<div class="gd-vc-sub">' + nowSub(e) + "</div></div>";
   }
 
   function render() {
     if (!DATA) return;
     const w = (DATA.windows || {})[WIN] || {};
-    document.querySelectorAll("#gd-win button").forEach((b) => b.classList.toggle("active", b.dataset.w === WIN));
+    const winLabel = tt("gd-w-" + WIN);
+    document.querySelectorAll("#gd-win button").forEach((b) => { b.classList.toggle("active", b.dataset.w === WIN); b.textContent = tt("gd-w-" + b.dataset.w); });
     document.getElementById("gd-asof").textContent = tt("gd-asof-tpl").replace("{date}", DATA.snapshot_date || "—").replace("{epoch}", DATA.epoch || "—");
+    document.getElementById("gd-vwin").innerHTML = tt("gd-vwin-tpl").replace("{win}", esc(winLabel));
+
+    const body = document.getElementById("gd-body");
     if (w.available === false) {
-      document.getElementById("gd-headline").innerHTML = "";
-      document.getElementById("gd-sections").innerHTML = '<div class="gd-card"><div class="gd-empty">' + esc(tt("gd-na")) + "</div></div>";
+      document.getElementById("gd-verdict").innerHTML = '<div class="gd-flat">' + esc(tt("gd-na")) + "</div>";
+      document.getElementById("gd-verdict").style.gridTemplateColumns = "1fr";
+      document.getElementById("gd-vwin").innerHTML = "";
+      body.innerHTML = "";
     } else {
-      renderHeadline(w);
-      document.getElementById("gd-sections").innerHTML =
-        card("sec-gainers", "gd-up", rowsWeight(w.gainers, "gd-up"))
-        + card("sec-losers", "gd-down", rowsWeight(w.losers, "gd-down"))
-        + card("sec-dgrow", "gd-up", rowsDeleg(w.delegator_growth, "gd-up"))
-        + card("sec-ddecl", "gd-down", rowsDeleg(w.delegator_decline, "gd-down"))
-        + card("sec-entr", "", rowsPlain(w.entrants))
-        + card("sec-exit", "", rowsPlain(w.exits));
+      renderVerdict(w);
+      const out = [];
+      // 1 · Biggest voting-power gains (large) — small honest line when flat
+      out.push((w.gainers || []).length ? block("blk-gainers", winLabel, podium(w.gainers, "gd-up")) : flat("flat-gain"));
+      // 2 · Biggest voting-power losses (large)
+      out.push((w.losers || []).length ? block("blk-losers", winLabel, podium(w.losers, "gd-down")) : flat("flat-loss"));
+      // 3 · Delegator movement (large when present)
+      if ((w.delegator_growth || []).length || (w.delegator_decline || []).length) {
+        out.push(block("blk-deleg", winLabel, '<div class="gd-twocol">' + delegCard("col-dgain", "gd-up", w.delegator_growth) + delegCard("col-ddecl", "gd-down", w.delegator_decline) + "</div>"));
+      } else {
+        out.push(flat("flat-deleg"));
+      }
+      // 4 · Top 30 changes (small — chips, or a one-line note when none)
+      const en = w.entrants || [], ex = w.exits || [];
+      if (en.length || ex.length) {
+        out.push('<section class="gd-block gd-block-sm"><div class="gd-block-h"><h2>' + esc(tt("blk-top30")) + '</h2><span class="gd-block-win">' + esc(winLabel) + '</span></div><div class="gd-chips">'
+          + en.map((e) => chip(e, "up")).join("") + ex.map((e) => chip(e, "down")).join("") + "</div></section>");
+      } else {
+        out.push('<div class="gd-flat gd-flat-sm">' + tt("flat-top30") + "</div>");
+      }
+      body.innerHTML = out.join("");
     }
     const cov = (DATA.coverage || []).find((c) => c.window === WIN);
     document.getElementById("gd-note").textContent = (DATA.note || "")
       + (cov ? "  ·  " + WIN + ": " + cov.status + " (ref " + cov.reference_date + ")" : "");
     document.getElementById("gd-foot").innerHTML = tt("gd-foot-html");
-    document.querySelectorAll("#gd-win button").forEach((b) => { b.textContent = tt("gd-w-" + b.dataset.w); });
   }
 
   function boot() {
     document.addEventListener("cdo-lang", render);
     document.getElementById("gd-win").addEventListener("click", (e) => { const b = e.target.closest("button"); if (!b) return; WIN = b.dataset.w; render(); });
     fetch("data/snapshots/changes.json").then((r) => r.json()).then((d) => { DATA = d; render(); })
-      .catch(() => { document.getElementById("gd-sections").innerHTML = '<div class="gd-card"><div class="gd-empty">Couldn’t load the change feed.</div></div>'; });
+      .catch(() => { document.getElementById("gd-body").innerHTML = '<div class="gd-flat">Couldn’t load the change feed.</div>'; });
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
 })();

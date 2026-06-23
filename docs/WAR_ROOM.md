@@ -1,0 +1,124 @@
+# War Room — Cardano Knowledge Infrastructure
+
+*Status board for the post-build expansion loop. The platform is no longer in
+MVP / observatory / dashboard mode — it is a knowledge infrastructure whose only
+remaining bottleneck is reach, not engineering. This file records what the
+**evidence** says, what is **already won**, and what is **blocked** — so the
+roadmap is selected by evidence, not by brainstorming.*
+
+Companion docs: `WEEKLY_ADOPTION_REPORT.md` (weekly usage verdict),
+`ROADMAP_POST_LAUNCH.md` (parked/active items), `OUTREACH_TRACKER.md` (reach),
+`FEEDBACK_PIPELINE.md` (where feedback lands).
+
+Last reconciled: 2026-06-23.
+
+---
+
+## The standing verdict (4 consecutive weekly measurements)
+
+- **Project Memory is the flagship.** Projects won weeks 1–4. Not a hypothesis.
+  Every decision begins there.
+- **Categories-as-destination failed** (0 traffic, weeks 1–4) — category data now
+  lives *inside* Search / Memory Map / Projects, not as its own front door.
+- **The bottleneck is distribution, not product.** Engineering is ahead of reach.
+
+Messaging everywhere leads with: **847 projects · 787 enriched · 5,700+ events ·
+74 categories — everything sourced, everything traceable.**
+
+---
+
+## Phase status (war-mode 10-phase loop)
+
+| # | Phase | Status | Note |
+|---|-------|--------|------|
+| 1 | Adoption messaging | ✅ Done | Announcement + outreach lead with Project Memory + the four numbers. |
+| 2 | Discovery dominance | ✅ Audited + fixed | Audit below. One true dead-end (category-explorer) closed. |
+| 3 | Project Memory clarity | ✅ Improved | `project.html` 30-second identity line + coverage label + status-card fix. |
+| 4 | Governance WOW | ✅ Shipped | `governance-daily.html` movement-first redesign (verdict bar + podiums). |
+| 5 | Timeline dominance | ✅ Mostly won | Timeline = most-linked page (85 inbound) + in nav + on hub + in WHATNEXT on 7 surfaces. |
+| 6 | Command Center / consolidation | ✅ Already consolidated | `state.html` redirects → command-center; index/CC/timeline have distinct roles. No merge needed. |
+| 7 | Project intelligence | ✅ Already exists | All 7 factual views live in memory-insights + ecosystem-pulse. Rebuilding = duplication (avoided). |
+| 8 | Distribution war | ⛔ Owner-blocked | Templates ready; **actual sending is an owner action.** |
+| 9 | Measurement (`usage.md`) | ⛔ Owner-blocked | Needs sudo nginx-log access: `sudo node scripts/analyze-access-logs.mjs --days 7`. |
+| 10| Reality loop | 🔁 Gated on #9 | Evidence-driven roadmap; needs weekly usage data to fire. |
+
+**The honest takeaway:** most of war-mode was *already won* by prior loops. The
+remaining real engineering surface was small and presentation-only (Phases 2/3).
+The decisive remaining work is **reach (8) and measurement (9)** — both owner
+actions. Building more product now would be motion without evidence.
+
+---
+
+## Discovery audit (2026-06-23)
+
+Mapped every internal link path across 42 pages. Method: nav structure from
+`i18n.js`, homepage hub, and an inbound-link count (grep `href`) per surface.
+
+**Flagship discoverability — all strong except per-entity pages:**
+
+| Surface | In nav | On hub | Inbound | WHATNEXT |
+|---|---|---|---|---|
+| timeline.html | ✓ Gov | ✓ | **85** | ✓ |
+| memory.html | ✓ Disc | – | 50 | ✓ |
+| category-explorer.html | ✓ Disc | ✓ | 49 | ✓ *(fixed — was missing)* |
+| projects.html | ✓ Disc | ✓ | 48 | ✓ |
+| search.html | ✓ Disc | ✓ | 44 | ✓ |
+| command-center.html | ✓ Disc | ✓ | 43 | ✓ |
+| memory-insights.html | ✓ Disc | ✓ | 43 | ✓ |
+| memory-map.html | ✓ Disc | ✓ | 43 | ✓ |
+| treasury-timeline.html | ✓ Gov | ✓ | 43 | ✓ |
+| ecosystem-pulse.html | ✓ Disc | ✓ | 42 | ✓ |
+| **project.html** | ✗ | ✗ | 6 (dynamic) | ✓ |
+| **drep.html** | ✗ | ✗ | 3 (dynamic) | ✓ |
+
+**Findings & disposition:**
+- `category-explorer.html` was the only flagship missing the injected "What next?"
+  strip → **fixed** (added to WHATNEXT: Memory Map / Search / Memory Insights).
+- `project.html` / `drep.html` are per-entity pages — they *cannot* sit in global
+  nav (no single id). They are reached in 2 hops via Search / Projects / the Top-30
+  table, which is correct. Both already carry the "What next?" strip. **Search is
+  the front door to project.html and is one click from nav + hub — acceptable.**
+- `state.html`, `categories.html` are intentional redirect stubs (canonical-tagged,
+  noindex). Not dead-ends.
+- No true orphans except entry-only pages (index.html) and `?id=` templates.
+
+**Decision:** discovery is healthy. The remaining lever is *external* reach (Phase 8),
+not more internal cross-linking.
+
+---
+
+## Changes shipped this loop (presentation-only, no new data/methodology)
+
+- **`project.html` / `project-page.js`** — populated the previously-empty identity
+  line (`kind · categories`); added a labelled "Documentation coverage — N/4
+  sourced · events · evidence" summary to the scorecard; hide the Status card when
+  there is no real value (no bare "—"); footer now points to the live
+  `category-explorer.html` (was the dead `categories.html` redirect) and gains a
+  Timeline link. EN/JA parity kept.
+- **`governance-daily.html`** — movement-first redesign (verdict bar answers "who
+  won?" in <5s; ranked podium cards; honest small empty-states; defaults to the
+  populated 7-day window because 1-day weight movement is zero at snapshot
+  granularity).
+- **`i18n.js`** — `category-explorer.html` added to the WHATNEXT map.
+
+**Not done, on purpose:** no Phase-7 intelligence rebuild (already exists), no
+Phase-6 merge (already consolidated), no FLOW-1.5, no new sources/ETL.
+
+---
+
+## Absolute rules (unchanged, enforced)
+
+No FLOW-1.5 implementation · no wallet tracking · no deanonymization · no
+clustering · no AI-generated facts · no fabricated relationships · no inferred
+provenance. Unknown stays "unknown."
+
+---
+
+## Next moves (in priority order)
+
+1. **Owner:** run `usage.md` (Phase 9) → unlocks the reality loop (Phase 10).
+2. **Owner:** send the first-15 outreach (Phase 8), leading with Project Memory.
+3. **On evidence:** invest where usage wins, consolidate/merge where it loses.
+   No new surface ships without a usage signal or a repeated user request.
+</content>
+</invoke>
