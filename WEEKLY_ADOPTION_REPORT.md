@@ -14,6 +14,69 @@ the evidence supports. Keep prior weeks for trend.
 
 ---
 
+## Week 5 — REVISED verdict: measurement repaired, flagships non-zero (relayed)
+
+**Week 5 = new baseline. This is the first trustworthy platform-wide measurement.**
+The measurement instrument changed mid-week (`scripts/analyze-access-logs.mjs`
+repaired, commit `c971271`): the previous dashboard was partially blind — Timeline,
+Ecosystem Pulse, Command Center, Memory Insights, Memory Map, and Category Explorer
+were not surfaced correctly (stale candidate list + top-20 truncation + tracking the
+`categories.html` redirect instead of the live `category-explorer.html`).
+
+Therefore:
+- **Weeks 1–4 remain historically useful.**
+- **Weeks 1–4 are NOT directly comparable to Week 5** — the measurement methodology
+  changed. Trend tracking restarts here; compare Week 6 against Week 5 only.
+
+_Verdict relayed by operator from the repaired `/tmp/usage.md`; raw counts held
+operator-side, not transcribed (no guessing)._
+
+### Confirmed
+- **Projects / Project Memory remain the strongest measured surface — 5 consecutive
+  measurements.** Flagship status holds.
+
+### New (previously invisible) — measurable traffic, NOT zero
+- Command Center, Ecosystem Pulse, Memory Map, Governance Daily, Project detail,
+  DRep detail all show real traffic. Their earlier "zeros" were instrument blindness,
+  not absence of use.
+
+### Most important finding — internal navigation is working (new referer table)
+Observed page→page paths include:
+- Homepage → Command Center
+- Homepage → Memory Map
+- Homepage → Ecosystem Pulse
+- Governance Daily → DRep detail
+- Ecosystem Pulse → Project history
+
+This validates the **homepage hub, navigation consolidation, the "What next?" strip,
+and the cross-linking strategy** — the connective work is doing its job.
+
+### Bottleneck — updated
+- **OLD:** discovery, measurement. → both now resolved.
+- **NEW:** traffic **volume / reach / distribution.** Traffic is real but small.
+
+### Decision
+- **Continue distribution.** Do **not** start another major build loop. Observe one
+  more cycle. Freeze rule still holds (new build only on: new winner / repeated
+  independent request / critical usability problem). The roadmap is selected by
+  evidence — not brainstorming, architecture, or enthusiasm.
+
+### Week 6 mission — measure, do not build
+No feature work. No roadmap work. No architecture work. No P15. No flagship project.
+Re-run usage measurement; compare **Week 6 vs Week 5 ONLY**. Questions:
+1. Do Command Center visits grow?
+2. Do Timeline visits appear?
+3. Do Ecosystem Pulse visits grow?
+4. Do Memory Map visits grow?
+5. Do Search visits appear?
+6. Does internal navigation deepen?
+7. Does Project Memory remain the winner?
+
+The answered question — "are flagships non-zero?" — is closed (yes). Week 6 asks only:
+**do they grow?**
+
+---
+
 ## Week 4 — verdict: freeze features, fix distribution (relayed)
 
 - **Project Memory is the flagship — 4 consecutive measurements. Official.** Builds, when

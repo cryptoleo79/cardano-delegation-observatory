@@ -14,13 +14,19 @@ Last reconciled: 2026-06-23.
 
 ---
 
-## The standing verdict (4 consecutive weekly measurements)
+## The standing verdict (5 consecutive weekly measurements)
 
-- **Project Memory is the flagship.** Projects won weeks 1–4. Not a hypothesis.
+- **Project Memory is the flagship.** Projects won weeks 1–5. Not a hypothesis.
   Every decision begins there.
-- **Categories-as-destination failed** (0 traffic, weeks 1–4) — category data now
-  lives *inside* Search / Memory Map / Projects, not as its own front door.
-- **The bottleneck is distribution, not product.** Engineering is ahead of reach.
+- **Flagships are NOT zero** (Week 5, post-repair): Command Center, Ecosystem Pulse,
+  Memory Map, Governance Daily, Project/DRep detail all show real traffic. Earlier
+  "zeros" were instrument blindness — see the measurement-repair note below.
+- **Internal navigation works** (Week 5 referer evidence): Homepage → flagships →
+  detail → history. The "What next?" strip + hub + nav consolidation are doing their job.
+- **Categories-as-destination failed** (weeks 1–4, when categories.html was the real
+  page) — category data now lives *inside* Search / Memory Map / Projects.
+- **The bottleneck is now volume, not discovery and not measurement.** Traffic is
+  real but small. The lever is distribution. Engineering is ahead of reach.
 
 Messaging everywhere leads with: **847 projects · 787 enriched · 5,700+ events ·
 74 categories — everything sourced, everything traceable.**
