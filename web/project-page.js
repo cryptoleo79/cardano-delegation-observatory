@@ -122,7 +122,7 @@ function renderCats() {
   const cats = state.detail.categories || [];
   if (!cats.length) { wrap.innerHTML = `<p class="pm-muted">${t("p-unclassified")}</p>`; return; }
   wrap.innerHTML = cats.map((c) =>
-    `<a class="pm-cat-tag" href="categories.html#${esc(c.slug)}">${esc(c.name || c.slug)} ${authChip(c.authority_class)}</a>`).join(" ");
+    `<a class="pm-cat-tag" href="category.html?slug=${encodeURIComponent(c.slug)}">${esc(c.name || c.slug)} ${authChip(c.authority_class)}</a>`).join(" ");
 }
 
 function payloadSummary(e) {

@@ -54,7 +54,7 @@ const i18n = {
 
     /* Main */
     "page-title": "Cardano Observatory",
-    "page-lede": "One open, read-only window on the whole Cardano ecosystem — governance, projects, treasury, Catalyst, memory and data. Sourced, bilingual, CC0. The live Top-30 DRep snapshot is below.",
+    "page-lede": "One open, read-only window into the Cardano ecosystem — governance, projects, treasury, Catalyst, memory and data. Sourced, bilingual, CC0. Coverage is broad but not exhaustive; the live Top-30 DRep snapshot is below.",
     "footnote-deltas": "Δ 7d and Δ 30d display as — when fewer than 7 (respectively 30) daily snapshots have accumulated since launch. They populate forward from the first deployment.",
 
     /* Table headers */
@@ -281,7 +281,7 @@ const i18n = {
 
     /* Main */
     "page-title": "Cardano オブザバトリー",
-    "page-lede": "Cardano エコシステム全体を映す、オープンで読み取り専用の窓 — ガバナンス、プロジェクト、トレジャリー、Catalyst、メモリ、データ。出典付き・二言語・CC0。ライブの上位30 DRep スナップショットは下にあります。",
+    "page-lede": "Cardano エコシステムを映す、オープンで読み取り専用の窓 — ガバナンス、プロジェクト、トレジャリー、Catalyst、メモリ、データ。出典付き・二言語・CC0。網羅は広範ですが完全ではありません。ライブの上位30 DRep スナップショットは下にあります。",
     "footnote-deltas": "Δ 7日 と Δ 30日 は、ローンチ以降の日次スナップショットがそれぞれ7日分・30日分蓄積されるまでは「—」と表示する。デプロイ時点から前方累積で値が入る。",
 
     /* Table headers */
@@ -643,6 +643,16 @@ var WHATNEXT = {
   "category.html": [["category-explorer.html", "Category Explorer", "all categories", "カテゴリ エクスプローラー", "全カテゴリ"], ["memory-map.html", "Memory Map", "the ecosystem visually", "メモリ マップ", "視覚的なエコシステム"], ["search.html", "Search", "find a project", "検索", "プロジェクトを探す"]],
   "category-explorer.html": [["memory-map.html", "Memory Map", "the ecosystem visually", "メモリ マップ", "視覚的なエコシステム"], ["search.html", "Search", "find a project", "検索", "プロジェクトを探す"], ["memory-insights.html", "Memory Insights", "standing facts", "メモリ インサイト", "恒常的な事実"]],
   "projects.html": [["search.html", "Search", "search 847 projects", "検索", "847件を検索"], ["ecosystem-pulse.html", "Ecosystem Pulse", "what's active now", "エコシステム パルス", "今アクティブなもの"], ["memory-map.html", "Memory Map", "by category", "メモリ マップ", "カテゴリ別"]],
+  "project-history.html": [["project.html?id={id}", "Project", "back to the project", "プロジェクト", "プロジェクトへ戻る"], ["timeline.html?type=memory", "Timeline", "memory in context", "タイムライン", "コンテキスト内のメモリ"], ["search.html", "Search", "find another project", "検索", "別のプロジェクトを探す"]],
+  "actions.html": [["timeline.html?type=governance", "Timeline", "actions over time", "タイムライン", "時系列でアクション"], ["governance-daily.html", "Governance Daily", "today's movement", "ガバナンス日次", "本日の動き"], ["treasury-timeline.html", "Treasury Timeline", "treasury actions", "トレジャリー タイムライン", "トレジャリーのアクション"]],
+  "tokens.html": [["rankings.html", "Rankings", "token metrics", "ランキング", "トークン指標"], ["market.html", "Market", "price & volume", "マーケット", "価格と取引高"], ["search.html", "Search", "find a project", "検索", "プロジェクトを探す"]],
+  "governance-health.html": [["timeline.html?type=governance", "Timeline", "the full history", "タイムライン", "完全な歴史"], ["governance-daily.html", "Governance Daily", "today's movement", "ガバナンス日次", "本日の動き"], ["concentration.html", "Concentration", "weight distribution", "集中度", "投票権の分布"]],
+  "catalyst.html": [["timeline.html", "Timeline", "the full history", "タイムライン", "完全な歴史"], ["ecosystem-pulse.html", "Ecosystem Pulse", "what's active now", "エコシステム パルス", "今アクティブなもの"], ["memory-insights.html", "Memory Insights", "standing facts", "メモリ インサイト", "恒常的な事実"]],
+  "rankings.html": [["tokens.html", "Tokens", "the full token list", "トークン", "全トークン一覧"], ["market.html", "Market", "price & volume", "マーケット", "価格と取引高"], ["search.html", "Search", "find a project", "検索", "プロジェクトを探す"]],
+  "market.html": [["tokens.html", "Tokens", "the full token list", "トークン", "全トークン一覧"], ["rankings.html", "Rankings", "token metrics", "ランキング", "トークン指標"], ["ecosystem-pulse.html", "Ecosystem Pulse", "what's active now", "エコシステム パルス", "今アクティブなもの"]],
+  "ecosystem.html": [["memory-map.html", "Memory Map", "the ecosystem visually", "メモリ マップ", "視覚的なエコシステム"], ["category-explorer.html", "Category Explorer", "all categories", "カテゴリ エクスプローラー", "全カテゴリ"], ["search.html", "Search", "find a project", "検索", "プロジェクトを探す"]],
+  "memory-heatmap.html": [["category-explorer.html", "Category Explorer", "drill into categories", "カテゴリ エクスプローラー", "カテゴリを掘り下げ"], ["search.html", "Search", "find a project", "検索", "プロジェクトを探す"], ["memory-insights.html", "Memory Insights", "standing facts", "メモリ インサイト", "恒常的な事実"]],
+  "history.html": [["timeline.html", "Timeline", "the full history", "タイムライン", "完全な歴史"], ["search.html", "Search", "find a project", "検索", "プロジェクトを探す"], ["command-center.html", "Command Center", "the operating picture", "コマンドセンター", "オペレーティングピクチャ"]],
 };
 function whatNextInit() {
   if (document.querySelector(".whatnext")) return;

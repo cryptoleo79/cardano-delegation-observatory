@@ -155,5 +155,42 @@ paths?). Validated end-to-end against a synthetic log.
 Do **not** compare new flagship counts directly against weeks 1–5 — those were
 undercounts for the affected surfaces. Adoption conclusions are updated only from
 the repaired report onward.
+
+---
+
+## Omega Loop / Season 2 audit — 2026-06-23
+
+Three fresh audits (comprehension, journey, truth). Confirmed again: the platform is
+coherent and most "dominance" phases were already closed in war-mode. Focus went to
+genuinely-unverified items. **Clarity/truth/bug-fix only — no new data, methodology,
+pages, or scoring.**
+
+**Fixed:**
+- **Truth (overclaim):** homepage lede said "a window on the **whole** Cardano
+  ecosystem" — contradicted by the site's own seed-set honesty. → "a window **into**
+  the Cardano ecosystem … coverage is broad but not exhaustive." (EN + JA, index.html
+  + i18n.js).
+- **Journey (real bug):** project category tags linked to `categories.html#slug` — a
+  redirect that drops the hash, landing nowhere. → `category.html?slug=` (which
+  fetches `/category/{slug}`). Fixes the Project→Category hop in the flagship loop.
+- **Journey (dead-ends):** added WHATNEXT entries for `project-history.html` (was a
+  dead-end at the end of the Project Memory loop; "back to the project" via {id}) plus
+  9 previously-isolated surfaces (actions, tokens, governance-health, catalyst,
+  rankings, market, ecosystem, memory-heatmap, history).
+- **Comprehension:** `projects.html` table headers now carry tooltips, surfacing the
+  authority A–E legend (was buried in a footnote) and explaining Source/Evidence/
+  History/Kind on hover.
+
+**Deferred backlog (NOT misleading today; greenlight before doing — avoids churn):**
+- **Hardcoded counts** ("847 projects", "74 categories") in ~14 HTML/JS strings.
+  Currently *accurate* (verified 847/787/74, 73 populated) but will drift. Make
+  dynamic from the loaded index/categories JSON when a count next changes.
+- Command Center governance panel: a one-line narrative headline (10-second test).
+- `project-history.html` empty state: educational callout + a featured example
+  instead of "No project selected."
+- Visual metrics (coverage bars/chips) carry no inline "as of"/source — methodology
+  is linked, so not misleading, but a hover-source would honour provenance-first.
+
+**Verdict unchanged:** product is coherent; the bottleneck is reach/volume, not code.
 </content>
 </invoke>
