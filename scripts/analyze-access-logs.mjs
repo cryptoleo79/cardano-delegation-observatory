@@ -38,8 +38,34 @@ const OUT = arg('out', '');
 const LOG_DIR = arg('logdir', '/var/log/nginx');
 const explicitLogs = (arg('logs', '') || '').split(',').filter(Boolean);
 
-// ---- candidate observatory pages (the winner/loser scoreboard, Obj 3/4) ----
-const CANDIDATES = ['changes', 'projects', 'categories', 'rankings', 'memory', 'treasury', 'catalyst'];
+// ---- flagship surfaces: the winner/loser scoreboard (Obj 3/4) ----
+// Listed EXPLICITLY by exact path so a true zero is reported as a MEASURED zero,
+// never hidden by omission or top-N truncation. KEEP THIS CURRENT when a flagship
+// ships — a stale list is how a dashboard goes blind. (This list WAS stale before
+// 2026-06-23: it tracked categories.html — now only a redirect stub — and omitted
+// every post-launch flagship, so Timeline/Pulse/Command Center/Insights/Map/Search
+// could never appear in the scoreboard at all.) Live flagships first, then legacy.
+const FLAGSHIPS = [
+  ['Homepage', '/'],
+  ['Projects', '/projects.html'],
+  ['Search', '/search.html'],
+  ['Timeline', '/timeline.html'],
+  ['Ecosystem Pulse', '/ecosystem-pulse.html'],
+  ['Command Center', '/command-center.html'],
+  ['Memory Insights', '/memory-insights.html'],
+  ['Memory Map', '/memory-map.html'],
+  ['Category Explorer', '/category-explorer.html'],
+  ['Governance Daily', '/governance-daily.html'],
+  ['Treasury Timeline', '/treasury-timeline.html'],
+  ['Project detail', '/project.html'],
+  ['DRep detail', '/drep.html'],
+  ['Memory hub', '/memory.html'],
+  ['Changes', '/changes.html'],
+  ['Treasury', '/treasury.html'],
+  ['Catalyst', '/catalyst.html'],
+  ['Rankings', '/rankings.html'],
+  ['Categories (legacy redirect)', '/categories.html'],
+];
 
 // ---- bot detection (drop obvious crawlers; counted separately, never in totals) ----
 const BOT = /(bot|spider|crawl|slurp|bingpreview|facebookexternal|semrush|ahrefs|mj12|dotbot|petalbot|gptbot|ccbot|claudebot|bytespider|headless|monitor|uptime|curl\/|wget|python-requests|go-http)/i;
@@ -88,6 +114,7 @@ const pageHits = new Map();      // observatory path -> hits
 const apiHits = new Map();       // api route -> hits
 const apiStatus = new Map();     // api route -> {ok,err}
 const apiCallers = new Map();    // api route -> Set of /24 (discarded after counting)
+const navPairs = new Map();      // "fromPage → toPage" -> count (internal nav, referer-based)
 let total = 0, bots = 0, assets = 0, unparsed = 0, minTs = null, maxTs = null;
 
 for (const file of files) {
@@ -100,7 +127,7 @@ for (const file of files) {
     if (!line) continue;
     const m = line.match(LINE);
     if (!m) { unparsed++; continue; }
-    const [, ip, ts, , rawPath, statusStr, , , ua, hostMaybe] = m;
+    const [, ip, ts, , rawPath, statusStr, , ref, ua, hostMaybe] = m;
     const t = parseTs(ts); if (t) { const ms = t.getTime(); if (cutoff && ms < cutoff) continue; if (!minTs || ms < minTs) minTs = ms; if (!maxTs || ms > maxTs) maxTs = ms; }
     if (BOT.test(ua)) { bots++; continue; }
     const path = rawPath.split('?')[0];
@@ -114,6 +141,17 @@ for (const file of files) {
       let set = apiCallers.get(path); if (!set) { set = new Set(); apiCallers.set(path, set); } set.add(ip24(ip));
     } else {
       pageHits.set(path, (pageHits.get(path) || 0) + 1);
+    }
+    // Internal navigation (referer-based): page → page transitions on our own host.
+    // Answers "did cross-links / What next? create deeper paths?" The IP/UA are not
+    // involved; only the path the visitor came from. Floor, not total (browsers may
+    // strip Referer).
+    if (ref && /asy\.life/i.test(ref)) {
+      const rp = ref.replace(/^https?:\/\/[^/]+/i, '').split('?')[0].split('#')[0];
+      if (rp && rp !== path && (rp === '/' || rp.endsWith('.html')) && (path === '/' || path.endsWith('.html'))) {
+        const key = rp + ' → ' + path;
+        navPairs.set(key, (navPairs.get(key) || 0) + 1);
+      }
     }
   }
 }
@@ -130,20 +168,21 @@ r += '- Date range: ' + range + (DAYS ? ' (last ' + DAYS + 'd)' : ' (all availab
 r += '- Human requests (pages+api): **' + total.toLocaleString() + '** · bots dropped: ' + bots.toLocaleString() + ' · assets: ' + assets.toLocaleString() + ' · unparsed: ' + unparsed.toLocaleString() + '\n';
 r += '- Page/api split is heuristic by path (no $host in combined log) — split vhosts for exact attribution. See FEEDBACK_PIPELINE.md quick-win #1.\n\n';
 
-// Winner/loser scoreboard for the named candidates (Obj 3/4)
-r += '## Candidate page scoreboard (Obj 3/4)\n\n';
-r += '| Page | Path | Hits | Signal |\n|------|------|-----:|--------|\n';
-const pageVals = CANDIDATES.map((c) => ({ c, hits: (pageHits.get('/' + c + '.html') || 0) }));
-const maxHit = Math.max(1, ...pageVals.map((p) => p.hits));
-for (const { c, hits } of pageVals.sort((a, b) => b.hits - a.hits)) {
-  const sig = hits === 0 ? 'no traffic — LOSER? diagnose' : hits >= maxHit * 0.6 ? 'WINNER candidate' : hits <= maxHit * 0.15 ? 'low — watch' : 'mid';
-  r += '| ' + c + ' | /' + c + '.html | ' + hits + ' | ' + sig + ' |\n';
+// Winner/loser scoreboard — every flagship listed EXPLICITLY (Obj 3/4)
+r += '## Flagship surface scoreboard (Obj 3/4)\n\n';
+r += '_Every flagship is listed by exact path. A row with 0 hits is a **measured** zero, not an omission. If a flagship reads 0, check it is reachable (right URL, in nav) before calling it unused — a stale path here is how the dashboard went blind in the first place._\n\n';
+r += '| Surface | Path | Hits | Signal |\n|------|------|-----:|--------|\n';
+const fvals = FLAGSHIPS.map(([label, p]) => ({ label, p, hits: (pageHits.get(p) || 0) }));
+const maxHit = Math.max(1, ...fvals.map((p) => p.hits));
+for (const { label, p, hits } of [...fvals].sort((a, b) => b.hits - a.hits)) {
+  const sig = hits === 0 ? 'zero — verify reachable, then judge' : hits >= maxHit * 0.6 ? 'WINNER candidate' : hits <= maxHit * 0.15 ? 'low — watch' : 'mid';
+  r += '| ' + label + ' | ' + p + ' | ' + hits + ' | ' + sig + ' |\n';
 }
 r += '\n_Signal is relative within this run. Confirm against `praise`/`confusion` reaction tags before any verdict (Obj 4 gate)._\n\n';
 
-// All observatory pages, top 20
-r += '## Top observatory pages\n\n| Path | Hits |\n|------|-----:|\n';
-for (const [p, h] of top(pageHits, 20)) r += '| ' + p + ' | ' + h + ' |\n';
+// All observatory pages — FULL list, no silent truncation (this is the anti-blindness table)
+r += '## All observatory pages (' + pageHits.size + ' distinct, full list)\n\n| Path | Hits |\n|------|-----:|\n';
+for (const [p, h] of top(pageHits, pageHits.size)) r += '| ' + p + ' | ' + h + ' |\n';
 
 // API routes with status + caller diversity (Obj 5)
 r += '\n## Top API routes (Obj 5)\n\n| Route | Calls | Err % | Distinct /24 |\n|-------|-----:|------:|-------------:|\n';
@@ -153,6 +192,16 @@ for (const [p, h] of top(apiHits, 25)) {
   r += '| ' + p + ' | ' + h + ' | ' + errPct + '% | ' + callers + ' |\n';
 }
 r += '\n_Distinct /24 = coarse caller diversity. A route called by many subnets repeatedly = real adoption; one subnet = probably us._\n';
+
+// Internal navigation (referer-based) — answers "did What next? / cross-links deepen paths?" (Q5)
+r += '\n## Internal navigation paths (referer → page, same-host)\n\n';
+if (navPairs.size) {
+  r += '| From → To | Count |\n|-----------|------:|\n';
+  for (const [k, c] of top(navPairs, 25)) r += '| ' + k + ' | ' + c + ' |\n';
+  r += '\n_Counts requests whose Referer is another asy.life page — a page→page hop. Browser referrer-policy suppresses some, so this is a **floor**. Flagship→flagship rows are evidence that cross-links and the "What next?" strip create deeper paths; a flat list with only "/"→X means visitors land and leave._\n';
+} else {
+  r += '_No same-host Referer data in this window — browsers may be stripping Referer, or visits are single-page. Navigation depth cannot be measured from logs alone here; rely on the per-page hit counts above._\n';
+}
 
 if (OUT) { writeFileSync(OUT, r); console.error('wrote ' + OUT + ' (' + total + ' human requests)'); }
 else process.stdout.write(r);

@@ -120,5 +120,34 @@ provenance. Unknown stays "unknown."
 2. **Owner:** send the first-15 outreach (Phase 8), leading with Project Memory.
 3. **On evidence:** invest where usage wins, consolidate/merge where it loses.
    No new surface ships without a usage signal or a repeated user request.
+
+---
+
+## Measurement layer repaired — 2026-06-23
+
+**Measurement layer repaired. Prior reports undercounted flagship surfaces due to
+candidate-list and truncation limitations.**
+
+Before the fix, the headline scoreboard in `scripts/analyze-access-logs.mjs` was
+**partially blind**: Timeline, Ecosystem Pulse, Command Center, Memory Insights,
+Memory Map, and Category Explorer were not surfaced. Three defects:
+
+1. **Stale candidate list** — the scoreboard iterated a hardcoded 7-page list that
+   predated every post-launch flagship, so those surfaces could never appear.
+2. **Top-20 truncation** — the all-pages table silently dropped anything below the
+   top 20 (~42 pages exist).
+3. **Wrong Categories URL** — it tracked `categories.html` (now a redirect stub),
+   not the live `category-explorer.html`. The week-5 "5th zero" was measuring a
+   redirect; weeks 1–4 zeros (when categories.html was the real page) remain valid.
+
+**Fix (measurement correctness, not a feature):** explicit `FLAGSHIPS` list printed
+by exact path (a 0 is now a *measured* zero, not an omission); full untruncated
+page list; referer-based internal-navigation table (Q5: does "What next?" deepen
+paths?). Validated end-to-end against a synthetic log.
+
+**Baseline reset:** the instrument changed, so **the next report is a NEW baseline.**
+Do **not** compare new flagship counts directly against weeks 1–5 — those were
+undercounts for the affected surfaces. Adoption conclusions are updated only from
+the repaired report onward.
 </content>
 </invoke>
