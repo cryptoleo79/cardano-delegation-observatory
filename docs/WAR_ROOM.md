@@ -240,21 +240,53 @@ corruption / bad ETL / accidental deletion, NOT disk loss. Offsite replication o
 |-------|--------|----------------|
 | 1 — Append-only event log | ✅ | `pm_event` is append-only + hash-chained; nothing overwritten. |
 | 2 — Automated local backup | ✅ | `scripts/backup-memory.sh` daily 21:30 UTC, integrity-checked + rotated. |
-| 3 — Offsite encrypted replication | ⬜ | Owner action — encrypted copy of `~/backups/observatory` off-machine. |
-| 4 — Proven restore drill | ⬜ | Full restore into a clean env; verify integrity, pm_event history, app boot, historical queries. |
+| 3 — Encrypted offsite replication | ⬜ Owner blocked | Encrypted copy of `~/backups/observatory` off-machine (needs owner credentials). |
+| 4 — Automated restore verification | ✅ | `scripts/backup-selftest.sh` restores + `integrity_check`s every run (18 checks), weekly cron. |
+| 4b — Full clean-machine disaster recovery | ⬜ Pending Phase 3 | One real provision-restore-boot-verify on a fresh machine per `docs/RECOVERY.md`. |
 
-**Current backup PROTECTS against:** accidental deletion · bad ETL · corruption ·
+**Current backup PROTECTS against:** accidental deletion · corruption · bad ETL ·
 bad deployment.
-**Current backup does NOT protect against:** disk failure · VPS loss · datacenter
-failure. This gap is expected and explicitly documented, not hidden — it closes only
-at Phase 3.
+**Current backup does NOT protect against:** physical disk failure · VPS loss ·
+datacenter loss. This gap is real and explicitly documented, not hidden — it closes
+only with Phase 3 (offsite replication).
 
-**Memory Integrity is "complete" only after Phase 4** — a successful restore into a
-clean environment with `integrity_check` passing, `pm_event` history intact, the
-Observatory starting correctly, and historical queries still working. Until then,
-durability is partial by design.
+**Engineering objective:** from *build features* → *guarantee survivability.*
+
+**Memory Integrity is COMPLETE only when:** a clean machine can be provisioned,
+backups restored, integrity verified, the application boots, historical queries
+succeed, and Project Memory is preserved (Phase 4b on a fresh machine). Phases 1, 2
+and 4 are done; 3 and 4b remain owner-blocked. Until 4b passes, durability is partial
+by design — resilient against file-level loss, not yet against server loss.
 
 **New engineering phase:** the mission is no longer building capabilities — it is
 preserving truth. Protect the memory, the history, the evidence. Everything else waits.
+
+### Recovery engineering — 2026-06-25
+
+Resilience hardening while Phases 3–4 wait on credentials. **No user-facing change.**
+
+**Recovery audit (passed):** WAL healthy (autocheckpoint 1000; cdl-wal ~4M, no
+unbounded growth); both source DBs `integrity_check: ok`; retention working
+(keep-14); ETL runs clean twice daily; ~92G disk free. One operational finding:
+`poller.log` grows unbounded (~65M) — documented in RECOVERY.md §6 with a fix.
+
+**Shipped (all tested):**
+- `scripts/backup-selftest.sh` — proves the pipeline: 18 checks (source integrity,
+  backup written, gzip valid, **restore integrity**, `pm_event`/`snapshots` row
+  counts > 0, rotation exact, missing-source → non-zero). Stamps `last-selftest.txt`.
+- `scripts/backup-status.sh` — internal observability → `~/backups/observatory/STATUS.md`
+  (last backup, age, size, gzip, restore integrity, retention, disk, last self-test,
+  ETL freshness). Exit non-zero if missing/stale/bad. **Internal only, never public.**
+- `scripts/backup-memory.sh` — added `BACKUP_SOURCES` test hook.
+- `docs/RECOVERY.md` — full operator runbook: single-DB restore, **full clean-machine
+  disaster recovery**, the verification checklist (integrity · pm_event history ·
+  snapshot depth · app boot · historical queries · project page renders), Phase 3
+  offsite procedure, operational reference. Timed, command-complete, no assumptions.
+- cron: status daily 21:35; self-test weekly Sun 21:40 (after the 21:30 backup).
+
+**Tracker update:** P4 (restore drill) is now **automated + documented and proven at
+the file level** (self-test restores and integrity-checks every run). It is NOT yet
+"complete" — that still requires one real **clean-machine** disaster-recovery run,
+which depends on Phase 3 offsite first. Both remain owner-blocked.
 </content>
 </invoke>

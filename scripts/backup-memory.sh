@@ -31,10 +31,15 @@ STAMP="$(date -u +%Y-%m-%d)"
 LOG="$DEST/backup.log"
 
 # Source DBs: "name|path". Add a line here if a new accruing DB is introduced.
-SOURCES=(
-  "cdl.sqlite|$HOME/cardano-data-layer/service/data/cdl.sqlite"
-  "observatory.db|$HOME/observatory/data/observatory.db"
-)
+# Override for tests with BACKUP_SOURCES="name|path;name2|path2".
+if [[ -n "${BACKUP_SOURCES:-}" ]]; then
+  IFS=';' read -r -a SOURCES <<< "$BACKUP_SOURCES"
+else
+  SOURCES=(
+    "cdl.sqlite|$HOME/cardano-data-layer/service/data/cdl.sqlite"
+    "observatory.db|$HOME/observatory/data/observatory.db"
+  )
+fi
 
 mkdir -p "$DEST"
 log() { echo "$(date -u +%FT%TZ) $*" | tee -a "$LOG" >&2; }
