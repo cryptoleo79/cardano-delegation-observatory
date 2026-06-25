@@ -288,5 +288,32 @@ unbounded growth); both source DBs `integrity_check: ok`; retention working
 the file level** (self-test restores and integrity-checks every run). It is NOT yet
 "complete" — that still requires one real **clean-machine** disaster-recovery run,
 which depends on Phase 3 offsite first. Both remain owner-blocked.
+
+---
+
+## Completion Sprint — 2026-06-25
+
+Finish the platform by removing engineering weakness, not adding features. Full
+results in `docs/COMPLETION_REPORT.md`. Headline: **technically ready to operate for
+years**, modulo two owner actions (offsite replication; nginx hardening).
+
+- **Zero-defect audit:** 1 verified defect (stale `ecosystem-map.html` link) → fixed.
+  i18n parity 205/205, no broken links/orphans/dead-nav/placeholders.
+- **Data integrity:** 2,729 JSON files, **0 parse failures**; 0 dup IDs, 0 missing
+  per-project files, 0 bad category refs. Clean.
+- **Performance:** no defects; payload optimizations deferred (need ETL/export change,
+  no usage evidence of a complaint).
+- **Recovery:** re-verified (self-test 18/18, status OK, WAL healthy).
+- **Security (Part 6) — verified MEDIUM finding:** nginx serves the whole deployed
+  repo — `/data/observatory.db` (raw 43MB DB), `/scripts/`, `/etl/`, `/docs/` are
+  publicly fetchable. No secret/CC0 leak, but unintended. Fix written in
+  `docs/nginx-observatory-hardening.md`; **owner-blocked (sudo)**. Backups confirmed
+  NOT exposed; perms hardened (700/600).
+- **Longevity:** brittle items catalogued in the COMPLETION_REPORT risk register
+  (R3–R8) rather than churned; `poller.log` unbounded growth **fixed** (weekly cron
+  truncate). Hardcoded UI counts stay owner-parked (currently accurate).
+
+**Open risk register top items:** R1 server loss (→ Phase 3/4b, owner) · R2 nginx
+exposure (→ owner sudo). Everything else closed or documented.
 </content>
 </invoke>
