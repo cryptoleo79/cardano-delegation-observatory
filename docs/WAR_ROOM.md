@@ -192,5 +192,69 @@ pages, or scoring.**
   is linked, so not misleading, but a hover-source would honour provenance-first.
 
 **Verdict unchanged:** product is coherent; the bottleneck is reach/volume, not code.
+
+---
+
+## Memory Engine capability review + durability hardening — 2026-06-24
+
+A "Cardano Memory Engine" capability loop (Time Machine, Project Evolution, Memory
+Graph, Research Mode, Ecosystem Memory, Archaeology, Provenance-First) was proposed.
+Data-grounded feasibility finding: **the memory engine already exists** — it IS the
+event-sourced, append-only, hash-chained log. What it lacks is not capability but
+**age**, plus two hard limits under our own no-fabrication rule:
+
+- **Recorded depth (verified):** treasury/epochs → 2024-09-06; DReps/governance →
+  2024-09-06 (epoch-boundary backfill in `observatory.db.snapshots`, 113,852 rows /
+  140 days, still +60/day); **Project Memory → only 2026-06-03 (~3 weeks)** — no
+  archive exists to backfill what projects looked like before then.
+- **Time Machine** for 2024/2025 project/governance state = not honestly possible
+  (no recorded truth; would require estimates/fabrication — forbidden). Treasury is
+  the only deep domain.
+- **Memory Graph** cross-domain edges (project↔governance↔treasury) are NOT sourced
+  relationships → fabrication → forbidden. Real edges (project↔category↔evidence↔
+  history) already render in project.html / memory-map.
+- **Research Mode** already exists as `project.html?id=`; **Archaeology** and
+  **Provenance-First** are already the architecture; **Ecosystem Memory** is
+  buildable but meaningless until years of depth accrue.
+
+**Decision (operator): Hold + harden recording.** Build nothing that would show empty
+data today; instead make sure the memory durably accrues. The way to win the century
+goal is to keep recording faithfully for years, not to add features.
+
+**Hardening shipped:**
+- `scripts/backup-memory.sh` — WAL-safe, integrity-checked, gzip'd, date-stamped,
+  rotated (keep 14) backup of BOTH memory DBs into `~/backups/observatory` (OUTSIDE
+  the repo). Tested: cdl.sqlite 175M→28M, observatory.db 43M→13M; a restored copy
+  passes `integrity_check` and contains the full `pm_event` log.
+- cron: daily 21:30 UTC (after the 20:10 ETL).
+- **Risk closed:** `cdl.sqlite` (the Project Memory event log) was git-ignored and
+  had ZERO backup — one disk failure from total loss of the flagship. Now backed up.
+
+**Still owner-blocked:** the backup is LOCAL (same disk) — protects against
+corruption / bad ETL / accidental deletion, NOT disk loss. Offsite replication of
+`~/backups/observatory` (rsync/cloud) is an owner action.
+
+### Memory Integrity — phase tracker
+
+| Phase | Status | What it covers |
+|-------|--------|----------------|
+| 1 — Append-only event log | ✅ | `pm_event` is append-only + hash-chained; nothing overwritten. |
+| 2 — Automated local backup | ✅ | `scripts/backup-memory.sh` daily 21:30 UTC, integrity-checked + rotated. |
+| 3 — Offsite encrypted replication | ⬜ | Owner action — encrypted copy of `~/backups/observatory` off-machine. |
+| 4 — Proven restore drill | ⬜ | Full restore into a clean env; verify integrity, pm_event history, app boot, historical queries. |
+
+**Current backup PROTECTS against:** accidental deletion · bad ETL · corruption ·
+bad deployment.
+**Current backup does NOT protect against:** disk failure · VPS loss · datacenter
+failure. This gap is expected and explicitly documented, not hidden — it closes only
+at Phase 3.
+
+**Memory Integrity is "complete" only after Phase 4** — a successful restore into a
+clean environment with `integrity_check` passing, `pm_event` history intact, the
+Observatory starting correctly, and historical queries still working. Until then,
+durability is partial by design.
+
+**New engineering phase:** the mission is no longer building capabilities — it is
+preserving truth. Protect the memory, the history, the evidence. Everything else waits.
 </content>
 </invoke>
