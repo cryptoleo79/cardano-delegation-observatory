@@ -315,5 +315,30 @@ years**, modulo two owner actions (offsite replication; nginx hardening).
 
 **Open risk register top items:** R1 server loss (→ Phase 3/4b, owner) · R2 nginx
 exposure (→ owner sudo). Everything else closed or documented.
+
+---
+
+## Era II — Operation begins — 2026-06-26
+
+Mission shift: engineering foundation complete → operate, preserve, earn trust over
+years. Operating doctrine recorded in `docs/OPERATIONS.md` (cadence, automation map,
+build gates). Audit finding: the operational machinery already runs — heartbeat (10
+min: API/ETL/poller, transition-alerts), backups (daily) + status + weekly self-test,
+append-only preservation. Loops 1–2 live; 3–5 owner-cadence; 6 done (next ≈ Sept);
+8–10 doctrine.
+
+**Shipped — Phase 3 keystone prepared:** `scripts/backup-offsite.sh` — encrypted
+offsite replication (gpg; asymmetric-preferred, symmetric fallback; pluggable
+transport via `OFFSITE_PUSH_CMD`; refuses to replicate plaintext). **Tested:** refusal
+without config (exit 3), encrypt→decrypt round-trip, and an independent decrypt proved
+ciphertext restores to a valid SQLite (`integrity_check ok`, `pm_event`=5728). Phase 3
+is now **one owner config step away** (key + transport + cron).
+
+**Confirmed silent-failure gap (owner):** heartbeat alert destination
+(`monitor/alert.env`) unset → failures hit a local log only. Long-standing
+owner-blocked (webhook URL).
+
+**Memory Integrity:** P1 ✅ · P2 ✅ · P3 🟡 prepared/owner · P4 ✅ · P4b ⬜ pending P3.
+Did NOT build speculative tooling (Era II = operate, not build); growth gated by Loop 8.
 </content>
 </invoke>
