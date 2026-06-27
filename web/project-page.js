@@ -34,6 +34,7 @@ const PAGE_I18N = {
     "p-related-label": "Related projects", "p-related-help": "Other projects that share a category with this one — a sourced relationship, not inferred.",
     "p-events": "events", "p-no-related": "No projects share a category yet.",
     "p-cov-label": "Documentation coverage", "p-cov-sourced": "sourced", "ft-timeline": "Timeline",
+    "p-verify": "verify this history yourself",
   },
   ja: {
     "back-link-projects": "← プロジェクトメモリ",
@@ -50,6 +51,7 @@ const PAGE_I18N = {
     "p-related-label": "関連プロジェクト", "p-related-help": "このプロジェクトとカテゴリを共有する他のプロジェクト — 出典に基づく関連で、推論ではありません。",
     "p-events": "イベント", "p-no-related": "カテゴリを共有するプロジェクトはまだありません。",
     "p-cov-label": "ドキュメント網羅", "p-cov-sourced": "出典付き", "ft-timeline": "タイムライン",
+    "p-verify": "この履歴を自分で検証する",
   },
 };
 if (typeof i18n !== "undefined") {
@@ -158,7 +160,8 @@ function renderScorecard(evidenceCount) {
   const onCount = LINKS.filter(([k]) => f[k] && f[k].length).length;
   const hist = (state.history || []).length;
   el.innerHTML = `<span class="p-cov-label">${esc(t("p-cov-label"))}</span>` + chips
-    + `<span class="p-cov-meta">${onCount}/4 ${esc(t("p-cov-sourced"))} · ${hist} ${esc(t("p-events"))} · ${evidenceCount} ${esc(t("p-evidence")).toLowerCase()}</span>`;
+    + `<span class="p-cov-meta">${onCount}/4 ${esc(t("p-cov-sourced"))} · ${hist} ${esc(t("p-events"))} · ${evidenceCount} ${esc(t("p-evidence")).toLowerCase()}</span>`
+    + `<a class="p-verify-link" href="verify.html" title="${esc(t("p-verify"))}">✓ ${esc(t("p-verify"))} →</a>`;
 }
 
 // P8: related projects — those sharing a category (a sourced relationship, never inferred).
