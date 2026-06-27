@@ -673,6 +673,30 @@ function whatNextInit() {
     + '<div class="wn-links">' + links + '</div></div>';
   footer.parentNode.insertBefore(sec, footer);
 }
-function omegaInit() { navInit(); whatNextInit(); }
+// Citation affordance — make every page citable. Injects a "Cite this page" block
+// into the footer with the canonical URL, license, the site's on-chain data snapshot
+// (from meta.json), and the reader's access date. Pure citability: no new data.
+function citeInit() {
+  if (document.querySelector(".site-cite")) return;
+  var sf = document.querySelector(".site-footer");
+  if (!sf) return;
+  var url = location.origin + location.pathname + (location.search || "");
+  var today = new Date().toISOString().slice(0, 10);
+  var box = document.createElement("details");
+  box.className = "site-cite";
+  box.innerHTML = '<summary><span class="en">Cite this page</span><span class="ja">このページを引用</span></summary>'
+    + '<div class="cite-body"><code class="cite-text"></code>'
+    + '<div class="cite-note"><span class="en">CC0 — free to copy and cite. Every claim is sourced; the record is hash-chained and <a href="verify.html">independently verifiable</a>.</span>'
+    + '<span class="ja">CC0 — 自由に複製・引用可。すべての主張に出典があり、記録はハッシュチェーンで<a href="verify.html">独立検証可能</a>です。</span></div></div>';
+  sf.appendChild(box);
+  function setCite(meta) {
+    var asof = (meta && meta.data_through) ? "Data snapshot " + meta.data_through + (meta.tip_epoch ? " (epoch " + meta.tip_epoch + ")" : "") + ". " : "";
+    var el = box.querySelector(".cite-text");
+    if (el) el.textContent = document.title + ". " + url + ". CC0. " + asof + "Retrieved " + today + ".";
+  }
+  setCite(null);
+  fetch("data/snapshots/meta.json", { cache: "no-cache" }).then(function (r) { return r.json(); }).then(setCite).catch(function () {});
+}
+function omegaInit() { navInit(); whatNextInit(); citeInit(); }
 if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", omegaInit);
 else omegaInit();

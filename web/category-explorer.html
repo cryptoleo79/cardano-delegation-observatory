@@ -101,7 +101,7 @@
     <input class="ce-search" id="ce-search" type="text" placeholder="Filter categories…" autocomplete="off">
     <select class="ce-sel" id="ce-sort">
       <option value="count">Sort: most projects</option>
-      <option value="coverage">Sort: best coverage</option>
+      <option value="coverage">Sort: coverage %</option>
       <option value="name">Sort: name</option>
     </select>
     <select class="ce-sel" id="ce-status">
@@ -134,13 +134,13 @@
     en: {
       "ce-title": "Category Explorer",
       "ce-lede": "Every project in Project Memory is organized into the ecosystem's categories. Browse all of them here — with how many projects each holds and how much of each is enriched with sourced links — then open any category to see its projects and their provenance. Counts and coverage are derived from the event log, not curated by hand.",
-      "ce-sort-count": "Sort: most projects", "ce-sort-coverage": "Sort: best coverage", "ce-sort-name": "Sort: name",
+      "ce-sort-count": "Sort: most projects", "ce-sort-coverage": "Sort: coverage %", "ce-sort-name": "Sort: name",
       "ce-st-all": "All", "ce-st-populated": "Populated", "ce-st-pending": "Pending (empty)", "ce-st-deprecated": "Deprecated",
       "ce-search-ph": "Filter categories…",
       "ce-m-cats": "Categories", "ce-m-pop": "Populated", "ce-m-proj": "Projects", "ce-m-cov": "Avg coverage",
       "ce-enriched": "enriched", "ce-projects": "projects", "ce-none": "No categories match.", "ce-empty-cat": "No projects in this category yet.",
       "ft-hist": "Project History", "ft-heat": "Memory Heat Map", "ft-memory": "Memory",
-      "ce-foot-html": "Coverage = share of a category's projects that carry at least one sourced link (website / GitHub / docs / whitepaper). Drill into a project's full trail in the <a href=\"project-history.html\">Project History Explorer</a>, or see the whole ecosystem at a glance in the <a href=\"memory-heatmap.html\">Memory Heat Map</a>.",
+      "ce-foot-html": "Coverage = share of a category's projects that carry at least one sourced link (website / GitHub / docs / whitepaper). Drill into a project's full trail in the <a href=\"project-history.html\">Project History Explorer</a>, or see the shape of the ecosystem at a glance in the <a href=\"memory-heatmap.html\">Memory Heat Map</a>.",
     },
     ja: {
       "ce-title": "カテゴリ エクスプローラー",
@@ -151,7 +151,7 @@
       "ce-m-cats": "カテゴリ", "ce-m-pop": "充実", "ce-m-proj": "プロジェクト", "ce-m-cov": "平均カバレッジ",
       "ce-enriched": "充実", "ce-projects": "プロジェクト", "ce-none": "該当するカテゴリがありません。", "ce-empty-cat": "このカテゴリにはまだプロジェクトがありません。",
       "ft-hist": "プロジェクト履歴", "ft-heat": "メモリ ヒートマップ", "ft-memory": "メモリ",
-      "ce-foot-html": "カバレッジ = カテゴリ内で、出典付きリンク（ウェブサイト / GitHub / ドキュメント / ホワイトペーパー）を1つ以上持つプロジェクトの割合。<a href=\"project-history.html\">プロジェクト履歴エクスプローラー</a>で各プロジェクトの完全な軌跡を辿るか、<a href=\"memory-heatmap.html\">メモリ ヒートマップ</a>でエコシステム全体を一目で確認できます。",
+      "ce-foot-html": "カバレッジ = カテゴリ内で、出典付きリンク（ウェブサイト / GitHub / ドキュメント / ホワイトペーパー）を1つ以上持つプロジェクトの割合。<a href=\"project-history.html\">プロジェクト履歴エクスプローラー</a>で各プロジェクトの完全な軌跡を辿るか、<a href=\"memory-heatmap.html\">メモリ ヒートマップ</a>でエコシステムの形を一目で確認できます。",
     },
   };
   if (typeof i18n !== "undefined") { Object.assign(i18n.en, P.en); Object.assign(i18n.ja, P.ja); if (typeof setLang === "function") setLang(lang()); }

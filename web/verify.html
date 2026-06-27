@@ -144,6 +144,11 @@ print("MATCHES published chain_head" if prev == published else "MISMATCH")</code
   </div>
 
   <div class="vf-block">
+    <h2 id="vf-scope-h">What this proves — and what it doesn't</h2>
+    <p id="vf-scope-1">Honesty about scope is part of the point. <strong>What the check proves:</strong> the Project Memory event log is internally consistent and unaltered — no recorded event has been edited or removed since it was written, and the chain you compute matches the published head. <strong>What it does not prove:</strong> that a recorded claim is true in the outside world. Verification confirms that a value was recorded with its stated source at its stated time — not that the source itself is correct; each claim carries its source and authority class so you can judge that yourself. This chain covers Project Memory; the governance and treasury figures are computed from on-chain snapshots and carry their own provenance and <a href="methodology.html">methodology</a>.</p>
+  </div>
+
+  <div class="vf-block">
     <h2 id="vf-why-h">Why this matters</h2>
     <p id="vf-why-1">An ecosystem's memory is only as trustworthy as your ability to check it. Most dashboards ask you to take their numbers on faith. Here, the record carries its own proof: the data is public, the chain is published, and the verification is a few lines you can read in full and run yourself — today, or in ten years, on any machine with Python. Provenance you can confirm, not provenance you're asked to believe.</p>
   </div>
@@ -171,6 +176,7 @@ print("MATCHES published chain_head" if prev == published else "MISMATCH")</code
       "vf-art-h": "The public artifacts (CC0, no key)",
       "vf-run-h": "Run it — the whole verifier",
       "vf-break-h": "Try to break it",
+      "vf-scope-h": "What this proves — and what it doesn't",
       "vf-why-h": "Why this matters",
       "ft-memory": "Memory", "ft-projects": "Projects", "ft-method": "Methodology", "ft-api": "API docs",
       "ft-note": "Observe · preserve · serve. No scores, no judgment.",
@@ -181,6 +187,7 @@ print("MATCHES published chain_head" if prev == published else "MISMATCH")</code
       "vf-run-1-html": "Standard library only (Python 3 — no packages to install). Save as <code>verify.py</code> and run <code>python3 verify.py</code>:",
       "vf-run-2-html": "Expected output (your event count grows over time):",
       "vf-break-1-html": "Download <code>events.ndjson</code>, change a single character in any event, and run the verifier against your copy. It reports <code>CHAIN BROKEN at seq N</code> at exactly the event you touched — because the hash no longer matches, and neither does anything after it. That is the whole point: the history cannot be quietly rewritten without it being detectable by anyone, with no special tools.",
+      "vf-scope-1-html": "Honesty about scope is part of the point. <strong>What the check proves:</strong> the Project Memory event log is internally consistent and unaltered — no recorded event has been edited or removed since it was written, and the chain you compute matches the published head. <strong>What it does not prove:</strong> that a recorded claim is true in the outside world. Verification confirms that a value was recorded with its stated source at its stated time — not that the source itself is correct; each claim carries its source and authority class so you can judge that yourself. This chain covers Project Memory; the governance and treasury figures are computed from on-chain snapshots and carry their own provenance and <a href=\"methodology.html\">methodology</a>.",
       "vf-why-1-html": "An ecosystem's memory is only as trustworthy as your ability to check it. Most dashboards ask you to take their numbers on faith. Here, the record carries its own proof: the data is public, the chain is published, and the verification is a few lines you can read in full and run yourself — today, or in ten years, on any machine with Python. Provenance you can confirm, not provenance you're asked to believe.",
       "vf-foot-html": "<strong>Go deeper.</strong> Each project's sourced history lives in <a href=\"memory.html\">Project Memory</a>; the preservation model is documented in <a href=\"https://github.com/cryptoleo79/cardano-delegation-observatory/blob/main/docs/PRESERVATION.md\">PRESERVATION.md</a>; the full methodology is in <a href=\"methodology.html\">methodology</a>.",
     },
@@ -192,6 +199,7 @@ print("MATCHES published chain_head" if prev == published else "MISMATCH")</code
       "vf-art-h": "公開アーティファクト（CC0・キー不要）",
       "vf-run-h": "実行する — 検証器の全体",
       "vf-break-h": "壊してみる",
+      "vf-scope-h": "何を証明し、何を証明しないか",
       "vf-why-h": "なぜ重要か",
       "ft-memory": "メモリ", "ft-projects": "プロジェクト", "ft-method": "方法論", "ft-api": "API ドキュメント",
       "ft-note": "観測・保全・提供。スコアも判断もありません。",
@@ -202,12 +210,13 @@ print("MATCHES published chain_head" if prev == published else "MISMATCH")</code
       "vf-run-1-html": "標準ライブラリのみ（Python 3 — インストール不要）。<code>verify.py</code> として保存し <code>python3 verify.py</code> を実行:",
       "vf-run-2-html": "想定される出力（イベント数は時間とともに増えます）:",
       "vf-break-1-html": "<code>events.ndjson</code> をダウンロードし、任意のイベントの1文字を変えて、あなたのコピーに対して検証器を実行してください。ハッシュが一致しなくなり以降も連鎖して合わなくなるため、触れたイベントのまさにその箇所で <code>CHAIN BROKEN at seq N</code> と報告されます。これこそが要点です — 歴史を密かに書き換えても、特別なツールなしに誰でも検出できます。",
+      "vf-scope-1-html": "範囲についての正直さも要点の一つです。<strong>この検査が証明すること:</strong> Project Memory のイベントログが内部的に一貫し改変されていないこと — 記録後にいずれのイベントも編集・削除されておらず、計算したチェーンが公開ヘッドと一致すること。<strong>証明しないこと:</strong> 記録された主張が現実世界で正しいこと。検証は、ある値がその出典・時刻で記録されたことを確認しますが、出典自体が正しいことは保証しません。各主張は出典と権威クラスを伴うので、それはご自身で判断できます。このチェーンが対象とするのは Project Memory です。ガバナンスとトレジャリーの数値はオンチェーンのスナップショットから算出され、独自の来歴と<a href=\"methodology.html\">方法論</a>を伴います。",
       "vf-why-1-html": "エコシステムのメモリの信頼性は、あなたがそれを確認できる度合いと等しい。多くのダッシュボードは数字を鵜呑みにすることを求めます。ここでは、記録が自らの証明を伴います — データは公開され、チェーンは公表され、検証は全文を読んで自分で実行できる数行です。今日でも、10年後でも、Python のある任意のマシンで。信じるよう求められる来歴ではなく、確認できる来歴です。",
       "vf-foot-html": "<strong>さらに深く。</strong> 各プロジェクトの出典付き履歴は <a href=\"memory.html\">Project Memory</a> に、保全モデルは <a href=\"https://github.com/cryptoleo79/cardano-delegation-observatory/blob/main/docs/PRESERVATION.md\">PRESERVATION.md</a> に、完全な方法論は <a href=\"methodology.html\">方法論</a> にあります。",
     },
   };
   if (typeof i18n !== "undefined") { Object.assign(i18n.en, P.en); Object.assign(i18n.ja, P.ja); if (typeof setLang === "function") setLang(lang()); }
-  const HTML_IDS = ["vf-how-1", "vf-art-1", "vf-art-2", "vf-art-3", "vf-run-1", "vf-run-2", "vf-break-1", "vf-why-1", "vf-foot"];
+  const HTML_IDS = ["vf-how-1", "vf-art-1", "vf-art-2", "vf-art-3", "vf-run-1", "vf-run-2", "vf-break-1", "vf-scope-1", "vf-why-1", "vf-foot"];
   function paintStatic() { HTML_IDS.forEach((id) => { const el = document.getElementById(id); if (el) el.innerHTML = tt(id + "-html"); }); }
   function boot() { document.addEventListener("cdo-lang", paintStatic); paintStatic(); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot); else boot();
