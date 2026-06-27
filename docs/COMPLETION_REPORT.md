@@ -177,3 +177,82 @@ verification) ✅ · Phase 4b (full clean-machine disaster recovery) ⬜ pending
 remaining items (offsite replication; nginx hardening) are owner actions, fully
 specified and ready to apply. After them, the Observatory survives losing the server —
 the final infrastructure milestone.
+
+---
+
+# Era III — Preservation update (2026-06-27)
+
+The final preservation loop. Everything below strengthens truth, memory, verification,
+recovery, or longevity — no features, no new pages. Full detail in `PRESERVATION.md`.
+
+## Completed
+- **Preservation audit (verified, not assumed):** event ordering contiguous (seq
+  1–5728, no gaps); append-only enforced at TWO layers (DB triggers
+  `pm_event_no_update`/`no_delete` + sha256 hash chain); chain head published in
+  `index.json`. Timestamp note: 2 `machine:seed` events carry explicit historical
+  dates, so `ts` is not strictly seq-monotonic — benign, the chain orders by `seq`.
+- **Independent verification (Part 2) — shipped & proven:**
+  - `scripts/verify-memory-chain.py` (stdlib Python; reads a sqlite DB **or** the
+    public NDJSON artifact) — reproduces the published head, detects a single altered
+    event, rejects a wrong head.
+  - `scripts/export-event-log.py` + git-tracked
+    `data/snapshots/projectmemory/events.ndjson` (~3.7 MB) — the **complete ordered
+    event log as a public artifact**. Anyone can now verify the entire chain from
+    exported artifacts alone, no DB/service. (Part 6 recommendation: clearly positive
+    → implemented.)
+- **Disaster-recovery drill executed** (from local backups): restore → integrity ok →
+  chain re-verifies & matches published head → triggers intact → historical queries
+  succeed (pm_event 5,728; governance 113,972 rows back to 2024-09-06). Recovery
+  mechanism proven; chain check added to `RECOVERY.md` §5.
+- **Final truth audit (Part 8):** fixed 2 overclaims — `about.html` "serves the whole
+  ecosystem" → "serves all of it"; `README.md` stale "Pre-launch / no live deployment"
+  → "Live and operating" + operator-succession pointers.
+- **Longevity audited:** memory is tiny (pm_event 3.4 MB); the only unbounded grower is
+  `ohlcv` market data (~96% of cdl.sqlite), mitigated (gzip 6.5×, 92 GB free) and
+  documented with future options.
+
+## Verification status ✅
+The historical record is independently verifiable by anyone, forever, from public
+artifacts using only the Python standard library. Tamper and head-mismatch both
+detected. This is a first-class capability, not a claim.
+
+## Recovery status
+P1 ✅ · P2 ✅ · P3 🟡 prepared (owner config pending) · P4 ✅ · P4b 🟡 **mechanism proven
+from local backups**; literal fresh-VPS run pending Phase 3. The chain now survives even
+total infra loss via any git clone (`events.ndjson`), independent of DB backups.
+
+## Security status ⚠️ (unchanged — owner-blocked)
+R2 nginx exposure (serves `/data/observatory.db`, `/scripts/`, `/etl/`, `/docs/`) — fix
+ready in `nginx-observatory-hardening.md`, needs sudo. Re-confirmed this loop: backups
+not web-exposed; `.git` denied. `sudo -n` unavailable to the agent.
+
+## Updated risk register (deltas)
+- **R1 (server loss):** downgraded **High → Medium**. The *verifiable canonical chain*
+  now survives via git (`events.ndjson`). Full data survivability still needs Phase 3
+  offsite (DB backups are local-only). Closes fully at P3 + P4b.
+- **R2 (nginx exposure):** unchanged, owner-blocked.
+- **R11 (new, Low):** `ohlcv` unbounded growth — watch item, mitigations documented.
+
+---
+
+# Part 10 — Final verdict
+
+**Can the Observatory survive… without losing truth?**
+
+| Threat | Survives? | Basis |
+|--------|-----------|-------|
+| **Server loss** | 🟡 Mostly | Verifiable chain survives via git (`events.ndjson`); full DB recovery needs Phase 3 offsite (prepared, owner). Recovery mechanism proven. |
+| **Maintainer loss** | ✅ Yes | RECOVERY.md + OPERATIONS.md + PRESERVATION.md + README pointers; no tribal knowledge required. |
+| **Repository loss** | ✅ Yes | Distributed on GitHub + every clone + local (and, once configured, offsite) backups. |
+| **Infrastructure migration** | ✅ Yes | Clean-machine provisioning documented; recovery drill proven; stdlib-only verification. |
+| **Ten years of operation** | ✅ Yes | Append-only by design; storage comfortable; only `ohlcv` growth to watch, with mitigations. |
+
+**Exactly what prevents an unqualified "yes":** one owner action — **Phase 3 encrypted
+offsite replication** (script prepared & tested). Until the DB backups live off the
+machine, a simultaneous loss of server *and* local backups would lose the full DBs
+(though the verifiable event chain would still survive via git). Configure offsite +
+run one fresh-machine drill (Phase 4b) and the answer becomes an unqualified **yes**.
+
+**The Observatory is preservable.** A future generation can independently verify,
+restore, operate, and extend it without its original creators — pending that single
+remaining owner step.

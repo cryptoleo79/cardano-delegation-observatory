@@ -140,6 +140,9 @@ cd ~/observatory && python3 etl/snapshot.py
 sqlite3 ~/cardano-data-layer/service/data/cdl.sqlite 'PRAGMA integrity_check;'   # ok
 # 2. History preserved — pm_event count > 0 and matches expectation (~5,700+)
 sqlite3 ~/cardano-data-layer/service/data/cdl.sqlite 'SELECT COUNT(*) FROM pm_event;'
+# 2b. History preserved UNALTERED — hash chain re-verifies and matches published head
+HEAD=$(python3 -c "import json;print(json.load(open('$HOME/observatory/data/snapshots/projectmemory/index.json'))['meta']['chain_head'])")
+python3 ~/observatory/scripts/verify-memory-chain.py ~/cardano-data-layer/service/data/cdl.sqlite --expect-head "$HEAD"   # chain OK + head MATCHES
 # 3. Snapshot depth preserved — rows back to 2024-09
 sqlite3 ~/observatory/data/observatory.db 'SELECT COUNT(*),MIN(snapshot_date),MAX(snapshot_date) FROM snapshots;'
 # 4. Application boots
@@ -153,6 +156,7 @@ curl -s localhost:8787/history/minswap | head -c 200        # append-only histor
 ```
 - [ ] integrity_check = ok (both DBs)
 - [ ] pm_event history intact
+- [ ] hash chain re-verifies AND matches published chain_head (history unaltered)
 - [ ] snapshot history intact (2024-09 → today)
 - [ ] service active + /health ok
 - [ ] historical API queries return real data

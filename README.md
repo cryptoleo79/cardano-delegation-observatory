@@ -18,9 +18,11 @@ See [METHODOLOGY.md](./METHODOLOGY.md) for the exhaustive list of what is and is
 
 ## Status
 
-**Pre-launch.** Source code is public during development for transparency. No live deployment yet. No public announcement.
+**Live and operating.** The site (observatory.asy.life) and the read-only Data Layer API (api.asy.life) are deployed. Snapshots are recorded daily; the platform is in long-term operation/preservation mode rather than active feature development.
 
-The methodology is the legitimacy core of this project. It is being written and reviewed before any code is shipped. Substantive feedback on the methodology — particularly from DReps, SPOs, and Japanese-speaking Cardano participants — is welcome via GitHub issues.
+The methodology remains the legitimacy core of this project. Substantive feedback — particularly from DReps, SPOs, and Japanese-speaking Cardano participants — is welcome via GitHub issues.
+
+**For operators / maintainers** (install, restore, verify, recover, run): see [`docs/RECOVERY.md`](./docs/RECOVERY.md) (disaster recovery + clean-machine provisioning), [`docs/OPERATIONS.md`](./docs/OPERATIONS.md) (operating cadence + automation), and [`docs/PRESERVATION.md`](./docs/PRESERVATION.md) (independent verification of the historical record). The memory's integrity is independently checkable with [`scripts/verify-memory-chain.py`](./scripts/verify-memory-chain.py) (stdlib Python, no services required).
 
 ## License
 

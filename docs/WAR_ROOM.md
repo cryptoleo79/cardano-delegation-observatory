@@ -340,5 +340,64 @@ owner-blocked (webhook URL).
 
 **Memory Integrity:** P1 ✅ · P2 ✅ · P3 🟡 prepared/owner · P4 ✅ · P4b ⬜ pending P3.
 Did NOT build speculative tooling (Era II = operate, not build); growth gated by Loop 8.
+
+---
+
+## Era III — Preservation (the Century Loop) — 2026-06-26
+
+Central test: "Could someone reconstruct Cardano history from the Observatory alone in
+2036?" Treated as an honest preservation audit, not a build. Full answer in
+`docs/PRESERVATION.md`. **Verdict: partially — and the gap is one owner action (offsite).**
+
+**Findings:**
+- Two append-only layers: DB triggers (`pm_event_no_update/no_delete` — SQLite refuses
+  to alter/delete) **+** sha256 hash chain. Chain head is published in index.json.
+- **Shipped — `scripts/verify-memory-chain.py`:** stdlib-only Python verifier,
+  independent of the service. **Tested:** reproduces live head (5728 events,
+  f2e4fbc4…) matching the published `chain_head`; detects a single altered event
+  (seq 100 → content hash mismatch); rejects a wrong head. This is the Pillar X
+  "anyone can verify, for decades" guarantee. Wired into `RECOVERY.md` §5 checklist
+  (recovery now proves history came back *unaltered*, not just present).
+- Time depth: governance/treasury → 2024-09-06; project memory → 2026-06-03 (window
+  only grows; pre-recording history un-reconstructable by honesty, no archive).
+
+**THE decisive gap:** `cdl.sqlite` (the canonical hash-chained log) is git-ignored +
+local-backup-only. A total server loss today loses the full verifiable chain (GitHub
+preserves derived facts + chain head, but not the ordered event log). **Configuring
+offsite (Phase 3, prepared) flips the 2036 test to "yes."**
+
+**Recommended, NOT built (needs approval — touches export-static.js):** publish the
+full ordered event log as a git-tracked `events.json` so the complete verifiable chain
+survives total infra loss via any repo clone. Flagged as the top preservation roadmap
+item; not done unprompted (Era III rule + ETL surface).
+
+---
+
+## Era III final loop — Preservation complete to credential limit — 2026-06-27
+
+Full report: `COMPLETION_REPORT.md` (Era III section + Part 10 final verdict).
+
+- **Preservation audit (verified):** seq contiguous 1–5728; two append-only layers (DB
+  triggers + hash chain); 2 seed events have non-monotonic ts (benign, chain orders by
+  seq).
+- **Independent verification — shipped & proven:** `export-event-log.py` →
+  git-tracked `events.ndjson` (3.7 MB, the full ordered log as a PUBLIC artifact);
+  `verify-memory-chain.py` extended to verify the NDJSON artifact too. Anyone can now
+  verify the whole chain from public artifacts alone (stdlib Python, no DB/service);
+  reproduces published head, detects alteration + wrong head. Part 6 recommendation
+  evaluated *clearly positive* (3.7 MB ≪ 11 MB per-project export) → implemented.
+- **DR drill executed** (local backups): restore→integrity→chain-matches-head→triggers→
+  queries all pass (pm_event 5728; governance 113,972 rows to 2024-09-06). Chain check
+  added to RECOVERY.md §5.
+- **Truth audit fixes:** about.html "serves the whole ecosystem"→"all of it";
+  README.md stale "Pre-launch"→"Live and operating" + operator-succession pointers.
+- **Longevity:** memory tiny (pm_event 3.4 MB); only `ohlcv` grows unbounded (~96% of
+  cdl.sqlite), mitigated + documented.
+
+**R1 downgraded High→Medium:** the verifiable canonical chain now survives via git even
+on total infra loss; full DB recovery still needs Phase 3 offsite (owner). **Still
+owner-blocked:** Phase 3 offsite config, Phase 4b fresh-VPS drill, R2 nginx (sudo).
+**Final verdict:** survives maintainer/repo/migration/10-yr loss; server-loss is
+"mostly" → unqualified yes after the one owner step (offsite).
 </content>
 </invoke>
