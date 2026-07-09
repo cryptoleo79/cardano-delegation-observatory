@@ -3,7 +3,7 @@
     "id": "boc:yoroi",
     "kind": "project",
     "name": "Yoroi",
-    "status": "active",
+    "status": "defunct",
     "unclassified": false,
     "fields": {
       "description": [
@@ -107,34 +107,34 @@
       ],
       "status": [
         {
-          "claim_id": "clm_4138",
+          "claim_id": "clm_5730",
           "field": "status",
-          "value": "active",
+          "value": "defunct",
           "state": "active",
           "provenance": {
-            "asserted_by": "machine:seed",
+            "asserted_by": "curator:observatory",
             "source": {
-              "source_id": "builtoncardano",
-              "kind": "builtoncardano",
-              "authority_class": "B",
-              "url": "https://builtoncardano.com/ecosystem/all",
+              "source_id": "emurgo-secondfi-recovery",
+              "kind": "official-announcement",
+              "authority_class": "D",
+              "url": "https://forum.cardano.org/t/secondfi-is-shutting-down-official-emurgo-recovery-update/155545",
               "captured_at": null,
               "archive_wayback_url": null,
               "archive_sha256": null,
-              "label": "Built on Cardano directory (Cardano Foundation)"
+              "label": "EMURGO official SecondFi (formerly Yoroi) recovery update (forum.cardano.org)"
             },
-            "authority_class": "B",
-            "as_of": "2026-06-07",
+            "authority_class": "D",
+            "as_of": "2026-07-06",
             "evidence": [
               {
                 "kind": "url",
-                "ref": "https://builtoncardano.com/ecosystem/all",
+                "ref": "https://forum.cardano.org/t/secondfi-is-shutting-down-official-emurgo-recovery-update/155545",
                 "sha256": null,
-                "description": "Listed in the Built on Cardano ecosystem directory (Cardano Foundation curation)"
+                "description": "SecondFi (formerly Yoroi), EMURGO's wallet, was permanently shut down on 2026-07-06 following a June 2026 exploit; per EMURGO's official recovery update the wallet will not resume — remaining activity is limited to asset recovery and user migration."
               }
             ]
           },
-          "asserted_seq": 4138,
+          "asserted_seq": 5730,
           "superseded_by_seq": null
         }
       ],
@@ -206,9 +206,9 @@
         }
       }
     ],
-    "superseded_claim_count": 0,
+    "superseded_claim_count": 1,
     "created_seq": 4135,
-    "last_seq": 5340
+    "last_seq": 5730
   },
   "history": [
     {
@@ -394,7 +394,33 @@
       },
       "hash": "2454b2e4069d80e60e944f71a72945c3dcbdded927376eacd3cd2fe66b84ff7b",
       "prev_hash": "6a6098ba664bc39934313ef43baed315f54199bae9a0bed7fe2708eabf3966d2"
+    },
+    {
+      "seq": 5730,
+      "ts": "2026-07-06",
+      "type": "claim.asserted",
+      "actor": "curator:observatory",
+      "payload": {
+        "project_id": "boc:yoroi",
+        "field": "status",
+        "value": "defunct",
+        "source_id": "emurgo-secondfi-recovery",
+        "authority_class": "D",
+        "as_of": "2026-07-06",
+        "asserted_by": "curator:observatory",
+        "confidence": "high",
+        "evidence": [
+          {
+            "kind": "url",
+            "ref": "https://forum.cardano.org/t/secondfi-is-shutting-down-official-emurgo-recovery-update/155545",
+            "sha256": null,
+            "description": "SecondFi (formerly Yoroi), EMURGO's wallet, was permanently shut down on 2026-07-06 following a June 2026 exploit; per EMURGO's official recovery update the wallet will not resume — remaining activity is limited to asset recovery and user migration."
+          }
+        ]
+      },
+      "hash": "ba4c467d030deb1bc7b1b91811e9829a31af4949529485cdc5aa0aeaf9b5c74b",
+      "prev_hash": "1e0e09bc5b86ba28aca8f7b32f90b55e23b75071af710c5b2c62e79cd0b60dc0"
     }
   ],
-  "generated_at": "2026-06-22T08:23:26.470Z"
+  "generated_at": "2026-07-09T05:01:17.232Z"
 }
